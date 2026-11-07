@@ -622,6 +622,17 @@
     padding: 24px 24px 18px;
     margin-bottom: 24px;
   }
+  .maturity-bar { display: flex; height: 10px; border-radius: 999px; overflow: hidden; margin: 10px 0 12px; background: var(--chip-bg); }
+  .maturity-bar .seg { height: 100%; }
+  .maturity-legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink-muted); }
+  .maturity-legend .lg { display: flex; align-items: center; gap: 6px; }
+  .maturity-legend .sw { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .maturity-note { font-size: 12px; color: var(--ink-faint); margin-top: 12px; line-height: 1.6; }
+  .changelog-item { padding: 10px 0; border-top: 1px solid var(--chip-bg); font-size: 13.5px; }
+  .changelog-item:first-of-type { border-top: none; }
+  .changelog-item .cl-date { font-size: 11.5px; font-weight: 700; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.03em; }
+  .changelog-item .cl-label { font-weight: 600; margin: 3px 0 4px; }
+  .changelog-item .cl-detail { color: var(--ink-muted); line-height: 1.6; }
   .portfolio-input-row { display: flex; gap: 10px; flex-wrap: wrap; }
   .portfolio-input-row input {
     flex: 1; min-width: 220px; font-family: var(--font); font-size: 14px; padding: 11px 14px;
@@ -857,6 +868,27 @@
   </div>
   <div class="stats" id="stats" style="display:none;"></div>
 
+  <section id="data-maturity">
+    <div class="section-head">
+      <span class="section-eyebrow green">Data maturity</span>
+      <h2>How much of this is independently verified</h2>
+      <p class="section-sub">Computed live from every sourced claim on this page &mdash; not a marketing number.</p>
+    </div>
+    <div class="map-card">
+      <div class="maturity-bar" id="maturity-bar"></div>
+      <div class="maturity-legend" id="maturity-legend"></div>
+      <p class="maturity-note" id="maturity-note"></p>
+    </div>
+  </section>
+
+  <section id="changelog">
+    <div class="section-head">
+      <span class="section-eyebrow blue">Recently updated</span>
+      <h2>What changed</h2>
+    </div>
+    <div class="map-card" id="changelog-card"></div>
+  </section>
+
   <section id="map-section" style="display:none;">
     <div class="section-head">
       <span class="section-eyebrow blue">Geography</span>
@@ -937,7 +969,11 @@
       <p class="section-sub">The same defendant often shows up in multiple states' lawsuits. This links them across jurisdictions instead of leaving each filing siloed &mdash; click a defendant to see everywhere they're named. Entries too vague to identify a real company (e.g. "gear makers, not itemized") are excluded from this list and counted separately, not guessed at.</p>
     </div>
     <div class="map-card">
+      <div class="map-search">
+        <input type="text" id="entity-search" placeholder="Search a company&hellip; (e.g. 3M, DuPont)" autocomplete="off">
+      </div>
       <div id="entity-list"></div>
+      <p id="entity-no-match" style="font-size:13.5px; color:var(--ink-muted); margin-top:10px; display:none;">No tracked defendant matches that search.</p>
     </div>
     <div class="country-card" id="entity-detail">
       <p style="font-size:14px; color:var(--ink-muted); margin:0;">Click a defendant above to see every action and state where they're named.</p>
@@ -1059,6 +1095,70 @@ function animateCountUps() {
   });
 }
 
+function classifyTier(tierStr) {
+  const word = String(tierStr).trim().split(/[\s(,]/)[0].toUpperCase();
+  if (word === "VERIFIED") return "verified";
+  if (word === "REPORTED") return "reported";
+  if (word === "NOT") return "notfound";
+  if (word === "CHECKED_NONE" || word === "CHECKED") return "notfound";
+  return "other";
+}
+
+function collectTiers(obj, out) {
+  if (obj == null) return out;
+  if (Array.isArray(obj)) { obj.forEach(v => collectTiers(v, out)); return out; }
+  if (typeof obj === "object") {
+    for (const [k, v] of Object.entries(obj)) {
+      if ((k === "evidence_tier" || k === "tier") && typeof v === "string") {
+        out.push(classifyTier(v));
+      } else {
+        collectTiers(v, out);
+      }
+    }
+  }
+  return out;
+}
+
+function renderMaturityMeter(DATA) {
+  const tiers = collectTiers(DATA, []);
+  const total = tiers.length;
+  if (total === 0) return;
+  const counts = { verified: 0, reported: 0, notfound: 0, other: 0 };
+  tiers.forEach(t => counts[t]++);
+  const pct = k => Math.round((counts[k] / total) * 1000) / 10;
+
+  const segs = [
+    { key: "verified", color: "var(--accent-green)", label: "VERIFIED" },
+    { key: "reported", color: "var(--accent-amber)", label: "REPORTED" },
+    { key: "notfound", color: "var(--ink-faint)", label: "NOT FOUND / checked-absent" },
+    { key: "other", color: "var(--chip-bg)", label: "Other / contextual" },
+  ].filter(s => counts[s.key] > 0);
+
+  document.getElementById("maturity-bar").innerHTML = segs.map(s =>
+    `<span class="seg" style="width:${pct(s.key)}%; background:${s.color};"></span>`
+  ).join("");
+  document.getElementById("maturity-legend").innerHTML = segs.map(s =>
+    `<span class="lg"><span class="sw" style="background:${s.color.startsWith('var(--chip') ? 'var(--ink-faint)' : s.color};"></span>${esc(s.label)}: ${pct(s.key)}% (${counts[s.key]})</span>`
+  ).join("");
+  document.getElementById("maturity-note").textContent =
+    `Computed by scanning every "evidence_tier" and "tier" field in this dataset (${total} sourced claims total) -- litigation actions, international findings, the prediction model, and the historical-validation check all count equally. This is a transparency metric, not a quality score: a high REPORTED share often just means a primary government site was unreachable, not that the finding is weak.`;
+}
+
+function renderChangelog(DATA) {
+  const card = document.getElementById("changelog-card");
+  if (!DATA.changelog || DATA.changelog.length === 0) {
+    card.innerHTML = `<p style="font-size:13.5px; color:var(--ink-muted); margin:0;">No changelog entries recorded yet.</p>`;
+    return;
+  }
+  card.innerHTML = DATA.changelog.map(c => `
+    <div class="changelog-item">
+      <div class="cl-date">${esc(fmtDate(c.date))}</div>
+      <div class="cl-label">${esc(c.label)}</div>
+      <div class="cl-detail">${esc(c.detail)}</div>
+    </div>
+  `).join("");
+}
+
 async function main() {
   const res = await fetch("data.json");
   const DATA = await res.json();
@@ -1091,6 +1191,9 @@ async function main() {
   document.getElementById("stats").style.display = "";
   document.getElementById("map-section").style.display = "";
   animateCountUps();
+
+  renderMaturityMeter(DATA);
+  renderChangelog(DATA);
 
   // ---- Freshness banner ----
   const fcTop = DATA.mdl_consolidation_status.freshness_check;
@@ -1304,6 +1407,9 @@ const COUNTRY_ISO = {
   "United Kingdom": "826", "Germany": "276", "Denmark": "208", "Norway": "578", "Sweden": "752",
   "Singapore": "702", "Japan": "392", "South Korea": "410", "Brazil": "076",
   "Argentina": "032", "Chile": "152", "Colombia": "170", "Saudi Arabia": "682", "South Africa": "710",
+  "China": "156", "Israel": "376", "Finland": "246",
+  "Italy": "380", "Poland": "616", "Russia": "643", "Turkey": "792", "Austria": "040", "Switzerland": "756",
+  "Portugal": "620", "Nigeria": "566", "Egypt": "818",
 };
 
 function buildCountryProfiles(intl) {
@@ -1340,17 +1446,30 @@ function buildCountryProfiles(intl) {
     { label: eu.united_kingdom.label, detail: eu.united_kingdom.detail, tier: eu.united_kingdom.evidence_tier, source_name: "", source_url: "" },
   ]};
 
-  ["Germany", "Denmark", "Norway", "Sweden"].forEach(country => {
+  ["Germany"].forEach(country => {
     profiles[country] = { category: "regulation", entries: [
       { label: "EU-wide PFAS restriction co-filer", detail: `${country} co-filed the EU-wide PFAS restriction proposal with ECHA. Not independently researched beyond this role -- no country-specific litigation or domestic foam law was checked for ${country} in this pass.`, tier: "REPORTED", source_name: "", source_url: "" },
     ]};
   });
 
+  profiles["Norway"] = { category: "regulation", entries: [
+    { label: eu.norway.label, detail: eu.norway.detail, tier: eu.norway.evidence_tier, source_name: eu.norway.source_name, source_url: eu.norway.source_url },
+  ]};
+  profiles["Sweden"] = { category: "regulation", entries: [
+    { label: eu.sweden.label, detail: eu.sweden.detail, tier: eu.sweden.evidence_tier, source_name: eu.sweden.source_name, source_url: eu.sweden.source_url },
+  ]};
+  profiles["Denmark"] = { category: "regulation", entries: [
+    { label: eu.denmark.label, detail: eu.denmark.detail, tier: eu.denmark.evidence_tier, source_name: eu.denmark.source_name, source_url: eu.denmark.source_url },
+  ]};
+  profiles["Finland"] = { category: "contamination", entries: [
+    { label: eu.finland.label, detail: eu.finland.detail, tier: eu.finland.evidence_tier, source_name: eu.finland.source_name, source_url: eu.finland.source_url },
+  ]};
+
   const euSharedEntries = [
     { label: eu.eu_wide_restriction_proposal.label, detail: eu.eu_wide_restriction_proposal.detail, tier: eu.eu_wide_restriction_proposal.evidence_tier, source_name: "", source_url: "" },
     { label: eu.afff_specific_track.label, detail: eu.afff_specific_track.detail, tier: eu.afff_specific_track.evidence_tier, source_name: "", source_url: "" },
   ];
-  ["Belgium", "Netherlands", "United Kingdom", "Germany", "Denmark", "Norway", "Sweden"].forEach(country => {
+  ["Belgium", "Netherlands", "United Kingdom", "Germany", "Denmark", "Norway", "Sweden", "Finland"].forEach(country => {
     if (profiles[country]) profiles[country].entries.push(...euSharedEntries);
   });
 
@@ -1624,15 +1743,25 @@ function renderEntityLinkAnalysis(DATA) {
     <p style="font-size:12.5px; color:var(--ink-faint); margin-top:14px;">${unidentifiedCount} defendant mention${unidentifiedCount !== 1 ? "s" : ""} across all actions couldn't be matched to a named entity (e.g. "gear makers, not itemized") -- excluded above rather than guessed at.</p>
   `;
 
-  document.getElementById("entity-list").addEventListener("click", (e) => {
-    const btn = e.target.closest(".entity-chip");
-    if (!btn) return;
-    document.querySelectorAll(".entity-chip").forEach(c => c.classList.remove("selected"));
-    btn.classList.add("selected");
-    const name = btn.dataset.entity;
+  function selectEntity(name) {
+    document.querySelectorAll(".entity-chip").forEach(c => c.classList.toggle("selected", c.dataset.entity === name));
     const actions = entityMap[name];
+    const company = (DATA.companies || {})[name];
+    const structureCard = company ? (() => {
+      const t = tierClass(company.structure_note.tier);
+      return `
+        <div class="callout-card" style="margin-bottom:16px;">
+          <p style="font-size:12px; color:var(--ink-faint); text-transform:uppercase; letter-spacing:0.03em; font-weight:700; margin-bottom:10px;">Corporate structure &middot; ${esc(company.legal_name)}</p>
+          <p><strong>${esc(company.structure_note.label)}</strong></p>
+          <p>${esc(company.structure_note.detail)}</p>
+          <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.03em; padding:3px 10px; border-radius:999px; background:${t.bg}; color:${t.fg};">${esc(company.structure_note.tier.split(" ")[0])}</span>
+          <div class="src">${esc(company.structure_note.source_name)}${company.structure_note.source_url ? ` &middot; <a href="${company.structure_note.source_url}" target="_blank" rel="noopener">source</a>` : ""}</div>
+        </div>
+      `;
+    })() : "";
     document.getElementById("entity-detail").innerHTML = `
       <div class="country-head"><h4>${esc(name)}</h4></div>
+      ${structureCard}
       ${actions.map(a => `
         <div class="intl-item">
           <div class="intl-item-label">${esc(a.label)}</div>
@@ -1641,6 +1770,31 @@ function renderEntityLinkAnalysis(DATA) {
       `).join("")}
     `;
     document.getElementById("entity-detail").scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  document.getElementById("entity-list").addEventListener("click", (e) => {
+    const btn = e.target.closest(".entity-chip");
+    if (!btn) return;
+    selectEntity(btn.dataset.entity);
+  });
+
+  const entitySearch = document.getElementById("entity-search");
+  entitySearch.addEventListener("input", () => {
+    const query = entitySearch.value.trim().toLowerCase();
+    const chips = document.querySelectorAll(".entity-chip");
+    let visibleCount = 0;
+    chips.forEach(chip => {
+      const match = !query || chip.dataset.entity.toLowerCase().includes(query);
+      chip.style.display = match ? "" : "none";
+      if (match) visibleCount++;
+    });
+    document.getElementById("entity-no-match").style.display = visibleCount === 0 ? "" : "none";
+  });
+  entitySearch.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+    const query = entitySearch.value.trim().toLowerCase();
+    const match = entityNames.find(name => name.toLowerCase().includes(query));
+    if (match) selectEntity(match);
   });
 }
 
@@ -1806,14 +1960,59 @@ function setupPortfolioMatch(DATA) {
     });
 
     document.getElementById("portfolio-copy").addEventListener("click", () => {
-      const lines = [`PFAS Tracker portfolio exposure check -- ${codes.length} state(s): ${codes.join(", ")}`, ""];
+      const checkedDate = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+      const litigatingCodes = codes.filter(c => litigatingStates.has(c));
+      const predictedCodes = codes.filter(c => withinCutoff(c));
+      const clearCodes = codes.filter(c => !litigatingStates.has(c) && !withinCutoff(c));
+
+      const lines = [
+        "PRECEDENT -- EVIDENCE-BACKED EXPOSURE REPORT",
+        "PFAS & Turnout-Gear Litigation Tracker",
+        `Checked: ${checkedDate}`,
+        "",
+        "EXECUTIVE SUMMARY",
+        `${codes.length} state(s) reviewed: ${codes.join(", ")}.`,
+        `${litigatingCodes.length} already in confirmed litigation. ${predictedCodes.length} ranked in the top-${getRankCutoff()} predicted-next. ${clearCodes.length} with no current signal tracked.`,
+        "",
+        "FINDINGS BY STATE",
+      ];
+
       codes.forEach(code => {
         const name = STATE_NAMES[code] || code;
-        if (litigatingStates.has(code)) lines.push(`${name}: confirmed litigation, already a named plaintiff state.`);
-        else if (withinCutoff(code)) lines.push(`${name}: ranked #${candidateMap[code].rank} of 10 predicted-next (${candidateMap[code].airports} FAA airports, enacted legislation).`);
-        else lines.push(`${name}: no current signal tracked.`);
+        lines.push(`\n${name}:`);
+        if (litigatingStates.has(code)) {
+          const matchingActions = DATA.litigation_actions.filter(a => {
+            if (a.state === code) return true;
+            return a.plaintiffs_named.some(p => { const m = p.match(/,\s*([A-Z]{2})\b/); return m && m[1] === code; });
+          });
+          lines.push(`  Status: CONFIRMED LITIGATION -- named plaintiff state.`);
+          matchingActions.forEach(a => {
+            lines.push(`  - ${a.label} (filed ${a.filed_date})`);
+            lines.push(`    Evidence tier: ${a.evidence_tier} -- Source: ${a.source_name}${a.source_url ? ` (${a.source_url})` : ""}`);
+          });
+        } else if (withinCutoff(code)) {
+          const c = candidateMap[code];
+          lines.push(`  Status: PREDICTED-NEXT, ranked #${c.rank} of 10.`);
+          lines.push(`  Basis: ${c.airports} FAA-certificated airports (AFFF foam mandated for decades) and an enacted state PFAS/AFFF law.`);
+          lines.push(`  Evidence tier: this ranking is this tracker's own model, built from VERIFIED FAA/Census data and a REPORTED-tier legislation list -- not a claim of inevitability.`);
+        } else {
+          lines.push(`  Status: no litigation or top-${getRankCutoff()} prediction signal currently tracked for this state.`);
+        }
       });
-      lines.push("", `Source: PFAS & Turnout-Gear Litigation Tracker, checked ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}.`);
+
+      lines.push(
+        "",
+        "CONFIDENCE AND LIMITATIONS",
+        "This report covers only PFAS/turnout-gear litigation and the prediction model on this tracker -- it is not a complete occupational-exposure or environmental-liability survey. VERIFIED entries were checked against primary source text directly; REPORTED entries rely on secondary coverage only, stated as such above. States with no signal here may still carry exposure not yet captured by this tracker's sources.",
+        "",
+        "SUGGESTED UNDERWRITING QUESTIONS",
+        "- For litigating states: confirm current docket status directly (PACER/state court) before binding or renewing -- this tracker's filed_date and status may lag the live docket.",
+        "- For predicted-next states: check whether new PFAS/AFFF legislation has passed since this check date, since the ranking is time-sensitive.",
+        "- For any REPORTED-tier item above: treat as a lead for your own diligence, not a confirmed fact, until verified against a primary source.",
+        "",
+        "Source: Precedent -- PFAS & Turnout-Gear Litigation Tracker. Every figure sourced; evidence tiers shown inline."
+      );
+
       navigator.clipboard.writeText(lines.join("\n")).then(() => {
         document.getElementById("portfolio-copy-feedback").textContent = "Copied.";
         setTimeout(() => { const el = document.getElementById("portfolio-copy-feedback"); if (el) el.textContent = ""; }, 2500);

@@ -350,10 +350,10 @@
       "states_checked": [
         {
           "state": "New Hampshire",
-          "legislation_date": "September 2019 (SB 257)",
+          "legislation_date": "September 3, 2019 (SB 257, enacted as Chapter 337 of the 2019 session; codified as RSA 154:8-b)",
           "litigation_filed": "~September 2026",
           "sequence": "Legislation first, ~7 years earlier",
-          "tier": "REPORTED"
+          "tier": "REPORTED -- retried 2026-11-08 against gc.nh.gov (primary site), which failed again on two independent network paths (browser pane: HTTP 403; a separate fetch agent: socket hang up on 3 URL variants). Stays REPORTED, now corroborated by two independent secondary sources (LegiScan bill-status page; a 2019 Concord Monitor article syndicated via pfasproject.com) which agree on the signing date, the codification, the ban's July 1, 2021 effective date, and a liability carve-out: the law creates no new civil or criminal cause of action against a fire department for an unintentional or emergency discharge of PFAS foam."
         },
         {
           "state": "Minnesota",
@@ -378,10 +378,10 @@
         },
         {
           "state": "Illinois",
-          "legislation_date": "August 2021 (PFAS Reduction Act, PA 102-0290)",
+          "legislation_date": "August 6, 2021 (PFAS Reduction Act, PA 102-0290, from SB 561)",
           "litigation_filed": "Before August 2026",
           "sequence": "Legislation first, ~5 years earlier",
-          "tier": "REPORTED -- ilga.gov was unreachable in this pass (connection blocked); date not independently re-confirmed"
+          "tier": "REPORTED -- retried 2026-11-08 against ilga.gov (primary site), which failed again on two independent network paths (browser pane: navigation denied; a separate fetch agent: connection refused on 2 URL variants). Stays REPORTED, now corroborated by the Illinois Fire Chiefs Association's own published fact sheet, which independently confirms the August 6, 2021 signing date and cites a sale/manufacture ban \"beginning January 1, 2022\" for Class B PFAS foam -- note a separate third-party tracker instead cites January 1, 2025 for a provision it does not clearly distinguish from the 2022 one; this date discrepancy between secondary sources was not resolved and should not be collapsed into a single confident date without the enrolled text."
         },
         {
           "state": "Massachusetts",
@@ -515,6 +515,34 @@
         "detail": "The UK's Health and Safety Executive (acting as the UK REACH Agency post-Brexit) published its agency opinion on a PFAS-in-firefighting-foam restriction around June-July 2026, opening a 60-day consultation around July 21, 2026 -- scoped to foam only, explicitly not covering legacy contamination at sites like airports. The UK's own PFOA-foam transition deadline already passed July 4, 2025, on the same track as the EU. No UK litigation and no confirmed UK airport or military AFFF contamination site was found in this research pass -- stated as a gap, not a negative finding.",
         "evidence_tier": "VERIFIED on the regulatory dates; NOT FOUND on litigation/contamination, explicitly not treated as evidence of absence"
       },
+      "norway": {
+        "label": "A real, independently-enacted national ban -- the strongest Nordic finding",
+        "detail": "Norway banned PFOS in firefighting foam nationally in 2007. A separate PFOA ban in firefighting foam took effect July 5, 2025, per Miljodirektoratet's (Norway's Environment Agency) own published notice, implemented via produktforskriften (the Products Regulation) Sections 4-1/4-2, which also implements the POPs regulation; PFOS-foam export is separately banned. A broader EU REACH-style restriction (the EEA-relevant post-entry 82 restriction) is pending with multi-year transition periods, and it is not confirmed whether or when Norway's own implementation of that broader restriction takes effect. Confirmed PFAS contamination was found around multiple Norwegian airports, attributed to fire-training exercises -- a real contamination finding alongside the ban, not instead of it.",
+        "evidence_tier": "VERIFIED-adjacent (Miljodirektoratet's own page states the ban and the July 2025 date directly)",
+        "source_name": "Miljodirektoratet (Norwegian Environment Agency)",
+        "source_url": "https://www.miljodirektoratet.no/aktuelt/fagmeldinger/2025/juni-2025/pfoa-i-brannskum-blir-forbudt-i-juli-2025/"
+      },
+      "sweden": {
+        "label": "No foam-specific ban found; a real, large-scale remediation program instead",
+        "detail": "No current Swedish law banning PFAS in firefighting foam was located, even searching natively in Swedish. A real, non-regulatory finding: Naturvardsverket (the Swedish EPA) together with MSB collected 416 tons of PFAS-containing foam from Swedish rescue services during 2022-2023 for destruction, and firefighting foam at training sites is explicitly stated to be Sweden's largest known PFAS source. A national ban on PFAS in some consumer products (clothing, shoes, cosmetics) from 2028 is proposed/under consultation, but is not foam-specific and not yet enacted.",
+        "evidence_tier": "REPORTED (Naturvardsverket's own foam-collection program page); NOT FOUND for a foam-specific ban, stated plainly rather than implied",
+        "source_name": "Naturvardsverket (Swedish Environmental Protection Agency)",
+        "source_url": "https://www.naturvardsverket.se/amnesomraden/miljofororeningar/organiska-miljogifter/hogfluorerade-amnen-i-miljon-pfas/insamling-av-brandslackningsskum-forebygger-att-pfas-hamnar-i-miljon/"
+      },
+      "denmark": {
+        "label": "An early, real national ban -- 2006, ahead of most of this tracker's other findings",
+        "detail": "Denmark banned PFOS-containing firefighting foam in 2006, with use of existing stock allowed until mid-2011. A later Miljoministeriet (Ministry of Environment) executive order bans import, sale, and use of PFAS-containing firefighting-foam concentrate specifically at training grounds, intended as a bridge measure ahead of the EU-wide ban; this order's current in-force status was not independently confirmed in this pass.",
+        "evidence_tier": "REPORTED (government documents found via ft.dk/Retsinformation referencing the order; the consolidated current law text itself not independently opened)",
+        "source_name": "Miljostyrelsen (Danish Environmental Protection Agency)",
+        "source_url": "https://www2.mst.dk/Udgiv/publikationer/2023/01/978-87-7038-475-9.pdf"
+      },
+      "finland": {
+        "label": "No national ban found; a real, confirmed contamination site",
+        "detail": "No Finnish national ban on PFAS firefighting foam was located, even searching natively in Finnish. A real, confirmed contamination finding: the Vantaanjoki river has Finland's highest recorded PFAS concentrations, attributed partly to an airport fire-training area. A 2026-effective ban on PFAS in consumer clothing, footwear, and impregnation products exists but does not cover firefighting foam.",
+        "evidence_tier": "REPORTED for the contamination finding; NOT FOUND for a foam-specific ban",
+        "source_name": "Yle (Finnish public broadcaster)",
+        "source_url": "https://yle.fi/a/74-20018821"
+      },
       "european_firefighter_unions": {
         "label": "NOT FOUND",
         "detail": "No statement from the European Firefighters Union Confederation (EFFUC) or any national European firefighters' union on gear-specific (as opposed to foam-related) PFAS exposure was found; all relevant hits in this research were US IAFF material. A dedicated follow-up search in German or Dutch was not attempted.",
@@ -526,8 +554,32 @@
     },
     "rest_of_world": {
       "label": "Asia, South America, Africa, and the Middle East -- a first pass, mostly honest gaps",
-      "methodology_note": "Researched to the same evidence-tier standard as everything else in this tracker. Most of these regions have genuinely little to find on this exact question (PFAS/AFFF in firefighting foam or turnout gear specifically) -- that is reported plainly as NOT FOUND rather than stretched. China, India, UAE, Israel, Nigeria, and Egypt were checked and came back with nothing citable; they are deliberately left off the map rather than forced in.",
+      "methodology_note": "Researched to the same evidence-tier standard as everything else in this tracker. Most of these regions have genuinely little to find on this exact question (PFAS/AFFF in firefighting foam or turnout gear specifically) -- that is reported plainly as NOT FOUND rather than stretched. A second research pass searched natively in Chinese, Arabic, Hebrew, and Portuguese/Spanish specifically for jurisdictions where the first English-only pass came back empty, since an English-only NOT FOUND is weaker evidence than a native-language NOT FOUND. That pass surfaced two new, real findings (China: a municipal-level Shanghai notice; Israel: a national draft policy) and confirmed several other gaps (UAE, Brazil's airport mandate, Uruguay, Paraguay) as genuinely absent rather than merely unsearched in English.",
       "countries": {
+        "China": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "A real but sub-national finding -- Shanghai only, not a national law",
+              "detail": "No national Chinese PFAS/AFFF firefighting-foam law was found, even searching natively in Mandarin. A genuine regional document exists: a joint notice from the Shanghai Ecology and Environment Bureau and Shanghai Fire Rescue Corps (沪环土「2022』200号 / Hu Huantu [2022] No. 200), citing the Stockholm Convention's 2019 move of firefighting foam from 'acceptable use' to 'specific exemption,' ordering Shanghai entities to stop procuring/selling PFOS-containing foam, with existing stock to be used up or disposed of within a set period. This is a municipal order, not national Chinese law -- do not generalize it to all of China.",
+              "tier": "REPORTED (the notice was located via Shanghai's own environment-bureau site, sthj.sh.gov.cn, which serves it as a direct PDF download; full text not confirmed independently opened in this pass)",
+              "source_name": "Shanghai Ecology and Environment Bureau / Shanghai Fire Rescue Corps, joint notice Hu Huantu [2022] No. 200",
+              "source_url": ""
+            }
+          ]
+        },
+        "Israel": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "A real, pending national policy -- not yet a finalized foam-specific ban",
+              "detail": "Israel's Ministry of Environmental Protection published a draft regulatory policy for PFAS in industry (June 2024) under the poisons-permit framework, estimated by news coverage to cover roughly 50-60 factories holding approximately 2,000 tons of PFAS-containing firefighting-foam concentrate. Coverage indicates the Health Ministry is pushing for urgent regulation while the Environment Ministry's position is less urgent; no finalized foam-specific ban was confirmed as of this research pass.",
+              "tier": "REPORTED (Calcalist news coverage and a Knesset committee document; the Ministry's own primary policy document not independently opened in this pass)",
+              "source_name": "Calcalist; Knesset committee documentation",
+              "source_url": ""
+            }
+          ]
+        },
         "Singapore": {
           "category": "regulation",
           "entries": [
@@ -580,11 +632,11 @@
           "category": "regulation",
           "entries": [
             {
-              "label": "Contradictory reports -- a genuine, unresolved disagreement between sources",
-              "detail": "One source describes Resolution 451/2019 (Annex III) as restricting PFOS-containing foam -- banning training use, requiring full-containment sites, with a late-2022 compliance deadline. A separate secondary source directly contradicts this, stating Argentina has no PFAS-specific regulation at all. This contradiction was NOT resolved in this research pass -- the resolution's current text was not directly opened. Do not state Argentina's regulatory status as settled either way without checking the primary text first.",
-              "tier": "REPORTED, explicitly contradictory (two secondary sources disagree; neither independently verified against the primary regulation text)",
-              "source_name": "Conflicting secondary sources, not independently resolved",
-              "source_url": ""
+              "label": "Resolved (2026-11-08 pass): the PFOS-foam restriction is real and directly opened -- the \"no PFAS regulation\" claim was wrong",
+              "detail": "The original Resolucion 451/2019 Annex III PDF was directly fetched and read (argentina.gob.ar/normativa/332323_res451-3_pdf/archivo). Its PFOS section (\"Acido perfluorooctano sulfonico, sus sales y fluoruro de perfluorooctano sulfonilo\") contains, verbatim, a Class B firefighting-foam item with real operative restrictions implementing Argentina's Stockholm Convention PFOS exemption: (1) a ban on exporting or importing foam containing or liable to contain PFOS/salts/PFOSF, except for environmentally sound disposal; (2) a ban on using such foam for training; (3) a condition that testing use is permitted only where all releases are contained; (4) a requirement that by late 2022, use of such foam be restricted to sites where all releases can be contained; (5) a requirement for environmentally sound management of stocks and waste of such foam. This directly contradicts the earlier secondary source claiming Argentina has no PFAS-specific regulation at all -- that claim was simply wrong, or was describing a different, narrower question (e.g. no litigation, or no regulation on PFAS broadly beyond this foam-specific Stockholm Convention annex). Two things remain genuinely unresolved, not papered over: the PDF's readable text did not include the resolution's signing/effective date or its Article 5 (the document's creation metadata shows 2019-08-31, which is a record date, not necessarily the signing date); and a separate 2020 Boletin Oficial notice (detalleAviso 234441, published 2020-09-02) that reportedly replaced this Annex III with a new one (\"IF-2020-51577401-APN-DNSYPQ#MAD\") could not be opened -- boletinoficial.gob.ar refused the connection on two independent fetch attempts. Whether the 2020 amendment changed, narrowed, or left intact the provisions quoted above is NOT confirmed. No litigation tied to PFAS/AFFF was found in Argentina in this or any prior pass.",
+              "tier": "VERIFIED for the 2019 Annex III text itself (the primary PDF was directly fetched and its PFOS provisions read and quoted); the 2020 amendment and the exact signing date remain REPORTED/NOT FOUND",
+              "source_name": "Resolucion 451/2019, Anexo III (argentina.gob.ar), directly fetched and read",
+              "source_url": "https://argentina.gob.ar/normativa/332323_res451-3_pdf/archivo"
             }
           ]
         },
@@ -629,22 +681,195 @@
           "entries": [
             {
               "label": "Checked directly -- nothing foam-specific found",
-              "detail": "A September 2026 Engineering News piece covers an AECOM report calling for enforceable PFAS limits in South African water generally -- a proposal, not adopted regulation, and about water broadly, not firefighting foam specifically. A Werksmans legal update notes South Africa's POP Regulations now cover general PFAS waste-management duties, which is also not foam-specific. No litigation or foam-specific regulation was found despite directly checking.",
+              "detail": "A September 2026 Engineering News piece covers an AECOM report calling for enforceable PFAS limits in South African water generally -- a proposal, not adopted regulation, and about water broadly, not firefighting foam specifically. A Werksmans legal update notes South Africa's POP Regulations now cover general PFAS waste-management duties, which is also not foam-specific. South Africa is reportedly one of 5 countries in the ICAO/UNEP 'FIRE' airport-foam-transition project (see Nigeria and Egypt entries below), but this was not independently confirmed for South Africa specifically in this pass -- flagged, not claimed.",
               "tier": "REPORTED (both sources directly identified; neither is a foam-specific finding)",
               "source_name": "Engineering News; Werksmans legal update",
               "source_url": "https://engineeringnews.co.za/article/aecom-highlights-need-for-science-based-pfas-regulation-in-south-africa-2026-09-08"
             }
           ]
+        },
+        "Nigeria": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "A real international program, not a domestic Nigerian law",
+              "detail": "Nigeria's Civil Aviation Authority (NCAA) is hosting an ICAO/UNEP 'FIRE' (Fortifying Infrastructure for Responsible Extinguishment) project mission, assessing firefighting systems at Nnamdi Azikiwe International Airport (Abuja) and Port Harcourt International Airport for transition to fluorine-free (F3) foam. This is a program-wide effort, not Nigeria-specific: $82.5M total ($10M GEF-funded plus $72.5M co-financing), covering roughly 40 airports over 60 months across 5 African countries (Nigeria, Egypt, Ethiopia, Kenya, South Africa per UNEP's own press release), targeting removal of about 4,500 tonnes of PFAS-contaminated material and disposal of about 130 tonnes of PFAS foam concentrate. No separate Nigerian national ban or litigation was found.",
+              "tier": "REPORTED (NCAA's own social-media post and Nigerian news outlets are primary-adjacent; the UNEP/ICAO press release confirms the program itself)",
+              "source_name": "UNEP/ICAO FIRE project press release; NCAA; Nigerian news coverage",
+              "source_url": "https://www.unep.org/en/news-and-stories/press-release/unep-and-icao-launch-825-million-project-eliminate-harmful"
+            }
+          ]
+        },
+        "Egypt": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "Same international program as Nigeria -- not a separate Egyptian law",
+              "detail": "Egypt's Civil Aviation Authority is also part of the ICAO/UNEP FIRE project (see Nigeria entry for program-wide details), covering 3 Egyptian airports, with implementation planned 2025-2030; Cairo hosted the project's 3rd steering-committee meeting. No separate national Egyptian PFAS foam ban was found beyond this program.",
+              "tier": "REPORTED (Arabic-language Egyptian news sources identified; the program itself confirmed via UNEP/ICAO's own materials)",
+              "source_name": "UNEP/ICAO FIRE project; Egyptian news coverage",
+              "source_url": ""
+            }
+          ]
+        },
+        "Italy": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "No Italian national law yet -- a real, growing municipal campaign",
+              "detail": "No Italian national PFAS/AFFF firefighting-foam law exists; Italy is bound only by EU Regulation 2024/2462 (bans foam use for training/testing except with full containment) and EU-wide operator duties starting 23 October 2026. Italian sources explicitly confirm no Italian law exists yet. A campaign for a national ban, originating in the Veneto region (the site of Italy's well-known industrial PFAS water-contamination scandal, which is explicitly a separate, unrelated story from firefighting foam -- not conflated here), launched January 2026 with 129 municipalities in favor as of this research pass. A separate, unverified claim that 4 firefighters in Tuscany may have died from PFAS exposure was reported by one Italian outlet but not independently confirmed -- flagged, not treated as fact.",
+              "tier": "REPORTED (Italian news sources directly identified); the Tuscany deaths claim is explicitly unverified, not a confirmed finding",
+              "source_name": "L'Indipendente; Linkiesta; Il Fatto Quotidiano",
+              "source_url": "https://www.lindipendente.online/2026/01/20/pfas-dal-veneto-parte-la-proposta-di-divieto-in-tutta-italia-gia-129-comuni-favorevoli/"
+            }
+          ]
+        },
+        "Poland": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "No Polish national law -- EU timeline only",
+              "detail": "No Polish national PFAS/AFFF firefighting-foam law was found; regulation is at the EU level only (Regulation (EU) 2025/1988). For portable extinguishers specifically, one commercial source (not the Official Journal) reports PFAS-foam sales banned from 23 October 2026 with use allowed until 31 December 2030, and alcohol-resistant foams carrying a later deadline of 23 April 2027 -- these specific dates are REPORTED only, not independently confirmed against the Official Journal text. No Polish implementing act was found.",
+              "tier": "REPORTED (EU regulation identified directly; specific extinguisher-type deadlines sourced from a commercial summary, not the primary legal text)",
+              "source_name": "Inforlex (commercial legal-text summary); EU Regulation 2025/1988",
+              "source_url": "https://www.inforlex.pl/download/akty_pdf,E0L,2025,276,1988.pdf"
+            }
+          ]
+        },
+        "Russia": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "No national ban found; a real, narrow maritime rule applies",
+              "detail": "No Russian federal PFAS/AFFF firefighting-foam ban was found, even searching natively in Russian; general POPs/PFOS restrictions exist via Customs Union (Russia/Belarus/Kazakhstan) treaty obligations, not foam-specific. A 2007 EMERCOM (Russia's emergency-response ministry) guidance document describes fluorinated-foam use with no phase-out language, and may now be outdated. One real, narrow finding: Russian maritime law bans PFOS-containing foam storage/use on ships built from 1 January 2026, under IMO SOLAS amendments -- an international shipping rule, not a domestic land-based ban.",
+              "tier": "NOT FOUND for a national land-based ban; REPORTED for the maritime/SOLAS-derived rule",
+              "source_name": "OECD Russia PFAS country sheet",
+              "source_url": "https://oecd.org/content/dam/oecd/en/topics/policy-sub-issues/risk-management-risk-reduction-and-sustainable-chemistry2/pfas-country-information/Russia.pdf"
+            }
+          ]
+        },
+        "Turkey": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "No national ban found; same narrow maritime rule as Russia",
+              "detail": "No Turkish-specific PFAS/AFFF firefighting-foam ban or regulation was found, even searching natively in Turkish. One Turkish news source confirms no comprehensive PFAS ban exists yet in Turkey, anticipating future pressure from EU harmonization (undated, currency unconfirmed). In the maritime sector, a Turk Loydu bulletin confirms the same SOLAS-derived PFOS-foam rule for ships built from 2026 applies to Turkish-flagged vessels -- again international, not domestic.",
+              "tier": "NOT FOUND for national regulation; REPORTED for the maritime/SOLAS-derived rule",
+              "source_name": "Turk Loydu bulletin",
+              "source_url": ""
+            }
+          ]
+        },
+        "Austria": {
+          "category": "contamination",
+          "entries": [
+            {
+              "label": "No federal law; a real, confirmed contamination site",
+              "detail": "No Austrian federal PFAS/AFFF firefighting-foam law exists beyond EU rules. Provincial fire brigades (e.g. in Niederosterreich) have internally directed fire departments to stop using fluorinated foam, though this is administrative practice, not binding law. A real, confirmed contamination site exists at the OMV refinery in Schwechat, caused by fire-brigade foam use. No litigation was found.",
+              "tier": "REPORTED (Tiroler Tageszeitung directly identified the Schwechat site; no primary government document independently opened)",
+              "source_name": "Tiroler Tageszeitung",
+              "source_url": "https://www.tt.com/artikel/30934638/pfas-im-wasser-vermutlich-verbreiteter-als-gedacht"
+            }
+          ]
+        },
+        "Switzerland": {
+          "category": "contamination",
+          "entries": [
+            {
+              "label": "No federal ban; real contamination signals and an agency evaluating action",
+              "detail": "No Swiss federal firefighting-foam ban was found. BAFU (the Federal Office for the Environment) identifies firefighting foam as a major PFAS groundwater source (training sites, industrial areas) and is evaluating an action plan; a reporting duty for PFOS-foam stocks already exists under ChemRRV Annex 1.16. Swiss media expects Switzerland will likely follow the EU ban once finalized, but nothing is enacted yet. Real, confirmed contamination signals: a drinking-water restriction near Basel airport, and a Valais cantonal authority flagging groundwater contamination from firefighting foam. No litigation was found.",
+              "tier": "REPORTED (BAFU's own stated position on foam as a PFAS source; Basel airport and Valais findings via Swiss media, not independently opened primary documents)",
+              "source_name": "BAFU (Swiss Federal Office for the Environment); Beobachter; SRF",
+              "source_url": "https://www.beobachter.ch/magazin/umwelt-klima/trinkwasserverbot-beim-flughafen-basel-821845"
+            }
+          ]
+        },
+        "Portugal": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "A real, dated national implementation of the EU PFOA restriction",
+              "detail": "Portugal's environmental agency (APA) confirms that as of December 3, 2025, no use of PFOA-containing firefighting foam is permitted -- the derogation period for already-installed stock ended on that date. This is Portugal's domestic application of the EU-wide PFOA restriction, not an independent national law, but it is a real, dated, primary-adjacent fact.",
+              "tier": "REPORTED (APA's own page identified; not independently confirmed as fully opened)",
+              "source_name": "APA (Agencia Portuguesa do Ambiente)",
+              "source_url": "https://apambiente.pt/prevencao-e-gestao-de-riscos/proibicao-do-uso-de-pfoa-em-espumas-de-combate-incendio"
+            }
+          ]
         }
       },
       "not_included": [
-        "China: a thin, date-conflicting industry compliance reference was found, not confident enough to cite -- deliberately left off the map rather than forced in.",
-        "India: NOT FOUND. No national AFFF ban, phase-out, or litigation found.",
-        "UAE and Israel: NOT FOUND in this pass -- would need Arabic- or Hebrew-language searches not attempted here, not evidence of true absence.",
-        "Nigeria and Egypt: NOT FOUND. A Nigerian academic review flags a PFAS research gap generally, which is not a litigation or regulatory finding.",
-        "No African Union, Gulf Cooperation Council, or Mercosur regional PFAS action was found.",
-        "No South American equivalent of the FAA's Part 139 or Canada's Standard 323 airport AFFF mandate was found -- a genuine research gap, not a negative finding, since this likely needs Portuguese-language sources."
+        "India: NOT FOUND, confirmed more strongly via a native-language (Hindi) pass. A 2025 academic review states India's Central Pollution Control Board has no PFAS-specific regulations and no national PFAS/PFOS/PTFE monitoring program; no firefighting-foam-specific rule found in either language.",
+        "UAE: NOT FOUND even after three separate Arabic-language search passes (general terms, standards-authority-specific, and airport/utility-specific). One vendor marketing page claims Dubai/Al Maktoum airports are 'subject to ICAO guidelines' moving toward fluorine-free foam, but this is uncorroborated by any GCAA or Dubai Airports primary source and is not citable.",
+        "Jordan and Lebanon: NOT FOUND via Arabic-language search. Only generic/global PFAS explainer pages and, for Lebanon, a vendor page confirming AFFF foam is still commercially sold with no PFAS-content regulation found.",
+        "Mexico: NOT FOUND via Spanish-language search. No DOF (official gazette), Semarnat, or Profepa regulation located; only commercial distributor blogs noting insurer and PEMEX-linked pressure to transition to fluorine-free foam.",
+        "Spain: NOT FOUND for a domestic ban or litigation via Spanish-language search -- Spain is bound only by the EU-wide REACH restriction already noted above; no Spanish court case or airport/base contamination suit located.",
+        "Brazil's airport-AFFF-mandate equivalent to the FAA's Part 139: NOT FOUND even after a native-language (Portuguese) search of ANAC, ANVISA, and CONAMA sources. A general PFAS bill (PL 2726/2023) is pending in Congress but not foam-specific or enacted.",
+        "Uruguay and Paraguay: NOT FOUND in either English or native-language (Spanish) passes.",
+        "Peru: still a thin, unconfirmed lead after a follow-up pass -- Peru's RETC emissions registry (DS 018-2021-MINAM) tracks PFOS/PFOS-F as monitored substances, but no specific decree implementing a firefighting-foam import ban was located despite checking El Peruano and MINAM directly.",
+        "Ecuador: NOT FOUND for foam specifically, confirmed again -- only general Stockholm Convention/PFAS context, no firefighting-foam-specific prohibition.",
+        "Vietnam, Thailand, Indonesia, Philippines, and Malaysia: all NOT FOUND or thin-unconfirmed via native-language (Vietnamese, Thai, Indonesian, Filipino, Malay) search passes -- all 5 are Stockholm Convention parties in principle, but none has a confirmed enacted national AFFF-foam ban, contamination event, or litigation action citable at this tier.",
+        "No African Union or Gulf Cooperation Group regional PFAS action was found (Mercosur not re-checked in this pass).",
+        "Ethiopia and Kenya: reported as part of the same 5-country ICAO/UNEP 'FIRE' airport-foam-transition program as Nigeria and Egypt (see those entries), but not independently verified for these two countries specifically in this pass."
       ]
+    }
+  },
+  "changelog": [
+    {
+      "date": "2026-11-08",
+      "label": "New: Company object layer -- real corporate-structure facts for every named defendant",
+      "detail": "Added sourced corporate-structure notes for 3M, DuPont/EIDP, Honeywell, and Fire-Dex LLC to the Entities view: 3M explicitly retained PFAS liability in its 2024 Solventum spinoff; DuPont/EIDP liability is split across three companies (EIDP, Chemours, DuPont de Nemours) under a 2015 separation agreement and a 2021 cost-sharing MOU, drawn from Chemours own SEC 10-K filings; Honeywell is flagged as a genuinely open question after its October 2025 Solstice Advanced Materials spinoff (fluorine products business) -- available sources do not confirm which entity bears the turnout-gear liability; Fire-Dex is noted as privately held and founder-controlled, a different recovery-risk profile than the other three."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Argentina contradiction resolved; primary-source retries; dual-exposure feature; evidence-maturity meter",
+      "detail": "Directly fetched and read the actual Resolucion 451/2019 Annex III PDF, resolving a prior contradiction about whether Argentina regulates PFOS firefighting foam (it does). Retried Illinois and New Hampshire primary legislative sources on a second, independent network path -- both remain genuinely unreachable, so both stay REPORTED rather than silently upgraded. Shipped a new cross-module \"Dual-exposure states\" panel on the Precedent landing page, and added this evidence-maturity meter and changelog."
+    },
+    {
+      "date": "2026-11-07",
+      "label": "Native-language research expansion: 18 -> 27 countries",
+      "detail": "A large multi-language research pass (Spanish, Portuguese, Nordic languages, East Asian languages, Italian, Polish, Russian, Turkish, German, Hindi, Arabic) added or substantially upgraded Norway, Portugal, Italy, Poland, Russia, Turkey, Austria, Switzerland, China, Israel, Nigeria, and Egypt. Grew the pytest suite from 33 to 41 tests."
+    }
+  ],
+  "companies": {
+    "3M": {
+      "legal_name": "3M Company",
+      "structure_note": {
+        "label": "No corporate restructuring affects this liability -- 3M explicitly retained it in its own 2024 spinoff",
+        "detail": "3M spun off its health care business as Solventum Corporation on April 1, 2024. The governing Separation and Distribution Agreement (dated March 31, 2024, filed as Exhibit 2.1 to a 3M SEC filing) explicitly allocates PFAS liability: the 3M group retains all PFAS-related liabilities from 3M's own business and from the Health Care business prior to the spin, with narrow exceptions. 3M also separately committed to exit PFAS manufacturing entirely by the end of 2025. Bottom line for this tracker: there is no successor-entity question here -- 3M Company itself remains the liable, named party for turnout-gear PFAS claims, not a spun-off subsidiary.",
+        "tier": "VERIFIED (the executed Separation and Distribution Agreement, filed as a 3M SEC exhibit, directly identified and read via search; the exhibit's full text was not independently re-opened line by line)",
+        "source_name": "3M Company, Separation and Distribution Agreement with Solventum Corporation, SEC Exhibit 2.1 (March 31, 2024)",
+        "source_url": "https://investors.3m.com/financials/sec-filings/content/0001628280-24-014795/exhibit21-8xk.htm"
+      }
+    },
+    "DuPont": {
+      "legal_name": "EIDP, Inc. (formerly E. I. du Pont de Nemours and Company) -- named in litigation as \"DuPont\" or \"EIDP Inc.\"",
+      "structure_note": {
+        "label": "The single most consequential corporate-structure fact in this entire tracker: liability was deliberately split across three companies in 2015 and 2019",
+        "detail": "The entity sued as \"DuPont\" today is almost never the same legal entity that made PFOA-era decisions. In 2015, DuPont spun off its performance-chemicals business as The Chemours Company, under a Separation Agreement (June 26, 2015) that defines how PFOA-related \"Indemnifiable Losses\" are shared between EID (the renamed legacy entity, now EIDP, Inc.) and Chemours. In 2019, DuPont itself split again into Dow, DuPont de Nemours, Inc., and Corteva, further separating the surviving brand name from the pre-2015 legacy entity. A binding January 2021 MOU between EIDP, Corteva, DuPont de Nemours, and Chemours now governs sharing of PFAS costs tied to pre-July-2015 conduct, capped at $4.0 billion in aggregate qualified spend or December 31, 2040, whichever comes first. Chemours has separately disputed indemnifying EID for claims alleging the 2015 spinoff itself was a fraudulent transfer -- meaning the companies are still actively litigating against each other over who pays, not just defending jointly against plaintiffs. For an underwriter: a judgment against \"DuPont\" in a turnout-gear case does not tell you which of these three balance sheets actually absorbs it without checking which entity was named and what the MOU's cost-sharing formula says for that period.",
+        "tier": "VERIFIED (terms of the 2015 Separation Agreement, the 2017 interim cost-sharing arrangement, and the 2021 MOU are drawn from Chemours' own SEC 10-K disclosures, directly identified; the agreements' full original text was not independently re-opened)",
+        "source_name": "The Chemours Company, Form 10-K filings (FY2020, FY2023, FY2024), SEC EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000095017024037171/cc-20231231.htm"
+      }
+    },
+    "Honeywell": {
+      "legal_name": "Honeywell International Inc. (a Honeywell subsidiary is separately named as a turnout-gear seller in at least one action)",
+      "structure_note": {
+        "label": "A real, unresolved open question -- flagged rather than guessed at",
+        "detail": "Honeywell completed the spinoff of Solstice Advanced Materials Inc. (its fluorine products and specialty materials business) on October 30, 2025, as an independent public company (Nasdaq: SOLS). Solstice's own description of its business explicitly includes fluorine products -- the same chemical family at the center of PFAS liability. Separately, Connecticut firefighters' June 2024 complaint against 3M, DuPont, and Honeywell alleges a Honeywell subsidiary was among the sellers of PFAS-containing turnout gear, and a September 2026 federal ruling lets that claim against Honeywell proceed. What is NOT confirmed in available sources: whether the Solstice separation agreement allocates this turnout-gear liability to Solstice or leaves it with Honeywell -- a direct search of Solstice's own FY2025 Form 10-K text (sec.gov) returned zero mentions of \"PFAS,\" \"turnout,\" or \"firefighter,\" so the question is genuinely open, not just unresearched. Do not assume either allocation without checking the actual separation agreement's PFAS liability provisions.",
+        "tier": "VERIFIED for the spinoff itself and the litigation (both independently confirmed via SEC filings and court reporting); NOT FOUND for which entity bears the turnout-gear liability specifically",
+        "source_name": "Solstice Advanced Materials Inc., Form 10-K (FY2025), SEC EDGAR; Reuters, September 2026",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/2064953/000206495326000008/sols-20251231.htm"
+      }
+    },
+    "Fire-Dex LLC": {
+      "legal_name": "Fire-Dex, LLC (a subsidiary, Fire-Dex GW, LLC, is also on record)",
+      "structure_note": {
+        "label": "A privately held, founder-controlled company -- a materially different risk profile from the other three named defendants",
+        "detail": "Unlike 3M, DuPont/EIDP, and Honeywell, Fire-Dex is not a public company with SEC disclosures. It is controlled by Bill Burke, described as Chairman and majority shareholder, who took full ownership in 2007. Sources disagree on its current financial-sponsor status: one describes a past recapitalization with Peninsula Capital Partners (providing subordinated debt and preferred equity) structured specifically to let Burke increase his own equity stake, while a separate aggregator lists Peninsula as a current investor with a financing round dated August 2020 -- this discrepancy is not resolved here. For underwriting purposes, the practical implication is a smaller, privately held balance sheet with less public disclosure than the other three defendants in this tracker, which is relevant to assessing actual recovery risk in a judgment, independent of liability merits.",
+        "tier": "REPORTED (secondary business-press and private-market-data sources, not independently cross-checked against a primary corporate filing, since Fire-Dex has none to check)",
+        "source_name": "Firefighter Nation (Western Reserve Partners press item); PitchBook; Preqin company profiles",
+        "source_url": "https://www.firefighternation.com/?p=38800"
+      }
     }
   }
 }
