@@ -133,6 +133,17 @@
   .cat-btn[aria-pressed="true"] { background: #000; color: #fff; }
 
   .map-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 24px 18px; margin-bottom: 24px; }
+  .maturity-bar { display: flex; height: 10px; border-radius: 999px; overflow: hidden; margin: 10px 0 12px; background: var(--chip-bg); }
+  .maturity-bar .seg { height: 100%; }
+  .maturity-legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink-muted); }
+  .maturity-legend .lg { display: flex; align-items: center; gap: 6px; }
+  .maturity-legend .sw { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .maturity-note { font-size: 12px; color: var(--ink-faint); margin-top: 12px; line-height: 1.6; }
+  .changelog-item { padding: 10px 0; border-top: 1px solid var(--chip-bg); font-size: 13.5px; }
+  .changelog-item:first-of-type { border-top: none; }
+  .changelog-item .cl-date { font-size: 11.5px; font-weight: 700; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.03em; }
+  .changelog-item .cl-label { font-weight: 600; margin: 3px 0 4px; }
+  .changelog-item .cl-detail { color: var(--ink-muted); line-height: 1.6; }
   .portfolio-input-row { display: flex; gap: 10px; flex-wrap: wrap; }
   .portfolio-input-row input {
     flex: 1; min-width: 220px; font-family: var(--font); font-size: 14px; padding: 11px 14px;
@@ -274,6 +285,7 @@
     <a href="#map-section" data-section="map-section">Expansion Map</a>
     <a href="#precedents" data-section="precedents">Precedents</a>
     <a href="#carveouts" data-section="carveouts">Carve-outs</a>
+    <a href="#expansion-signal" data-section="expansion-signal">Expansion Signal</a>
     <a href="#portfolio" data-section="portfolio">Your Exposure</a>
     <a href="#global" data-section="global">Global</a>
   </div>
@@ -300,6 +312,27 @@
     <div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div>
   </div>
   <div class="stats" id="stats" style="display:none;"></div>
+
+  <section id="data-maturity">
+    <div class="section-head">
+      <span class="section-eyebrow green">Data maturity</span>
+      <h2>How much of this is independently verified</h2>
+      <p class="section-sub">Computed live from every sourced claim on this page &mdash; not a marketing number.</p>
+    </div>
+    <div class="map-card">
+      <div class="maturity-bar" id="maturity-bar"></div>
+      <div class="maturity-legend" id="maturity-legend"></div>
+      <p class="maturity-note" id="maturity-note"></p>
+    </div>
+  </section>
+
+  <section id="changelog">
+    <div class="section-head">
+      <span class="section-eyebrow blue">Recently updated</span>
+      <h2>What changed</h2>
+    </div>
+    <div class="map-card" id="changelog-card"></div>
+  </section>
 
   <section id="map-section">
     <div class="section-head">
@@ -352,6 +385,19 @@
       <summary>7-state carve-out survey and what it implies</summary>
       <ul class="carveout-list" id="carveout-list"></ul>
       <div class="callout-card" style="margin-top:14px;" id="carveout-implication"></div>
+    </details>
+  </section>
+
+  <section id="expansion-signal">
+    <div class="section-head">
+      <span class="section-eyebrow amber">Forward-looking</span>
+      <h2>Expansion signal</h2>
+      <p class="section-sub" id="expansion-signal-sub"></p>
+    </div>
+    <div id="expansion-candidates"></div>
+    <details class="detail-block" id="expansion-excluded-block">
+      <summary>States checked and excluded from this signal, and why</summary>
+      <ul class="carveout-list" id="expansion-excluded-list"></ul>
     </details>
   </section>
 
@@ -452,6 +498,70 @@ function tierClass(tier) {
 
 let DATA, currentCategoryId, geo, svg, path;
 
+function classifyTier(tierStr) {
+  const word = String(tierStr).trim().split(/[\s(,]/)[0].toUpperCase();
+  if (word === "VERIFIED") return "verified";
+  if (word === "REPORTED") return "reported";
+  if (word === "NOT") return "notfound";
+  if (word === "CHECKED_NONE" || word === "CHECKED") return "notfound";
+  return "other";
+}
+
+function collectTiers(obj, out) {
+  if (obj == null) return out;
+  if (Array.isArray(obj)) { obj.forEach(v => collectTiers(v, out)); return out; }
+  if (typeof obj === "object") {
+    for (const [k, v] of Object.entries(obj)) {
+      if ((k === "evidence_tier" || k === "tier") && typeof v === "string") {
+        out.push(classifyTier(v));
+      } else {
+        collectTiers(v, out);
+      }
+    }
+  }
+  return out;
+}
+
+function renderMaturityMeter(data) {
+  const tiers = collectTiers(data, []);
+  const total = tiers.length;
+  if (total === 0) return;
+  const counts = { verified: 0, reported: 0, notfound: 0, other: 0 };
+  tiers.forEach(t => counts[t]++);
+  const pct = k => Math.round((counts[k] / total) * 1000) / 10;
+
+  const segs = [
+    { key: "verified", color: "var(--accent-green)", label: "VERIFIED" },
+    { key: "reported", color: "var(--accent-amber)", label: "REPORTED" },
+    { key: "notfound", color: "var(--ink-faint)", label: "NOT FOUND / checked-absent" },
+    { key: "other", color: "var(--chip-bg)", label: "Other / contextual" },
+  ].filter(s => counts[s.key] > 0);
+
+  document.getElementById("maturity-bar").innerHTML = segs.map(s =>
+    `<span class="seg" style="width:${pct(s.key)}%; background:${s.color};"></span>`
+  ).join("");
+  document.getElementById("maturity-legend").innerHTML = segs.map(s =>
+    `<span class="lg"><span class="sw" style="background:${s.color.startsWith('var(--chip') ? 'var(--ink-faint)' : s.color};"></span>${esc(s.label)}: ${pct(s.key)}% (${counts[s.key]})</span>`
+  ).join("");
+  document.getElementById("maturity-note").textContent =
+    `Computed by scanning every "evidence_tier" and "tier" field in this dataset (${total} sourced claims total) -- disease categories, international findings, precedents, and the expansion-signal model all count equally. This is a transparency metric, not a quality score: a high REPORTED share often just means a primary government site was unreachable, not that the finding is weak.`;
+}
+
+function renderChangelog(data) {
+  const card = document.getElementById("changelog-card");
+  if (!data.changelog || data.changelog.length === 0) {
+    card.innerHTML = `<p style="font-size:13.5px; color:var(--ink-muted); margin:0;">No changelog entries recorded yet.</p>`;
+    return;
+  }
+  card.innerHTML = data.changelog.map(c => `
+    <div class="changelog-item">
+      <div class="cl-date">${esc(fmtDate(c.date))}</div>
+      <div class="cl-label">${esc(c.label)}</div>
+      <div class="cl-detail">${esc(c.detail)}</div>
+    </div>
+  `).join("");
+}
+
 async function main() {
   const res = await fetch("data.json");
   DATA = await res.json();
@@ -471,6 +581,9 @@ async function main() {
   ).join("");
   document.getElementById("stats-skel").style.display = "none";
   document.getElementById("stats").style.display = "";
+
+  renderMaturityMeter(DATA);
+  renderChangelog(DATA);
 
   document.getElementById("cat-tabs").innerHTML = DATA.disease_categories.map((c, i) =>
     `<button class="cat-btn" data-cat="${c.id}" aria-pressed="${i === 0}">${esc(c.label)}</button>`
@@ -509,6 +622,7 @@ async function main() {
 
   renderPrecedents();
   renderCarveouts();
+  renderExpansionSignal();
   renderClaimsTrend();
   renderRecentActivity();
   await renderGlobal(DATA.international);
@@ -520,7 +634,9 @@ async function main() {
 
 const PRESUMPTION_COUNTRY_ISO = {
   "Australia": "036", "Canada": "124", "New Zealand": "554",
-  "United Kingdom": "826", "Germany": "276", "Denmark": "208",
+  "United Kingdom": "826", "Germany": "276", "Denmark": "208", "France": "250",
+  "South Korea": "410", "Japan": "392", "Norway": "578", "Sweden": "752", "Finland": "246",
+  "Italy": "380", "Poland": "616", "Austria": "040", "Switzerland": "756",
 };
 
 function renderCountryGlobalDetail(countryName, profile) {
@@ -640,11 +756,17 @@ function selectCategory(catId) {
       renderStateDetail(code, cat, s2016, s2023);
     });
 
+  const flagged = cat.flagged_discrepancy || cat.flagged_mechanism_note;
   document.getElementById("category-caveat").innerHTML = `
     <div class="callout-card">
       <p><strong>What explains this pattern:</strong> ${esc(cat.caveat)}</p>
       <div class="src">Source: ${esc(cat.source_name)} &middot; <a href="${cat.source_url}" target="_blank" rel="noopener">source</a></div>
     </div>
+    ${flagged ? `
+    <div class="callout-card" style="margin-top:14px;">
+      <p><strong>${esc(flagged.label)}:</strong> ${esc(flagged.detail)}</p>
+      <div class="src">${esc(flagged.source_name)} &middot; <a href="${flagged.source_url}" target="_blank" rel="noopener">source</a> &middot; ${esc(flagged.tier)}</div>
+    </div>` : ""}
   `;
 
   document.getElementById("state-detail").innerHTML =
@@ -693,6 +815,31 @@ function renderPrecedents() {
       </div>
     `;
   }).join("");
+}
+
+function renderExpansionSignal() {
+  const m = DATA.expansion_prediction_model;
+  if (!m) return;
+  document.getElementById("expansion-signal-sub").textContent = m.methodology;
+
+  const section = (title, candidates) => candidates.map(c => {
+    const t = tierClass(c.tier);
+    return `
+      <div class="precedent-card">
+        <h4>${esc(c.state)} <span style="color:var(--ink-faint); font-weight:500; font-size:13px;">&middot; ${esc(title)}</span></h4>
+        <div class="pc-row">${esc(c.signal)}</div>
+        ${c.detail ? `<div class="pc-row">${esc(c.detail)}</div>` : ""}
+        <span class="tier-tag" style="background:${t.bg}; color:${t.fg}">${esc(c.tier.split(" ")[0])}</span>
+        <div class="src">${esc(c.source_name)}${c.source_url ? ` &middot; <a href="${c.source_url}" target="_blank" rel="noopener">source</a>` : ""}</div>
+      </div>
+    `;
+  }).join("");
+
+  document.getElementById("expansion-candidates").innerHTML =
+    section("cancer candidate", m.cancer_candidates) + section("PTSD candidate", m.ptsd_candidates);
+
+  document.getElementById("expansion-excluded-list").innerHTML =
+    m.excluded_from_ranking.map(line => `<li>${esc(line)}</li>`).join("");
 }
 
 function renderCarveouts() {
@@ -839,18 +986,48 @@ function setupPortfolioMatch(DATA) {
     });
 
     document.getElementById("portfolio-copy").addEventListener("click", () => {
-      const lines = [`Presumption Expansion Tracker portfolio exposure check -- ${codes.length} state(s): ${codes.join(", ")}`, ""];
+      const checkedDate = new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+      let totalGained = 0, totalLost = 0, totalHas = 0;
+      const lines = [
+        "PRECEDENT -- EVIDENCE-BACKED EXPOSURE REPORT",
+        "Presumption Expansion Tracker",
+        `Checked: ${checkedDate}`,
+        "",
+        "EXECUTIVE SUMMARY",
+        `${codes.length} state(s) reviewed: ${codes.join(", ")}.`,
+      ];
+
+      const stateLines = [];
       codes.forEach(code => {
         const name = STATE_NAMES[code] || code;
+        stateLines.push(`\n${name}:`);
         const parts = DATA.disease_categories.map(cat => {
           const status = catStatus(cat, code);
           if (status === "never") return null;
-          const label = status === "has" ? "has it" : status === "gained" ? "gained since 2016" : "lost since 2016";
-          return `${cat.label} (${label})`;
+          if (status === "has") totalHas++;
+          if (status === "gained") totalGained++;
+          if (status === "lost") totalLost++;
+          const label = status === "has" ? "has it" : status === "gained" ? "gained since 2016 (expansion exposure)" : "lost since 2016 (reversion risk)";
+          return `  - ${cat.label}: ${label}. Evidence tier: ${cat.evidence_tier}. Source: ${cat.source_name}.`;
         }).filter(Boolean);
-        lines.push(`${name}: ${parts.length ? parts.join("; ") : "no active, gained, or lost category"}.`);
+        if (parts.length === 0) stateLines.push("  No presumption category tracked as active, gained, or lost for this state.");
+        else stateLines.push(...parts);
       });
-      lines.push("", `Source: Presumption Expansion Tracker, checked ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}.`);
+
+      lines.push(`${totalHas} active category matches, ${totalGained} gained since 2016, ${totalLost} lost since 2016.`, "", "FINDINGS BY STATE", ...stateLines);
+
+      lines.push(
+        "",
+        "CONFIDENCE AND LIMITATIONS",
+        "This report covers only the four disease categories tracked here (cancer, lung/respiratory, heart/vascular, PTSD/mental), built from this project's own cross-tabulation of three NCCI documents -- not an NCCI-published trend line. Exact state-level composition for 2018 is reconstructed from a research summary, not independently re-extracted from the full PDF, and is flagged for recount rather than treated as final.",
+        "",
+        "SUGGESTED UNDERWRITING QUESTIONS",
+        "- For 'lost since 2016' categories: confirm whether this reflects a real legislative repeal or an NCCI counting-methodology change before treating it as a genuine rollback.",
+        "- For any state shown here: check this state's current statute text directly, since presumption laws expand (and occasionally narrow) faster than a periodic tracker can capture.",
+        "",
+        "Source: Precedent -- Presumption Expansion Tracker. Every figure sourced; evidence tiers shown inline."
+      );
+
       navigator.clipboard.writeText(lines.join("\n")).then(() => {
         document.getElementById("portfolio-copy-feedback").textContent = "Copied.";
         setTimeout(() => { const el = document.getElementById("portfolio-copy-feedback"); if (el) el.textContent = ""; }, 2500);
