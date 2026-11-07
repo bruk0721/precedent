@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precedent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  /* ---- Design plan ----
+     Same design system as the two scenario tools (reference: usenarrative.ai):
+     light neutral page, flat white rounded cards, no borders/shadows, pill badges,
+     one geometric sans, soft gradient hero. This is the platform home: it introduces
+     Precedent and links out to each scenario module. Module cards are the hero content
+     here, not a feature list -- this is a portfolio page, not a product pitch page.
+  */
+  :root {
+    --page-bg: #f8f8f8;
+    --card-bg: #ffffff;
+    --ink: #101114;
+    --ink-muted: #6b6f76;
+    --ink-faint: #9a9ea5;
+    --chip-bg: #f0f0ee;
+    --accent-blue: #3b6ef6;
+    --accent-blue-bg: #e9eefe;
+    --accent-green: #1ea672;
+    --accent-green-bg: #e3f6ee;
+    --accent-amber: #de7a3c;
+    --accent-amber-bg: #fbe9db;
+    --accent-purple: #9b7fd4;
+    --accent-purple-bg: #ede8fa;
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --radius-card: 20px;
+    --radius-pill: 999px;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--page-bg);
+    color: var(--ink);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px 100px; }
+
+  nav.top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 24px; max-width: 880px; margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
+
+  .hero { position: relative; padding: 50px 24px 60px; text-align: center; overflow: hidden; }
+  .hero-mesh {
+    position: absolute; inset: -40px -40px auto -40px; height: 420px; z-index: -1;
+    background:
+      radial-gradient(ellipse 420px 280px at 20% 20%, rgba(216,196,255,0.5), transparent 60%),
+      radial-gradient(ellipse 420px 280px at 80% 15%, rgba(166,220,200,0.5), transparent 60%),
+      radial-gradient(ellipse 500px 320px at 50% 55%, rgba(255,206,166,0.4), transparent 65%);
+    filter: blur(10px);
+  }
+  .eyebrow-pill {
+    display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted);
+    font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 22px;
+  }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-purple); }
+  h1 {
+    font-weight: 500; font-size: clamp(32px, 7vw, 54px); line-height: 1.1; margin: 0 auto 18px;
+    letter-spacing: -0.02em; text-wrap: balance; max-width: 14ch;
+  }
+  .hero p.dek { font-size: 17px; line-height: 1.6; color: var(--ink-muted); max-width: 54ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+  .powered-by {
+    margin-top: 26px; font-size: 12.5px; color: var(--ink-faint);
+  }
+  .powered-by strong { color: var(--ink-muted); font-weight: 600; }
+
+  section { padding: 20px 0 0; }
+  .section-head { margin-bottom: 22px; text-align: center; }
+  h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .section-sub { font-size: 14.5px; line-height: 1.6; color: var(--ink-muted); max-width: 56ch; margin: 0 auto; }
+
+  .modules { display: flex; flex-direction: column; gap: 14px; margin-top: 30px; }
+  .module-card {
+    background: var(--card-bg); border-radius: var(--radius-card); padding: 30px 32px;
+    display: block; transition: transform 0.2s, background 0.2s;
+  }
+  .module-card:hover { transform: translateY(-2px); background: #fcfcfb; }
+  .module-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+  .module-tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 4px 11px; border-radius: var(--radius-pill);
+  }
+  .module-card h3 { font-size: 20px; font-weight: 600; margin: 0 0 10px; }
+  .module-card p { font-size: 14.5px; line-height: 1.65; color: var(--ink-muted); margin: 0 0 16px; }
+  .module-stats { display: flex; gap: 24px; flex-wrap: wrap; }
+  .module-stats .ms { display: flex; flex-direction: column; }
+  .module-stats .ms .n { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+  .module-stats .ms .l { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
+  .module-open {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600;
+    margin-top: 20px; color: var(--accent-blue);
+  }
+  .module-open svg { transition: transform 0.15s; }
+  .module-card:hover .module-open svg { transform: translateX(3px); }
+
+  footer {
+    margin-top: 60px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint);
+    line-height: 1.6; text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="brand"><span class="dot"></span> Precedent</div>
+</nav>
+
+<div class="hero">
+  <div class="hero-mesh"></div>
+  <span class="eyebrow-pill"><span class="dot"></span>A scenario-modeling platform</span>
+  <h1>Precedent</h1>
+  <p class="dek">Surfacing slow-building liability risk <strong>before it becomes a claim</strong> &mdash; built from directly-downloaded primary sources, not estimates. Each module below tracks a real, currently-unfolding risk thread end to end.</p>
+  <div class="powered-by">Scored by the <strong>Sibyl</strong> prediction model</div>
+</div>
+
+<div class="wrap">
+  <section>
+    <div class="section-head">
+      <h2>Scenario modules</h2>
+      <p class="section-sub">Click into any module for the full litigation tracker, the real prediction model behind it, and exactly what it does and doesn't claim to know.</p>
+    </div>
+
+    <div class="modules">
+      <a class="module-card" href="./pfas/">
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-blue-bg); color:var(--accent-blue)">Products liability</span>
+        </div>
+        <h3>PFAS &amp; Turnout-Gear Litigation Tracker</h3>
+        <p>Every confirmed lawsuit where a municipality or firefighter has sued a gear or foam manufacturer over PFAS exposure &mdash; plus a real prediction of which US state is next, and an interactive world map now spanning North America, Western Europe, the Middle East, Asia, South America, and Africa.</p>
+        <div class="module-stats">
+          <div class="ms"><div class="n">10</div><div class="l">US actions tracked</div></div>
+          <div class="ms"><div class="n">18</div><div class="l">countries covered</div></div>
+          <div class="ms"><div class="n">10/10</div><div class="l">US actions VERIFIED</div></div>
+        </div>
+        <div class="module-open">Open module
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a class="module-card" href="./presumption/">
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-purple-bg); color:var(--accent-purple)">Workers' comp</span>
+        </div>
+        <h3>Presumption Expansion Tracker</h3>
+        <p>How firefighter cancer, heart, lung, and PTSD presumption laws actually changed across US states from 2016 to 2023 &mdash; a real three-point comparison, not a two-point guess &mdash; now with an interactive world map covering Canada, Australia, the UK, Germany, Denmark, and New Zealand, plus the documented precedent base for expansion into the private sector.</p>
+        <div class="module-stats">
+          <div class="ms"><div class="n">20</div><div class="l">states, cancer presumption</div></div>
+          <div class="ms"><div class="n">6</div><div class="l">states, PTSD, up from 0</div></div>
+          <div class="ms"><div class="n">6</div><div class="l">countries covered globally</div></div>
+        </div>
+        <div class="module-open">Open module
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    Every number on every module is sourced. Evidence tiers are shown inline: VERIFIED = source directly opened and read, REPORTED = secondary coverage only. More scenario modules in progress.
+  </footer>
+</div>
+
+</body>
+</html>
