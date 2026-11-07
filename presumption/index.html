@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presumption Expansion Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<style>
+  /* ---- Design plan ----
+     Same design system as the PFAS Litigation Tracker (reference: usenarrative.ai):
+     light neutral page, flat white rounded cards, no borders/shadows, pill badges,
+     one geometric sans, soft gradient hero. Subject here: workers'-comp presumption-
+     law expansion for firefighters (cancer/heart/lung/PTSD), 2016-2023, and the
+     precedent base for expansion into the private sector -- built in direct response
+     to Robert Reville's "wide open" framing of workers' comp latent-risk modeling.
+  */
+  :root {
+    --page-bg: #f8f8f8;
+    --card-bg: #ffffff;
+    --ink: #101114;
+    --ink-muted: #6b6f76;
+    --ink-faint: #9a9ea5;
+    --chip-bg: #f0f0ee;
+    --accent-blue: #3b6ef6;
+    --accent-blue-bg: #e9eefe;
+    --accent-green: #1ea672;
+    --accent-green-bg: #e3f6ee;
+    --accent-amber: #de7a3c;
+    --accent-amber-bg: #fbe9db;
+    --accent-red: #d6554a;
+    --accent-red-bg: #fbe6e3;
+    --accent-purple: #9b7fd4;
+    --accent-purple-bg: #ede8fa;
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --radius-card: 20px;
+    --radius-pill: 999px;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--page-bg);
+    color: var(--ink);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+  }
+  section[id] { scroll-margin-top: 76px; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px 100px; }
+
+  .nav-outer {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(248, 248, 248, 0.78);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(16, 17, 20, 0.06);
+  }
+  nav.top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 24px; max-width: 880px; margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; }
+  .brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-blue); }
+  .nav-links { display: flex; gap: 28px; font-size: 14px; color: var(--ink-muted); }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); font-weight: 600; }
+  .nav-cta { background: #000; color: #fff; font-size: 13px; font-weight: 500; padding: 9px 18px; border-radius: var(--radius-pill); }
+  @media (max-width: 640px) { .nav-links { display: none; } }
+
+  .hero { position: relative; padding: 70px 24px 50px; text-align: center; overflow: hidden; }
+  .hero-mesh {
+    position: absolute; inset: -40px -40px auto -40px; height: 420px; z-index: -1;
+    background:
+      radial-gradient(ellipse 420px 280px at 20% 20%, rgba(166,220,200,0.5), transparent 60%),
+      radial-gradient(ellipse 420px 280px at 80% 15%, rgba(216,196,255,0.5), transparent 60%),
+      radial-gradient(ellipse 500px 320px at 50% 55%, rgba(255,206,166,0.4), transparent 65%);
+    filter: blur(10px);
+  }
+  .eyebrow-pill {
+    display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted);
+    font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 22px;
+  }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-green); }
+  h1 {
+    font-weight: 500; font-size: clamp(28px, 6vw, 46px); line-height: 1.15; margin: 0 auto 18px;
+    letter-spacing: -0.02em; text-wrap: balance; max-width: 18ch;
+  }
+  .hero p.dek { font-size: 16.5px; line-height: 1.6; color: var(--ink-muted); max-width: 58ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 36px 0 0; }
+  .stat { background: var(--card-bg); border-radius: 16px; padding: 20px 16px; text-align: left; transition: transform 0.2s; }
+  .stat:hover { transform: translateY(-2px); }
+  .stat .n { font-size: 26px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1; margin-bottom: 8px; letter-spacing: -0.01em; }
+  .stat .n.accent { color: var(--accent-blue); }
+  .stat .l { font-size: 12px; color: var(--ink-muted); line-height: 1.4; }
+  @media (max-width: 640px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+  section { padding: 56px 0 0; }
+  .section-head { margin-bottom: 20px; }
+  .section-eyebrow {
+    display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: var(--radius-pill); margin-bottom: 12px;
+  }
+  .section-eyebrow.blue { background: var(--accent-blue-bg); color: var(--accent-blue); }
+  .section-eyebrow.green { background: var(--accent-green-bg); color: var(--accent-green); }
+  .section-eyebrow.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
+  .section-eyebrow.purple { background: var(--accent-purple-bg); color: var(--accent-purple); }
+  h2 { font-weight: 500; font-size: 26px; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .section-sub { font-size: 15px; line-height: 1.6; color: var(--ink-muted); max-width: 62ch; margin: 0; }
+
+  .cat-tabs { display: flex; gap: 8px; margin: 20px 0 18px; flex-wrap: wrap; }
+  .cat-btn {
+    font-size: 13px; font-weight: 500; padding: 8px 16px; border-radius: var(--radius-pill);
+    background: var(--chip-bg); color: var(--ink-muted); cursor: pointer; border: none; font-family: var(--font);
+    transition: background 0.15s, color 0.15s;
+  }
+  .cat-btn:hover { color: var(--ink); }
+  .cat-btn[aria-pressed="true"] { background: #000; color: #fff; }
+
+  .map-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 24px 18px; margin-bottom: 24px; }
+  .map-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 14px; font-size: 13px; color: var(--ink-muted); }
+  .map-legend .key { display: inline-flex; align-items: center; gap: 7px; }
+  .map-legend .swatch { width: 11px; height: 11px; border-radius: 3px; display: inline-block; }
+  #presumption-map { width: 100%; height: auto; display: block; }
+  #presumption-map path { stroke: var(--card-bg); stroke-width: 1.2; transition: opacity 0.15s; cursor: pointer; }
+  #presumption-map path:hover { opacity: 0.75; }
+  #presumption-map path.selected { stroke: var(--ink); stroke-width: 2; }
+  .map-caption { font-size: 12.5px; color: var(--ink-faint); margin: 10px 0 0; }
+  #presumption-world-map { width: 100%; height: auto; display: block; }
+  #presumption-world-map path { stroke: var(--card-bg); stroke-width: 0.6; transition: opacity 0.15s; }
+  #presumption-world-map path.clickable { cursor: pointer; }
+  #presumption-world-map path.clickable:hover { opacity: 0.75; }
+  #presumption-world-map path.selected { stroke: var(--ink); stroke-width: 1.6; }
+
+  .country-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 26px; margin-bottom: 14px; }
+  .country-card .country-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
+  .country-card .country-head h4 { font-size: 18px; font-weight: 600; margin: 0; }
+  .intl-item { padding: 14px 0; border-top: 1px solid var(--chip-bg); }
+  .intl-item:first-child { border-top: none; padding-top: 0; }
+  .intl-item .intl-item-label { font-size: 14.5px; font-weight: 600; margin-bottom: 4px; }
+  .intl-item .intl-item-detail { font-size: 13.5px; color: var(--ink-muted); line-height: 1.65; }
+  .intl-item .intl-item-src { font-size: 12px; color: var(--ink-faint); margin-top: 6px; }
+
+  .callout-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 14px; }
+  .callout-card p { font-size: 14.5px; line-height: 1.7; color: var(--ink-muted); margin: 0 0 12px; }
+  .callout-card p:last-child { margin-bottom: 0; }
+  .callout-card p strong { color: var(--ink); font-weight: 600; }
+  .callout-card .src { font-size: 12.5px; color: var(--ink-faint); margin-top: 14px; }
+  .callout-card .src a { color: var(--accent-blue); font-weight: 500; }
+
+  .precedent-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 22px 24px; margin-bottom: 12px; }
+  .precedent-card h4 { font-size: 16px; font-weight: 600; margin: 0 0 8px; }
+  .precedent-card .pc-row { font-size: 13.5px; line-height: 1.65; color: var(--ink-muted); margin-bottom: 8px; }
+  .precedent-card .pc-row strong { color: var(--ink); font-weight: 600; }
+  .precedent-card .src { font-size: 12px; color: var(--ink-faint); margin-top: 10px; }
+  .precedent-card .src a { color: var(--accent-blue); font-weight: 500; }
+
+  .carveout-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .carveout-list li { font-size: 13.5px; color: var(--ink-muted); padding: 12px 16px; background: var(--card-bg); border-radius: 12px; line-height: 1.55; }
+  .carveout-list li strong { color: var(--ink); }
+
+  h3.subhead { font-size: 15px; font-weight: 600; margin: 28px 0 12px; }
+
+  .tier-tag {
+    display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.03em;
+    padding: 2px 8px; border-radius: var(--radius-pill); margin-bottom: 8px;
+  }
+
+  footer { margin-top: 60px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; }
+  footer .ok { color: var(--accent-green); font-weight: 600; }
+  footer .warn { color: var(--accent-amber); font-weight: 600; }
+
+  .skel { background: var(--card-bg); border-radius: 16px; position: relative; overflow: hidden; }
+  .skel::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.04), transparent);
+    animation: shimmer 1.4s infinite;
+  }
+  @keyframes shimmer { 0% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
+  .skel-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 36px 0 0; }
+  .skel-stats .skel { height: 86px; }
+  @media (max-width: 640px) { .skel-stats { grid-template-columns: repeat(2, 1fr); } }
+
+  .map-tooltip-panel { font-size: 14px; color: var(--ink-muted); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="nav-outer">
+<nav class="top">
+  <div class="brand"><span class="dot"></span> Presumption Tracker</div>
+  <div class="nav-links" id="nav-links">
+    <a href="#map-section" data-section="map-section">Expansion Map</a>
+    <a href="#precedents" data-section="precedents">Precedents</a>
+    <a href="#carveouts" data-section="carveouts">Carve-outs</a>
+    <a href="#global" data-section="global">Global</a>
+  </div>
+  <a class="nav-cta" href="#map-section">See the map</a>
+</nav>
+</div>
+
+<div class="hero">
+  <div class="hero-mesh"></div>
+  <span class="eyebrow-pill"><span class="dot"></span>Dataset reviewed <span id="asof-date">&mdash;</span></span>
+  <h1>Presumption Expansion Tracker</h1>
+  <p class="dek">How firefighter cancer, heart, lung, and PTSD workers'-comp presumption laws actually changed across US states from 2016 to 2023 &mdash; <strong>a real third data point, not a two-point guess</strong> &mdash; plus the precedent base for expansion into the private sector.</p>
+</div>
+
+<div class="wrap">
+
+  <div class="skel-stats" id="stats-skel">
+    <div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div>
+  </div>
+  <div class="stats" id="stats" style="display:none;"></div>
+
+  <section id="map-section">
+    <div class="section-head">
+      <span class="section-eyebrow blue">Expansion, 2016 to 2023</span>
+      <h2>Which states gained or lost a presumption</h2>
+      <p class="section-sub" id="map-sub"></p>
+    </div>
+    <div class="cat-tabs" id="cat-tabs"></div>
+    <div class="map-card">
+      <div class="map-legend">
+        <span class="key"><span class="swatch" style="background:var(--accent-blue)"></span>Has it, unchanged since 2016</span>
+        <span class="key"><span class="swatch" style="background:var(--accent-green)"></span>Gained since 2016</span>
+        <span class="key"><span class="swatch" style="background:var(--accent-red)"></span>Lost since 2016</span>
+        <span class="key"><span class="swatch" style="background:#eceeef"></span>Never had it</span>
+      </div>
+      <svg id="presumption-map" viewBox="0 0 975 610"></svg>
+      <p class="map-caption">Click a state for its 2016 / 2018 / 2023 status in this category.</p>
+    </div>
+    <div class="country-card" id="state-detail">
+      <p style="font-size:14px; color:var(--ink-muted); margin:0;">Click a state on the map above to see its detail here.</p>
+    </div>
+    <div id="category-caveat"></div>
+    <div id="claims-trend-callout"></div>
+    <div id="recent-activity-callout"></div>
+  </section>
+
+  <section id="precedents">
+    <div class="section-head">
+      <span class="section-eyebrow green">Private sector</span>
+      <h2>Real precedents for expansion beyond first responders</h2>
+      <p class="section-sub">Reville's question was whether presumptions could expand into the private sector. These are the actual documented precedents, not speculation &mdash; including what each one does and does not prove.</p>
+    </div>
+    <div id="precedent-cards"></div>
+  </section>
+
+  <section id="carveouts">
+    <div class="section-head">
+      <span class="section-eyebrow purple">A separate legal question</span>
+      <h2>Exclusive-remedy carve-outs</h2>
+      <p class="section-sub" id="carveout-sub"></p>
+    </div>
+    <ul class="carveout-list" id="carveout-list"></ul>
+    <div class="callout-card" style="margin-top:14px;" id="carveout-implication"></div>
+  </section>
+
+  <section id="global">
+    <div class="section-head">
+      <span class="section-eyebrow blue">International</span>
+      <h2>Beyond the US</h2>
+      <p class="section-sub" id="global-methodology"></p>
+    </div>
+    <div class="map-card">
+      <div class="map-legend">
+        <span class="key"><span class="swatch" style="background:var(--accent-blue)"></span>Enacted presumption law</span>
+        <span class="key"><span class="swatch" style="background:var(--accent-amber)"></span>Pending -- campaign or bill, not yet law</span>
+        <span class="key"><span class="swatch" style="background:#b7c4d6"></span>Actively checked, nothing found</span>
+        <span class="key"><span class="swatch" style="background:#eceeef"></span>Not researched</span>
+      </div>
+      <svg id="presumption-world-map" viewBox="0 0 960 500"></svg>
+      <p class="map-caption">Click a shaded country for what's actually confirmed there.</p>
+    </div>
+    <div class="country-card" id="global-detail">
+      <p style="font-size:14px; color:var(--ink-muted); margin:0;">Click a shaded country on the map above to see its sourced detail here.</p>
+    </div>
+    <div id="global-footnotes"></div>
+  </section>
+
+  <footer>
+    Evidence tiers: <span class="ok">VERIFIED</span> = source directly opened and read. <span class="warn">REPORTED</span> = secondary coverage only. Three-point comparisons are this project's own cross-tabulation of NCCI's own documents, not an NCCI-published trend line.
+  </footer>
+
+</div>
+
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+function fmtDate(iso) {
+  const d = new Date(iso + "T00:00:00");
+  return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+}
+
+const FIPS_TO_STATE = {
+  "01":"AL","02":"AK","04":"AZ","05":"AR","06":"CA","08":"CO","09":"CT","10":"DE","11":"DC",
+  "12":"FL","13":"GA","15":"HI","16":"ID","17":"IL","18":"IN","19":"IA","20":"KS","21":"KY",
+  "22":"LA","23":"ME","24":"MD","25":"MA","26":"MI","27":"MN","28":"MS","29":"MO","30":"MT",
+  "31":"NE","32":"NV","33":"NH","34":"NJ","35":"NM","36":"NY","37":"NC","38":"ND","39":"OH",
+  "40":"OK","41":"OR","42":"PA","44":"RI","45":"SC","46":"SD","47":"TN","48":"TX","49":"UT",
+  "50":"VT","51":"VA","53":"WA","54":"WV","55":"WI","56":"WY","72":"PR"
+};
+const STATE_NAMES = {
+  AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",
+  DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",
+  IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",
+  MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",
+  NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",
+  OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",
+  TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",
+  WI:"Wisconsin",WY:"Wyoming",PR:"Puerto Rico"
+};
+
+function tierClass(tier) {
+  const word = (tier || "").split(" ")[0];
+  if (word === "VERIFIED") return { bg: "var(--accent-green-bg)", fg: "var(--accent-green)" };
+  if (word === "NOT") return { bg: "var(--chip-bg)", fg: "var(--ink-muted)" };
+  return { bg: "var(--accent-amber-bg)", fg: "var(--accent-amber)" };
+}
+
+let DATA, currentCategoryId, geo, svg, path;
+
+async function main() {
+  const res = await fetch("data.json");
+  DATA = await res.json();
+
+  document.getElementById("asof-date").textContent = fmtDate(DATA.as_of);
+
+  const cancer = DATA.disease_categories.find(c => c.id === "cancer");
+  const ptsd = DATA.disease_categories.find(c => c.id === "ptsd_mental");
+  const stats = [
+    { n: cancer.count_2023, l: "States with a cancer presumption, 2023" },
+    { n: ptsd.count_2023, l: "States with a PTSD presumption, up from 0 in 2016" },
+    { n: DATA.precedents.length, l: "Documented private-sector expansion precedents" },
+    { n: DATA.exclusive_remedy_survey.states.length + " / 50", l: "States checked for a separate carve-out question", accent: true },
+  ];
+  document.getElementById("stats").innerHTML = stats.map(s =>
+    `<div class="stat"><div class="n${s.accent ? " accent" : ""}">${s.n}</div><div class="l">${s.l}</div></div>`
+  ).join("");
+  document.getElementById("stats-skel").style.display = "none";
+  document.getElementById("stats").style.display = "";
+
+  document.getElementById("cat-tabs").innerHTML = DATA.disease_categories.map((c, i) =>
+    `<button class="cat-btn" data-cat="${c.id}" aria-pressed="${i === 0}">${esc(c.label)}</button>`
+  ).join("");
+  document.getElementById("cat-tabs").addEventListener("click", (e) => {
+    const btn = e.target.closest(".cat-btn");
+    if (!btn) return;
+    document.querySelectorAll(".cat-btn").forEach(b => b.setAttribute("aria-pressed", "false"));
+    btn.setAttribute("aria-pressed", "true");
+    selectCategory(btn.dataset.cat);
+  });
+
+  const topoRes = await fetch("us-states-10m.json");
+  const topology = await topoRes.json();
+  geo = topojson.feature(topology, topology.objects.states);
+  svg = d3.select("#presumption-map");
+  const width = 975, height = 610;
+  const projection = d3.geoAlbersUsa().fitSize([width, height], geo);
+  path = d3.geoPath(projection);
+
+  selectCategory(DATA.disease_categories[0].id);
+
+  renderPrecedents();
+  renderCarveouts();
+  renderClaimsTrend();
+  renderRecentActivity();
+  await renderGlobal(DATA.international);
+  setupScrollSpy();
+}
+
+const PRESUMPTION_COUNTRY_ISO = {
+  "Australia": "036", "Canada": "124", "New Zealand": "554",
+  "United Kingdom": "826", "Germany": "276", "Denmark": "208",
+};
+
+function renderCountryGlobalDetail(countryName, profile) {
+  const panel = document.getElementById("global-detail");
+  if (!profile) {
+    panel.innerHTML = `<p style="font-size:14px; color:var(--ink-muted); margin:0;">No data researched yet for <strong>${esc(countryName)}</strong>.</p>`;
+    return;
+  }
+  panel.innerHTML = `
+    <div class="country-head"><h4>${esc(countryName)}</h4></div>
+    ${profile.entries.map(item => {
+      const t = tierClass(item.tier);
+      return `
+        <div class="intl-item">
+          <div class="intl-item-label">${esc(item.label)}</div>
+          <div class="intl-item-detail">${esc(item.detail)}</div>
+          <div class="intl-item-src"><span style="color:${t.fg}">${esc((item.tier || "").split(" ")[0])}</span>${item.source_name ? ` &middot; ${esc(item.source_name)}` : ""}${item.source_url ? ` &middot; <a href="${item.source_url}" target="_blank" rel="noopener">source</a>` : ""}</div>
+        </div>
+      `;
+    }).join("")}
+  `;
+}
+
+async function renderGlobal(intl) {
+  document.getElementById("global-methodology").textContent = intl.methodology_note;
+
+  document.getElementById("global-footnotes").innerHTML = intl.not_included ? `
+    <h3 class="subhead">Researched, deliberately not mapped</h3>
+    <ul class="not-used">
+      ${intl.not_included.map(item => `<li style="font-size:14px; line-height:1.65; color:var(--ink-muted); padding:16px 18px; background:var(--card-bg); border-radius:14px; margin-bottom:10px;">${esc(item)}</li>`).join("")}
+    </ul>
+  ` : "";
+
+  const topoRes = await fetch("world-50m.json");
+  const topology = await topoRes.json();
+  const worldGeo = topojson.feature(topology, topology.objects.countries);
+
+  const ISO_TO_NAME = Object.fromEntries(Object.entries(PRESUMPTION_COUNTRY_ISO).map(([name, id]) => [id, name]));
+
+  const categoryColor = {
+    enacted: "var(--accent-blue)",
+    pending: "var(--accent-amber)",
+    checked_none: "#b7c4d6",
+  };
+
+  const worldSvg = d3.select("#presumption-world-map");
+  const width = 960, height = 500;
+  const projection = d3.geoNaturalEarth1().fitSize([width, height], worldGeo);
+  const worldPath = d3.geoPath(projection);
+
+  worldSvg.selectAll("path")
+    .data(worldGeo.features)
+    .join("path")
+    .attr("d", worldPath)
+    .attr("class", d => ISO_TO_NAME[d.id] ? "clickable" : "")
+    .attr("fill", d => {
+      const name = ISO_TO_NAME[d.id];
+      if (!name) return "#eceeef";
+      const profile = intl.countries[name];
+      return profile ? categoryColor[profile.category] : "#eceeef";
+    })
+    .on("click", (event, d) => {
+      const name = ISO_TO_NAME[d.id];
+      if (!name) return;
+      worldSvg.selectAll("path").classed("selected", false);
+      d3.select(event.currentTarget).classed("selected", true);
+      renderCountryGlobalDetail(name, intl.countries[name]);
+      document.getElementById("global-detail").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+}
+
+function selectCategory(catId) {
+  currentCategoryId = catId;
+  const cat = DATA.disease_categories.find(c => c.id === catId);
+
+  document.getElementById("map-sub").textContent =
+    `${cat.label}: ${cat.count_2016} states in 2016, ${cat.count_2018 ?? "n/a"} in 2018, ${cat.count_2023} in 2023.`;
+
+  const s2016 = new Set((cat.states_2016 || []).filter(s => s.length === 2));
+  const s2023 = new Set((cat.states_2023 || []).filter(s => s.length === 2));
+
+  svg.selectAll("path")
+    .data(geo.features)
+    .join("path")
+    .attr("d", path)
+    .attr("class", "clickable")
+    .attr("fill", d => {
+      const code = FIPS_TO_STATE[d.id];
+      const had2016 = s2016.has(code), has2023 = s2023.has(code);
+      if (has2023 && had2016) return "var(--accent-blue)";
+      if (has2023 && !had2016) return "var(--accent-green)";
+      if (!has2023 && had2016) return "var(--accent-red)";
+      return "#eceeef";
+    })
+    .on("click", (event, d) => {
+      const code = FIPS_TO_STATE[d.id];
+      if (!code) return;
+      svg.selectAll("path").classed("selected", false);
+      d3.select(event.currentTarget).classed("selected", true);
+      renderStateDetail(code, cat, s2016, s2023);
+    });
+
+  document.getElementById("category-caveat").innerHTML = `
+    <div class="callout-card">
+      <p><strong>What explains this pattern:</strong> ${esc(cat.caveat)}</p>
+      <div class="src">Source: ${esc(cat.source_name)} &middot; <a href="${cat.source_url}" target="_blank" rel="noopener">source</a></div>
+    </div>
+  `;
+
+  document.getElementById("state-detail").innerHTML =
+    `<p style="font-size:14px; color:var(--ink-muted); margin:0;">Click a state on the map above to see its ${esc(cat.label)} status here.</p>`;
+}
+
+function renderStateDetail(code, cat, s2016, s2023) {
+  const name = STATE_NAMES[code] || code;
+  const had2016 = s2016.has(code);
+  const has2023 = s2023.has(code);
+  let story;
+  if (has2023 && had2016) story = "Has had this presumption continuously since at least 2016.";
+  else if (has2023 && !had2016) story = "Gained this presumption since 2016 -- a real addition, not a continuation.";
+  else if (!has2023 && had2016) story = "Had this presumption in 2016 but no longer appears in NCCI's 2023 count -- see the category caveat below for why this may be a real repeal or a counting-methodology artifact.";
+  else story = "No record of this presumption in NCCI's 2016 or 2023 counts.";
+
+  document.getElementById("state-detail").innerHTML = `
+    <div class="country-head"><h4>${esc(name)} &mdash; ${esc(cat.label)}</h4></div>
+    <div class="intl-item">
+      <div class="intl-item-detail">${esc(story)}</div>
+    </div>
+  `;
+}
+
+function renderPrecedents() {
+  document.getElementById("precedent-cards").innerHTML = DATA.precedents.map(p => {
+    const t = tierClass(p.evidence_tier);
+    return `
+      <div class="precedent-card">
+        <h4>${esc(p.label)}</h4>
+        <div class="pc-row"><strong>Scope:</strong> ${esc(p.scope)}</div>
+        <div class="pc-row"><strong>Durability:</strong> ${esc(p.durability)}</div>
+        <div class="pc-row"><strong>What it proves:</strong> ${esc(p.what_it_proves)}</div>
+        <div class="pc-row"><strong>What it does NOT prove:</strong> ${esc(p.what_it_does_not_prove)}</div>
+        <span class="tier-tag" style="background:${t.bg}; color:${t.fg}">${esc(p.evidence_tier.split(" ")[0])}</span>
+        <div class="src">${esc(p.source_name)}${p.source_url ? ` &middot; <a href="${p.source_url}" target="_blank" rel="noopener">source</a>` : ""}</div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderCarveouts() {
+  const survey = DATA.exclusive_remedy_survey;
+  document.getElementById("carveout-sub").textContent = survey.no_comprehensive_survey_found;
+  document.getElementById("carveout-list").innerHTML = survey.states.map(s =>
+    `<li><strong>${esc(s.state)}:</strong> ${esc(s.status)}</li>`
+  ).join("");
+  document.getElementById("carveout-implication").innerHTML = `<p>${esc(survey.implication)}</p>`;
+}
+
+function renderClaimsTrend() {
+  const ct = DATA.claims_trend;
+  document.getElementById("claims-trend-callout").innerHTML = `
+    <div class="callout-card" style="margin-top:14px;">
+      <span class="tier-tag" style="background:var(--accent-green-bg); color:var(--accent-green)">${esc(ct.evidence_tier.split(" ")[0])}</span>
+      <p><strong>${esc(ct.label)}:</strong> ${esc(ct.value_2018)} vs. ${esc(ct.value_2023)}.</p>
+      <p>${esc(ct.implication)}</p>
+      <div class="src">${esc(ct.source_name)} &middot; <a href="${ct.source_url}" target="_blank" rel="noopener">source</a></div>
+    </div>
+  `;
+}
+
+function renderRecentActivity() {
+  const ra = DATA.recent_activity_2025;
+  document.getElementById("recent-activity-callout").innerHTML = `
+    <div class="callout-card" style="margin-top:14px;">
+      <span class="tier-tag" style="background:var(--accent-amber-bg); color:var(--accent-amber)">${esc(ra.evidence_tier.split(" ")[0])}</span>
+      <p><strong>${esc(ra.label)}:</strong> ${esc(ra.detail)}</p>
+      <p>${esc(ra.caveat)}</p>
+    </div>
+  `;
+}
+
+function setupScrollSpy() {
+  const links = [...document.querySelectorAll("#nav-links a")];
+  const sections = links.map(l => document.getElementById(l.dataset.section)).filter(Boolean);
+  function onScroll() {
+    let current = sections[0];
+    const y = window.scrollY + 120;
+    sections.forEach(s => { if (s.offsetTop <= y) current = s; });
+    links.forEach(l => l.classList.toggle("active", l.dataset.section === current.id));
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
+main();
+</script>
+</body>
+</html>
