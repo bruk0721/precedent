@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PFAS Litigation Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
+<style>
+  /* ---- Design plan ----
+     Reference: usenarrative.ai -- light neutral grey page (#F8F8F8), flat white
+     rounded-2xl cards with NO border/shadow, fully-rounded pill badges in flat
+     accent colors, one geometric sans throughout, soft multi-color gradient mesh
+     behind the hero only, generous whitespace, plenty of air between sections.
+     This is a full style replacement of an earlier darker "legal docket" pass --
+     content and data are unchanged, only the visual language.
+  */
+  :root {
+    --page-bg: #f8f8f8;
+    --card-bg: #ffffff;
+    --ink: #101114;
+    --ink-muted: #6b6f76;
+    --ink-faint: #9a9ea5;
+    --chip-bg: #f0f0ee;
+    --accent-blue: #3b6ef6;
+    --accent-blue-bg: #e9eefe;
+    --accent-green: #1ea672;
+    --accent-green-bg: #e3f6ee;
+    --accent-amber: #de7a3c;
+    --accent-amber-bg: #fbe9db;
+    --accent-red: #d6554a;
+    --accent-red-bg: #fbe6e3;
+    --accent-purple: #9b7fd4;
+    --accent-purple-bg: #ede8fa;
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --radius-card: 20px;
+    --radius-pill: 999px;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--page-bg);
+    color: var(--ink);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+  }
+  section[id] { scroll-margin-top: 76px; }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+  }
+
+  /* ---- Nav ---- */
+  .nav-outer {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(248, 248, 248, 0.78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(16, 17, 20, 0.06);
+  }
+  nav.top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .brand .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent-blue);
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    color: var(--ink-muted);
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.active { color: var(--ink); font-weight: 600; }
+  .nav-cta {
+    background: #000;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 18px;
+    border-radius: var(--radius-pill);
+  }
+  @media (max-width: 640px) { .nav-links { display: none; } }
+
+  /* ---- Hero ---- */
+  .hero {
+    position: relative;
+    padding: 70px 24px 50px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero-mesh {
+    position: absolute;
+    inset: -40px -40px auto -40px;
+    height: 420px;
+    z-index: -1;
+    background:
+      radial-gradient(ellipse 420px 280px at 20% 20%, rgba(216,196,255,0.55), transparent 60%),
+      radial-gradient(ellipse 420px 280px at 80% 15%, rgba(255,206,166,0.5), transparent 60%),
+      radial-gradient(ellipse 500px 320px at 50% 55%, rgba(166,220,200,0.45), transparent 65%);
+    filter: blur(10px);
+  }
+  .eyebrow-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--chip-bg);
+    color: var(--ink-muted);
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 6px 14px 6px 10px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 22px;
+  }
+  .eyebrow-pill .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent-green);
+  }
+  h1 {
+    font-weight: 500;
+    font-size: clamp(28px, 6vw, 46px);
+    line-height: 1.15;
+    margin: 0 auto 18px;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    max-width: 16ch;
+  }
+  .hero p.dek {
+    font-size: 16.5px;
+    line-height: 1.6;
+    color: var(--ink-muted);
+    max-width: 56ch;
+    margin: 0 auto;
+  }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+  .freshness-chip {
+    display: inline-block;
+    text-align: left;
+    white-space: normal;
+    margin-top: 22px;
+    background: var(--accent-green-bg);
+    color: var(--accent-green);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+    padding: 9px 18px 9px 14px;
+    border-radius: 18px;
+    max-width: min(420px, 90vw);
+  }
+  .freshness-chip svg { vertical-align: -2px; margin-right: 6px; }
+  .freshness-chip span.label { font-weight: 400; color: var(--ink-muted); }
+
+  /* ---- Stat tiles ---- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 36px 0 0;
+  }
+  .stat {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 20px 16px;
+    text-align: left;
+  }
+  .stat .n {
+    font-size: 28px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .stat .n.accent { color: var(--accent-blue); }
+  .stat .l {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    line-height: 1.4;
+  }
+  @media (max-width: 640px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---- Sections ---- */
+  section { padding: 56px 0 0; }
+  .section-head {
+    margin-bottom: 20px;
+  }
+  .section-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 12px;
+  }
+  .section-eyebrow.blue { background: var(--accent-blue-bg); color: var(--accent-blue); }
+  .section-eyebrow.green { background: var(--accent-green-bg); color: var(--accent-green); }
+  .section-eyebrow.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
+  h2 {
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .section-sub {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-muted);
+    max-width: 62ch;
+    margin: 0;
+  }
+
+  /* ---- Filter pills ---- */
+  .filters {
+    display: flex;
+    gap: 8px;
+    margin: 20px 0 18px;
+    flex-wrap: wrap;
+  }
+  .pill-btn {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    background: var(--chip-bg);
+    color: var(--ink-muted);
+    cursor: pointer;
+    border: none;
+    font-family: var(--font);
+    transition: background 0.15s, color 0.15s;
+  }
+  .pill-btn:hover { color: var(--ink); }
+  .pill-btn[aria-pressed="true"] {
+    background: #000;
+    color: #fff;
+  }
+
+  /* ---- Action cards ---- */
+  .action {
+    background: var(--card-bg);
+    border-radius: var(--radius-card);
+    padding: 24px 26px;
+    margin-bottom: 10px;
+    transition: background 0.2s;
+  }
+  .action:hover { background: #fcfcfb; }
+  .rank-row, .stat {
+    transition: transform 0.2s, background 0.2s;
+  }
+  .rank-row:hover { transform: translateX(2px); }
+  .stat:hover { transform: translateY(-2px); }
+  .action-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .action-title {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  .badge {
+    flex: none;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 5px 12px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+  }
+  .badge.ok { background: var(--accent-green-bg); color: var(--accent-green); }
+  .badge.warn { background: var(--accent-amber-bg); color: var(--accent-amber); }
+
+  .action-meta {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 10px 14px;
+    font-size: 14px;
+    margin: 16px 0;
+  }
+  .action-meta dt {
+    color: var(--ink-faint);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding-top: 3px;
+  }
+  .action-meta dd {
+    margin: 0;
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .state-chip {
+    display: inline-block;
+    font-size: 12.5px;
+    font-weight: 500;
+    background: var(--chip-bg);
+    border-radius: 8px;
+    padding: 3px 9px;
+    margin: 0 5px 5px 0;
+  }
+  .action-status {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-muted);
+    padding-top: 14px;
+    margin-top: 2px;
+    border-top: 1px solid var(--chip-bg);
+  }
+  .action-src {
+    margin-top: 12px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+  }
+  .action-src a { color: var(--accent-blue); font-weight: 500; }
+
+  /* ---- Feature-style callouts ---- */
+  .callout-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-card);
+    padding: 26px 28px;
+  }
+  .callout-card p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--ink-muted);
+    margin: 0 0 12px;
+  }
+  .callout-card p:last-child { margin-bottom: 0; }
+  .callout-card p strong { color: var(--ink); font-weight: 600; }
+  .callout-card .src {
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    margin-top: 14px;
+  }
+  .callout-card .src a { color: var(--accent-blue); font-weight: 500; }
+  .callout-card.emphasis {
+    background: #fdf8f1;
+    border: 1px solid #f2e3c9;
+  }
+  .callout-card .dev-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent-amber);
+    background: var(--accent-amber-bg);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 12px;
+  }
+
+  /* ---- Prediction ranking ---- */
+  .correction-box {
+    background: var(--chip-bg);
+    border-radius: 16px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-muted);
+  }
+  .correction-box .tag {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--card-bg);
+    padding: 4px 11px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 10px;
+  }
+
+  .rank-row {
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    margin-bottom: 8px;
+  }
+  .rank-row:first-child {
+    background: var(--accent-blue-bg);
+  }
+  .rank-num {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink-faint);
+  }
+  .rank-row:first-child .rank-num { color: var(--accent-blue); }
+  .rank-main .rank-state {
+    font-size: 15.5px;
+    font-weight: 600;
+  }
+  .rank-main .rank-detail {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-top: 4px;
+    line-height: 1.55;
+  }
+  .rank-main .rank-cross {
+    font-size: 12.5px;
+    color: var(--accent-blue);
+    margin-top: 6px;
+    line-height: 1.55;
+    font-weight: 500;
+  }
+  .rank-airports {
+    font-size: 13px;
+    color: var(--ink-muted);
+    text-align: right;
+    white-space: nowrap;
+  }
+  .rank-airports b { color: var(--ink); font-size: 17px; font-weight: 600; }
+  .rank-bar-track {
+    grid-column: 1 / -1;
+    height: 6px;
+    background: var(--chip-bg);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 2px;
+  }
+  .rank-row:first-child .rank-bar-track { background: rgba(59,110,246,0.15); }
+  .rank-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: var(--accent-blue);
+    width: 0;
+    transition: width 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .rank-row:first-child .rank-bar-fill { background: var(--accent-blue); }
+
+  .not-used {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .not-used li {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-muted);
+    padding: 16px 18px;
+    background: var(--card-bg);
+    border-radius: 14px;
+  }
+
+  .source-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .source-list li {
+    font-size: 13px;
+    color: var(--ink-muted);
+    padding: 14px 16px;
+    background: var(--card-bg);
+    border-radius: 14px;
+    line-height: 1.6;
+  }
+  .source-list .tier-pill {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    padding: 2px 9px;
+    border-radius: var(--radius-pill);
+    margin-right: 6px;
+  }
+
+  h3.subhead {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 28px 0 12px;
+  }
+
+  /* ---- International / country cards ---- */
+  .country-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-card);
+    padding: 24px 26px;
+    margin-bottom: 14px;
+  }
+  .country-card .country-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .country-card .country-head h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+  }
+  .intl-item {
+    padding: 14px 0;
+    border-top: 1px solid var(--chip-bg);
+  }
+  .intl-item:first-child { border-top: none; padding-top: 0; }
+  .intl-item .intl-item-label {
+    font-size: 14.5px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .intl-item .intl-item-detail {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    line-height: 1.65;
+  }
+  .intl-item .intl-item-src {
+    font-size: 12px;
+    color: var(--ink-faint);
+    margin-top: 6px;
+  }
+  .country-footnote {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--chip-bg);
+  }
+  .country-footnote strong { color: var(--ink); }
+  .europe-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 640px) { .europe-grid { grid-template-columns: 1fr; } }
+  .europe-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 18px 20px;
+  }
+  .europe-card h5 {
+    font-size: 13.5px;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  .europe-card p {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    margin: 0 0 8px;
+  }
+  .europe-card .tier-tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 8px;
+  }
+
+  /* ---- Map ---- */
+  .map-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-card);
+    padding: 24px 24px 18px;
+    margin-bottom: 24px;
+  }
+  .map-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  .map-legend .key {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .map-legend .swatch {
+    width: 11px; height: 11px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  #us-map {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  #us-map path {
+    stroke: var(--card-bg);
+    stroke-width: 1.2;
+    transition: opacity 0.15s;
+    cursor: pointer;
+  }
+  #us-map path:hover { opacity: 0.75; }
+  #world-map {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  #world-map path {
+    stroke: var(--card-bg);
+    stroke-width: 0.6;
+    transition: opacity 0.15s;
+  }
+  #world-map path.clickable {
+    cursor: pointer;
+  }
+  #world-map path.clickable:hover { opacity: 0.75; }
+  #world-map path.selected {
+    stroke: var(--ink);
+    stroke-width: 1.6;
+  }
+  .map-tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: var(--ink);
+    color: #fff;
+    font-size: 12.5px;
+    line-height: 1.5;
+    padding: 9px 13px;
+    border-radius: 10px;
+    max-width: 240px;
+    z-index: 50;
+    opacity: 0;
+    transition: opacity 0.1s;
+  }
+  .map-tooltip strong { display: block; font-size: 13.5px; margin-bottom: 2px; }
+
+  /* ---- Loading skeleton ---- */
+  .skel {
+    background: var(--card-bg);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .skel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(0,0,0,0.04), transparent);
+    animation: shimmer 1.4s infinite;
+  }
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  .skel-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 36px 0 0; }
+  .skel-stats .skel { height: 92px; }
+  .skel-actions .skel { height: 180px; margin-bottom: 10px; }
+  @media (max-width: 640px) { .skel-stats { grid-template-columns: repeat(2, 1fr); } }
+
+  footer {
+    margin-top: 60px;
+    padding: 24px 0 0;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    line-height: 1.6;
+  }
+  footer .ok { color: var(--accent-green); font-weight: 600; }
+  footer .warn { color: var(--accent-amber); font-weight: 600; }
+
+  @media (max-width: 640px) {
+    .action-meta { grid-template-columns: 80px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav-outer">
+<nav class="top">
+  <div class="brand"><span class="dot"></span> PFAS Tracker</div>
+  <div class="nav-links" id="nav-links">
+    <a href="#map-section" data-section="map-section">Map</a>
+    <a href="#actions" data-section="actions">Actions</a>
+    <a href="#mdl" data-section="mdl">MDL</a>
+    <a href="#prediction" data-section="prediction">Prediction</a>
+    <a href="#global" data-section="global">Global</a>
+  </div>
+  <a class="nav-cta" href="#prediction">See prediction</a>
+</nav>
+</div>
+
+<div class="hero">
+  <div class="hero-mesh"></div>
+  <span class="eyebrow-pill"><span class="dot"></span>Dataset reviewed <span id="asof-date">&mdash;</span></span>
+  <h1>PFAS &amp; Turnout-Gear Litigation Tracker</h1>
+  <p class="dek">Every confirmed lawsuit where a municipality or firefighter has sued a gear or foam manufacturer over PFAS exposure, plus a real prediction of who's plausibly next &mdash; <strong>built from directly-downloaded federal data</strong>, not a hand-wave.</p>
+  <div id="freshness-banner" style="display:none;"></div>
+</div>
+
+<div class="wrap">
+
+  <div class="skel-stats" id="stats-skel">
+    <div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div>
+  </div>
+  <div class="stats" id="stats" style="display:none;"></div>
+
+  <section id="map-section" style="display:none;">
+    <div class="section-head">
+      <span class="section-eyebrow blue">Geography</span>
+      <h2>Where this stands today</h2>
+      <p class="section-sub">Confirmed plaintiff states in blue, the top 10 predicted-next states in amber, everywhere else left blank &mdash; hover a state for detail.</p>
+    </div>
+    <div class="map-card">
+      <div class="map-legend">
+        <span class="key"><span class="swatch" style="background:var(--accent-blue)"></span>Confirmed plaintiff state</span>
+        <span class="key"><span class="swatch" style="background:var(--accent-amber)"></span>Top 10 predicted next</span>
+        <span class="key"><span class="swatch" style="background:#eceeef"></span>No current signal</span>
+      </div>
+      <svg id="us-map" viewBox="0 0 975 610"></svg>
+    </div>
+  </section>
+
+  <section id="actions">
+    <div class="section-head">
+      <span class="section-eyebrow blue">Litigation</span>
+      <h2>Confirmed actions</h2>
+      <p class="section-sub">Every lawsuit tracked here is sourced and evidence-tiered &mdash; no guessed plaintiffs, no assumed outcomes.</p>
+    </div>
+    <div class="filters" id="filters" style="display:none;">
+      <button class="pill-btn" data-filter="all" aria-pressed="true">All actions</button>
+      <button class="pill-btn" data-filter="VERIFIED">Verified only</button>
+      <button class="pill-btn" data-filter="REPORTED">Reported only</button>
+    </div>
+    <div class="skel-actions" id="actions-skel">
+      <div class="skel"></div><div class="skel"></div><div class="skel"></div>
+    </div>
+    <div id="actions-list"></div>
+  </section>
+
+  <section id="mdl">
+    <div class="section-head">
+      <span class="section-eyebrow green" id="mdl-eyebrow">Resolved</span>
+      <h2 id="mdl-heading">MDL consolidation</h2>
+    </div>
+    <div class="callout-card" id="mdl-callout"></div>
+    <div class="callout-card" id="settlement-callout" style="margin-top:12px; display:none;"></div>
+  </section>
+
+  <section id="prediction">
+    <div class="section-head">
+      <span class="section-eyebrow amber">Prediction</span>
+      <h2>Who's plausibly next</h2>
+      <p class="section-sub">Built from two directly-downloaded, verified federal datasets &mdash; FAA airport data and Census population &mdash; plus a compiled list of state PFAS/AFFF legislation. States already confirmed as plaintiffs are excluded.</p>
+    </div>
+
+    <div class="correction-box" id="correction-box"></div>
+
+    <div id="rankings"></div>
+
+    <h3 class="subhead">Data sources behind this ranking</h3>
+    <ul class="source-list" id="model-sources"></ul>
+
+    <h3 class="subhead">Deliberately not used, and why</h3>
+    <ul class="not-used" id="not-used"></ul>
+  </section>
+
+  <section id="global">
+    <div class="section-head">
+      <span class="section-eyebrow blue">International</span>
+      <h2>Beyond the US</h2>
+      <p class="section-sub" id="intl-methodology"></p>
+    </div>
+
+    <div class="map-card">
+      <div class="map-legend">
+        <span class="key"><span class="swatch" style="background:var(--accent-blue)"></span>Confirmed litigation</span>
+        <span class="key"><span class="swatch" style="background:#9b7fd4"></span>Real PFAS case, NOT foam-related</span>
+        <span class="key"><span class="swatch" style="background:var(--accent-amber)"></span>Regulation only / co-filer</span>
+        <span class="key"><span class="swatch" style="background:#2a9d8f"></span>Confirmed contamination, no litigation found</span>
+        <span class="key"><span class="swatch" style="background:#b7c4d6"></span>Actively checked, nothing found</span>
+        <span class="key"><span class="swatch" style="background:#eceeef"></span>Not researched</span>
+      </div>
+      <svg id="world-map" viewBox="0 0 960 500"></svg>
+      <p style="font-size:12.5px; color:var(--ink-faint); margin:10px 0 0;">Click a shaded country for what's actually confirmed there.</p>
+    </div>
+
+    <div class="country-card" id="global-detail">
+      <p style="font-size:14px; color:var(--ink-muted); margin:0;">Click a shaded country on the map above to see its sourced detail here.</p>
+    </div>
+
+    <div id="intl-footnotes"></div>
+  </section>
+
+  <footer>
+    Sources are cited on every action. Evidence tiers: <span class="ok">VERIFIED</span> = source directly opened and read. <span class="warn">REPORTED</span> = secondary coverage only, underlying docket not independently opened.
+  </footer>
+
+</div>
+
+<div class="map-tooltip" id="map-tooltip"></div>
+
+<script>
+function fmtDate(iso) {
+  const d = new Date(iso + "T00:00:00");
+  return d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+}
+
+function esc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+}
+
+function animateCountUps() {
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-countup]").forEach(el => {
+    const target = parseInt(el.dataset.countup, 10);
+    if (prefersReduced || !Number.isFinite(target)) { el.textContent = target; return; }
+    const duration = 900;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(eased * target);
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+}
+
+async function main() {
+  const res = await fetch("data.json");
+  const DATA = await res.json();
+
+  document.getElementById("asof-date").textContent = fmtDate(DATA.as_of);
+
+  const actions = DATA.litigation_actions;
+  const namedCount = actions.reduce((sum, a) => sum + a.plaintiffs_named.length, 0);
+  const statesSet = new Set();
+  actions.forEach(a => {
+    if (a.state) statesSet.add(a.state);
+    a.plaintiffs_named.forEach(p => {
+      const m = p.match(/,\s*([A-Z]{2})\b/);
+      if (m) statesSet.add(m[1]);
+    });
+  });
+  const verifiedCount = actions.filter(a => a.evidence_tier === "VERIFIED").length;
+
+  const stats = [
+    { n: actions.length, l: "Confirmed litigation actions tracked" },
+    { n: namedCount, l: "Named plaintiffs identified by source" },
+    { n: statesSet.size, l: "States with a named plaintiff" },
+    { n: verifiedCount + " / " + actions.length, l: "Actions VERIFIED by directly opened source", accent: true },
+  ];
+  document.getElementById("stats").innerHTML = stats.map(s => {
+    const isPlainNumber = typeof s.n === "number";
+    return `<div class="stat"><div class="n${s.accent ? " accent" : ""}" ${isPlainNumber ? `data-countup="${s.n}">0` : `>${s.n}`}</div><div class="l">${s.l}</div></div>`;
+  }).join("");
+  document.getElementById("stats-skel").style.display = "none";
+  document.getElementById("stats").style.display = "";
+  document.getElementById("map-section").style.display = "";
+  animateCountUps();
+
+  // ---- Freshness banner ----
+  const fcTop = DATA.mdl_consolidation_status.freshness_check;
+  if (fcTop) {
+    const banner = document.getElementById("freshness-banner");
+    banner.innerHTML = `
+      <span class="freshness-chip">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="currentColor" opacity="0.15"/><path d="M4 7.2l2 2L10 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="label">Re-checked ${esc(fmtDate(DATA.as_of))}:</span>&nbsp;no new court activity since the August ruling
+      </span>
+    `;
+    banner.style.display = "";
+  }
+
+  function renderActions(filter) {
+    const list = filter === "all" ? actions : actions.filter(a => a.evidence_tier === filter);
+    document.getElementById("actions-list").innerHTML = list.map(a => `
+      <article class="action">
+        <div class="action-top">
+          <h3 class="action-title">${esc(a.label)}</h3>
+          <span class="badge ${a.evidence_tier === "VERIFIED" ? "ok" : "warn"}">${a.evidence_tier}</span>
+        </div>
+        <dl class="action-meta">
+          <dt>Filed</dt><dd>${esc(a.filed_date)}</dd>
+          <dt>Plaintiffs</dt><dd>${a.plaintiffs_named.map(p => `<span class="state-chip">${esc(p)}</span>`).join("")}${a.plaintiffs_total_claimed && a.plaintiffs_total_claimed > a.plaintiffs_named.length ? ` <span style="color:var(--ink-faint); font-size:12.5px;">(${a.plaintiffs_total_claimed} claimed total)</span>` : ""}</dd>
+          <dt>Defendants</dt><dd>${esc(a.defendants)}</dd>
+        </dl>
+        <div class="action-status">${esc(a.status)}</div>
+        <div class="action-src">Source: ${esc(a.source_name)} &middot; <a href="${a.source_url}" target="_blank" rel="noopener">view source</a></div>
+      </article>
+    `).join("");
+  }
+  renderActions("all");
+  document.getElementById("actions-skel").style.display = "none";
+  document.getElementById("filters").style.display = "";
+
+  document.getElementById("filters").addEventListener("click", (e) => {
+    const btn = e.target.closest(".pill-btn");
+    if (!btn) return;
+    document.querySelectorAll("#filters .pill-btn").forEach(p => p.setAttribute("aria-pressed", "false"));
+    btn.setAttribute("aria-pressed", "true");
+    renderActions(btn.dataset.filter);
+  });
+
+  // ---- MDL callout ----
+  const mdl = DATA.mdl_consolidation_status;
+  const resolved = mdl.label.toUpperCase().includes("RESOLVED");
+  document.getElementById("mdl-eyebrow").textContent = resolved ? "Resolved" : "Unresolved";
+  document.getElementById("mdl-eyebrow").className = "section-eyebrow " + (resolved ? "green" : "amber");
+  const fc = mdl.freshness_check;
+  document.getElementById("mdl-callout").innerHTML = `
+    <p><strong>${esc(mdl.label)}</strong></p>
+    <p>${esc(mdl.detail)}</p>
+    <p><strong>Why this matters:</strong> ${esc(mdl.implication)}</p>
+    <div class="src">Source: ${esc(mdl.source_name)} (${esc(mdl.evidence_tier)}) &middot; <a href="${mdl.source_url}" target="_blank" rel="noopener">view source</a></div>
+    ${fc ? `
+      <p style="margin-top:16px;"><strong>${esc(fc.label)}</strong></p>
+      <p>${esc(fc.detail)}</p>
+      <div class="src">Source: ${esc(fc.source_name)} (${esc(fc.evidence_tier)}) &middot; <a href="${fc.source_url}" target="_blank" rel="noopener">view source</a></div>
+    ` : ""}
+  `;
+
+  const rs = mdl.related_but_distinct_settlement;
+  if (rs) {
+    const settlementEl = document.getElementById("settlement-callout");
+    settlementEl.className = "callout-card emphasis";
+    settlementEl.innerHTML = `
+      <span class="dev-badge">Major adjacent development</span>
+      <p><strong>${esc(rs.label)}</strong></p>
+      <p>${esc(rs.detail)}</p>
+      <p><strong>Why this matters:</strong> ${esc(rs.implication)}</p>
+      <div class="src">Source: ${esc(rs.source_name)}, evidence tier: ${esc(rs.evidence_tier)}.</div>
+    `;
+    settlementEl.style.display = "";
+  }
+
+  // ---- Prediction model ----
+  const model = DATA.prediction_model;
+
+  document.getElementById("correction-box").innerHTML = `
+    <span class="tag">Methodology correction, kept visible</span><br>
+    ${esc(model.methodology_correction_found_during_analysis)}
+  `;
+
+  const maxAirports = Math.max(...model.top_candidates.map(c => c.airports));
+  document.getElementById("rankings").innerHTML = model.top_candidates.map((c, i) => `
+    <div class="rank-row">
+      <div class="rank-num">${i + 1}</div>
+      <div class="rank-main">
+        <div class="rank-state">${esc(c.state)} (${esc(c.code)})</div>
+        <div class="rank-detail">${esc(c.legislation_detail)}</div>
+        ${c.cross_check ? `<div class="rank-cross">→ ${esc(c.cross_check)}</div>` : ""}
+      </div>
+      <div class="rank-airports"><b>${c.airports}</b><br>FAA airports</div>
+      <div class="rank-bar-track"><div class="rank-bar-fill" data-pct="${(c.airports / maxAirports * 100).toFixed(0)}"></div></div>
+    </div>
+  `).join("");
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.querySelectorAll(".rank-bar-fill").forEach(el => {
+      el.style.width = el.dataset.pct + "%";
+    });
+  }));
+
+  document.getElementById("model-sources").innerHTML = model.data_sources.map(s => {
+    const tierWord = s.evidence_tier.split(" ")[0];
+    const palette = {
+      VERIFIED: ["var(--accent-green-bg)", "var(--accent-green)"],
+      REPORTED: ["var(--accent-amber-bg)", "var(--accent-amber)"],
+      MIXED: ["var(--chip-bg)", "var(--ink-muted)"],
+    };
+    const [tierBg, tierColor] = palette[tierWord] || palette.REPORTED;
+    return `<li><span class="tier-pill" style="background:${tierBg}; color:${tierColor}">${esc(tierWord)}</span><strong>${esc(s.name)}</strong><br>${esc(s.detail)}${s.url ? ` <a href="${s.url}" target="_blank" rel="noopener" style="color:var(--accent-blue); font-weight:500;">source</a>` : ""}</li>`;
+  }).join("");
+
+  document.getElementById("not-used").innerHTML = model.deliberately_not_used.map(item =>
+    `<li>${esc(item)}</li>`
+  ).join("");
+
+  await renderInternational(DATA.international);
+
+  await renderMap(DATA);
+  setupScrollSpy();
+}
+
+function tierClass(tier) {
+  const word = (tier || "").split(" ")[0];
+  if (word === "VERIFIED") return { bg: "var(--accent-green-bg)", fg: "var(--accent-green)" };
+  if (word === "NOT") return { bg: "var(--chip-bg)", fg: "var(--ink-muted)" };
+  return { bg: "var(--accent-amber-bg)", fg: "var(--accent-amber)" };
+}
+
+const COUNTRY_ISO = {
+  "Canada": "124", "Australia": "036", "Belgium": "056", "Netherlands": "528",
+  "United Kingdom": "826", "Germany": "276", "Denmark": "208", "Norway": "578", "Sweden": "752",
+  "Singapore": "702", "Japan": "392", "South Korea": "410", "Brazil": "076",
+  "Argentina": "032", "Chile": "152", "Colombia": "170", "Saudi Arabia": "682", "South Africa": "710",
+};
+
+function buildCountryProfiles(intl) {
+  const profiles = {};
+  const eu = intl.western_europe;
+
+  function addEntry(country, entry) {
+    if (!profiles[country]) profiles[country] = { category: "litigation", entries: [] };
+    profiles[country].entries.push(entry);
+  }
+
+  intl.countries.forEach(c => {
+    (c.litigation || []).forEach(item => addEntry(c.country, {
+      label: item.label, detail: item.detail, tier: item.evidence_tier,
+      source_name: item.source_name, source_url: item.source_url,
+    }));
+    if (c.regulatory_note) addEntry(c.country, { label: "Regulatory note", detail: c.regulatory_note, tier: c.evidence_tier || "REPORTED", source_name: c.source_name, source_url: c.source_url });
+    (c.contamination_sites || []).forEach(s => addEntry(c.country, { label: s.site, detail: s.detail, tier: s.evidence_tier, source_name: "", source_url: "" }));
+    if (c.airport_foam_mandate) addEntry(c.country, { label: "Airport foam mandate", detail: c.airport_foam_mandate, tier: "VERIFIED", source_name: "", source_url: "" });
+    if (c.no_gear_specific_litigation_found) addEntry(c.country, {
+      label: "Gear-specific litigation", tier: "NOT FOUND",
+      detail: typeof c.no_gear_specific_litigation_found === "string" ? c.no_gear_specific_litigation_found : "Not found in this research pass.",
+      source_name: "", source_url: "",
+    });
+  });
+
+  addEntry("Belgium", { label: eu.belgium.label, detail: eu.belgium.detail, tier: eu.belgium.evidence_tier, source_name: "", source_url: "" });
+
+  profiles["Netherlands"] = { category: "unrelated", entries: [
+    { label: eu.netherlands.label, detail: eu.netherlands.detail, tier: eu.netherlands.evidence_tier, source_name: "", source_url: "" },
+  ]};
+
+  profiles["United Kingdom"] = { category: "regulation", entries: [
+    { label: eu.united_kingdom.label, detail: eu.united_kingdom.detail, tier: eu.united_kingdom.evidence_tier, source_name: "", source_url: "" },
+  ]};
+
+  ["Germany", "Denmark", "Norway", "Sweden"].forEach(country => {
+    profiles[country] = { category: "regulation", entries: [
+      { label: "EU-wide PFAS restriction co-filer", detail: `${country} co-filed the EU-wide PFAS restriction proposal with ECHA. Not independently researched beyond this role -- no country-specific litigation or domestic foam law was checked for ${country} in this pass.`, tier: "REPORTED", source_name: "", source_url: "" },
+    ]};
+  });
+
+  const euSharedEntries = [
+    { label: eu.eu_wide_restriction_proposal.label, detail: eu.eu_wide_restriction_proposal.detail, tier: eu.eu_wide_restriction_proposal.evidence_tier, source_name: "", source_url: "" },
+    { label: eu.afff_specific_track.label, detail: eu.afff_specific_track.detail, tier: eu.afff_specific_track.evidence_tier, source_name: "", source_url: "" },
+  ];
+  ["Belgium", "Netherlands", "United Kingdom", "Germany", "Denmark", "Norway", "Sweden"].forEach(country => {
+    if (profiles[country]) profiles[country].entries.push(...euSharedEntries);
+  });
+
+  // category overrides for countries with real litigation
+  ["Canada", "Australia", "Belgium"].forEach(c => { if (profiles[c]) profiles[c].category = "litigation"; });
+
+  if (intl.rest_of_world && intl.rest_of_world.countries) {
+    Object.entries(intl.rest_of_world.countries).forEach(([name, profile]) => {
+      profiles[name] = {
+        category: profile.category,
+        entries: profile.entries.map(e => ({
+          label: e.label, detail: e.detail, tier: e.tier,
+          source_name: e.source_name, source_url: e.source_url,
+        })),
+      };
+    });
+  }
+
+  return profiles;
+}
+
+function renderCountryDetail(countryName, profile) {
+  const panel = document.getElementById("global-detail");
+  if (!profile) {
+    panel.innerHTML = `<p style="font-size:14px; color:var(--ink-muted); margin:0;">No data researched yet for <strong>${esc(countryName)}</strong>.</p>`;
+    return;
+  }
+  panel.innerHTML = `
+    <div class="country-head"><h4>${esc(countryName)}</h4></div>
+    ${profile.entries.map(item => {
+      const t = tierClass(item.tier);
+      return `
+        <div class="intl-item">
+          <div class="intl-item-label">${esc(item.label)}</div>
+          <div class="intl-item-detail">${esc(item.detail)}</div>
+          <div class="intl-item-src"><span style="color:${t.fg}">${esc((item.tier || "").split(" ")[0])}</span>${item.source_name ? ` &middot; ${esc(item.source_name)}` : ""}${item.source_url ? ` &middot; <a href="${item.source_url}" target="_blank" rel="noopener">source</a>` : ""}</div>
+        </div>
+      `;
+    }).join("")}
+  `;
+}
+
+async function renderInternational(intl) {
+  document.getElementById("intl-methodology").textContent = intl.methodology_note;
+
+  const eu = intl.western_europe;
+  document.getElementById("intl-footnotes").innerHTML = `
+    <h3 class="subhead">Still unknown</h3>
+    <div class="europe-grid">
+      <div class="europe-card">
+        <span class="tier-tag" style="background:var(--chip-bg); color:var(--ink-muted)">NOT FOUND</span>
+        <h5>${esc(eu.european_firefighter_unions.label)}</h5>
+        <p>${esc(eu.european_firefighter_unions.detail)}</p>
+      </div>
+    </div>
+    ${eu.unverified_claims_flagged_not_used ? `
+      <div class="correction-box" style="margin-top:14px;">
+        <span class="tag">Flagged and deliberately not used</span><br>
+        ${eu.unverified_claims_flagged_not_used.map(esc).join("<br>")}
+      </div>
+    ` : ""}
+  `;
+
+  const profiles = buildCountryProfiles(intl);
+
+  const topoRes = await fetch("world-50m.json");
+  const topology = await topoRes.json();
+  const geo = topojson.feature(topology, topology.objects.countries);
+
+  const ISO_TO_NAME = Object.fromEntries(Object.entries(COUNTRY_ISO).map(([name, id]) => [id, name]));
+
+  const categoryColor = {
+    litigation: "var(--accent-blue)",
+    unrelated: "var(--accent-purple)",
+    regulation: "var(--accent-amber)",
+    contamination: "#2a9d8f",
+    checked_none: "#b7c4d6",
+  };
+
+  const svg = d3.select("#world-map");
+  const width = 960, height = 500;
+  const projection = d3.geoNaturalEarth1().fitSize([width, height], geo);
+  const path = d3.geoPath(projection);
+
+  svg.selectAll("path")
+    .data(geo.features)
+    .join("path")
+    .attr("d", path)
+    .attr("class", d => ISO_TO_NAME[d.id] ? "clickable" : "")
+    .attr("fill", d => {
+      const name = ISO_TO_NAME[d.id];
+      if (!name) return "#eceeef";
+      const profile = profiles[name];
+      return profile ? categoryColor[profile.category] : "#eceeef";
+    })
+    .on("click", (event, d) => {
+      const name = ISO_TO_NAME[d.id];
+      if (!name) return;
+      svg.selectAll("path").classed("selected", false);
+      d3.select(event.currentTarget).classed("selected", true);
+      renderCountryDetail(name, profiles[name]);
+      document.getElementById("global-detail").scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+}
+
+const FIPS_TO_STATE = {
+  "01":"AL","02":"AK","04":"AZ","05":"AR","06":"CA","08":"CO","09":"CT","10":"DE","11":"DC",
+  "12":"FL","13":"GA","15":"HI","16":"ID","17":"IL","18":"IN","19":"IA","20":"KS","21":"KY",
+  "22":"LA","23":"ME","24":"MD","25":"MA","26":"MI","27":"MN","28":"MS","29":"MO","30":"MT",
+  "31":"NE","32":"NV","33":"NH","34":"NJ","35":"NM","36":"NY","37":"NC","38":"ND","39":"OH",
+  "40":"OK","41":"OR","42":"PA","44":"RI","45":"SC","46":"SD","47":"TN","48":"TX","49":"UT",
+  "50":"VT","51":"VA","53":"WA","54":"WV","55":"WI","56":"WY","72":"PR"
+};
+const STATE_NAMES = {
+  AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",
+  DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",
+  IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",
+  MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",
+  NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",
+  OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",
+  TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",
+  WI:"Wisconsin",WY:"Wyoming",PR:"Puerto Rico"
+};
+
+async function renderMap(DATA) {
+  const topoRes = await fetch("us-states-10m.json");
+  const topology = await topoRes.json();
+  const geo = topojson.feature(topology, topology.objects.states);
+
+  const litigatingStates = new Set();
+  DATA.litigation_actions.forEach(a => {
+    if (a.state) litigatingStates.add(a.state);
+    a.plaintiffs_named.forEach(p => {
+      const m = p.match(/,\s*([A-Z]{2})\b/);
+      if (m) litigatingStates.add(m[1]);
+    });
+  });
+  const candidateMap = {};
+  DATA.prediction_model.top_candidates.forEach(c => { candidateMap[c.code] = c; });
+
+  const svg = d3.select("#us-map");
+  const width = 975, height = 610;
+  const projection = d3.geoAlbersUsa().fitSize([width, height], geo);
+  const path = d3.geoPath(projection);
+
+  const tooltip = document.getElementById("map-tooltip");
+
+  svg.selectAll("path")
+    .data(geo.features)
+    .join("path")
+    .attr("d", path)
+    .attr("fill", d => {
+      const code = FIPS_TO_STATE[d.id];
+      if (litigatingStates.has(code)) return "var(--accent-blue)";
+      if (candidateMap[code]) return "var(--accent-amber)";
+      return "#eceeef";
+    })
+    .on("mousemove", (event, d) => {
+      const code = FIPS_TO_STATE[d.id];
+      const name = STATE_NAMES[code] || d.properties.name;
+      let html = `<strong>${name}</strong>`;
+      if (litigatingStates.has(code)) {
+        html += "Confirmed plaintiff state";
+      } else if (candidateMap[code]) {
+        const c = candidateMap[code];
+        html += `Predicted next &mdash; ${c.airports} FAA airports, has enacted PFAS/AFFF legislation`;
+      } else {
+        html += "No current signal in this dataset";
+      }
+      tooltip.innerHTML = html;
+      tooltip.style.left = (event.clientX + 16) + "px";
+      tooltip.style.top = (event.clientY + 16) + "px";
+      tooltip.style.opacity = "1";
+    })
+    .on("mouseleave", () => { tooltip.style.opacity = "0"; });
+}
+
+function setupScrollSpy() {
+  const links = [...document.querySelectorAll("#nav-links a")];
+  const sections = links.map(l => document.getElementById(l.dataset.section)).filter(Boolean);
+  function onScroll() {
+    let current = sections[0];
+    const y = window.scrollY + 120;
+    sections.forEach(s => { if (s.offsetTop <= y) current = s; });
+    links.forEach(l => l.classList.toggle("active", l.dataset.section === current.id));
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+}
+
+main();
+</script>
+</body>
+</html>
