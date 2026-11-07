@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precedent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  /* ---- Design plan ----
+     Same design system as the two scenario tools (reference: usenarrative.ai):
+     light neutral page, flat white rounded cards, no borders/shadows, pill badges,
+     one geometric sans, soft gradient hero. This is the platform home: it introduces
+     Precedent and links out to each scenario module. Module cards are the hero content
+     here, not a feature list -- this is a portfolio page, not a product pitch page.
+  */
+  :root {
+    --page-bg: #f8f8f8;
+    --card-bg: #ffffff;
+    --ink: #101114;
+    --ink-muted: #6b6f76;
+    --ink-faint: #9a9ea5;
+    --chip-bg: #f0f0ee;
+    --accent-blue: #3b6ef6;
+    --accent-blue-bg: #e9eefe;
+    --accent-green: #1ea672;
+    --accent-green-bg: #e3f6ee;
+    --accent-amber: #de7a3c;
+    --accent-amber-bg: #fbe9db;
+    --accent-purple: #9b7fd4;
+    --accent-purple-bg: #ede8fa;
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --radius-card: 20px;
+    --radius-pill: 999px;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--page-bg);
+    color: var(--ink);
+    font-family: var(--font);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px 100px; }
+
+  nav.top {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 24px; max-width: 880px; margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
+
+  .hero { position: relative; padding: 50px 24px 60px; text-align: center; overflow: hidden; }
+  .hero-mesh {
+    position: absolute; inset: -40px -40px auto -40px; height: 420px; z-index: -1;
+    background: radial-gradient(ellipse 680px 380px at 50% 10%, rgba(59,110,246,0.10), transparent 70%);
+  }
+  .eyebrow-pill {
+    display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted);
+    font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 22px;
+  }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
+  h1 {
+    font-weight: 500; font-size: clamp(32px, 7vw, 54px); line-height: 1.1; margin: 0 auto 18px;
+    letter-spacing: -0.02em; text-wrap: balance; max-width: 14ch;
+  }
+  .hero p.dek { font-size: 17px; line-height: 1.6; color: var(--ink-muted); max-width: 54ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+  .powered-by {
+    margin-top: 26px; font-size: 12.5px; color: var(--ink-faint);
+  }
+  .powered-by strong { color: var(--ink-muted); font-weight: 600; }
+
+  section { padding: 20px 0 0; }
+  .section-head { margin-bottom: 22px; text-align: center; }
+  h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .section-sub { font-size: 14.5px; line-height: 1.6; color: var(--ink-muted); max-width: 56ch; margin: 0 auto; }
+
+  .modules { display: flex; flex-direction: column; gap: 14px; margin-top: 30px; }
+  .module-card {
+    background: var(--card-bg); border-radius: var(--radius-card); padding: 30px 32px;
+    display: block; transition: transform 0.2s, background 0.2s;
+  }
+  .module-card:hover { transform: translateY(-2px); background: #fcfcfb; }
+  .module-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+  .module-tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+    padding: 4px 11px; border-radius: var(--radius-pill);
+  }
+  .module-card h3 { font-size: 20px; font-weight: 600; margin: 0 0 10px; }
+  .module-card p { font-size: 14.5px; line-height: 1.65; color: var(--ink-muted); margin: 0 0 16px; }
+  .module-stats { display: flex; gap: 24px; flex-wrap: wrap; }
+  .module-stats .ms { display: flex; flex-direction: column; }
+  .module-stats .ms .n { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+  .module-stats .ms .l { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
+  .module-open {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600;
+    margin-top: 20px; color: var(--accent-blue);
+  }
+  .module-open svg { transition: transform 0.15s; }
+  .module-card:hover .module-open svg { transform: translateX(3px); }
+
+  footer {
+    margin-top: 60px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint);
+    line-height: 1.6; text-align: center;
+  }
+
+  /* ---- Portfolio match ---- */
+  .map-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 24px 18px; margin-bottom: 14px; text-align: left; }
+  .portfolio-input-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .portfolio-input-row input {
+    flex: 1; min-width: 220px; font-family: var(--font); font-size: 14px; padding: 11px 14px;
+    border-radius: 12px; border: 1px solid rgba(16, 17, 20, 0.08); background: var(--page-bg);
+    color: var(--ink); outline: none; transition: border-color 0.15s;
+  }
+  .portfolio-input-row input:focus { border-color: var(--accent-blue); }
+  .portfolio-btn {
+    font-family: var(--font); font-size: 13.5px; font-weight: 600; padding: 11px 20px;
+    border-radius: 12px; border: none; background: #000; color: #fff; cursor: pointer;
+  }
+  .portfolio-btn:hover { background: #222; }
+  .portfolio-btn.secondary { background: var(--chip-bg); color: var(--ink); }
+  .portfolio-btn.secondary:hover { background: #e4e4e2; }
+  .portfolio-save-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+  .portfolio-save-row input {
+    flex: 1; min-width: 160px; font-family: var(--font); font-size: 13px; padding: 9px 12px;
+    border-radius: 10px; border: 1px solid rgba(16, 17, 20, 0.08); background: var(--page-bg); color: var(--ink);
+  }
+  .saved-portfolios { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .saved-chip {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500;
+    background: var(--chip-bg); padding: 6px 10px 6px 12px; border-radius: var(--radius-pill); color: var(--ink);
+  }
+  .saved-chip button {
+    border: none; background: none; cursor: pointer; color: var(--ink-faint); font-size: 14px; line-height: 1;
+    padding: 0 2px;
+  }
+  .saved-chip .load { cursor: pointer; font-weight: 600; }
+  .portfolio-summary {
+    display: flex; gap: 20px; flex-wrap: wrap; margin: 18px 0 2px; padding-top: 18px;
+    border-top: 1px solid var(--chip-bg);
+  }
+  .portfolio-summary .ps { display: flex; flex-direction: column; }
+  .portfolio-summary .ps .n { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .portfolio-summary .ps .n.warn { color: var(--accent-amber); }
+  .portfolio-summary .ps .n.bad { color: #d6554a; }
+  .portfolio-summary .ps .l { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
+  .portfolio-state-row { padding: 14px 0; border-top: 1px solid var(--chip-bg); font-size: 13.5px; }
+  .portfolio-state-row:first-of-type { border-top: none; }
+  .portfolio-state-row .psr-name { font-weight: 600; margin-bottom: 6px; }
+  .portfolio-state-row .psr-line { color: var(--ink-muted); line-height: 1.6; margin-bottom: 4px; }
+  .portfolio-state-row .psr-line b { color: var(--ink); }
+  .portfolio-cat-chip {
+    display: inline-block; font-size: 11.5px; font-weight: 600; padding: 2px 9px; border-radius: var(--radius-pill);
+    margin: 2px 4px 2px 0;
+  }
+  .copy-note-row { margin-top: 16px; display: flex; align-items: center; gap: 10px; }
+  .copy-note-feedback { font-size: 12.5px; color: var(--accent-green); }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="brand"><span class="dot"></span> Precedent</div>
+  <a href="#portfolio" style="font-size:13.5px; font-weight:600; color:var(--accent-blue);">Check your exposure</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-mesh"></div>
+  <span class="eyebrow-pill"><span class="dot"></span>A scenario-modeling platform</span>
+  <h1>Precedent</h1>
+  <p class="dek">Surfacing slow-building liability risk <strong>before it becomes a claim</strong> &mdash; built from directly-downloaded primary sources, not estimates. Each module below tracks a real, currently-unfolding risk thread end to end.</p>
+  <div class="powered-by">Scored by the <strong>Sibyl</strong> prediction model</div>
+</div>
+
+<div class="wrap">
+  <section>
+    <div class="section-head">
+      <h2>Scenario modules</h2>
+      <p class="section-sub">Click into any module for the full litigation tracker, the real prediction model behind it, and exactly what it does and doesn't claim to know.</p>
+    </div>
+
+    <div class="modules">
+      <a class="module-card" href="./pfas/">
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-blue-bg); color:var(--accent-blue)">Products liability</span>
+        </div>
+        <h3>PFAS &amp; Turnout-Gear Litigation Tracker</h3>
+        <p>Every confirmed lawsuit where a municipality or firefighter has sued a gear or foam manufacturer over PFAS exposure &mdash; plus a real prediction of which US state is next, and an interactive world map now spanning North America, Western Europe, the Middle East, Asia, South America, and Africa.</p>
+        <div class="module-stats">
+          <div class="ms"><div class="n">10</div><div class="l">US actions tracked</div></div>
+          <div class="ms"><div class="n">18</div><div class="l">countries covered</div></div>
+          <div class="ms"><div class="n">10/10</div><div class="l">US actions VERIFIED</div></div>
+        </div>
+        <div class="module-open">Open module
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a class="module-card" href="./presumption/">
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-purple-bg); color:var(--accent-purple)">Workers' comp</span>
+        </div>
+        <h3>Presumption Expansion Tracker</h3>
+        <p>How firefighter cancer, heart, lung, and PTSD presumption laws actually changed across US states from 2016 to 2023 &mdash; a real three-point comparison, not a two-point guess &mdash; now with an interactive world map covering Canada, Australia, the UK, Germany, Denmark, and New Zealand, plus the documented precedent base for expansion into the private sector.</p>
+        <div class="module-stats">
+          <div class="ms"><div class="n">20</div><div class="l">states, cancer presumption</div></div>
+          <div class="ms"><div class="n">6</div><div class="l">states, PTSD, up from 0</div></div>
+          <div class="ms"><div class="n">6</div><div class="l">countries covered globally</div></div>
+        </div>
+        <div class="module-open">Open module
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="how-we-work">
+    <div class="section-head">
+      <h2>What we sell</h2>
+    </div>
+    <div class="map-card" style="text-align:left;">
+      <p style="font-size:14.5px; line-height:1.7; color:var(--ink-muted); margin:0;">A per-scenario monitoring and exposure-scoring feed for casualty underwriting and actuarial teams, licensed per module per year. Each module tracks one latent-liability thread end to end &mdash; litigation, regulation, and a prediction model &mdash; cross-referenced across jurisdictions in one evidence-tiered view, and tells you when something in your book changes. Decision support, not a substitute for your own underwriting diligence.</p>
+    </div>
+  </section>
+
+  <section id="portfolio">
+    <div class="section-head">
+      <h2>Check your exposure across every module</h2>
+      <p class="section-sub">Enter the US states where you write this line of business. We'll check PFAS litigation, the prediction ranking, and all four presumption categories at once &mdash; nothing you type here leaves your browser.</p>
+    </div>
+    <div class="map-card">
+      <div class="portfolio-input-row">
+        <input type="text" id="portfolio-states" placeholder="e.g. MI, CO, OH or Michigan, Colorado, Ohio" autocomplete="off">
+        <button id="portfolio-check" class="portfolio-btn">Check exposure</button>
+      </div>
+      <div class="portfolio-save-row">
+        <input type="text" id="portfolio-save-name" placeholder="Name this portfolio (e.g. Primary book)" autocomplete="off">
+        <button id="portfolio-save" class="portfolio-btn secondary">Save</button>
+      </div>
+      <div class="saved-portfolios" id="saved-portfolios"></div>
+      <div id="portfolio-result"></div>
+    </div>
+  </section>
+
+  <footer>
+    Every number on every module is sourced. Evidence tiers are shown inline: VERIFIED = source directly opened and read, REPORTED = secondary coverage only. More scenario modules in progress.
+  </footer>
+</div>
+
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+const STATE_NAMES = {
+  AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",
+  DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",
+  IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",
+  MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",
+  NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",
+  OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",
+  TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",
+  WI:"Wisconsin",WY:"Wyoming",PR:"Puerto Rico"
+};
+const NAME_TO_CODE = Object.fromEntries(Object.entries(STATE_NAMES).map(([code, name]) => [name.toLowerCase(), code]));
+
+let PFAS_DATA = null, PRESUMPTION_DATA = null;
+
+async function loadPortfolioData() {
+  try {
+    const [pfasRes, presRes] = await Promise.all([
+      fetch("pfas/data.json").catch(() => null),
+      fetch("presumption/data.json").catch(() => null),
+    ]);
+    if (pfasRes && pfasRes.ok) PFAS_DATA = await pfasRes.json();
+    if (presRes && presRes.ok) PRESUMPTION_DATA = await presRes.json();
+  } catch (e) { /* leave nulls; UI will say what's unavailable */ }
+}
+
+function parseStateInput(raw) {
+  return [...new Set(raw.split(/[,;]/).map(s => s.trim()).filter(Boolean).map(tok => {
+    const upper = tok.toUpperCase();
+    if (STATE_NAMES[upper]) return upper;
+    return NAME_TO_CODE[tok.toLowerCase()] || null;
+  }).filter(Boolean))];
+}
+
+function catStatus(cat, code) {
+  const had2016 = (cat.states_2016 || []).filter(s => s.length === 2).includes(code);
+  const has2023 = (cat.states_2023 || []).filter(s => s.length === 2).includes(code);
+  if (has2023 && had2016) return "has";
+  if (has2023 && !had2016) return "gained";
+  if (!has2023 && had2016) return "lost";
+  return "never";
+}
+
+function runPortfolioCheck(codes) {
+  const resultEl = document.getElementById("portfolio-result");
+  if (codes.length === 0) {
+    resultEl.innerHTML = `<p style="font-size:13.5px; color:var(--ink-muted); margin:14px 0 0;">Enter at least one recognizable US state (two-letter code or full name) to check.</p>`;
+    return;
+  }
+
+  let litigatingCount = 0, predictedCount = 0, presumptionGainedCount = 0, presumptionLostCount = 0;
+  const litigatingStates = new Set();
+  const candidateMap = {};
+  if (PFAS_DATA) {
+    PFAS_DATA.litigation_actions.forEach(a => {
+      if (a.state) litigatingStates.add(a.state);
+      a.plaintiffs_named.forEach(p => { const m = p.match(/,\s*([A-Z]{2})\b/); if (m) litigatingStates.add(m[1]); });
+    });
+    PFAS_DATA.prediction_model.top_candidates.forEach((c, i) => { candidateMap[c.code] = { ...c, rank: i + 1 }; });
+  }
+
+  const rows = codes.map(code => {
+    const name = STATE_NAMES[code] || code;
+    const lines = [];
+
+    if (PFAS_DATA) {
+      if (litigatingStates.has(code)) {
+        litigatingCount++;
+        lines.push(`<div class="psr-line"><b>PFAS:</b> confirmed litigation &mdash; already a named plaintiff state.</div>`);
+      } else if (candidateMap[code]) {
+        predictedCount++;
+        const c = candidateMap[code];
+        lines.push(`<div class="psr-line"><b>PFAS:</b> ranked #${c.rank} of 10 predicted-next &mdash; ${esc(c.airports)} FAA airports, has enacted PFAS/AFFF legislation.</div>`);
+      } else {
+        lines.push(`<div class="psr-line"><b>PFAS:</b> no current signal tracked.</div>`);
+      }
+    } else {
+      lines.push(`<div class="psr-line"><b>PFAS:</b> module data unavailable in this view.</div>`);
+    }
+
+    if (PRESUMPTION_DATA) {
+      const chips = PRESUMPTION_DATA.disease_categories.map(cat => {
+        const status = catStatus(cat, code);
+        if (status === "never") return "";
+        if (status === "gained") presumptionGainedCount++;
+        if (status === "lost") presumptionLostCount++;
+        const palette = { has: ["var(--accent-blue-bg)", "var(--accent-blue)"], gained: ["var(--accent-green-bg)", "var(--accent-green)"], lost: ["#fbe6e3", "#d6554a"] };
+        const [bg, fg] = palette[status];
+        const label = status === "has" ? "has it" : status === "gained" ? "gained since 2016" : "lost since 2016";
+        return `<span class="portfolio-cat-chip" style="background:${bg}; color:${fg}">${esc(cat.label)}: ${label}</span>`;
+      }).filter(Boolean).join("");
+      lines.push(`<div class="psr-line"><b>Presumption:</b></div>${chips || `<div class="psr-line" style="margin-left:0;">No active, gained, or lost presumption category for this state.</div>`}`);
+    } else {
+      lines.push(`<div class="psr-line"><b>Presumption:</b> module data unavailable in this view.</div>`);
+    }
+
+    return `<div class="portfolio-state-row"><div class="psr-name">${esc(name)}</div>${lines.join("")}</div>`;
+  }).join("");
+
+  resultEl.innerHTML = `
+    <div class="portfolio-summary">
+      <div class="ps"><div class="n bad">${litigatingCount}</div><div class="l">of ${codes.length} in active PFAS litigation</div></div>
+      <div class="ps"><div class="n warn">${predictedCount}</div><div class="l">of ${codes.length} top-10 predicted-next (PFAS)</div></div>
+      <div class="ps"><div class="n">${presumptionGainedCount}</div><div class="l">presumption categories gained since 2016</div></div>
+      <div class="ps"><div class="n bad">${presumptionLostCount}</div><div class="l">presumption categories lost since 2016</div></div>
+    </div>
+    ${rows}
+    <div class="copy-note-row">
+      <button class="portfolio-btn secondary" id="portfolio-copy">Copy as file note</button>
+      <span class="copy-note-feedback" id="portfolio-copy-feedback"></span>
+    </div>
+  `;
+
+  document.getElementById("portfolio-copy").addEventListener("click", () => {
+    const noteLines = [`Precedent portfolio exposure check -- ${codes.length} state(s): ${codes.join(", ")}`, ""];
+    codes.forEach(code => {
+      const name = STATE_NAMES[code] || code;
+      noteLines.push(`${name}:`);
+      if (PFAS_DATA) {
+        if (litigatingStates.has(code)) noteLines.push(`  - PFAS: confirmed litigation, already a named plaintiff state.`);
+        else if (candidateMap[code]) noteLines.push(`  - PFAS: ranked #${candidateMap[code].rank} of 10 predicted-next (${candidateMap[code].airports} FAA airports, enacted legislation).`);
+        else noteLines.push(`  - PFAS: no current signal tracked.`);
+      }
+      if (PRESUMPTION_DATA) {
+        const parts = PRESUMPTION_DATA.disease_categories.map(cat => {
+          const status = catStatus(cat, code);
+          if (status === "never") return null;
+          const label = status === "has" ? "has it" : status === "gained" ? "gained since 2016" : "lost since 2016";
+          return `${cat.label} (${label})`;
+        }).filter(Boolean);
+        noteLines.push(`  - Presumption: ${parts.length ? parts.join("; ") : "no active, gained, or lost category"}.`);
+      }
+      noteLines.push("");
+    });
+    noteLines.push(`Source: Precedent (precedent platform), checked ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}. Every figure sourced; evidence tiers shown on each module.`);
+    const text = noteLines.join("\n");
+    navigator.clipboard.writeText(text).then(() => {
+      document.getElementById("portfolio-copy-feedback").textContent = "Copied.";
+      setTimeout(() => { const el = document.getElementById("portfolio-copy-feedback"); if (el) el.textContent = ""; }, 2500);
+    }).catch(() => {
+      document.getElementById("portfolio-copy-feedback").textContent = "Couldn't copy -- select and copy manually.";
+    });
+  });
+}
+
+function updateUrlParam(codes) {
+  const url = new URL(window.location.href);
+  if (codes.length) url.searchParams.set("states", codes.join(","));
+  else url.searchParams.delete("states");
+  window.history.replaceState({}, "", url);
+}
+
+function renderSavedPortfolios() {
+  const STORAGE_KEY = "precedent:savedPortfolios";
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch (e) { saved = {}; }
+  const container = document.getElementById("saved-portfolios");
+  const names = Object.keys(saved);
+  if (names.length === 0) { container.innerHTML = ""; return; }
+  container.innerHTML = names.map(name => `
+    <span class="saved-chip">
+      <span class="load" data-name="${esc(name)}">${esc(name)}</span>
+      <button data-delete="${esc(name)}" title="Delete">&times;</button>
+    </span>
+  `).join("");
+  container.querySelectorAll(".load").forEach(el => {
+    el.addEventListener("click", () => {
+      const codes = saved[el.dataset.name] || [];
+      document.getElementById("portfolio-states").value = codes.join(", ");
+      updateUrlParam(codes);
+      runPortfolioCheck(codes);
+    });
+  });
+  container.querySelectorAll("[data-delete]").forEach(el => {
+    el.addEventListener("click", () => {
+      try {
+        const current = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+        delete current[el.dataset.delete];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(current));
+      } catch (e) {}
+      renderSavedPortfolios();
+    });
+  });
+}
+
+async function initPortfolio() {
+  await loadPortfolioData();
+
+  const input = document.getElementById("portfolio-states");
+  const params = new URLSearchParams(window.location.search);
+  const fromUrl = params.get("states");
+  if (fromUrl) {
+    input.value = fromUrl;
+    runPortfolioCheck(parseStateInput(fromUrl));
+  }
+
+  document.getElementById("portfolio-check").addEventListener("click", () => {
+    const codes = parseStateInput(input.value);
+    updateUrlParam(codes);
+    runPortfolioCheck(codes);
+  });
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const codes = parseStateInput(input.value);
+      updateUrlParam(codes);
+      runPortfolioCheck(codes);
+    }
+  });
+
+  document.getElementById("portfolio-save").addEventListener("click", () => {
+    const name = document.getElementById("portfolio-save-name").value.trim();
+    const codes = parseStateInput(input.value);
+    if (!name || codes.length === 0) return;
+    const STORAGE_KEY = "precedent:savedPortfolios";
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch (e) { saved = {}; }
+    saved[name] = codes;
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch (e) {}
+    document.getElementById("portfolio-save-name").value = "";
+    renderSavedPortfolios();
+  });
+
+  renderSavedPortfolios();
+}
+
+initPortfolio();
+</script>
+
+</body>
+</html>
