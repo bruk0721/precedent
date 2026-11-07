@@ -184,7 +184,7 @@
     </div>
 
     <div class="modules">
-      <a class="module-card" href="./pfas/">
+      <a class="module-card" href="./pfas2/">
         <div class="module-top">
           <span class="module-tag" style="background:var(--accent-blue-bg); color:var(--accent-blue)">Products liability</span>
         </div>
@@ -200,7 +200,7 @@
         </div>
       </a>
 
-      <a class="module-card" href="./presumption/">
+      <a class="module-card" href="./presumption2/">
         <div class="module-top">
           <span class="module-tag" style="background:var(--accent-purple-bg); color:var(--accent-purple)">Workers' comp</span>
         </div>
@@ -271,8 +271,8 @@ let PFAS_DATA = null, PRESUMPTION_DATA = null;
 async function loadPortfolioData() {
   try {
     const [pfasRes, presRes] = await Promise.all([
-      fetch("pfas/data.json").catch(() => null),
-      fetch("presumption/data.json").catch(() => null),
+      fetch("pfas2/data.json").catch(() => null),
+      fetch("presumption2/data.json").catch(() => null),
     ]);
     if (pfasRes && pfasRes.ok) PFAS_DATA = await pfasRes.json();
     if (presRes && presRes.ok) PRESUMPTION_DATA = await presRes.json();
