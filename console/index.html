@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precedent — Underwriter Console</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa;
+    --card-bg: #ffffff;
+    --ink: #0e1116;
+    --ink-muted: #5c6370;
+    --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3;
+    --accent-blue: #14213d;
+    --accent-blue-bg: #e7eaf1;
+    --accent-amber: #b8601f;
+    --accent-amber-bg: #f5e8da;
+    --accent-red: #b33c30;
+    --accent-red-bg: #f7e2df;
+    --accent-gray: #5c6370;
+    --accent-gray-bg: #eef0f3;
+    --accent-green: #1a7a4c;
+    --accent-green-bg: #e3f0e9;
+    --nav-bg: rgba(247, 248, 250, 0.78);
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px;
+    --radius-pill: 999px;
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10;
+    --card-bg: #15181d;
+    --ink: #eef0f3;
+    --ink-muted: #9aa1ab;
+    --ink-faint: #6a7079;
+    --chip-bg: #1e2228;
+    --accent-blue: #7f94c2;
+    --accent-blue-bg: #1c2433;
+    --accent-amber: #e2974f;
+    --accent-amber-bg: #2b2114;
+    --accent-red: #e2766a;
+    --accent-red-bg: #2e1816;
+    --accent-gray: #9aa1ab;
+    --accent-gray-bg: #1e2228;
+    --accent-green: #6fbf96;
+    --accent-green-bg: #163026;
+    --nav-bg: rgba(11, 13, 16, 0.78);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px 100px; }
+
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 980px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  .theme-toggle:hover { background: var(--chip-bg); }
+
+  @media (max-width: 640px) {
+    nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; }
+    .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; }
+    .cols { grid-template-columns: 1fr !important; }
+  }
+
+  .hero { padding: 44px 24px 36px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
+  h1 { font-weight: 500; font-size: clamp(28px, 6vw, 42px); line-height: 1.1; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 18ch; }
+  .hero p.dek { font-size: 16px; line-height: 1.6; color: var(--ink-muted); max-width: 58ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; }
+  h2 { font-weight: 600; font-size: 16px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .card-sub { font-size: 13px; color: var(--ink-faint); margin: 0 0 16px; }
+
+  .input-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label { font-size: 12px; font-weight: 600; color: var(--ink-muted); }
+  .field input, .field select { font-family: var(--font-mono); font-size: 14px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(16, 17, 20, 0.12); background: var(--page-bg); color: var(--ink); outline: none; min-width: 160px; }
+  .field input:focus, .field select:focus { border-color: var(--accent-blue); }
+  .run-btn { font-family: var(--font); font-size: 13.5px; font-weight: 600; padding: 11px 22px; border-radius: 10px; border: none; background: var(--ink); color: var(--page-bg); cursor: pointer; }
+  .run-btn:hover { opacity: 0.85; }
+  .examples { margin-top: 12px; font-size: 12.5px; color: var(--ink-faint); }
+  .examples button { font-family: var(--font-mono); font-size: 12px; border: 1px solid var(--chip-bg); background: var(--chip-bg); color: var(--ink-muted); padding: 3px 9px; border-radius: var(--radius-pill); cursor: pointer; margin-left: 6px; }
+  .examples button:hover { background: var(--accent-blue-bg); color: var(--accent-blue); }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 18px; }
+  .col-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 20px 20px 18px; }
+  .col-card h3 { font-size: 13.5px; font-weight: 700; margin: 0 0 12px; }
+  .finding-line { font-size: 13px; line-height: 1.6; margin-bottom: 10px; }
+  .finding-line b { font-weight: 600; }
+  .empty-note { font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; }
+  .tag { display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; padding: 2px 8px; border-radius: var(--radius-pill); margin-bottom: 6px; }
+  .tag.red { background: var(--accent-red-bg); color: var(--accent-red); }
+  .tag.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
+  .tag.gray { background: var(--accent-gray-bg); color: var(--accent-gray); }
+
+  .threat-box { border-radius: var(--radius-card); padding: 22px 24px; border: 1px solid; margin-top: 4px; }
+  .threat-label { font-size: 11.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 8px; }
+  .threat-rec { font-size: 14.5px; line-height: 1.6; }
+
+  .ibnr-row { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 14px; }
+  .ibnr-stat .n { font-family: var(--font-mono); font-size: 22px; font-weight: 600; }
+  .ibnr-stat .l { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
+  .ibnr-note { font-size: 12.5px; color: var(--ink-faint); margin-top: 14px; line-height: 1.6; }
+
+  footer { margin-top: 40px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; text-align: center; }
+  .results-wrap { display: none; }
+</style>
+</head>
+<body>
+<script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+
+<nav class="top">
+  <div class="brand"><span class="dot"></span> Precedent</div>
+  <div class="nav-links">
+    <a href="../">&larr; Back to overview</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow-pill"><span class="dot"></span>Live underwriter console</span>
+  <h1>Underwriter Console</h1>
+  <p class="dek">Enter a NAICS code and a state to see the real signal Precedent's data pipelines have found &mdash; pulled live from CourtListener, SEC EDGAR, and LegiScan, not simulated. <strong>No signal found is not the same as no risk</strong>: an empty result below means nothing has been collected yet, not that it's been checked and cleared.</p>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h2>Account submission</h2>
+    <p class="card-sub">6-digit NAICS code and a state jurisdiction.</p>
+    <div class="input-row">
+      <div class="field">
+        <label for="naics-input">NAICS code</label>
+        <input id="naics-input" type="text" maxlength="6" value="325998" />
+      </div>
+      <div class="field">
+        <label for="state-input">State</label>
+        <select id="state-input"></select>
+      </div>
+      <button class="run-btn" id="run-btn">Run threat assessment</button>
+    </div>
+    <div class="examples">
+      Try: <button data-naics="325998">325998 &mdash; 3M &amp; Tyco Fire Products/JCI</button><button data-naics="325199">325199 &mdash; DuPont, Chemours &amp; Corteva</button>
+    </div>
+  </div>
+
+  <div class="results-wrap" id="results">
+    <div class="cols">
+      <div class="col-card" id="col-plaintiff"><h3>Plaintiff Radar</h3><div id="plaintiff-body"></div></div>
+      <div class="col-card" id="col-legislative"><h3>Legislative Contagion</h3><div id="legislative-body"></div></div>
+      <div class="col-card" id="col-severity"><h3>Severity Anchor</h3><div id="severity-body"></div></div>
+    </div>
+
+    <div class="card" style="margin-top:20px;">
+      <h2>Account threat level</h2>
+      <div class="threat-box" id="threat-box">
+        <div class="threat-label" id="threat-label"></div>
+        <div class="threat-rec" id="threat-rec"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Zero-Day IBNR signal</h2>
+      <p class="card-sub">Severity anchor &times; filing velocity, as a dimensionless index &mdash; not a dollar reserve, not an actuarial estimate.</p>
+      <div id="ibnr-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    Every figure in this console comes from a real pipeline run against CourtListener, SEC EDGAR, or LegiScan &mdash; the same data behind Precedent's scenario trackers, queried live in your browser against a snapshot exported from the underlying database. <span id="snapshot-date"></span>
+  </footer>
+</div>
+
+<script>
+const US_BORDERS = {
+  AL:["FL","GA","MS","TN"],AZ:["CA","NV","NM","UT"],AR:["LA","MS","MO","OK","TN","TX"],CA:["AZ","NV","OR"],
+  CO:["AZ","KS","NE","NM","OK","UT","WY"],CT:["MA","NY","RI"],DE:["MD","NJ","PA"],FL:["AL","GA"],GA:["AL","FL","NC","SC","TN"],
+  ID:["MT","NV","OR","UT","WA","WY"],IL:["IN","IA","KY","MO","WI"],IN:["IL","KY","MI","OH"],IA:["IL","MN","MO","NE","SD","WI"],
+  KS:["CO","MO","NE","OK"],KY:["IL","IN","MO","OH","TN","VA","WV"],LA:["AR","MS","TX"],ME:["NH"],MD:["DE","PA","VA","WV"],
+  MA:["CT","NH","NY","RI","VT"],MI:["IN","OH","WI"],MN:["IA","ND","SD","WI"],MS:["AL","AR","LA","TN"],
+  MO:["AR","IL","IA","KS","KY","NE","OK","TN"],MT:["ID","ND","SD","WY"],NE:["CO","IA","KS","MO","SD","WY"],
+  NV:["AZ","CA","ID","OR","UT"],NH:["ME","MA","VT"],NJ:["DE","NY","PA"],NM:["AZ","CO","OK","TX","UT"],
+  NY:["CT","MA","NJ","PA","VT"],NC:["GA","SC","TN","VA"],ND:["MN","MT","SD"],OH:["IN","KY","MI","PA","WV"],
+  OK:["AR","CO","KS","MO","NM","TX"],OR:["CA","ID","NV","WA"],PA:["DE","MD","NJ","NY","OH","WV"],RI:["CT","MA"],
+  SC:["GA","NC"],SD:["IA","MN","MT","NE","ND","WY"],TN:["AL","AR","GA","KY","MS","MO","NC","VA"],
+  TX:["AR","LA","NM","OK"],UT:["AZ","CO","ID","NV","NM","WY"],VT:["MA","NH","NY"],VA:["KY","MD","NC","TN","WV"],
+  WA:["ID","OR"],WV:["KY","MD","OH","PA","VA"],WI:["IL","IA","MI","MN"],WY:["CO","ID","MT","NE","SD","UT"],
+  AK:[],HI:[],DC:["MD","VA"],
+};
+const STATE_NAMES = {AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",DE:"Delaware",DC:"D.C.",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"};
+
+let DB = null;
+
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+function normalizeForMatch(s) { return String(s).toUpperCase().replace(/[^A-Z0-9]/g, ""); }
+
+function getDefendantsForNaics(naics) {
+  const names = new Set();
+  for (const r of DB.severity_anchors) if (r.naics_code === naics) names.add(r.company_name);
+  return [...names];
+}
+
+function queryPlaintiffRadar(defendants) {
+  if (!defendants.length) return [];
+  const tokens = defendants.map(d => normalizeForMatch(d.split(" ")[0]));
+  return DB.plaintiff_network.filter(r => tokens.some(t => normalizeForMatch(r.defendant).includes(t)));
+}
+
+// Legislative tracks are kept separate by `category` -- firefighter
+// presumption laws and PFAS regulation bills are two different litigation
+// tracks this project deliberately does not conflate (same reason the
+// `category` column was added to legislative_timeline in the first place).
+function queryLegislativeContagion(state) {
+  const neighbors = US_BORDERS[state] || [];
+  const byCategory = {};
+  for (const row of DB.legislative_timeline) {
+    const cat = row.category || "uncategorized";
+    if (row.state === state) {
+      (byCategory[cat] = byCategory[cat] || { own: [], neighbor: [] }).own.push(row);
+    } else if (neighbors.includes(row.state)) {
+      (byCategory[cat] = byCategory[cat] || { own: [], neighbor: [] }).neighbor.push(row);
+    }
+  }
+  return { byCategory, neighbors };
+}
+
+function querySeverityAnchor(naics) {
+  return DB.severity_anchors.filter(r => r.naics_code === naics);
+}
+
+function parseDollarToMillions(raw) {
+  const m = /\$\s?([\d,.]+)\s?(million|billion)?/i.exec(raw);
+  if (!m) return null;
+  const amount = parseFloat(m[1].replace(/,/g, ""));
+  const unit = (m[2] || "").toLowerCase();
+  return unit === "billion" ? amount * 1000 : amount;
+}
+
+function computeThreatLevel(plaintiffRows, legResult, severityRows) {
+  const hasPlaintiff = plaintiffRows.length > 0;
+  const hasLegislative = Object.keys(legResult.byCategory).length > 0;
+  const severityValues = severityRows.map(r => parseDollarToMillions(r.dollar_amount)).filter(v => v !== null);
+  const maxSeverity = severityValues.length ? Math.max(...severityValues) : null;
+
+  if (!hasPlaintiff && !hasLegislative && maxSeverity === null) {
+    return { color: "gray", label: "INSUFFICIENT DATA",
+      rec: "No plaintiff, legislative, or severity signal has been collected for this NAICS/state combination yet. This is not a clean bill of health — it means nothing has been found yet, not that nothing exists. Route to manual underwriting review; do not treat the absence of a flag as the presence of safety." };
+  }
+  if (maxSeverity !== null && maxSeverity >= 1000 && (hasPlaintiff || hasLegislative)) {
+    return { color: "red", label: "HIGH THREAT",
+      rec: "Recommend: attach an absolute PFAS/chemical exclusion endorsement. Refer to the exposure team for a portfolio accumulation check given an active policy-trigger signal and a severity anchor above $1B." };
+  }
+  if (maxSeverity !== null || hasPlaintiff || hasLegislative) {
+    return { color: "amber", label: "ELEVATED — REVIEW",
+      rec: "Recommend: flag for underwriter review. Consider a sublimit, monitoring endorsement, or additional loss-cost loading pending next renewal cycle rather than a full exclusion." };
+  }
+  return { color: "amber", label: "LOW SIGNAL (data-backed)",
+    rec: "No material signal found despite data being present for this query. Standard terms." };
+}
+
+function getFilingVelocity(defendants) {
+  if (!defendants.length) return { velocity: null, count: 0, span: 0 };
+  const tokens = defendants.map(d => normalizeForMatch(d.split(" ")[0]));
+  const rows = DB.plaintiff_network.filter(r => r.date_filed && tokens.some(t => normalizeForMatch(r.defendant).includes(t)));
+  const seen = new Set(); const uniqueRows = [];
+  for (const r of rows) { const k = r.docket_id + "|" + r.date_filed; if (!seen.has(k)) { seen.add(k); uniqueRows.push(r); } }
+  if (uniqueRows.length < 2) return { velocity: null, count: uniqueRows.length, span: 0 };
+  const dates = uniqueRows.map(r => new Date(r.date_filed)).sort((a, b) => a - b);
+  const spanMonths = Math.max((dates[dates.length - 1] - dates[0]) / (1000 * 60 * 60 * 24 * 30.44), 1.0);
+  return { velocity: uniqueRows.length / spanMonths, count: uniqueRows.length, span: spanMonths };
+}
+
+function renderPlaintiff(defendants) {
+  const el = document.getElementById("plaintiff-body");
+  if (!defendants.length) {
+    el.innerHTML = `<p class="empty-note">No defendant has a curated liability-NAICS mapping to this code in severity_anchors yet.</p>`;
+    return [];
+  }
+  const rows = queryPlaintiffRadar(defendants);
+  if (rows.length) {
+    el.innerHTML = `<span class="tag red">${rows.length} filing(s) found</span>` + rows.map(r =>
+      `<div class="finding-line"><b>${esc(r.plaintiff_firm)}</b> vs. ${esc(r.defendant)}<br><span style="color:var(--ink-faint)">${esc(r.case_name || "")} (confidence: ${esc(r.confidence)})</span></div>`
+    ).join("");
+  } else {
+    el.innerHTML = `<p class="empty-note">No plaintiff-firm filings on record for this NAICS's known defendants yet.</p>`;
+  }
+  return rows;
+}
+
+function renderLegislative(state) {
+  const el = document.getElementById("legislative-body");
+  const result = queryLegislativeContagion(state);
+  const cats = Object.keys(result.byCategory);
+  if (!cats.length) {
+    el.innerHTML = `<p class="empty-note">No enactment on record for ${esc(STATE_NAMES[state] || state)} or its bordering states (${result.neighbors.map(n => STATE_NAMES[n] || n).join(", ") || "none"}) yet.</p>`;
+    return result;
+  }
+  const catLabels = { firefighter_presumption: "Firefighter presumption", pfas_regulation: "PFAS regulation", uncategorized: "Uncategorized" };
+  el.innerHTML = cats.map(cat => {
+    const g = result.byCategory[cat];
+    const label = catLabels[cat] || cat;
+    if (g.own.length) {
+      return `<div style="margin-bottom:12px"><span class="tag red">${esc(label)}</span>` + g.own.map(r =>
+        `<div class="finding-line"><b>${esc(r.bill_number)}</b> (${esc(r.enactment_date || "n/a")}) — ${esc(r.title || "")}</div>`).join("") + `</div>`;
+    }
+    return `<div style="margin-bottom:12px"><span class="tag amber">${esc(label)} — neighbor only</span>` + g.neighbor.map(r =>
+      `<div class="finding-line"><b>${esc(r.state)}: ${esc(r.bill_number)}</b> (${esc(r.enactment_date || "n/a")}) — ${esc(r.title || "")}</div>`).join("") + `</div>`;
+  }).join("");
+  return result;
+}
+
+function renderSeverity(naics) {
+  const el = document.getElementById("severity-body");
+  const rows = querySeverityAnchor(naics);
+  if (!rows.length) {
+    el.innerHTML = `<p class="empty-note">No verified severity anchor on record with naics_code = "${esc(naics)}" yet.</p>`;
+    return rows;
+  }
+  const withVal = rows.map(r => ({ r, v: parseDollarToMillions(r.dollar_amount) })).filter(x => x.v !== null);
+  if (!withVal.length) {
+    el.innerHTML = `<p class="empty-note">Severity anchor row(s) exist for this NAICS, but none had a parseable dollar amount.</p>`;
+    return rows;
+  }
+  withVal.sort((a, b) => b.v - a.v);
+  const top = withVal[0];
+  el.innerHTML = `<span class="tag amber">$${top.v.toLocaleString(undefined, { maximumFractionDigits: 0 })}M max verified anchor</span>
+    <div class="finding-line"><b>${esc(top.r.company_name)}</b> — ${esc(top.r.dollar_amount)} (${esc(top.r.liability_term)}, filed ${esc(top.r.filing_date || "n/a")})</div>
+    <div class="empty-note" style="margin-bottom:10px">${esc((top.r.context_snippet || "").slice(0, 220))}${(top.r.context_snippet || "").length > 220 ? "…" : ""}</div>
+    <div class="empty-note">SEC-registered SIC: ${esc(top.r.sec_sic_code || "n/a")} (${esc(top.r.sec_sic_description || "n/a")}) — registrant-level, not the liability-specific segment. naics_code ${esc(naics)} is a curated override.</div>
+    ${withVal.length > 1 ? `<div class="empty-note" style="margin-top:10px">+ ${withVal.length - 1} more finding(s) on file for this NAICS.</div>` : ""}`;
+  return rows;
+}
+
+function renderThreat(color, label, rec) {
+  const box = document.getElementById("threat-box");
+  const colorVar = { red: "var(--accent-red)", amber: "var(--accent-amber)", gray: "var(--accent-gray)" }[color] || "var(--accent-gray)";
+  box.style.borderColor = colorVar;
+  box.style.background = { red: "var(--accent-red-bg)", amber: "var(--accent-amber-bg)", gray: "var(--accent-gray-bg)" }[color] || "var(--accent-gray-bg)";
+  const labelEl = document.getElementById("threat-label");
+  labelEl.style.color = colorVar;
+  labelEl.textContent = `${color.toUpperCase()} — ${label}`;
+  document.getElementById("threat-rec").textContent = rec;
+}
+
+function renderIbnr(defendants, severityRows) {
+  const el = document.getElementById("ibnr-body");
+  const severityValues = severityRows.map(r => parseDollarToMillions(r.dollar_amount)).filter(v => v !== null);
+  const maxSeverity = severityValues.length ? Math.max(...severityValues) : null;
+  const { velocity, count, span } = getFilingVelocity(defendants);
+  if (maxSeverity === null || velocity === null) {
+    const reasons = [];
+    if (maxSeverity === null) reasons.push("no severity anchor for this NAICS");
+    if (velocity === null) reasons.push(`only ${count} dated filing(s) on record (need 2+)`);
+    el.innerHTML = `<p class="empty-note">Not computable: ${reasons.join(" and ")}. Reporting a signal here would be dishonest — this is the same "insufficient data" distinction as the account threat level above, not a zero-risk reading.</p>`;
+    return;
+  }
+  const ibnrIndex = maxSeverity * velocity;
+  el.innerHTML = `<div class="ibnr-row">
+    <div class="ibnr-stat"><div class="n">${velocity.toFixed(2)} /mo</div><div class="l">${count} dated filings over ${span.toFixed(1)} months</div></div>
+    <div class="ibnr-stat"><div class="n">${ibnrIndex.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div><div class="l">Velocity-adjusted severity index</div></div>
+  </div>
+  <p class="ibnr-note">A dimensionless heat index (severity anchor &times; filings/month) for flagging which NAICS/account to route to a human actuary first &mdash; not a dollar reserve figure, not an actuarially-certified estimate.</p>`;
+}
+
+function runAssessment() {
+  const naics = document.getElementById("naics-input").value.trim();
+  const state = document.getElementById("state-input").value;
+  document.getElementById("results").style.display = "block";
+
+  const defendants = getDefendantsForNaics(naics);
+  const plaintiffRows = renderPlaintiff(defendants);
+  const legResult = renderLegislative(state);
+  const severityRows = renderSeverity(naics);
+
+  const threat = computeThreatLevel(plaintiffRows, legResult, severityRows);
+  renderThreat(threat.color, threat.label, threat.rec);
+  renderIbnr(defendants, severityRows);
+}
+
+function populateStates() {
+  const sel = document.getElementById("state-input");
+  const codes = Object.keys(STATE_NAMES).sort((a, b) => STATE_NAMES[a].localeCompare(STATE_NAMES[b]));
+  sel.innerHTML = codes.map(c => `<option value="${c}">${STATE_NAMES[c]}</option>`).join("");
+  sel.value = "OH";
+}
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;";
+  };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => {
+    isDark = !isDark;
+    try { localStorage.setItem("precedent:theme", isDark ? "dark" : "light"); } catch (e) {}
+    apply(isDark);
+  });
+}
+
+async function init() {
+  setupThemeToggle();
+  populateStates();
+  const resp = await fetch("./moat_export.json");
+  DB = await resp.json();
+  document.getElementById("snapshot-date").textContent = DB.generated_at ? `Snapshot as of ${new Date(DB.generated_at).toISOString().slice(0, 10)}.` : "";
+  document.getElementById("run-btn").addEventListener("click", runAssessment);
+  document.querySelectorAll(".examples button").forEach(btn => {
+    btn.addEventListener("click", () => { document.getElementById("naics-input").value = btn.dataset.naics; runAssessment(); });
+  });
+  runAssessment();
+}
+init();
+</script>
+</body>
+</html>
