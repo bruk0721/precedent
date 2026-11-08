@@ -393,7 +393,7 @@
     "implication": "With 2 confirmed carve-out states against 4 confirmed no-carve-out states (plus Missouri as a reversed former carve-out), the honest current read is that Illinois and Pennsylvania may be outliers rather than the leading edge of a broader multi-state trend. This should be stated directly, not glossed over, since assuming more states will follow their pattern is not yet supported by this data."
   },
   "international": {
-    "methodology_note": "A first pass at whether firefighter occupational-disease presumption laws exist outside the US. Almost everything below is REPORTED tier -- official government press releases, union/advocacy bulletins, and news coverage, not statute text directly opened and read -- this research used web search only, not direct document retrieval, so treat specific counts (e.g. exact number of cancers covered) as needing a recount before being cited as final, exactly like this project's own US NCCI cross-tabulation already flags itself. Three jurisdictions use mechanisms that do NOT map cleanly onto the US 'rebuttable presumption' concept and are labeled accordingly rather than forced into false equivalence: New Zealand's ACC is a no-fault universal accident-compensation scheme with no presumption at all today; the EU's Carcinogens Directive is a workplace-exposure-protection law, not a compensation presumption. 'Enacted' below means a real presumption or deeming mechanism is currently in force for at least one disease category; 'pending' means an active campaign or proposed bill exists but nothing has passed; 'checked_none' means actively confirmed absent, distinct from never-researched.",
+    "methodology_note": "A first pass at whether firefighter occupational-disease presumption laws exist outside the US. Almost everything below is REPORTED tier -- official government press releases, union/advocacy bulletins, and news coverage, not statute text directly opened and read -- this research used web search only, not direct document retrieval, so treat specific counts (e.g. exact number of cancers covered) as needing a recount before being cited as final. Three jurisdictions use mechanisms that do NOT map cleanly onto the US 'rebuttable presumption' concept and are labeled accordingly rather than forced into false equivalence: New Zealand's ACC is a no-fault universal accident-compensation scheme with no presumption at all today; the EU's Carcinogens Directive is a workplace-exposure-protection law, not a compensation presumption. 'Enacted' below means a real presumption or deeming mechanism is currently in force for at least one disease category; 'pending' means an active campaign or proposed bill exists but nothing has passed; 'checked_none' means actively confirmed absent, distinct from never-researched.",
     "countries": {
       "Australia": {
         "category": "enacted",
@@ -745,7 +745,7 @@
         "source_url": "https://publichealthwatch.org/2023/03/03/state-laws-favor-workers-comp-benefits-for-firefighters-with-cancer-cities-and-counties-keep-denying-them/"
       },
       {
-        "label": "No national database exists -- this is a genuine, acknowledged data gap, not a gap in our own research effort",
+        "label": "No national claims database exists",
         "detail": "A Firefighter Cancer Support Network official quoted in NCCI-adjacent reporting said no organization tracks firefighter cancer workers'-comp claims nationally. Firefighters are typically employed by state and local governments, which are frequently self-insured -- and self-insured entities are not required to report claims to NCCI. States track claims inconsistently, and employer-reported data is often incomplete. This is precisely the kind of \"city/county self-insurance\" data gap that would be needed to properly test whether municipalities paying cancer claims without insurance are the ones pursuing PFAS/foam-manufacturer litigation -- it is not currently answerable with any public, systematic dataset.",
         "tier": "NOT FOUND (a systematic national claims database does not exist, confirmed by industry-source reporting, not merely unresearched)",
         "source_name": "Firefighter Cancer Support Network (quoted in reporting); NCCI",
@@ -811,7 +811,7 @@
   },
   "insurance_market_effects": {
     "label": "A real, documented unintended consequence: presumption laws can push fire departments out of the voluntary insurance market entirely",
-    "methodology_note": "This is a genuinely new finding for this tracker, found directly in NCCI's own 2023 research brief -- not previously tracked here. It matters for underwriting because it shows a presumption law's impact is not limited to claim costs: it can change who is even willing to write the coverage at all.",
+    "methodology_note": "Found directly in NCCI's own 2023 research brief. It matters for underwriting because it shows a presumption law's impact is not limited to claim costs: it can change who is even willing to write the coverage at all.",
     "findings": [
       {
         "label": "Pennsylvania (2011, Act 46): commercial insurers stopped writing WC coverage for volunteer fire departments",
@@ -828,6 +828,6 @@
         "source_url": "https://www.ncci.com/Articles/Pages/Insights-Presumptive-WC-Benefits-Firefighters.aspx"
       }
     ],
-    "implication": "For underwriting purposes, this reframes what a new presumption law means for a book of business: it is not only a claims-cost question, it can be a market-availability question -- a jurisdiction with a strict, hard-to-rebut presumption may see voluntary-market carriers exit the municipal/volunteer-fire-department segment entirely, concentrating that risk in state residual markets or funds of last resort. This is a genuinely different kind of signal than anything else on this tracker, and was found only by reading NCCI's own primary research directly."
+    "implication": "For underwriting purposes, this reframes what a new presumption law means for a book of business: it is not only a claims-cost question, it can be a market-availability question -- a jurisdiction with a strict, hard-to-rebut presumption may see voluntary-market carriers exit the municipal/volunteer-fire-department segment entirely, concentrating that risk in state residual markets or funds of last resort."
   }
 }
