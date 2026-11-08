@@ -6,39 +6,65 @@
 <title>Precedent</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --page-bg: #f8f8f8;
+    --page-bg: #f7f8fa;
     --card-bg: #ffffff;
-    --ink: #101114;
-    --ink-muted: #6b6f76;
-    --ink-faint: #9a9ea5;
-    --chip-bg: #f0f0ee;
-    --accent-blue: #3b6ef6;
-    --accent-blue-bg: #e9eefe;
-    --accent-green: #1ea672;
-    --accent-green-bg: #e3f6ee;
-    --accent-amber: #de7a3c;
-    --accent-amber-bg: #fbe9db;
-    --accent-purple: #9b7fd4;
-    --accent-purple-bg: #ede8fa;
+    --ink: #0e1116;
+    --ink-muted: #5c6370;
+    --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3;
+    --accent-blue: #14213d;
+    --accent-blue-bg: #e7eaf1;
+    --accent-green: #14213d;
+    --accent-green-bg: #e7eaf1;
+    --accent-amber: #b8601f;
+    --accent-amber-bg: #f5e8da;
+    --accent-red: #b33c30;
+    --accent-red-bg: #f7e2df;
+    --accent-purple: #6b7280;
+    --accent-purple-bg: #ebedef;
+    --nav-bg: rgba(247, 248, 250, 0.78);
     --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     --radius-card: 20px;
     --radius-pill: 999px;
     color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10;
+    --card-bg: #15181d;
+    --ink: #eef0f3;
+    --ink-muted: #9aa1ab;
+    --ink-faint: #6a7079;
+    --chip-bg: #1e2228;
+    --accent-blue: #7f94c2;
+    --accent-blue-bg: #1c2433;
+    --accent-green: #7f94c2;
+    --accent-green-bg: #1c2433;
+    --accent-amber: #e2974f;
+    --accent-amber-bg: #2b2114;
+    --accent-red: #e2766a;
+    --accent-red-bg: #2e1816;
+    --accent-purple: #8b929c;
+    --accent-purple-bg: #1e2228;
+    --nav-bg: rgba(11, 13, 16, 0.78);
+    color-scheme: dark;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
   .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px 100px; }
 
-  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 880px; margin: 0 auto; }
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 880px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
   .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
   .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
   .nav-links { display: flex; gap: 20px; align-items: center; }
   .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
   .nav-links a.cta { color: var(--accent-blue); }
+  .theme-toggle { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--chip-bg); background: var(--card-bg); color: var(--ink-muted); font-size: 15px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+  .theme-toggle:hover { color: var(--ink); }
 
   .hero { position: relative; padding: 50px 24px 60px; text-align: center; overflow: hidden; }
   .hero-mesh { position: absolute; inset: -40px -40px auto -40px; height: 420px; z-index: -1; background: radial-gradient(ellipse 680px 380px at 50% 10%, rgba(59,110,246,0.10), transparent 70%); }
@@ -65,7 +91,7 @@
   .module-card p { font-size: 14.5px; line-height: 1.65; color: var(--ink-muted); margin: 0 0 16px; }
   .module-stats { display: flex; gap: 24px; flex-wrap: wrap; }
   .module-stats .ms { display: flex; flex-direction: column; }
-  .module-stats .ms .n { font-size: 20px; font-weight: 600; letter-spacing: -0.01em; }
+  .module-stats .ms .n { font-family: var(--font-mono); font-size: 20px; font-weight: 600; letter-spacing: -0.01em; display: inline-block; padding-bottom: 4px; border-bottom: 2px solid var(--chip-bg); }
   .module-stats .ms .l { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
   .module-open { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; margin-top: 20px; color: var(--accent-blue); }
   .module-open svg { transition: transform 0.15s; }
@@ -77,8 +103,8 @@
   .portfolio-input-row { display: flex; gap: 10px; flex-wrap: wrap; }
   .portfolio-input-row input { flex: 1; min-width: 220px; font-family: var(--font); font-size: 14px; padding: 11px 14px; border-radius: 12px; border: 1px solid rgba(16, 17, 20, 0.08); background: var(--page-bg); color: var(--ink); outline: none; transition: border-color 0.15s; }
   .portfolio-input-row input:focus { border-color: var(--accent-blue); }
-  .portfolio-btn { font-family: var(--font); font-size: 13.5px; font-weight: 600; padding: 11px 20px; border-radius: 12px; border: none; background: #000; color: #fff; cursor: pointer; }
-  .portfolio-btn:hover { background: #222; }
+  .portfolio-btn { font-family: var(--font); font-size: 13.5px; font-weight: 600; padding: 11px 20px; border-radius: 12px; border: none; background: var(--ink); color: var(--page-bg); cursor: pointer; }
+  .portfolio-btn:hover { opacity: 0.85; }
   .portfolio-btn.secondary { background: var(--chip-bg); color: var(--ink); }
   .portfolio-btn.secondary:hover { background: #e4e4e2; }
   .portfolio-btn:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -90,9 +116,9 @@
   .saved-chip .load { cursor: pointer; font-weight: 600; }
   .portfolio-summary { display: flex; gap: 20px; flex-wrap: wrap; margin: 18px 0 2px; padding-top: 18px; border-top: 1px solid var(--chip-bg); }
   .portfolio-summary .ps { display: flex; flex-direction: column; }
-  .portfolio-summary .ps .n { font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .portfolio-summary .ps .n { font-family: var(--font-mono); font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
   .portfolio-summary .ps .n.warn { color: var(--accent-amber); }
-  .portfolio-summary .ps .n.bad { color: #d6554a; }
+  .portfolio-summary .ps .n.bad { color: var(--accent-red); }
   .portfolio-summary .ps .l { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
   .portfolio-state-row { padding: 14px 0; border-top: 1px solid var(--chip-bg); font-size: 13.5px; }
   .portfolio-state-row:first-of-type { border-top: none; }
@@ -129,7 +155,7 @@
   .bob-remove { border: none; background: none; cursor: pointer; color: var(--ink-faint); font-size: 16px; padding: 4px 8px; }
   .bob-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
   .bob-exposure-summary { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--chip-bg); }
-  .bob-exposure-summary .beg { font-size: 28px; font-weight: 600; letter-spacing: -0.01em; }
+  .bob-exposure-summary .beg { font-family: var(--font-mono); font-size: 28px; font-weight: 600; letter-spacing: -0.01em; display: inline-block; padding-bottom: 4px; border-bottom: 2px solid var(--accent-red); }
   .bob-exposure-summary .bel { font-size: 12.5px; color: var(--ink-faint); margin-top: 2px; }
   .bob-breakdown { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
   .bob-breakdown-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-muted); }
@@ -154,6 +180,7 @@
 </style>
 </head>
 <body>
+<script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
 
 <nav class="top">
   <div class="brand"><span class="dot"></span> Precedent</div>
@@ -161,6 +188,7 @@
     <a href="#ontology">How it works</a>
     <a href="#compare">Why not Praedicat</a>
     <a href="#portfolio" class="cta">Check your exposure</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9680;</button>
   </div>
 </nav>
 
@@ -189,7 +217,7 @@
         <p>Every confirmed lawsuit where a municipality or firefighter has sued a gear or foam manufacturer over PFAS exposure &mdash; plus a real prediction of which US state is next, and an interactive world map now spanning North America, Western Europe, the Middle East, Asia, South America, and Africa.</p>
         <div class="module-stats">
           <div class="ms"><div class="n">10</div><div class="l">US actions tracked</div></div>
-          <div class="ms"><div class="n">29</div><div class="l">countries covered</div></div>
+          <div class="ms"><div class="n">18</div><div class="l">countries covered</div></div>
           <div class="ms"><div class="n">10/10</div><div class="l">US actions VERIFIED</div></div>
         </div>
         <div class="module-open">Open module
@@ -206,7 +234,7 @@
         <div class="module-stats">
           <div class="ms"><div class="n">20</div><div class="l">states, cancer presumption</div></div>
           <div class="ms"><div class="n">6</div><div class="l">states, PTSD, up from 0</div></div>
-          <div class="ms"><div class="n">16</div><div class="l">countries covered globally</div></div>
+          <div class="ms"><div class="n">6</div><div class="l">countries covered globally</div></div>
         </div>
         <div class="module-open">Open module
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -446,7 +474,7 @@ function runPortfolioCheck(codes) {
         if (status === "never") return "";
         if (status === "gained") presumptionGainedCount++;
         if (status === "lost") presumptionLostCount++;
-        const palette = { has: ["var(--accent-blue-bg)", "var(--accent-blue)"], gained: ["var(--accent-green-bg)", "var(--accent-green)"], lost: ["#fbe6e3", "#d6554a"] };
+        const palette = { has: ["var(--chip-bg)", "var(--ink-muted)"], gained: ["var(--accent-blue-bg)", "var(--accent-blue)"], lost: ["var(--accent-red-bg)", "var(--accent-red)"] };
         const [bg, fg] = palette[status];
         const label = status === "has" ? "has it" : status === "gained" ? "gained since 2016" : "lost since 2016";
         return `<span class="portfolio-cat-chip" style="background:${bg}; color:${fg}">${esc(cat.label)}: ${label}</span>`;
@@ -712,6 +740,23 @@ async function initPortfolio() {
   // Live docket check
   document.getElementById("docket-check").addEventListener("click", runDocketCheck);
 }
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    btn.innerHTML = dark ? "&#9728;" : "&#9680;";
+  };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => {
+    isDark = !isDark;
+    try { localStorage.setItem("precedent:theme", isDark ? "dark" : "light"); } catch (e) {}
+    apply(isDark);
+  });
+}
+setupThemeToggle();
 
 initPortfolio();
 </script>
