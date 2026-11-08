@@ -680,6 +680,16 @@
   "changelog": [
     {
       "date": "2026-11-08",
+      "label": "Readability overhaul: collapsed finding cards, role-toggle bulk expand/collapse, 30-second TL;DR",
+      "detail": "Addressed feedback that the site was overwhelming to read. Claims-denial, insurance-market-effects, and expansion-signal findings now collapse to a one-line headline + tier badge by default. The Underwriter/Actuary/Broker role toggle now bulk-expands or collapses every finding card at once. Added a real, computed 30-second-version summary at the top of the page."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Design overhaul: cut palette to navy + risk-red, added dark mode, terminal-style stat numerals",
+      "detail": "Replaced the soft pastel palette with one confident primary (deep navy) and one sharp risk secondary (already used for lost-since-2016 states; now extended consistently). Added a dark-mode toggle. Stat numbers now use a monospace numeral font with tabular figures and a thin rule underneath."
+    },
+    {
+      "date": "2026-11-08",
       "label": "Major rebuild of claims-denial-reality: NCCI primary data, Oregon claim-level data, Colorado parallel system, Ohio natural experiment, insurance-market-collapse finding",
       "detail": "Directly read NCCI's own 2023 research brief in full: ~180 cancer claims and ~500 heart-attack claims reported since 2004, 75% concentrated in CO/LA/MD/OR with NCCI's own explanation why (Castle Rock ruling, 2017 LA expansion, MD cancer-list growth, OR rebuttal-burden case law). Added Oregon's own claim-level data (101 claims 2015-2025: 92% acceptance when the presumption applies, 92% denial when it doesn't). Added Colorado's CFHC Trust (99% acceptance) built specifically because WC denial rates were too high. Added a CDC-archived Ohio before/after study. New section: NCCI documents presumption laws pushing commercial insurers out of the voluntary market entirely in Pennsylvania (2011) and Vermont, forcing departments into residual/last-resort coverage -- a genuinely new kind of signal for this tracker. Also added San Mateo County's confirmed self-insured status and a correction that MA litigating cities are likely pooled (MIIA/MEGA), not individually self-insured."
     },
