@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precedent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa;
+    --card-bg: #ffffff;
+    --ink: #0e1116;
+    --ink-muted: #5c6370;
+    --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3;
+    --accent-blue: #14213d;
+    --accent-blue-bg: #e7eaf1;
+    --accent-green: #14213d;
+    --accent-green-bg: #e7eaf1;
+    --accent-amber: #b8601f;
+    --accent-amber-bg: #f5e8da;
+    --accent-red: #b33c30;
+    --accent-red-bg: #f7e2df;
+    --accent-purple: #6b7280;
+    --accent-purple-bg: #ebedef;
+    --nav-bg: rgba(247, 248, 250, 0.78);
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px;
+    --radius-pill: 999px;
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10;
+    --card-bg: #15181d;
+    --ink: #eef0f3;
+    --ink-muted: #9aa1ab;
+    --ink-faint: #6a7079;
+    --chip-bg: #1e2228;
+    --accent-blue: #7f94c2;
+    --accent-blue-bg: #1c2433;
+    --accent-green: #7f94c2;
+    --accent-green-bg: #1c2433;
+    --accent-amber: #e2974f;
+    --accent-amber-bg: #2b2114;
+    --accent-red: #e2766a;
+    --accent-red-bg: #2e1816;
+    --accent-purple: #8b929c;
+    --accent-purple-bg: #1e2228;
+    --nav-bg: rgba(11, 13, 16, 0.78);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px 100px; }
+
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 880px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .nav-links a.cta { color: var(--accent-blue); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  .theme-toggle:hover { background: var(--chip-bg); }
+
+  @media (max-width: 640px) {
+    nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; }
+    .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; }
+    .nav-links a { font-size: 13px; white-space: nowrap; }
+    .quotes-strip { flex-direction: column; }
+  }
+
+  .hero { position: relative; padding: 50px 24px 60px; text-align: center; overflow: hidden; }
+  .hero-mesh { position: absolute; inset: -40px -40px auto -40px; height: 420px; z-index: -1; background: radial-gradient(ellipse 680px 380px at 50% 10%, rgba(59,110,246,0.10), transparent 70%); }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 22px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
+  h1 { font-weight: 500; font-size: clamp(32px, 7vw, 54px); line-height: 1.1; margin: 0 auto 18px; letter-spacing: -0.02em; text-wrap: balance; max-width: 14ch; }
+  .hero p.dek { font-size: 17px; line-height: 1.6; color: var(--ink-muted); max-width: 54ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+  .powered-by { margin-top: 26px; font-size: 12.5px; color: var(--ink-faint); }
+  .powered-by strong { color: var(--ink-muted); font-weight: 600; }
+
+  section { padding: 20px 0 0; }
+  section.block { padding-top: 56px; }
+  .section-head { margin-bottom: 22px; text-align: center; }
+  h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .section-sub { font-size: 14.5px; line-height: 1.6; color: var(--ink-muted); max-width: 56ch; margin: 0 auto; }
+
+  .modules { display: flex; flex-direction: column; gap: 14px; margin-top: 30px; }
+  .module-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 30px 32px; display: block; transition: transform 0.2s, background 0.2s; }
+  .module-card:hover { transform: translateY(-2px); background: #fcfcfb; }
+  .module-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+  .module-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 11px; border-radius: var(--radius-pill); }
+  .module-card h3 { font-size: 20px; font-weight: 600; margin: 0 0 10px; }
+  .module-card p { font-size: 14.5px; line-height: 1.65; color: var(--ink-muted); margin: 0 0 16px; }
+  .module-stats { display: flex; gap: 24px; flex-wrap: wrap; }
+  .module-stats .ms { display: flex; flex-direction: column; }
+  .module-stats .ms .n { font-family: var(--font-mono); font-size: 20px; font-weight: 600; letter-spacing: -0.01em; display: inline-block; padding-bottom: 4px; border-bottom: 2px solid var(--chip-bg); }
+  .module-stats .ms .l { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
+  .module-open { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; margin-top: 20px; color: var(--accent-blue); }
+  .module-open svg { transition: transform 0.15s; }
+  .module-card:hover .module-open svg { transform: translateX(3px); }
+
+  footer { margin-top: 60px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; text-align: center; }
+
+  .map-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 24px 18px; margin-bottom: 14px; text-align: left; }
+  .portfolio-input-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .portfolio-input-row input { flex: 1; min-width: 220px; font-family: var(--font); font-size: 14px; padding: 11px 14px; border-radius: 12px; border: 1px solid rgba(16, 17, 20, 0.08); background: var(--page-bg); color: var(--ink); outline: none; transition: border-color 0.15s; }
+  .portfolio-input-row input:focus { border-color: var(--accent-blue); }
+  .portfolio-btn { font-family: var(--font); font-size: 13.5px; font-weight: 600; padding: 11px 20px; border-radius: 12px; border: none; background: var(--ink); color: var(--page-bg); cursor: pointer; }
+  .portfolio-btn:hover { opacity: 0.85; }
+  .portfolio-btn.secondary { background: var(--chip-bg); color: var(--ink); }
+  .portfolio-btn.secondary:hover { background: #e4e4e2; }
+  .portfolio-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .portfolio-save-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+  .portfolio-save-row input { flex: 1; min-width: 160px; font-family: var(--font); font-size: 13px; padding: 9px 12px; border-radius: 10px; border: 1px solid rgba(16, 17, 20, 0.08); background: var(--page-bg); color: var(--ink); }
+  .saved-portfolios { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+  .saved-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; background: var(--chip-bg); padding: 6px 10px 6px 12px; border-radius: var(--radius-pill); color: var(--ink); }
+  .saved-chip button { border: none; background: none; cursor: pointer; color: var(--ink-faint); font-size: 14px; line-height: 1; padding: 0 2px; }
+  .saved-chip .load { cursor: pointer; font-weight: 600; }
+  .portfolio-summary { display: flex; gap: 20px; flex-wrap: wrap; margin: 18px 0 2px; padding-top: 18px; border-top: 1px solid var(--chip-bg); }
+  .portfolio-summary .ps { display: flex; flex-direction: column; }
+  .portfolio-summary .ps .n { font-family: var(--font-mono); font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
+  .portfolio-summary .ps .n.warn { color: var(--accent-amber); }
+  .portfolio-summary .ps .n.bad { color: var(--accent-red); }
+  .portfolio-summary .ps .l { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
+  .portfolio-state-row { padding: 14px 0; border-top: 1px solid var(--chip-bg); font-size: 13.5px; }
+  .portfolio-state-row:first-of-type { border-top: none; }
+  .portfolio-state-row .psr-name { font-weight: 600; margin-bottom: 6px; }
+  .portfolio-state-row .psr-line { color: var(--ink-muted); line-height: 1.6; margin-bottom: 4px; }
+  .portfolio-state-row .psr-line b { color: var(--ink); }
+  .portfolio-cat-chip { display: inline-block; font-size: 11.5px; font-weight: 600; padding: 2px 9px; border-radius: var(--radius-pill); margin: 2px 4px 2px 0; }
+  .copy-note-row { margin-top: 16px; display: flex; align-items: center; gap: 10px; }
+  .copy-note-feedback { font-size: 12.5px; color: var(--accent-green); }
+
+  /* ---- Ontology diagram ---- */
+  .ontology-diagram { display: flex; flex-direction: column; gap: 10px; }
+  .ont-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .ont-node { display: inline-flex; flex-direction: column; gap: 2px; background: var(--card-bg); border-radius: 14px; padding: 12px 16px; min-width: 120px; }
+  .ont-node .ont-type { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-faint); }
+  .ont-node .ont-name { font-size: 14px; font-weight: 600; }
+  .ont-link { font-size: 11.5px; color: var(--ink-faint); white-space: nowrap; display: flex; align-items: center; gap: 4px; }
+  .ont-link svg { flex-shrink: 0; }
+  .ontology-note { margin-top: 16px; font-size: 13.5px; color: var(--ink-muted); line-height: 1.65; }
+
+  /* ---- Competitive table ---- */
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  .compare-table th { text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-faint); padding: 0 12px 10px; border-bottom: 1px solid var(--chip-bg); }
+  .compare-table td { padding: 12px; border-bottom: 1px solid var(--chip-bg); color: var(--ink-muted); line-height: 1.5; vertical-align: top; }
+  .compare-table td:first-child, .compare-table th:first-child { padding-left: 0; font-weight: 600; color: var(--ink); white-space: nowrap; }
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  /* ---- Book of business ---- */
+  .bob-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
+  .bob-table th { text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-faint); padding: 0 8px 8px 0; }
+  .bob-table td { padding: 4px 8px 4px 0; }
+  .bob-table input { width: 100%; font-family: var(--font); font-size: 13.5px; padding: 8px 10px; border-radius: 9px; border: 1px solid rgba(16, 17, 20, 0.08); background: var(--page-bg); color: var(--ink); outline: none; }
+  .bob-table input:focus { border-color: var(--accent-blue); }
+  .bob-remove { border: none; background: none; cursor: pointer; color: var(--ink-faint); font-size: 16px; padding: 4px 8px; }
+  .bob-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+  .bob-exposure-summary { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--chip-bg); }
+  .bob-exposure-summary .beg { font-family: var(--font-mono); font-size: 28px; font-weight: 600; letter-spacing: -0.01em; display: inline-block; padding-bottom: 4px; border-bottom: 2px solid var(--accent-red); }
+  .bob-exposure-summary .bel { font-size: 12.5px; color: var(--ink-faint); margin-top: 2px; }
+  .bob-breakdown { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .bob-breakdown-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-muted); }
+  .bob-breakdown-row b { color: var(--ink); }
+
+  /* ---- Live docket check ---- */
+  .docket-status { font-size: 13px; padding: 10px 14px; border-radius: 10px; margin-top: 12px; }
+  .docket-status.loading { background: var(--chip-bg); color: var(--ink-muted); }
+  .docket-status.ok { background: var(--accent-green-bg); color: var(--accent-green); }
+  .docket-status.empty { background: var(--chip-bg); color: var(--ink-muted); }
+  .docket-status.error { background: var(--accent-amber-bg); color: var(--accent-amber); }
+  .docket-result { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; }
+  .docket-item { padding: 12px 14px; background: var(--page-bg); border-radius: 12px; font-size: 13px; line-height: 1.5; }
+  .docket-item .di-title { font-weight: 600; margin-bottom: 3px; }
+  .docket-item .di-meta { color: var(--ink-faint); font-size: 12px; }
+
+  /* ---- Industry-voices quotes (cited, not endorsements) ---- */
+  .quotes-strip { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin: 0 auto 8px; max-width: 880px; padding: 0 20px; }
+  .quote-card { flex: 1 1 320px; background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 26px; text-align: left; border: 1px solid var(--chip-bg); }
+  .quote-card .q-mark { font-family: var(--font-mono); font-size: 28px; color: var(--chip-bg); line-height: 1; margin-bottom: 4px; }
+  .quote-card p.q-text { font-size: 15px; line-height: 1.55; font-style: italic; color: var(--ink); margin: 0 0 16px; }
+  .quote-card .q-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .quote-card .q-title { font-size: 12.5px; color: var(--ink-muted); margin-top: 1px; }
+  .quote-card .q-src { font-size: 11.5px; color: var(--ink-faint); margin-top: 10px; }
+  .quote-card .q-src a { color: var(--accent-blue); font-weight: 500; }
+  .quotes-note { text-align: center; font-size: 12px; color: var(--ink-faint); max-width: 600px; margin: 2px auto 0; line-height: 1.6; }
+
+  /* ---- Roadmap / pilot note ---- */
+  .pilot-card { background: linear-gradient(135deg, var(--accent-blue-bg), var(--card-bg)); border-radius: var(--radius-card); padding: 28px 30px; text-align: left; }
+  .pilot-card h3 { font-size: 18px; margin: 0 0 8px; }
+  .pilot-card p { font-size: 14px; line-height: 1.65; color: var(--ink-muted); margin: 0 0 16px; }
+  .pilot-card a.pilot-btn { display: inline-flex; font-size: 13.5px; font-weight: 600; color: #fff; background: var(--accent-blue); padding: 10px 18px; border-radius: 10px; }
+</style>
+</head>
+<body>
+<script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+
+<nav class="top">
+  <div class="brand"><span class="dot"></span> Precedent</div>
+  <div class="nav-links">
+    <a href="#ontology">How it works</a>
+    <a href="#compare">Why Precedent</a>
+    <a href="#portfolio" class="cta">Check your exposure</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-mesh"></div>
+  <span class="eyebrow-pill"><span class="dot"></span>Risk intelligence for casualty insurers</span>
+  <h1>Precedent</h1>
+  <p class="dek">We track specific, emerging liability risks &mdash; like PFAS lawsuits and firefighter presumption laws &mdash; <strong>before they turn into claims</strong>, so underwriters can price or exclude them while there's still time. Every figure below comes from a primary source we opened and read, not an estimate.</p>
+  <div class="powered-by">Scored by the <strong>Sibyl</strong> prediction model</div>
+</div>
+
+<div class="quotes-strip">
+  <div class="quote-card">
+    <div class="q-mark">&ldquo;</div>
+    <p class="q-text">&ldquo;One of the most watched legislative topics for us&rdquo; &mdash; and NCCI still has no plans to adjust pricing for it, because the impact is too hard to estimate.</p>
+    <div class="q-name">Jeff Eddinger</div>
+    <div class="q-title">Senior Division Executive, NCCI</div>
+    <div class="q-src"><a href="https://www.businessinsurance.com/presumption-law-changes-bring-cost-uncertainty-minnesota-arizona/" target="_blank" rel="noopener">Business Insurance, 2020</a></div>
+  </div>
+  <div class="quote-card">
+    <div class="q-mark">&ldquo;</div>
+    <p class="q-text">&ldquo;This program positions us as an industry leader in the public entity market&rdquo; &mdash; announcing a dedicated Public Entity Excess Casualty program, March 2025.</p>
+    <div class="q-name">Andrew Kay</div>
+    <div class="q-title">President, Amwins Specialty Casualty Solutions</div>
+    <div class="q-src"><a href="https://www.amwins.com/who-we-are/newsroom/amwins-specialty-casualty-solutions-enhances-portfolio-with-public-entity-excess-casualty-program" target="_blank" rel="noopener">Amwins newsroom, Mar 17 2025</a></div>
+  </div>
+</div>
+<p class="quotes-note">Cited as industry commentary &mdash; not an endorsement of Precedent.</p>
+
+<div class="wrap">
+
+  <section>
+    <div class="section-head">
+      <h2>Scenario modules</h2>
+      <p class="section-sub">Click into any module for the full litigation tracker, the real prediction model behind it, and exactly what it does and doesn't claim to know.</p>
+    </div>
+
+    <div class="modules">
+      <a class="module-card" href="./pfas2/">
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-blue-bg); color:var(--accent-blue)">Products liability</span>
+        </div>
+        <h3>PFAS &amp; Turnout-Gear Litigation Tracker</h3>
+        <p>Every confirmed lawsuit where a municipality or firefighter has sued a gear or foam manufacturer over PFAS exposure &mdash; plus a real prediction of which US state is next, and an interactive world map now spanning North America, Western Europe, the Middle East, Asia, South America, and Africa.</p>
+        <div class="module-stats">
+          <div class="ms"><div class="n">10</div><div class="l">US actions tracked</div></div>
+          <div class="ms"><div class="n">18</div><div class="l">countries covered</div></div>
+          <div class="ms"><div class="n">10/10</div><div class="l">US actions VERIFIED</div></div>
+        </div>
+        <div class="module-open">Open module
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a class="module-card" href="./presumption2/">
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-purple-bg); color:var(--accent-purple)">Workers' comp</span>
+        </div>
+        <h3>Presumption Expansion Tracker</h3>
+        <p>How firefighter cancer, heart, lung, and PTSD presumption laws actually changed across US states from 2016 to 2023 &mdash; a real three-point comparison, not a two-point guess &mdash; now with an interactive world map covering Canada, Australia, the UK, Germany, Denmark, and New Zealand, plus the documented precedent base for expansion into the private sector.</p>
+        <div class="module-stats">
+          <div class="ms"><div class="n">20</div><div class="l">states, cancer presumption</div></div>
+          <div class="ms"><div class="n">6</div><div class="l">states, PTSD, up from 0</div></div>
+          <div class="ms"><div class="n">6</div><div class="l">countries covered globally</div></div>
+        </div>
+        <div class="module-open">Open module
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 1. ONTOLOGY -->
+  <section class="block" id="ontology">
+    <div class="section-head">
+      <h2>How Precedent models risk</h2>
+      <p class="section-sub">Every module reads and writes to the same underlying objects. A new statute doesn't just update one page &mdash; it re-scores every state, every litigation action, and every prediction that touches it.</p>
+    </div>
+    <div class="map-card">
+      <div class="ontology-diagram">
+        <div class="ont-row">
+          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">State</span></div>
+          <span class="ont-link">&mdash; enacts &rarr;</span>
+          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">Statute</span></div>
+          <span class="ont-link">&mdash; feeds &rarr;</span>
+          <div class="ont-node"><span class="ont-type">Model</span><span class="ont-name">Sibyl ranking</span></div>
+        </div>
+        <div class="ont-row">
+          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">State</span></div>
+          <span class="ont-link">&mdash; named in &rarr;</span>
+          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">Litigation action</span></div>
+          <span class="ont-link">&mdash; consolidated into &rarr;</span>
+          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">MDL</span></div>
+        </div>
+        <div class="ont-row">
+          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">State</span></div>
+          <span class="ont-link">&mdash; has/gained/lost &rarr;</span>
+          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">Presumption category</span></div>
+        </div>
+        <div class="ont-row">
+          <div class="ont-node" style="background:var(--accent-blue-bg)"><span class="ont-type">Your data</span><span class="ont-name">Book of business</span></div>
+          <span class="ont-link">&mdash; weighted against all three &rarr;</span>
+          <div class="ont-node" style="background:var(--accent-amber-bg)"><span class="ont-type">Output</span><span class="ont-name">At-risk exposure</span></div>
+        </div>
+      </div>
+      <p class="ontology-note">This is why the two modules above and the exposure checker below all stay in sync off one data layer: a state is one object referenced everywhere it's relevant, not copy-pasted into three separate trackers. Click "Check your exposure" to query this layer against your own book, not just a state list.</p>
+    </div>
+  </section>
+
+  <!-- 5. WHAT WE SELL, now a named workflow -->
+  <section class="block" id="workflow">
+    <div class="section-head">
+      <h2>The workflow this replaces</h2>
+    </div>
+    <div class="map-card" style="text-align:left;">
+      <p style="font-size:14.5px; line-height:1.7; color:var(--ink-muted); margin:0 0 14px;"><b style="color:var(--ink)">Today, without this:</b> a casualty underwriter doing a quarterly PFAS-exposed account review manually re-checks state legislation trackers, searches PACER or news coverage for new filings, and cross-references that against a spreadsheet of which accounts sit in which states &mdash; usually a half-day of manual research per review cycle, done by hand, from scratch, every quarter.</p>
+      <p style="font-size:14.5px; line-height:1.7; color:var(--ink-muted); margin:0;"><b style="color:var(--ink)">What Precedent does instead:</b> one evidence-tiered view of litigation, legislation, and prediction, queried directly against your book of business, so the quarterly review becomes "open the tool, paste in this quarter's renewals, read the flagged accounts" rather than rebuilding the research from zero. Decision support, not a substitute for your own underwriting diligence.</p>
+    </div>
+  </section>
+
+  <!-- 6. COMPETITIVE POSITIONING -->
+  <section class="block" id="compare">
+    <div class="section-head">
+      <h2>Why isn't this just public data anyone could scrape?</h2>
+      <p class="section-sub">Worth naming the real competitive landscape rather than pretending this space is empty &mdash; and being honest about what's actually hard to copy here and what isn't.</p>
+    </div>
+    <div class="map-card" style="text-align:left; padding:24px;">
+      <table class="compare-table">
+        <tr><th>Provider</th><th>What they do</th><th>Where Precedent differs</th></tr>
+        <tr>
+          <td>Large-scale casualty &amp; latent-liability platforms<br><span style="font-weight:400; color:var(--ink-faint); font-size:12px;">(enterprise liability-analytics vendors)</span></td>
+          <td>Population-aware latent liability modeling for casualty reinsurance, built for large-carrier enterprise sales with long implementation cycles.</td>
+          <td>Smaller surface area by design, one or two scenario threads modeled end to end and fully transparent, rather than a broad platform sold top-down.</td>
+        </tr>
+        <tr>
+          <td>ISO / Verisk</td>
+          <td>Broad industry-standard catastrophe and loss-cost data, trusted but typically a black box on methodology.</td>
+          <td>Every figure is tagged VERIFIED or REPORTED inline, and corrections are kept visible rather than silently fixed.</td>
+        </tr>
+      </table>
+      <p style="font-size:13px; color:var(--ink-faint); margin:16px 0 0; line-height:1.6;">The underlying public records &mdash; court dockets, state statutes &mdash; aren't what makes this hard to copy; any competitor can pull the same filings. What isn't public is the validated crosswalk connecting a specific statute to a specific chemical variant to a specific NAICS code to a specific policy trigger: that mapping gets more accurate and harder to replicate every week it keeps running, which is the actual bet here. This isn't a claim to replace either category above. It's a different one: that a narrow, radically transparent tool updated weekly beats a broad platform updated quarterly, for the specific accounts where it actually matters.</p>
+    </div>
+  </section>
+
+  <!-- 2. LIVE DOCKET CHECK -->
+  <section class="block" id="live-check">
+    <div class="section-head">
+      <h2>Live docket check</h2>
+      <p class="section-sub">Queries CourtListener's public RECAP archive directly from your browser for new MDL 3191 filings, so this module doesn't go stale between manual research passes.</p>
+    </div>
+    <div class="map-card">
+      <div class="portfolio-input-row">
+        <input type="text" id="docket-query" value="MDL No. 3191 turnout gear" autocomplete="off">
+        <button id="docket-check" class="portfolio-btn">Check for new filings</button>
+      </div>
+      <div id="docket-result"></div>
+    </div>
+  </section>
+
+  <!-- 3. BOOK OF BUSINESS + existing simple checker -->
+  <section class="block" id="portfolio">
+    <div class="section-head">
+      <h2>Check your exposure</h2>
+      <p class="section-sub">Enter your actual book &mdash; state, policy count, and total insured value &mdash; and we'll weight it against active litigation, the prediction ranking, and all four presumption categories at once. Nothing you type here leaves your browser.</p>
+    </div>
+    <div class="map-card">
+      <table class="bob-table" id="bob-table">
+        <tr><th style="width:22%">State</th><th style="width:24%">Policy count</th><th style="width:34%">Total insured value ($)</th><th></th></tr>
+      </table>
+      <div class="bob-actions">
+        <button id="bob-add-row" class="portfolio-btn secondary">+ Add state</button>
+        <button id="bob-check" class="portfolio-btn">Calculate exposure</button>
+      </div>
+      <div id="bob-result"></div>
+    </div>
+
+    <div class="map-card">
+      <p style="font-size:13px; color:var(--ink-faint); margin:0 0 12px;">Prefer a quick state-only check instead of the full book above? Use the simple version:</p>
+      <div class="portfolio-input-row">
+        <input type="text" id="portfolio-states" placeholder="e.g. MI, CO, OH or Michigan, Colorado, Ohio" autocomplete="off">
+        <button id="portfolio-check" class="portfolio-btn secondary">Check states</button>
+      </div>
+      <div class="portfolio-save-row">
+        <input type="text" id="portfolio-save-name" placeholder="Name this portfolio (e.g. Primary book)" autocomplete="off">
+        <button id="portfolio-save" class="portfolio-btn secondary">Save</button>
+      </div>
+      <div class="saved-portfolios" id="saved-portfolios"></div>
+      <div id="portfolio-result"></div>
+    </div>
+  </section>
+
+  <!-- 4. PILOT / ONE REAL USER -->
+  <section class="block">
+    <div class="pilot-card">
+      <h3>Looking for one real book to pilot this against</h3>
+      <p>Every module here is built from public data, verified line by line. If you work casualty, workers' comp, or PFAS-exposed accounts and would spend 20 minutes walking through how your quarterly review actually works, that's the single most useful thing that could happen to this project right now.</p>
+      <a class="pilot-btn" href="mailto:brukf2205@gmail.com?subject=Precedent pilot">Get in touch</a>
+    </div>
+  </section>
+
+  <footer>
+    Every number on every module is sourced. Evidence tiers are shown inline: VERIFIED = source directly opened and read, REPORTED = secondary coverage only. More scenario modules in progress.
+  </footer>
+</div>
+
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+const STATE_NAMES = {
+  AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",
+  DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",
+  IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",
+  MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",
+  NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",
+  OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",
+  TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",
+  WI:"Wisconsin",WY:"Wyoming",PR:"Puerto Rico"
+};
+const NAME_TO_CODE = Object.fromEntries(Object.entries(STATE_NAMES).map(([code, name]) => [name.toLowerCase(), code]));
+
+let PFAS_DATA = null, PRESUMPTION_DATA = null;
+
+async function loadPortfolioData() {
+  try {
+    const [pfasRes, presRes] = await Promise.all([
+      fetch("pfas2/data.json").catch(() => null),
+      fetch("presumption2/data.json").catch(() => null),
+    ]);
+    if (pfasRes && pfasRes.ok) PFAS_DATA = await pfasRes.json();
+    if (presRes && presRes.ok) PRESUMPTION_DATA = await presRes.json();
+  } catch (e) { /* leave nulls; UI will say what's unavailable */ }
+}
+
+function parseStateInput(raw) {
+  return [...new Set(raw.split(/[,;]/).map(s => s.trim()).filter(Boolean).map(tok => {
+    const upper = tok.toUpperCase();
+    if (STATE_NAMES[upper]) return upper;
+    return NAME_TO_CODE[tok.toLowerCase()] || null;
+  }).filter(Boolean))];
+}
+
+function catStatus(cat, code) {
+  const had2016 = (cat.states_2016 || []).filter(s => s.length === 2).includes(code);
+  const has2023 = (cat.states_2023 || []).filter(s => s.length === 2).includes(code);
+  if (has2023 && had2016) return "has";
+  if (has2023 && !had2016) return "gained";
+  if (!has2023 && had2016) return "lost";
+  return "never";
+}
+
+function getLitigatingStates() {
+  const set = new Set();
+  if (!PFAS_DATA) return set;
+  PFAS_DATA.litigation_actions.forEach(a => {
+    if (a.state) set.add(a.state);
+    a.plaintiffs_named.forEach(p => { const m = p.match(/,\s*([A-Z]{2})\b/); if (m) set.add(m[1]); });
+  });
+  return set;
+}
+
+function getCandidateMap() {
+  const map = {};
+  if (!PFAS_DATA) return map;
+  PFAS_DATA.prediction_model.top_candidates.forEach((c, i) => { map[c.code] = { ...c, rank: i + 1 }; });
+  return map;
+}
+
+function runPortfolioCheck(codes) {
+  const resultEl = document.getElementById("portfolio-result");
+  if (codes.length === 0) {
+    resultEl.innerHTML = `<p style="font-size:13.5px; color:var(--ink-muted); margin:14px 0 0;">Enter at least one recognizable US state (two-letter code or full name) to check.</p>`;
+    return;
+  }
+
+  let litigatingCount = 0, predictedCount = 0, presumptionGainedCount = 0, presumptionLostCount = 0;
+  const litigatingStates = getLitigatingStates();
+  const candidateMap = getCandidateMap();
+
+  const rows = codes.map(code => {
+    const name = STATE_NAMES[code] || code;
+    const lines = [];
+
+    if (PFAS_DATA) {
+      if (litigatingStates.has(code)) {
+        litigatingCount++;
+        lines.push(`<div class="psr-line"><b>PFAS:</b> confirmed litigation &mdash; already a named plaintiff state.</div>`);
+      } else if (candidateMap[code]) {
+        predictedCount++;
+        const c = candidateMap[code];
+        lines.push(`<div class="psr-line"><b>PFAS:</b> ranked #${c.rank} of 10 predicted-next &mdash; ${esc(c.airports)} FAA airports, has enacted PFAS/AFFF legislation.</div>`);
+      } else {
+        lines.push(`<div class="psr-line"><b>PFAS:</b> no current signal tracked.</div>`);
+      }
+    } else {
+      lines.push(`<div class="psr-line"><b>PFAS:</b> module data unavailable in this view.</div>`);
+    }
+
+    if (PRESUMPTION_DATA) {
+      const chips = PRESUMPTION_DATA.disease_categories.map(cat => {
+        const status = catStatus(cat, code);
+        if (status === "never") return "";
+        if (status === "gained") presumptionGainedCount++;
+        if (status === "lost") presumptionLostCount++;
+        const palette = { has: ["var(--chip-bg)", "var(--ink-muted)"], gained: ["var(--accent-blue-bg)", "var(--accent-blue)"], lost: ["var(--accent-red-bg)", "var(--accent-red)"] };
+        const [bg, fg] = palette[status];
+        const label = status === "has" ? "has it" : status === "gained" ? "gained since 2016" : "lost since 2016";
+        return `<span class="portfolio-cat-chip" style="background:${bg}; color:${fg}">${esc(cat.label)}: ${label}</span>`;
+      }).filter(Boolean).join("");
+      lines.push(`<div class="psr-line"><b>Presumption:</b></div>${chips || `<div class="psr-line" style="margin-left:0;">No active, gained, or lost presumption category for this state.</div>`}`);
+    } else {
+      lines.push(`<div class="psr-line"><b>Presumption:</b> module data unavailable in this view.</div>`);
+    }
+
+    return `<div class="portfolio-state-row"><div class="psr-name">${esc(name)}</div>${lines.join("")}</div>`;
+  }).join("");
+
+  resultEl.innerHTML = `
+    <div class="portfolio-summary">
+      <div class="ps"><div class="n bad">${litigatingCount}</div><div class="l">of ${codes.length} in active PFAS litigation</div></div>
+      <div class="ps"><div class="n warn">${predictedCount}</div><div class="l">of ${codes.length} top-10 predicted-next (PFAS)</div></div>
+      <div class="ps"><div class="n">${presumptionGainedCount}</div><div class="l">presumption categories gained since 2016</div></div>
+      <div class="ps"><div class="n bad">${presumptionLostCount}</div><div class="l">presumption categories lost since 2016</div></div>
+    </div>
+    ${rows}
+    <div class="copy-note-row">
+      <button class="portfolio-btn secondary" id="portfolio-copy">Copy as file note</button>
+      <span class="copy-note-feedback" id="portfolio-copy-feedback"></span>
+    </div>
+  `;
+
+  document.getElementById("portfolio-copy").addEventListener("click", () => {
+    const noteLines = [`Precedent portfolio exposure check -- ${codes.length} state(s): ${codes.join(", ")}`, ""];
+    codes.forEach(code => {
+      const name = STATE_NAMES[code] || code;
+      noteLines.push(`${name}:`);
+      if (PFAS_DATA) {
+        if (litigatingStates.has(code)) noteLines.push(`  - PFAS: confirmed litigation, already a named plaintiff state.`);
+        else if (candidateMap[code]) noteLines.push(`  - PFAS: ranked #${candidateMap[code].rank} of 10 predicted-next (${candidateMap[code].airports} FAA airports, enacted legislation).`);
+        else noteLines.push(`  - PFAS: no current signal tracked.`);
+      }
+      if (PRESUMPTION_DATA) {
+        const parts = PRESUMPTION_DATA.disease_categories.map(cat => {
+          const status = catStatus(cat, code);
+          if (status === "never") return null;
+          const label = status === "has" ? "has it" : status === "gained" ? "gained since 2016" : "lost since 2016";
+          return `${cat.label} (${label})`;
+        }).filter(Boolean);
+        noteLines.push(`  - Presumption: ${parts.length ? parts.join("; ") : "no active, gained, or lost category"}.`);
+      }
+      noteLines.push("");
+    });
+    noteLines.push(`Source: Precedent (precedent platform), checked ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}. Every figure sourced; evidence tiers shown on each module.`);
+    const text = noteLines.join("\n");
+    navigator.clipboard.writeText(text).then(() => {
+      document.getElementById("portfolio-copy-feedback").textContent = "Copied.";
+      setTimeout(() => { const el = document.getElementById("portfolio-copy-feedback"); if (el) el.textContent = ""; }, 2500);
+    }).catch(() => {
+      document.getElementById("portfolio-copy-feedback").textContent = "Couldn't copy -- select and copy manually.";
+    });
+  });
+}
+
+function updateUrlParam(codes) {
+  const url = new URL(window.location.href);
+  if (codes.length) url.searchParams.set("states", codes.join(","));
+  else url.searchParams.delete("states");
+  window.history.replaceState({}, "", url);
+}
+
+function renderSavedPortfolios() {
+  const STORAGE_KEY = "precedent:savedPortfolios";
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch (e) { saved = {}; }
+  const container = document.getElementById("saved-portfolios");
+  const names = Object.keys(saved);
+  if (names.length === 0) { container.innerHTML = ""; return; }
+  container.innerHTML = names.map(name => `
+    <span class="saved-chip">
+      <span class="load" data-name="${esc(name)}">${esc(name)}</span>
+      <button data-delete="${esc(name)}" title="Delete">&times;</button>
+    </span>
+  `).join("");
+  container.querySelectorAll(".load").forEach(el => {
+    el.addEventListener("click", () => {
+      const codes = saved[el.dataset.name] || [];
+      document.getElementById("portfolio-states").value = codes.join(", ");
+      updateUrlParam(codes);
+      runPortfolioCheck(codes);
+    });
+  });
+  container.querySelectorAll("[data-delete]").forEach(el => {
+    el.addEventListener("click", () => {
+      try {
+        const current = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+        delete current[el.dataset.delete];
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(current));
+      } catch (e) {}
+      renderSavedPortfolios();
+    });
+  });
+}
+
+/* ---- 3. Book of business calculator ---- */
+let bobRowCount = 0;
+function addBobRow(stateVal = "", policyVal = "", tivVal = "") {
+  bobRowCount++;
+  const id = bobRowCount;
+  const table = document.getElementById("bob-table");
+  const tr = document.createElement("tr");
+  tr.id = `bob-row-${id}`;
+  tr.innerHTML = `
+    <td><input type="text" class="bob-state" placeholder="e.g. OH" value="${esc(stateVal)}"></td>
+    <td><input type="number" class="bob-policies" placeholder="e.g. 40" min="0" value="${esc(policyVal)}"></td>
+    <td><input type="number" class="bob-tiv" placeholder="e.g. 8000000" min="0" value="${esc(tivVal)}"></td>
+    <td><button class="bob-remove" data-row="${id}" title="Remove">&times;</button></td>
+  `;
+  table.appendChild(tr);
+  tr.querySelector(".bob-remove").addEventListener("click", () => tr.remove());
+}
+
+function runBobCheck() {
+  const rows = [...document.querySelectorAll("#bob-table tr")].slice(1); // skip header
+  const litigatingStates = getLitigatingStates();
+  const candidateMap = getCandidateMap();
+  const resultEl = document.getElementById("bob-result");
+
+  let totalTiv = 0, atRiskLitigatingTiv = 0, atRiskPredictedTiv = 0;
+  let totalPolicies = 0, atRiskLitigatingPolicies = 0, atRiskPredictedPolicies = 0;
+  const parsedRows = [];
+
+  rows.forEach(tr => {
+    const stateRaw = tr.querySelector(".bob-state")?.value.trim();
+    const policies = parseFloat(tr.querySelector(".bob-policies")?.value) || 0;
+    const tiv = parseFloat(tr.querySelector(".bob-tiv")?.value) || 0;
+    if (!stateRaw) return;
+    const upper = stateRaw.toUpperCase();
+    const code = STATE_NAMES[upper] ? upper : (NAME_TO_CODE[stateRaw.toLowerCase()] || null);
+    if (!code) { parsedRows.push({ stateRaw, code: null, policies, tiv }); return; }
+    totalTiv += tiv; totalPolicies += policies;
+    let status = "none";
+    if (litigatingStates.has(code)) { status = "litigating"; atRiskLitigatingTiv += tiv; atRiskLitigatingPolicies += policies; }
+    else if (candidateMap[code]) { status = "predicted"; atRiskPredictedTiv += tiv; atRiskPredictedPolicies += policies; }
+    parsedRows.push({ stateRaw, code, policies, tiv, status });
+  });
+
+  if (parsedRows.length === 0) {
+    resultEl.innerHTML = `<p style="font-size:13.5px; color:var(--ink-muted); margin:14px 0 0;">Add at least one state row with a recognizable state to calculate exposure.</p>`;
+    return;
+  }
+  if (!PFAS_DATA) {
+    resultEl.innerHTML = `<p style="font-size:13.5px; color:var(--ink-muted); margin:14px 0 0;">PFAS module data unavailable in this view, so exposure can't be weighted right now.</p>`;
+    return;
+  }
+
+  const fmt = n => "$" + Math.round(n).toLocaleString("en-US");
+  const badRows = parsedRows.filter(r => !r.code).map(r => r.stateRaw);
+
+  resultEl.innerHTML = `
+    <div class="bob-exposure-summary">
+      <div class="beg">${fmt(atRiskLitigatingTiv + atRiskPredictedTiv)}</div>
+      <div class="bel">of ${fmt(totalTiv)} total insured value sits in a state with confirmed PFAS litigation or a top-10 predicted-next ranking</div>
+      <div class="bob-breakdown">
+        <div class="bob-breakdown-row"><span>Confirmed litigation states</span><b>${fmt(atRiskLitigatingTiv)} &middot; ${atRiskLitigatingPolicies} polic${atRiskLitigatingPolicies === 1 ? "y" : "ies"}</b></div>
+        <div class="bob-breakdown-row"><span>Predicted-next states</span><b>${fmt(atRiskPredictedTiv)} &middot; ${atRiskPredictedPolicies} polic${atRiskPredictedPolicies === 1 ? "y" : "ies"}</b></div>
+        <div class="bob-breakdown-row"><span>Total policies entered</span><b>${totalPolicies}</b></div>
+      </div>
+    </div>
+    ${badRows.length ? `<p style="font-size:12.5px; color:var(--accent-amber); margin:14px 0 0;">Couldn't recognize: ${badRows.map(esc).join(", ")} &mdash; use a two-letter state code or full state name.</p>` : ""}
+    <div class="copy-note-row">
+      <button class="portfolio-btn secondary" id="bob-copy">Copy as file note</button>
+      <span class="copy-note-feedback" id="bob-copy-feedback"></span>
+    </div>
+  `;
+
+  document.getElementById("bob-copy").addEventListener("click", () => {
+    const lines = [`Precedent book-of-business exposure check`, `Total: ${fmt(totalTiv)} across ${totalPolicies} policies in ${parsedRows.filter(r=>r.code).length} state(s)`, ""];
+    parsedRows.filter(r => r.code).forEach(r => {
+      lines.push(`${STATE_NAMES[r.code]}: ${r.policies} policies, ${fmt(r.tiv)} TIV -- ${r.status === "litigating" ? "confirmed PFAS litigation state" : r.status === "predicted" ? "top-10 predicted-next state" : "no current signal"}`);
+    });
+    lines.push("", `At-risk TIV (litigating + predicted): ${fmt(atRiskLitigatingTiv + atRiskPredictedTiv)}`);
+    lines.push(`Source: Precedent (precedent platform), checked ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}. Every figure sourced; evidence tiers shown on each module.`);
+    navigator.clipboard.writeText(lines.join("\n")).then(() => {
+      document.getElementById("bob-copy-feedback").textContent = "Copied.";
+      setTimeout(() => { const el = document.getElementById("bob-copy-feedback"); if (el) el.textContent = ""; }, 2500);
+    }).catch(() => { document.getElementById("bob-copy-feedback").textContent = "Couldn't copy -- select and copy manually."; });
+  });
+}
+
+/* ---- 2. Live docket check against CourtListener's public RECAP API ---- */
+async function runDocketCheck() {
+  const query = document.getElementById("docket-query").value.trim();
+  const resultEl = document.getElementById("docket-result");
+  const btn = document.getElementById("docket-check");
+  if (!query) return;
+
+  btn.disabled = true;
+  resultEl.innerHTML = `<div class="docket-status loading">Querying CourtListener's public docket search&hellip;</div>`;
+
+  try {
+    const url = `https://www.courtlistener.com/api/rest/v4/search/?q=${encodeURIComponent(query)}&type=r&order_by=dateFiled%20desc`;
+    const res = await fetch(url, { headers: { "Accept": "application/json" } });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const items = (data.results || []).slice(0, 5);
+    if (items.length === 0) {
+      resultEl.innerHTML = `<div class="docket-status empty">No matching dockets found for this query right now.</div>`;
+    } else {
+      resultEl.innerHTML = `<div class="docket-status ok">Live result from CourtListener, ${items.length} most recent match${items.length === 1 ? "" : "es"}:</div>
+        <div class="docket-result">${items.map(it => `
+          <div class="docket-item">
+            <div class="di-title">${esc(it.caseName || it.case_name || "Untitled docket")}</div>
+            <div class="di-meta">${esc(it.court || it.court_id || "")}${it.dateFiled ? " &middot; filed " + esc(it.dateFiled) : ""}</div>
+          </div>
+        `).join("")}</div>`;
+    }
+  } catch (e) {
+    resultEl.innerHTML = `<div class="docket-status error">Couldn't reach CourtListener right now. <a href="https://www.courtlistener.com/?q=${encodeURIComponent(query)}&type=r" target="_blank" rel="noopener">View this search directly on CourtListener</a>.</div>`;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+async function initPortfolio() {
+  await loadPortfolioData();
+
+  const input = document.getElementById("portfolio-states");
+  const params = new URLSearchParams(window.location.search);
+  const fromUrl = params.get("states");
+  if (fromUrl) {
+    input.value = fromUrl;
+    runPortfolioCheck(parseStateInput(fromUrl));
+  }
+
+  document.getElementById("portfolio-check").addEventListener("click", () => {
+    const codes = parseStateInput(input.value);
+    updateUrlParam(codes);
+    runPortfolioCheck(codes);
+  });
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      const codes = parseStateInput(input.value);
+      updateUrlParam(codes);
+      runPortfolioCheck(codes);
+    }
+  });
+
+  document.getElementById("portfolio-save").addEventListener("click", () => {
+    const name = document.getElementById("portfolio-save-name").value.trim();
+    const codes = parseStateInput(input.value);
+    if (!name || codes.length === 0) return;
+    const STORAGE_KEY = "precedent:savedPortfolios";
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch (e) { saved = {}; }
+    saved[name] = codes;
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch (e) {}
+    document.getElementById("portfolio-save-name").value = "";
+    renderSavedPortfolios();
+  });
+
+  renderSavedPortfolios();
+
+  // Book of business
+  addBobRow(); addBobRow(); addBobRow();
+  document.getElementById("bob-add-row").addEventListener("click", () => addBobRow());
+  document.getElementById("bob-check").addEventListener("click", runBobCheck);
+
+  // Live docket check
+  document.getElementById("docket-check").addEventListener("click", runDocketCheck);
+}
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;";
+  };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => {
+    isDark = !isDark;
+    try { localStorage.setItem("precedent:theme", isDark ? "dark" : "light"); } catch (e) {}
+    apply(isDark);
+  });
+}
+setupThemeToggle();
+
+initPortfolio();
+</script>
+
+</body>
+</html>

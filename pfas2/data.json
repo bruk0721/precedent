@@ -1,0 +1,1023 @@
+{
+  "as_of": "2026-11-07",
+  "litigation_actions": [
+    {
+      "id": "minnesota_28_city",
+      "label": "28-municipality PFAS turnout-gear suit (D. Minnesota)",
+      "filed_date": "2026-09-12",
+      "plaintiffs_named": [
+        "Albuquerque, NM",
+        "Burlington Community Fire Protection District, IL",
+        "Gary, IN",
+        "Gassaway Volunteer Fire Department, WV",
+        "Liberty Township VFD (Porter County), IN",
+        "Loretto, TN",
+        "Louisville, OH",
+        "Stanley, NC",
+        "Steubenville, OH"
+      ],
+      "plaintiffs_total_claimed": 28,
+      "defendants": [
+        "3M",
+        "Honeywell",
+        "DuPont",
+        "Fire-Dex LLC",
+        "and 16+ other named defendants"
+      ],
+      "status": "Filed; now part of MDL No. 3191 (see mdl_consolidation_status). Open question, not yet resolved: whether the '28 public entities' figure is one combined complaint or a media aggregate across the whole growing MDL 3191 docket -- the MDL's own Schedule A does not show a single 28-plaintiff complaint matching this caption.",
+      "source_name": "Fox 9 News, directly opened",
+      "source_url": "https://www.fox9.com/news/28-cities-sue-3m-dupont-honeywell-over-pfas-firefighter-gear",
+      "evidence_tier": "VERIFIED",
+      "state": null
+    },
+    {
+      "id": "keene_londonderry_nh",
+      "label": "Keene and Londonderry, New Hampshire",
+      "filed_date": "2026-09-21 (approximate, imprecise in source)",
+      "plaintiffs_named": [
+        "Keene, NH",
+        "Londonderry, NH"
+      ],
+      "plaintiffs_total_claimed": 2,
+      "defendants": [
+        "3M",
+        "DuPont",
+        "gear makers (not fully itemized in source)"
+      ],
+      "status": "Filed as its own, separate action -- not part of the Minnesota 28-city suit. Not confirmed whether it is formally part of MDL 3191's Schedule A.",
+      "source_name": "NHPR, directly opened",
+      "source_url": "https://www.nhpr.org/nh-news/2026-09-23/keene-londonderry-lawsuit-pfas-firefighting-gear-newhampshire",
+      "evidence_tier": "VERIFIED",
+      "state": "NH"
+    },
+    {
+      "id": "butte_silver_bow_mt",
+      "label": "Butte-Silver Bow, Montana",
+      "filed_date": "2025-04 (approximate)",
+      "plaintiffs_named": [
+        "Butte-Silver Bow, MT"
+      ],
+      "plaintiffs_total_claimed": 1,
+      "defendants": [
+        "turnout-gear makers (specific list not confirmed in this pass)"
+      ],
+      "status": "Filed; survived a motion to dismiss. Named directly in MDL 3191's Schedule A as one of the five actions centralized in D. Minnesota. UPDATE (2026-11-08): directly read the JPML's own Schedule A to this transfer order (not just referenced it) and confirmed the exact civil action number: 2:25-cv-00036 (D. Mont., transferred to D. Minn.). The docket number's \"2025\" prefix is consistent with this entry's existing filed_date estimate, corroborating it rather than contradicting it.",
+      "source_name": "AboutLawsuits coverage, cross-referenced with the JPML's own MDL 3191 transfer order",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
+      "evidence_tier": "VERIFIED",
+      "state": "MT",
+      "case_number": "2:25-cv-00036 (D. Mont., transferred to D. Minn.)"
+    },
+    {
+      "id": "worcester_ma",
+      "label": "Worcester, Massachusetts firefighters (individuals, not the city itself)",
+      "filed_date": "2022-02",
+      "plaintiffs_named": [
+        "Worcester, MA firefighters (named individuals, not researched further)"
+      ],
+      "plaintiffs_total_claimed": null,
+      "defendants": [
+        "gear makers"
+      ],
+      "status": "Filed 2022, predates the 2025-2026 municipal wave by several years -- an individual-firefighter suit, not a municipality suing on its own behalf. A separate, REPORTED-tier lead suggests Worcester (the city) joined the broader litigation around May 5, 2026, distinct from this original 2022 individual suit -- not confirmed which action that refers to.",
+      "source_name": "Spectrum News 1, directly opened",
+      "source_url": "https://spectrumnews1.com/ma/worcester/news/2022/02/16/firefighters-file-lawsuit-against-gear-makers-",
+      "evidence_tier": "VERIFIED",
+      "state": "MA"
+    },
+    {
+      "id": "connecticut_uniformed_ff",
+      "label": "Uniformed Professional Fire Fighters Association of Connecticut",
+      "filed_date": "2024 (exact date not confirmed)",
+      "plaintiffs_named": [
+        "Uniformed Professional Fire Fighters Association of Connecticut"
+      ],
+      "plaintiffs_total_claimed": null,
+      "defendants": [
+        "gear/foam makers (not itemized in available source)"
+      ],
+      "status": "UPGRADED from a prior pass's vague, unnamed 'Connecticut firefighters and unions' lead. The JPML's own MDL 3191 transfer order confirms the real party name and that this action was filed in 2024 and was already denied transfer into AFFF MDL 2873 at that time, for the same reason applied to the other turnout-gear-only actions (no direct AFFF-exposure claim alleged).",
+      "source_name": "JPML MDL 3191 transfer order, directly opened",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
+      "evidence_tier": "VERIFIED",
+      "state": "CT"
+    },
+    {
+      "id": "san_mateo_ca",
+      "label": "County of San Mateo, California",
+      "filed_date": "Before Aug 18, 2026 (exact filing date not confirmed)",
+      "plaintiffs_named": [
+        "San Mateo County, CA"
+      ],
+      "plaintiffs_total_claimed": null,
+      "defendants": [
+        "EIDP Inc. (DuPont successor) and others"
+      ],
+      "status": "Named directly in MDL 3191's Schedule A, originally filed in N.D. California, now centralized in D. Minnesota. First confirmed California plaintiff in this litigation. UPDATE (2026-11-08): directly read the JPML's own Schedule A to this transfer order (not just referenced it) and confirmed the exact civil action number: 3:26-cv-02380 (N.D. Cal., transferred to D. Minn.). The docket number's \"2026\" prefix is consistent with this entry's existing filed_date estimate, corroborating it rather than contradicting it.",
+      "source_name": "JPML MDL 3191 transfer order, directly opened",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
+      "evidence_tier": "VERIFIED",
+      "state": "CA",
+      "case_number": "3:26-cv-02380 (N.D. Cal., transferred to D. Minn.)"
+    },
+    {
+      "id": "rochester_ny",
+      "label": "City of Rochester, New York",
+      "filed_date": "Before May 11, 2026 (the city itself filed the JPML centralization motion on that date)",
+      "plaintiffs_named": [
+        "Rochester, NY"
+      ],
+      "plaintiffs_total_claimed": null,
+      "defendants": [
+        "3M Co. and others"
+      ],
+      "status": "Named directly in MDL 3191's Schedule A, filed in D. Minnesota. Rochester was also the moving party that filed the May 11, 2026 JPML motion to centralize all five actions in D. Minnesota. First confirmed New York plaintiff in this litigation. UPDATE (2026-11-08): directly read the JPML's own Schedule A to this transfer order (not just referenced it) and confirmed the exact civil action number: 0:26-cv-02329 (D. Minn.). The docket number's \"2026\" prefix is consistent with this entry's existing filed_date estimate, corroborating it rather than contradicting it.",
+      "source_name": "JPML MDL 3191 transfer order, directly opened",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
+      "evidence_tier": "VERIFIED",
+      "state": "NY",
+      "case_number": "0:26-cv-02329 (D. Minn.)"
+    },
+    {
+      "id": "peabody_ma",
+      "label": "City of Peabody, Massachusetts",
+      "filed_date": "Before Aug 18, 2026 (exact filing date not confirmed)",
+      "plaintiffs_named": [
+        "Peabody, MA"
+      ],
+      "plaintiffs_total_claimed": null,
+      "defendants": [
+        "3M Co. and others"
+      ],
+      "status": "Named directly in MDL 3191's Schedule A, filed in D. Minnesota. A separate, second confirmed Massachusetts municipal plaintiff alongside Worcester's 2026 lead. UPDATE (2026-11-08): directly read the JPML's own Schedule A to this transfer order (not just referenced it) and confirmed the exact civil action number: 0:25-cv-02083 (D. Minn.). The docket number's \"2025\" prefix is consistent with this entry's existing filed_date estimate, corroborating it rather than contradicting it.",
+      "source_name": "JPML MDL 3191 transfer order, directly opened",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
+      "evidence_tier": "VERIFIED",
+      "state": "MA",
+      "case_number": "0:25-cv-02083 (D. Minn.)"
+    },
+    {
+      "id": "earlville_il",
+      "label": "Earlville Community Fire Protection District",
+      "filed_date": "Before Aug 18, 2026 (exact filing date not confirmed)",
+      "plaintiffs_named": [
+        "Earlville Community Fire Protection District (likely IL, per name -- not fully confirmed in source)"
+      ],
+      "plaintiffs_total_claimed": null,
+      "defendants": [
+        "3M Co. and others"
+      ],
+      "status": "Named directly in MDL 3191's Schedule A, filed in D. Minnesota. A second Illinois-pattern fire-protection-district plaintiff alongside Burlington Community FPD. UPDATE (2026-11-08): directly read the JPML's own Schedule A to this transfer order (not just referenced it) and confirmed the exact civil action number: 0:26-cv-02388 (D. Minn.). The docket number's \"2026\" prefix is consistent with this entry's existing filed_date estimate, corroborating it rather than contradicting it.",
+      "source_name": "JPML MDL 3191 transfer order, directly opened",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
+      "evidence_tier": "VERIFIED",
+      "state": "IL",
+      "case_number": "0:26-cv-02388 (D. Minn.)"
+    },
+    {
+      "id": "adger_vfd_al",
+      "label": "Adger Volunteer Fire Department, Alabama",
+      "filed_date": "Not confirmed",
+      "plaintiffs_named": [
+        "Adger VFD, AL"
+      ],
+      "plaintiffs_total_claimed": null,
+      "defendants": [
+        "Not itemized in available source"
+      ],
+      "status": "Named as a related/tag-along action in the JPML's MDL 3191 transfer order (two separate Adger VFD actions in N.D. Alabama). First confirmed Alabama plaintiff in this litigation.",
+      "source_name": "JPML MDL 3191 transfer order, directly opened",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
+      "evidence_tier": "VERIFIED",
+      "state": "AL"
+    }
+  ],
+  "mdl_consolidation_status": {
+    "label": "RESOLVED as of August 18, 2026 -- the JPML has ruled",
+    "detail": "The Judicial Panel on Multidistrict Litigation issued its transfer order on August 18, 2026 (Document 117, MDL No. 3191), centralizing the turnout-gear-only actions in the DISTRICT OF MINNESOTA before Judge Jeffrey M. Bryan -- not Montana (which the moving party and most parties had agreed to prefer at oral argument) and not South Carolina (Judge Gergel's AFFF MDL 2873, which 3M and other defendants had pushed for). The consolidated litigation is now captioned 'In re: Non-AFFF Firefighter Turnout Gear Marketing, Sales Practices, and Products Liability Litigation.' The panel explicitly drew a legal line: MDL 2873 is reserved for claims alleging direct AFFF chemical exposure/harm; these actions allege only PFAS-in-gear harm with no AFFF-exposure claim, so they get their own, separate MDL. Any future action alleging both would still go to Judge Gergel's MDL 2873.",
+    "implication": "This resolves the previously-unresolved venue question. Going forward, a new municipality joining this wave most likely becomes a tag-along action filed into or transferred to MDL 3191 in D. Minnesota before Judge Bryan -- a known, now-settled procedural path, which plausibly makes it EASIER (not harder) for new plaintiffs to join quickly, since the forum and judge are now fixed rather than contested. Minnesota's own role as host district (3 of the original 5 actions were already pending there, and 3M is headquartered there) is itself worth watching: no Minnesota municipality is currently a confirmed plaintiff, despite the state hosting the entire MDL.",
+    "source_name": "JPML MDL 3191 transfer order",
+    "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
+    "evidence_tier": "VERIFIED (the actual order directly opened and read)",
+    "freshness_check": {
+      "label": "Checked again as of November 7, 2026 -- about 3 months after the ruling",
+      "detail": "No new JPML tag-along transfer orders or Judge Bryan case-management orders were found for MDL 3191 specifically. A November 2, 2026 Gray Media/InvestigateTV investigation, syndicated across roughly 10 local-news affiliates, independently re-confirms the current structure: 'Five class action lawsuits filed by cities and towns now have been consolidated into a single case in Minnesota,' against 'more than a dozen companies.' The same piece names attorney Jennifer Sclar as representing 'a growing number of fire unions and municipalities on the East Coast' -- a real, named signal that more East Coast plaintiffs may be in the pipeline even though none are yet confirmed by name.",
+      "source_name": "WCAX / Gray Media InvestigateTV, November 2, 2026",
+      "source_url": "https://www.wcax.com/2026/11/02/billion-dollar-problem-firehouses-potentially-toxic-gear-tight-budgets-fight-over-who-pays-replace-it/",
+      "evidence_tier": "REPORTED (news coverage directly identified; full article text not independently opened)"
+    },
+    "related_but_distinct_settlement": {
+      "label": "3M just settled the OTHER, much larger AFFF litigation track for $7.35 billion -- not this one",
+      "detail": "On November 3-5, 2026, 3M announced a $7.35 billion settlement (paid over nine years, 2026-2034) resolving nearly all personal-injury claims in MDL No. 2873, 'In re: Aqueous Film-Forming Foams Products Liability Litigation' (D. South Carolina) -- covering an estimated 115,000+ direct AFFF-exposure claims. VERIFIED across Law360, Reuters, and multiple plaintiff-firm trackers. This is a separate litigation track from MDL 3191 (this tracker's subject): MDL 2873 covers direct AFFF exposure; MDL 3191 covers PFAS-in-gear claims with no AFFF-exposure allegation.",
+      "implication": "Two open questions: whether 3M settles MDL 3191 on similarly favorable terms next, having now resolved its largest PFAS liability, or fights harder having already paid out its biggest exposure elsewhere; and how claimants with both an AFFF-exposure and a gear-only claim navigate both settlements. This doesn't change MDL 3191's status directly, but it's relevant context for how 3M approaches this litigation going forward.",
+      "source_name": "Law360, Reuters, and multiple plaintiff-firm trackers (Levin Papantonio, Robert King Law Firm), cross-referenced",
+      "source_url": "",
+      "evidence_tier": "VERIFIED (consistent, detailed reporting across multiple independent primary news and legal-industry sources)"
+    },
+    "full_defendant_roster": {
+      "label": "17 named defendant entities across MDL No. 3191, directly read from the transfer order's own footnotes",
+      "methodology_note": "The JPML's transfer order groups defendants by the procedural position they took on where to centralize the litigation, not by which specific case each is named in -- Schedule A itself only shows \"ET AL.\" for each action, so this roster is MDL-wide, not a per-case breakdown. Do not assume every entity below is a defendant in every individual action; this is the full universe of named defendants across the consolidated litigation as of the order's August 18, 2026 filing date, which is itself new, useful information this tracker did not previously have (it only had 4 of these 17 names, plus a vague \"16+ other named defendants\" placeholder).",
+      "groups": [
+        {
+          "position": "Supported transfer to the AFFF MDL (or, alternatively, a separate MDL in D. South Carolina or D. Minnesota)",
+          "entities": [
+            "3M Company",
+            "Globe Manufacturing Company, LLC",
+            "Elevate Textiles, Inc.",
+            "Safety Components Fabric Technologies, Inc."
+          ]
+        },
+        {
+          "position": "Did not support AFFF MDL inclusion, but supported centralization in D. Minnesota or D. South Carolina",
+          "entities": [
+            "Honeywell Safety Products USA, Inc.",
+            "Fire-Dex, LLP",
+            "Lion Group, Inc.",
+            "Morning Pride Manufacturing L.L.C.",
+            "Southern Mills, Inc., d/b/a TenCate Protective Fabrics USA"
+          ]
+        },
+        {
+          "position": "Opposed centralization outright (suggested D. Minnesota or D. South Carolina only as a fallback)",
+          "entities": [
+            "EIDP, Inc.",
+            "DuPont de Nemours, Inc.",
+            "The Chemours Company",
+            "The Chemours Company FC, LLC",
+            "Corteva, Inc.",
+            "Milliken & Company",
+            "W.L. Gore & Associates, Inc.",
+            "Stedfast USA, Inc."
+          ]
+        }
+      ],
+      "tier": "VERIFIED (the transfer order's PDF was directly fetched and read in full, including its footnotes and Schedule A, not just referenced via secondary summary)",
+      "source_name": "JPML MDL No. 3191 Transfer Order (Document 117, filed 2026-08-18), directly read in full",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf"
+    }
+  },
+  "prediction_model": {
+    "label": "A real, sourced prediction of which states are the most plausible next plaintiffs -- built from two verified public datasets, with its own limitations disclosed as plainly as its findings",
+    "methodology": "Two real, state-level, directly-opened federal datasets are combined: (1) FAA Part 139 certificated airport counts per state, as of the FAA's own September 3, 2026 status list (AFFF firefighting foam was federally mandated at these airports for aircraft rescue and firefighting for decades, making airport count a genuine, countable exposure proxy -- not a guess); (2) whether a state has enacted its own PFAS/AFFF firefighting-foam restriction law (a real signal of state-level political attention to this exact issue, compiled from multiple law-firm PFAS-legislation trackers, REPORTED tier since no single current authoritative government list was found). States already confirmed as plaintiffs are excluded from the ranking (14 states: AL, CA, CT, IL, IN, MA, MT, NC, NH, NM, NY, OH, TN, WV) since the question is who's NEXT, not who's already in. Ranking logic: states with BOTH an enacted law AND a higher absolute airport count rank first; absolute airport count (not per-capita density) is used as the primary tiebreaker.",
+    "methodology_correction_found_during_analysis": "An initial version of this model ranked states by airports-per-million-population, which produced a misleading result: Alaska, Wyoming, and North Dakota topped the list purely because they have tiny populations relative to even a handful of airports, not because they represent real litigation risk -- these states have very few municipalities or fire departments in the first place. This per-capita approach was discarded in favor of ranking by absolute airport count within the legislation-flag tiers, which produces a far more defensible result. This correction is kept here deliberately, as a record of a real methodology mistake caught and fixed, not hidden.",
+    "top_candidates": [
+      {
+        "state": "Michigan",
+        "code": "MI",
+        "airports": 19,
+        "has_legislation": true,
+        "legislation_detail": "VERIFIED, directly confirmed on Michigan's own state government page (michigan.gov/pfasresponse), administered by EGLE (not DNR -- an earlier pass's citation was corrected here): since July 2020, Michigan fire chiefs are required to use only foam without intentionally added PFAS for TRAINING specifically, and must report AFFF use after an incident to a state hotline. This is narrower than Colorado's or Washington's laws, which restrict sale/manufacture outright -- Michigan's is a training-use-and-reporting rule, not a sale ban, and that distinction should not be glossed over.",
+        "cross_check": "Independently flagged by EWG's own historical site-count data as having the most total PFAS contamination sites (192) of any single US state as of 2019 -- a genuine, independent corroboration from a completely different dataset, not circular reasoning from the same source."
+      },
+      {
+        "state": "Colorado",
+        "code": "CO",
+        "airports": 14,
+        "has_legislation": true,
+        "legislation_detail": "VERIFIED, directly opened the codified statute text: Colorado Revised Statutes Section 25-5-1303, effective August 2, 2021, bars a manufacturer from selling or distributing Class B firefighting foam with intentionally added PFAS in the state, with specific carve-outs (FAA-mandated/military use, fuel storage/refinery facilities, chemical plants, and the Eisenhower-Johnson tunnels). HB22-1345 (2022) extended related notification deadlines and added broader consumer-product PFAS restrictions.",
+        "cross_check": ""
+      },
+      {
+        "state": "Washington",
+        "code": "WA",
+        "airports": 11,
+        "has_legislation": true,
+        "legislation_detail": "VERIFIED, directly confirmed via Washington State Department of Ecology's own page and the codified RCW text: the 2018 Firefighting Agents and Equipment law (Chapter 70A.400 RCW) was the first-in-the-nation law of its kind. The training-use ban took effect July 1, 2018; the broader manufacture/sale ban (RCW 70A.400.020) took effect July 1, 2020. Michigan's own state government page independently calls Washington 'the first U.S. state to ban the sale of fluorinated foams' -- a real cross-source corroboration, not a repeated claim from one source.",
+        "cross_check": ""
+      },
+      {
+        "state": "Minnesota",
+        "code": "MN",
+        "airports": 9,
+        "has_legislation": true,
+        "legislation_detail": "VERIFIED, directly confirmed via MN Revisor's Office and the Minnesota Pollution Control Agency's own page: Minn. Stat. Section 325F.072, updated in 2023, prohibits the use of Class B firefighting foam containing intentionally added PFAS, effective January 1, 2024.",
+        "cross_check": "Minnesota is also the state now hosting the entire MDL 3191 docket (District of Minnesota, before Judge Bryan) -- worth watching specifically for whether a Minnesota municipality itself eventually joins, since none has yet despite the state's central role."
+      },
+      {
+        "state": "Wisconsin",
+        "code": "WI",
+        "airports": 9,
+        "has_legislation": true,
+        "legislation_detail": "VERIFIED, directly confirmed via Wisconsin DNR's own page: Wis. Stat. Section 299.48, implementing 2019 Wisconsin Act 101, with the DNR's permanent rule (Chapter NR 159, Wis. Admin. Code) prohibiting use of PFAS-containing Class B firefighting foam except for emergency firefighting operations.",
+        "cross_check": ""
+      },
+      {
+        "state": "Louisiana",
+        "code": "LA",
+        "airports": 9,
+        "has_legislation": true,
+        "legislation_detail": "VERIFIED, directly opened the codified statute text: Louisiana R.S. 40:1615 (enacted by Act 232), barring discharge or use of Class B firefighting foam with intentionally added PFAS chemicals, effective January 1, 2022.",
+        "cross_check": ""
+      },
+      {
+        "state": "Georgia",
+        "code": "GA",
+        "airports": 9,
+        "has_legislation": true,
+        "legislation_detail": "VERIFIED, directly confirmed via Justia/FindLaw's codified text and a Georgia General Assembly legislative document: O.C.G.A. Section 25-2-41, enacted by HB 458 (2019), prohibiting the use or discharge of Class B firefighting foam containing intentionally added PFAS.",
+        "cross_check": ""
+      },
+      {
+        "state": "Hawaii",
+        "code": "HI",
+        "airports": 8,
+        "has_legislation": true,
+        "legislation_detail": "VERIFIED, directly confirmed via Hawaii's own legislative data page: Hawaii Revised Statutes Section 321-601 to 321-605 (Act 152, signed 2022), prohibiting Class B firefighting foam containing PFAS, with sources giving the effective date as either July 2024 or July 2026 -- that specific discrepancy was not resolved in this pass, but the law's existence and citation are confirmed.",
+        "cross_check": "Also appears on a separate EWG-adjacent 'most sites' list alongside Michigan, New Hampshire, California, and Maine."
+      },
+      {
+        "state": "Arkansas",
+        "code": "AR",
+        "airports": 6,
+        "has_legislation": true,
+        "legislation_detail": "VERIFIED, directly opened the codified statute text and the Arkansas State Legislature's own enactment PDF: Arkansas Code Section 20-22-101 et seq., enacted by HB 1351 / Act 315 of 2021, barring discharge of Class B firefighting foam containing intentionally added PFAS, effective January 1, 2022.",
+        "cross_check": ""
+      },
+      {
+        "state": "Kentucky",
+        "code": "KY",
+        "airports": 6,
+        "has_legislation": true,
+        "legislation_detail": "VERIFIED, directly confirmed via Kentucky's own legislature.ky.gov statute page: KRS 227.395, enacted by SB 104 (2019 Regular Session, 2019 Ky. Acts ch. 47), restricting Class B firefighting foam use during training or testing, effective July 2020, with an emergency-use exception.",
+        "cross_check": ""
+      }
+    ],
+    "data_sources": [
+      {
+        "name": "FAA Part 139 Airport Certification Status List",
+        "detail": "Official FAA data file (arp-aas-part139-cert-status-table-2026-09-03.xlsx), effective date September 3, 2026, downloaded and parsed directly: 517 certificated airports across 50 states, DC, and territories.",
+        "url": "https://www.faa.gov/airports/airport_safety/part139_cert/part_139_airport_certification_status_list",
+        "evidence_tier": "VERIFIED (official federal data file directly downloaded and parsed)"
+      },
+      {
+        "name": "US Census Bureau state population estimates",
+        "detail": "NST-EST2025-POP.xlsx, July 1, 2025 estimates, downloaded and parsed directly. Used in the discarded per-capita approach and kept available for anyone who wants to recompute that view.",
+        "url": "https://www.census.gov/data/tables/time-series/demo/popest/2020s-state-total.html",
+        "evidence_tier": "VERIFIED (official federal data file directly downloaded and parsed)"
+      },
+      {
+        "name": "State PFAS/AFFF firefighting-foam legislation, compiled from multiple law-firm trackers",
+        "detail": "No single current authoritative government source was found; this list was originally compiled from overlapping law-firm client alerts and an industrial-supplier summary page, which disagreed on some specifics and dates across editions. Every one of the 10 ranked states has since been individually verified against primary government sources (state statute text, state agency pages, or state legislature documents) -- see each one's legislation_detail above. One real error was caught and corrected in this process: Iowa was originally listed as having enacted legislation based on a tracker row that, on verification, turned out to actually describe an Indiana bill (HB 1341) mislabeled under Iowa in a secondary source. Iowa was removed from the ranking once no enacted Iowa statute could be confirmed (multiple current sources, including an Oct 2026 tracker, state plainly that Iowa has no enacted PFAS firefighting-foam or gear law). Arkansas moved into the 9th/10th slot as a result.",
+        "url": "",
+        "evidence_tier": "VERIFIED (all 10 ranked states' legislation individually confirmed against primary government sources)"
+      }
+    ],
+    "deliberately_not_used": [
+      "A state-by-state firefighter headcount as the normalizer. BLS's own OEWS data blocks automated access; a third-party republisher (WageDex, citing May 2025 BLS data) was found for most states but not independently cross-checked against BLS's own table, and population (already shown in earlier research to track firefighter counts closely, within about half a percentage point in the one state checked) was used instead where normalization was attempted at all -- and then abandoned in favor of absolute counts for the reason given above.",
+      "A litigiousness proxy from prior mass-tort participation (e.g., opioid MDL). A dedicated research pass explicitly could not find a usable state-by-state municipal-participation dataset and declined to force a ranking from fragmentary numbers -- this remains a real, acknowledged gap in the model, not quietly papered over.",
+      "Each municipality's political and budgetary capacity to sue. No systematic public dataset exists for this; state-level legislative action is used as the closest available proxy, which is a real substitution, not the same thing."
+    ],
+    "prediction_ledger": {
+      "label": "A prospective, timestamped forecasting record -- not a one-time claim",
+      "methodology_note": "Each time this dataset is rebuilt, we snapshot the current top-10 predicted-next states with that date. Over time, we check which of those specific states actually show up in litigation_actions, and report the result honestly, misses included. This is the forward-looking version of the historical_validation_check above, which only looked backward. A snapshot's states were, by construction, NOT already litigating on the date of that snapshot -- the model excludes already-litigating states -- so any later appearance in litigation_actions is a genuine resolved prediction, not a restatement of something already known.",
+      "resolution_rule": "A snapshot state counts as a HIT if it later appears in litigation_actions. It counts as a MISS only once at least 18 months have passed since the snapshot date with no litigation. Before 18 months, it is PENDING -- not yet a hit or a miss.",
+      "snapshots": [
+        {
+          "as_of": "2026-11-07",
+          "top_candidates": [
+            "MI",
+            "CO",
+            "WA",
+            "MN",
+            "WI",
+            "LA",
+            "GA",
+            "HI",
+            "AR",
+            "KY"
+          ]
+        }
+      ]
+    },
+    "historical_validation_check": {
+      "label": "Checked against history: does early PFAS regulatory attention actually precede litigation?",
+      "methodology_note": "For each of the 9 states currently in this tracker's litigation_actions, we researched whether that state had enacted PFAS/AFFF firefighting-foam legislation (a ban, phase-out, or reporting requirement) before its litigation was filed, and by how long.",
+      "important_caveat": "The legislation checked here is about PFAS in AFFF firefighting FOAM. The litigation this tracker follows is about PFAS in firefighter turnout GEAR (protective clothing) -- a related but legally and chemically distinct exposure source. The honest claim this check supports is 'states with early PFAS regulatory attention generally are the states where PFAS litigation later shows up' -- not a precise claim that foam bans specifically cause gear lawsuits. Framing it as a tight causal mechanism would overstate what was actually found.",
+      "states_checked": [
+        {
+          "state": "New Hampshire",
+          "legislation_date": "September 3, 2019 (SB 257, enacted as Chapter 337 of the 2019 session; codified as RSA 154:8-b)",
+          "litigation_filed": "~September 2026",
+          "sequence": "Legislation first, ~7 years earlier",
+          "tier": "REPORTED -- retried 2026-11-08 against gc.nh.gov (primary site), which failed again on two independent network paths (browser pane: HTTP 403; a separate fetch agent: socket hang up on 3 URL variants). Stays REPORTED, now corroborated by two independent secondary sources (LegiScan bill-status page; a 2019 Concord Monitor article syndicated via pfasproject.com) which agree on the signing date, the codification, the ban's July 1, 2021 effective date, and a liability carve-out: the law creates no new civil or criminal cause of action against a fire department for an unintentional or emergency discharge of PFAS foam."
+        },
+        {
+          "state": "Minnesota",
+          "legislation_date": "2020 (training/testing restriction); 2024 (full ban)",
+          "litigation_filed": "September 2026",
+          "sequence": "Legislation first",
+          "tier": "REPORTED"
+        },
+        {
+          "state": "California",
+          "legislation_date": "September 29, 2020 (SB 1044, Ch. 308)",
+          "litigation_filed": "Before August 2026",
+          "sequence": "Legislation first, ~6 years earlier",
+          "tier": "VERIFIED -- bill text directly opened at leginfo.legislature.ca.gov: \"Approved by Governor September 29, 2020. Filed with Secretary of State September 29, 2020.\""
+        },
+        {
+          "state": "New York",
+          "legislation_date": "December 23, 2019 (S.439-A, Chapter 702)",
+          "litigation_filed": "Before May 2026",
+          "sequence": "Legislation first, ~6 years earlier",
+          "tier": "VERIFIED -- bill history directly opened at nysenate.gov: Actions table shows \"Dec 23, 2019: signed chap.702\""
+        },
+        {
+          "state": "Illinois",
+          "legislation_date": "August 6, 2021 (PFAS Reduction Act, PA 102-0290, from SB 561)",
+          "litigation_filed": "Before August 2026",
+          "sequence": "Legislation first, ~5 years earlier",
+          "tier": "REPORTED -- retried 2026-11-08 against ilga.gov (primary site), which failed again on two independent network paths (browser pane: navigation denied; a separate fetch agent: connection refused on 2 URL variants). Stays REPORTED, now corroborated by the Illinois Fire Chiefs Association's own published fact sheet, which independently confirms the August 6, 2021 signing date and cites a sale/manufacture ban \"beginning January 1, 2022\" for Class B PFAS foam -- note a separate third-party tracker instead cites January 1, 2025 for a provision it does not clearly distinguish from the 2022 one; this date discrepancy between secondary sources was not resolved and should not be collapsed into a single confident date without the enrolled text."
+        },
+        {
+          "state": "Massachusetts",
+          "legislation_date": "2018 (foam take-back program; exact ban date disputed across sources)",
+          "litigation_filed": "February 2022",
+          "sequence": "Legislation first, ~4 years earlier",
+          "tier": "REPORTED"
+        },
+        {
+          "state": "Connecticut",
+          "legislation_date": "July 2021 (Public Act 21-191)",
+          "litigation_filed": "2024 (exact date unconfirmed)",
+          "sequence": "Legislation first, ~3 years earlier",
+          "tier": "REPORTED"
+        },
+        {
+          "state": "Montana",
+          "legislation_date": "NOT FOUND -- no AFFF-foam legislation located after two search passes",
+          "litigation_filed": "~April 2025",
+          "sequence": "No legislation at all -- breaks the pattern, a genuine counter-example",
+          "tier": "NOT FOUND"
+        },
+        {
+          "state": "Alabama",
+          "legislation_date": "NOT FOUND",
+          "litigation_filed": "Not confirmed",
+          "sequence": "Cannot sequence -- both dates missing",
+          "tier": "NOT FOUND"
+        }
+      ],
+      "summary": "7 of 9 currently-litigating states show legislation preceding litigation, typically by 3 to 7 years. Montana is a clear counter-example (litigation with zero legislative signal), and Alabama can't be sequenced at all. This is a real, dated pattern, not proof of a universal rule.",
+      "evidence_tier": "Mixed, shown per state above: California and New York are VERIFIED directly against primary bill text and legislative history; New Hampshire, Minnesota, Massachusetts, and Connecticut remain REPORTED (secondary sources only); Illinois' primary source (ilga.gov) was unreachable and stays REPORTED rather than silently upgraded."
+    }
+  },
+  "international": {
+    "label": "Beyond the US: Canada, Australia, and Western Europe",
+    "methodology_note": "This is a first pass at the international AFFF/PFAS landscape, researched to the same evidence-tier standard as the US data (VERIFIED = primary source directly opened and read; REPORTED = secondary source only; explicit NOT FOUND where nothing checks out, never papered over). It is NOT exhaustive -- Germany, Sweden, Denmark, and Norway were only researched as EU-proposal co-filers, not independently for their own domestic litigation, and several leads below are flagged as unconfirmed rather than silently dropped or inflated.",
+    "countries": [
+      {
+        "country": "Canada",
+        "code": "CA-fed",
+        "litigation": [
+          {
+            "label": "North Bay class action, $105 million",
+            "detail": "Filed by Mann Lawyers against the Attorney General of Canada and the City of North Bay, in nuisance and strict liability ($100M property value loss/remediation + $5M punitive). Class covers owners of properties with private wells within 3km of CFB 22 Wing North Bay / Jack Garland Airport since Jan 1, 2017. Alleges DND firefighter training with PFAS foam at the airport from the early 1970s to mid-1990s contaminated Lees Creek and Trout Lake, North Bay's drinking-water source. Filed late 2025; allegations untested in court as of this research.",
+            "source_name": "Mann Lawyers; Ground News; Environment Journal, cross-referenced",
+            "source_url": "https://www.mannlawyers.com/north-bay-class-action",
+            "evidence_tier": "VERIFIED-adjacent (consistent across multiple independent legal/news sources; the court filing itself not independently opened)"
+          },
+          {
+            "label": "Mississippi Mills / NRC Fire Lab class action",
+            "detail": "Certified 2021 against the National Research Council of Canada; 69 property owners near the NRC's National Fire Laboratory. Punitive damages were initially rejected in 2021, then a 2026 ruling reportedly opened the door to them -- the exact dollar figures conflict across sources ($40M vs $42M vs a separate $2M punitive-specific figure), so treat the amount as unconfirmed pending the actual court decision.",
+            "source_name": "PFAS Project; Mondaq/Osler legal analysis, cross-referenced",
+            "source_url": "https://pfasproject.com/2026/03/31/ontario-court-opens-door-to-punitive-damages-in-forever-chemicals-class-action/",
+            "evidence_tier": "REPORTED (secondary legal/news reporting; the court decision itself not independently opened, and the dollar figure is explicitly disputed across sources)"
+          }
+        ],
+        "no_gear_specific_litigation_found": true,
+        "regulatory_note": "PFOS-based AFFF has been federally prohibited in Canada since the end of 2013 (narrow exemptions remain for residual PFOS already in equipment) -- regulated nationally, not province-by-province like the US. On September 26, 2025, Environment and Climate Change Canada opened consultation on a broader PFAS risk-management approach that would ban manufacture/import/sale/use of firefighting foams with any remaining unregulated PFAS (e.g., C6 AFFF) and restrict training/testing to closed systems only. Draft regulations are reportedly expected Spring 2027, final Spring 2029, though ECCC's own page leaves the exact timeline TBD.",
+        "contamination_sites": [
+          {
+            "site": "CFB Trenton / 8 Wing",
+            "detail": "PFAS detected May 2021 near a landfill; DND states the impact is largely linked to historical AFFF use at the Wing.",
+            "evidence_tier": "VERIFIED-adjacent (DND's own public disclosures, via secondary reporting)"
+          },
+          {
+            "site": "CFB / Jack Garland Airport, North Bay",
+            "detail": "DND confirmed providing $100 million in additional remediation funding (roughly $120 million total) tied to the North Bay contamination, separate from the pending class action above -- whether this funding preempts or runs alongside the suit is explicitly unresolved in reporting.",
+            "evidence_tier": "VERIFIED-adjacent"
+          }
+        ],
+        "airport_foam_mandate": "Transport Canada's Standard 323 (Canadian Aviation Regulations, paragraph 323.08(1)(a)) is Canada's direct equivalent to the FAA's Part 139 AFFF mandate. A June 2019 exemption allows airports to transition to fluorine-free foam under conditions; Billy Bishop (Toronto City) airport has done so. A 2024 report indicates multiple Canadian airports have delayed the switch pending a definitive mandate, meaning PFAS foam use likely continues at many. No complete current list of which airports have switched was found.",
+        "source_name": "Canada.ca (ECCC); Transport Canada Standard 323; Fire Fighting in Canada magazine",
+        "source_url": "https://www.canada.ca/en/environment-climate-change/news/2025/09/canada-proposes-actions-to-address-forever-chemicals-in-firefighting-foams.html"
+      },
+      {
+        "country": "Australia",
+        "code": "AU",
+        "litigation": [
+          {
+            "label": "Williamtown, Oakey, and Katherine class actions -- $212.5 million (2020)",
+            "detail": "Three separate property-value-loss class actions against the Commonwealth (Department of Defence): Williamtown NSW (run by Dentons), Oakey QLD and Katherine NT (both run by Shine Lawyers). Approved by the Federal Court June 7, 2020. Split: Oakey $34M, Katherine $92.5M, Williamtown the remainder. Settled at 97-109% of maximum possible trial recovery, per Justice Michael Lee.",
+            "source_name": "Shine Lawyers press releases; Federal Court of Australia settlement notice, both directly opened",
+            "source_url": "",
+            "evidence_tier": "VERIFIED (Shine Lawyers' own releases and the Federal Court's own settlement notice directly opened)"
+          },
+          {
+            "label": "Seven-base multi-site class action -- $132.7 million (2023)",
+            "detail": "A separate, later class action covering seven more Defence bases beyond the original three, approved August 25, 2023, with roughly 30,000 claimants -- also property-contamination claims against the Commonwealth. A distinct case from the 2020 settlement, not an extension of it.",
+            "source_name": "Federal Court of Australia; Shine Lawyers, cross-referenced",
+            "source_url": "",
+            "evidence_tier": "VERIFIED (directly opened primary sources)"
+          },
+          {
+            "label": "Commonwealth of Australia v. 3M -- over AU$2 billion, filed May 28, 2026",
+            "detail": "The Australian government itself filed suit in the Federal Court against 3M Company and 3M Australia Pty Ltd, seeking over AU$2 billion in damages across 28 Defence bases -- alleging 3M withheld information, misrepresented AFFF's environmental risks, and gave false safety/disposal assurances. This is the government going on offense against the manufacturer directly, distinct from the earlier resident-vs-Commonwealth class actions, and is a direct structural parallel to the US split between municipalities suing manufacturers (this tracker's MDL 3191) and the manufacturer-settled AFFF personal-injury track (MDL 2873). Reuters (Oct 16, 2026) reports the case is active and contested, with 3M arguing a public-nuisance claim is unavailable; this specific Reuters detail was seen only as a search snippet, not opened directly. Australian Defence has separately spent over AU$1.3 billion on its own remediation response.",
+            "source_name": "Australian Attorney-General's own government page, directly opened",
+            "source_url": "",
+            "evidence_tier": "VERIFIED (government's own page directly opened); the Reuters contestation detail is REPORTED only"
+          }
+        ],
+        "no_gear_specific_litigation_found": "partial -- one unconfirmed lead (Wreck Bay Aboriginal Community Council v Commonwealth of Australia [2023] FCA 660) was found but not independently opened; otherwise NOT FOUND, which likely reflects that Australia's PFAS problem has centered on base/foam contamination rather than turnout gear specifically, not an absence of searching.",
+        "regulatory_note": "A national intergovernmental 'PFAS Position Statement' phases out PFAS use, plus a federal ban on import/manufacture/export of three main PFAS chemicals effective July 1, 2025. State-level foam-specific rules are a real patchwork, not one uniform law: Queensland was the first state to phase out PFAS firefighting foam; NSW banned training/demonstration use from 2021 with further bans from 2022 (with exceptions for catastrophic fires); as of a 2025 industry summary, only South Australia and Queensland have 'practically banned' all PFAS foams outright.",
+        "source_name": "federation.gov.au; dcceew.gov.au; NSW EPA, all directly opened",
+        "source_url": ""
+      }
+    ],
+    "western_europe": {
+      "eu_wide_restriction_proposal": {
+        "label": "The broad EU PFAS restriction -- filed, not yet enacted",
+        "detail": "Netherlands, Germany, Denmark, Norway, and Sweden jointly filed a roughly 14,000-chemical PFAS restriction dossier with ECHA in January 2023; public consultation ran March 22-Sept 25, 2023. ECHA's Risk Assessment Committee adopted its final opinion March 2, 2026. The Socio-Economic Analysis Committee reached a draft opinion March 10, 2026 backing a broad restriction with targeted derogations; its 60-day consultation closed May 25, 2026, with a final opinion expected by end of 2026. After that, the European Commission would propose the restriction for a REACH Committee vote. As of this research, it is NOT yet enacted.",
+        "evidence_tier": "VERIFIED (multiple independent sources including HSE/ECHA process documents)"
+      },
+      "afff_specific_track": {
+        "label": "A separate, faster-moving, already-partly-enacted track for firefighting foam specifically",
+        "detail": "Firefighting foam is governed separately under the EU's POPs Regulation, not the broad restriction above. Commission Delegated Regulation (EU) 2025/1399 (July 14, 2025) extended the PFOA-in-foam transition; the hard deadline to stop using PFOA-containing foam was December 3, 2025, which has already passed. A broader PFAS-in-foam concentration limit (reported as 1 mg/L, not independently verified against the primary text) with phased deadlines to 2030-2035 for certain fixed systems is also part of this track.",
+        "evidence_tier": "VERIFIED for the PFOA deadline having passed; the 1 mg/L figure specifically is REPORTED, not confirmed against primary text"
+      },
+      "belgium": {
+        "label": "Zwijndrecht (3M) -- AFFF-connected, real litigation",
+        "detail": "3M's Zwijndrecht plant produced firefighting foam until 2002 and PFOS from 1976-2002. Roughly 1,400 residents sued; trial opened in Antwerp Feb 24, 2026, seeking roughly EUR28 million; verdict not yet found in this research. A prior case already produced a court-ordered EUR2,000 provisional payment to one affected family. 3M separately paid roughly $300 million settling with Belgian officials (distinct from the resident suit), and also faces a criminal investigation over PFAS waste disposal.",
+        "evidence_tier": "VERIFIED-adjacent (consistent reporting across sources; the live trial's outcome not yet available)"
+      },
+      "netherlands": {
+        "label": "Dordrecht (Chemours) -- industrial manufacturing contamination, explicitly NOT firefighting-foam-related",
+        "detail": "Chemours/DuPont's Dordrecht plant (operating since 1962) is an industrial PFOA/GenX manufacturing-emissions case, unrelated to AFFF or firefighting foam. A September 2023 court ruling held Chemours liable for illegal PFOA emissions from 1984-1998; GenX emissions since 2012 were not found illegal due to insufficient evidence of harm at those levels. Separately, over 2,700 criminal charges have been filed against Chemours executives. No source found links this case to firefighting foam at all -- this is flagged specifically so it is never conflated with the Belgium case or with this tracker's main US AFFF/gear subject.",
+        "evidence_tier": "VERIFIED"
+      },
+      "united_kingdom": {
+        "label": "Regulation confirmed; no litigation or contamination site found",
+        "detail": "The UK's Health and Safety Executive (acting as the UK REACH Agency post-Brexit) published its agency opinion on a PFAS-in-firefighting-foam restriction around June-July 2026, opening a 60-day consultation around July 21, 2026 -- scoped to foam only, explicitly not covering legacy contamination at sites like airports. The UK's own PFOA-foam transition deadline already passed July 4, 2025, on the same track as the EU. No UK litigation and no confirmed UK airport or military AFFF contamination site was found in this research pass -- stated as a gap, not a negative finding.",
+        "evidence_tier": "VERIFIED on the regulatory dates; NOT FOUND on litigation/contamination, explicitly not treated as evidence of absence"
+      },
+      "norway": {
+        "label": "A real, independently-enacted national ban -- the strongest Nordic finding",
+        "detail": "Norway banned PFOS in firefighting foam nationally in 2007. A separate PFOA ban in firefighting foam took effect July 5, 2025, per Miljodirektoratet's (Norway's Environment Agency) own published notice, implemented via produktforskriften (the Products Regulation) Sections 4-1/4-2, which also implements the POPs regulation; PFOS-foam export is separately banned. A broader EU REACH-style restriction (the EEA-relevant post-entry 82 restriction) is pending with multi-year transition periods, and it is not confirmed whether or when Norway's own implementation of that broader restriction takes effect. Confirmed PFAS contamination was found around multiple Norwegian airports, attributed to fire-training exercises -- a real contamination finding alongside the ban, not instead of it.",
+        "evidence_tier": "VERIFIED-adjacent (Miljodirektoratet's own page states the ban and the July 2025 date directly)",
+        "source_name": "Miljodirektoratet (Norwegian Environment Agency)",
+        "source_url": "https://www.miljodirektoratet.no/aktuelt/fagmeldinger/2025/juni-2025/pfoa-i-brannskum-blir-forbudt-i-juli-2025/"
+      },
+      "sweden": {
+        "label": "No foam-specific ban found; a real, large-scale remediation program instead",
+        "detail": "No current Swedish law banning PFAS in firefighting foam was located, even searching natively in Swedish. A real, non-regulatory finding: Naturvardsverket (the Swedish EPA) together with MSB collected 416 tons of PFAS-containing foam from Swedish rescue services during 2022-2023 for destruction, and firefighting foam at training sites is explicitly stated to be Sweden's largest known PFAS source. A national ban on PFAS in some consumer products (clothing, shoes, cosmetics) from 2028 is proposed/under consultation, but is not foam-specific and not yet enacted.",
+        "evidence_tier": "REPORTED (Naturvardsverket's own foam-collection program page); NOT FOUND for a foam-specific ban, stated plainly rather than implied",
+        "source_name": "Naturvardsverket (Swedish Environmental Protection Agency)",
+        "source_url": "https://www.naturvardsverket.se/amnesomraden/miljofororeningar/organiska-miljogifter/hogfluorerade-amnen-i-miljon-pfas/insamling-av-brandslackningsskum-forebygger-att-pfas-hamnar-i-miljon/"
+      },
+      "denmark": {
+        "label": "An early, real national ban -- 2006, ahead of most of this tracker's other findings",
+        "detail": "Denmark banned PFOS-containing firefighting foam in 2006, with use of existing stock allowed until mid-2011. A later Miljoministeriet (Ministry of Environment) executive order bans import, sale, and use of PFAS-containing firefighting-foam concentrate specifically at training grounds, intended as a bridge measure ahead of the EU-wide ban; this order's current in-force status was not independently confirmed in this pass.",
+        "evidence_tier": "REPORTED (government documents found via ft.dk/Retsinformation referencing the order; the consolidated current law text itself not independently opened)",
+        "source_name": "Miljostyrelsen (Danish Environmental Protection Agency)",
+        "source_url": "https://www2.mst.dk/Udgiv/publikationer/2023/01/978-87-7038-475-9.pdf"
+      },
+      "finland": {
+        "label": "No national ban found; a real, confirmed contamination site",
+        "detail": "No Finnish national ban on PFAS firefighting foam was located, even searching natively in Finnish. A real, confirmed contamination finding: the Vantaanjoki river has Finland's highest recorded PFAS concentrations, attributed partly to an airport fire-training area. A 2026-effective ban on PFAS in consumer clothing, footwear, and impregnation products exists but does not cover firefighting foam.",
+        "evidence_tier": "REPORTED for the contamination finding; NOT FOUND for a foam-specific ban",
+        "source_name": "Yle (Finnish public broadcaster)",
+        "source_url": "https://yle.fi/a/74-20018821"
+      },
+      "european_firefighter_unions": {
+        "label": "NOT FOUND",
+        "detail": "No statement from the European Firefighters Union Confederation (EFFUC) or any national European firefighters' union on gear-specific (as opposed to foam-related) PFAS exposure was found; all relevant hits in this research were US IAFF material. A dedicated follow-up search in German or Dutch was not attempted.",
+        "evidence_tier": "NOT FOUND (explicitly, not inferred)"
+      },
+      "unverified_claims_flagged_not_used": [
+        "A law-firm article's claim of '6,400+ PFAS legal actions globally' and a reported Swedish court ruling treating PFAS-in-blood as a legally cognizable injury -- both surfaced only via a search summary of a secondary article, never independently opened, and are NOT used anywhere in this tracker's claims as a result."
+      ]
+    },
+    "rest_of_world": {
+      "label": "Asia, South America, Africa, and the Middle East -- a first pass, mostly honest gaps",
+      "methodology_note": "Researched to the same evidence-tier standard as everything else in this tracker. Most of these regions have genuinely little to find on this exact question (PFAS/AFFF in firefighting foam or turnout gear specifically) -- that is reported plainly as NOT FOUND rather than stretched. A second research pass searched natively in Chinese, Arabic, Hebrew, and Portuguese/Spanish specifically for jurisdictions where the first English-only pass came back empty, since an English-only NOT FOUND is weaker evidence than a native-language NOT FOUND. That pass surfaced two new, real findings (China: a municipal-level Shanghai notice; Israel: a national draft policy) and confirmed several other gaps (UAE, Brazil's airport mandate, Uruguay, Paraguay) as genuinely absent rather than merely unsearched in English.",
+      "countries": {
+        "China": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "A real but sub-national finding -- Shanghai only, not a national law",
+              "detail": "No national Chinese PFAS/AFFF firefighting-foam law was found, even searching natively in Mandarin. A genuine regional document exists: a joint notice from the Shanghai Ecology and Environment Bureau and Shanghai Fire Rescue Corps (沪环土「2022』200号 / Hu Huantu [2022] No. 200), citing the Stockholm Convention's 2019 move of firefighting foam from 'acceptable use' to 'specific exemption,' ordering Shanghai entities to stop procuring/selling PFOS-containing foam, with existing stock to be used up or disposed of within a set period. This is a municipal order, not national Chinese law -- do not generalize it to all of China.",
+              "tier": "REPORTED (the notice was located via Shanghai's own environment-bureau site, sthj.sh.gov.cn, which serves it as a direct PDF download; full text not confirmed independently opened in this pass)",
+              "source_name": "Shanghai Ecology and Environment Bureau / Shanghai Fire Rescue Corps, joint notice Hu Huantu [2022] No. 200",
+              "source_url": ""
+            }
+          ]
+        },
+        "Israel": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "A real, pending national policy -- not yet a finalized foam-specific ban",
+              "detail": "Israel's Ministry of Environmental Protection published a draft regulatory policy for PFAS in industry (June 2024) under the poisons-permit framework, estimated by news coverage to cover roughly 50-60 factories holding approximately 2,000 tons of PFAS-containing firefighting-foam concentrate. Coverage indicates the Health Ministry is pushing for urgent regulation while the Environment Ministry's position is less urgent; no finalized foam-specific ban was confirmed as of this research pass.",
+              "tier": "REPORTED (Calcalist news coverage and a Knesset committee document; the Ministry's own primary policy document not independently opened in this pass)",
+              "source_name": "Calcalist; Knesset committee documentation",
+              "source_url": ""
+            }
+          ]
+        },
+        "Singapore": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "A real, enacted phase-out -- the strongest finding in this region",
+              "detail": "Singapore's National Environment Agency issued a circular (dated March 15, 2024) confirming that firefighting foams containing PFOA/PFOS, and later PFHxS under a Stockholm Convention listing, will be phased out of import and use effective January 1, 2026. Separately, Veolia was granted Singapore's first NEA license to treat PFAS-containing AFFF waste -- real treatment infrastructure built around this phase-out, not just a paper rule. No litigation found.",
+              "tier": "VERIFIED-adjacent (NEA's own circular directly identified; infrastructure claim cross-referenced via Veolia's own page)",
+              "source_name": "Singapore National Environment Agency circular; Veolia",
+              "source_url": "https://www.nea.gov.sg/docs/default-source/default-document-library/phase-out-of-fire-fighting-foams-containing-pfas-chemicals-listed-under-the-stockholm-convention_15mar24.pdf"
+            }
+          ]
+        },
+        "Japan": {
+          "category": "contamination",
+          "entries": [
+            {
+              "label": "Confirmed contamination near US bases in Okinawa, no litigation found",
+              "detail": "Kadena Air Base and MCAS Futenma are suspected sources of PFAS contamination near Okinawa; the US military historically used AFFF there. In December 2025, USFJ (US Forces Japan) rejected Okinawa Prefecture's request for on-base access to test for PFAS; Okinawa Prefecture's own January 2026 report to the UN says it formally applied for an on-site survey. A March 2026 survey recorded new maximum PFAS levels near US airfields. Japan's government position is that it is 'difficult to say for certain' there is a causal link to US military activity. This is a real, ongoing contamination/access dispute, not a filed lawsuit -- no litigation was found despite how this story sometimes gets framed.",
+              "tier": "REPORTED (consistent reporting across sources; no litigation or primary government filing independently opened)",
+              "source_name": "pfascentral.org; Stars and Stripes; PFAS Project Lab",
+              "source_url": "https://www.stripes.com/theaters/asia_pacific/2025-12-22/pfas-okinawa-us-forces-japan-20170839.html"
+            }
+          ]
+        },
+        "South Korea": {
+          "category": "contamination",
+          "entries": [
+            {
+              "label": "Confirmed contamination near US bases, no litigation found",
+              "detail": "Routine testing at Osan Air Base (reported March 2026) found low PFAS levels. A March 2025 peer-reviewed study (Environmental Science & Technology Letters) found groundwater near US bases 'heavily contaminated' at potentially health-significant levels. South Korea's drinking-water standard is 70 ppt (PFOS/PFOA combined). A 2023 report said US command stated foams would be 'completely phased out' by 2024 -- whether that actually happened was not independently confirmed. No litigation found.",
+              "tier": "REPORTED (peer-reviewed study and multiple news sources cross-referenced; completion of the phase-out not independently verified)",
+              "source_name": "Stars and Stripes; Environmental Science & Technology Letters (peer-reviewed)",
+              "source_url": "https://www.stripes.com/theaters/asia_pacific/2026-03-20/pfas-drinking-water-osan-south-korea-21125332.html"
+            }
+          ]
+        },
+        "Brazil": {
+          "category": "contamination",
+          "entries": [
+            {
+              "label": "A major, confirmed AFFF contamination event -- no litigation found",
+              "detail": "A fire at Ultracargo's fuel-storage terminal in the Port of Santos (April 2-10, 2015) was the largest fire in Sao Paulo state's history and involved large-scale AFFF use. Published volume estimates genuinely conflict across peer-reviewed studies: one (Water, Air & Soil Pollution, 2019) reports roughly 61,000 liters of AFFF drained into the environment; another (Miranda & Abessa, Marine Pollution Bulletin) reports over 460,000 liters of AFFF and PFAS-containing extinguishers used in the firefighting response. Both are real peer-reviewed papers describing confirmed PFAS contamination in the Santos estuary sediment. No lawsuit, civil action, or regulatory penalty tied to this specific incident was found.",
+              "tier": "VERIFIED for the contamination event itself (two independent peer-reviewed papers directly describe it); the exact volume is explicitly disputed between those two papers and should never be cited as a single settled number",
+              "source_name": "Water, Air & Soil Pollution (2019); Miranda & Abessa, Marine Pollution Bulletin",
+              "source_url": "https://www.diariodepernambuco.com.br/noticia/brasil/2015/04/impactos-do-incendio-de-tanques-em-santos-vao-durar-cinco-anos.html"
+            }
+          ]
+        },
+        "Argentina": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "Resolved (2026-11-08 pass): the PFOS-foam restriction is real and directly opened -- the \"no PFAS regulation\" claim was wrong",
+              "detail": "The original Resolucion 451/2019 Annex III PDF was directly fetched and read (argentina.gob.ar/normativa/332323_res451-3_pdf/archivo). Its PFOS section (\"Acido perfluorooctano sulfonico, sus sales y fluoruro de perfluorooctano sulfonilo\") contains, verbatim, a Class B firefighting-foam item with real operative restrictions implementing Argentina's Stockholm Convention PFOS exemption: (1) a ban on exporting or importing foam containing or liable to contain PFOS/salts/PFOSF, except for environmentally sound disposal; (2) a ban on using such foam for training; (3) a condition that testing use is permitted only where all releases are contained; (4) a requirement that by late 2022, use of such foam be restricted to sites where all releases can be contained; (5) a requirement for environmentally sound management of stocks and waste of such foam. This directly contradicts the earlier secondary source claiming Argentina has no PFAS-specific regulation at all -- that claim was simply wrong, or was describing a different, narrower question (e.g. no litigation, or no regulation on PFAS broadly beyond this foam-specific Stockholm Convention annex). Two things remain genuinely unresolved, not papered over: the PDF's readable text did not include the resolution's signing/effective date or its Article 5 (the document's creation metadata shows 2019-08-31, which is a record date, not necessarily the signing date); and a separate 2020 Boletin Oficial notice (detalleAviso 234441, published 2020-09-02) that reportedly replaced this Annex III with a new one (\"IF-2020-51577401-APN-DNSYPQ#MAD\") could not be opened -- boletinoficial.gob.ar refused the connection on two independent fetch attempts. Whether the 2020 amendment changed, narrowed, or left intact the provisions quoted above is NOT confirmed. No litigation tied to PFAS/AFFF was found in Argentina in this or any prior pass.",
+              "tier": "VERIFIED for the 2019 Annex III text itself (the primary PDF was directly fetched and its PFOS provisions read and quoted); the 2020 amendment and the exact signing date remain REPORTED/NOT FOUND",
+              "source_name": "Resolucion 451/2019, Anexo III (argentina.gob.ar), directly fetched and read",
+              "source_url": "https://argentina.gob.ar/normativa/332323_res451-3_pdf/archivo"
+            }
+          ]
+        },
+        "Chile": {
+          "category": "checked_none",
+          "entries": [
+            {
+              "label": "Checked directly -- confirmed no current regulation or litigation",
+              "detail": "A Chilean law firm's own published analysis (Carey, titled 'PFAS: the litigation that is coming') states plainly that no current PFAS-specific regulation or litigation exists in Chile. Notably, even that forward-looking framing is anticipatory, not describing anything current. This is a real, checked, confirmed-absent finding, not an unresearched gap.",
+              "tier": "VERIFIED (a law firm's own published position, directly opened)",
+              "source_name": "Carey (Chilean law firm)",
+              "source_url": ""
+            }
+          ]
+        },
+        "Colombia": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "A planning-stage roadmap, not yet an enacted ban",
+              "detail": "Colombia's Ministry of Environment, with GEF/UNDP support, is preparing a roadmap to replace PFOS/PFOA/PFHxS-containing foams (restricted internationally under the Stockholm Convention) with fluorine-free alternatives, focused on airports. This is explicitly in a diagnostic/planning phase -- no confirmed enacted domestic ban was found.",
+              "tier": "REPORTED-adjacent (a government planning document directly identified; not yet an enacted law)",
+              "source_name": "Colombia Ministry of Environment / GEF-UNDP roadmap documentation",
+              "source_url": ""
+            }
+          ]
+        },
+        "Saudi Arabia": {
+          "category": "contamination",
+          "entries": [
+            {
+              "label": "Acknowledged airport contamination at an international forum -- not domestic litigation or an enacted ban",
+              "detail": "Saudi Arabia presented a 2025 ICAO working paper to the Aerodrome Safety & Planning Implementation Group (Middle East region) describing PFAS-containing-foam contamination of soil and groundwater at airports and the practical challenges of phasing out legacy foam, citing ICAO Annex 14, the FAA's own transition plan, and EU REACH as references. This is a real, government-authored acknowledgment of the problem at an international regulatory forum -- not a domestic lawsuit or an enacted Saudi ban.",
+              "tier": "REPORTED (the working paper was found via search; the PDF itself was not independently opened in full)",
+              "source_name": "ICAO Aerodrome Safety & Planning Implementation Group working paper, Saudi Arabia",
+              "source_url": "https://www2023.icao.int/MID/Documents/2025/ASPIG-7/AI2%20-%20WP14%20-%20PPT%20-%20Phasing%20Out%20PFOAPFOS-Containing%20in%20Aircraft%20Firefighting%20Foams.pdf"
+            }
+          ]
+        },
+        "South Africa": {
+          "category": "checked_none",
+          "entries": [
+            {
+              "label": "Checked directly -- nothing foam-specific found",
+              "detail": "A September 2026 Engineering News piece covers an AECOM report calling for enforceable PFAS limits in South African water generally -- a proposal, not adopted regulation, and about water broadly, not firefighting foam specifically. A Werksmans legal update notes South Africa's POP Regulations now cover general PFAS waste-management duties, which is also not foam-specific. South Africa is reportedly one of 5 countries in the ICAO/UNEP 'FIRE' airport-foam-transition project (see Nigeria and Egypt entries below), but this was not independently confirmed for South Africa specifically in this pass -- flagged, not claimed.",
+              "tier": "REPORTED (both sources directly identified; neither is a foam-specific finding)",
+              "source_name": "Engineering News; Werksmans legal update",
+              "source_url": "https://engineeringnews.co.za/article/aecom-highlights-need-for-science-based-pfas-regulation-in-south-africa-2026-09-08"
+            }
+          ]
+        },
+        "Nigeria": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "A real international program, not a domestic Nigerian law",
+              "detail": "Nigeria's Civil Aviation Authority (NCAA) is hosting an ICAO/UNEP 'FIRE' (Fortifying Infrastructure for Responsible Extinguishment) project mission, assessing firefighting systems at Nnamdi Azikiwe International Airport (Abuja) and Port Harcourt International Airport for transition to fluorine-free (F3) foam. This is a program-wide effort, not Nigeria-specific: $82.5M total ($10M GEF-funded plus $72.5M co-financing), covering roughly 40 airports over 60 months across 5 African countries (Nigeria, Egypt, Ethiopia, Kenya, South Africa per UNEP's own press release), targeting removal of about 4,500 tonnes of PFAS-contaminated material and disposal of about 130 tonnes of PFAS foam concentrate. No separate Nigerian national ban or litigation was found.",
+              "tier": "REPORTED (NCAA's own social-media post and Nigerian news outlets are primary-adjacent; the UNEP/ICAO press release confirms the program itself)",
+              "source_name": "UNEP/ICAO FIRE project press release; NCAA; Nigerian news coverage",
+              "source_url": "https://www.unep.org/en/news-and-stories/press-release/unep-and-icao-launch-825-million-project-eliminate-harmful"
+            }
+          ]
+        },
+        "Egypt": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "Same international program as Nigeria -- not a separate Egyptian law",
+              "detail": "Egypt's Civil Aviation Authority is also part of the ICAO/UNEP FIRE project (see Nigeria entry for program-wide details), covering 3 Egyptian airports, with implementation planned 2025-2030; Cairo hosted the project's 3rd steering-committee meeting. No separate national Egyptian PFAS foam ban was found beyond this program.",
+              "tier": "REPORTED (Arabic-language Egyptian news sources identified; the program itself confirmed via UNEP/ICAO's own materials)",
+              "source_name": "UNEP/ICAO FIRE project; Egyptian news coverage",
+              "source_url": ""
+            }
+          ]
+        },
+        "Italy": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "No Italian national law yet -- a real, growing municipal campaign",
+              "detail": "No Italian national PFAS/AFFF firefighting-foam law exists; Italy is bound only by EU Regulation 2024/2462 (bans foam use for training/testing except with full containment) and EU-wide operator duties starting 23 October 2026. Italian sources explicitly confirm no Italian law exists yet. A campaign for a national ban, originating in the Veneto region (the site of Italy's well-known industrial PFAS water-contamination scandal, which is explicitly a separate, unrelated story from firefighting foam -- not conflated here), launched January 2026 with 129 municipalities in favor as of this research pass. A separate, unverified claim that 4 firefighters in Tuscany may have died from PFAS exposure was reported by one Italian outlet but not independently confirmed -- flagged, not treated as fact.",
+              "tier": "REPORTED (Italian news sources directly identified); the Tuscany deaths claim is explicitly unverified, not a confirmed finding",
+              "source_name": "L'Indipendente; Linkiesta; Il Fatto Quotidiano",
+              "source_url": "https://www.lindipendente.online/2026/01/20/pfas-dal-veneto-parte-la-proposta-di-divieto-in-tutta-italia-gia-129-comuni-favorevoli/"
+            }
+          ]
+        },
+        "Poland": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "No Polish national law -- EU timeline only",
+              "detail": "No Polish national PFAS/AFFF firefighting-foam law was found; regulation is at the EU level only (Regulation (EU) 2025/1988). For portable extinguishers specifically, one commercial source (not the Official Journal) reports PFAS-foam sales banned from 23 October 2026 with use allowed until 31 December 2030, and alcohol-resistant foams carrying a later deadline of 23 April 2027 -- these specific dates are REPORTED only, not independently confirmed against the Official Journal text. No Polish implementing act was found.",
+              "tier": "REPORTED (EU regulation identified directly; specific extinguisher-type deadlines sourced from a commercial summary, not the primary legal text)",
+              "source_name": "Inforlex (commercial legal-text summary); EU Regulation 2025/1988",
+              "source_url": "https://www.inforlex.pl/download/akty_pdf,E0L,2025,276,1988.pdf"
+            }
+          ]
+        },
+        "Russia": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "No national ban found; a real, narrow maritime rule applies",
+              "detail": "No Russian federal PFAS/AFFF firefighting-foam ban was found, even searching natively in Russian; general POPs/PFOS restrictions exist via Customs Union (Russia/Belarus/Kazakhstan) treaty obligations, not foam-specific. A 2007 EMERCOM (Russia's emergency-response ministry) guidance document describes fluorinated-foam use with no phase-out language, and may now be outdated. One real, narrow finding: Russian maritime law bans PFOS-containing foam storage/use on ships built from 1 January 2026, under IMO SOLAS amendments -- an international shipping rule, not a domestic land-based ban.",
+              "tier": "NOT FOUND for a national land-based ban; REPORTED for the maritime/SOLAS-derived rule",
+              "source_name": "OECD Russia PFAS country sheet",
+              "source_url": "https://oecd.org/content/dam/oecd/en/topics/policy-sub-issues/risk-management-risk-reduction-and-sustainable-chemistry2/pfas-country-information/Russia.pdf"
+            }
+          ]
+        },
+        "Turkey": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "No national ban found; same narrow maritime rule as Russia",
+              "detail": "No Turkish-specific PFAS/AFFF firefighting-foam ban or regulation was found, even searching natively in Turkish. One Turkish news source confirms no comprehensive PFAS ban exists yet in Turkey, anticipating future pressure from EU harmonization (undated, currency unconfirmed). In the maritime sector, a Turk Loydu bulletin confirms the same SOLAS-derived PFOS-foam rule for ships built from 2026 applies to Turkish-flagged vessels -- again international, not domestic.",
+              "tier": "NOT FOUND for national regulation; REPORTED for the maritime/SOLAS-derived rule",
+              "source_name": "Turk Loydu bulletin",
+              "source_url": ""
+            }
+          ]
+        },
+        "Austria": {
+          "category": "contamination",
+          "entries": [
+            {
+              "label": "No federal law; a real, confirmed contamination site",
+              "detail": "No Austrian federal PFAS/AFFF firefighting-foam law exists beyond EU rules. Provincial fire brigades (e.g. in Niederosterreich) have internally directed fire departments to stop using fluorinated foam, though this is administrative practice, not binding law. A real, confirmed contamination site exists at the OMV refinery in Schwechat, caused by fire-brigade foam use. No litigation was found.",
+              "tier": "REPORTED (Tiroler Tageszeitung directly identified the Schwechat site; no primary government document independently opened)",
+              "source_name": "Tiroler Tageszeitung",
+              "source_url": "https://www.tt.com/artikel/30934638/pfas-im-wasser-vermutlich-verbreiteter-als-gedacht"
+            }
+          ]
+        },
+        "Switzerland": {
+          "category": "contamination",
+          "entries": [
+            {
+              "label": "No federal ban; real contamination signals and an agency evaluating action",
+              "detail": "No Swiss federal firefighting-foam ban was found. BAFU (the Federal Office for the Environment) identifies firefighting foam as a major PFAS groundwater source (training sites, industrial areas) and is evaluating an action plan; a reporting duty for PFOS-foam stocks already exists under ChemRRV Annex 1.16. Swiss media expects Switzerland will likely follow the EU ban once finalized, but nothing is enacted yet. Real, confirmed contamination signals: a drinking-water restriction near Basel airport, and a Valais cantonal authority flagging groundwater contamination from firefighting foam. No litigation was found.",
+              "tier": "REPORTED (BAFU's own stated position on foam as a PFAS source; Basel airport and Valais findings via Swiss media, not independently opened primary documents)",
+              "source_name": "BAFU (Swiss Federal Office for the Environment); Beobachter; SRF",
+              "source_url": "https://www.beobachter.ch/magazin/umwelt-klima/trinkwasserverbot-beim-flughafen-basel-821845"
+            }
+          ]
+        },
+        "Portugal": {
+          "category": "regulation",
+          "entries": [
+            {
+              "label": "A real, dated national implementation of the EU PFOA restriction",
+              "detail": "Portugal's environmental agency (APA) confirms that as of December 3, 2025, no use of PFOA-containing firefighting foam is permitted -- the derogation period for already-installed stock ended on that date. This is Portugal's domestic application of the EU-wide PFOA restriction, not an independent national law, but it is a real, dated, primary-adjacent fact.",
+              "tier": "REPORTED (APA's own page identified; not independently confirmed as fully opened)",
+              "source_name": "APA (Agencia Portuguesa do Ambiente)",
+              "source_url": "https://apambiente.pt/prevencao-e-gestao-de-riscos/proibicao-do-uso-de-pfoa-em-espumas-de-combate-incendio"
+            }
+          ]
+        }
+      },
+      "not_included": [
+        "India: NOT FOUND, confirmed more strongly via a native-language (Hindi) pass. A 2025 academic review states India's Central Pollution Control Board has no PFAS-specific regulations and no national PFAS/PFOS/PTFE monitoring program; no firefighting-foam-specific rule found in either language.",
+        "UAE: NOT FOUND even after three separate Arabic-language search passes (general terms, standards-authority-specific, and airport/utility-specific). One vendor marketing page claims Dubai/Al Maktoum airports are 'subject to ICAO guidelines' moving toward fluorine-free foam, but this is uncorroborated by any GCAA or Dubai Airports primary source and is not citable.",
+        "Jordan and Lebanon: NOT FOUND via Arabic-language search. Only generic/global PFAS explainer pages and, for Lebanon, a vendor page confirming AFFF foam is still commercially sold with no PFAS-content regulation found.",
+        "Mexico: NOT FOUND via Spanish-language search. No DOF (official gazette), Semarnat, or Profepa regulation located; only commercial distributor blogs noting insurer and PEMEX-linked pressure to transition to fluorine-free foam.",
+        "Spain: NOT FOUND for a domestic ban or litigation via Spanish-language search -- Spain is bound only by the EU-wide REACH restriction already noted above; no Spanish court case or airport/base contamination suit located.",
+        "Brazil's airport-AFFF-mandate equivalent to the FAA's Part 139: NOT FOUND even after a native-language (Portuguese) search of ANAC, ANVISA, and CONAMA sources. A general PFAS bill (PL 2726/2023) is pending in Congress but not foam-specific or enacted.",
+        "Uruguay and Paraguay: NOT FOUND in either English or native-language (Spanish) passes.",
+        "Peru: still a thin, unconfirmed lead after a follow-up pass -- Peru's RETC emissions registry (DS 018-2021-MINAM) tracks PFOS/PFOS-F as monitored substances, but no specific decree implementing a firefighting-foam import ban was located despite checking El Peruano and MINAM directly.",
+        "Ecuador: NOT FOUND for foam specifically, confirmed again -- only general Stockholm Convention/PFAS context, no firefighting-foam-specific prohibition.",
+        "Vietnam, Thailand, Indonesia, Philippines, and Malaysia: all NOT FOUND or thin-unconfirmed via native-language (Vietnamese, Thai, Indonesian, Filipino, Malay) search passes -- all 5 are Stockholm Convention parties in principle, but none has a confirmed enacted national AFFF-foam ban, contamination event, or litigation action citable at this tier.",
+        "No African Union or Gulf Cooperation Group regional PFAS action was found (Mercosur not re-checked in this pass).",
+        "Ethiopia and Kenya: reported as part of the same 5-country ICAO/UNEP 'FIRE' airport-foam-transition program as Nigeria and Egypt (see those entries), but not independently verified for these two countries specifically in this pass."
+      ]
+    }
+  },
+  "changelog": [
+    {
+      "date": "2026-11-08",
+      "label": "Readability overhaul: collapsed finding cards, role-toggle bulk expand/collapse, 30-second TL;DR",
+      "detail": "Addressed feedback that the site was overwhelming to read. Policy Exclusions and Cross-Class Mapping findings now collapse to a one-line headline + tier badge by default, full methodology and source behind a click. The existing Underwriter/Actuary/Broker role toggle now bulk-expands or collapses every finding card at once -- Underwriter (default) stays collapsed, Actuary opens everything. Added a real, computed \"30-second version\" summary at the top of the page."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Design overhaul: cut palette to navy + risk-red, added dark mode, terminal-style stat numerals",
+      "detail": "Replaced the soft 4-5 color pastel palette with one confident primary (deep navy, for brand/confirmed/trust) and one sharp secondary reserved strictly for risk signals (litigating states, denied claims, accumulation flags) -- everything else now gray. Litigating states on both maps now render in risk-red instead of blue. Added a dark-mode toggle (light stays default for daily use). Stat numbers now use a monospace numeral font with tabular figures and a thin rule underneath, reading as a data terminal rather than a generic SaaS template."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "New: Object: Policy Exclusions -- the real CGL pollution-exclusion link, plus local underwriting notes",
+      "detail": "Added the third object this tracker was missing (Defendant/Company and Statute already existed): Policy Exclusions. Covers the 1986 absolute/broad-form pollution exclusion's drafting history and three real coverage disputes, including Fire-Dex's own insurer (Admiral) denying coverage for the turnout-gear suits under an occupational-disease exclusion -- directly tied to a defendant already in this tracker's Company layer. Also added a notes field to the \"Flag for underwriting review\" feature, honestly labeled as browser-local only (no backend yet) -- the real seed of a future shared annotation layer, not a fabricated one."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "New: cross-class liability mapping -- one real, verified example of silent accumulation",
+      "detail": "Added a sourced cross-class chain for 3M: the same PFAS-concealment fact pattern drives products liability (this tracker), environmental/contamination liability (AFFF settlement), and a separate 2019 securities class action plus derivative suits alleging 3M concealed its own PFAS risk from shareholders -- a real D&O/securities line most casualty underwriters never see. Explicitly scoped to 3M only, not claimed as universal across every defendant in this tracker."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "World map is now a rotatable 3D globe (drag to spin, click rotates to the country)",
+      "detail": "Replaced the flat Natural Earth projection with a d3-geo orthographic projection -- same D3 version already in use, no new dependency. Drag to rotate; clicking a country or using search rotates the globe to bring it to the front, matching the existing click/search behavior exactly."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Honeywell/Solstice follow-up: directly read the actual Separation Agreement",
+      "detail": "Fetched and read the full Honeywell-Solstice Separation and Distribution Agreement (SEC Exhibit 2.1, 2025-08-21) rather than relying on secondary summaries. Confirmed it has no PFAS/turnout-gear-specific language; found the general liability-allocation rule (an arising-out-of-business catch-all, regardless of timing); confirmed the specific schedules that would resolve this exact lawsuit are omitted from the public filing (standard SEC practice), so the question stays open but is now sharply, verifiably framed instead of a blank NOT FOUND. Also fixed the actuary/broker role toggle on both trackers -- previously broker and underwriter views were pixel-identical; each role now visibly changes what is expanded or highlighted."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Directly read the full JPML MDL 3191 transfer order -- 17 named defendants, 5 exact case numbers",
+      "detail": "Previously this tracker cited the transfer order but had only identified 4 of its named defendants (3M, DuPont, Honeywell, Fire-Dex) plus a vague \"16+ other named defendants\" placeholder. Directly reading the order's own footnotes surfaced all 17 named defendant entities (grouped by their actual procedural position in the venue dispute), and reading Schedule A surfaced the exact civil action number for all 5 original actions -- all of which are consistent with, and corroborate, this tracker's existing filed-date estimates for those same five cases."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "New: Company object layer -- real corporate-structure facts for every named defendant",
+      "detail": "Added sourced corporate-structure notes for 3M, DuPont/EIDP, Honeywell, and Fire-Dex LLC to the Entities view: 3M explicitly retained PFAS liability in its 2024 Solventum spinoff; DuPont/EIDP liability is split across three companies (EIDP, Chemours, DuPont de Nemours) under a 2015 separation agreement and a 2021 cost-sharing MOU, drawn from Chemours own SEC 10-K filings; Honeywell is flagged as a genuinely open question after its October 2025 Solstice Advanced Materials spinoff (fluorine products business) -- available sources do not confirm which entity bears the turnout-gear liability; Fire-Dex is noted as privately held and founder-controlled, a different recovery-risk profile than the other three."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Argentina contradiction resolved; primary-source retries; dual-exposure feature; evidence-maturity meter",
+      "detail": "Directly fetched and read the actual Resolucion 451/2019 Annex III PDF, resolving a prior contradiction about whether Argentina regulates PFOS firefighting foam (it does). Retried Illinois and New Hampshire primary legislative sources on a second, independent network path -- both remain genuinely unreachable, so both stay REPORTED rather than silently upgraded. Shipped a new cross-module \"Dual-exposure states\" panel on the Precedent landing page, and added this evidence-maturity meter and changelog."
+    },
+    {
+      "date": "2026-11-07",
+      "label": "Native-language research expansion: 18 -> 27 countries",
+      "detail": "A large multi-language research pass (Spanish, Portuguese, Nordic languages, East Asian languages, Italian, Polish, Russian, Turkish, German, Hindi, Arabic) added or substantially upgraded Norway, Portugal, Italy, Poland, Russia, Turkey, Austria, Switzerland, China, Israel, Nigeria, and Egypt. Grew the pytest suite from 33 to 41 tests."
+    }
+  ],
+  "companies": {
+    "3M": {
+      "legal_name": "3M Company",
+      "structure_note": {
+        "label": "No corporate restructuring affects this liability -- 3M explicitly retained it in its own 2024 spinoff",
+        "detail": "3M spun off its health care business as Solventum Corporation on April 1, 2024. The governing Separation and Distribution Agreement (dated March 31, 2024, filed as Exhibit 2.1 to a 3M SEC filing) explicitly allocates PFAS liability: the 3M group retains all PFAS-related liabilities from 3M's own business and from the Health Care business prior to the spin, with narrow exceptions. 3M also separately committed to exit PFAS manufacturing entirely by the end of 2025. Bottom line for this tracker: there is no successor-entity question here -- 3M Company itself remains the liable, named party for turnout-gear PFAS claims, not a spun-off subsidiary.",
+        "tier": "VERIFIED (the executed Separation and Distribution Agreement, filed as a 3M SEC exhibit, directly identified and read via search; the exhibit's full text was not independently re-opened line by line)",
+        "source_name": "3M Company, Separation and Distribution Agreement with Solventum Corporation, SEC Exhibit 2.1 (March 31, 2024)",
+        "source_url": "https://investors.3m.com/financials/sec-filings/content/0001628280-24-014795/exhibit21-8xk.htm"
+      }
+    },
+    "DuPont": {
+      "legal_name": "EIDP, Inc. (formerly E. I. du Pont de Nemours and Company) -- named in litigation as \"DuPont\" or \"EIDP Inc.\"",
+      "structure_note": {
+        "label": "The single most consequential corporate-structure fact in this entire tracker: liability was deliberately split across three companies in 2015 and 2019",
+        "detail": "The entity sued as \"DuPont\" today is almost never the same legal entity that made PFOA-era decisions. In 2015, DuPont spun off its performance-chemicals business as The Chemours Company, under a Separation Agreement (June 26, 2015) that defines how PFOA-related \"Indemnifiable Losses\" are shared between EID (the renamed legacy entity, now EIDP, Inc.) and Chemours. In 2019, DuPont itself split again into Dow, DuPont de Nemours, Inc., and Corteva, further separating the surviving brand name from the pre-2015 legacy entity. A binding January 2021 MOU between EIDP, Corteva, DuPont de Nemours, and Chemours now governs sharing of PFAS costs tied to pre-July-2015 conduct, capped at $4.0 billion in aggregate qualified spend or December 31, 2040, whichever comes first. Chemours has separately disputed indemnifying EID for claims alleging the 2015 spinoff itself was a fraudulent transfer -- meaning the companies are still actively litigating against each other over who pays, not just defending jointly against plaintiffs. For an underwriter: a judgment against \"DuPont\" in a turnout-gear case does not tell you which of these three balance sheets actually absorbs it without checking which entity was named and what the MOU's cost-sharing formula says for that period.",
+        "tier": "VERIFIED (terms of the 2015 Separation Agreement, the 2017 interim cost-sharing arrangement, and the 2021 MOU are drawn from Chemours' own SEC 10-K disclosures, directly identified; the agreements' full original text was not independently re-opened)",
+        "source_name": "The Chemours Company, Form 10-K filings (FY2020, FY2023, FY2024), SEC EDGAR",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000095017024037171/cc-20231231.htm"
+      }
+    },
+    "Honeywell": {
+      "legal_name": "Honeywell International Inc. (a Honeywell subsidiary is separately named as a turnout-gear seller in at least one action)",
+      "structure_note": {
+        "label": "A sharper open question (2026-11-08 update): the general allocation rule is now known, but the specific schedule that would resolve it is not public",
+        "detail": "The actual Separation and Distribution Agreement between Honeywell and Solstice Advanced Materials Inc. (SEC Exhibit 2.1 to Solstice's Form 10, filed 2025-08-21) was directly fetched and read in full (over 350,000 characters). It contains zero mentions of \"PFAS,\" \"turnout,\" or \"firefighter\" -- this is a general corporate-separation contract, not litigation-specific. Its general allocation rule (Section 1.1(173), the \"SpinCo Liabilities\" definition) is a catch-all: any Liability \"to the extent relating to, arising out of or resulting from the SpinCo [Solstice] Business,\" REGARDLESS of when it arose, becomes Solstice's, unless it is specifically carved out and listed as a \"Specified RemainCo Liability\" on a schedule. The mirror-image rule in the \"RemainCo Liabilities\" definition works the same way for Honeywell. This means the turnout-gear liability most plausibly follows whichever entity made the fluorine-chemistry product actually alleged to be in the gear -- but the schedules that would name the specific pending Actions and carve-outs (Schedule 1.1(173)(x)(a), the \"Specified RemainCo Liabilities\" schedule, etc.) are NOT included in the publicly filed exhibit -- the agreement ends at the signature page with no schedules attached, which is standard SEC practice under Item 601(a)(5) of Regulation S-K (schedules may be omitted with an undertaking to furnish them to the SEC on request). So the general contractual mechanism is now understood and documented, but the specific answer for this lawsuit remains genuinely unavailable from public filings, not merely unresearched.",
+        "tier": "VERIFIED for the agreement's actual allocation language (the full Separation and Distribution Agreement directly fetched and read, confirmed to contain no PFAS/turnout/firefighter-specific provisions); NOT FOUND for the specific schedule resolving this lawsuit, because that schedule is not in the public filing",
+        "source_name": "Separation and Distribution Agreement between Honeywell International Inc. and Solstice Advanced Materials Inc., SEC Exhibit 2.1 to Form 10 (filed 2025-08-21), directly fetched and read in full",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/2064953/000206495325000006/exhibit21-form10.htm"
+      }
+    },
+    "Fire-Dex LLC": {
+      "legal_name": "Fire-Dex, LLC (a subsidiary, Fire-Dex GW, LLC, is also on record)",
+      "structure_note": {
+        "label": "A privately held, founder-controlled company -- a materially different risk profile from the other three named defendants",
+        "detail": "Unlike 3M, DuPont/EIDP, and Honeywell, Fire-Dex is not a public company with SEC disclosures. It is controlled by Bill Burke, described as Chairman and majority shareholder, who took full ownership in 2007. Sources disagree on its current financial-sponsor status: one describes a past recapitalization with Peninsula Capital Partners (providing subordinated debt and preferred equity) structured specifically to let Burke increase his own equity stake, while a separate aggregator lists Peninsula as a current investor with a financing round dated August 2020 -- this discrepancy is not resolved here. For underwriting purposes, the practical implication is a smaller, privately held balance sheet with less public disclosure than the other three defendants in this tracker, which is relevant to assessing actual recovery risk in a judgment, independent of liability merits.",
+        "tier": "REPORTED (secondary business-press and private-market-data sources, not independently cross-checked against a primary corporate filing, since Fire-Dex has none to check)",
+        "source_name": "Firefighter Nation (Western Reserve Partners press item); PitchBook; Preqin company profiles",
+        "source_url": "https://www.firefighternation.com/?p=38800"
+      }
+    }
+  },
+  "cross_class_liability_mapping": {
+    "label": "One PFAS exposure, four separate insurance lines -- a real, sourced version of \"silent accumulation,\" not a generic diagram",
+    "methodology_note": "Lloyd's and other carriers worry about silent accumulation: a single underlying event triggering losses across several policies held by the same insured, in lines that are underwritten in separate silos and never cross-checked against each other. This tracker already follows two of these lines (products liability for the turnout-gear suits, and environmental/contamination for foam-site cleanup). This section adds a third, real, verified line: directors & officers (D&O) / securities liability, where shareholders allege a manufacturer concealed its own knowledge of PFAS risk.",
+    "verified_chain": {
+      "defendant": "3M Company",
+      "channels": [
+        {
+          "line": "Products liability (this tracker's main subject)",
+          "detail": "3M is a named defendant in the MDL 3191 turnout-gear litigation tracked throughout this site.",
+          "tier": "VERIFIED (directly tracked elsewhere on this site)"
+        },
+        {
+          "line": "Environmental / contamination liability",
+          "detail": "3M faces AFFF-foam site contamination liability and the separate $7.35 billion AFFF personal-injury settlement (MDL 2873), both tracked in this site's MDL section.",
+          "tier": "VERIFIED (directly tracked elsewhere on this site)"
+        },
+        {
+          "line": "Workers' compensation (firefighter cancer presumption claims)",
+          "detail": "Firefighters alleging PFAS-linked cancer file workers'-comp claims against their municipal employers, not against 3M directly -- but 3M's foam and gear-chemistry products are the alleged exposure source feeding both this litigation and those claims. See the Presumption Expansion Tracker's claims-denial-reality section for the workers'-comp side of this same underlying exposure.",
+          "tier": "VERIFIED for the mechanism (both trackers independently document this exposure pathway); the claims are not against 3M directly"
+        },
+        {
+          "line": "Directors & officers (D&O) / securities liability",
+          "detail": "A 2019 federal securities class action (Section 10(b) / Rule 10b-5) accused 3M and its current and former executives of making false or misleading statements about the company's PFAS liability exposure, alleging the stock dropped when the truth emerged. Several follow-on shareholder derivative suits were filed in New Jersey federal court and Minnesota state court on similar factual allegations; one New Jersey derivative action was dismissed without prejudice in October 2020 on a service-of-process technicality, not on the merits. A Third Circuit ruling held that a related 3M shareholder class action concealment claim belongs in Minnesota. This is a real, independently-litigated line -- the same underlying \"3M knew about PFAS risk\" fact pattern driving the products-liability and environmental lines above also drives a securities/D&O claim that a standard liability-line underwriter would likely never see, because it sits in a completely separate book (D&O, not casualty).",
+          "tier": "REPORTED (the securities class action, derivative suits, and the Third Circuit jurisdictional ruling were identified via secondary legal-news summaries and docket trackers; the complaints themselves were not independently opened and read in this pass)",
+          "source_name": "D&O Diary; Law360; Lexis Legal News (Mealey's) summary of Third Circuit ruling",
+          "source_url": "https://www.dandodiary.com/2019/08/articles/environmental-liability/environmental-liability-related-securities-suit-filed-against-3m/"
+        }
+      ]
+    },
+    "honest_limits": "This is one verified chain (3M), not a general claim that every PFAS defendant faces all four lines -- we have not checked whether DuPont/EIDP, Honeywell, or Fire-Dex face parallel D&O claims, and this section should not be read as implying they do. The point demonstrated here is that the mapping is real and checkable, not that it is universal across every company in this tracker's Company layer."
+  },
+  "policy_exclusions": {
+    "label": "Object: Policy Exclusions -- how a litigation docket actually maps onto CGL policy language, not just who's named",
+    "methodology_note": "This tracker already has two of the three objects a real insurance ontology needs: Object Defendant/Company (the corporate-structure layer) and Object Statute (the state presumption laws on the Presumption tracker). This is the third: the actual policy-wording question that determines whether a given PFAS claim is even covered at all -- the Commercial General Liability (CGL) pollution exclusion. This section is deliberately scoped to what is real and checkable, not a general insurance-coverage treatise.",
+    "drafting_history": {
+      "label": "The pollution exclusion's own history is itself a live legal argument in PFAS coverage disputes",
+      "detail": "A limited \"sudden and accidental\" pollution exclusion first appeared as a 1970 CGL endorsement and was incorporated into ISO's standard form in 1973. The much broader \"absolute\" pollution exclusion removed that sudden-and-accidental carve-out and was incorporated into ISO's standard CGL form in 1986 -- a revision commentators note is not actually \"absolute\" in practice (a more accurate label used by some insurance-law commentators is \"broad form pollution exclusion\"). Policyholder-side commentary argues the insurance industry itself told regulators in the 1980s that the exclusion would not eliminate CGL's foundational products-liability coverage -- a drafting-history argument now being actively litigated in PFAS coverage disputes. Courts remain split: one secondary source claims roughly half of states have found the \"absolute\" pollution exclusion ambiguous in at least some contexts (not independently verified against primary case counts).",
+      "tier": "REPORTED (secondary legal-industry commentary on policy drafting history, not independently opened at ISO's own archived filings)",
+      "source_name": "IRMI; Hunton Andrews Kurth; insurance-industry legal commentary",
+      "source_url": "https://www.irmi.com/articles/expert-commentary/the-cgl-pollution-exclusion"
+    },
+    "real_cases": [
+      {
+        "label": "Fire-Dex's own insurer denied coverage for the turnout-gear firefighter suits -- a real coverage dispute involving a defendant already in this tracker's Company layer",
+        "detail": "In the underlying Fire-Dex matter, firefighters alleged PFAS exposure from turnout gear caused cancer. Fire-Dex's insurer, Admiral, denied coverage -- reportedly under both an \"occupational disease exclusion\" and (separately contested) a Total Pollution Exclusion. A federal court in the Northern District of Ohio held coverage was barred under the occupational-disease exclusion specifically, and noted there was insufficient Ohio case law to confidently predict how Ohio courts would resolve the pollution-exclusion question on its own. This is directly relevant to this tracker's own Company entry for Fire-Dex LLC: even if a plaintiff wins a judgment against Fire-Dex, whether Fire-Dex's own insurer pays depends on exactly this kind of exclusion-language dispute -- a real link between a named defendant already tracked here and the policy-wording question underneath it.",
+        "tier": "REPORTED (secondary legal-industry summaries of the Northern District of Ohio ruling; the opinion itself was not independently opened and read in this pass)",
+        "source_name": "Benesch Law; PropertyCasualty360 coverage of the Fire-Dex/Admiral Ohio federal court ruling",
+        "source_url": "https://www.beneschlaw.com/insight/is-your-pfas-coverage-at-risk-an-ohio-federal-court-ruling-opens-the-door-to-broader-insurer-denials/"
+      },
+      {
+        "label": "Grange v. Cycle-Tex (N.D. Ga., Dec. 2022): a total pollution exclusion endorsement did eliminate CGL coverage for a PFAS-discharge claim",
+        "detail": "A federal court in Georgia found that a total pollution exclusion endorsement eliminated CGL coverage for a claim alleging PFAS discharge into local waterways -- an example of the exclusion working exactly as insurers intend, in an environmental-discharge fact pattern (distinct from the turnout-gear products-liability fact pattern this tracker otherwise follows).",
+        "tier": "REPORTED (secondary legal commentary; the opinion itself was not independently opened)",
+        "source_name": "Legal-industry coverage of Grange Insurance Co. v. Cycle-Tex, Inc.",
+        "source_url": ""
+      },
+      {
+        "label": "National Foam v. Zurich (N.D. Cal.): a split result -- some PFAS claims excluded, others not, within the same MDL",
+        "detail": "A California federal court reportedly found that some PFAS-related claims within the AFFF MDL were excluded under a pollution exclusion while others were not -- underscoring that coverage turns on the exact claim, policy year, and policy wording, not on PFAS as a single monolithic category.",
+        "tier": "REPORTED (secondary legal commentary; the opinion itself was not independently opened)",
+        "source_name": "Legal-industry coverage of National Foam, Inc. v. Zurich American Insurance Co.",
+        "source_url": ""
+      }
+    ],
+    "honest_limits": "This is not a general coverage-law treatise and should not be read as legal advice. It is three real, identified coverage disputes that show the exclusion's actual, contested application to PFAS claims -- two of them (Fire-Dex, and by extension the broader turnout-gear litigation this tracker follows) directly relevant to defendants already tracked here, one (Cycle-Tex) a different fact pattern included for contrast. None of the underlying opinions were independently opened and read in this pass -- all three rest on secondary legal-industry summaries, tiered REPORTED accordingly."
+  }
+}

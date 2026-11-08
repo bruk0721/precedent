@@ -1,0 +1,833 @@
+{
+  "as_of": "2026-11-03",
+  "methodology_note": "Category trend data is this project's own cross-tabulation of THREE NCCI documents: the 2016 white paper (as of 1/15/2016), a 2018 paper by Racicot and Spidell (as of 11/1/2018, found via web archive after the live NCCI fetch failed), and the 2023 update by Neugent and Spidell (as of 11/1/2022). None of these counts are figures NCCI itself published as a trend line -- this is this project's own cross-tabulation and should be independently recounted before being treated as final. With three points, a direction of change between adjacent snapshots can be shown; this still does not justify projecting forward past 2023, since three points establish a shape, not a reliable future trajectory.",
+  "disease_categories": [
+    {
+      "id": "cancer",
+      "label": "Cancer",
+      "states_2016": [
+        "AL",
+        "AK",
+        "AZ",
+        "CO",
+        "IL",
+        "IN",
+        "IA",
+        "KS",
+        "LA",
+        "ME",
+        "MD",
+        "MO",
+        "NV",
+        "NM",
+        "OK",
+        "OR",
+        "SD",
+        "TX",
+        "UT",
+        "VT",
+        "VA"
+      ],
+      "states_2018": [
+        "AK",
+        "AZ",
+        "CO",
+        "IL",
+        "IN",
+        "LA",
+        "ME",
+        "MD",
+        "MO",
+        "NV",
+        "NM",
+        "OK",
+        "OR",
+        "TX",
+        "UT",
+        "VT",
+        "VA",
+        "WV",
+        "ID"
+      ],
+      "states_2023": [
+        "AK",
+        "AZ",
+        "CO",
+        "ID",
+        "IL",
+        "LA",
+        "MD",
+        "ME",
+        "MT",
+        "NH",
+        "NM",
+        "NV",
+        "OK",
+        "OR",
+        "TN",
+        "TX",
+        "UT",
+        "VA",
+        "VT",
+        "WV"
+      ],
+      "count_2016": 21,
+      "count_2018": 19,
+      "count_2023": 20,
+      "caveat": "Dipped then partially recovered, not a one-direction trend: 21 to 19 to 20. Colorado's presence across all three snapshots masks that it diverted many cancer claims to a non-WC Trust program after the 2016 Castle Rock ruling -- presence on this list does not mean claim volume through WC stayed constant. The 2018 state list here is reconstructed from the research pass's summary, not independently re-extracted from the full 2018 PDF footnote -- flag for a recount before citing the exact 19-state composition as final.",
+      "source_name": "NCCI 2016 white paper, 2018 paper (Racicot & Spidell), and 2023 update brief (Neugent & Spidell), all directly read",
+      "source_url": "https://www.ncci.com/Articles/Documents/Insights-Firefighters-First-Responders-2023-Update-Brief.pdf",
+      "evidence_tier": "This project's own cross-tabulation of three VERIFIED primary documents -- recommend independent recount before treating exact state-level composition as final",
+      "flagged_mechanism_note": {
+        "label": "Florida is not in the cancer-presumption count above -- it uses a different legal mechanism entirely, not a gap in this research",
+        "detail": "Florida Statutes s.112.1816 (\"Firefighters; cancer diagnosis\") was directly opened and read (via 2026 SB 984, which amends it). It is a direct benefit-entitlement statute, not a rebuttable workers'-comp presumption: a qualifying firefighter gets specific, itemized benefits (covered cancer treatment, a $25,000 one-time payment, death benefits) as an alternative to pursuing a workers' comp claim under chapter 440 -- there is no presumption that shifts any burden onto an employer. This is a real, structurally distinct mechanism, similar to how New Zealand's no-fault ACC scheme is flagged elsewhere in this tracker rather than forced into the presumption framing. SB 984 (2026) amends this existing statute (revising one-time-payment conditions, adding a death-benefit requirement, and removing a Fire Marshal rulemaking mandate) -- it is maintenance of an existing benefit law, not the creation of a new presumption, and should not be read as a \"Florida is about to adopt cancer presumption\" signal.",
+        "tier": "VERIFIED (Florida Senate's own bill text, s.112.1816 as amended, directly opened and read)",
+        "source_name": "Florida Senate, SB 984 (2026) bill text, directly opened",
+        "source_url": "https://flsenate.gov/Session/Bill/2026/984/BillText/Filed/HTML"
+      }
+    },
+    {
+      "id": "lung_respiratory",
+      "label": "Lung/Respiratory",
+      "states_2016": [
+        "AL",
+        "AK",
+        "AZ",
+        "FL",
+        "HI",
+        "ID",
+        "IL",
+        "IN",
+        "IA",
+        "KS",
+        "LA",
+        "ME",
+        "MD",
+        "MO",
+        "NV",
+        "NH",
+        "NM",
+        "OK",
+        "OR",
+        "SC",
+        "SD",
+        "TX",
+        "UT",
+        "VT",
+        "VA",
+        "WV"
+      ],
+      "states_2018": [
+        "AK",
+        "AZ",
+        "FL",
+        "IL",
+        "LA",
+        "ME",
+        "MD",
+        "NV",
+        "NH",
+        "NM",
+        "OK",
+        "OR",
+        "SC",
+        "TX",
+        "VT",
+        "VA",
+        "WV",
+        "MT"
+      ],
+      "states_2023": [
+        "AK",
+        "AZ",
+        "FL",
+        "IL",
+        "LA",
+        "MD",
+        "ME",
+        "MT",
+        "NH",
+        "NM",
+        "NV",
+        "OK",
+        "OR",
+        "SC",
+        "TX",
+        "VA",
+        "VT",
+        "WV"
+      ],
+      "count_2016": 26,
+      "count_2018": 18,
+      "count_2023": 18,
+      "caveat": "The full 8-state decline happened entirely in the 2016-2018 window, then held exactly flat (18 to 18) from 2018 to 2023 -- a one-time shift, not a continuous decline. No confirmed state-by-state repeal explains the 2016-2018 drop; the leading hypothesis is a counting-methodology difference between NCCI's 2016 and 2018/2023 authors (Alabama, for example, still has its presumption on the books in current statute, but may be categorized outside NCCI's methodology as not WC-administered). Likely a data/methodology artifact, not a confirmed real-world rollback, pending independent re-extraction of the 2018 state list.",
+      "source_name": "NCCI 2016 white paper, 2018 paper (Racicot & Spidell), and 2023 update brief (Neugent & Spidell), all directly read",
+      "source_url": "https://www.ncci.com/Articles/Documents/Insights-Firefighters-First-Responders-2023-Update-Brief.pdf",
+      "evidence_tier": "This project's own cross-tabulation of three VERIFIED primary documents -- recommend independent recount before treating exact state-level composition as final"
+    },
+    {
+      "id": "heart_vascular",
+      "label": "Heart/Vascular",
+      "states_2016": [
+        "AL",
+        "AK",
+        "FL",
+        "GA",
+        "HI",
+        "ID",
+        "IL",
+        "IN",
+        "IA",
+        "KS",
+        "LA",
+        "ME",
+        "MD",
+        "MO",
+        "NV",
+        "NH",
+        "NM",
+        "OK",
+        "OR",
+        "SC",
+        "SD",
+        "TX",
+        "VT",
+        "VA",
+        "WV"
+      ],
+      "states_2018": [
+        "AK",
+        "FL",
+        "IL",
+        "LA",
+        "ME",
+        "MD",
+        "NV",
+        "NH",
+        "NM",
+        "OK",
+        "OR",
+        "SC",
+        "TX",
+        "VT",
+        "VA",
+        "WV",
+        "MT",
+        "AZ",
+        "CT"
+      ],
+      "states_2023": [
+        "AK",
+        "AZ",
+        "CT",
+        "FL",
+        "IL",
+        "LA",
+        "MD",
+        "ME",
+        "MT",
+        "NH",
+        "NM",
+        "NV",
+        "OK",
+        "OR",
+        "SC",
+        "TX",
+        "VA",
+        "VT",
+        "WV"
+      ],
+      "count_2016": 25,
+      "count_2018": 19,
+      "count_2023": 19,
+      "caveat": "Same pattern as lung/respiratory: the full 6-state decline happened in the 2016-2018 window, then held exactly flat (19 to 19) from 2018 to 2023. Connecticut and Arizona entered this category by 2018, not newly in 2023 as the earlier two-point comparison implied.",
+      "source_name": "NCCI 2016 white paper, 2018 paper (Racicot & Spidell), and 2023 update brief (Neugent & Spidell), all directly read",
+      "source_url": "https://www.ncci.com/Articles/Documents/Insights-Firefighters-First-Responders-2023-Update-Brief.pdf",
+      "evidence_tier": "This project's own cross-tabulation of three VERIFIED primary documents -- recommend independent recount before treating exact state-level composition as final"
+    },
+    {
+      "id": "ptsd_mental",
+      "label": "Mental injury / PTSD",
+      "states_2016": [],
+      "states_2018": [
+        "(not cleanly comparable)"
+      ],
+      "states_2023": [
+        "LA",
+        "ME",
+        "NH",
+        "NM",
+        "OR",
+        "VT"
+      ],
+      "count_2016": 0,
+      "count_2018": null,
+      "count_2023": 6,
+      "caveat": "The 2018 paper uses a different, non-comparable framing for this category: it describes only 2 states with a narrow first-responder-specific presumption, plus 23 jurisdictions recognizing broader, non-presumption 'mental-mental' compensability (a different legal concept entirely). Forcing this into the same 3-point comparison as the other categories would be misleading -- this is deliberately left as not cleanly comparable rather than approximated. What is confirmed: PTSD-specific presumptive coverage grew from near-zero to 6 states by 2023, the clearest real growth story in this dataset, even without a clean middle data point.",
+      "source_name": "NCCI 2016 white paper, 2018 paper (Racicot & Spidell), and 2023 update brief (Neugent & Spidell), all directly read",
+      "source_url": "https://www.ncci.com/Articles/Documents/Insights-Firefighters-First-Responders-2023-Update-Brief.pdf",
+      "evidence_tier": "VERIFIED for 2016 (not tracked) and 2023 (6 states, NCCI's own explicit statement); 2018 figure deliberately not forced into comparability",
+      "flagged_discrepancy": {
+        "label": "Washington State is not in NCCI's 6-state 2023 PTSD count above -- a real, unresolved discrepancy, not papered over",
+        "detail": "Directly verified against the Washington State Legislature's own bill-history page: SB 6214 (2017-18 session), \"Allowing industrial insurance coverage for posttraumatic stress disorders affecting law enforcement officers and firefighters,\" passed the Senate 47-0 and the House 91-7, was signed by the Governor on March 23, 2018 (Chapter 264, 2018 Laws), effective June 7, 2018. This real, enacted, dated law is not reflected in NCCI's own 6-state count for 2023 cited in this category's main entry. Two explanations are possible and NOT resolved here: (1) NCCI's taxonomy may require a stricter rebuttable-presumption mechanism (an automatic burden-shift onto the employer) that Washington's law, framed as \"allowing industrial insurance coverage,\" does not structurally meet -- a real legal distinction, not a technicality; or (2) NCCI's brief may simply have an incomplete state list. Do not add Washington to the 6-state count without resolving which explanation is correct by reading NCCI's own methodology for what counts as a qualifying presumption.",
+        "tier": "VERIFIED for the Washington statute itself (its own legislature's bill-history page directly opened and read); the reason for its absence from NCCI's count is NOT FOUND",
+        "source_name": "Washington State Legislature, SB 6214 bill summary, directly opened",
+        "source_url": "https://app.leg.wa.gov/billsummary?BillNumber=6214&Year=2017"
+      }
+    }
+  ],
+  "claims_trend": {
+    "label": "NCCI's own reported cumulative firefighter cancer claim count since 2004",
+    "value_2018": "~100 cancer claims since 2004 (i.e., accumulated over the 2004-2018 window, about 14 years)",
+    "value_2023": "~180 cancer claims since 2004 (i.e., roughly 80 additional claims accumulated in just the 2018-2023 window, about 5 years)",
+    "implication": "A roughly 2x or more acceleration in the annual rate of claims reaching NCCI's own dataset. This is a real, repeated NCCI-reported figure, not a constructed estimate -- but it conflates two different possible causes that cannot be separated with the data in hand: rising underlying claim incidence, versus improving data capture/reporting over time as more self-insured entities' data flows to NCCI. Do not present this as proof of rising incidence without that caveat attached.",
+    "source_name": "NCCI 2018 paper and 2023 update brief, both directly read",
+    "source_url": "https://www.ncci.com/Articles/Documents/Insights-Firefighters-First-Responders-2023-Update-Brief.pdf",
+    "evidence_tier": "VERIFIED (both figures directly read from NCCI's own primary documents)"
+  },
+  "recent_activity_2025": {
+    "label": "NCCI's own October 2025 Regulatory and Legislative Trends report, qualitative color on what moved since the 2023 update",
+    "detail": "Nevada and Tennessee broadened PTSD presumptions; Nevada, Utah, Virginia, and Wyoming passed new cancer-presumption legislation; California, Connecticut, Hawaii, Nebraska, and West Virginia were reported considering similar bills.",
+    "caveat": "This is a different, differently-structured NCCI publication without the same state-by-state presumption table as the 2016/2018/2023 series -- useful as directional color on recent activity, not as a fourth structured data point comparable to the others.",
+    "source_name": "NCCI, Regulatory and Legislative Trends report, October 2025",
+    "source_url": "",
+    "evidence_tier": "REPORTED (referenced via research pass, not independently opened in full in this project)"
+  },
+  "data_visibility_note": {
+    "label": "NCCI's own disclosure of its self-insured-payroll data-visibility gap, across editions",
+    "detail": "Stated explicitly as a number in the 2016 paper (~20%) and the 2018 paper (~24%), then dropped to qualitative-only language in the 2023 paper ('a fraction... varies widely'). NCCI itself stopped quantifying this specific gap by 2023.",
+    "source_name": "NCCI 2016, 2018, and 2023 papers, all directly read",
+    "source_url": "https://www.ncci.com/Articles/Documents/Insights-Firefighters-First-Responders-2023-Update-Brief.pdf",
+    "evidence_tier": "VERIFIED (directly read across all three editions)"
+  },
+  "precedents": [
+    {
+      "id": "covid_private_sector",
+      "label": "COVID-19 presumption expansion to private-sector workers",
+      "scope": "Roughly 28 states and Puerto Rico took some action. Wyoming covered every worker in the state. New Jersey, Connecticut, Kentucky, and Illinois extended rebuttable presumptions to broad 'essential worker' categories including private-sector employees with public contact. California's reached any employee at a workplace with a documented outbreak, excluding very small employers.",
+      "durability": "Weak. Nearly all carried sunset clauses. Minnesota cycled through repeated lapse/reenact/extend episodes, last confirmed sunset January 2023. California's expired July 2020. No evidence found that any COVID presumption was made permanent or extended to cover other diseases afterward.",
+      "what_it_proves": "Large-scale private-sector presumption expansion is not hypothetical -- it already happened once, at real scale, under the right conditions (a recognized, urgent, widely-shared occupational hazard).",
+      "what_it_does_not_prove": "That such expansion is durable, or that it generalizes to slower-moving, less acute occupational-disease categories like cancer or PTSD.",
+      "source_name": "NCSL COVID-19 workers' compensation tracker; National Law Review",
+      "source_url": "https://www.ncsl.org/labor-and-employment/covid-19-workers-compensation",
+      "evidence_tier": "VERIFIED (named tracker and multiple cross-referenced state actions)"
+    },
+    {
+      "id": "connecticut_ptsd_all_employees",
+      "label": "Connecticut PTSD presumption for all employees",
+      "scope": "Public Act 23-35 (substitute SB 913), signed June 12, 2023, effective January 1, 2024. Extends PTSD presumption eligibility beyond first responders to all employees -- but still requires the SAME specific qualifying traumatic event standard previously limited to first responders (e.g., witnessing a death), now framed as occurring 'in the course of employment' rather than 'in the line of duty.' Diagnosis by a mental health professional required; benefits capped at 52 weeks. This is NOT a presumption that any work-related PTSD is covered -- the qualifying-event requirement remains the limiting factor.",
+      "durability": "Current and enacted, not a proposal.",
+      "what_it_proves": "An all-employee occupational-disease presumption, for a specific qualifying-event standard, is legally and politically viable in at least one state, outside the COVID emergency context.",
+      "what_it_does_not_prove": "That other states share the conditions that made this possible in Connecticut, that the same expansion would hold for cancer or cardiovascular presumptions, or that 'all employees' means unlimited PTSD coverage rather than the same narrow trigger extended to a broader population.",
+      "source_name": "Connecticut General Assembly OLR bill summary, Public Act 23-35, directly read",
+      "source_url": "https://www.cga.ct.gov/2023/sum/pdf/2023SUM00035-R01SB-00913-SUM.pdf",
+      "evidence_tier": "VERIFIED (directly confirmed against the Connecticut General Assembly's own record)"
+    },
+    {
+      "id": "connecticut_sb1029_2025",
+      "label": "Connecticut SB 1029 (2025) -- attempt to broaden firefighter cancer presumption",
+      "scope": "Full title: 'An Act Concerning Workers' Compensation Benefits For Firefighters And Other Workers Impacted By Similar Conditions That Are Diagnosed With Cancer.' Sponsor: Sen. Catherine A. Osten, 19th District.",
+      "durability": "Stalled, confirmed directly from the Connecticut General Assembly's own bill-status record: the complete action history shows exactly one entry, 'Referred to the Joint Committee on Labor and Public Employees' on January 22, 2025, with no further action recorded.",
+      "what_it_proves": "There is active, current legislative appetite in at least one state to extend a cancer presumption beyond first responders, sponsored by a sitting state senator.",
+      "what_it_does_not_prove": "That this appetite translates into passed law -- this specific attempt has not moved since referral as of this dataset's last check.",
+      "source_name": "Connecticut General Assembly, official bill-status page for SB 1029, directly read",
+      "source_url": "",
+      "evidence_tier": "VERIFIED (directly confirmed against the Connecticut General Assembly's own bill-tracking record)"
+    },
+    {
+      "id": "washington_hanford",
+      "label": "Washington Hanford site worker cancer presumption",
+      "scope": "RCW 51.32.187, enacted 2018. Covers private contractors and subcontractors at the Hanford nuclear cleanup site, for specific cancers (lymphoma, bone, kidney, leukemia, lung).",
+      "durability": "Current and enacted, narrow in scope to one site and a defined set of cancers.",
+      "what_it_proves": "A real, current example of a private-sector occupational-disease presumption outside the first-responder category.",
+      "what_it_does_not_prove": "Direct relevance to a private-insurance-market thesis -- the federal Department of Energy, not a private insurer, bears liability for these claims, a structurally different risk-bearer than the rest of this dataset.",
+      "source_name": "Summit Law overview of RCW 51.32.187",
+      "source_url": "https://www.summitlaw.com/insights/news/Washington-States-Occupational-Disease-Presumption-for-Hanford-Workers-Quick-Overview",
+      "evidence_tier": "REPORTED (secondary legal-analysis source, statute text not independently opened in this pass)"
+    },
+    {
+      "id": "colorado_alternative_mechanism",
+      "label": "Colorado's Firefighter Heart and Cancer Benefits (CFHC) Trust",
+      "scope": "Created the year after the 2016 Castle Rock Colorado Supreme Court ruling (which made the WC cancer presumption very hard for insurers to rebut), offering an alternative, non-WC award mechanism with less stringent eligibility but smaller benefits.",
+      "durability": "Current and operating.",
+      "what_it_proves": "A state can effectively remove a disease category from its WC insurance system without repealing the underlying presumption or reducing support for affected workers -- a distinct, third pathway beyond 'stays in WC' or 'exits to tort.'",
+      "what_it_does_not_prove": "How common this specific alternative-mechanism response is nationally -- only one documented example found in this research arc.",
+      "source_name": "NCCI 2016 white paper and 2023 update brief, both directly read",
+      "source_url": "https://www.ncci.com/Articles/Documents/Insights-Firefighters-First-Responders-2023-Update-Brief.pdf",
+      "evidence_tier": "VERIFIED (directly read from NCCI's own primary documents)"
+    }
+  ],
+  "exclusive_remedy_survey": {
+    "label": "Occupational-disease exclusive-remedy carve-out status, 7 states checked of 50",
+    "no_comprehensive_survey_found": "No public 50-state survey of this exact legal question exists -- checked directly and confirmed absent.",
+    "states": [
+      {
+        "state": "Illinois",
+        "status": "Current, confirmed, broad carve-out"
+      },
+      {
+        "state": "Pennsylvania",
+        "status": "Current, confirmed, narrower, latency-based carve-out"
+      },
+      {
+        "state": "Missouri",
+        "status": "Historical only, reversed by the legislature in 2013"
+      },
+      {
+        "state": "California",
+        "status": "Confirmed NO carve-out -- exclusivity upheld for occupational disease including asbestos/mesothelioma; only a narrow fraudulent-concealment exception exists"
+      },
+      {
+        "state": "Rhode Island",
+        "status": "Confirmed NO carve-out -- mesothelioma held to be a covered occupational disease, exclusivity upheld"
+      },
+      {
+        "state": "Michigan",
+        "status": "Confirmed NO carve-out -- only a narrow general intentional-tort exception, not disease-specific"
+      },
+      {
+        "state": "Connecticut",
+        "status": "Confirmed NO occupational-disease-specific carve-out -- has only a generic intentional-tort exception, recently applied in one asbestos case, but not a disease-specific carve-out like Illinois's"
+      }
+    ],
+    "implication": "With 2 confirmed carve-out states against 4 confirmed no-carve-out states (plus Missouri as a reversed former carve-out), the honest current read is that Illinois and Pennsylvania may be outliers rather than the leading edge of a broader multi-state trend. This should be stated directly, not glossed over, since assuming more states will follow their pattern is not yet supported by this data."
+  },
+  "international": {
+    "methodology_note": "A first pass at whether firefighter occupational-disease presumption laws exist outside the US. Almost everything below is REPORTED tier -- official government press releases, union/advocacy bulletins, and news coverage, not statute text directly opened and read -- this research used web search only, not direct document retrieval, so treat specific counts (e.g. exact number of cancers covered) as needing a recount before being cited as final. Three jurisdictions use mechanisms that do NOT map cleanly onto the US 'rebuttable presumption' concept and are labeled accordingly rather than forced into false equivalence: New Zealand's ACC is a no-fault universal accident-compensation scheme with no presumption at all today; the EU's Carcinogens Directive is a workplace-exposure-protection law, not a compensation presumption. 'Enacted' below means a real presumption or deeming mechanism is currently in force for at least one disease category; 'pending' means an active campaign or proposed bill exists but nothing has passed; 'checked_none' means actively confirmed absent, distinct from never-researched.",
+    "countries": {
+      "Australia": {
+        "category": "enacted",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "World's first firefighter cancer presumption law, federal, 2011",
+            "detail": "The Safety, Rehabilitation and Compensation Amendment (Fair Protection for Firefighters) Act 2011 (assented 6 Dec 2011) covers career firefighters under the federal Comcare/SRC Act for 12 specified cancers; a Senate inquiry found insufficient evidence to include volunteers at the time. The list was reported expanded in Nov 2022, though the exact new cancer count was not found in this pass. Western Australia, South Australia, Tasmania, and the Northern Territory have also legislated their own cancer presumptions (NT's explicitly includes volunteers); a claim that all states/territories now have cancer presumption coverage is contradicted by older sources describing ongoing campaigns in some jurisdictions as of the mid-2010s -- flagged as an unresolved contradiction, not settled either way.",
+            "tier": "REPORTED (official act and government inquiry record referenced, full text not independently opened in this pass)",
+            "source_name": "legislation.gov.au; Australian Senate Education, Employment and Workplace Relations Committee inquiry",
+            "source_url": "https://legislation.gov.au/C2011A00182/asmade/2011-12-06/text/original/pdf"
+          },
+          {
+            "category": "ptsd_mental",
+            "label": "PTSD presumption, newest category, expanding fast since 2019",
+            "detail": "Federal: added via the Fair Work Legislation Amendment (Closing Loopholes) Act 2023, covering injuries from 15 Dec 2023 onward. Tasmania was the first jurisdiction to legislate a PTSD presumption (bill tabled 2019), and notably covers public-sector workers and volunteer first responders broadly, not just paid firefighters -- a real beyond-firefighters precedent. The Northern Territory followed in 2020, and Queensland passed its own law in 2020-21 (requires psychiatrist certification). Western Australia's cancer AND PTSD presumptions both took effect 6 May 2023. A South Australian PTSD bill naming firefighters was reported in 2023 but final passage was not confirmed in this pass.",
+            "tier": "REPORTED",
+            "source_name": "WorkCover WA; various state government and parliamentary sources",
+            "source_url": "https://www.workcover.wa.gov.au/news/ptsd-and-cancer-presumptions-for-firefighters-effective-6-may-2023/"
+          }
+        ]
+      },
+      "Canada": {
+        "category": "enacted",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "Province-by-province cancer presumption, all 10 provinces, wide variation in covered-cancer count",
+            "detail": "No federal presumption -- each province legislates and administers its own list via its own workers' comp board, the same structure as the US. Manitoba was first in Canada (2002); its list has since grown to 15 cancers. Reported current counts: British Columbia 18 (expanded by 8 more in 2026, per the province's own release), Alberta 20, Saskatchewan 16 (a bill proposing 22 was reported but passage not confirmed), Nova Scotia grew from 6 to 19, Prince Edward Island 19 plus heart injuries (covers fire inspectors too). Quebec, after a 2025 expansion of 6 more, reached 15 -- and was reported as of 2023, together with New Brunswick, as having the fewest covered cancers of any province, i.e. real lagging provinces exist, coverage is not uniform.",
+            "tier": "REPORTED (provincial government releases and news coverage; the AWCBC's own cross-province benchmark table was referenced but not directly opened in this pass -- recommend cross-checking against it before citing exact counts as final)",
+            "source_name": "Various provincial WCB/government releases; AWCBC benchmark table (referenced, not opened)",
+            "source_url": "https://awcbc.org/files/benchmark-tables/Firefighter_Presumptions.pdf"
+          },
+          {
+            "category": "heart_vascular",
+            "label": "Heart/cardiovascular presumption in at least 6 provinces, not universal",
+            "detail": "British Columbia restored heart disease to its presumptive list in 2014; Alberta and Manitoba have had similar cardiovascular-stress presumption legislation since at least 2014. Ontario's WSIB operational policy presumes firefighter heart injury, including heart attack, as work-related unless rebutted -- this is the board's own published policy, closer to VERIFIED-adjacent than most entries here. Nova Scotia and Prince Edward Island added heart attacks/injuries alongside their 2022 cancer-list expansions. The Northwest Territories has a pending (not yet enacted) 2026 bill to add heart disease/injury presumption. Not confirmed either way for Quebec, Saskatchewan, Newfoundland and Labrador, New Brunswick, or other Atlantic provinces -- a genuine research gap, not a negative finding.",
+            "tier": "REPORTED, except Ontario's WSIB policy which is VERIFIED-adjacent (the board's own published operational policy manual)",
+            "source_name": "WSIB Ontario operational policy manual; various provincial releases",
+            "source_url": "https://wsib.ca/en/operational-policy-manual/heart-injuries-firefighters-and-fire-investigators"
+          },
+          {
+            "category": "ptsd_mental",
+            "label": "At least 7 provinces cover PTSD; Manitoba (2015) and Newfoundland & Labrador (2019) extend it to ALL workers -- the strongest private-sector-expansion precedent found anywhere in this dataset",
+            "detail": "Manitoba's Bill 35 (S.M. 2015, c.13), assented 30 June 2015 and in force 1 Jan 2016, covers ALL workers under the Manitoba Workers Compensation Act, not just first responders -- a genuine, enacted, non-emergency, durable all-worker presumption with no sunset clause found, which is a stronger precedent than anything in this tracker's US dataset (the US COVID expansions were temporary; Connecticut's 2023 all-employee PTSD law kept a narrow first-responder-style qualifying-event standard). Newfoundland and Labrador's amended Workplace Health, Safety and Compensation Act, effective 1 July 2019, also extended PTSD presumption to all covered workers. Saskatchewan is reported to cover all workers and all forms of psychological injury (broader than PTSD alone), but the exact enactment date was not confirmed. New Brunswick (2016) and Ontario (2016) remain named-class only (firefighters, police, paramedics, and in Ontario's case also dispatchers and correctional workers) -- not all-worker. Alberta's start date is reported inconsistently across sources (2012 vs. 2015), an unresolved contradiction. British Columbia's current status is unclear -- older reporting described BC as lacking a presumptive PTSD clause with a minister 'working on' one, which may now be stale.",
+            "tier": "REPORTED",
+            "source_name": "Manitoba Bill 35 (S.M. 2015, c.13); Newfoundland & Labrador Workplace Health, Safety and Compensation Act amendment; various provincial coverage",
+            "source_url": ""
+          }
+        ]
+      },
+      "New Zealand": {
+        "category": "pending",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "No presumption today -- a no-fault accident-compensation scheme requires individual proof; a 2026 bill proposes change",
+            "detail": "New Zealand runs ACC, a universal no-fault accident-compensation scheme, not a workers'-comp presumption system. Firefighters must currently prove a work-caused link under Schedule 2's criteria -- the firefighters' union (NZPFU) calls this process a 'lucky dip' and states plainly that Schedule 2 provides no presumption today. In 2022 the government explicitly declined to introduce presumptive legislation, instead narrowly shifting some burden of proof to ACC. A 2026 Green Party Member's Bill proposes genuine rebuttable presumptive occupational-cancer cover for FENZ firefighters -- but New Zealand's roughly 12,000 volunteer firefighters are currently barred from claiming at all, and the 2026 bill's volunteer coverage was not confirmed in this pass.",
+            "tier": "REPORTED",
+            "source_name": "RNZ; NZ Green Party; New Zealand Professional Firefighters Union (NZPFU)",
+            "source_url": "https://www.rnz.co.nz/news/top/385165/firefighters-want-law-change-to-to-ease-acc-cancer-battles"
+          }
+        ]
+      },
+      "United Kingdom": {
+        "category": "pending",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "No national presumption -- the official advisory body has twice declined to add firefighter cancer to the compensable list; campaign active, no legislative result found",
+            "detail": "No firefighter-specific presumption exists in the UK's Industrial Injuries Disablement Benefit scheme. The Industrial Injuries Advisory Council's Position Paper 21 (2008, testicular cancer) explicitly declined to add firefighter cancer to the prescribed-disease list for lack of epidemiological certainty. Position Paper 47 ('Firefighters and cancer,' published after Grenfell) reviewed the issue again and commissioned an Institute of Occupational Medicine systematic review; no confirmed final recommendation or scheme change was found in this pass. The Fire Brigades Union is actively campaigning, citing the WHO/IARC 2022 Group 1 carcinogen classification of firefighting, but no bill or enacted change was found.",
+            "tier": "checked_none for a current presumption, REPORTED for the pending campaign (no VERIFIED final IIAC decision found)",
+            "source_name": "gov.uk IIAC Position Papers 21 and 47; Fire Brigades Union public statements",
+            "source_url": "https://www.gov.uk/government/publications/firefighters-and-cancer-iiac-position-paper-47"
+          }
+        ]
+      },
+      "Germany": {
+        "category": "pending",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "Not on the national occupational-disease list -- regional political motions push for change, none passed",
+            "detail": "Firefighter cancer is not currently on the Berufskrankheiten-Verordnung (BKV) Anlage 1 occupational-disease list. Recognition requires individual case-by-case proof even where firefighting exposure is acknowledged as plausibly carcinogenic, per 2024/2025 Bundestag government responses. Regional political motions (a Bremen state-parliament motion in 2020, a North Rhine-Westphalia parliamentary inquiry) have pushed for a BKV amendment, but none were found to have resulted in a confirmed change.",
+            "tier": "checked_none for a current presumption, REPORTED for pending political activity (government responses and political motions referenced, not the BKV regulation text itself)",
+            "source_name": "Bundestag Drucksache (2025); Bremen state parliament motion (2020)",
+            "source_url": "https://dserver.bundestag.de/brd/2025/0748-25.pdf"
+          }
+        ]
+      },
+      "Denmark": {
+        "category": "checked_none",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "Partially resolved via Danish-language follow-up: no firefighter-specific presumption yet, a government review is pending",
+            "detail": "An earlier aging, contradictory English source (The Copenhagen Post) is now partially resolved: a 2018 Erhvervssygdomsudvalget (Occupational Diseases Committee) review found firefighters do not get cancer more often than comparable occupational groups and made no changes to Denmark's occupational-disease list -- though lung, bladder, prostate, and testicular cancer, non-Hodgkin lymphoma, and melanoma in firefighters can still be referred for individual case-by-case review. Separately, Arbejdsskadesikringsloven (the Industrial Injuries Act) Section 34 has a GENERAL presumption provision for certain cancers (Sundhedsstyrelsen notifies the injury authority of diagnoses \"presumed\" work-related), but this is not firefighter-specific -- it is Denmark's general mechanism, not a firefighter carve-out. UPDATE (2026-11-08 research pass): a 2022 letter from the Danish Beskaeftigelsesministeren (Employment Minister) to Folketinget's Beskaeftigelsesudvalget confirms the WHO/IARC reclassification of firefighting to its highest carcinogen category (Group 1, up from \"possibly carcinogenic\" in 2010) is a real, government-acknowledged development, not only an advocacy claim -- the Danish Firefighters' Cancer Association is not the only body citing it. The same letter states Erhvervssygdomsudvalget was expected to assess whether firefighter cancers should be added to the occupational-disease list once IARC's full monograph was published in 2023. No source was found confirming what the committee actually decided after that 2023 publication -- this is an open, dated, and specific gap (not a vague \"might reconsider someday\"), and should be checked again via AES (Arbejdsmarkedets Erhvervssikring) or Erhvervssygdomsudvalget's published decisions.",
+            "tier": "REPORTED (the 2018 committee review, Section 34, and the 2022 ministerial letter to Folketinget were all directly identified via government/parliamentary sources; none independently opened in full; the post-2023 committee decision remains NOT FOUND)",
+            "source_name": "Erhvervssygdomsudvalget 2018 review; Arbejdsskadesikringsloven Section 34; 2022 Beskaeftigelsesministeren letter to Folketinget (ft.dk); Danish Firefighters' Cancer Association",
+            "source_url": "https://ft.dk/samling/20211/almdel/BEU/bilag/317/2605510.pdf"
+          }
+        ]
+      },
+      "France": {
+        "category": "enacted",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "A real, recently-enacted presumption -- found only via a native-language (French) search pass",
+            "detail": "France has an actual, enacted cancer presumption for sapeurs-pompiers (firefighters) via its official 'tableaux des maladies professionnelles' (occupational disease tables) system, which creates a presomption d'imputabilite (presumption of work-relatedness) for any listed disease once the worker meets the table's exposure criteria. Originally only two cancers were covered (nasopharyngeal carcinoma, hepatocellular carcinoma). Decret n degree 2025-1349 du 26 decembre 2025 (in force 29 December 2025) added firefighting activities to Tableau 30 (asbestos -- mesothelioma of the pleura/peritoneum/pericardium) and Tableau 16 bis (coal-tar/soot-linked cancers -- sources disagree on whether this covers bladder cancer specifically or broncho-pulmonary and urothelial cancers; this needs checking against the official table text before citing a specific cancer list). A further Decret 2026-901 du 24 septembre 2026 is cited by INRS as a later amendment but was not independently confirmed in other sources -- flagged as unconfirmed. No PTSD/mental-injury presumption was found for France.",
+            "tier": "REPORTED (Senat rapport, parliamentary questions, union/press coverage, and the INRS table's own webpage located but not fully opened/read -- recommend directly opening https://www.inrs.fr/dam/tabmalpro/TableauTabMalPro/RG-30-1.pdf to upgrade to VERIFIED)",
+            "source_name": "Senat rapport d'information; INRS Tableau 30; Tableau 16 bis; actu-environnement.com; sante-et-travail.fr",
+            "source_url": "https://www.senat.fr/rap/r23-641/r23-6415.html"
+          }
+        ]
+      },
+      "South Korea": {
+        "category": "enacted",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "A real, strong, enacted presumption -- found only via a native-language (Korean) search pass",
+            "detail": "South Korea enacted a genuine cancer presumption system for public-service firefighters -- '공상추정제' (the presumed-duty-injury system) -- under the Public Officials Disaster Compensation Act, effective June 2023, shifting the burden of proof to the state. Specific covered cancers and service-length thresholds: malignant mesothelioma, leukemia, non-Hodgkin lymphoma, and multiple myeloma are presumed after 5+ years of firefighting/rescue duty; bladder cancer and lung cancer are presumed after 10+ years. Colon, prostate, testicular, and skin cancers (IARC 'limited evidence' category) are explicitly NOT yet covered -- individual causation proof is still required for those. First approvals under the system: prostate cancer (2023), angiosarcoma (2020). For PTSD, NO presumption exists -- individual proof of causation is still required, approval rates are reported as falling over time, and one reported case describes a firefighter being advised to file under 'adjustment disorder' instead of PTSD to improve approval odds.",
+            "tier": "REPORTED (law.go.kr and Korean news coverage cross-referenced; the Act's own text not independently opened in full -- recommend verifying the exact disease/year-threshold table directly against law.go.kr before treating as VERIFIED)",
+            "source_name": "Public Officials Disaster Compensation Act (South Korea); Korean news coverage",
+            "source_url": ""
+          }
+        ]
+      },
+      "Japan": {
+        "category": "checked_none",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "Checked directly via native-language (Japanese) search -- no firefighter-specific presumption found",
+            "detail": "Japanese firefighters are local-government employees covered by 公務災害 (komu saigai, 'official duty injury') via the Fund for Municipal Personnel, not the general Rosai (labor-accident) workers'-comp system private-sector workers use. No firefighter-specific cancer presumption was found -- recognition is individual and case-by-case, requiring the claimant to show occupational causation was the 'relatively dominant cause.' One cited case shows a death-in-training claim initially denied as non-duty-related, under appeal. For PTSD: a general public-employee mental-illness recognition framework exists, applying to all public employees including firefighters, but it is not firefighter-specific and requires individualized causation review weighing work-load severity against personal/private factors.",
+            "tier": "REPORTED (official Fund circulars identified via soumu.go.jp and chikousai.go.jp, not independently opened in full)",
+            "source_name": "Fund for Municipal Personnel (Japan); government circulars",
+            "source_url": ""
+          }
+        ]
+      },
+      "Norway": {
+        "category": "pending",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "The most developed Nordic lead -- real pending legislation, not yet enacted",
+            "detail": "No blanket firefighter cancer presumption exists in Norway today; NAV (the Norwegian labor and welfare administration) has rejected most firefighter cancer claims (prostate cancer accounts for roughly 75% of rejections per a parliamentary answer), a position upheld by Norway's Supreme Court in HR-2022-2178-A for lack of sufficient causal evidence. Real, active legislative movement exists: a 2024-2025 Storting (parliament) recommendation pushes the government to add the 7 IARC-linked firefighter cancers (plus female-firefighter-specific cancers like breast and cervical) to the occupational-disease list, and Proposition 93 L (2025-2026) proposes a conditional reversed-burden-of-proof rule (Sections 15-3/15-4) for cases where workplace causation is assessed below 50% likelihood. Neither is confirmed as adopted yet.",
+            "tier": "REPORTED (official Storting and regjeringen.no documents identified directly; final enactment status not confirmed)",
+            "source_name": "Prop. 93 L (2025-2026); Storting recommendation; HR-2022-2178-A",
+            "source_url": "https://www.regjeringen.no/no/dokumenter/prop.-93-l-20252026/id3158644/?ch=6"
+          }
+        ]
+      },
+      "Sweden": {
+        "category": "pending",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "No presumption found -- long-running advocacy with no legislative result",
+            "detail": "No Forsakringskassan (Swedish Social Insurance Agency) presumption rule for firefighter cancer was located, even searching natively in Swedish. A 2016 Nordic Council report states Nordic firefighters 'rarely receive compensation' for cancer, and Brandmannens riksforbund (the Swedish firefighters' union) is reported to have campaigned on this issue for years with no confirmed legislative result. No PTSD-specific material was found.",
+            "tier": "NOT FOUND for a presumption; REPORTED for ongoing union advocacy",
+            "source_name": "Nordic Council report (2016); Brandmannens riksforbund",
+            "source_url": ""
+          }
+        ]
+      },
+      "Finland": {
+        "category": "checked_none",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "Checked directly -- no presumption, case-by-case only, per the national occupational-health institute",
+            "detail": "Firefighter cancer is not a recognized occupational disease by default in Finland. Tyoterveyslaitos (the Finnish Institute of Occupational Health) states current evidence does not support presuming any specific cancer type is always work-related for firefighters, though case-by-case recognition remains possible under Finland's shared occupational-disease list. This institutional position is dated to sources from 2012-2016 and may now be stale -- flagged, not treated as current beyond doubt.",
+            "tier": "REPORTED (an explicit institutional position was found; sources are dated and may be outdated)",
+            "source_name": "Tyoterveyslaitos (Finnish Institute of Occupational Health)",
+            "source_url": ""
+          }
+        ]
+      },
+      "Italy": {
+        "category": "pending",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "No enacted presumption -- an active union campaign, one reported denial",
+            "detail": "No INAIL (Italy's national workers' comp institute) or government source was found establishing a firefighter-specific cancer presumption. Union sources (FP CGIL, USB) state firefighters currently lack INAIL insurance coverage entirely and must individually prove causation for cancer claims; unions are actively campaigning for automatic recognition, citing the WHO/IARC 2022 Group 1 classification of firefighting. A March 2026 review committee decision reportedly denied a causal link in one case. No enacted presumption was found.",
+            "tier": "REPORTED (union documents FP CGIL and USB VVF directly identified; no government primary source independently opened)",
+            "source_name": "FP CGIL; USB Vigili del Fuoco",
+            "source_url": "https://fpcgil.it/wp-content/uploads/2023/09/16.09.2023-bat-PREVENZIONE-SALUTE-E-SICUREZZA.pdf"
+          }
+        ]
+      },
+      "Poland": {
+        "category": "checked_none",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "No firefighter-specific presumption found; a general mechanism exists but coverage is unconfirmed",
+            "detail": "Poland's occupational-disease list includes a general presumption of causation for certain listed cancers (lung, mesothelioma, bladder, skin) when workplace carcinogen exposure is sufficiently probable -- but no source confirms whether strazacy (firefighters) are specifically covered or excluded by this mechanism. A June 2025 parliamentary interpellation asks the Health Ministry about preventive cancer-screening programs for firefighters, which implies they are currently NOT covered by any systematic program -- suggestive, but not itself a presumption-law finding.",
+            "tier": "NOT FOUND for firefighter-specific status; REPORTED for the general mechanism and the parliamentary interpellation",
+            "source_name": "Sejm interpelacja (Polish parliament)",
+            "source_url": "https://api.sejm.gov.pl/sejm/term10/interpellations/14540/body"
+          }
+        ]
+      },
+      "Austria": {
+        "category": "checked_none",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "Checked directly -- no firefighter-specific presumption found",
+            "detail": "No Austria-specific firefighter cancer presumption rule was located; Austrian occupational-disease recognition is described generically as strictly regulated and case-by-case, with a 5-day reporting duty, but no firefighter-specific presumption mechanism was found.",
+            "tier": "NOT FOUND",
+            "source_name": "",
+            "source_url": ""
+          }
+        ]
+      },
+      "Switzerland": {
+        "category": "checked_none",
+        "entries": [
+          {
+            "category": "cancer",
+            "label": "Checked directly -- no SUVA policy specific to firefighters found",
+            "detail": "No SUVA (Switzerland's main workers' comp insurer) policy or Swiss source specifically addressing firefighter cancer recognition was found. SUVA recognizes skin cancer as an occupational disease for high-sun-exposure jobs generally, but this is not firefighter-specific. A June 2025 cantonal court case confirmed occupational-disease conditions were not met in one claim, but the claimant's occupation was not confirmed as firefighter in the available excerpt -- not usable as a firefighter-specific data point.",
+            "tier": "NOT FOUND",
+            "source_name": "SUVA",
+            "source_url": ""
+          }
+        ]
+      }
+    },
+    "not_included": [
+      "Ireland: NOT FOUND. No source located for a firefighter cancer presumption or an active campaign, in two search passes.",
+      "Netherlands: checked directly via a native-language (Dutch) search pass, closer to checked_none than a true gap. No firefighter-specific presumption or 'omkering van bewijslast' (burden-of-proof reversal) mechanism was found. The Nederlands Centrum voor Beroepsziekten (NCvB) does not list firefighters as a distinct presumption category, only individual case reports (e.g. one lung cancer case in 2020; 8 reports in a 2023 'Brandweer' sub-category). A 2015 IFV literature review explicitly states firefighter cancer was not recognized as an occupational disease for lack of proof of causation, and nothing more recent reverses this. One Belgian political party has proposed automatic recognition for firefighters, but that is a Belgian proposal, not Dutch law. Source: NCvB Kerncijfers Beroepsziekten 2023 and 2025.",
+      "Sweden, Norway, and Finland: now covered as full country entries above via a native-language research pass -- none has an enacted firefighter-specific presumption today, though Norway has real pending legislation closer to enactment than the other two.",
+      "Austria and Switzerland: now covered above (checked_none) via native-language (German) search -- no firefighter-specific presumption found in either.",
+      "Mexico and Spain: NOT FOUND via a Spanish-language pass. Mexico: no result on IMSS or the Federal Labor Law for firefighter cancer. Spain: not a settled presumption -- Spain's occupational-disease list uses a general 'iuris et de iure' presumption for listed diseases, but firefighter cancer's inclusion is contested; a widely-repeated claim that Spain 'officially recognized firefighter cancer as occupational in 2025' traces to a single opinion article with no official-gazette citation found. A live, documented dispute confirms the uncertainty: a firefighter's widow is suing after Spain's INSS denied her husband's multiple myeloma was occupational.",
+      "Portugal: NOT FOUND via a Portuguese-language pass. No firefighter-specific listing exists on Portugal's official occupational-disease list (Decreto Regulamentar 76/2007); general articles confirm elevated cancer risk (skin +72%, kidney +39%, per a 2025 study) but no presumption mechanism.",
+      "Brazil: NOT FOUND via a Portuguese-language pass, beyond the general (non-firefighter-specific) NTEP presumption mechanism (Art. 21-A, Lei 8.213/91) that already applies to all Brazilian workers. A Para state bill only grants paid leave for prostate-cancer screening for firefighters/police -- not a presumption of work-relatedness.",
+      "EU-wide Carcinogens, Mutagens and Reprotoxic Substances Directive (6th revision): reported provisional political agreement between the Council and Parliament in June 2026, reportedly including explicit language that firefighters and emergency responders are 'inherently exposed' to carcinogens, with a reported Parliament vote in October 2026 -- but this is a workplace-exposure-protection directive, not a compensation presumption, and final Council adoption or Official Journal publication was not confirmed in this pass. Not mapped as a country since it is not national law and does not create a presumption mechanism."
+    ]
+  },
+  "expansion_prediction_model": {
+    "label": "A first, deliberately modest forward-looking signal -- which states show real political attention toward NEW presumption coverage, mirroring the PFAS tracker's own prediction model",
+    "methodology": "Unlike the PFAS tracker's prediction model, there is no clean numeric proxy here (no equivalent of FAA airport counts). Instead, each candidate below is a state with NO cancer or PTSD presumption in the 2023 baseline above that has a real, dated 2025-2026 legislative bill attempting to add one. A bill being introduced is treated only as a signal of political attention, exactly as PFAS/AFFF state legislation was treated as a signal in the other tracker -- not as a prediction that the bill will pass. States whose bills had already been enacted, had already died, or that already had the relevant presumption category by the time of this research were explicitly excluded and are listed below so the exclusion logic itself is auditable.",
+    "cancer_candidates": [
+      {
+        "state": "Missouri",
+        "code": "MO",
+        "signal": "HB3096, introduced January 2026, would create a rebuttable presumption for cancer and other listed occupational diseases in firefighters and fire investigators. Missouri has no cancer presumption in the 2023 baseline above.",
+        "tier": "REPORTED -- the Missouri House's own bill-tracking page and the primary bill text were not independently opened in this pass (legiscan.com, a common mirror, returned a Cloudflare challenge); status beyond \"Introduced\" is not confirmed.",
+        "source_name": "Secondary legislative-tracker coverage (BillTrack50), not independently opened",
+        "source_url": ""
+      }
+    ],
+    "ptsd_candidates": [
+      {
+        "state": "New York",
+        "code": "NY",
+        "signal": "A8037 (2025-2026 session), introduced April 22, 2025, would make PTSD compensable for firefighters (and police/correction officers) under the general municipal law unless the employer shows by a preponderance of the evidence that it was caused by factors unrelated to the job -- a real rebuttable-presumption structure, not just a benefit tweak. New York has no PTSD presumption in the 2023 baseline above.",
+        "detail": "Directly opened on the NY Senate's own bill page: currently shown as \"In Assembly Committee,\" not yet passed either chamber. The same bill page shows near-identical versions introduced and not passed in every session back to 2017-2018 (A11294, then A1979/S5292, A4939/S4234, A2302/S3367) -- a genuine multi-year pattern of real political attention that has not yet converted into law. This history should temper any expectation that introduction alone means passage is likely.",
+        "tier": "VERIFIED (the NY Senate's own bill page, including its current committee status and its full prior-session history, directly opened and read)",
+        "source_name": "New York State Senate, bill A8037 page, directly opened",
+        "source_url": "https://www.nysenate.gov/legislation/bills/2025/A8037"
+      }
+    ],
+    "excluded_from_ranking": [
+      "New Mexico (HB128, cancer-related, signed into law March 5, 2026) -- excluded because NM already carries cancer presumption in the 2023 baseline; this is a since-2023 expansion of existing law, not a new-state case.",
+      "Tennessee (HB1489, extends cancer presumption to arson investigators, signed by Senate Speaker March 2026) -- excluded for the same reason; TN already has cancer presumption.",
+      "Colorado (SB26-184, widens the list of covered cancers and the employer's rebuttal burden) and Vermont (H.661, adds covered cancers) -- both excluded; CO and VT already have cancer presumption, so these are expansions of existing coverage, not new-state cases.",
+      "Utah (SB159, Dec 2025) -- excluded; Utah already has cancer presumption in the 2023 baseline.",
+      "Arizona (HB2231) -- a technical fix to an existing presumption, and reported dead in its own tracker; excluded on both grounds.",
+      "Kentucky (HB26, PTSD) -- a genuine new-state PTSD bill, but its own tracker already reports it dead (died in committee, January 2026); excluded as a lead that did not survive, kept out of the ranking rather than listed as live.",
+      "Washington -- not a prediction candidate at all: see the flagged_discrepancy on the Mental injury/PTSD category above. Washington already enacted a PTSD workers'-comp law in 2018; it is a data-completeness correction to the baseline, not a forward-looking signal."
+    ],
+    "deliberately_not_used": [
+      "A quantitative scoring proxy (like the PFAS model's airport counts). No equivalent exists for presumption-law adoption, so this model stays qualitative and intentionally modest rather than forcing a false numeric ranking.",
+      "LegiScan and other bill-aggregator sites as primary sources -- both legiscan.com and gc.nh.gov-style state trackers returned Cloudflare challenges or blocks repeatedly in this research pass; where a state's own .gov legislature page was reachable (New York, Washington), that was used directly instead."
+    ]
+  },
+  "changelog": [
+    {
+      "date": "2026-11-08",
+      "label": "Readability overhaul: collapsed finding cards, role-toggle bulk expand/collapse, 30-second TL;DR",
+      "detail": "Addressed feedback that the site was overwhelming to read. Claims-denial, insurance-market-effects, and expansion-signal findings now collapse to a one-line headline + tier badge by default. The Underwriter/Actuary/Broker role toggle now bulk-expands or collapses every finding card at once. Added a real, computed 30-second-version summary at the top of the page."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Design overhaul: cut palette to navy + risk-red, added dark mode, terminal-style stat numerals",
+      "detail": "Replaced the soft pastel palette with one confident primary (deep navy) and one sharp risk secondary (already used for lost-since-2016 states; now extended consistently). Added a dark-mode toggle. Stat numbers now use a monospace numeral font with tabular figures and a thin rule underneath."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Major rebuild of claims-denial-reality: NCCI primary data, Oregon claim-level data, Colorado parallel system, Ohio natural experiment, insurance-market-collapse finding",
+      "detail": "Directly read NCCI's own 2023 research brief in full: ~180 cancer claims and ~500 heart-attack claims reported since 2004, 75% concentrated in CO/LA/MD/OR with NCCI's own explanation why (Castle Rock ruling, 2017 LA expansion, MD cancer-list growth, OR rebuttal-burden case law). Added Oregon's own claim-level data (101 claims 2015-2025: 92% acceptance when the presumption applies, 92% denial when it doesn't). Added Colorado's CFHC Trust (99% acceptance) built specifically because WC denial rates were too high. Added a CDC-archived Ohio before/after study. New section: NCCI documents presumption laws pushing commercial insurers out of the voluntary market entirely in Pennsylvania (2011) and Vermont, forcing departments into residual/last-resort coverage -- a genuinely new kind of signal for this tracker. Also added San Mateo County's confirmed self-insured status and a correction that MA litigating cities are likely pooled (MIIA/MEGA), not individually self-insured."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "World map is now a rotatable 3D globe (drag to spin, click rotates to the country)",
+      "detail": "Replaced the flat Natural Earth projection with a d3-geo orthographic projection -- same D3 version already in use, no new dependency. Drag to rotate; clicking a country or using search rotates the globe to bring it to the front, matching the existing click/search behavior exactly."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "New: the claims-denial reality -- presumption laws on paper vs. paid claims in practice",
+      "detail": "Added real, sourced findings on how often presumption-covered cancer claims actually get paid: Texas first-responder cancer claims denied 76-96% initially (2012-2018, Public Health Watch); a 2018 TDI report found 146 of 168 firefighter/EMT cancer claims denied, concentrated among self-insured cities; Maine saw 98% initial denial since its 2009 law; San Jose claims took an average of two years to resolve. Also added the underlying NIOSH/CDC cancer-elevation science (the 2013 multi-city cohort study) and the federal National Firefighter Registry for Cancer (46,000+ enrolled as of March 2026). Confirmed no national claims database exists -- a real, acknowledged data gap, not a gap in our research effort."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Fixed the actuary/broker role toggle -- previously identical views",
+      "detail": "Broker and underwriter views were pixel-identical before this fix (only actuary differed, by opening two detail blocks). Each of the three roles now visibly changes what is expanded or highlighted: underwriter stays decision-focused and collapsed, actuary opens the full methodology lineage (carve-out survey, category caveats, expansion-signal exclusions), and broker highlights the portfolio check and the exclusive-remedy carve-out survey for client conversations."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Denmark contradiction updated; Washington and Florida gaps found and flagged; new Expansion Signal model; evidence-maturity meter",
+      "detail": "Added a dated, government-sourced update to the Denmark presumption entry (a 2022 ministerial letter confirming the IARC Group 1 reclassification and a pending committee review). Found and flagged two real data gaps rather than silently patching them: Washington's 2018 PTSD workers'-comp law (SB 6214) is missing from NCCI's own count, and Florida's cancer-benefit statute (s.112.1816) is a structurally distinct, non-presumption mechanism. Shipped a new \"Expansion Signal\" forward-looking model (mirroring the PFAS tracker's prediction model) flagging Missouri and New York as real political-attention signals for new presumption coverage. Added this evidence-maturity meter and changelog."
+    },
+    {
+      "date": "2026-11-07",
+      "label": "Native-language research expansion: 6 -> 15 countries",
+      "detail": "Added South Korea (a real, enacted, dated cancer-presumption statute -- the strongest non-Western finding of the research effort), Japan, Norway, Sweden, Finland, Italy, Poland, Austria, and Switzerland, each checked via native-language sources rather than left as English-only gaps."
+    }
+  ],
+  "claims_denial_reality": {
+    "label": "Presumption laws shift the burden of proof -- they do not guarantee a paid claim, and the real picture is more specific than it first looked",
+    "methodology_note": "A presumption law makes a cancer diagnosis presumed work-related, but every one of these laws still lets the employer rebut that presumption -- and NCCI's own data confirms self-insured municipalities (who pay claims directly, with a direct financial incentive to contest) are the main reason national data is scarce: self-insured employers are not required to report claims to NCCI at all, except in Florida. Updated 2026-11-08 with primary data directly read from NCCI's own 2023 research brief and Oregon's Workers' Compensation Division: the picture is sharper than 'presumption laws are toothless.' Oregon's own claim-level data shows ~92% acceptance when the presumption clearly applies, versus ~92% denial when it doesn't -- the earlier high aggregate Texas/Maine denial rates likely reflect disputed eligibility (tenure, timing, tobacco rebuttal), not a blanket employer stonewall of valid claims.",
+    "findings": [
+      {
+        "label": "Texas: first responders' cancer claims were denied 76-96% of the time initially, 2012-2018",
+        "detail": "A March 2023 Public Health Watch investigation reports that Texas employers initially rejected 76% to 96% of 198 cancer workers'-comp claims filed by first responders (firefighters and police) between 2012 and 2018. A separate, earlier 2018 Texas Department of Insurance (TDI) report, cited across multiple 2018 news outlets, found that of 168 cancer claims specifically filed by firefighters and EMTs and reported by Texas political subdivisions, 146 were denied by the insurance carrier (about 87%) -- with denials concentrated among individually self-insured cities/municipalities and intergovernmental risk pools. Only about 30 of those denials were actually disputed by the claimant.",
+        "tier": "REPORTED (secondary investigative-journalism and news coverage of the TDI report and its own data; the TDI report itself was not directly opened)",
+        "source_name": "Public Health Watch (Barbara Feder Ostrov, March 3, 2023); Texas Department of Insurance report via Insurance Journal/ThePumpHandle, 2018",
+        "source_url": "https://publichealthwatch.org/2023/03/03/state-laws-favor-workers-comp-benefits-for-firefighters-with-cancer-cities-and-counties-keep-denying-them/"
+      },
+      {
+        "label": "Maine: 98% of firefighter cancer claims initially denied since the state's 2009 presumption law took effect",
+        "detail": "A WMTW news analysis, reported via NPR/member-station syndication (January 2019), found 52 of 53 firefighter cancer claims (98%) were initially denied since Maine's presumption law took effect in September 2009, with about 35% of claimants (34 of 53) eventually receiving benefits after further process. This is a secondhand figure (a blog/news report of the station's own analysis), not independently re-verified against Maine's own workers'-comp board data.",
+        "tier": "REPORTED (news coverage of a local TV station's own data analysis; the underlying claims data was not independently opened)",
+        "source_name": "WMTW, via NPR/member-station syndication, January 2019",
+        "source_url": "https://www.npr.org/sections/health-shots/2019/01/04/660701244/laws-intended-to-protect-firefighters-who-get-cancer-often-lack-teeth"
+      },
+      {
+        "label": "San Jose: firefighter cancer claims took an average of two years to resolve",
+        "detail": "The same Public Health Watch investigation reports that San Jose firefighters' workers'-comp claims for cancer took an average of two years to resolve, according to city data obtained through a public-records request; its lead example took three years and two rejections before a settlement. Delay, not just denial, is itself a real cost that can push a union or municipality toward other legal avenues.",
+        "tier": "REPORTED (the investigation's own cited public-records data; not independently re-obtained)",
+        "source_name": "Public Health Watch, March 3, 2023",
+        "source_url": "https://publichealthwatch.org/2023/03/03/state-laws-favor-workers-comp-benefits-for-firefighters-with-cancer-cities-and-counties-keep-denying-them/"
+      },
+      {
+        "label": "No national claims database exists",
+        "detail": "A Firefighter Cancer Support Network official quoted in NCCI-adjacent reporting said no organization tracks firefighter cancer workers'-comp claims nationally. Firefighters are typically employed by state and local governments, which are frequently self-insured -- and self-insured entities are not required to report claims to NCCI. States track claims inconsistently, and employer-reported data is often incomplete. This is precisely the kind of \"city/county self-insurance\" data gap that would be needed to properly test whether municipalities paying cancer claims without insurance are the ones pursuing PFAS/foam-manufacturer litigation -- it is not currently answerable with any public, systematic dataset.",
+        "tier": "NOT FOUND (a systematic national claims database does not exist, confirmed by industry-source reporting, not merely unresearched)",
+        "source_name": "Firefighter Cancer Support Network (quoted in reporting); NCCI",
+        "source_url": ""
+      },
+      {
+        "label": "California's State Controller publishes real per-city dollar figures for presumption-law compliance costs",
+        "detail": "California cities (e.g., Redwood City, Santa Monica, Torrance, and others) file documented cost claims with the California State Controller's Office seeking state mandate-cost reimbursement specifically tied to firefighter cancer-presumption compliance. These filings are public PDFs with real, itemized per-city cost figures -- a genuinely untapped, city-level primary-source dataset for California specifically, distinct from (and complementary to) Oregon's and Arizona's state-regulator claim-level reporting.",
+        "tier": "REPORTED (the filing mechanism and existence of per-city documents was identified; individual city filings were not yet opened and read)",
+        "source_name": "California State Controller's Office, Mandated Cost Audits",
+        "source_url": "https://www.sco.ca.gov/Files-AUD/MandCosts/"
+      },
+      {
+        "label": "San Mateo County, California -- the one PFAS-litigating municipality directly confirmed self-insured for workers' comp",
+        "detail": "San Mateo County, a named plaintiff in the PFAS turnout-gear MDL (C.A. No. 3:26-cv-02380), issued a June 2026 RFP explicitly seeking a Third-Party Administrator \"to manage its self-insured Workers' Compensation Program.\" This is real, direct evidence -- not an assumption -- that at least one litigating county is self-insured, meaning it pays firefighter cancer claims out of its own budget rather than through commercial insurance. This is n=1, not a pattern: a parallel check of two Massachusetts litigating cities (Peabody, Worcester) found they are more likely covered by a statewide municipal risk-sharing pool (MIIA or MEGA) than individually self-insured, per Massachusetts' own public self-insured-employer list. The real distinction worth tracking going forward may be a three-way split -- individually self-insured / pooled risk-sharing / commercial -- rather than the simple self-insured-vs-not binary the original question assumed, since a risk-sharing pool likely has a different financial incentive to contest claims than a city paying 100% out of its own budget.",
+        "tier": "VERIFIED for San Mateo County (a direct county procurement document); REPORTED for the Massachusetts pooling inference (a state list cross-checked, not a direct confirmation for Peabody/Worcester specifically)",
+        "source_name": "San Mateo County RFP (June 2026); Massachusetts self-insured-employer opt-out list (mass.gov, FY25)",
+        "source_url": ""
+      }
+    ],
+    "supporting_science": {
+      "label": "The underlying cancer-elevation science, directly identified (not fabricated)",
+      "detail": "The 2013 NIOSH/CDC multi-city cohort study (Chicago, Philadelphia, San Francisco; roughly 30,000 firefighters, cancers and deaths analyzed through 2009) found elevated rates across respiratory, digestive, and urinary-system cancers, plus roughly double the general population's mesothelioma rate -- the first U.S. study to identify a firefighter mesothelioma excess, attributed to likely asbestos exposure. A related NIOSH-funded Florida firefighter cohort study separately found significantly elevated thyroid, prostate, colon, and bladder cancer, with the bladder-cancer finding not apparently tied to tobacco use. Neither study specifically isolates PFAS as the causal agent (that is a separate, more recent and more contested research thread) -- these are general firefighter-occupational-cancer studies, cited here as the baseline science that both the litigation and the presumption-law movement are built on. The federal National Firefighter Registry for Cancer (authorized 2018, reauthorized through FY2028 by P.L. 118-147 in December 2024) had surpassed 46,000 enrolled firefighters as of a March 2026 OMB filing -- a real, ongoing, growing federal data-collection effort that may eventually make this kind of question more answerable than it is today.",
+      "tier": "VERIFIED for the NIOSH study's existence and headline findings, and for the Registry's enrollment figures (both independently corroborated across multiple sources); REPORTED for which specific chemical exposures (PFAS vs. asbestos vs. combustion byproducts) drive which specific cancer, which remains a genuinely contested, ongoing research question",
+      "source_name": "NIOSH/CDC (2013 cohort study); National Firefighter Registry for Cancer OMB filing (March 2026)",
+      "source_url": "https://stacks.cdc.gov/view/cdc/196342"
+    },
+    "national_ncci_data": {
+      "label": "NCCI's own national count: ~180 cancer claims and ~500 heart-attack claims reported since 2004, overwhelmingly concentrated in 4 states",
+      "detail": "NCCI's February 2023 research brief (\"Firefighters and First Responders: 2023 Update on Presumptive Workers Comp Benefits,\" by Kim Neugent and Bruce Spidell) states: \"Statistical data reported to NCCI contains approximately 180 firefighter cancer claims occurring since 2004. Approximately three-quarters of these cancer claims come from Colorado, Louisiana, Maryland, and Oregon.\" A separate line in the same brief states \"Statistical data reported to NCCI contains approximately 500 firefighter heart attack claims occurring since 2004\" -- a real, previously-untracked figure for the heart/vascular presumption category. NCCI explains the 4-state concentration is not necessarily because those states have the most actual cancer among firefighters -- it is because NCCI's own data coverage is incomplete (self-insured municipal employers, who employ most firefighters, generally do not report to NCCI at all except in Florida), and because each of the 4 states made claims specifically easier to win: Colorado's 2016 Castle Rock Supreme Court ruling made the presumption very hard for employers to rebut (until the state built the CFHC Trust specifically to divert claims out of WC -- see below); Louisiana's 2017 Act 287 removed a disability requirement and added new covered cancers; Maryland expanded its covered-cancer list from 4 to 9 to 11 cancers (2012, 2019) and is \"anecdotally difficult to overcome\" per Baltimore Sun reporting NCCI itself cites; Oregon's own Supreme Court (SAIF Corp. v. Thompson) held that an employer must meet both the burden of production AND the burden of persuasion to rebut a claim.",
+      "tier": "VERIFIED (NCCI's February 2023 research brief was directly fetched and read in full, not relied on via secondary summary)",
+      "source_name": "NCCI, \"Firefighters and First Responders: 2023 Update on Presumptive Workers Comp Benefits\" (Neugent & Spidell, Feb. 2023)",
+      "source_url": "https://www.ncci.com/Articles/Pages/Insights-Presumptive-WC-Benefits-Firefighters.aspx"
+    },
+    "oregon_claim_level_data": {
+      "label": "Oregon's own claim-by-claim data (2015-2025): ~92% acceptance when the presumption clearly applies, ~92% denial when it doesn't",
+      "detail": "A November 4, 2026 memo from Oregon's Workers' Compensation Division (WCD) Administrator to a state representative gives a full claim-level breakdown of all 101 Oregon firefighter cancer claims with dates of injury 2015-2025, by year and by acceptance status. Where the presumption clearly applies (\"Yes\"): 36 accepted, 3 denied (92.3% acceptance). Where it does not apply (\"No\"): 3 accepted, 34 denied (91.9% denial). \"Undetermined\" cases (DCBS cannot verify the 5-year tenure threshold or the 84-month post-employment filing window from the data submitted) split closer to even: 14 accepted, 11 denied. Separately, Table 1 gives real dollar figures for the 48 accepted disabling claims under the presumption: $22,381,418 total (medical $18,378,701 + time-loss/other $4,002,717), broken down by cancer type -- leukemias/blood cancers the costliest ($10,565,897 across 10 claims), brain cancer second ($4,784,975 across 4 claims), and 7 testicular-cancer claims at $329,410 (relevant to the PFAS-testicular-cancer link). Claims grew from 8/year in 2015 to 21/year in 2025 -- more than doubling, likely reflecting rising awareness and filing rather than rising incidence alone.",
+      "tier": "VERIFIED (the WCD memo was directly fetched and read in full, including both data tables)",
+      "source_name": "Oregon Workers' Compensation Division, Memorandum to Rep. Dacia Grayber (Nov. 4, 2026)",
+      "source_url": "https://www.oregon.gov/DCBS/mlac/Documents/2026/20261105/20261104-Updated-Nov-Rep-Grayber-Memo-FF-Cancer-Claims-Data.pdf"
+    },
+    "colorado_parallel_system": {
+      "label": "Colorado built a whole parallel compensation system specifically because workers'-comp denial rates were too high",
+      "detail": "After Colorado's 2016 Castle Rock Supreme Court ruling made the WC cancer presumption very hard for employers to rebut, the state legislature created the Colorado Firefighter Heart and Cancer (CFHC) Trust Cancer Award Program the following year (2017) -- an alternative-to-WC mechanism with looser eligibility but smaller awards. A 9News investigation found Colorado's own WC system denies roughly half of cancer claims (27 accepted, 27 denied, 4 pending in the data cited), while a May 2026 legislative hearing reported the CFHC Trust accepts 99% of the claims it receives. This is a real, quantified before/after contrast within one state: when the official WC presumption still leaves a ~50% denial rate, firefighters and unions built and now overwhelmingly use a separate, non-WC trust instead. NCCI's own brief independently confirms this dynamic reduces WC claim volume in Colorado specifically.",
+      "tier": "VERIFIED for the CFHC Trust's existence and NCCI's own account of why it was created (NCCI brief directly read); REPORTED for the specific 27/27/4 and 99% figures (secondary news/testimony, not independently opened at the primary source)",
+      "source_name": "NCCI 2023 brief; 9News investigation; Colorado legislative testimony, May 2026",
+      "source_url": "https://www.cfhtrust.com/wp-content/uploads/2017/06/cancer-overview.pdf"
+    },
+    "ohio_natural_experiment": {
+      "label": "A real before/after study: Ohio cancer-related workers'-comp claims rose after its 2017 presumption law",
+      "detail": "A CDC-archived study, \"Cost of Workers' Compensation Claims among Firefighters in Ohio, 2001-2020,\" finds a marked increase in cancer-related claims after Ohio's 2017 firefighter cancer presumption law took effect. This is a genuine within-state before/after design (a natural experiment), which controls for state-level confounders like population, politics, and culture far better than the earlier state-to-state cross-tabulation on this tracker's landing page -- it directly supports the simple, uncontroversial half of the presumption story: when a state makes cancer claims easier to win, more cancer claims get filed and won. It does not by itself speak to the PFAS-litigation-substitution question.",
+      "tier": "REPORTED (the study is CDC-archived and appears peer-reviewed, but was not independently opened and read in full in this pass -- only identified)",
+      "source_name": "CDC Stacks archive: \"Cost of Workers' Compensation Claims among Firefighters in Ohio, 2001-2020\"",
+      "source_url": "https://stacks.cdc.gov/view/cdc/257844"
+    },
+    "dead_ends_checked": {
+      "label": "What we checked and ruled out, so the gaps are honest rather than silent",
+      "detail": "Court-complaint damages: the actual PFAS turnout-gear complaints (MDL 3191) plead gear-replacement cost as damages, not historical workers'-comp claims paid -- cancer risk is cited as the rationale for needing new gear, not as a cost ledger. This avenue is a dead end for getting claims-paid dollar figures. Federal PSOB data: real primary infrastructure exists (bja.ojp.gov/psob-data) but we could not pull current cancer-specific approval/denial counts from it in this pass, and found that PSOB's dedicated cancer-death benefit provision (from the Honoring Our Fallen Heroes Act) is not yet operational -- so widely-cited PSOB cancer-denial figures are from the general line-of-duty-death framework, not a cancer-specific one. National BLS data: the Survey of Occupational Injuries and Illnesses does not maintain an illness-only (vs. injury) breakout by government ownership as a trend series, and has no dedicated fire-protection line at all -- a confirmed, structural limitation of the federal survey, not a research shortfall. Non-NCCI rating bureaus (California WCIRB, and similar bureaus in MA/NY/WI/PA): checked directly, found no public firefighter-class-code claims data -- it appears to be member-insurer-only where it exists at all.",
+      "tier": "Mixed -- see each item above; recorded here so these are documented negative results, not unresearched gaps",
+      "source_name": "",
+      "source_url": ""
+    }
+  },
+  "insurance_market_effects": {
+    "label": "A real, documented unintended consequence: presumption laws can push fire departments out of the voluntary insurance market entirely",
+    "methodology_note": "Found directly in NCCI's own 2023 research brief. It matters for underwriting because it shows a presumption law's impact is not limited to claim costs: it can change who is even willing to write the coverage at all.",
+    "findings": [
+      {
+        "label": "Pennsylvania (2011, Act 46): commercial insurers stopped writing WC coverage for volunteer fire departments",
+        "detail": "NCCI's brief quotes testimony from the Pennsylvania State Association of Township Supervisors (PSATS): \"most providers had announced that they were dropping workers' compensation coverage for firefighters due to the potential cost and liability exposure imposed by Act 46\" (the state's 2011 cancer presumption for volunteer and career firefighters). A 2018 follow-up PSATS statement says the issue persisted: \"there are now only a very few private companies that provide workers' compensation to firefighters and many of our volunteers are now covered by our state's insurer of last resort, the State Workers Insurance Fund (SWIF).\"",
+        "tier": "VERIFIED (NCCI's brief directly quotes the underlying PSATS testimony; the testimony itself was not independently re-opened)",
+        "source_name": "NCCI 2023 brief, citing PSATS testimony on Act 46 of 2011",
+        "source_url": "https://www.ncci.com/Articles/Pages/Insights-Presumptive-WC-Benefits-Firefighters.aspx"
+      },
+      {
+        "label": "Vermont: a similar shift into the state's residual insurance market after its own presumption law",
+        "detail": "NCCI's own data (cited in the same 2023 brief) shows \"a substantial increase in the number of fire departments insured in the residual market after the enactment of a firefighter presumption\" in Vermont (enacted via S.194, effective January 1, 2007) -- an independent, second example of the same market effect seen in Pennsylvania, this time measured by NCCI directly rather than relayed through advocacy testimony.",
+        "tier": "VERIFIED (NCCI's own brief, stating this is based on NCCI's own data, directly read)",
+        "source_name": "NCCI 2023 brief",
+        "source_url": "https://www.ncci.com/Articles/Pages/Insights-Presumptive-WC-Benefits-Firefighters.aspx"
+      }
+    ],
+    "implication": "For underwriting purposes, this reframes what a new presumption law means for a book of business: it is not only a claims-cost question, it can be a market-availability question -- a jurisdiction with a strict, hard-to-rebut presumption may see voluntary-market carriers exit the municipal/volunteer-fire-department segment entirely, concentrating that risk in state residual markets or funds of last resort."
+  }
+}
