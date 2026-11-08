@@ -185,6 +185,11 @@
   }
   .role-btn:hover { color: var(--ink); }
   .role-btn[aria-pressed="true"] { background: #000; color: #fff; }
+  .role-desc { font-size: 12.5px; color: var(--ink-faint); margin: 10px auto 0; max-width: 46ch; text-align: center; }
+  .role-spotlight {
+    outline: 2px solid var(--accent-purple); outline-offset: 3px; border-radius: var(--radius-card);
+    transition: outline-color 0.2s;
+  }
   details.detail-block {
     background: var(--card-bg); border-radius: var(--radius-card); padding: 20px 22px; margin-bottom: 14px;
   }
@@ -775,6 +780,17 @@
     stroke: var(--ink);
     stroke-width: 1.6;
   }
+  #world-map { cursor: grab; touch-action: none; }
+  #world-map.dragging { cursor: grabbing; }
+  #world-map .sphere { fill: url(#globe-ocean-gradient); filter: drop-shadow(0 6px 18px rgba(16,30,60,0.18)); }
+  #world-map .graticule { fill: none; stroke: rgba(255,255,255,0.55); stroke-width: 0.5; }
+  .globe-reset-btn {
+    position: absolute; top: 10px; right: 10px; font-family: var(--font); font-size: 12px; font-weight: 600;
+    padding: 6px 12px; border-radius: var(--radius-pill); background: rgba(255,255,255,0.9); color: var(--ink-muted);
+    border: 1px solid rgba(16,17,20,0.08); cursor: pointer;
+  }
+  .globe-reset-btn:hover { color: var(--ink); }
+  .globe-wrap { position: relative; }
   .map-tooltip {
     position: fixed;
     pointer-events: none;
@@ -859,6 +875,7 @@
     <button class="role-btn" data-role="actuary">Actuary</button>
     <button class="role-btn" data-role="broker">Broker</button>
   </div>
+  <p class="role-desc" id="role-desc"></p>
 </div>
 
 <div class="wrap">
@@ -934,6 +951,10 @@
     </div>
     <div class="callout-card" id="mdl-callout"></div>
     <div class="callout-card" id="settlement-callout" style="margin-top:12px; display:none;"></div>
+    <details class="detail-block" id="roster-detail" style="margin-top:12px; display:none;">
+      <summary id="roster-summary">Full defendant roster</summary>
+      <div id="roster-body"></div>
+    </details>
   </section>
 
   <section id="prediction">
@@ -965,8 +986,8 @@
   <section id="entities">
     <div class="section-head">
       <span class="section-eyebrow purple">Cross-referenced</span>
-      <h2>Entities, not just states</h2>
-      <p class="section-sub">The same defendant often shows up in multiple states' lawsuits. This links them across jurisdictions instead of leaving each filing siloed &mdash; click a defendant to see everywhere they're named. Entries too vague to identify a real company (e.g. "gear makers, not itemized") are excluded from this list and counted separately, not guessed at.</p>
+      <h2>Entities &mdash; and who actually pays</h2>
+      <p class="section-sub">The same defendant often shows up in multiple states' lawsuits. This links them across jurisdictions instead of leaving each filing siloed. Click a defendant for two things: every action they're named in, <strong>and</strong> a real, sourced corporate-structure note &mdash; because a judgment against a familiar brand name doesn't tell you which legal entity's balance sheet actually absorbs it. DuPont's liability is contractually split across three separate companies from a 2015 spinoff; Honeywell's is an open question after its 2025 Solstice spinoff that we checked directly against the actual separation agreement. Entries too vague to identify a real company (e.g. "gear makers, not itemized") are excluded and counted separately, not guessed at.</p>
     </div>
     <div class="map-card">
       <div class="map-search">
@@ -984,6 +1005,28 @@
       <div id="velocity-chart"></div>
       <p id="velocity-caveat" style="font-size:12.5px; color:var(--ink-faint); margin-top:12px;"></p>
     </div>
+  </section>
+
+  <section id="cross-class" style="display:none;">
+    <div class="section-head">
+      <span class="section-eyebrow purple">Beyond this tracker's own lines</span>
+      <h2 id="cross-class-heading">One exposure, several insurance books</h2>
+      <p class="section-sub" id="cross-class-sub"></p>
+    </div>
+    <div class="callout-card" id="cross-class-chain"></div>
+    <p id="cross-class-limits" style="font-size:12.5px; color:var(--ink-faint); margin-top:10px;"></p>
+  </section>
+
+  <section id="policy-exclusions" style="display:none;">
+    <div class="section-head">
+      <span class="section-eyebrow amber">Object: Policy Exclusions</span>
+      <h2>Named as a defendant isn't the same as the insurer paying</h2>
+      <p class="section-sub" id="policy-exclusions-sub"></p>
+    </div>
+    <div class="callout-card" id="policy-exclusions-history"></div>
+    <h3 class="subhead">Real coverage disputes, not a general treatise</h3>
+    <div id="policy-exclusions-cases"></div>
+    <p id="policy-exclusions-limits" style="font-size:12.5px; color:var(--ink-faint); margin-top:10px;"></p>
   </section>
 
   <section id="portfolio">
@@ -1043,8 +1086,11 @@
         <span class="key"><span class="swatch" style="background:#b7c4d6"></span>Actively checked, nothing found</span>
         <span class="key"><span class="swatch" style="background:#eceeef"></span>Not researched</span>
       </div>
-      <svg id="world-map" viewBox="0 0 960 500"></svg>
-      <p style="font-size:12.5px; color:var(--ink-faint); margin:10px 0 0;">Click a shaded country for what's actually confirmed there.</p>
+      <div class="globe-wrap">
+        <svg id="world-map" viewBox="0 0 960 500"></svg>
+        <button type="button" class="globe-reset-btn" id="world-map-reset">Reset view</button>
+      </div>
+      <p style="font-size:12.5px; color:var(--ink-faint); margin:10px 0 0;">Drag to rotate the globe. Click a shaded country for what's actually confirmed there.</p>
     </div>
 
     <div class="country-card" id="global-detail">
@@ -1218,6 +1264,7 @@ async function main() {
         </div>
         <dl class="action-meta">
           <dt>Filed</dt><dd>${esc(a.filed_date)}</dd>
+          ${a.case_number ? `<dt>Case No.</dt><dd>${esc(a.case_number)}</dd>` : ""}
           <dt>Plaintiffs</dt><dd>${a.plaintiffs_named.map(p => `<span class="state-chip">${esc(p)}</span>`).join("")}${a.plaintiffs_total_claimed && a.plaintiffs_total_claimed > a.plaintiffs_named.length ? ` <span style="color:var(--ink-faint); font-size:12.5px;">(${a.plaintiffs_total_claimed} claimed total)</span>` : ""}</dd>
           <dt>Defendants</dt><dd>${esc(a.defendants)}</dd>
         </dl>
@@ -1268,6 +1315,27 @@ async function main() {
       <div class="src">Source: ${esc(rs.source_name)}, evidence tier: ${esc(rs.evidence_tier)}.</div>
     `;
     settlementEl.style.display = "";
+  }
+
+  const roster = mdl.full_defendant_roster;
+  if (roster) {
+    const t = tierClass(roster.tier);
+    document.getElementById("roster-summary").textContent =
+      `${roster.groups.reduce((n, g) => n + g.entities.length, 0)} named defendant entities, directly read from the transfer order`;
+    document.getElementById("roster-body").innerHTML = `
+      <p style="font-size:13.5px; color:var(--ink-muted); line-height:1.65; margin:10px 0 14px;">${esc(roster.methodology_note)}</p>
+      ${roster.groups.map(g => `
+        <div style="margin-bottom:14px;">
+          <div style="font-size:12.5px; font-weight:600; color:var(--ink-muted); margin-bottom:6px;">${esc(g.position)}</div>
+          <div class="entity-chip-list">
+            ${g.entities.map(e => `<span class="entity-chip" style="cursor:default;">${esc(e)}</span>`).join("")}
+          </div>
+        </div>
+      `).join("")}
+      <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.03em; padding:3px 10px; border-radius:999px; background:${t.bg}; color:${t.fg};">${esc(roster.tier.split(" ")[0])}</span>
+      <div class="src" style="margin-top:10px;">${esc(roster.source_name)} &middot; <a href="${roster.source_url}" target="_blank" rel="noopener">source</a></div>
+    `;
+    document.getElementById("roster-detail").style.display = "";
   }
 
   // ---- Prediction model ----
@@ -1388,6 +1456,8 @@ async function main() {
 
   await renderMap(DATA);
   renderEntityLinkAnalysis(DATA);
+  renderCrossClassMapping(DATA);
+  renderPolicyExclusions(DATA);
   renderFilingVelocity(DATA);
   setupPortfolioMatch(DATA);
   setupWhatsNew(DATA);
@@ -1551,14 +1621,31 @@ async function renderInternational(intl) {
 
   const svg = d3.select("#world-map");
   const width = 960, height = 500;
-  const projection = d3.geoNaturalEarth1().fitSize([width, height], geo);
+  const radius = Math.min(width, height) / 2 - 8;
+  const DEFAULT_ROTATE = [70, -20, 0];
+  const projection = d3.geoOrthographic()
+    .scale(radius)
+    .translate([width / 2, height / 2])
+    .rotate(DEFAULT_ROTATE)
+    .clipAngle(90);
   const path = d3.geoPath(projection);
 
-  svg.selectAll("path")
+  svg.selectAll("*").remove();
+  const defs = svg.append("defs");
+  const oceanGrad = defs.append("radialGradient")
+    .attr("id", "globe-ocean-gradient")
+    .attr("cx", "35%").attr("cy", "30%").attr("r", "75%");
+  oceanGrad.append("stop").attr("offset", "0%").attr("stop-color", "#eaf3fb");
+  oceanGrad.append("stop").attr("offset", "55%").attr("stop-color", "#c3dcef");
+  oceanGrad.append("stop").attr("offset", "100%").attr("stop-color", "#8fb8d9");
+  svg.append("path").datum({ type: "Sphere" }).attr("class", "sphere").attr("d", path);
+  svg.append("path").datum(d3.geoGraticule10()).attr("class", "graticule").attr("d", path);
+
+  const countryPaths = svg.selectAll("path.country")
     .data(geo.features)
     .join("path")
+    .attr("class", d => "country " + (ISO_TO_NAME[d.id] ? "clickable" : ""))
     .attr("d", path)
-    .attr("class", d => ISO_TO_NAME[d.id] ? "clickable" : "")
     .attr("fill", d => {
       const name = ISO_TO_NAME[d.id];
       if (!name) return "#eceeef";
@@ -1568,11 +1655,42 @@ async function renderInternational(intl) {
     .on("click", (event, d) => {
       const name = ISO_TO_NAME[d.id];
       if (!name) return;
-      selectWorldCountry(name);
+      selectWorldCountry(name, d);
     });
 
-  function selectWorldCountry(name) {
-    svg.selectAll("path").classed("selected", d => ISO_TO_NAME[d.id] === name);
+  function redrawGlobe() {
+    svg.select(".sphere").attr("d", path);
+    svg.select(".graticule").attr("d", path);
+    countryPaths.attr("d", path);
+  }
+
+  svg.call(d3.drag()
+    .on("start", () => svg.classed("dragging", true))
+    .on("drag", (event) => {
+      const k = 75 / radius;
+      const r = projection.rotate();
+      const nextLat = Math.max(-90, Math.min(90, r[1] - event.dy * k));
+      projection.rotate([r[0] + event.dx * k, nextLat, r[2]]);
+      redrawGlobe();
+    })
+    .on("end", () => svg.classed("dragging", false))
+  );
+
+  document.getElementById("world-map-reset").addEventListener("click", () => {
+    projection.rotate(DEFAULT_ROTATE);
+    redrawGlobe();
+    svg.selectAll("path.country").classed("selected", false);
+  });
+
+  function selectWorldCountry(name, feature) {
+    const feat = feature || geo.features.find(f => ISO_TO_NAME[f.id] === name);
+    if (feat) {
+      const centroid = d3.geoCentroid(feat);
+      const r = projection.rotate();
+      projection.rotate([-centroid[0], -centroid[1], r[2]]);
+      redrawGlobe();
+    }
+    svg.selectAll("path.country").classed("selected", d => ISO_TO_NAME[d.id] === name);
     renderCountryDetail(name, profiles[name]);
     document.getElementById("global-detail").scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
@@ -1718,6 +1836,63 @@ function normalizeDefendant(raw) {
   return match ? match[1] : null;
 }
 
+function renderPolicyExclusions(DATA) {
+  const pe = DATA.policy_exclusions;
+  const section = document.getElementById("policy-exclusions");
+  if (!pe || !section) return;
+  section.style.display = "";
+  document.getElementById("policy-exclusions-sub").textContent = pe.methodology_note;
+
+  const dh = pe.drafting_history;
+  const dt = tierClass(dh.tier);
+  document.getElementById("policy-exclusions-history").innerHTML = `
+    <p><strong>${esc(dh.label)}</strong></p>
+    <p>${esc(dh.detail)}</p>
+    <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.03em; padding:3px 10px; border-radius:999px; background:${dt.bg}; color:${dt.fg};">${esc(dh.tier.split(" ")[0])}</span>
+    <div class="src" style="margin-top:8px;">${esc(dh.source_name)} &middot; <a href="${dh.source_url}" target="_blank" rel="noopener">source</a></div>
+  `;
+
+  document.getElementById("policy-exclusions-cases").innerHTML = pe.real_cases.map(c => {
+    const ct = tierClass(c.tier);
+    return `
+      <div class="precedent-card">
+        <h4>${esc(c.label)}</h4>
+        <div class="pc-row">${esc(c.detail)}</div>
+        <span class="tier-tag" style="background:${ct.bg}; color:${ct.fg}">${esc(c.tier.split(" ")[0])}</span>
+        <div class="src">${esc(c.source_name)}${c.source_url ? ` &middot; <a href="${c.source_url}" target="_blank" rel="noopener">source</a>` : ""}</div>
+      </div>
+    `;
+  }).join("");
+
+  document.getElementById("policy-exclusions-limits").textContent = pe.honest_limits;
+}
+
+function renderCrossClassMapping(DATA) {
+  const cc = DATA.cross_class_liability_mapping;
+  const section = document.getElementById("cross-class");
+  if (!cc || !section) return;
+  section.style.display = "";
+  document.getElementById("cross-class-sub").textContent = cc.methodology_note;
+
+  const chain = cc.verified_chain;
+  const t = tierClass("VERIFIED");
+  document.getElementById("cross-class-chain").innerHTML = `
+    <p><strong>${esc(chain.defendant)}</strong> &mdash; one company, named across these separate insurance lines:</p>
+    ${chain.channels.map(ch => {
+      const ct = tierClass(ch.tier);
+      return `
+        <div style="margin:14px 0; padding-top:14px; border-top:1px solid var(--chip-bg);">
+          <div style="font-weight:600; font-size:14px; margin-bottom:5px;">${esc(ch.line)}</div>
+          <p style="margin:0 0 8px;">${esc(ch.detail)}</p>
+          <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.03em; padding:3px 10px; border-radius:999px; background:${ct.bg}; color:${ct.fg};">${esc(ch.tier.split(" ")[0])}</span>
+          ${ch.source_name ? `<div class="src" style="margin-top:6px;">${esc(ch.source_name)}${ch.source_url ? ` &middot; <a href="${ch.source_url}" target="_blank" rel="noopener">source</a>` : ""}</div>` : ""}
+        </div>
+      `;
+    }).join("")}
+  `;
+  document.getElementById("cross-class-limits").textContent = cc.honest_limits;
+}
+
 function renderEntityLinkAnalysis(DATA) {
   const entityMap = {};
   let unidentifiedCount = 0;
@@ -1843,14 +2018,29 @@ function renderFlaggedPanel() {
   const card = document.getElementById("flagged-card");
   if (flags.length === 0) { card.style.display = "none"; return; }
   card.style.display = "";
-  document.getElementById("flagged-body").innerHTML = flags.map(f => `
+  document.getElementById("flagged-body").innerHTML = `
+    <p style="font-size:12px; color:var(--ink-faint); margin:0 0 12px;">Notes stay in this browser only -- there is no backend to collect them centrally yet. This is a placeholder for the real thing: a shared annotation layer where underwriters flag clause weights, prior renewal context, or disputed classifications, building a proprietary context layer over time.</p>
+    ${flags.map(f => `
     <div class="flagged-list-item">
-      <span>${esc(f.name)} &mdash; flagged ${esc(new Date(f.flaggedAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }))}</span>
-      <button class="flag-remove" data-unflag="${esc(f.code)}">Remove</button>
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
+        <span>${esc(f.name)} &mdash; flagged ${esc(new Date(f.flaggedAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }))}</span>
+        <button class="flag-remove" data-unflag="${esc(f.code)}">Remove</button>
+      </div>
+      <textarea class="flag-note" data-note-code="${esc(f.code)}" placeholder="Note (e.g. clause weight, prior renewal context, disputed classification)&hellip;" style="width:100%; margin-top:8px; font-family:var(--font); font-size:13px; padding:8px 10px; border-radius:8px; border:1px solid rgba(16,17,20,0.1); background:var(--page-bg); color:var(--ink); resize:vertical; min-height:44px;">${esc(f.notes || "")}</textarea>
     </div>
-  `).join("");
+  `).join("")}`;
   document.getElementById("flagged-body").querySelectorAll("[data-unflag]").forEach(btn => {
     btn.addEventListener("click", () => toggleFlag(btn.dataset.unflag, ""));
+  });
+  document.getElementById("flagged-body").querySelectorAll("[data-note-code]").forEach(ta => {
+    ta.addEventListener("blur", () => {
+      const flagsNow = getFlags();
+      const match = flagsNow.find(f => f.code === ta.dataset.noteCode);
+      if (match) {
+        match.notes = ta.value;
+        try { localStorage.setItem("pfasTracker:flagged", JSON.stringify(flagsNow)); } catch (e) {}
+      }
+    });
   });
 }
 
@@ -2097,7 +2287,14 @@ function setupWhatsNew(DATA) {
 
 function setupRoleToggle() {
   const STORAGE_KEY = "pfasTracker:role";
-  const detailIds = ["sources-detail", "not-used-detail"];
+  const detailIds = ["sources-detail", "not-used-detail", "roster-detail"];
+  const spotlightIds = ["portfolio", "entities"];
+
+  const ROLE_COPY = {
+    underwriter: "Decision support for binding and renewal. Methodology and the full defendant roster stay one click away, collapsed by default.",
+    actuary: "Full data lineage expanded by default: model sources, what was deliberately excluded, and the complete MDL defendant roster, all open for review.",
+    broker: "Built for the client conversation: the portfolio exposure check and the entity/corporate-structure view are highlighted so you can walk a prospect through who's actually on the hook."
+  };
 
   function applyRole(role) {
     document.querySelectorAll(".role-btn").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.role === role)));
@@ -2106,6 +2303,12 @@ function setupRoleToggle() {
       const el = document.getElementById(id);
       if (el) el.open = shouldOpen;
     });
+    spotlightIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle("role-spotlight", role === "broker");
+    });
+    const descEl = document.getElementById("role-desc");
+    if (descEl) descEl.textContent = ROLE_COPY[role] || "";
     document.body.classList.remove("role-underwriter", "role-actuary", "role-broker");
     document.body.classList.add("role-" + role);
   }

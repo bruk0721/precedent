@@ -61,11 +61,12 @@
       "defendants": [
         "turnout-gear makers (specific list not confirmed in this pass)"
       ],
-      "status": "Filed; survived a motion to dismiss. Named directly in MDL 3191's Schedule A as one of the five actions centralized in D. Minnesota.",
+      "status": "Filed; survived a motion to dismiss. Named directly in MDL 3191's Schedule A as one of the five actions centralized in D. Minnesota. UPDATE (2026-11-08): directly read the JPML's own Schedule A to this transfer order (not just referenced it) and confirmed the exact civil action number: 2:25-cv-00036 (D. Mont., transferred to D. Minn.). The docket number's \"2025\" prefix is consistent with this entry's existing filed_date estimate, corroborating it rather than contradicting it.",
       "source_name": "AboutLawsuits coverage, cross-referenced with the JPML's own MDL 3191 transfer order",
       "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
       "evidence_tier": "VERIFIED",
-      "state": "MT"
+      "state": "MT",
+      "case_number": "2:25-cv-00036 (D. Mont., transferred to D. Minn.)"
     },
     {
       "id": "worcester_ma",
@@ -112,11 +113,12 @@
       "defendants": [
         "EIDP Inc. (DuPont successor) and others"
       ],
-      "status": "Named directly in MDL 3191's Schedule A, originally filed in N.D. California, now centralized in D. Minnesota. First confirmed California plaintiff in this litigation.",
+      "status": "Named directly in MDL 3191's Schedule A, originally filed in N.D. California, now centralized in D. Minnesota. First confirmed California plaintiff in this litigation. UPDATE (2026-11-08): directly read the JPML's own Schedule A to this transfer order (not just referenced it) and confirmed the exact civil action number: 3:26-cv-02380 (N.D. Cal., transferred to D. Minn.). The docket number's \"2026\" prefix is consistent with this entry's existing filed_date estimate, corroborating it rather than contradicting it.",
       "source_name": "JPML MDL 3191 transfer order, directly opened",
       "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
       "evidence_tier": "VERIFIED",
-      "state": "CA"
+      "state": "CA",
+      "case_number": "3:26-cv-02380 (N.D. Cal., transferred to D. Minn.)"
     },
     {
       "id": "rochester_ny",
@@ -129,11 +131,12 @@
       "defendants": [
         "3M Co. and others"
       ],
-      "status": "Named directly in MDL 3191's Schedule A, filed in D. Minnesota. Rochester was also the moving party that filed the May 11, 2026 JPML motion to centralize all five actions in D. Minnesota. First confirmed New York plaintiff in this litigation.",
+      "status": "Named directly in MDL 3191's Schedule A, filed in D. Minnesota. Rochester was also the moving party that filed the May 11, 2026 JPML motion to centralize all five actions in D. Minnesota. First confirmed New York plaintiff in this litigation. UPDATE (2026-11-08): directly read the JPML's own Schedule A to this transfer order (not just referenced it) and confirmed the exact civil action number: 0:26-cv-02329 (D. Minn.). The docket number's \"2026\" prefix is consistent with this entry's existing filed_date estimate, corroborating it rather than contradicting it.",
       "source_name": "JPML MDL 3191 transfer order, directly opened",
       "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
       "evidence_tier": "VERIFIED",
-      "state": "NY"
+      "state": "NY",
+      "case_number": "0:26-cv-02329 (D. Minn.)"
     },
     {
       "id": "peabody_ma",
@@ -146,11 +149,12 @@
       "defendants": [
         "3M Co. and others"
       ],
-      "status": "Named directly in MDL 3191's Schedule A, filed in D. Minnesota. A separate, second confirmed Massachusetts municipal plaintiff alongside Worcester's 2026 lead.",
+      "status": "Named directly in MDL 3191's Schedule A, filed in D. Minnesota. A separate, second confirmed Massachusetts municipal plaintiff alongside Worcester's 2026 lead. UPDATE (2026-11-08): directly read the JPML's own Schedule A to this transfer order (not just referenced it) and confirmed the exact civil action number: 0:25-cv-02083 (D. Minn.). The docket number's \"2025\" prefix is consistent with this entry's existing filed_date estimate, corroborating it rather than contradicting it.",
       "source_name": "JPML MDL 3191 transfer order, directly opened",
       "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
       "evidence_tier": "VERIFIED",
-      "state": "MA"
+      "state": "MA",
+      "case_number": "0:25-cv-02083 (D. Minn.)"
     },
     {
       "id": "earlville_il",
@@ -163,11 +167,12 @@
       "defendants": [
         "3M Co. and others"
       ],
-      "status": "Named directly in MDL 3191's Schedule A, filed in D. Minnesota. A second Illinois-pattern fire-protection-district plaintiff alongside Burlington Community FPD.",
+      "status": "Named directly in MDL 3191's Schedule A, filed in D. Minnesota. A second Illinois-pattern fire-protection-district plaintiff alongside Burlington Community FPD. UPDATE (2026-11-08): directly read the JPML's own Schedule A to this transfer order (not just referenced it) and confirmed the exact civil action number: 0:26-cv-02388 (D. Minn.). The docket number's \"2026\" prefix is consistent with this entry's existing filed_date estimate, corroborating it rather than contradicting it.",
       "source_name": "JPML MDL 3191 transfer order, directly opened",
       "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf",
       "evidence_tier": "VERIFIED",
-      "state": "IL"
+      "state": "IL",
+      "case_number": "0:26-cv-02388 (D. Minn.)"
     },
     {
       "id": "adger_vfd_al",
@@ -208,6 +213,47 @@
       "source_name": "Law360, Reuters, and multiple plaintiff-firm trackers (Levin Papantonio, Robert King Law Firm), cross-referenced",
       "source_url": "",
       "evidence_tier": "VERIFIED (consistent, detailed reporting across multiple independent primary news and legal-industry sources)"
+    },
+    "full_defendant_roster": {
+      "label": "17 named defendant entities across MDL No. 3191, directly read from the transfer order's own footnotes",
+      "methodology_note": "The JPML's transfer order groups defendants by the procedural position they took on where to centralize the litigation, not by which specific case each is named in -- Schedule A itself only shows \"ET AL.\" for each action, so this roster is MDL-wide, not a per-case breakdown. Do not assume every entity below is a defendant in every individual action; this is the full universe of named defendants across the consolidated litigation as of the order's August 18, 2026 filing date, which is itself new, useful information this tracker did not previously have (it only had 4 of these 17 names, plus a vague \"16+ other named defendants\" placeholder).",
+      "groups": [
+        {
+          "position": "Supported transfer to the AFFF MDL (or, alternatively, a separate MDL in D. South Carolina or D. Minnesota)",
+          "entities": [
+            "3M Company",
+            "Globe Manufacturing Company, LLC",
+            "Elevate Textiles, Inc.",
+            "Safety Components Fabric Technologies, Inc."
+          ]
+        },
+        {
+          "position": "Did not support AFFF MDL inclusion, but supported centralization in D. Minnesota or D. South Carolina",
+          "entities": [
+            "Honeywell Safety Products USA, Inc.",
+            "Fire-Dex, LLP",
+            "Lion Group, Inc.",
+            "Morning Pride Manufacturing L.L.C.",
+            "Southern Mills, Inc., d/b/a TenCate Protective Fabrics USA"
+          ]
+        },
+        {
+          "position": "Opposed centralization outright (suggested D. Minnesota or D. South Carolina only as a fallback)",
+          "entities": [
+            "EIDP, Inc.",
+            "DuPont de Nemours, Inc.",
+            "The Chemours Company",
+            "The Chemours Company FC, LLC",
+            "Corteva, Inc.",
+            "Milliken & Company",
+            "W.L. Gore & Associates, Inc.",
+            "Stedfast USA, Inc."
+          ]
+        }
+      ],
+      "tier": "VERIFIED (the transfer order's PDF was directly fetched and read in full, including its footnotes and Schedule A, not just referenced via secondary summary)",
+      "source_name": "JPML MDL No. 3191 Transfer Order (Document 117, filed 2026-08-18), directly read in full",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3191-Transfer_Order-7-26.pdf"
     }
   },
   "prediction_model": {
@@ -816,6 +862,31 @@
   "changelog": [
     {
       "date": "2026-11-08",
+      "label": "New: Object: Policy Exclusions -- the real CGL pollution-exclusion link, plus local underwriting notes",
+      "detail": "Added the third object this tracker was missing (Defendant/Company and Statute already existed): Policy Exclusions. Covers the 1986 absolute/broad-form pollution exclusion's drafting history and three real coverage disputes, including Fire-Dex's own insurer (Admiral) denying coverage for the turnout-gear suits under an occupational-disease exclusion -- directly tied to a defendant already in this tracker's Company layer. Also added a notes field to the \"Flag for underwriting review\" feature, honestly labeled as browser-local only (no backend yet) -- the real seed of a future shared annotation layer, not a fabricated one."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "New: cross-class liability mapping -- one real, verified example of silent accumulation",
+      "detail": "Added a sourced cross-class chain for 3M: the same PFAS-concealment fact pattern drives products liability (this tracker), environmental/contamination liability (AFFF settlement), and a separate 2019 securities class action plus derivative suits alleging 3M concealed its own PFAS risk from shareholders -- a real D&O/securities line most casualty underwriters never see. Explicitly scoped to 3M only, not claimed as universal across every defendant in this tracker."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "World map is now a rotatable 3D globe (drag to spin, click rotates to the country)",
+      "detail": "Replaced the flat Natural Earth projection with a d3-geo orthographic projection -- same D3 version already in use, no new dependency. Drag to rotate; clicking a country or using search rotates the globe to bring it to the front, matching the existing click/search behavior exactly."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Honeywell/Solstice follow-up: directly read the actual Separation Agreement",
+      "detail": "Fetched and read the full Honeywell-Solstice Separation and Distribution Agreement (SEC Exhibit 2.1, 2025-08-21) rather than relying on secondary summaries. Confirmed it has no PFAS/turnout-gear-specific language; found the general liability-allocation rule (an arising-out-of-business catch-all, regardless of timing); confirmed the specific schedules that would resolve this exact lawsuit are omitted from the public filing (standard SEC practice), so the question stays open but is now sharply, verifiably framed instead of a blank NOT FOUND. Also fixed the actuary/broker role toggle on both trackers -- previously broker and underwriter views were pixel-identical; each role now visibly changes what is expanded or highlighted."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Directly read the full JPML MDL 3191 transfer order -- 17 named defendants, 5 exact case numbers",
+      "detail": "Previously this tracker cited the transfer order but had only identified 4 of its named defendants (3M, DuPont, Honeywell, Fire-Dex) plus a vague \"16+ other named defendants\" placeholder. Directly reading the order's own footnotes surfaced all 17 named defendant entities (grouped by their actual procedural position in the venue dispute), and reading Schedule A surfaced the exact civil action number for all 5 original actions -- all of which are consistent with, and corroborate, this tracker's existing filed-date estimates for those same five cases."
+    },
+    {
+      "date": "2026-11-08",
       "label": "New: Company object layer -- real corporate-structure facts for every named defendant",
       "detail": "Added sourced corporate-structure notes for 3M, DuPont/EIDP, Honeywell, and Fire-Dex LLC to the Entities view: 3M explicitly retained PFAS liability in its 2024 Solventum spinoff; DuPont/EIDP liability is split across three companies (EIDP, Chemours, DuPont de Nemours) under a 2015 separation agreement and a 2021 cost-sharing MOU, drawn from Chemours own SEC 10-K filings; Honeywell is flagged as a genuinely open question after its October 2025 Solstice Advanced Materials spinoff (fluorine products business) -- available sources do not confirm which entity bears the turnout-gear liability; Fire-Dex is noted as privately held and founder-controlled, a different recovery-risk profile than the other three."
     },
@@ -854,11 +925,11 @@
     "Honeywell": {
       "legal_name": "Honeywell International Inc. (a Honeywell subsidiary is separately named as a turnout-gear seller in at least one action)",
       "structure_note": {
-        "label": "A real, unresolved open question -- flagged rather than guessed at",
-        "detail": "Honeywell completed the spinoff of Solstice Advanced Materials Inc. (its fluorine products and specialty materials business) on October 30, 2025, as an independent public company (Nasdaq: SOLS). Solstice's own description of its business explicitly includes fluorine products -- the same chemical family at the center of PFAS liability. Separately, Connecticut firefighters' June 2024 complaint against 3M, DuPont, and Honeywell alleges a Honeywell subsidiary was among the sellers of PFAS-containing turnout gear, and a September 2026 federal ruling lets that claim against Honeywell proceed. What is NOT confirmed in available sources: whether the Solstice separation agreement allocates this turnout-gear liability to Solstice or leaves it with Honeywell -- a direct search of Solstice's own FY2025 Form 10-K text (sec.gov) returned zero mentions of \"PFAS,\" \"turnout,\" or \"firefighter,\" so the question is genuinely open, not just unresearched. Do not assume either allocation without checking the actual separation agreement's PFAS liability provisions.",
-        "tier": "VERIFIED for the spinoff itself and the litigation (both independently confirmed via SEC filings and court reporting); NOT FOUND for which entity bears the turnout-gear liability specifically",
-        "source_name": "Solstice Advanced Materials Inc., Form 10-K (FY2025), SEC EDGAR; Reuters, September 2026",
-        "source_url": "https://www.sec.gov/Archives/edgar/data/2064953/000206495326000008/sols-20251231.htm"
+        "label": "A sharper open question (2026-11-08 update): the general allocation rule is now known, but the specific schedule that would resolve it is not public",
+        "detail": "The actual Separation and Distribution Agreement between Honeywell and Solstice Advanced Materials Inc. (SEC Exhibit 2.1 to Solstice's Form 10, filed 2025-08-21) was directly fetched and read in full (over 350,000 characters). It contains zero mentions of \"PFAS,\" \"turnout,\" or \"firefighter\" -- this is a general corporate-separation contract, not litigation-specific. Its general allocation rule (Section 1.1(173), the \"SpinCo Liabilities\" definition) is a catch-all: any Liability \"to the extent relating to, arising out of or resulting from the SpinCo [Solstice] Business,\" REGARDLESS of when it arose, becomes Solstice's, unless it is specifically carved out and listed as a \"Specified RemainCo Liability\" on a schedule. The mirror-image rule in the \"RemainCo Liabilities\" definition works the same way for Honeywell. This means the turnout-gear liability most plausibly follows whichever entity made the fluorine-chemistry product actually alleged to be in the gear -- but the schedules that would name the specific pending Actions and carve-outs (Schedule 1.1(173)(x)(a), the \"Specified RemainCo Liabilities\" schedule, etc.) are NOT included in the publicly filed exhibit -- the agreement ends at the signature page with no schedules attached, which is standard SEC practice under Item 601(a)(5) of Regulation S-K (schedules may be omitted with an undertaking to furnish them to the SEC on request). So the general contractual mechanism is now understood and documented, but the specific answer for this lawsuit remains genuinely unavailable from public filings, not merely unresearched.",
+        "tier": "VERIFIED for the agreement's actual allocation language (the full Separation and Distribution Agreement directly fetched and read, confirmed to contain no PFAS/turnout/firefighter-specific provisions); NOT FOUND for the specific schedule resolving this lawsuit, because that schedule is not in the public filing",
+        "source_name": "Separation and Distribution Agreement between Honeywell International Inc. and Solstice Advanced Materials Inc., SEC Exhibit 2.1 to Form 10 (filed 2025-08-21), directly fetched and read in full",
+        "source_url": "https://www.sec.gov/Archives/edgar/data/2064953/000206495325000006/exhibit21-form10.htm"
       }
     },
     "Fire-Dex LLC": {
@@ -871,5 +942,72 @@
         "source_url": "https://www.firefighternation.com/?p=38800"
       }
     }
+  },
+  "cross_class_liability_mapping": {
+    "label": "One PFAS exposure, four separate insurance lines -- a real, sourced version of \"silent accumulation,\" not a generic diagram",
+    "methodology_note": "Lloyd's and other carriers worry about silent accumulation: a single underlying event triggering losses across several policies held by the same insured, in lines that are underwritten in separate silos and never cross-checked against each other. This tracker already follows two of these lines (products liability for the turnout-gear suits, and environmental/contamination for foam-site cleanup). This section adds a third, real, verified line: directors & officers (D&O) / securities liability, where shareholders allege a manufacturer concealed its own knowledge of PFAS risk.",
+    "verified_chain": {
+      "defendant": "3M Company",
+      "channels": [
+        {
+          "line": "Products liability (this tracker's main subject)",
+          "detail": "3M is a named defendant in the MDL 3191 turnout-gear litigation tracked throughout this site.",
+          "tier": "VERIFIED (directly tracked elsewhere on this site)"
+        },
+        {
+          "line": "Environmental / contamination liability",
+          "detail": "3M faces AFFF-foam site contamination liability and the separate $7.35 billion AFFF personal-injury settlement (MDL 2873), both tracked in this site's MDL section.",
+          "tier": "VERIFIED (directly tracked elsewhere on this site)"
+        },
+        {
+          "line": "Workers' compensation (firefighter cancer presumption claims)",
+          "detail": "Firefighters alleging PFAS-linked cancer file workers'-comp claims against their municipal employers, not against 3M directly -- but 3M's foam and gear-chemistry products are the alleged exposure source feeding both this litigation and those claims. See the Presumption Expansion Tracker's claims-denial-reality section for the workers'-comp side of this same underlying exposure.",
+          "tier": "VERIFIED for the mechanism (both trackers independently document this exposure pathway); the claims are not against 3M directly"
+        },
+        {
+          "line": "Directors & officers (D&O) / securities liability",
+          "detail": "A 2019 federal securities class action (Section 10(b) / Rule 10b-5) accused 3M and its current and former executives of making false or misleading statements about the company's PFAS liability exposure, alleging the stock dropped when the truth emerged. Several follow-on shareholder derivative suits were filed in New Jersey federal court and Minnesota state court on similar factual allegations; one New Jersey derivative action was dismissed without prejudice in October 2020 on a service-of-process technicality, not on the merits. A Third Circuit ruling held that a related 3M shareholder class action concealment claim belongs in Minnesota. This is a real, independently-litigated line -- the same underlying \"3M knew about PFAS risk\" fact pattern driving the products-liability and environmental lines above also drives a securities/D&O claim that a standard liability-line underwriter would likely never see, because it sits in a completely separate book (D&O, not casualty).",
+          "tier": "REPORTED (the securities class action, derivative suits, and the Third Circuit jurisdictional ruling were identified via secondary legal-news summaries and docket trackers; the complaints themselves were not independently opened and read in this pass)",
+          "source_name": "D&O Diary; Law360; Lexis Legal News (Mealey's) summary of Third Circuit ruling",
+          "source_url": "https://www.dandodiary.com/2019/08/articles/environmental-liability/environmental-liability-related-securities-suit-filed-against-3m/"
+        }
+      ]
+    },
+    "honest_limits": "This is one verified chain (3M), not a general claim that every PFAS defendant faces all four lines -- we have not checked whether DuPont/EIDP, Honeywell, or Fire-Dex face parallel D&O claims, and this section should not be read as implying they do. The point demonstrated here is that the mapping is real and checkable, not that it is universal across every company in this tracker's Company layer."
+  },
+  "policy_exclusions": {
+    "label": "Object: Policy Exclusions -- how a litigation docket actually maps onto CGL policy language, not just who's named",
+    "methodology_note": "This tracker already has two of the three objects a real insurance ontology needs: Object Defendant/Company (the corporate-structure layer) and Object Statute (the state presumption laws on the Presumption tracker). This is the third: the actual policy-wording question that determines whether a given PFAS claim is even covered at all -- the Commercial General Liability (CGL) pollution exclusion. This section is deliberately scoped to what is real and checkable, not a general insurance-coverage treatise.",
+    "drafting_history": {
+      "label": "The pollution exclusion's own history is itself a live legal argument in PFAS coverage disputes",
+      "detail": "A limited \"sudden and accidental\" pollution exclusion first appeared as a 1970 CGL endorsement and was incorporated into ISO's standard form in 1973. The much broader \"absolute\" pollution exclusion removed that sudden-and-accidental carve-out and was incorporated into ISO's standard CGL form in 1986 -- a revision commentators note is not actually \"absolute\" in practice (a more accurate label used by some insurance-law commentators is \"broad form pollution exclusion\"). Policyholder-side commentary argues the insurance industry itself told regulators in the 1980s that the exclusion would not eliminate CGL's foundational products-liability coverage -- a drafting-history argument now being actively litigated in PFAS coverage disputes. Courts remain split: one secondary source claims roughly half of states have found the \"absolute\" pollution exclusion ambiguous in at least some contexts (not independently verified against primary case counts).",
+      "tier": "REPORTED (secondary legal-industry commentary on policy drafting history, not independently opened at ISO's own archived filings)",
+      "source_name": "IRMI; Hunton Andrews Kurth; insurance-industry legal commentary",
+      "source_url": "https://www.irmi.com/articles/expert-commentary/the-cgl-pollution-exclusion"
+    },
+    "real_cases": [
+      {
+        "label": "Fire-Dex's own insurer denied coverage for the turnout-gear firefighter suits -- a real coverage dispute involving a defendant already in this tracker's Company layer",
+        "detail": "In the underlying Fire-Dex matter, firefighters alleged PFAS exposure from turnout gear caused cancer. Fire-Dex's insurer, Admiral, denied coverage -- reportedly under both an \"occupational disease exclusion\" and (separately contested) a Total Pollution Exclusion. A federal court in the Northern District of Ohio held coverage was barred under the occupational-disease exclusion specifically, and noted there was insufficient Ohio case law to confidently predict how Ohio courts would resolve the pollution-exclusion question on its own. This is directly relevant to this tracker's own Company entry for Fire-Dex LLC: even if a plaintiff wins a judgment against Fire-Dex, whether Fire-Dex's own insurer pays depends on exactly this kind of exclusion-language dispute -- a real link between a named defendant already tracked here and the policy-wording question underneath it.",
+        "tier": "REPORTED (secondary legal-industry summaries of the Northern District of Ohio ruling; the opinion itself was not independently opened and read in this pass)",
+        "source_name": "Benesch Law; PropertyCasualty360 coverage of the Fire-Dex/Admiral Ohio federal court ruling",
+        "source_url": "https://www.beneschlaw.com/insight/is-your-pfas-coverage-at-risk-an-ohio-federal-court-ruling-opens-the-door-to-broader-insurer-denials/"
+      },
+      {
+        "label": "Grange v. Cycle-Tex (N.D. Ga., Dec. 2022): a total pollution exclusion endorsement did eliminate CGL coverage for a PFAS-discharge claim",
+        "detail": "A federal court in Georgia found that a total pollution exclusion endorsement eliminated CGL coverage for a claim alleging PFAS discharge into local waterways -- an example of the exclusion working exactly as insurers intend, in an environmental-discharge fact pattern (distinct from the turnout-gear products-liability fact pattern this tracker otherwise follows).",
+        "tier": "REPORTED (secondary legal commentary; the opinion itself was not independently opened)",
+        "source_name": "Legal-industry coverage of Grange Insurance Co. v. Cycle-Tex, Inc.",
+        "source_url": ""
+      },
+      {
+        "label": "National Foam v. Zurich (N.D. Cal.): a split result -- some PFAS claims excluded, others not, within the same MDL",
+        "detail": "A California federal court reportedly found that some PFAS-related claims within the AFFF MDL were excluded under a pollution exclusion while others were not -- underscoring that coverage turns on the exact claim, policy year, and policy wording, not on PFAS as a single monolithic category.",
+        "tier": "REPORTED (secondary legal commentary; the opinion itself was not independently opened)",
+        "source_name": "Legal-industry coverage of National Foam, Inc. v. Zurich American Insurance Co.",
+        "source_url": ""
+      }
+    ],
+    "honest_limits": "This is not a general coverage-law treatise and should not be read as legal advice. It is three real, identified coverage disputes that show the exclusion's actual, contested application to PFAS claims -- two of them (Fire-Dex, and by extension the broader turnout-gear litigation this tracker follows) directly relevant to defendants already tracked here, one (Cycle-Tex) a different fact pattern included for contrast. None of the underlying opinions were independently opened and read in this pass -- all three rest on secondary legal-industry summaries, tiered REPORTED accordingly."
   }
 }
