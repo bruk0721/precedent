@@ -63,8 +63,8 @@
   .nav-links { display: flex; gap: 20px; align-items: center; }
   .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
   .nav-links a.cta { color: var(--accent-blue); }
-  .theme-toggle { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--chip-bg); background: var(--card-bg); color: var(--ink-muted); font-size: 15px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
-  .theme-toggle:hover { color: var(--ink); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  .theme-toggle:hover { background: var(--chip-bg); }
 
   .hero { position: relative; padding: 50px 24px 60px; text-align: center; overflow: hidden; }
   .hero-mesh { position: absolute; inset: -40px -40px auto -40px; height: 420px; z-index: -1; background: radial-gradient(ellipse 680px 380px at 50% 10%, rgba(59,110,246,0.10), transparent 70%); }
@@ -188,7 +188,7 @@
     <a href="#ontology">How it works</a>
     <a href="#compare">Why not Praedicat</a>
     <a href="#portfolio" class="cta">Check your exposure</a>
-    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9680;</button>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
   </div>
 </nav>
 
@@ -746,7 +746,7 @@ function setupThemeToggle() {
   if (!btn) return;
   const apply = (dark) => {
     document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
-    btn.innerHTML = dark ? "&#9728;" : "&#9680;";
+    btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;";
   };
   let isDark = document.documentElement.getAttribute("data-theme") === "dark";
   apply(isDark);
