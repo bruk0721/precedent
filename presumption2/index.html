@@ -96,6 +96,11 @@
   }
   .role-btn:hover { color: var(--ink); }
   .role-btn[aria-pressed="true"] { background: #000; color: #fff; }
+  .role-desc { font-size: 12.5px; color: var(--ink-faint); margin: 10px auto 0; max-width: 46ch; text-align: center; }
+  .role-spotlight {
+    outline: 2px solid var(--accent-purple); outline-offset: 3px; border-radius: var(--radius-card);
+    transition: outline-color 0.2s;
+  }
   details.detail-block { background: var(--card-bg); border-radius: var(--radius-card); padding: 20px 22px; margin-bottom: 14px; }
   details.detail-block summary { cursor: pointer; font-size: 13.5px; font-weight: 600; color: var(--ink); list-style: none; }
   details.detail-block summary::-webkit-details-marker { display: none; }
@@ -223,6 +228,17 @@
   #presumption-world-map path.clickable { cursor: pointer; }
   #presumption-world-map path.clickable:hover { opacity: 0.75; }
   #presumption-world-map path.selected { stroke: var(--ink); stroke-width: 1.6; }
+  #presumption-world-map { cursor: grab; touch-action: none; }
+  #presumption-world-map.dragging { cursor: grabbing; }
+  #presumption-world-map .sphere { fill: url(#presumption-globe-ocean-gradient); filter: drop-shadow(0 6px 18px rgba(16,30,60,0.18)); }
+  #presumption-world-map .graticule { fill: none; stroke: rgba(255,255,255,0.55); stroke-width: 0.5; }
+  .globe-reset-btn {
+    position: absolute; top: 10px; right: 10px; font-family: var(--font); font-size: 12px; font-weight: 600;
+    padding: 6px 12px; border-radius: var(--radius-pill); background: rgba(255,255,255,0.9); color: var(--ink-muted);
+    border: 1px solid rgba(16,17,20,0.08); cursor: pointer;
+  }
+  .globe-reset-btn:hover { color: var(--ink); }
+  .globe-wrap { position: relative; }
 
   .country-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 26px; margin-bottom: 14px; }
   .country-card .country-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 14px; }
@@ -285,6 +301,7 @@
     <a href="#map-section" data-section="map-section">Expansion Map</a>
     <a href="#precedents" data-section="precedents">Precedents</a>
     <a href="#carveouts" data-section="carveouts">Carve-outs</a>
+    <a href="#claims-denial" data-section="claims-denial">Claims Reality</a>
     <a href="#expansion-signal" data-section="expansion-signal">Expansion Signal</a>
     <a href="#portfolio" data-section="portfolio">Your Exposure</a>
     <a href="#global" data-section="global">Global</a>
@@ -304,6 +321,7 @@
     <button class="role-btn" data-role="actuary">Actuary</button>
     <button class="role-btn" data-role="broker">Broker</button>
   </div>
+  <p class="role-desc" id="role-desc"></p>
 </div>
 
 <div class="wrap">
@@ -388,6 +406,29 @@
     </details>
   </section>
 
+  <section id="claims-denial">
+    <div class="section-head">
+      <span class="section-eyebrow purple">The reality on the ground</span>
+      <h2>Having the law isn't the same as getting paid</h2>
+      <p class="section-sub" id="claims-denial-sub"></p>
+    </div>
+    <div id="claims-denial-findings"></div>
+    <details class="detail-block" id="claims-denial-science-detail">
+      <summary>The underlying cancer-elevation science</summary>
+      <div id="claims-denial-science"></div>
+    </details>
+  </section>
+
+  <section id="insurance-market-effects" style="display:none;">
+    <div class="section-head">
+      <span class="section-eyebrow amber">A different kind of signal</span>
+      <h2>When presumption laws break the insurance market</h2>
+      <p class="section-sub" id="insurance-market-sub"></p>
+    </div>
+    <div id="insurance-market-findings"></div>
+    <div id="insurance-market-implication"></div>
+  </section>
+
   <section id="expansion-signal">
     <div class="section-head">
       <span class="section-eyebrow amber">Forward-looking</span>
@@ -448,8 +489,11 @@
         <span class="key"><span class="swatch" style="background:#b7c4d6"></span>Actively checked, nothing found</span>
         <span class="key"><span class="swatch" style="background:#eceeef"></span>Not researched</span>
       </div>
-      <svg id="presumption-world-map" viewBox="0 0 960 500"></svg>
-      <p class="map-caption">Click a shaded country for what's actually confirmed there.</p>
+      <div class="globe-wrap">
+        <svg id="presumption-world-map" viewBox="0 0 960 500"></svg>
+        <button type="button" class="globe-reset-btn" id="presumption-world-map-reset">Reset view</button>
+      </div>
+      <p class="map-caption">Drag to rotate the globe. Click a shaded country for what's actually confirmed there.</p>
     </div>
     <div class="country-card" id="global-detail">
       <p style="font-size:14px; color:var(--ink-muted); margin:0;">Click a shaded country on the map above to see its sourced detail here.</p>
@@ -623,6 +667,7 @@ async function main() {
   renderPrecedents();
   renderCarveouts();
   renderExpansionSignal();
+  renderClaimsDenialReality();
   renderClaimsTrend();
   renderRecentActivity();
   await renderGlobal(DATA.international);
@@ -684,14 +729,31 @@ async function renderGlobal(intl) {
 
   const worldSvg = d3.select("#presumption-world-map");
   const width = 960, height = 500;
-  const projection = d3.geoNaturalEarth1().fitSize([width, height], worldGeo);
+  const worldRadius = Math.min(width, height) / 2 - 8;
+  const WORLD_DEFAULT_ROTATE = [70, -20, 0];
+  const projection = d3.geoOrthographic()
+    .scale(worldRadius)
+    .translate([width / 2, height / 2])
+    .rotate(WORLD_DEFAULT_ROTATE)
+    .clipAngle(90);
   const worldPath = d3.geoPath(projection);
 
-  worldSvg.selectAll("path")
+  worldSvg.selectAll("*").remove();
+  const worldDefs = worldSvg.append("defs");
+  const worldOceanGrad = worldDefs.append("radialGradient")
+    .attr("id", "presumption-globe-ocean-gradient")
+    .attr("cx", "35%").attr("cy", "30%").attr("r", "75%");
+  worldOceanGrad.append("stop").attr("offset", "0%").attr("stop-color", "#eaf3fb");
+  worldOceanGrad.append("stop").attr("offset", "55%").attr("stop-color", "#c3dcef");
+  worldOceanGrad.append("stop").attr("offset", "100%").attr("stop-color", "#8fb8d9");
+  worldSvg.append("path").datum({ type: "Sphere" }).attr("class", "sphere").attr("d", worldPath);
+  worldSvg.append("path").datum(d3.geoGraticule10()).attr("class", "graticule").attr("d", worldPath);
+
+  const worldCountryPaths = worldSvg.selectAll("path.country")
     .data(worldGeo.features)
     .join("path")
+    .attr("class", d => "country " + (ISO_TO_NAME[d.id] ? "clickable" : ""))
     .attr("d", worldPath)
-    .attr("class", d => ISO_TO_NAME[d.id] ? "clickable" : "")
     .attr("fill", d => {
       const name = ISO_TO_NAME[d.id];
       if (!name) return "#eceeef";
@@ -701,11 +763,42 @@ async function renderGlobal(intl) {
     .on("click", (event, d) => {
       const name = ISO_TO_NAME[d.id];
       if (!name) return;
-      selectWorldCountry(name);
+      selectWorldCountry(name, d);
     });
 
-  function selectWorldCountry(name) {
-    worldSvg.selectAll("path").classed("selected", d => ISO_TO_NAME[d.id] === name);
+  function redrawWorldGlobe() {
+    worldSvg.select(".sphere").attr("d", worldPath);
+    worldSvg.select(".graticule").attr("d", worldPath);
+    worldCountryPaths.attr("d", worldPath);
+  }
+
+  worldSvg.call(d3.drag()
+    .on("start", () => worldSvg.classed("dragging", true))
+    .on("drag", (event) => {
+      const k = 75 / worldRadius;
+      const r = projection.rotate();
+      const nextLat = Math.max(-90, Math.min(90, r[1] - event.dy * k));
+      projection.rotate([r[0] + event.dx * k, nextLat, r[2]]);
+      redrawWorldGlobe();
+    })
+    .on("end", () => worldSvg.classed("dragging", false))
+  );
+
+  document.getElementById("presumption-world-map-reset").addEventListener("click", () => {
+    projection.rotate(WORLD_DEFAULT_ROTATE);
+    redrawWorldGlobe();
+    worldSvg.selectAll("path.country").classed("selected", false);
+  });
+
+  function selectWorldCountry(name, feature) {
+    const feat = feature || worldGeo.features.find(f => ISO_TO_NAME[f.id] === name);
+    if (feat) {
+      const centroid = d3.geoCentroid(feat);
+      const r = projection.rotate();
+      projection.rotate([-centroid[0], -centroid[1], r[2]]);
+      redrawWorldGlobe();
+    }
+    worldSvg.selectAll("path.country").classed("selected", d => ISO_TO_NAME[d.id] === name);
     renderCountryGlobalDetail(name, intl.countries[name]);
     document.getElementById("global-detail").scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
@@ -815,6 +908,69 @@ function renderPrecedents() {
       </div>
     `;
   }).join("");
+}
+
+function evidenceCardHtml(obj) {
+  if (!obj) return "";
+  const t = tierClass(obj.tier || "");
+  return `
+    <div class="precedent-card">
+      <h4>${esc(obj.label)}</h4>
+      <div class="pc-row">${esc(obj.detail)}</div>
+      ${obj.tier ? `<span class="tier-tag" style="background:${t.bg}; color:${t.fg}">${esc(obj.tier.split(" ")[0])}</span>` : ""}
+      ${obj.source_name ? `<div class="src">${esc(obj.source_name)}${obj.source_url ? ` &middot; <a href="${obj.source_url}" target="_blank" rel="noopener">source</a>` : ""}</div>` : ""}
+    </div>
+  `;
+}
+
+function renderClaimsDenialReality() {
+  const cd = DATA.claims_denial_reality;
+  if (!cd) return;
+  document.getElementById("claims-denial-sub").textContent = cd.methodology_note;
+
+  const primarySections = [
+    cd.national_ncci_data,
+    cd.oregon_claim_level_data,
+    cd.colorado_parallel_system,
+    cd.ohio_natural_experiment
+  ].map(evidenceCardHtml).join("");
+
+  const findingCards = cd.findings.map(evidenceCardHtml).join("");
+
+  const deadEndsHtml = cd.dead_ends_checked ? `
+    <details class="detail-block" id="claims-denial-deadends" style="margin-top:12px;">
+      <summary>What we checked and ruled out</summary>
+      <p style="font-size:13.5px; color:var(--ink-muted); line-height:1.65; margin:10px 0 0;">${esc(cd.dead_ends_checked.detail)}</p>
+    </details>
+  ` : "";
+
+  document.getElementById("claims-denial-findings").innerHTML = primarySections + findingCards + deadEndsHtml;
+
+  const sci = cd.supporting_science;
+  if (sci) {
+    const t = tierClass(sci.tier);
+    document.getElementById("claims-denial-science").innerHTML = `
+      <p style="font-size:13.5px; color:var(--ink-muted); line-height:1.65; margin:10px 0 12px;">${esc(sci.detail)}</p>
+      <span class="tier-tag" style="background:${t.bg}; color:${t.fg}">${esc(sci.tier.split(" ")[0])}</span>
+      <div class="src" style="margin-top:8px;">${esc(sci.source_name)} &middot; <a href="${sci.source_url}" target="_blank" rel="noopener">source</a></div>
+    `;
+  }
+
+  renderInsuranceMarketEffects();
+}
+
+function renderInsuranceMarketEffects() {
+  const im = DATA.insurance_market_effects;
+  const section = document.getElementById("insurance-market-effects");
+  if (!im || !section) { if (section) section.style.display = "none"; return; }
+  section.style.display = "";
+  document.getElementById("insurance-market-sub").textContent = im.methodology_note;
+  document.getElementById("insurance-market-findings").innerHTML = im.findings.map(evidenceCardHtml).join("");
+  document.getElementById("insurance-market-implication").innerHTML = `
+    <div class="callout-card">
+      <p><strong>Why this matters for underwriting:</strong> ${esc(im.implication)}</p>
+    </div>
+  `;
 }
 
 function renderExpansionSignal() {
@@ -1102,7 +1258,14 @@ function setupWhatsNew(DATA) {
 
 function setupRoleToggle() {
   const STORAGE_KEY = "presumptionTracker:role";
-  const detailIds = ["carveout-detail", "category-caveat-detail"];
+  const detailIds = ["carveout-detail", "category-caveat-detail", "expansion-excluded-block"];
+  const spotlightIds = ["portfolio", "carveouts"];
+
+  const ROLE_COPY = {
+    underwriter: "Decision support for binding and renewal. The carve-out survey and category caveats stay one click away, collapsed by default.",
+    actuary: "Full data lineage expanded by default: the exclusive-remedy carve-out survey, every category's methodology caveat, and the states excluded from the expansion signal, all open for review.",
+    broker: "Built for the client conversation: the portfolio exposure check and the exclusive-remedy carve-out survey are highlighted so you can walk a prospect through what's actually covered."
+  };
 
   function applyRole(role) {
     document.querySelectorAll(".role-btn").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.role === role)));
@@ -1111,6 +1274,12 @@ function setupRoleToggle() {
       const el = document.getElementById(id);
       if (el) el.open = shouldOpen;
     });
+    spotlightIds.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle("role-spotlight", role === "broker");
+    });
+    const descEl = document.getElementById("role-desc");
+    if (descEl) descEl.textContent = ROLE_COPY[role] || "";
     document.body.classList.remove("role-underwriter", "role-actuary", "role-broker");
     document.body.classList.add("role-" + role);
   }

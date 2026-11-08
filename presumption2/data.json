@@ -680,6 +680,26 @@
   "changelog": [
     {
       "date": "2026-11-08",
+      "label": "Major rebuild of claims-denial-reality: NCCI primary data, Oregon claim-level data, Colorado parallel system, Ohio natural experiment, insurance-market-collapse finding",
+      "detail": "Directly read NCCI's own 2023 research brief in full: ~180 cancer claims and ~500 heart-attack claims reported since 2004, 75% concentrated in CO/LA/MD/OR with NCCI's own explanation why (Castle Rock ruling, 2017 LA expansion, MD cancer-list growth, OR rebuttal-burden case law). Added Oregon's own claim-level data (101 claims 2015-2025: 92% acceptance when the presumption applies, 92% denial when it doesn't). Added Colorado's CFHC Trust (99% acceptance) built specifically because WC denial rates were too high. Added a CDC-archived Ohio before/after study. New section: NCCI documents presumption laws pushing commercial insurers out of the voluntary market entirely in Pennsylvania (2011) and Vermont, forcing departments into residual/last-resort coverage -- a genuinely new kind of signal for this tracker. Also added San Mateo County's confirmed self-insured status and a correction that MA litigating cities are likely pooled (MIIA/MEGA), not individually self-insured."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "World map is now a rotatable 3D globe (drag to spin, click rotates to the country)",
+      "detail": "Replaced the flat Natural Earth projection with a d3-geo orthographic projection -- same D3 version already in use, no new dependency. Drag to rotate; clicking a country or using search rotates the globe to bring it to the front, matching the existing click/search behavior exactly."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "New: the claims-denial reality -- presumption laws on paper vs. paid claims in practice",
+      "detail": "Added real, sourced findings on how often presumption-covered cancer claims actually get paid: Texas first-responder cancer claims denied 76-96% initially (2012-2018, Public Health Watch); a 2018 TDI report found 146 of 168 firefighter/EMT cancer claims denied, concentrated among self-insured cities; Maine saw 98% initial denial since its 2009 law; San Jose claims took an average of two years to resolve. Also added the underlying NIOSH/CDC cancer-elevation science (the 2013 multi-city cohort study) and the federal National Firefighter Registry for Cancer (46,000+ enrolled as of March 2026). Confirmed no national claims database exists -- a real, acknowledged data gap, not a gap in our research effort."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Fixed the actuary/broker role toggle -- previously identical views",
+      "detail": "Broker and underwriter views were pixel-identical before this fix (only actuary differed, by opening two detail blocks). Each of the three roles now visibly changes what is expanded or highlighted: underwriter stays decision-focused and collapsed, actuary opens the full methodology lineage (carve-out survey, category caveats, expansion-signal exclusions), and broker highlights the portfolio check and the exclusive-remedy carve-out survey for client conversations."
+    },
+    {
+      "date": "2026-11-08",
       "label": "Denmark contradiction updated; Washington and Florida gaps found and flagged; new Expansion Signal model; evidence-maturity meter",
       "detail": "Added a dated, government-sourced update to the Denmark presumption entry (a 2022 ministerial letter confirming the IARC Group 1 reclassification and a pending committee review). Found and flagged two real data gaps rather than silently patching them: Washington's 2018 PTSD workers'-comp law (SB 6214) is missing from NCCI's own count, and Florida's cancer-benefit statute (s.112.1816) is a structurally distinct, non-presumption mechanism. Shipped a new \"Expansion Signal\" forward-looking model (mirroring the PFAS tracker's prediction model) flagging Missouri and New York as real political-attention signals for new presumption coverage. Added this evidence-maturity meter and changelog."
     },
@@ -688,5 +708,116 @@
       "label": "Native-language research expansion: 6 -> 15 countries",
       "detail": "Added South Korea (a real, enacted, dated cancer-presumption statute -- the strongest non-Western finding of the research effort), Japan, Norway, Sweden, Finland, Italy, Poland, Austria, and Switzerland, each checked via native-language sources rather than left as English-only gaps."
     }
-  ]
+  ],
+  "claims_denial_reality": {
+    "label": "Presumption laws shift the burden of proof -- they do not guarantee a paid claim, and the real picture is more specific than it first looked",
+    "methodology_note": "A presumption law makes a cancer diagnosis presumed work-related, but every one of these laws still lets the employer rebut that presumption -- and NCCI's own data confirms self-insured municipalities (who pay claims directly, with a direct financial incentive to contest) are the main reason national data is scarce: self-insured employers are not required to report claims to NCCI at all, except in Florida. Updated 2026-11-08 with primary data directly read from NCCI's own 2023 research brief and Oregon's Workers' Compensation Division: the picture is sharper than 'presumption laws are toothless.' Oregon's own claim-level data shows ~92% acceptance when the presumption clearly applies, versus ~92% denial when it doesn't -- the earlier high aggregate Texas/Maine denial rates likely reflect disputed eligibility (tenure, timing, tobacco rebuttal), not a blanket employer stonewall of valid claims.",
+    "findings": [
+      {
+        "label": "Texas: first responders' cancer claims were denied 76-96% of the time initially, 2012-2018",
+        "detail": "A March 2023 Public Health Watch investigation reports that Texas employers initially rejected 76% to 96% of 198 cancer workers'-comp claims filed by first responders (firefighters and police) between 2012 and 2018. A separate, earlier 2018 Texas Department of Insurance (TDI) report, cited across multiple 2018 news outlets, found that of 168 cancer claims specifically filed by firefighters and EMTs and reported by Texas political subdivisions, 146 were denied by the insurance carrier (about 87%) -- with denials concentrated among individually self-insured cities/municipalities and intergovernmental risk pools. Only about 30 of those denials were actually disputed by the claimant.",
+        "tier": "REPORTED (secondary investigative-journalism and news coverage of the TDI report and its own data; the TDI report itself was not directly opened)",
+        "source_name": "Public Health Watch (Barbara Feder Ostrov, March 3, 2023); Texas Department of Insurance report via Insurance Journal/ThePumpHandle, 2018",
+        "source_url": "https://publichealthwatch.org/2023/03/03/state-laws-favor-workers-comp-benefits-for-firefighters-with-cancer-cities-and-counties-keep-denying-them/"
+      },
+      {
+        "label": "Maine: 98% of firefighter cancer claims initially denied since the state's 2009 presumption law took effect",
+        "detail": "A WMTW news analysis, reported via NPR/member-station syndication (January 2019), found 52 of 53 firefighter cancer claims (98%) were initially denied since Maine's presumption law took effect in September 2009, with about 35% of claimants (34 of 53) eventually receiving benefits after further process. This is a secondhand figure (a blog/news report of the station's own analysis), not independently re-verified against Maine's own workers'-comp board data.",
+        "tier": "REPORTED (news coverage of a local TV station's own data analysis; the underlying claims data was not independently opened)",
+        "source_name": "WMTW, via NPR/member-station syndication, January 2019",
+        "source_url": "https://www.npr.org/sections/health-shots/2019/01/04/660701244/laws-intended-to-protect-firefighters-who-get-cancer-often-lack-teeth"
+      },
+      {
+        "label": "San Jose: firefighter cancer claims took an average of two years to resolve",
+        "detail": "The same Public Health Watch investigation reports that San Jose firefighters' workers'-comp claims for cancer took an average of two years to resolve, according to city data obtained through a public-records request; its lead example took three years and two rejections before a settlement. Delay, not just denial, is itself a real cost that can push a union or municipality toward other legal avenues.",
+        "tier": "REPORTED (the investigation's own cited public-records data; not independently re-obtained)",
+        "source_name": "Public Health Watch, March 3, 2023",
+        "source_url": "https://publichealthwatch.org/2023/03/03/state-laws-favor-workers-comp-benefits-for-firefighters-with-cancer-cities-and-counties-keep-denying-them/"
+      },
+      {
+        "label": "No national database exists -- this is a genuine, acknowledged data gap, not a gap in our own research effort",
+        "detail": "A Firefighter Cancer Support Network official quoted in NCCI-adjacent reporting said no organization tracks firefighter cancer workers'-comp claims nationally. Firefighters are typically employed by state and local governments, which are frequently self-insured -- and self-insured entities are not required to report claims to NCCI. States track claims inconsistently, and employer-reported data is often incomplete. This is precisely the kind of \"city/county self-insurance\" data gap that would be needed to properly test whether municipalities paying cancer claims without insurance are the ones pursuing PFAS/foam-manufacturer litigation -- it is not currently answerable with any public, systematic dataset.",
+        "tier": "NOT FOUND (a systematic national claims database does not exist, confirmed by industry-source reporting, not merely unresearched)",
+        "source_name": "Firefighter Cancer Support Network (quoted in reporting); NCCI",
+        "source_url": ""
+      },
+      {
+        "label": "California's State Controller publishes real per-city dollar figures for presumption-law compliance costs",
+        "detail": "California cities (e.g., Redwood City, Santa Monica, Torrance, and others) file documented cost claims with the California State Controller's Office seeking state mandate-cost reimbursement specifically tied to firefighter cancer-presumption compliance. These filings are public PDFs with real, itemized per-city cost figures -- a genuinely untapped, city-level primary-source dataset for California specifically, distinct from (and complementary to) Oregon's and Arizona's state-regulator claim-level reporting.",
+        "tier": "REPORTED (the filing mechanism and existence of per-city documents was identified; individual city filings were not yet opened and read)",
+        "source_name": "California State Controller's Office, Mandated Cost Audits",
+        "source_url": "https://www.sco.ca.gov/Files-AUD/MandCosts/"
+      },
+      {
+        "label": "San Mateo County, California -- the one PFAS-litigating municipality directly confirmed self-insured for workers' comp",
+        "detail": "San Mateo County, a named plaintiff in the PFAS turnout-gear MDL (C.A. No. 3:26-cv-02380), issued a June 2026 RFP explicitly seeking a Third-Party Administrator \"to manage its self-insured Workers' Compensation Program.\" This is real, direct evidence -- not an assumption -- that at least one litigating county is self-insured, meaning it pays firefighter cancer claims out of its own budget rather than through commercial insurance. This is n=1, not a pattern: a parallel check of two Massachusetts litigating cities (Peabody, Worcester) found they are more likely covered by a statewide municipal risk-sharing pool (MIIA or MEGA) than individually self-insured, per Massachusetts' own public self-insured-employer list. The real distinction worth tracking going forward may be a three-way split -- individually self-insured / pooled risk-sharing / commercial -- rather than the simple self-insured-vs-not binary the original question assumed, since a risk-sharing pool likely has a different financial incentive to contest claims than a city paying 100% out of its own budget.",
+        "tier": "VERIFIED for San Mateo County (a direct county procurement document); REPORTED for the Massachusetts pooling inference (a state list cross-checked, not a direct confirmation for Peabody/Worcester specifically)",
+        "source_name": "San Mateo County RFP (June 2026); Massachusetts self-insured-employer opt-out list (mass.gov, FY25)",
+        "source_url": ""
+      }
+    ],
+    "supporting_science": {
+      "label": "The underlying cancer-elevation science, directly identified (not fabricated)",
+      "detail": "The 2013 NIOSH/CDC multi-city cohort study (Chicago, Philadelphia, San Francisco; roughly 30,000 firefighters, cancers and deaths analyzed through 2009) found elevated rates across respiratory, digestive, and urinary-system cancers, plus roughly double the general population's mesothelioma rate -- the first U.S. study to identify a firefighter mesothelioma excess, attributed to likely asbestos exposure. A related NIOSH-funded Florida firefighter cohort study separately found significantly elevated thyroid, prostate, colon, and bladder cancer, with the bladder-cancer finding not apparently tied to tobacco use. Neither study specifically isolates PFAS as the causal agent (that is a separate, more recent and more contested research thread) -- these are general firefighter-occupational-cancer studies, cited here as the baseline science that both the litigation and the presumption-law movement are built on. The federal National Firefighter Registry for Cancer (authorized 2018, reauthorized through FY2028 by P.L. 118-147 in December 2024) had surpassed 46,000 enrolled firefighters as of a March 2026 OMB filing -- a real, ongoing, growing federal data-collection effort that may eventually make this kind of question more answerable than it is today.",
+      "tier": "VERIFIED for the NIOSH study's existence and headline findings, and for the Registry's enrollment figures (both independently corroborated across multiple sources); REPORTED for which specific chemical exposures (PFAS vs. asbestos vs. combustion byproducts) drive which specific cancer, which remains a genuinely contested, ongoing research question",
+      "source_name": "NIOSH/CDC (2013 cohort study); National Firefighter Registry for Cancer OMB filing (March 2026)",
+      "source_url": "https://stacks.cdc.gov/view/cdc/196342"
+    },
+    "national_ncci_data": {
+      "label": "NCCI's own national count: ~180 cancer claims and ~500 heart-attack claims reported since 2004, overwhelmingly concentrated in 4 states",
+      "detail": "NCCI's February 2023 research brief (\"Firefighters and First Responders: 2023 Update on Presumptive Workers Comp Benefits,\" by Kim Neugent and Bruce Spidell) states: \"Statistical data reported to NCCI contains approximately 180 firefighter cancer claims occurring since 2004. Approximately three-quarters of these cancer claims come from Colorado, Louisiana, Maryland, and Oregon.\" A separate line in the same brief states \"Statistical data reported to NCCI contains approximately 500 firefighter heart attack claims occurring since 2004\" -- a real, previously-untracked figure for the heart/vascular presumption category. NCCI explains the 4-state concentration is not necessarily because those states have the most actual cancer among firefighters -- it is because NCCI's own data coverage is incomplete (self-insured municipal employers, who employ most firefighters, generally do not report to NCCI at all except in Florida), and because each of the 4 states made claims specifically easier to win: Colorado's 2016 Castle Rock Supreme Court ruling made the presumption very hard for employers to rebut (until the state built the CFHC Trust specifically to divert claims out of WC -- see below); Louisiana's 2017 Act 287 removed a disability requirement and added new covered cancers; Maryland expanded its covered-cancer list from 4 to 9 to 11 cancers (2012, 2019) and is \"anecdotally difficult to overcome\" per Baltimore Sun reporting NCCI itself cites; Oregon's own Supreme Court (SAIF Corp. v. Thompson) held that an employer must meet both the burden of production AND the burden of persuasion to rebut a claim.",
+      "tier": "VERIFIED (NCCI's February 2023 research brief was directly fetched and read in full, not relied on via secondary summary)",
+      "source_name": "NCCI, \"Firefighters and First Responders: 2023 Update on Presumptive Workers Comp Benefits\" (Neugent & Spidell, Feb. 2023)",
+      "source_url": "https://www.ncci.com/Articles/Pages/Insights-Presumptive-WC-Benefits-Firefighters.aspx"
+    },
+    "oregon_claim_level_data": {
+      "label": "Oregon's own claim-by-claim data (2015-2025): ~92% acceptance when the presumption clearly applies, ~92% denial when it doesn't",
+      "detail": "A November 4, 2026 memo from Oregon's Workers' Compensation Division (WCD) Administrator to a state representative gives a full claim-level breakdown of all 101 Oregon firefighter cancer claims with dates of injury 2015-2025, by year and by acceptance status. Where the presumption clearly applies (\"Yes\"): 36 accepted, 3 denied (92.3% acceptance). Where it does not apply (\"No\"): 3 accepted, 34 denied (91.9% denial). \"Undetermined\" cases (DCBS cannot verify the 5-year tenure threshold or the 84-month post-employment filing window from the data submitted) split closer to even: 14 accepted, 11 denied. Separately, Table 1 gives real dollar figures for the 48 accepted disabling claims under the presumption: $22,381,418 total (medical $18,378,701 + time-loss/other $4,002,717), broken down by cancer type -- leukemias/blood cancers the costliest ($10,565,897 across 10 claims), brain cancer second ($4,784,975 across 4 claims), and 7 testicular-cancer claims at $329,410 (relevant to the PFAS-testicular-cancer link). Claims grew from 8/year in 2015 to 21/year in 2025 -- more than doubling, likely reflecting rising awareness and filing rather than rising incidence alone.",
+      "tier": "VERIFIED (the WCD memo was directly fetched and read in full, including both data tables)",
+      "source_name": "Oregon Workers' Compensation Division, Memorandum to Rep. Dacia Grayber (Nov. 4, 2026)",
+      "source_url": "https://www.oregon.gov/DCBS/mlac/Documents/2026/20261105/20261104-Updated-Nov-Rep-Grayber-Memo-FF-Cancer-Claims-Data.pdf"
+    },
+    "colorado_parallel_system": {
+      "label": "Colorado built a whole parallel compensation system specifically because workers'-comp denial rates were too high",
+      "detail": "After Colorado's 2016 Castle Rock Supreme Court ruling made the WC cancer presumption very hard for employers to rebut, the state legislature created the Colorado Firefighter Heart and Cancer (CFHC) Trust Cancer Award Program the following year (2017) -- an alternative-to-WC mechanism with looser eligibility but smaller awards. A 9News investigation found Colorado's own WC system denies roughly half of cancer claims (27 accepted, 27 denied, 4 pending in the data cited), while a May 2026 legislative hearing reported the CFHC Trust accepts 99% of the claims it receives. This is a real, quantified before/after contrast within one state: when the official WC presumption still leaves a ~50% denial rate, firefighters and unions built and now overwhelmingly use a separate, non-WC trust instead. NCCI's own brief independently confirms this dynamic reduces WC claim volume in Colorado specifically.",
+      "tier": "VERIFIED for the CFHC Trust's existence and NCCI's own account of why it was created (NCCI brief directly read); REPORTED for the specific 27/27/4 and 99% figures (secondary news/testimony, not independently opened at the primary source)",
+      "source_name": "NCCI 2023 brief; 9News investigation; Colorado legislative testimony, May 2026",
+      "source_url": "https://www.cfhtrust.com/wp-content/uploads/2017/06/cancer-overview.pdf"
+    },
+    "ohio_natural_experiment": {
+      "label": "A real before/after study: Ohio cancer-related workers'-comp claims rose after its 2017 presumption law",
+      "detail": "A CDC-archived study, \"Cost of Workers' Compensation Claims among Firefighters in Ohio, 2001-2020,\" finds a marked increase in cancer-related claims after Ohio's 2017 firefighter cancer presumption law took effect. This is a genuine within-state before/after design (a natural experiment), which controls for state-level confounders like population, politics, and culture far better than the earlier state-to-state cross-tabulation on this tracker's landing page -- it directly supports the simple, uncontroversial half of the presumption story: when a state makes cancer claims easier to win, more cancer claims get filed and won. It does not by itself speak to the PFAS-litigation-substitution question.",
+      "tier": "REPORTED (the study is CDC-archived and appears peer-reviewed, but was not independently opened and read in full in this pass -- only identified)",
+      "source_name": "CDC Stacks archive: \"Cost of Workers' Compensation Claims among Firefighters in Ohio, 2001-2020\"",
+      "source_url": "https://stacks.cdc.gov/view/cdc/257844"
+    },
+    "dead_ends_checked": {
+      "label": "What we checked and ruled out, so the gaps are honest rather than silent",
+      "detail": "Court-complaint damages: the actual PFAS turnout-gear complaints (MDL 3191) plead gear-replacement cost as damages, not historical workers'-comp claims paid -- cancer risk is cited as the rationale for needing new gear, not as a cost ledger. This avenue is a dead end for getting claims-paid dollar figures. Federal PSOB data: real primary infrastructure exists (bja.ojp.gov/psob-data) but we could not pull current cancer-specific approval/denial counts from it in this pass, and found that PSOB's dedicated cancer-death benefit provision (from the Honoring Our Fallen Heroes Act) is not yet operational -- so widely-cited PSOB cancer-denial figures are from the general line-of-duty-death framework, not a cancer-specific one. National BLS data: the Survey of Occupational Injuries and Illnesses does not maintain an illness-only (vs. injury) breakout by government ownership as a trend series, and has no dedicated fire-protection line at all -- a confirmed, structural limitation of the federal survey, not a research shortfall. Non-NCCI rating bureaus (California WCIRB, and similar bureaus in MA/NY/WI/PA): checked directly, found no public firefighter-class-code claims data -- it appears to be member-insurer-only where it exists at all.",
+      "tier": "Mixed -- see each item above; recorded here so these are documented negative results, not unresearched gaps",
+      "source_name": "",
+      "source_url": ""
+    }
+  },
+  "insurance_market_effects": {
+    "label": "A real, documented unintended consequence: presumption laws can push fire departments out of the voluntary insurance market entirely",
+    "methodology_note": "This is a genuinely new finding for this tracker, found directly in NCCI's own 2023 research brief -- not previously tracked here. It matters for underwriting because it shows a presumption law's impact is not limited to claim costs: it can change who is even willing to write the coverage at all.",
+    "findings": [
+      {
+        "label": "Pennsylvania (2011, Act 46): commercial insurers stopped writing WC coverage for volunteer fire departments",
+        "detail": "NCCI's brief quotes testimony from the Pennsylvania State Association of Township Supervisors (PSATS): \"most providers had announced that they were dropping workers' compensation coverage for firefighters due to the potential cost and liability exposure imposed by Act 46\" (the state's 2011 cancer presumption for volunteer and career firefighters). A 2018 follow-up PSATS statement says the issue persisted: \"there are now only a very few private companies that provide workers' compensation to firefighters and many of our volunteers are now covered by our state's insurer of last resort, the State Workers Insurance Fund (SWIF).\"",
+        "tier": "VERIFIED (NCCI's brief directly quotes the underlying PSATS testimony; the testimony itself was not independently re-opened)",
+        "source_name": "NCCI 2023 brief, citing PSATS testimony on Act 46 of 2011",
+        "source_url": "https://www.ncci.com/Articles/Pages/Insights-Presumptive-WC-Benefits-Firefighters.aspx"
+      },
+      {
+        "label": "Vermont: a similar shift into the state's residual insurance market after its own presumption law",
+        "detail": "NCCI's own data (cited in the same 2023 brief) shows \"a substantial increase in the number of fire departments insured in the residual market after the enactment of a firefighter presumption\" in Vermont (enacted via S.194, effective January 1, 2007) -- an independent, second example of the same market effect seen in Pennsylvania, this time measured by NCCI directly rather than relayed through advocacy testimony.",
+        "tier": "VERIFIED (NCCI's own brief, stating this is based on NCCI's own data, directly read)",
+        "source_name": "NCCI 2023 brief",
+        "source_url": "https://www.ncci.com/Articles/Pages/Insights-Presumptive-WC-Benefits-Firefighters.aspx"
+      }
+    ],
+    "implication": "For underwriting purposes, this reframes what a new presumption law means for a book of business: it is not only a claims-cost question, it can be a market-availability question -- a jurisdiction with a strict, hard-to-rebut presumption may see voluntary-market carriers exit the municipal/volunteer-fire-department segment entirely, concentrating that risk in state residual markets or funds of last resort. This is a genuinely different kind of signal than anything else on this tracker, and was found only by reading NCCI's own primary research directly."
+  }
 }
