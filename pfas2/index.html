@@ -6,7 +6,7 @@
 <title>PFAS Litigation Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <style>
@@ -19,26 +19,53 @@
      content and data are unchanged, only the visual language.
   */
   :root {
-    --page-bg: #f8f8f8;
+    --page-bg: #f7f8fa;
     --card-bg: #ffffff;
-    --ink: #101114;
-    --ink-muted: #6b6f76;
-    --ink-faint: #9a9ea5;
-    --chip-bg: #f0f0ee;
-    --accent-blue: #3b6ef6;
-    --accent-blue-bg: #e9eefe;
-    --accent-green: #1ea672;
-    --accent-green-bg: #e3f6ee;
-    --accent-amber: #de7a3c;
-    --accent-amber-bg: #fbe9db;
-    --accent-red: #d6554a;
-    --accent-red-bg: #fbe6e3;
-    --accent-purple: #9b7fd4;
-    --accent-purple-bg: #ede8fa;
+    --ink: #0e1116;
+    --ink-muted: #5c6370;
+    --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3;
+    /* One confident primary (deep navy: brand, verified/confirmed, nav) and one sharp
+       secondary reserved for risk signals (litigating, denied, accumulation flags).
+       Everything else is gray. --accent-green and --accent-purple are kept as variable
+       NAMES so every existing call site stays correct, but their VALUES now resolve to
+       the primary navy and a neutral slate gray respectively -- no decorative hues. */
+    --accent-blue: #14213d;
+    --accent-blue-bg: #e7eaf1;
+    --accent-green: #14213d;
+    --accent-green-bg: #e7eaf1;
+    --accent-amber: #b8601f;
+    --accent-amber-bg: #f5e8da;
+    --accent-red: #b33c30;
+    --accent-red-bg: #f7e2df;
+    --accent-purple: #6b7280;
+    --accent-purple-bg: #ebedef;
+    --nav-bg: rgba(247, 248, 250, 0.78);
     --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     --radius-card: 20px;
     --radius-pill: 999px;
     color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10;
+    --card-bg: #15181d;
+    --ink: #eef0f3;
+    --ink-muted: #9aa1ab;
+    --ink-faint: #6a7079;
+    --chip-bg: #1e2228;
+    --accent-blue: #7f94c2;
+    --accent-blue-bg: #1c2433;
+    --accent-green: #7f94c2;
+    --accent-green-bg: #1c2433;
+    --accent-amber: #e2974f;
+    --accent-amber-bg: #2b2114;
+    --accent-red: #e2766a;
+    --accent-red-bg: #2e1816;
+    --accent-purple: #8b929c;
+    --accent-purple-bg: #1e2228;
+    --nav-bg: rgba(11, 13, 16, 0.78);
+    color-scheme: dark;
   }
 
   * { box-sizing: border-box; }
@@ -72,10 +99,10 @@
     position: sticky;
     top: 0;
     z-index: 20;
-    background: rgba(248, 248, 248, 0.78);
+    background: var(--nav-bg);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(16, 17, 20, 0.06);
+    border-bottom: 1px solid var(--chip-bg);
   }
   nav.top {
     display: flex;
@@ -105,13 +132,20 @@
   .nav-links a:hover { color: var(--ink); }
   .nav-links a.active { color: var(--ink); font-weight: 600; }
   .nav-cta {
-    background: #000;
-    color: #fff;
+    background: var(--ink);
+    color: var(--page-bg);
     font-size: 13px;
     font-weight: 500;
     padding: 9px 18px;
     border-radius: var(--radius-pill);
   }
+  .theme-toggle {
+    width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(128,128,128,0.25);
+    background: var(--chip-bg); color: var(--ink-muted); font-size: 15px; line-height: 1;
+    cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+    margin-right: 10px; transition: background 0.15s, color 0.15s;
+  }
+  .theme-toggle:hover { color: var(--ink); }
   @media (max-width: 640px) { .nav-links { display: none; } }
 
   /* ---- Hero ---- */
@@ -201,6 +235,24 @@
   details.detail-block[open] summary::before { content: "▾ "; }
   details.detail-block[open] summary { margin-bottom: 12px; }
 
+  /* ---- Collapsible finding card: headline + tier always visible, full prose behind a click ---- */
+  details.finding-card {
+    background: var(--card-bg); border-radius: var(--radius-card); padding: 16px 20px; margin-bottom: 10px;
+  }
+  details.finding-card summary {
+    cursor: pointer; list-style: none; display: flex; align-items: flex-start; gap: 10px; justify-content: space-between;
+  }
+  details.finding-card summary::-webkit-details-marker { display: none; }
+  details.finding-card summary .fc-headline { font-size: 14px; font-weight: 600; color: var(--ink); flex: 1; }
+  details.finding-card summary .fc-headline::before { content: "\25B8  "; color: var(--ink-faint); font-weight: 400; }
+  details.finding-card[open] summary .fc-headline::before { content: "\25BE  "; }
+  details.finding-card .fc-body { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--chip-bg); }
+  details.finding-card .fc-body p { font-size: 13.5px; line-height: 1.65; color: var(--ink-muted); margin: 0 0 10px; }
+  .tier-tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.03em;
+    padding: 3px 10px; border-radius: 999px;
+  }
+
   /* ---- Stat tiles ---- */
   .stats {
     display: grid;
@@ -211,18 +263,22 @@
   .stat {
     background: var(--card-bg);
     border-radius: 16px;
-    padding: 20px 16px;
+    padding: 20px 16px 16px;
     text-align: left;
+    border-bottom: 2px solid var(--chip-bg);
   }
   .stat .n {
-    font-size: 28px;
+    font-family: var(--font-mono);
+    font-size: 26px;
     font-weight: 600;
     font-variant-numeric: tabular-nums;
     line-height: 1;
     margin-bottom: 8px;
     letter-spacing: -0.01em;
   }
-  .stat .n.accent { color: var(--accent-blue); }
+  .stat .n.accent { color: var(--accent-blue); border-bottom: 2px solid var(--accent-blue); }
+  .stat.risk { border-bottom-color: var(--accent-red); }
+  .stat.risk .n { color: var(--accent-red); }
   .stat .l {
     font-size: 12.5px;
     color: var(--ink-muted);
@@ -846,6 +902,7 @@
 </style>
 </head>
 <body>
+<script>(function(){try{var t=localStorage.getItem("pfasTracker:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
 
 <div class="nav-outer">
 <nav class="top">
@@ -859,6 +916,7 @@
     <a href="#portfolio" data-section="portfolio">Your Exposure</a>
     <a href="#global" data-section="global">Global</a>
   </div>
+  <button type="button" class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#9680;</button>
   <a class="nav-cta" href="#prediction">See prediction</a>
 </nav>
 </div>
@@ -879,6 +937,11 @@
 </div>
 
 <div class="wrap">
+
+  <div class="map-card" id="tldr-card" style="display:none;">
+    <div style="font-size:11px; font-weight:700; letter-spacing:0.05em; color:var(--ink-faint); text-transform:uppercase; margin-bottom:10px;">The 30-second version</div>
+    <ul id="tldr-list" style="margin:0; padding-left:18px; font-size:14px; line-height:1.7; color:var(--ink);"></ul>
+  </div>
 
   <div class="skel-stats" id="stats-skel">
     <div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div>
@@ -919,7 +982,7 @@
         <div class="map-search-result" id="us-map-search-result"></div>
       </div>
       <div class="map-legend">
-        <span class="key"><span class="swatch" style="background:var(--accent-blue)"></span>Confirmed plaintiff state</span>
+        <span class="key"><span class="swatch" style="background:var(--accent-red)"></span>Confirmed plaintiff state</span>
         <span class="key"><span class="swatch" style="background:var(--accent-amber)"></span>Top 10 predicted next</span>
         <span class="key"><span class="swatch" style="background:#eceeef"></span>No current signal</span>
       </div>
@@ -1013,7 +1076,7 @@
       <h2 id="cross-class-heading">One exposure, several insurance books</h2>
       <p class="section-sub" id="cross-class-sub"></p>
     </div>
-    <div class="callout-card" id="cross-class-chain"></div>
+    <div id="cross-class-chain"></div>
     <p id="cross-class-limits" style="font-size:12.5px; color:var(--ink-faint); margin-top:10px;"></p>
   </section>
 
@@ -1023,7 +1086,7 @@
       <h2>Named as a defendant isn't the same as the insurer paying</h2>
       <p class="section-sub" id="policy-exclusions-sub"></p>
     </div>
-    <div class="callout-card" id="policy-exclusions-history"></div>
+    <div id="policy-exclusions-history"></div>
     <h3 class="subhead">Real coverage disputes, not a general treatise</h3>
     <div id="policy-exclusions-cases"></div>
     <p id="policy-exclusions-limits" style="font-size:12.5px; color:var(--ink-faint); margin-top:10px;"></p>
@@ -1079,11 +1142,11 @@
         <datalist id="world-map-countries"></datalist>
       </div>
       <div class="map-legend">
-        <span class="key"><span class="swatch" style="background:var(--accent-blue)"></span>Confirmed litigation</span>
-        <span class="key"><span class="swatch" style="background:#9b7fd4"></span>Real PFAS case, NOT foam-related</span>
+        <span class="key"><span class="swatch" style="background:var(--accent-red)"></span>Confirmed litigation</span>
+        <span class="key"><span class="swatch" style="background:#9aa1ab"></span>Real PFAS case, NOT foam-related</span>
         <span class="key"><span class="swatch" style="background:var(--accent-amber)"></span>Regulation only / co-filer</span>
-        <span class="key"><span class="swatch" style="background:#2a9d8f"></span>Confirmed contamination, no litigation found</span>
-        <span class="key"><span class="swatch" style="background:#b7c4d6"></span>Actively checked, nothing found</span>
+        <span class="key"><span class="swatch" style="background:#3d7a72"></span>Confirmed contamination, no litigation found</span>
+        <span class="key"><span class="swatch" style="background:#c7cbd1"></span>Actively checked, nothing found</span>
         <span class="key"><span class="swatch" style="background:#eceeef"></span>Not researched</span>
       </div>
       <div class="globe-wrap">
@@ -1165,6 +1228,28 @@ function collectTiers(obj, out) {
   return out;
 }
 
+function renderTldr(DATA, statesSet) {
+  const card = document.getElementById("tldr-card");
+  const list = document.getElementById("tldr-list");
+  if (!card || !list) return;
+  const tiers = collectTiers(DATA, []);
+  const verifiedPct = tiers.length ? Math.round((tiers.filter(t => t === "verified").length / tiers.length) * 100) : 0;
+  const roster = DATA.mdl_consolidation_status && DATA.mdl_consolidation_status.full_defendant_roster;
+  const rosterCount = roster ? roster.groups.reduce((n, g) => n + g.entities.length, 0) : null;
+
+  const items = [
+    `<strong>${esc(statesSet.size)} states</strong> currently have a named plaintiff in PFAS turnout-gear litigation.`,
+    rosterCount ? `The underlying MDL names <strong>${esc(rosterCount)} defendant entities</strong>, read directly from the JPML's own transfer order.` : "",
+    `DuPont's liability is contractually split across <strong>three separate companies</strong> from a 2015 spinoff -- a judgment against "DuPont" doesn't say which balance sheet pays.`,
+    `Honeywell's liability allocation after its 2025 Solstice spinoff is a <strong>genuinely open question</strong> -- the public separation agreement's schedules aren't public.`,
+    `3M faces a parallel <strong>securities/D&amp;O claim</strong> alleging it concealed PFAS risk from shareholders -- a line most casualty underwriters never see.`,
+    `<strong>${esc(verifiedPct)}%</strong> of every sourced claim on this page is VERIFIED against a primary document, not secondary reporting.`,
+  ].filter(Boolean);
+
+  list.innerHTML = items.map(i => `<li style="margin-bottom:6px;">${i}</li>`).join("");
+  card.style.display = "";
+}
+
 function renderMaturityMeter(DATA) {
   const tiers = collectTiers(DATA, []);
   const total = tiers.length;
@@ -1238,6 +1323,7 @@ async function main() {
   document.getElementById("map-section").style.display = "";
   animateCountUps();
 
+  renderTldr(DATA, statesSet);
   renderMaturityMeter(DATA);
   renderChangelog(DATA);
 
@@ -1462,6 +1548,7 @@ async function main() {
   setupPortfolioMatch(DATA);
   setupWhatsNew(DATA);
   setupRoleToggle();
+  setupThemeToggle();
   setupScrollSpy();
 }
 
@@ -1612,11 +1699,11 @@ async function renderInternational(intl) {
   const ISO_TO_NAME = Object.fromEntries(Object.entries(COUNTRY_ISO).map(([name, id]) => [id, name]));
 
   const categoryColor = {
-    litigation: "var(--accent-blue)",
-    unrelated: "var(--accent-purple)",
+    litigation: "var(--accent-red)",
+    unrelated: "#9aa1ab",
     regulation: "var(--accent-amber)",
-    contamination: "#2a9d8f",
-    checked_none: "#b7c4d6",
+    contamination: "#3d7a72",
+    checked_none: "#c7cbd1",
   };
 
   const svg = d3.select("#world-map");
@@ -1758,7 +1845,7 @@ async function renderMap(DATA) {
     .attr("d", path)
     .attr("fill", d => {
       const code = FIPS_TO_STATE[d.id];
-      if (litigatingStates.has(code)) return "var(--accent-blue)";
+      if (litigatingStates.has(code)) return "var(--accent-red)";
       if (candidateMap[code] && candidateMap[code].rank <= getRankCutoff()) return "var(--accent-amber)";
       return "#eceeef";
     })
@@ -1784,7 +1871,7 @@ async function renderMap(DATA) {
   window.__refreshPfasMapColors = function () {
     mapPaths.attr("fill", d => {
       const code = FIPS_TO_STATE[d.id];
-      if (litigatingStates.has(code)) return "var(--accent-blue)";
+      if (litigatingStates.has(code)) return "var(--accent-red)";
       if (candidateMap[code] && candidateMap[code].rank <= getRankCutoff()) return "var(--accent-amber)";
       return "#eceeef";
     });
@@ -1836,6 +1923,25 @@ function normalizeDefendant(raw) {
   return match ? match[1] : null;
 }
 
+function collapsibleCard(obj) {
+  if (!obj) return "";
+  const t = tierClass(obj.tier || "");
+  let currentRole = "underwriter";
+  try { currentRole = localStorage.getItem("pfasTracker:role") || "underwriter"; } catch (e) {}
+  return `
+    <details class="finding-card"${currentRole === "actuary" ? " open" : ""}>
+      <summary>
+        <span class="fc-headline">${esc(obj.label)}</span>
+        ${obj.tier ? `<span class="tier-tag" style="background:${t.bg}; color:${t.fg}; flex-shrink:0;">${esc(obj.tier.split(" ")[0])}</span>` : ""}
+      </summary>
+      <div class="fc-body">
+        <p>${esc(obj.detail)}</p>
+        ${obj.source_name ? `<div class="src">${esc(obj.source_name)}${obj.source_url ? ` &middot; <a href="${obj.source_url}" target="_blank" rel="noopener">source</a>` : ""}</div>` : ""}
+      </div>
+    </details>
+  `;
+}
+
 function renderPolicyExclusions(DATA) {
   const pe = DATA.policy_exclusions;
   const section = document.getElementById("policy-exclusions");
@@ -1843,27 +1949,8 @@ function renderPolicyExclusions(DATA) {
   section.style.display = "";
   document.getElementById("policy-exclusions-sub").textContent = pe.methodology_note;
 
-  const dh = pe.drafting_history;
-  const dt = tierClass(dh.tier);
-  document.getElementById("policy-exclusions-history").innerHTML = `
-    <p><strong>${esc(dh.label)}</strong></p>
-    <p>${esc(dh.detail)}</p>
-    <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.03em; padding:3px 10px; border-radius:999px; background:${dt.bg}; color:${dt.fg};">${esc(dh.tier.split(" ")[0])}</span>
-    <div class="src" style="margin-top:8px;">${esc(dh.source_name)} &middot; <a href="${dh.source_url}" target="_blank" rel="noopener">source</a></div>
-  `;
-
-  document.getElementById("policy-exclusions-cases").innerHTML = pe.real_cases.map(c => {
-    const ct = tierClass(c.tier);
-    return `
-      <div class="precedent-card">
-        <h4>${esc(c.label)}</h4>
-        <div class="pc-row">${esc(c.detail)}</div>
-        <span class="tier-tag" style="background:${ct.bg}; color:${ct.fg}">${esc(c.tier.split(" ")[0])}</span>
-        <div class="src">${esc(c.source_name)}${c.source_url ? ` &middot; <a href="${c.source_url}" target="_blank" rel="noopener">source</a>` : ""}</div>
-      </div>
-    `;
-  }).join("");
-
+  document.getElementById("policy-exclusions-history").innerHTML = collapsibleCard(pe.drafting_history);
+  document.getElementById("policy-exclusions-cases").innerHTML = pe.real_cases.map(collapsibleCard).join("");
   document.getElementById("policy-exclusions-limits").textContent = pe.honest_limits;
 }
 
@@ -1875,20 +1962,9 @@ function renderCrossClassMapping(DATA) {
   document.getElementById("cross-class-sub").textContent = cc.methodology_note;
 
   const chain = cc.verified_chain;
-  const t = tierClass("VERIFIED");
   document.getElementById("cross-class-chain").innerHTML = `
-    <p><strong>${esc(chain.defendant)}</strong> &mdash; one company, named across these separate insurance lines:</p>
-    ${chain.channels.map(ch => {
-      const ct = tierClass(ch.tier);
-      return `
-        <div style="margin:14px 0; padding-top:14px; border-top:1px solid var(--chip-bg);">
-          <div style="font-weight:600; font-size:14px; margin-bottom:5px;">${esc(ch.line)}</div>
-          <p style="margin:0 0 8px;">${esc(ch.detail)}</p>
-          <span style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.03em; padding:3px 10px; border-radius:999px; background:${ct.bg}; color:${ct.fg};">${esc(ch.tier.split(" ")[0])}</span>
-          ${ch.source_name ? `<div class="src" style="margin-top:6px;">${esc(ch.source_name)}${ch.source_url ? ` &middot; <a href="${ch.source_url}" target="_blank" rel="noopener">source</a>` : ""}</div>` : ""}
-        </div>
-      `;
-    }).join("")}
+    <p style="font-size:13.5px; color:var(--ink-muted); margin:0 0 12px;"><strong style="color:var(--ink);">${esc(chain.defendant)}</strong> &mdash; one company, named across these separate insurance lines:</p>
+    ${chain.channels.map(ch => collapsibleCard({ label: ch.line, detail: ch.detail, tier: ch.tier, source_name: ch.source_name, source_url: ch.source_url })).join("")}
   `;
   document.getElementById("cross-class-limits").textContent = cc.honest_limits;
 }
@@ -2285,14 +2361,30 @@ function setupWhatsNew(DATA) {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(currentSnapshot)); } catch (e) {}
 }
 
+function setupThemeToggle() {
+  const STORAGE_KEY = "pfasTracker:theme";
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  function isDark() { return document.documentElement.getAttribute("data-theme") === "dark"; }
+  function apply() { btn.textContent = isDark() ? "☀" : "☾"; }
+  apply();
+  btn.addEventListener("click", () => {
+    const next = isDark() ? "light" : "dark";
+    if (next === "dark") document.documentElement.setAttribute("data-theme", "dark");
+    else document.documentElement.removeAttribute("data-theme");
+    try { localStorage.setItem(STORAGE_KEY, next); } catch (e) {}
+    apply();
+  });
+}
+
 function setupRoleToggle() {
   const STORAGE_KEY = "pfasTracker:role";
   const detailIds = ["sources-detail", "not-used-detail", "roster-detail"];
   const spotlightIds = ["portfolio", "entities"];
 
   const ROLE_COPY = {
-    underwriter: "Decision support for binding and renewal. Methodology and the full defendant roster stay one click away, collapsed by default.",
-    actuary: "Full data lineage expanded by default: model sources, what was deliberately excluded, and the complete MDL defendant roster, all open for review.",
+    underwriter: "Decision support for binding and renewal. Every finding is collapsed to its headline -- click any card to see the full methodology and source.",
+    actuary: "Every finding expanded by default: full methodology, sources, and the complete MDL defendant roster, all open for review without clicking through.",
     broker: "Built for the client conversation: the portfolio exposure check and the entity/corporate-structure view are highlighted so you can walk a prospect through who's actually on the hook."
   };
 
@@ -2307,6 +2399,7 @@ function setupRoleToggle() {
       const el = document.getElementById(id);
       if (el) el.classList.toggle("role-spotlight", role === "broker");
     });
+    document.querySelectorAll("details.finding-card").forEach(d => { d.open = shouldOpen; });
     const descEl = document.getElementById("role-desc");
     if (descEl) descEl.textContent = ROLE_COPY[role] || "";
     document.body.classList.remove("role-underwriter", "role-actuary", "role-broker");

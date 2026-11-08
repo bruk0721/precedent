@@ -862,6 +862,16 @@
   "changelog": [
     {
       "date": "2026-11-08",
+      "label": "Readability overhaul: collapsed finding cards, role-toggle bulk expand/collapse, 30-second TL;DR",
+      "detail": "Addressed feedback that the site was overwhelming to read. Policy Exclusions and Cross-Class Mapping findings now collapse to a one-line headline + tier badge by default, full methodology and source behind a click. The existing Underwriter/Actuary/Broker role toggle now bulk-expands or collapses every finding card at once -- Underwriter (default) stays collapsed, Actuary opens everything. Added a real, computed \"30-second version\" summary at the top of the page."
+    },
+    {
+      "date": "2026-11-08",
+      "label": "Design overhaul: cut palette to navy + risk-red, added dark mode, terminal-style stat numerals",
+      "detail": "Replaced the soft 4-5 color pastel palette with one confident primary (deep navy, for brand/confirmed/trust) and one sharp secondary reserved strictly for risk signals (litigating states, denied claims, accumulation flags) -- everything else now gray. Litigating states on both maps now render in risk-red instead of blue. Added a dark-mode toggle (light stays default for daily use). Stat numbers now use a monospace numeral font with tabular figures and a thin rule underneath, reading as a data terminal rather than a generic SaaS template."
+    },
+    {
+      "date": "2026-11-08",
       "label": "New: Object: Policy Exclusions -- the real CGL pollution-exclusion link, plus local underwriting notes",
       "detail": "Added the third object this tracker was missing (Defendant/Company and Statute already existed): Policy Exclusions. Covers the 1986 absolute/broad-form pollution exclusion's drafting history and three real coverage disputes, including Fire-Dex's own insurer (Admiral) denying coverage for the turnout-gear suits under an occupational-disease exclusion -- directly tied to a defendant already in this tracker's Company layer. Also added a notes field to the \"Flag for underwriting review\" feature, honestly labeled as browser-local only (no backend yet) -- the real seed of a future shared annotation layer, not a fabricated one."
     },
