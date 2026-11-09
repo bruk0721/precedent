@@ -62,6 +62,17 @@
   .run-btn.secondary:hover { background: var(--accent-blue-bg); color: var(--accent-blue); }
   .format-note { font-size: 12px; color: var(--ink-faint); margin-top: 10px; line-height: 1.6; }
 
+  .accum-total { display: flex; gap: 32px; flex-wrap: wrap; padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--chip-bg); }
+  .accum-total .n { font-family: var(--font-mono); font-size: 28px; font-weight: 600; }
+  .accum-total .n.red { color: var(--accent-red); }
+  .accum-total .l { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
+  .accum-breakdown-title { font-size: 12.5px; font-weight: 700; margin: 14px 0 8px; color: var(--ink-muted); }
+  .accum-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 13px; }
+  .accum-bar-label { width: 130px; flex-shrink: 0; font-family: var(--font-mono); font-size: 12.5px; }
+  .accum-bar-track { flex: 1; height: 10px; background: var(--chip-bg); border-radius: 6px; overflow: hidden; }
+  .accum-bar-fill { height: 100%; background: var(--accent-red); border-radius: 6px; }
+  .accum-bar-value { font-family: var(--font-mono); font-size: 12.5px; color: var(--ink-muted); width: 90px; text-align: right; flex-shrink: 0; }
+
   .summary-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
   .summary-stat .n { font-family: var(--font-mono); font-size: 26px; font-weight: 600; }
   .summary-stat .n.red { color: var(--accent-red); }
@@ -110,8 +121,8 @@
 <div class="wrap">
   <div class="card">
     <h2>Your book of business</h2>
-    <p class="card-sub">One account per line: <code>account name, state code, NAICS code</code> (e.g. <code>Acme Specialty Chemical, OH, 325998</code>).</p>
-    <textarea id="book-input" placeholder="Acme Specialty Chemical, OH, 325998&#10;Riverside Carpet Mills, GA, 314110&#10;Midwest Refining Co, IL, 324110"></textarea>
+    <p class="card-sub">One account per line: <code>account name, state code, NAICS code, policy limit (optional)</code> (e.g. <code>Acme Specialty Chemical, OH, 325998, 5000000</code>). The policy limit is optional but unlocks the portfolio accumulation view below &mdash; without it you still get the ranked, flagged-account list.</p>
+    <textarea id="book-input" placeholder="Acme Specialty Chemical, OH, 325998, 5000000&#10;Riverside Carpet Mills, GA, 314110, 2000000&#10;Midwest Refining Co, IL, 324110"></textarea>
     <div class="btn-row">
       <button class="run-btn" id="scan-btn">Scan portfolio</button>
       <button class="run-btn secondary" id="sample-btn">Load sample book</button>
@@ -125,6 +136,12 @@
       <div class="summary-row" id="summary-row"></div>
       <div id="table-wrap"></div>
     </div>
+
+    <div class="card" id="accumulation-card" style="display:none;">
+      <h2>Portfolio accumulation</h2>
+      <p class="card-sub">The real pattern behind large unexpected reserve charges isn't usually one bad account &mdash; it's PFAS exposure scattered invisibly across many accounts in the same book, concentrated by state or NAICS without anyone seeing the total until it's already a loss. This rolls up policy limits across every RED/AMBER account, so that total is visible now.</p>
+      <div id="accumulation-body"></div>
+    </div>
   </div>
 
   <footer>
@@ -137,20 +154,22 @@
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
 
 const SAMPLE_BOOK = [
-  "Acme Specialty Chemical Co, MN, 325998",
-  "Riverside Carpet Mills, GA, 314110",
-  "Heritage Textile Finishing, NC, 313310",
-  "Lakeside Food Packaging, WI, 322299",
-  "Summit Cosmetics Group, CA, 325620",
-  "Northgate Petroleum Refining, TX, 324110",
-  "Bayview Metal Finishing, OH, 332813",
-  "Unrelated Regional Bakery, VA, 311811",
+  "Acme Specialty Chemical Co, MN, 325998, 10000000",
+  "Riverside Carpet Mills, GA, 314110, 3000000",
+  "Heritage Textile Finishing, NC, 313310, 4000000",
+  "Lakeside Food Packaging, WI, 322299, 2500000",
+  "Summit Cosmetics Group, CA, 325620, 5000000",
+  "Northgate Petroleum Refining, TX, 324110, 8000000",
+  "Bayview Metal Finishing, OH, 332813, 1500000",
+  "Unrelated Regional Bakery, VA, 311811, 500000",
 ].join("\n");
 
 function parseBook(text) {
   return text.split("\n").map(l => l.trim()).filter(Boolean).map(line => {
     const parts = line.split(",").map(p => p.trim());
-    return { account: parts[0] || "(unnamed)", state: (parts[1] || "").toUpperCase(), naics: parts[2] || "" };
+    const rawLimit = parts[3] ? parts[3].replace(/[$,]/g, "") : "";
+    const limit = rawLimit && !isNaN(parseFloat(rawLimit)) ? parseFloat(rawLimit) : null;
+    return { account: parts[0] || "(unnamed)", state: (parts[1] || "").toUpperCase(), naics: parts[2] || "", limit };
   }).filter(r => r.state && r.naics);
 }
 
@@ -186,12 +205,13 @@ function scanPortfolio() {
   `;
 
   document.getElementById("table-wrap").innerHTML = `<table class="results">
-    <thead><tr><th>Account</th><th>State</th><th>NAICS</th><th>Threat</th><th>Why</th><th>Action</th><th></th></tr></thead>
+    <thead><tr><th>Account</th><th>State</th><th>NAICS</th><th>Limit</th><th>Threat</th><th>Why</th><th>Action</th><th></th></tr></thead>
     <tbody>${assessed.map((a, i) => `
       <tr>
         <td><b>${esc(a.account)}</b></td>
         <td>${esc(a.state)}</td>
         <td><span style="font-family:var(--font-mono)">${esc(a.naics)}</span></td>
+        <td style="font-family:var(--font-mono);font-size:12.5px;">${a.limit != null ? "$" + a.limit.toLocaleString(undefined, { maximumFractionDigits: 0 }) : "&mdash;"}</td>
         <td><span class="row-tag ${a.result.threat.color}">${esc(a.result.threat.color.toUpperCase())}</span></td>
         <td style="font-size:12.5px;color:var(--ink-muted)">${esc(a.result.threat.label)}${a.result.nextTarget.length ? ` &middot; ${a.result.nextTarget.length} downstream NAICS flagged` : ""}</td>
         <td><select class="status-select" data-idx="${i}">${STATUS_OPTIONS.map(o => `<option${o === a.status ? " selected" : ""}>${esc(o)}</option>`).join("")}</select></td>
@@ -217,14 +237,79 @@ function scanPortfolio() {
     });
   });
 
+  renderAccumulation(assessed);
+
   document.getElementById("download-btn").style.display = "inline-block";
   window._lastScan = assessed;
 }
 
+// Portfolio accumulation -- the real pattern behind charges like Everest's
+// real $2.39B one, which cited "concentrated portfolio risk" by name: not
+// one bad account, but exposure to the same emerging risk scattered across
+// many accounts in the same book, invisible until it's already a loss.
+// Rolls up POLICY LIMITS (the user's own number, from the optional 4th
+// book column) across RED/AMBER accounts -- never a defendant's own
+// severity_anchors dollar figure, which belongs to that company's own
+// balance sheet, not to an unrelated policyholder's limit; summing those
+// across accounts would double- and triple-count the same $7.7B as if
+// every account owed it, which is exactly the kind of conflation this
+// project's hard rules exist to prevent.
+function renderAccumulation(assessed) {
+  const card = document.getElementById("accumulation-card");
+  const el = document.getElementById("accumulation-body");
+  const withLimit = assessed.filter(a => a.limit != null);
+  const missing = assessed.length - withLimit.length;
+
+  if (!assessed.length) { card.style.display = "none"; return; }
+  card.style.display = "block";
+
+  if (!withLimit.length) {
+    el.innerHTML = `<p class="empty-note">No policy limits were provided in the pasted book (4th column). Add a limit per account to see concentrated-exposure totals by state and NAICS.</p>`;
+    return;
+  }
+
+  const concentrated = withLimit.filter(a => a.result.threat.color === "red" || a.result.threat.color === "amber");
+  const totalConcentrated = concentrated.reduce((sum, a) => sum + a.limit, 0);
+  const totalBook = withLimit.reduce((sum, a) => sum + a.limit, 0);
+  const pct = totalBook > 0 ? (totalConcentrated / totalBook * 100) : 0;
+
+  const byKey = (keyFn) => {
+    const m = {};
+    for (const a of concentrated) {
+      const k = keyFn(a);
+      m[k] = (m[k] || 0) + a.limit;
+    }
+    return Object.entries(m).sort((a, b) => b[1] - a[1]);
+  };
+  const byState = byKey(a => a.state);
+  const byNaics = byKey(a => a.naics);
+  const maxVal = Math.max(totalConcentrated, 1);
+
+  const bar = (rows) => rows.map(([label, val]) => `
+    <div class="accum-bar-row">
+      <div class="accum-bar-label">${esc(label)}</div>
+      <div class="accum-bar-track"><div class="accum-bar-fill" style="width:${Math.max((val / maxVal) * 100, 2)}%"></div></div>
+      <div class="accum-bar-value">$${val.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+    </div>`).join("");
+
+  el.innerHTML = `
+    <div class="accum-total">
+      <div><div class="n red">$${totalConcentrated.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div><div class="l">Concentrated in RED/AMBER accounts</div></div>
+      <div><div class="n">${concentrated.length} / ${withLimit.length}</div><div class="l">Accounts with limits that are flagged</div></div>
+      <div><div class="n">${pct.toFixed(1)}%</div><div class="l">Share of scanned book's total limits</div></div>
+    </div>
+    ${missing ? `<p class="empty-note" style="margin-bottom:14px;">${missing} of ${assessed.length} account(s) had no policy limit provided and are excluded from these totals.</p>` : ""}
+    <div class="accum-breakdown-title">Concentrated limit by state</div>
+    ${bar(byState)}
+    <div class="accum-breakdown-title">Concentrated limit by NAICS</div>
+    ${bar(byNaics)}
+  `;
+}
+
 function downloadCsv() {
   const assessed = window._lastScan || [];
-  const header = "account,state,naics,threat,label,action\n";
-  const body = assessed.map(a => [a.account, a.state, a.naics, a.result.threat.color, a.result.threat.label, a.status]
+  const header = "account,state,naics,policy_limit,threat,label,action\n";
+  const body = assessed.map(a => [a.account, a.state, a.naics, a.limit != null ? a.limit : "", a.result.threat.color, a.result.threat.label, a.status]
     .map(v => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n");
   const blob = new Blob([header + body], { type: "text/csv" });
   const url = URL.createObjectURL(blob);
@@ -282,6 +367,7 @@ function buildMemoHtml(a) {
     <div class="threat-label">${esc(r.threat.color)} &mdash; ${esc(r.threat.label)}</div>
     <div>${esc(r.threat.rec)}</div>
     <div style="margin-top:8px;font-size:12.5px;"><b>Underwriting action on file:</b> ${esc(a.status)}</div>
+    ${a.limit != null ? `<div style="margin-top:4px;font-size:12.5px;"><b>Policy limit on file:</b> $${a.limit.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>` : ""}
   </div>
   <h3>Plaintiff Radar</h3><ul>${plaintiffHtml}</ul>
   <h3>Legislative Contagion</h3><ul>${legHtml}</ul>
