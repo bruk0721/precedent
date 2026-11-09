@@ -131,6 +131,45 @@ const MoatEngine = (() => {
     return (DB.downstream_adjacency || {})[naics] || [];
   }
 
+  // Entity Traversal / veil-piercing -- ported from
+  // entity_traversal_pipeline.py's detect_veil_piercing(). For every docket,
+  // flag it when BOTH a known subsidiary AND its parent company appear as
+  // defendants in that same docket -- that co-occurrence is the real signal
+  // a complaint reached past the subsidiary up to the parent's much larger
+  // corporate insurance tower, not just a naming coincidence. Scoped to the
+  // CURRENT account's own defendants (parents it's actually exposed to),
+  // not run globally, so the console only ever shows a signal relevant to
+  // the NAICS being assessed.
+  function detectVeilPiercing(defendants) {
+    if (!defendants.length) return [];
+    const defTokens = defendants.map(d => normalizeForMatch(d));
+    const subsidiaryRows = (DB.corporate_subsidiaries || []).filter(
+      s => defTokens.some(t => t.includes(normalizeForMatch(s.parent_company)) || normalizeForMatch(s.parent_company).includes(t))
+    );
+    if (!subsidiaryRows.length) return [];
+
+    const docketDefendants = {};
+    for (const r of DB.plaintiff_network) {
+      const key = r.docket_id;
+      (docketDefendants[key] = docketDefendants[key] || new Set()).add(normalizeForMatch(r.defendant));
+    }
+
+    const flags = [];
+    for (const { parent_company, subsidiary_name } of subsidiaryRows) {
+      const p = normalizeForMatch(parent_company);
+      const s = normalizeForMatch(subsidiary_name);
+      for (const [docketId, defs] of Object.entries(docketDefendants)) {
+        const parentHit = [...defs].some(d => d.includes(p) || p.includes(d));
+        const subHit = [...defs].some(d => d.includes(s) || s.includes(d));
+        if (parentHit && subHit) {
+          const sampleRow = DB.plaintiff_network.find(r => r.docket_id === docketId);
+          flags.push({ docketId, parent: parent_company, subsidiary: subsidiary_name, caseName: sampleRow && sampleRow.case_name, sourceUrl: sampleRow && sampleRow.source_url });
+        }
+      }
+    }
+    return flags;
+  }
+
   function isDownstreamTarget(naics) {
     const adj = DB.downstream_adjacency || {};
     return Object.values(adj).some(list => list.some(a => a.naics === naics));
@@ -149,6 +188,7 @@ const MoatEngine = (() => {
     return {
       naics, state, defendants, plaintiffRows, legResult, severityRows, threat,
       maxSeverity, velocity, naicsIsRelevant, nextTarget: getDownstreamAdjacency(naics),
+      veilPiercing: detectVeilPiercing(defendants),
     };
   }
 
@@ -161,7 +201,7 @@ const MoatEngine = (() => {
   return {
     load, assess, getDefendantsForNaics, queryPlaintiffRadar, queryLegislativeContagion,
     querySeverityAnchor, parseDollarToMillions, computeThreatLevel, getFilingVelocity,
-    getDownstreamAdjacency, normalizeForMatch, US_BORDERS, STATE_NAMES,
+    getDownstreamAdjacency, detectVeilPiercing, normalizeForMatch, US_BORDERS, STATE_NAMES,
     get db() { return DB; },
   };
 })();

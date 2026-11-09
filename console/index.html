@@ -177,6 +177,12 @@
       <div id="next-target-body"></div>
     </div>
 
+    <div class="card" id="veil-card" style="display:none;">
+      <h2>Entity traversal &mdash; veil-piercing signal</h2>
+      <p class="card-sub">Flags a docket where a complaint names BOTH a known subsidiary and its parent company as defendants &mdash; the moment a mass-tort case stops naming just the subsidiary and reaches up to the parent's much larger corporate insurance tower.</p>
+      <div id="veil-body"></div>
+    </div>
+
     <div class="card">
       <h2>Zero-Day IBNR signal</h2>
       <p class="card-sub">Severity anchor &times; filing velocity, as a dimensionless index &mdash; not a dollar reserve, not an actuarial estimate.</p>
@@ -295,6 +301,23 @@ function renderNextTarget(defendants, nextTarget) {
   ).join("");
 }
 
+function renderVeilPiercing(defendants, flags) {
+  const card = document.getElementById("veil-card");
+  const el = document.getElementById("veil-body");
+  if (!defendants.length) {
+    card.style.display = "none";
+    return;
+  }
+  card.style.display = "block";
+  if (!flags.length) {
+    el.innerHTML = `<p class="empty-note">0 found. Either no veil-piercing event is on record yet, or the dockets pulled so far don't name both a subsidiary and its parent as defendants in the same case -- this is not the same as "no risk," it means nothing has been found yet.</p>`;
+    return;
+  }
+  el.innerHTML = `<span class="tag red">${flags.length} veil-piercing signal(s) found</span>` + flags.map(f =>
+    `<div class="finding-line">Docket names both <b>${esc(f.subsidiary)}</b> (subsidiary) and <b>${esc(f.parent)}</b> (parent) as defendants${f.caseName ? ` in <i>${esc(f.caseName)}</i>` : ""}${srcLink(f.sourceUrl, "View docket")}</div>`
+  ).join("");
+}
+
 function runAssessment() {
   const naics = document.getElementById("naics-input").value.trim();
   const state = document.getElementById("state-input").value;
@@ -306,6 +329,7 @@ function runAssessment() {
   renderSeverity(naics, result.severityRows);
   renderThreat(result.threat.color, result.threat.label, result.threat.rec);
   renderNextTarget(result.defendants, result.nextTarget);
+  renderVeilPiercing(result.defendants, result.veilPiercing);
   renderIbnr(result.maxSeverity, result.velocity);
 }
 
