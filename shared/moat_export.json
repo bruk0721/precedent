@@ -13,7 +13,8 @@
       "extracted_at": "2026-11-08T15:01:57.894266+00:00",
       "sec_sic_code": "3841",
       "sec_sic_description": "Surgical & Medical Instruments & Apparatus",
-      "naics_code": "325998"
+      "naics_code": "325998",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm"
     },
     {
       "id": 147,
@@ -28,7 +29,8 @@
       "extracted_at": "2026-11-08T15:01:57.899715+00:00",
       "sec_sic_code": "3841",
       "sec_sic_description": "Surgical & Medical Instruments & Apparatus",
-      "naics_code": "325998"
+      "naics_code": "325998",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm"
     },
     {
       "id": 148,
@@ -43,7 +45,8 @@
       "extracted_at": "2026-11-08T15:01:57.899715+00:00",
       "sec_sic_code": "3841",
       "sec_sic_description": "Surgical & Medical Instruments & Apparatus",
-      "naics_code": "325998"
+      "naics_code": "325998",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm"
     },
     {
       "id": 149,
@@ -58,7 +61,8 @@
       "extracted_at": "2026-11-08T15:01:57.899715+00:00",
       "sec_sic_code": "3841",
       "sec_sic_description": "Surgical & Medical Instruments & Apparatus",
-      "naics_code": "325998"
+      "naics_code": "325998",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm"
     },
     {
       "id": 150,
@@ -73,7 +77,8 @@
       "extracted_at": "2026-11-08T15:01:57.899715+00:00",
       "sec_sic_code": "3841",
       "sec_sic_description": "Surgical & Medical Instruments & Apparatus",
-      "naics_code": "325998"
+      "naics_code": "325998",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm"
     },
     {
       "id": 151,
@@ -88,7 +93,8 @@
       "extracted_at": "2026-11-08T15:01:57.899715+00:00",
       "sec_sic_code": "3841",
       "sec_sic_description": "Surgical & Medical Instruments & Apparatus",
-      "naics_code": "325998"
+      "naics_code": "325998",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm"
     },
     {
       "id": 152,
@@ -103,7 +109,8 @@
       "extracted_at": "2026-11-08T22:39:47.753563+00:00",
       "sec_sic_code": "2821",
       "sec_sic_description": "Plastic Materials, Synth Resins & Nonvulcan Elastomers",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm"
     },
     {
       "id": 153,
@@ -118,7 +125,8 @@
       "extracted_at": "2026-11-08T22:39:47.756964+00:00",
       "sec_sic_code": "2821",
       "sec_sic_description": "Plastic Materials, Synth Resins & Nonvulcan Elastomers",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm"
     },
     {
       "id": 154,
@@ -133,7 +141,8 @@
       "extracted_at": "2026-11-08T22:39:47.756964+00:00",
       "sec_sic_code": "2821",
       "sec_sic_description": "Plastic Materials, Synth Resins & Nonvulcan Elastomers",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm"
     },
     {
       "id": 155,
@@ -148,7 +157,8 @@
       "extracted_at": "2026-11-08T22:39:47.756964+00:00",
       "sec_sic_code": "2821",
       "sec_sic_description": "Plastic Materials, Synth Resins & Nonvulcan Elastomers",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm"
     },
     {
       "id": 156,
@@ -163,7 +173,8 @@
       "extracted_at": "2026-11-08T22:39:47.756964+00:00",
       "sec_sic_code": "2821",
       "sec_sic_description": "Plastic Materials, Synth Resins & Nonvulcan Elastomers",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm"
     },
     {
       "id": 157,
@@ -178,7 +189,8 @@
       "extracted_at": "2026-11-08T22:39:47.756964+00:00",
       "sec_sic_code": "2821",
       "sec_sic_description": "Plastic Materials, Synth Resins & Nonvulcan Elastomers",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm"
     },
     {
       "id": 158,
@@ -193,7 +205,8 @@
       "extracted_at": "2026-11-08T22:39:47.756964+00:00",
       "sec_sic_code": "2821",
       "sec_sic_description": "Plastic Materials, Synth Resins & Nonvulcan Elastomers",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm"
     },
     {
       "id": 159,
@@ -208,7 +221,8 @@
       "extracted_at": "2026-11-08T22:39:47.756964+00:00",
       "sec_sic_code": "2821",
       "sec_sic_description": "Plastic Materials, Synth Resins & Nonvulcan Elastomers",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm"
     },
     {
       "id": 160,
@@ -223,7 +237,8 @@
       "extracted_at": "2026-11-08T22:39:47.756964+00:00",
       "sec_sic_code": "2821",
       "sec_sic_description": "Plastic Materials, Synth Resins & Nonvulcan Elastomers",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm"
     },
     {
       "id": 166,
@@ -238,7 +253,8 @@
       "extracted_at": "2026-11-08T22:39:47.756964+00:00",
       "sec_sic_code": "2821",
       "sec_sic_description": "Plastic Materials, Synth Resins & Nonvulcan Elastomers",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm"
     },
     {
       "id": 167,
@@ -253,7 +269,8 @@
       "extracted_at": "2026-11-08T22:40:02.168389+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 168,
@@ -268,7 +285,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 169,
@@ -283,7 +301,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 170,
@@ -298,7 +317,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 171,
@@ -313,7 +333,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 172,
@@ -328,7 +349,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 173,
@@ -343,7 +365,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 174,
@@ -358,7 +381,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 175,
@@ -373,7 +397,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 176,
@@ -388,7 +413,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 186,
@@ -403,7 +429,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 187,
@@ -418,7 +445,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 188,
@@ -433,7 +461,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 189,
@@ -448,7 +477,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 190,
@@ -463,7 +493,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 195,
@@ -478,7 +509,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 196,
@@ -493,7 +525,8 @@
       "extracted_at": "2026-11-08T22:40:02.176028+00:00",
       "sec_sic_code": "2800",
       "sec_sic_description": "Chemicals & Allied Products",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000119312526065201/cc-20251231.htm"
     },
     {
       "id": 197,
@@ -508,7 +541,8 @@
       "extracted_at": "2026-11-08T22:40:22.931267+00:00",
       "sec_sic_code": "0100",
       "sec_sic_description": "Agricultural Production-Crops",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000004/ctva-20251231.htm"
     },
     {
       "id": 202,
@@ -523,7 +557,8 @@
       "extracted_at": "2026-11-08T22:40:22.946158+00:00",
       "sec_sic_code": "0100",
       "sec_sic_description": "Agricultural Production-Crops",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000004/ctva-20251231.htm"
     },
     {
       "id": 203,
@@ -538,7 +573,8 @@
       "extracted_at": "2026-11-08T22:40:22.946158+00:00",
       "sec_sic_code": "0100",
       "sec_sic_description": "Agricultural Production-Crops",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000004/ctva-20251231.htm"
     },
     {
       "id": 204,
@@ -553,7 +589,8 @@
       "extracted_at": "2026-11-08T22:40:22.946158+00:00",
       "sec_sic_code": "0100",
       "sec_sic_description": "Agricultural Production-Crops",
-      "naics_code": "325199"
+      "naics_code": "325199",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1755672/000175567226000004/ctva-20251231.htm"
     },
     {
       "id": 206,
@@ -568,7 +605,8 @@
       "extracted_at": "2026-11-08T22:49:39.096182+00:00",
       "sec_sic_code": "3585",
       "sec_sic_description": "Air-Cond & Warm Air Heatg Equip & Comm & Indl Refrig Equip",
-      "naics_code": "325998"
+      "naics_code": "325998",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/833444/000083344425000097/jci-20250930.htm"
     }
   ],
   "plaintiff_network": [
@@ -581,7 +619,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 2,
@@ -592,7 +631,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 3,
@@ -603,7 +643,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 4,
@@ -614,7 +655,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 5,
@@ -625,7 +667,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 6,
@@ -636,7 +679,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 7,
@@ -647,7 +691,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 8,
@@ -658,7 +703,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 9,
@@ -669,7 +715,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 10,
@@ -680,7 +727,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 11,
@@ -691,7 +739,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 12,
@@ -702,7 +751,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 13,
@@ -713,7 +763,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 14,
@@ -724,7 +775,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 15,
@@ -735,7 +787,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 16,
@@ -746,7 +799,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 17,
@@ -757,7 +811,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 18,
@@ -768,7 +823,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 19,
@@ -779,7 +835,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 20,
@@ -790,7 +847,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 21,
@@ -801,7 +859,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 22,
@@ -812,7 +871,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 23,
@@ -823,7 +883,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 24,
@@ -834,7 +895,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 25,
@@ -845,7 +907,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 26,
@@ -856,7 +919,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 27,
@@ -867,7 +931,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 28,
@@ -878,7 +943,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "low",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 29,
@@ -889,7 +955,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "low",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 30,
@@ -900,7 +967,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "low",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 31,
@@ -911,7 +979,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 32,
@@ -922,7 +991,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 33,
@@ -933,7 +1003,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 34,
@@ -944,7 +1015,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 35,
@@ -955,7 +1027,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 36,
@@ -966,7 +1039,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 37,
@@ -977,7 +1051,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 38,
@@ -988,7 +1063,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 39,
@@ -999,7 +1075,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 40,
@@ -1010,7 +1087,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 41,
@@ -1021,7 +1099,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 42,
@@ -1032,7 +1111,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 43,
@@ -1043,7 +1123,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 44,
@@ -1054,7 +1135,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 45,
@@ -1065,7 +1147,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 46,
@@ -1076,7 +1159,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 47,
@@ -1087,7 +1171,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 48,
@@ -1098,7 +1183,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 49,
@@ -1109,7 +1195,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 50,
@@ -1120,7 +1207,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 51,
@@ -1131,7 +1219,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 52,
@@ -1142,7 +1231,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 53,
@@ -1153,7 +1243,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 54,
@@ -1164,7 +1255,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 55,
@@ -1175,7 +1267,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 56,
@@ -1186,7 +1279,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 57,
@@ -1197,7 +1291,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 58,
@@ -1208,7 +1303,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 59,
@@ -1219,7 +1315,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 60,
@@ -1230,7 +1327,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 61,
@@ -1241,7 +1339,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 62,
@@ -1252,7 +1351,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 63,
@@ -1263,7 +1363,8 @@
       "court": "United States Judicial Panel on Multidistrict Litigation",
       "confidence": "medium",
       "extracted_at": "2026-11-08T20:47:33.212653+00:00",
-      "date_filed": "2018-09-25"
+      "date_filed": "2018-09-25",
+      "source_url": "https://www.courtlistener.com/docket/289331/in-re-aqueous-film-forming-foams-products-liability-litigation/"
     },
     {
       "id": 64,
@@ -1274,7 +1375,8 @@
       "court": "scd",
       "confidence": "medium",
       "extracted_at": "2026-11-08T22:36:34.720870+00:00",
-      "date_filed": null
+      "date_filed": null,
+      "source_url": "https://www.courtlistener.com/docket/74803840/volpe-v-3m-company/"
     },
     {
       "id": 65,
@@ -1285,7 +1387,8 @@
       "court": "scd",
       "confidence": "medium",
       "extracted_at": "2026-11-08T22:36:34.720870+00:00",
-      "date_filed": null
+      "date_filed": null,
+      "source_url": "https://www.courtlistener.com/docket/74803840/volpe-v-3m-company/"
     },
     {
       "id": 66,
@@ -1296,7 +1399,8 @@
       "court": "scd",
       "confidence": "medium",
       "extracted_at": "2026-11-08T22:36:34.720870+00:00",
-      "date_filed": null
+      "date_filed": null,
+      "source_url": "https://www.courtlistener.com/docket/74803840/volpe-v-3m-company/"
     },
     {
       "id": 67,
@@ -1307,7 +1411,8 @@
       "court": "scd",
       "confidence": "medium",
       "extracted_at": "2026-11-08T22:36:34.720870+00:00",
-      "date_filed": null
+      "date_filed": null,
+      "source_url": "https://www.courtlistener.com/docket/74803840/volpe-v-3m-company/"
     },
     {
       "id": 68,
@@ -1318,7 +1423,8 @@
       "court": "scd",
       "confidence": "medium",
       "extracted_at": "2026-11-08T22:36:34.720870+00:00",
-      "date_filed": null
+      "date_filed": null,
+      "source_url": "https://www.courtlistener.com/docket/74803840/volpe-v-3m-company/"
     },
     {
       "id": 69,
@@ -1329,7 +1435,8 @@
       "court": "scd",
       "confidence": "medium",
       "extracted_at": "2026-11-08T22:36:34.720870+00:00",
-      "date_filed": null
+      "date_filed": null,
+      "source_url": "https://www.courtlistener.com/docket/74803840/volpe-v-3m-company/"
     }
   ],
   "legislative_timeline": [
@@ -1341,7 +1448,8 @@
       "title": "Med Assist;insurance;disability/work Comp",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:30:13.335102+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/AK/bill/HB14/2025"
     },
     {
       "id": 30,
@@ -1351,7 +1459,8 @@
       "title": "Firefighters; occupational disease; cancers",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:30:13.337155+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/AZ/bill/SB1215/2026"
     },
     {
       "id": 31,
@@ -1361,7 +1470,8 @@
       "title": "Firefighter Cancer Awareness Month.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:30:13.337155+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/CA/bill/SCR13/2025"
     },
     {
       "id": 32,
@@ -1371,7 +1481,8 @@
       "title": "Workers\u2019 compensation: firefighters.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:30:13.337155+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/CA/bill/SB230/2025"
     },
     {
       "id": 33,
@@ -1381,7 +1492,8 @@
       "title": "Employment.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:30:13.337155+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/CA/bill/SB1444/2025"
     },
     {
       "id": 36,
@@ -1391,7 +1503,8 @@
       "title": "Workers' Compensation - Heart Disease and Hypertension Presumption and Permanent Partial Disability - Carroll County Correctional Deputies",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:30:13.337155+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/MD/bill/HB878/2026"
     },
     {
       "id": 37,
@@ -1401,7 +1514,8 @@
       "title": "Workers' Compensation - Occupational Disease Presumptions - Hypertension",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:30:13.337155+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/MD/bill/HB347/2026"
     },
     {
       "id": 38,
@@ -1411,7 +1525,8 @@
       "title": "Workers' Compensation - Heart Disease and Hypertension Presumption and Permanent Partial Disability - Carroll County Correctional Deputies",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:30:13.337155+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/MD/bill/SB449/2026"
     },
     {
       "id": 39,
@@ -1421,7 +1536,8 @@
       "title": "An Act to Amend the Workers' Compensation Laws by Extending Indefinitely the Presumption Applying to Law Enforcement Officers, Corrections Officers, E-9-1-1 Dispatchers, Firefighters and Emergency Medical Services Persons Diagnosed with Post-traumatic Stress Disorder",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:30:13.337155+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/ME/bill/LD82/2025"
     },
     {
       "id": 40,
@@ -1431,7 +1547,8 @@
       "title": "2026 recommendations adoption of the Workers' Compensation Advisory Council",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:30:13.337155+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/MN/bill/SF3720/2025"
     },
     {
       "id": 43,
@@ -1441,7 +1558,8 @@
       "title": "Firefighter Occupational Disease Disablement",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:30:13.341458+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/NM/bill/HB128/2026"
     },
     {
       "id": 44,
@@ -1451,7 +1569,8 @@
       "title": "Memorializing Governor Kathy Hochul to proclaim January 2025, as Firefighter Cancer Prevention Month in the State of New York",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:30:13.341458+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/NY/bill/K00040/2025"
     },
     {
       "id": 45,
@@ -1461,7 +1580,8 @@
       "title": "Memorializing Governor Kathy Hochul to proclaim January 2026, as Firefighter Cancer Prevention Month in the State of New York",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:30:13.341458+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/NY/bill/K00860/2025"
     },
     {
       "id": 46,
@@ -1471,7 +1591,8 @@
       "title": "Workers' compensation; amending definitions. Effective date.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:30:13.341458+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/OK/bill/SB95/2026"
     },
     {
       "id": 47,
@@ -1481,7 +1602,8 @@
       "title": "Administrative Workers' Compensation Act; modifying definitions. Effective date.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:30:13.341458+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/OK/bill/SB1076/2026"
     },
     {
       "id": 48,
@@ -1491,7 +1613,8 @@
       "title": "Administrative Workers' Compensation Act; modifying definition. Effective date.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:30:13.341458+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/OK/bill/SB1944/2026"
     },
     {
       "id": 50,
@@ -1501,7 +1624,8 @@
       "title": "Occupational diseases",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:30:13.341458+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/SC/bill/H3163/2025"
     },
     {
       "id": 51,
@@ -1511,7 +1635,8 @@
       "title": "AN ACT to amend Tennessee Code Annotated, Section 7-51-201, relative to compensation paid to firefighters for certain conditions or injuries.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:30:13.341458+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/TN/bill/SB0288/2025"
     },
     {
       "id": 52,
@@ -1521,7 +1646,8 @@
       "title": "AN ACT to amend Tennessee Code Annotated, Section 7-51-201, relative to compensation paid to firefighters for certain conditions or injuries.",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:30:13.341458+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/TN/bill/HB0482/2025"
     },
     {
       "id": 54,
@@ -1531,7 +1657,8 @@
       "title": "First Responder Health Modifications",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:30:13.341458+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/UT/bill/HB0416/2026"
     },
     {
       "id": 56,
@@ -1541,7 +1668,8 @@
       "title": "Concerning termination and restatement of plan 1 of the law enforcement officers' and firefighters' retirement system.",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:30:13.341458+00:00",
-      "category": "firefighter_presumption"
+      "category": "firefighter_presumption",
+      "source_url": "https://legiscan.com/WA/bill/HB2034/2025"
     },
     {
       "id": 58,
@@ -1551,7 +1679,8 @@
       "title": "Perfluoroalkyl and polyfluoroalkyl substances (PFAS): Department of Pesticide Regulation.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:50:26.235921+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/CA/bill/AB1603/2025"
     },
     {
       "id": 59,
@@ -1561,7 +1690,8 @@
       "title": "PFAS PRODUCT BAN",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:50:26.238785+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/IL/bill/HB2516/2025"
     },
     {
       "id": 60,
@@ -1571,7 +1701,8 @@
       "title": "EPA-PFAS WASTEWATER",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:50:26.240376+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/IL/bill/HB2955/2025"
     },
     {
       "id": 62,
@@ -1581,7 +1712,8 @@
       "title": "Sewage Sludge - Per- and Polyfluoroalkyl Substances - Regulation",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:50:26.241224+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/MD/bill/SB719/2026"
     },
     {
       "id": 63,
@@ -1591,7 +1723,8 @@
       "title": "Sewage Sludge - Per- and Polyfluoroalkyl Substances - Regulation",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:50:26.242765+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/MD/bill/HB925/2026"
     },
     {
       "id": 64,
@@ -1601,7 +1734,8 @@
       "title": "An Act to Require the Department of Environmental Protection to Provide Certain Information Regarding Perfluoroalkyl and Polyfluoroalkyl Substances to the Public and Private Drinking Water Well Owners",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:50:26.243315+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/ME/bill/LD1786/2025"
     },
     {
       "id": 65,
@@ -1611,7 +1745,8 @@
       "title": "An Act to Protect the Drinking Water for Consumers of Certain Water Systems by Establishing Maximum Contaminant Levels for Certain Perfluoroalkyl and Polyfluoroalkyl Substances",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:50:26.245517+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/ME/bill/LD1326/2025"
     },
     {
       "id": 67,
@@ -1621,7 +1756,8 @@
       "title": "Enacts into law major components of legislation necessary to implement the state transportation, economic development and environmental conservation budget for the 2025-2026 state fiscal year; relates to the waterfront commission act; makes amendments to change \"applicant\" to \"licensee or registrant\" (Part A); provides for mass transportation payments to the Central New York Regional Transportation District; adds Cortland county to such district (Part B); relates to extending the authorization for a pre-licensing course internet program (Part C); increases the value of a motor vehicle considered abandoned which can become property of the local authority the vehicle is abandoned in (Part D); extends provisions of law relating to certain tax increment financing provisions (Part I); relates to certain provisions regarding labor disputes involving the Metropolitan Transportation Authority (Part J); relates to the acquisitions or transfers of property for certain transit projects; extends the effectiveness of certain provisions of law relating thereto (Part K); relates to funding for net paratransit operating expenses for the city of New York and the metropolitan transportation authority and makes permanent certain provisions of law relating thereto (Part L); provides funding for the metropolitan transportation authority 2025-2029 capital program (Part M); establishes a demonstration program on certain covered locations to enforce vehicle weight restriction on such interstate by means of mobile or stationary weigh in motion systems (Part N); authorizes a photo monitoring program for the Triborough bridge and tunnel authority and New York state bridge authority; extends provisions relating to certain notices of liability (Part Q); relates to the effectiveness of the New York state health insurance continuation assistance demonstration project (Part S); authorizes the Olympic regional development authority to enter into agreements for membership of one or more of its ski venues in reciprocal ski pass programs where such members are required to guarantee contractual indemnity up to a capped amount (Part T); regulates artificial intelligence companion models; establishes a suicide prevention fund (Part U); relates to refund policies for online retailers (Part V); enhances disclosure requirements for automatic renewals (Part W); requires disclosure of algorithmically set prices for goods and services (Part X); relates to the regulation of buy-now-pay-later lenders; requires such lenders to be licensed or authorized; establishes prohibited acts, limitations on loans, and consumer protections (Part Y); establishes reporting requirements for pharmacy benefit managers about the rebate contracts between pharmacy benefit managers and drug manufacturers (Part Z); provides for rate increases for hire motor vehicle insurance (Part CC); extends the authority of the New York state urban development to administer the empire state economic development fund (Part EE); extends the power of the New York state urban development corporation to make loans to 07/01/2026 (Part FF); extends the authority of the dormitory authority to enter into certain design and construction management agreements (Part GG); expands certain provisions of the state finance law and the New York state infrastructure trust fund; directs a policy study analyzing ways to improve the effectiveness of the minority and women-owned business enterprise program (Part KK); increases the cap on the amount of money authorized to be on deposit pursuant to the excelsior linked deposit program at any given time (Part LL); relates to purchasing thresholds for minority- or women-owned businesses or service-disabled veteran-owned businesses (Part MM); authorizes the New York convention center operating corporation to establish a subsidiary for the purposes of forming a pure captive insurance company (Part NN); extends the waste tire management fee until December 31, 2027; requires notice of the waste tire management and recycling program to be provided to customers; removes the exclusion for mail order sales (Part PP); extends provisions of the deer hunting program to 2028 (Part QQ); relates to financial responsibility, recovery of response costs and natural resource damages, and abatement actions relating to disposal of inactive hazardous waste (Part RR); relates to the recall of a class B firefighting foam; prohibits the sale or distribution of firefighting personal protective equipment that contains intentionally added PFAS; directs the department of environmental conservation to make a recommendation to the legislature on whether to postpone the effectiveness of such provisions (Part SS); exempts conveyances of real property for open space, parks, or historic preservation purposes to any not-for-profit corporation operated for conservation, environmental, parks or historic preservation purposes (Part TT); authorizes the New York state energy research and development authority to finance a portion of its research, development and demonstration, policy and planning, Fuel NY program, climate change related expenses of the department of environmental conservation from an assessment on gas and electric corporations (Part VV); relates to utility and cable television assessments that provide funds to the department of health from cable television assessment revenues and to the department of agriculture and markets, department of state, the office of parks, recreation and historic preservation, and the department of environmental conservation from utility assessment revenues; requires accountings be submitted of such funds (Part XX); increases and redirects civil penalties for failing to comply with the department of public service's prescribed rules and regulations established for the protection of underground facilities; amends the effectiveness of certain provisions relating to establishing the underground facilities safety training account (Part YY); authorizes the department of taxation and finance to disclose certain information to the department of environmental conservation or the New York state energy research and development authority for the purpose of implementing the New York state climate leadership and community protection act (Part ZZ); establishes a commission to replace the statue of Robert R. Livingston in the National Statuary Hall of the United States Capitol with a statue of Harriet Tubman; provides that such commission shall consist of the governor or a designee, the temporary president of the senate or a designee, the speaker of the assembly or a designee, the executive director of the council on the arts or a designee, and the commissioner of the office of general services or a designee (Part BBB); extends certain rebates to municipalities for clean vehicle projects (Part CCC); relates to appointments to the cannabis board, removes provisions of law deeming a person acting as chairperson of the cannabis control board as a state officer; relates to agreements of such board with the New York state Indian nations and tribes (Part DDD); relates to a special license fee for a licensee allowed to engage in the cultivation, processing, distribution and retail of both medical cannabis and adult use cannabis; makes a conforming technical change; and provides for the repeal of certain provisions of the cannabis law (Part EEE).",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:50:26.246918+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/NY/bill/S03008/2025"
     },
     {
       "id": 69,
@@ -1631,7 +1767,8 @@
       "title": "Amends the Consumer PFAS Ban Act of 2024 by clarifying enforcement provisions.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:50:26.248939+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/RI/bill/H7734/2026"
     },
     {
       "id": 70,
@@ -1641,7 +1778,8 @@
       "title": "Amends the Consumer PFAS Ban Act of 2024 by clarifying enforcement provisions.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:50:26.249966+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/RI/bill/S2799/2026"
     },
     {
       "id": 71,
@@ -1651,7 +1789,8 @@
       "title": "National Defense Authorization Act for Fiscal Year 2026",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:50:26.250632+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/US/bill/SB1071/2025"
     },
     {
       "id": 72,
@@ -1661,7 +1800,8 @@
       "title": "PFAS monitoring; DEQ to require for industrial wastewater source, publicly owned treatment works.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:50:26.251499+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/VA/bill/HB938/2026"
     },
     {
       "id": 73,
@@ -1671,7 +1811,8 @@
       "title": "PFAS monitoring; DEQ to require for industrial wastewater source, publicly owned treatment works.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:50:26.252887+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/VA/bill/SB138/2026"
     },
     {
       "id": 74,
@@ -1681,7 +1822,8 @@
       "title": "Owners of sewage treatment works; land application, marketing, or distributing of sewage sludge.",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:50:26.253905+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/VA/bill/HB1443/2026"
     },
     {
       "id": 75,
@@ -1691,7 +1833,8 @@
       "title": "An act relating to the phaseout of consumer products containing added perfluoroalkyl and polyfluoroalkyl substances",
       "confidence": "medium",
       "extracted_at": "2026-11-08T15:50:26.255412+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/VT/bill/H0238/2025"
     },
     {
       "id": 78,
@@ -1701,7 +1844,8 @@
       "title": "Programs and requirements to address PFAS.",
       "confidence": "low (status-date fallback, not a matched history action)",
       "extracted_at": "2026-11-08T15:50:26.260094+00:00",
-      "category": "pfas_regulation"
+      "category": "pfas_regulation",
+      "source_url": "https://legiscan.com/WI/bill/AB131/2025"
     }
   ],
   "corporate_subsidiaries": [
@@ -2010,5 +2154,46 @@
       "extracted_at": "2026-11-08T15:39:37.095491+00:00"
     }
   ],
-  "generated_at": "2026-11-08T23:13:05.004153+00:00"
+  "downstream_adjacency": {
+    "325998": [
+      {
+        "naics": "324110",
+        "label": "Petroleum Refineries",
+        "reason": "Refineries maintain AFFF-based fire suppression systems and historically ran AFFF fire-training exercises on-site -- a real, documented PFAS contamination pathway distinct from manufacturing it. (Checked live in this project's discovery pipeline for direct liability findings -- none yet; this flag is a forward-looking use-case risk, not a finding.)"
+      },
+      {
+        "naics": "481111",
+        "label": "Scheduled Air Transportation",
+        "reason": "FAA Part 139 historically mandated AFFF-based fire suppression at certificated airports; airport authorities and some airlines have been named co-defendants in real AFFF contamination litigation."
+      }
+    ],
+    "325199": [
+      {
+        "naics": "313310",
+        "label": "Textile and Fabric Finishing Mills",
+        "reason": "PFAS-based water/stain-repellent textile treatments (the same chemical family as 3M's Scotchgard) are a well-documented downstream use."
+      },
+      {
+        "naics": "314110",
+        "label": "Carpet and Rug Mills",
+        "reason": "PFAS stain-resistant carpet treatments -- the same reasoning this project already applied when curating Mohawk Industries and Dixie Group as candidate defendants (checked live, no current liability finding, but the use case itself is real and documented)."
+      },
+      {
+        "naics": "322299",
+        "label": "All Other Converted Paper Product Manufacturing",
+        "reason": "PFAS grease-resistant food-packaging coatings -- the same reasoning already applied to Clearwater Paper."
+      },
+      {
+        "naics": "325620",
+        "label": "Toilet Preparation Manufacturing",
+        "reason": "PFAS use in cosmetics -- directly corroborated by a real signal already in this project's own data: California AB1603, 'Perfluoroalkyl and polyfluoroalkyl substances (PFAS): Department of Pesticide Regulation,' on record in legislative_timeline."
+      },
+      {
+        "naics": "332813",
+        "label": "Electroplating, Plating, Polishing, Anodizing and Coloring",
+        "reason": "PFAS used as a mist suppressant in chrome electroplating -- the same reasoning this project already used curating Honeywell International into CURATED_LIABILITY_NAICS."
+      }
+    ]
+  },
+  "generated_at": "2026-11-09T01:38:05.809549+00:00"
 }

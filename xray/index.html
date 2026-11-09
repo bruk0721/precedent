@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precedent — PFAS Portfolio X-Ray</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1;
+    --accent-amber: #b8601f; --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df;
+    --accent-gray: #5c6370; --accent-gray-bg: #eef0f3; --nav-bg: rgba(247, 248, 250, 0.78);
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px; --radius-pill: 999px; color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
+    --accent-amber: #e2974f; --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816;
+    --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.78); color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px 100px; }
+
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 1040px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  .theme-toggle:hover { background: var(--chip-bg); }
+
+  @media (max-width: 640px) {
+    nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; }
+    .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; }
+    table.results { font-size: 12px; }
+  }
+
+  .hero { padding: 44px 24px 30px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
+  h1 { font-weight: 500; font-size: clamp(28px, 6vw, 42px); line-height: 1.1; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 20ch; }
+  .hero p.dek { font-size: 16px; line-height: 1.6; color: var(--ink-muted); max-width: 60ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; }
+  h2 { font-weight: 600; font-size: 16px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .card-sub { font-size: 13px; color: var(--ink-faint); margin: 0 0 14px; line-height: 1.6; }
+
+  textarea#book-input { width: 100%; min-height: 160px; font-family: var(--font-mono); font-size: 13px; padding: 14px; border-radius: 12px; border: 1px solid rgba(16, 17, 20, 0.12); background: var(--page-bg); color: var(--ink); outline: none; resize: vertical; }
+  textarea#book-input:focus { border-color: var(--accent-blue); }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+  .run-btn { font-family: var(--font); font-size: 13.5px; font-weight: 600; padding: 11px 22px; border-radius: 10px; border: none; background: var(--ink); color: var(--page-bg); cursor: pointer; }
+  .run-btn:hover { opacity: 0.85; }
+  .run-btn.secondary { background: var(--chip-bg); color: var(--ink); }
+  .run-btn.secondary:hover { background: var(--accent-blue-bg); color: var(--accent-blue); }
+  .format-note { font-size: 12px; color: var(--ink-faint); margin-top: 10px; line-height: 1.6; }
+
+  .summary-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+  .summary-stat .n { font-family: var(--font-mono); font-size: 26px; font-weight: 600; }
+  .summary-stat .n.red { color: var(--accent-red); }
+  .summary-stat .n.amber { color: var(--accent-amber); }
+  .summary-stat .n.gray { color: var(--accent-gray); }
+  .summary-stat .l { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
+
+  table.results { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.results th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-faint); font-weight: 700; padding: 8px 10px; border-bottom: 1px solid var(--chip-bg); }
+  table.results td { padding: 10px 10px; border-bottom: 1px solid var(--chip-bg); vertical-align: top; }
+  table.results tr:last-child td { border-bottom: none; }
+  .row-tag { display: inline-block; font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; padding: 3px 9px; border-radius: var(--radius-pill); white-space: nowrap; }
+  .row-tag.red { background: var(--accent-red-bg); color: var(--accent-red); }
+  .row-tag.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
+  .row-tag.gray { background: var(--accent-gray-bg); color: var(--accent-gray); }
+  .drill-link { color: var(--accent-blue); font-weight: 600; font-size: 12.5px; white-space: nowrap; }
+  .drill-link:hover { text-decoration: underline; }
+
+  .results-wrap { display: none; }
+  .empty-note { font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; }
+  footer { margin-top: 40px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; text-align: center; }
+</style>
+</head>
+<body>
+<script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+
+<nav class="top">
+  <div class="brand"><span class="dot"></span> Precedent</div>
+  <div class="nav-links">
+    <a href="../">&larr; Back to overview</a>
+    <a href="../console/">Underwriter Console</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow-pill"><span class="dot"></span>Free portfolio scan</span>
+  <h1>PFAS Portfolio X-Ray</h1>
+  <p class="dek">Paste your book &mdash; account, state, NAICS code &mdash; and get back the real, flagged, most-exposed accounts, ranked, with evidence links to the actual filings and bills behind each flag. <strong>Nothing you paste here leaves your browser.</strong></p>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h2>Your book of business</h2>
+    <p class="card-sub">One account per line: <code>account name, state code, NAICS code</code> (e.g. <code>Acme Specialty Chemical, OH, 325998</code>).</p>
+    <textarea id="book-input" placeholder="Acme Specialty Chemical, OH, 325998&#10;Riverside Carpet Mills, GA, 314110&#10;Midwest Refining Co, IL, 324110"></textarea>
+    <div class="btn-row">
+      <button class="run-btn" id="scan-btn">Scan portfolio</button>
+      <button class="run-btn secondary" id="sample-btn">Load sample book</button>
+      <button class="run-btn secondary" id="download-btn" style="display:none;">Download flagged-account CSV</button>
+    </div>
+    <p class="format-note">Nothing is uploaded anywhere &mdash; this runs entirely client-side against the same real pipeline data behind the Underwriter Console. No signal found for an account is not the same as no risk; it means nothing has been collected for that NAICS/state yet.</p>
+  </div>
+
+  <div class="results-wrap" id="results">
+    <div class="card">
+      <div class="summary-row" id="summary-row"></div>
+      <div id="table-wrap"></div>
+    </div>
+  </div>
+
+  <footer>
+    Every figure here comes from a real pipeline run against CourtListener, SEC EDGAR, or LegiScan &mdash; the same data behind Precedent's scenario trackers and the Underwriter Console, queried live in your browser against a snapshot exported from the underlying database. <span id="snapshot-date"></span>
+  </footer>
+</div>
+
+<script src="../shared/moat-engine.js"></script>
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+const SAMPLE_BOOK = [
+  "Acme Specialty Chemical Co, MN, 325998",
+  "Riverside Carpet Mills, GA, 314110",
+  "Heritage Textile Finishing, NC, 313310",
+  "Lakeside Food Packaging, WI, 322299",
+  "Summit Cosmetics Group, CA, 325620",
+  "Northgate Petroleum Refining, TX, 324110",
+  "Bayview Metal Finishing, OH, 332813",
+  "Unrelated Regional Bakery, VA, 311811",
+].join("\n");
+
+function parseBook(text) {
+  return text.split("\n").map(l => l.trim()).filter(Boolean).map(line => {
+    const parts = line.split(",").map(p => p.trim());
+    return { account: parts[0] || "(unnamed)", state: (parts[1] || "").toUpperCase(), naics: parts[2] || "" };
+  }).filter(r => r.state && r.naics);
+}
+
+const SEVERITY_RANK = { red: 3, amber: 2, gray: 1 };
+
+function scanPortfolio() {
+  const rows = parseBook(document.getElementById("book-input").value);
+  document.getElementById("results").style.display = rows.length ? "block" : "none";
+  if (!rows.length) return;
+
+  const assessed = rows.map(r => {
+    const result = MoatEngine.assess(r.naics, r.state);
+    return { ...r, result };
+  });
+  assessed.sort((a, b) => (SEVERITY_RANK[b.result.threat.color] || 0) - (SEVERITY_RANK[a.result.threat.color] || 0));
+
+  const counts = { red: 0, amber: 0, gray: 0 };
+  assessed.forEach(a => counts[a.result.threat.color] = (counts[a.result.threat.color] || 0) + 1);
+
+  document.getElementById("summary-row").innerHTML = `
+    <div class="summary-stat"><div class="n red">${counts.red || 0}</div><div class="l">High threat (RED)</div></div>
+    <div class="summary-stat"><div class="n amber">${counts.amber || 0}</div><div class="l">Elevated / review (AMBER)</div></div>
+    <div class="summary-stat"><div class="n gray">${counts.gray || 0}</div><div class="l">Insufficient data (GRAY)</div></div>
+    <div class="summary-stat"><div class="n">${assessed.length}</div><div class="l">Accounts scanned</div></div>
+  `;
+
+  document.getElementById("table-wrap").innerHTML = `<table class="results">
+    <thead><tr><th>Account</th><th>State</th><th>NAICS</th><th>Threat</th><th>Why</th><th></th></tr></thead>
+    <tbody>${assessed.map(a => `
+      <tr>
+        <td><b>${esc(a.account)}</b></td>
+        <td>${esc(a.state)}</td>
+        <td><span style="font-family:var(--font-mono)">${esc(a.naics)}</span></td>
+        <td><span class="row-tag ${a.result.threat.color}">${esc(a.result.threat.color.toUpperCase())}</span></td>
+        <td style="font-size:12.5px;color:var(--ink-muted)">${esc(a.result.threat.label)}${a.result.nextTarget.length ? ` &middot; ${a.result.nextTarget.length} downstream NAICS flagged` : ""}</td>
+        <td><a class="drill-link" href="../console/?naics=${encodeURIComponent(a.naics)}&state=${encodeURIComponent(a.state)}" target="_blank" rel="noopener">View evidence &#8599;</a></td>
+      </tr>`).join("")}</tbody>
+  </table>`;
+
+  document.getElementById("download-btn").style.display = "inline-block";
+  window._lastScan = assessed;
+}
+
+function downloadCsv() {
+  const assessed = window._lastScan || [];
+  const header = "account,state,naics,threat,label\n";
+  const body = assessed.map(a => [a.account, a.state, a.naics, a.result.threat.color, a.result.threat.label]
+    .map(v => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n");
+  const blob = new Blob([header + body], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = "precedent-pfas-xray-flagged-accounts.csv";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;";
+  };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => {
+    isDark = !isDark;
+    try { localStorage.setItem("precedent:theme", isDark ? "dark" : "light"); } catch (e) {}
+    apply(isDark);
+  });
+}
+
+async function init() {
+  setupThemeToggle();
+  const db = await MoatEngine.load("../shared/moat_export.json");
+  document.getElementById("snapshot-date").textContent = db.generated_at ? `Snapshot as of ${new Date(db.generated_at).toISOString().slice(0, 10)}.` : "";
+  document.getElementById("scan-btn").addEventListener("click", scanPortfolio);
+  document.getElementById("sample-btn").addEventListener("click", () => {
+    document.getElementById("book-input").value = SAMPLE_BOOK;
+    scanPortfolio();
+  });
+  document.getElementById("download-btn").addEventListener("click", downloadCsv);
+}
+init();
+</script>
+</body>
+</html>
