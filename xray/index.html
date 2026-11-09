@@ -79,6 +79,10 @@
   .row-tag.gray { background: var(--accent-gray-bg); color: var(--accent-gray); }
   .drill-link { color: var(--accent-blue); font-weight: 600; font-size: 12.5px; white-space: nowrap; }
   .drill-link:hover { text-decoration: underline; }
+  .memo-link { color: var(--accent-blue); font-weight: 600; font-size: 12.5px; white-space: nowrap; background: none; border: none; cursor: pointer; font-family: var(--font); padding: 0; }
+  .memo-link:hover { text-decoration: underline; }
+  .status-select { font-family: var(--font); font-size: 12px; padding: 5px 8px; border-radius: 8px; border: 1px solid rgba(16, 17, 20, 0.12); background: var(--page-bg); color: var(--ink); }
+  .action-cell { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
 
   .results-wrap { display: none; }
   .empty-note { font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; }
@@ -151,6 +155,7 @@ function parseBook(text) {
 }
 
 const SEVERITY_RANK = { red: 3, amber: 2, gray: 1 };
+const STATUS_OPTIONS = ["No action", "Flag for review", "Refer to exposure team", "Monitor", "Reduce limit", "Decline"];
 
 function scanPortfolio() {
   const rows = parseBook(document.getElementById("book-input").value);
@@ -159,9 +164,16 @@ function scanPortfolio() {
 
   const assessed = rows.map(r => {
     const result = MoatEngine.assess(r.naics, r.state);
-    return { ...r, result };
+    return { ...r, result, status: "No action" };
   });
   assessed.sort((a, b) => (SEVERITY_RANK[b.result.threat.color] || 0) - (SEVERITY_RANK[a.result.threat.color] || 0));
+
+  // Build each memo's Blob URL up front and bind it as a real <a href>
+  // rather than calling window.open() inside a click handler -- a plain
+  // anchor navigation is never treated as a popup by the browser, while a
+  // JS-triggered window.open() sometimes is, even from a direct click.
+  if (window._lastMemoUrls) window._lastMemoUrls.forEach(u => URL.revokeObjectURL(u));
+  window._lastMemoUrls = assessed.map(a => URL.createObjectURL(new Blob([buildMemoHtml(a)], { type: "text/html" })));
 
   const counts = { red: 0, amber: 0, gray: 0 };
   assessed.forEach(a => counts[a.result.threat.color] = (counts[a.result.threat.color] || 0) + 1);
@@ -174,17 +186,36 @@ function scanPortfolio() {
   `;
 
   document.getElementById("table-wrap").innerHTML = `<table class="results">
-    <thead><tr><th>Account</th><th>State</th><th>NAICS</th><th>Threat</th><th>Why</th><th></th></tr></thead>
-    <tbody>${assessed.map(a => `
+    <thead><tr><th>Account</th><th>State</th><th>NAICS</th><th>Threat</th><th>Why</th><th>Action</th><th></th></tr></thead>
+    <tbody>${assessed.map((a, i) => `
       <tr>
         <td><b>${esc(a.account)}</b></td>
         <td>${esc(a.state)}</td>
         <td><span style="font-family:var(--font-mono)">${esc(a.naics)}</span></td>
         <td><span class="row-tag ${a.result.threat.color}">${esc(a.result.threat.color.toUpperCase())}</span></td>
         <td style="font-size:12.5px;color:var(--ink-muted)">${esc(a.result.threat.label)}${a.result.nextTarget.length ? ` &middot; ${a.result.nextTarget.length} downstream NAICS flagged` : ""}</td>
-        <td><a class="drill-link" href="../console/?naics=${encodeURIComponent(a.naics)}&state=${encodeURIComponent(a.state)}" target="_blank" rel="noopener">View evidence &#8599;</a></td>
+        <td><select class="status-select" data-idx="${i}">${STATUS_OPTIONS.map(o => `<option${o === a.status ? " selected" : ""}>${esc(o)}</option>`).join("")}</select></td>
+        <td class="action-cell">
+          <a class="drill-link" href="../console/?naics=${encodeURIComponent(a.naics)}&state=${encodeURIComponent(a.state)}" target="_blank" rel="noopener">View evidence &#8599;</a>
+          <a class="memo-link" data-idx="${i}" href="${window._lastMemoUrls[i]}" target="_blank" rel="noopener">Open memo &#8599;</a>
+        </td>
       </tr>`).join("")}</tbody>
   </table>`;
+
+  document.getElementById("table-wrap").querySelectorAll(".status-select").forEach(sel => {
+    sel.addEventListener("change", () => {
+      const idx = Number(sel.dataset.idx);
+      assessed[idx].status = sel.value;
+      // Regenerate this row's memo link -- the Blob URL is a frozen
+      // snapshot at creation time, so changing the status afterward would
+      // otherwise leave the already-rendered memo link pointing at a memo
+      // that still says "No action."
+      URL.revokeObjectURL(window._lastMemoUrls[idx]);
+      const newUrl = URL.createObjectURL(new Blob([buildMemoHtml(assessed[idx])], { type: "text/html" }));
+      window._lastMemoUrls[idx] = newUrl;
+      document.querySelector(`.memo-link[data-idx="${idx}"]`).href = newUrl;
+    });
+  });
 
   document.getElementById("download-btn").style.display = "inline-block";
   window._lastScan = assessed;
@@ -192,8 +223,8 @@ function scanPortfolio() {
 
 function downloadCsv() {
   const assessed = window._lastScan || [];
-  const header = "account,state,naics,threat,label\n";
-  const body = assessed.map(a => [a.account, a.state, a.naics, a.result.threat.color, a.result.threat.label]
+  const header = "account,state,naics,threat,label,action\n";
+  const body = assessed.map(a => [a.account, a.state, a.naics, a.result.threat.color, a.result.threat.label, a.status]
     .map(v => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n");
   const blob = new Blob([header + body], { type: "text/csv" });
   const url = URL.createObjectURL(blob);
@@ -201,6 +232,64 @@ function downloadCsv() {
   a.href = url; a.download = "precedent-pfas-xray-flagged-accounts.csv";
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   URL.revokeObjectURL(url);
+}
+
+// One-page CUO memo per account -- opened as a self-contained HTML document
+// in a new tab (not a server-generated PDF, since this runs entirely
+// client-side with no backend); the browser's own Print dialog turns it
+// into a PDF if the underwriter wants one. Every figure on it traces back
+// to the same real data and evidence links as the console/table above.
+function buildMemoHtml(a) {
+  const r = a.result;
+  const colorHex = { red: "#b33c30", amber: "#b8601f", gray: "#5c6370" }[r.threat.color] || "#5c6370";
+  const consoleUrl = `../console/?naics=${encodeURIComponent(a.naics)}&state=${encodeURIComponent(a.state)}`;
+  const plaintiffHtml = r.plaintiffRows.length
+    ? r.plaintiffRows.map(p => `<li>${esc(p.plaintiff_firm)} vs. ${esc(p.defendant)} &mdash; <i>${esc(p.case_name || "")}</i> (confidence: ${esc(p.confidence)})${p.source_url ? ` &mdash; <a href="${esc(p.source_url)}">source</a>` : ""}</li>`).join("")
+    : "<li>No plaintiff-firm filings on record for this NAICS's known defendants yet.</li>";
+  const severityHtml = r.severityRows.length
+    ? r.severityRows.slice(0, 5).map(s => `<li>${esc(s.company_name)} &mdash; ${esc(s.dollar_amount)} (${esc(s.liability_term)}, filed ${esc(s.filing_date || "n/a")})${s.source_url ? ` &mdash; <a href="${esc(s.source_url)}">source</a>` : ""}</li>`).join("")
+    : "<li>No verified severity anchor on record for this NAICS yet.</li>";
+  const legCats = Object.keys(r.legResult.byCategory);
+  const legHtml = legCats.length
+    ? legCats.map(cat => {
+        const g = r.legResult.byCategory[cat];
+        const rows = (g.own.length ? g.own : g.neighbor);
+        return rows.map(row => `<li>${esc(cat)}: ${esc(row.state)}: ${esc(row.bill_number)} (${esc(row.enactment_date || "n/a")}) &mdash; ${esc(row.title || "")}${row.source_url ? ` &mdash; <a href="${esc(row.source_url)}">source</a>` : ""}</li>`).join("");
+      }).join("")
+    : "<li>No enactment on record for this state or its bordering states yet.</li>";
+  const nextTargetHtml = r.nextTarget.length
+    ? `<h3>Next-target forecast</h3><ul>${r.nextTarget.map(t => `<li>NAICS ${esc(t.naics)} &mdash; ${esc(t.label)}: ${esc(t.reason)}</li>`).join("")}</ul>`
+    : "";
+
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Precedent memo — ${esc(a.account)}</title>
+<style>
+  body { font-family: Georgia, 'Times New Roman', serif; max-width: 720px; margin: 40px auto; padding: 0 20px; color: #111; line-height: 1.5; }
+  h1 { font-size: 22px; margin-bottom: 4px; }
+  .sub { color: #666; font-size: 13px; margin-bottom: 20px; }
+  .threat-box { border: 2px solid ${colorHex}; border-radius: 8px; padding: 14px 18px; margin-bottom: 20px; }
+  .threat-label { font-weight: 700; color: ${colorHex}; text-transform: uppercase; letter-spacing: 0.04em; font-size: 12px; }
+  h3 { font-size: 15px; margin: 20px 0 6px; border-bottom: 1px solid #ddd; padding-bottom: 4px; }
+  ul { margin: 6px 0; padding-left: 20px; font-size: 13.5px; }
+  li { margin-bottom: 4px; }
+  a { color: #14213d; }
+  .print-btn { margin-top: 24px; font-family: sans-serif; padding: 8px 16px; cursor: pointer; }
+  .footer-note { margin-top: 30px; font-size: 11.5px; color: #888; }
+  @media print { .print-btn { display: none; } }
+</style></head><body>
+  <h1>Emerging-Risk Review Memo</h1>
+  <div class="sub">${esc(a.account)} &middot; ${esc(a.state)} &middot; NAICS ${esc(a.naics)} &middot; Generated ${new Date().toISOString().slice(0, 10)}</div>
+  <div class="threat-box">
+    <div class="threat-label">${esc(r.threat.color)} &mdash; ${esc(r.threat.label)}</div>
+    <div>${esc(r.threat.rec)}</div>
+    <div style="margin-top:8px;font-size:12.5px;"><b>Underwriting action on file:</b> ${esc(a.status)}</div>
+  </div>
+  <h3>Plaintiff Radar</h3><ul>${plaintiffHtml}</ul>
+  <h3>Legislative Contagion</h3><ul>${legHtml}</ul>
+  <h3>Severity Anchor</h3><ul>${severityHtml}</ul>
+  ${nextTargetHtml}
+  <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
+  <div class="footer-note">Every figure above is sourced to a real pipeline run against CourtListener, SEC EDGAR, or LegiScan. VERIFIED = source directly opened and read. This is decision support, not an actuarial guarantee, and should not be the sole basis for a binding, pricing, or coverage-exclusion decision. Full evidence trail: <a href="${esc(consoleUrl)}">${esc(consoleUrl)}</a></div>
+</body></html>`;
 }
 
 function setupThemeToggle() {
