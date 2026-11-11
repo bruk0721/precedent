@@ -195,6 +195,17 @@
   .pilot-card h3 { font-size: 18px; margin: 0 0 8px; }
   .pilot-card p { font-size: 14px; line-height: 1.65; color: var(--ink-muted); margin: 0 0 16px; }
   .pilot-card a.pilot-btn { display: inline-flex; font-size: 13.5px; font-weight: 600; color: #fff; background: var(--accent-blue); padding: 10px 18px; border-radius: 10px; }
+
+  /* Progressive disclosure for secondary/supporting content -- same pattern
+     as the Console and X-Ray: collapses to a one-line summary, expands on
+     click, nothing removed, just deferred. */
+  details.disclosure { }
+  details.disclosure > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; }
+  details.disclosure > summary::-webkit-details-marker { display: none; }
+  details.disclosure > summary::marker { content: ""; }
+  details.disclosure > summary .chevron { flex-shrink: 0; color: var(--ink-faint); font-size: 11px; transition: transform 0.15s; margin-left: auto; }
+  details.disclosure[open] > summary .chevron { transform: rotate(90deg); }
+  details.disclosure > summary:hover .chevron { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -361,8 +372,9 @@
       <h2>Why isn't this just public data anyone could scrape?</h2>
       <p class="section-sub">Worth naming the real competitive landscape rather than pretending this space is empty &mdash; and being honest about what's actually hard to copy here and what isn't.</p>
     </div>
-    <div class="map-card" style="text-align:left; padding:24px;">
-      <table class="compare-table">
+    <details class="map-card disclosure" style="text-align:left; padding:24px;">
+      <summary><span style="font-size:14px; font-weight:600;">Read the full competitive comparison</span><span class="chevron">&#9656;</span></summary>
+      <table class="compare-table" style="margin-top:18px;">
         <tr><th>Provider</th><th>What they do</th><th>Where Precedent differs</th></tr>
         <tr>
           <td>Large-scale casualty &amp; latent-liability platforms<br><span style="font-weight:400; color:var(--ink-faint); font-size:12px;">(enterprise liability-analytics vendors)</span></td>
@@ -376,7 +388,7 @@
         </tr>
       </table>
       <p style="font-size:13px; color:var(--ink-faint); margin:16px 0 0; line-height:1.6;">The underlying public records &mdash; court dockets, state statutes &mdash; aren't what makes this hard to copy; any competitor can pull the same filings. What isn't public is the validated crosswalk connecting a specific statute to a specific chemical variant to a specific NAICS code to a specific policy trigger: that mapping gets more accurate and harder to replicate every week it keeps running, which is the actual bet here. This isn't a claim to replace either category above. It's a different one: that a narrow, radically transparent tool updated weekly beats a broad platform updated quarterly, for the specific accounts where it actually matters.</p>
-    </div>
+    </details>
   </section>
 
   <!-- 2. LIVE DOCKET CHECK -->
@@ -411,9 +423,9 @@
       <div id="bob-result"></div>
     </div>
 
-    <div class="map-card">
-      <p style="font-size:13px; color:var(--ink-faint); margin:0 0 12px;">Prefer a quick state-only check instead of the full book above? Use the simple version:</p>
-      <div class="portfolio-input-row">
+    <details class="map-card disclosure">
+      <summary><p style="font-size:13px; color:var(--ink-faint); margin:0;">Prefer a quick state-only check instead of the full book above? Use the simple version:</p><span class="chevron">&#9656;</span></summary>
+      <div class="portfolio-input-row" style="margin-top:14px;">
         <input type="text" id="portfolio-states" placeholder="e.g. MI, CO, OH or Michigan, Colorado, Ohio" autocomplete="off">
         <button id="portfolio-check" class="portfolio-btn secondary">Check states</button>
       </div>
@@ -423,7 +435,7 @@
       </div>
       <div class="saved-portfolios" id="saved-portfolios"></div>
       <div id="portfolio-result"></div>
-    </div>
+    </details>
   </section>
 
   <!-- 4. PILOT / ONE REAL USER -->
@@ -766,6 +778,10 @@ async function initPortfolio() {
   if (fromUrl) {
     input.value = fromUrl;
     runPortfolioCheck(parseStateInput(fromUrl));
+    // This control lives inside a collapsed <details> by default (progressive
+    // disclosure) -- open it so a deep link still shows its result immediately.
+    const simpleCheckDetails = input.closest("details.disclosure");
+    if (simpleCheckDetails) simpleCheckDetails.open = true;
   }
 
   document.getElementById("portfolio-check").addEventListener("click", () => {

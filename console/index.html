@@ -117,6 +117,22 @@
 
   footer { margin-top: 40px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; text-align: center; }
   .results-wrap { display: none; }
+
+  /* Progressive disclosure: secondary signal cards collapse to a one-line
+     summary by default and expand on click, so the page shows the verdict
+     and its direct evidence first, with everything else available but not
+     forced onto the screen. No text is hidden permanently -- only deferred. */
+  .card.accordion { padding: 0; }
+  .card.accordion > summary { list-style: none; cursor: pointer; padding: 20px 24px; display: flex; align-items: center; gap: 10px; }
+  .card.accordion > summary::-webkit-details-marker { display: none; }
+  .card.accordion > summary::marker { content: ""; }
+  .card.accordion > summary h2 { margin: 0; }
+  .card.accordion > summary .hint { margin-left: auto; font-size: 12.5px; color: var(--ink-faint); font-weight: 500; white-space: nowrap; }
+  .card.accordion > summary .chevron { flex-shrink: 0; color: var(--ink-faint); font-size: 11px; transition: transform 0.15s; }
+  .card.accordion[open] > summary .chevron { transform: rotate(90deg); }
+  .card.accordion > summary:hover .chevron { color: var(--ink); }
+  .card.accordion .disclosure-body { padding: 0 24px 22px; }
+  .card.accordion .disclosure-body .card-sub { margin-top: -6px; }
 </style>
 </head>
 <body>
@@ -157,13 +173,7 @@
   </div>
 
   <div class="results-wrap" id="results">
-    <div class="cols">
-      <div class="col-card" id="col-plaintiff"><h3>Plaintiff Radar</h3><div id="plaintiff-body"></div></div>
-      <div class="col-card" id="col-legislative"><h3>Legislative Contagion</h3><div id="legislative-body"></div></div>
-      <div class="col-card" id="col-severity"><h3>Severity Anchor</h3><div id="severity-body"></div></div>
-    </div>
-
-    <div class="card" style="margin-top:20px;">
+    <div class="card">
       <h2>Account threat level</h2>
       <div class="threat-box" id="threat-box">
         <div class="threat-label" id="threat-label"></div>
@@ -171,29 +181,43 @@
       </div>
     </div>
 
-    <div class="card" id="next-target-card" style="display:none;">
-      <h2>Next-target forecast</h2>
-      <p class="card-sub">Downstream NAICS codes that use this chemical class as a raw material or fire-suppression agent &mdash; a forecast, not a finding. Flagged when the account's own NAICS is a confirmed defendant/manufacturer.</p>
-      <div id="next-target-body"></div>
+    <div class="cols">
+      <div class="col-card" id="col-plaintiff"><h3>Plaintiff Radar</h3><div id="plaintiff-body"></div></div>
+      <div class="col-card" id="col-legislative"><h3>Legislative Contagion</h3><div id="legislative-body"></div></div>
+      <div class="col-card" id="col-severity"><h3>Severity Anchor</h3><div id="severity-body"></div></div>
     </div>
 
-    <div class="card" id="veil-card" style="display:none;">
-      <h2>Entity traversal &mdash; veil-piercing signal</h2>
-      <p class="card-sub">Flags a docket where a complaint names BOTH a known subsidiary and its parent company as defendants &mdash; the moment a mass-tort case stops naming just the subsidiary and reaches up to the parent's much larger corporate insurance tower.</p>
-      <div id="veil-body"></div>
-    </div>
+    <details class="card accordion" id="next-target-card" style="display:none;margin-top:20px;">
+      <summary><h2>Next-target forecast</h2><span class="hint" id="next-target-hint"></span><span class="chevron">&#9656;</span></summary>
+      <div class="disclosure-body">
+        <p class="card-sub">Downstream NAICS codes that use this chemical class as a raw material or fire-suppression agent &mdash; a forecast, not a finding. Flagged when the account's own NAICS is a confirmed defendant/manufacturer.</p>
+        <div id="next-target-body"></div>
+      </div>
+    </details>
 
-    <div class="card" id="facility-card" style="display:none;">
-      <h2>Facility-level chemical reporting (EPA TRI)</h2>
-      <p class="card-sub">Real EPA Toxics Release Inventory facility reports flagged as PFAS compounds, matched by EPA's own standardized parent-company name &mdash; not a corporate-level disclosure, a specific manufacturing site and chemical.</p>
-      <div id="facility-body"></div>
-    </div>
+    <details class="card accordion" id="veil-card" style="display:none;">
+      <summary><h2>Entity traversal &mdash; veil-piercing signal</h2><span class="hint" id="veil-hint"></span><span class="chevron">&#9656;</span></summary>
+      <div class="disclosure-body">
+        <p class="card-sub">Flags a docket where a complaint names BOTH a known subsidiary and its parent company as defendants &mdash; the moment a mass-tort case stops naming just the subsidiary and reaches up to the parent's much larger corporate insurance tower.</p>
+        <div id="veil-body"></div>
+      </div>
+    </details>
 
-    <div class="card">
-      <h2>Zero-Day IBNR signal</h2>
-      <p class="card-sub">Severity anchor &times; filing velocity, as a dimensionless index &mdash; not a dollar reserve, not an actuarial estimate.</p>
-      <div id="ibnr-body"></div>
-    </div>
+    <details class="card accordion" id="facility-card" style="display:none;">
+      <summary><h2>Facility-level chemical reporting (EPA TRI)</h2><span class="hint" id="facility-hint"></span><span class="chevron">&#9656;</span></summary>
+      <div class="disclosure-body">
+        <p class="card-sub">Real EPA Toxics Release Inventory facility reports flagged as PFAS compounds, matched by EPA's own standardized parent-company name &mdash; not a corporate-level disclosure, a specific manufacturing site and chemical.</p>
+        <div id="facility-body"></div>
+      </div>
+    </details>
+
+    <details class="card accordion" id="ibnr-card">
+      <summary><h2>Zero-Day IBNR signal</h2><span class="hint" id="ibnr-hint"></span><span class="chevron">&#9656;</span></summary>
+      <div class="disclosure-body">
+        <p class="card-sub">Severity anchor &times; filing velocity, as a dimensionless index &mdash; not a dollar reserve, not an actuarial estimate.</p>
+        <div id="ibnr-body"></div>
+      </div>
+    </details>
   </div>
 
   <footer>
@@ -278,6 +302,8 @@ function renderThreat(color, label, rec) {
 }
 
 function renderIbnr(maxSeverity, velocityInfo) {
+  const card = document.getElementById("ibnr-card");
+  const hint = document.getElementById("ibnr-hint");
   const el = document.getElementById("ibnr-body");
   const { velocity, count, span } = velocityInfo;
   if (maxSeverity === null || velocity === null) {
@@ -285,6 +311,8 @@ function renderIbnr(maxSeverity, velocityInfo) {
     if (maxSeverity === null) reasons.push("no severity anchor for this NAICS");
     if (velocity === null) reasons.push(`only ${count} dated filing(s) on record (need 2+)`);
     el.innerHTML = `<p class="empty-note">Not computable: ${reasons.join(" and ")}. Reporting a signal here would be dishonest — this is the same "insufficient data" distinction as the account threat level above, not a zero-risk reading.</p>`;
+    hint.textContent = "Not computable";
+    card.open = false;
     return;
   }
   const ibnrIndex = maxSeverity * velocity;
@@ -293,16 +321,21 @@ function renderIbnr(maxSeverity, velocityInfo) {
     <div class="ibnr-stat"><div class="n">${ibnrIndex.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div><div class="l">Velocity-adjusted severity index</div></div>
   </div>
   <p class="ibnr-note">A dimensionless heat index (severity anchor &times; filings/month) for flagging which NAICS/account to route to a human actuary first &mdash; not a dollar reserve figure, not an actuarially-certified estimate.</p>`;
+  hint.textContent = `Index: ${ibnrIndex.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
+  card.open = true;
 }
 
 function renderNextTarget(defendants, nextTarget) {
   const card = document.getElementById("next-target-card");
+  const hint = document.getElementById("next-target-hint");
   const el = document.getElementById("next-target-body");
   if (!defendants.length || !nextTarget.length) {
     card.style.display = "none";
     return;
   }
   card.style.display = "block";
+  card.open = true;
+  hint.textContent = `${nextTarget.length} downstream NAICS flagged`;
   el.innerHTML = nextTarget.map(a =>
     `<div class="finding-line"><span class="tag amber">NAICS ${esc(a.naics)}</span> <b>${esc(a.label)}</b><br><span style="color:var(--ink-faint)">${esc(a.reason)}</span></div>`
   ).join("");
@@ -310,6 +343,7 @@ function renderNextTarget(defendants, nextTarget) {
 
 function renderVeilPiercing(defendants, flags) {
   const card = document.getElementById("veil-card");
+  const hint = document.getElementById("veil-hint");
   const el = document.getElementById("veil-body");
   if (!defendants.length) {
     card.style.display = "none";
@@ -318,8 +352,12 @@ function renderVeilPiercing(defendants, flags) {
   card.style.display = "block";
   if (!flags.length) {
     el.innerHTML = `<p class="empty-note">0 found. Either no veil-piercing event is on record yet, or the dockets pulled so far don't name both a subsidiary and its parent as defendants in the same case -- this is not the same as "no risk," it means nothing has been found yet.</p>`;
+    hint.textContent = "0 found";
+    card.open = false;
     return;
   }
+  card.open = true;
+  hint.textContent = `${flags.length} signal(s) found`;
   el.innerHTML = `<span class="tag red">${flags.length} veil-piercing signal(s) found</span>` + flags.map(f =>
     `<div class="finding-line">Docket names both <b>${esc(f.subsidiary)}</b> (subsidiary) and <b>${esc(f.parent)}</b> (parent) as defendants${f.caseName ? ` in <i>${esc(f.caseName)}</i>` : ""}${srcLink(f.sourceUrl, "View docket")}</div>`
   ).join("");
@@ -327,6 +365,7 @@ function renderVeilPiercing(defendants, flags) {
 
 function renderFacilityReports(defendants, reports) {
   const card = document.getElementById("facility-card");
+  const hint = document.getElementById("facility-hint");
   const el = document.getElementById("facility-body");
   if (!defendants.length) {
     card.style.display = "none";
@@ -335,11 +374,16 @@ function renderFacilityReports(defendants, reports) {
   card.style.display = "block";
   if (!reports.length) {
     el.innerHTML = `<p class="empty-note">No PFAS-flagged EPA TRI facility found under this company's standardized parent name in the 2024 reporting year. This is checked, not skipped -- EPA's own TRI database simply has no PFAS-flagged release report on file for this company this year.</p>`;
+    hint.textContent = "0 found";
+    card.open = false;
     return;
   }
   const byFacility = {};
   reports.forEach(r => (byFacility[`${r.facility_name}|${r.city}|${r.state}`] = byFacility[`${r.facility_name}|${r.city}|${r.state}`] || []).push(r.chemical));
-  el.innerHTML = `<span class="tag amber">${Object.keys(byFacility).length} real facilit${Object.keys(byFacility).length === 1 ? "y" : "ies"} found</span>` +
+  const n = Object.keys(byFacility).length;
+  card.open = true;
+  hint.textContent = `${n} facilit${n === 1 ? "y" : "ies"} found`;
+  el.innerHTML = `<span class="tag amber">${n} real facilit${n === 1 ? "y" : "ies"} found</span>` +
     Object.entries(byFacility).map(([key, chemicals]) => {
       const [facility, city, state] = key.split("|");
       return `<div class="finding-line"><b>${esc(facility)}</b> &mdash; ${esc(city)}, ${esc(state)}<br><span style="color:var(--ink-faint)">${chemicals.length} PFAS compound(s) reported: ${chemicals.map(esc).join(", ")}</span></div>`;

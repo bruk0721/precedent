@@ -98,6 +98,20 @@
   .results-wrap { display: none; }
   .empty-note { font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; }
   footer { margin-top: 40px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; text-align: center; }
+
+  /* Progressive disclosure, same pattern as the Console: a secondary card
+     collapses to a one-line summary and expands on click. */
+  .card.accordion { padding: 0; }
+  .card.accordion > summary { list-style: none; cursor: pointer; padding: 20px 24px; display: flex; align-items: center; gap: 10px; }
+  .card.accordion > summary::-webkit-details-marker { display: none; }
+  .card.accordion > summary::marker { content: ""; }
+  .card.accordion > summary h2 { margin: 0; }
+  .card.accordion > summary .hint { margin-left: auto; font-size: 12.5px; color: var(--ink-faint); font-weight: 500; white-space: nowrap; }
+  .card.accordion > summary .chevron { flex-shrink: 0; color: var(--ink-faint); font-size: 11px; transition: transform 0.15s; }
+  .card.accordion[open] > summary .chevron { transform: rotate(90deg); }
+  .card.accordion > summary:hover .chevron { color: var(--ink); }
+  .card.accordion .disclosure-body { padding: 0 24px 22px; }
+  .card.accordion .disclosure-body .card-sub { margin-top: -6px; }
 </style>
 </head>
 <body>
@@ -140,11 +154,13 @@
       <div id="table-wrap"></div>
     </div>
 
-    <div class="card" id="accumulation-card" style="display:none;">
-      <h2>Portfolio accumulation</h2>
-      <p class="card-sub">The real pattern behind large unexpected reserve charges isn't usually one bad account &mdash; it's PFAS exposure scattered invisibly across many accounts in the same book, concentrated by state or NAICS without anyone seeing the total until it's already a loss. This rolls up policy limits across every RED/AMBER account, so that total is visible now.</p>
-      <div id="accumulation-body"></div>
-    </div>
+    <details class="card accordion" id="accumulation-card" style="display:none;">
+      <summary><h2>Portfolio accumulation</h2><span class="hint" id="accumulation-hint"></span><span class="chevron">&#9656;</span></summary>
+      <div class="disclosure-body">
+        <p class="card-sub">The real pattern behind large unexpected reserve charges isn't usually one bad account &mdash; it's PFAS exposure scattered invisibly across many accounts in the same book, concentrated by state or NAICS without anyone seeing the total until it's already a loss. This rolls up policy limits across every RED/AMBER account, so that total is visible now.</p>
+        <div id="accumulation-body"></div>
+      </div>
+    </details>
   </div>
 
   <footer>
@@ -343,6 +359,7 @@ function scanPortfolio() {
 // project's hard rules exist to prevent.
 function renderAccumulation(assessed) {
   const card = document.getElementById("accumulation-card");
+  const hint = document.getElementById("accumulation-hint");
   const el = document.getElementById("accumulation-body");
   const withLimit = assessed.filter(a => a.limit != null);
   const missing = assessed.length - withLimit.length;
@@ -352,6 +369,8 @@ function renderAccumulation(assessed) {
 
   if (!withLimit.length) {
     el.innerHTML = `<p class="empty-note">No policy limits were provided in the pasted book (4th column). Add a limit per account to see concentrated-exposure totals by state and NAICS.</p>`;
+    hint.textContent = "No limits provided";
+    card.open = false;
     return;
   }
 
@@ -391,6 +410,8 @@ function renderAccumulation(assessed) {
     <div class="accum-breakdown-title">Concentrated limit by NAICS</div>
     ${bar(byNaics)}
   `;
+  hint.textContent = `$${totalConcentrated.toLocaleString(undefined, { maximumFractionDigits: 0 })} concentrated`;
+  card.open = totalConcentrated > 0;
 }
 
 function downloadCsv() {
