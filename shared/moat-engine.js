@@ -127,6 +127,16 @@ const MoatEngine = (() => {
     return { velocity: uniqueRows.length / spanMonths, count: uniqueRows.length, span: spanMonths };
   }
 
+  // EPA TRI facility-level PFAS reports -- real, EPA-standardized parent-
+  // company names (facility_pfas_reports.company_name uses the exact same
+  // strings as severity_anchors.company_name, matched at load time in
+  // epa_tri_pipeline.py), so this is a direct equality match, not a fuzzy
+  // substring one.
+  function getFacilityReports(defendants) {
+    if (!defendants.length) return [];
+    return (DB.facility_pfas_reports || []).filter(r => defendants.includes(r.company_name));
+  }
+
   function getDownstreamAdjacency(naics) {
     return (DB.downstream_adjacency || {})[naics] || [];
   }
@@ -175,6 +185,26 @@ const MoatEngine = (() => {
     return Object.values(adj).some(list => list.some(a => a.naics === naics));
   }
 
+  // Defense & Cost Containment (DCC) proxy -- checked live whether any of
+  // the 5 curated companies' real 10-Ks disclose a standalone defense/legal
+  // cost figure for PFAS litigation (a dedicated pipeline, dcc_cost_
+  // pipeline.py, searched all 5): zero clean hits. Companies bundle legal
+  // fees into aggregate settlement charges, never break them out. Rather
+  // than invent a plausible-sounding range (the exact mistake a pasted
+  // strategy doc made, quoting an uncited "$350k-$1.2M per co-defendant"
+  // figure), this uses the one real, sourced number found: RAND's 2005
+  // asbestos-litigation study (RAND MG162, data through 2002) found 31
+  // cents of every dollar spent on that litigation went to defense costs.
+  // This is a DIFFERENT, OLDER mass tort, not a PFAS-specific disclosure --
+  // used here only as an order-of-magnitude historical analog, exactly the
+  // same "not an actuarial estimate" framing Zero-Day IBNR already uses.
+  const DCC_ASBESTOS_ANALOG_RATIO = 0.31;
+
+  function getDccProxy(maxSeverity) {
+    if (maxSeverity === null) return null;
+    return maxSeverity * DCC_ASBESTOS_ANALOG_RATIO;
+  }
+
   function assess(naics, state) {
     const defendants = getDefendantsForNaics(naics);
     const plaintiffRows = queryPlaintiffRadar(defendants);
@@ -188,7 +218,8 @@ const MoatEngine = (() => {
     return {
       naics, state, defendants, plaintiffRows, legResult, severityRows, threat,
       maxSeverity, velocity, naicsIsRelevant, nextTarget: getDownstreamAdjacency(naics),
-      veilPiercing: detectVeilPiercing(defendants),
+      veilPiercing: detectVeilPiercing(defendants), dccProxy: getDccProxy(maxSeverity),
+      facilityReports: getFacilityReports(defendants),
     };
   }
 
@@ -201,7 +232,7 @@ const MoatEngine = (() => {
   return {
     load, assess, getDefendantsForNaics, queryPlaintiffRadar, queryLegislativeContagion,
     querySeverityAnchor, parseDollarToMillions, computeThreatLevel, getFilingVelocity,
-    getDownstreamAdjacency, detectVeilPiercing, normalizeForMatch, US_BORDERS, STATE_NAMES,
+    getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES,
     get db() { return DB; },
   };
 })();

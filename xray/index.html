@@ -126,8 +126,11 @@
     <div class="btn-row">
       <button class="run-btn" id="scan-btn">Scan portfolio</button>
       <button class="run-btn secondary" id="sample-btn">Load sample book</button>
+      <button class="run-btn secondary" id="upload-btn">Upload bordereau (.xlsx/.csv)</button>
+      <input type="file" id="file-input" accept=".xlsx,.xls,.csv" style="display:none;">
       <button class="run-btn secondary" id="download-btn" style="display:none;">Download flagged-account CSV</button>
     </div>
+    <p class="format-note" id="upload-status"></p>
     <p class="format-note">Nothing is uploaded anywhere &mdash; this runs entirely client-side against the same real pipeline data behind the Underwriter Console. No signal found for an account is not the same as no risk; it means nothing has been collected for that NAICS/state yet.</p>
   </div>
 
@@ -149,6 +152,7 @@
   </footer>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="../shared/moat-engine.js"></script>
 <script>
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
@@ -171,6 +175,89 @@ function parseBook(text) {
     const limit = rawLimit && !isNaN(parseFloat(rawLimit)) ? parseFloat(rawLimit) : null;
     return { account: parts[0] || "(unnamed)", state: (parts[1] || "").toUpperCase(), naics: parts[2] || "", limit };
   }).filter(r => r.state && r.naics);
+}
+
+// Real bordereau upload (.xlsx/.xls/.csv) -- column-name matching rather
+// than position-based, since a real bordereau's columns won't necessarily
+// be in the exact order the plain-text textarea format assumes. Falls back
+// to position-based parsing (same as parseBook) only if no header row with
+// recognizable column names is found.
+const COLUMN_ALIASES = {
+  account: ["account name", "account", "insured", "insured name", "name"],
+  state: ["state", "st", "jurisdiction"],
+  naics: ["naics code", "naics", "sic code", "sic"],
+  limit: ["policy limit", "policy limit ($)", "limit", "limit ($)", "total insured value", "tiv"],
+};
+
+function findColumn(headerRow, aliases) {
+  const normalized = headerRow.map(h => String(h || "").trim().toLowerCase());
+  for (const alias of aliases) {
+    const idx = normalized.indexOf(alias);
+    if (idx !== -1) return idx;
+  }
+  return -1;
+}
+
+function parseBordereauRows(rows) {
+  if (!rows.length) return [];
+  const header = rows[0];
+  const accIdx = findColumn(header, COLUMN_ALIASES.account);
+  const stateIdx = findColumn(header, COLUMN_ALIASES.state);
+  const naicsIdx = findColumn(header, COLUMN_ALIASES.naics);
+  const limitIdx = findColumn(header, COLUMN_ALIASES.limit);
+
+  if (stateIdx === -1 || naicsIdx === -1) {
+    // No recognizable header -- treat every row (including the first) as
+    // data in the same fixed account/state/naics/limit column order the
+    // plain-text format uses.
+    return rows.map(r => {
+      const rawLimit = r[3] != null ? String(r[3]).replace(/[$,]/g, "") : "";
+      const limit = rawLimit && !isNaN(parseFloat(rawLimit)) ? parseFloat(rawLimit) : null;
+      return { account: String(r[0] || "(unnamed)"), state: String(r[1] || "").toUpperCase(), naics: String(r[2] || ""), limit };
+    }).filter(r => r.state && r.naics);
+  }
+
+  return rows.slice(1).map(r => {
+    const rawLimit = limitIdx !== -1 && r[limitIdx] != null ? String(r[limitIdx]).replace(/[$,]/g, "") : "";
+    const limit = rawLimit && !isNaN(parseFloat(rawLimit)) ? parseFloat(rawLimit) : null;
+    return {
+      account: accIdx !== -1 ? String(r[accIdx] || "(unnamed)") : "(unnamed)",
+      state: String(r[stateIdx] || "").toUpperCase(),
+      naics: String(r[naicsIdx] || "").trim(),
+      limit,
+    };
+  }).filter(r => r.state && r.naics);
+}
+
+function handleFileUpload(file) {
+  const status = document.getElementById("upload-status");
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    try {
+      let rows;
+      if (file.name.toLowerCase().endsWith(".csv")) {
+        const text = e.target.result;
+        rows = text.split("\n").map(l => l.split(",").map(c => c.trim())).filter(r => r.some(c => c));
+      } else {
+        const wb = XLSX.read(e.target.result, { type: "array" });
+        const sheet = wb.Sheets[wb.SheetNames[0]];
+        rows = XLSX.utils.sheet_to_json(sheet, { header: 1, blankrows: false });
+      }
+      const parsed = parseBordereauRows(rows);
+      status.textContent = `Loaded ${parsed.length} account(s) from ${file.name}.`;
+      document.getElementById("book-input").value = parsed.map(r =>
+        [r.account, r.state, r.naics, r.limit != null ? r.limit : ""].join(", ")
+      ).join("\n");
+      scanPortfolio();
+    } catch (err) {
+      status.textContent = `Could not parse ${file.name}: ${err.message}. Expected a bordereau with Account Name/State/NAICS Code/Policy Limit columns, or the same plain-text format as the textarea above.`;
+    }
+  };
+  if (file.name.toLowerCase().endsWith(".csv")) {
+    reader.readAsText(file);
+  } else {
+    reader.readAsArrayBuffer(file);
+  }
 }
 
 const SEVERITY_RANK = { red: 3, amber: 2, gray: 1 };
@@ -345,6 +432,23 @@ function buildMemoHtml(a) {
   const nextTargetHtml = r.nextTarget.length
     ? `<h3>Next-target forecast</h3><ul>${r.nextTarget.map(t => `<li>NAICS ${esc(t.naics)} &mdash; ${esc(t.label)}: ${esc(t.reason)}</li>`).join("")}</ul>`
     : "";
+  // Legal/coverage referral -- deliberately NOT an exclusion generator.
+  // Reproducing actual ISO manuscript endorsement text would be a real
+  // copyright problem (ISO forms are licensed content owned by Verisk).
+  // This instead poses the real coverage QUESTIONS a referral should raise,
+  // backed by the evidence already gathered above, and explicitly asks for
+  // legal review rather than asserting a conclusion this tool isn't
+  // qualified to make.
+  const referralHtml = (r.threat.color === "red" || r.threat.color === "amber") ? `
+    <h3>Legal / coverage referral</h3>
+    <p style="font-size:13.5px;">Based on the evidence above, recommend referring this account to coverage counsel to evaluate:</p>
+    <ul>
+      <li>Whether the underlying allegations sound in bodily injury, property damage, or a statutory theory (e.g. medical monitoring, public nuisance) that may bypass a standard physical-injury trigger.</li>
+      <li>Whether a standard pollution exclusion would plausibly apply, or whether the complaint pleads around it (e.g. as a products-liability or completed-operations claim).</li>
+      <li>Occurrence vs. claims-made trigger timing against the alleged exposure window.</li>
+    </ul>
+    <p style="font-size:12px;color:#888;">This is a referral prompt, not a coverage opinion or a policy form -- Precedent does not generate or reproduce ISO or any licensed endorsement language. Final exclusion/endorsement language is a legal drafting decision.</p>
+  ` : "";
 
   return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Precedent memo — ${esc(a.account)}</title>
 <style>
@@ -373,6 +477,7 @@ function buildMemoHtml(a) {
   <h3>Legislative Contagion</h3><ul>${legHtml}</ul>
   <h3>Severity Anchor</h3><ul>${severityHtml}</ul>
   ${nextTargetHtml}
+  ${referralHtml}
   <button class="print-btn" onclick="window.print()">Print / Save as PDF</button>
   <div class="footer-note">Every figure above is sourced to a real pipeline run against CourtListener, SEC EDGAR, or LegiScan. VERIFIED = source directly opened and read. This is decision support, not an actuarial guarantee, and should not be the sole basis for a binding, pricing, or coverage-exclusion decision. Full evidence trail: <a href="${esc(consoleUrl)}">${esc(consoleUrl)}</a></div>
 </body></html>`;
@@ -404,6 +509,10 @@ async function init() {
     scanPortfolio();
   });
   document.getElementById("download-btn").addEventListener("click", downloadCsv);
+  document.getElementById("upload-btn").addEventListener("click", () => document.getElementById("file-input").click());
+  document.getElementById("file-input").addEventListener("change", (e) => {
+    if (e.target.files[0]) handleFileUpload(e.target.files[0]);
+  });
 }
 init();
 </script>

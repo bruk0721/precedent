@@ -2154,6 +2154,283 @@
       "extracted_at": "2026-11-08T15:39:37.095491+00:00"
     }
   ],
+  "facility_pfas_reports": [
+    {
+      "id": 26,
+      "company_name": "Chemours Co",
+      "facility_name": "CHEMOURS PARLIN FACILITY",
+      "city": "PARLIN",
+      "state": "NJ",
+      "chemical": "Hexafluoropropylene oxide dimer acid",
+      "naics_code": "325510",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.618734+00:00"
+    },
+    {
+      "id": 27,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' DECATUR FACILITY",
+      "city": "DECATUR",
+      "state": "AL",
+      "chemical": "Potassium perfluorobutane sulfonate",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 28,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' DECATUR FACILITY",
+      "city": "DECATUR",
+      "state": "AL",
+      "chemical": "Perfluorobutane sulfonic acid",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 29,
+      "company_name": "Chemours Co",
+      "facility_name": "CHEMOURS WASHINGTON WORKS",
+      "city": "WASHINGTON",
+      "state": "WV",
+      "chemical": "Hexafluoropropylene oxide dimer acid",
+      "naics_code": "325211",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 30,
+      "company_name": "Chemours Co",
+      "facility_name": "CHEMOURS WASHINGTON WORKS",
+      "city": "WASHINGTON",
+      "state": "WV",
+      "chemical": "Hexafluoropropylene oxide dimer acid ammonium salt",
+      "naics_code": "325211",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 31,
+      "company_name": "Chemours Co",
+      "facility_name": "CHEMOURS CHAMBERS WORKS",
+      "city": "DEEPWATER",
+      "state": "NJ",
+      "chemical": "Hexafluoropropylene oxide dimer acid",
+      "naics_code": "325199",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 32,
+      "company_name": "Chemours Co",
+      "facility_name": "CHEMOURS CHAMBERS WORKS",
+      "city": "DEEPWATER",
+      "state": "NJ",
+      "chemical": "Perfluorohexanoic acid (PFHxA)",
+      "naics_code": "325199",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 33,
+      "company_name": "Chemours Co",
+      "facility_name": "CHEMOURS CHAMBERS WORKS",
+      "city": "DEEPWATER",
+      "state": "NJ",
+      "chemical": "Perfluorooctyl iodide",
+      "naics_code": "325199",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 34,
+      "company_name": "Chemours Co",
+      "facility_name": "CHEMOURS WASHINGTON WORKS",
+      "city": "WASHINGTON",
+      "state": "WV",
+      "chemical": "Perfluorohexanoic acid (PFHxA)",
+      "naics_code": "325120",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 35,
+      "company_name": "Chemours Co",
+      "facility_name": "CHEMOURS WASHINGTON WORKS",
+      "city": "WASHINGTON",
+      "state": "WV",
+      "chemical": "Perfluorooctyl iodide",
+      "naics_code": "325120",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 36,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' CORDOVA FACILITY",
+      "city": "CORDOVA",
+      "state": "IL",
+      "chemical": "Perfluorohexanesulfonic acid",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 37,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' CORDOVA FACILITY",
+      "city": "CORDOVA",
+      "state": "IL",
+      "chemical": "Perfluorooctanoic acid",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 38,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' CORDOVA FACILITY",
+      "city": "CORDOVA",
+      "state": "IL",
+      "chemical": "Hexafluoropropylene oxide dimer acid",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 39,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' CORDOVA FACILITY",
+      "city": "CORDOVA",
+      "state": "IL",
+      "chemical": "Perfluorobutanoic acid",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 40,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' CORDOVA FACILITY",
+      "city": "CORDOVA",
+      "state": "IL",
+      "chemical": "Perfluoropropanoic acid (PFPrA)",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 41,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' CORDOVA FACILITY",
+      "city": "CORDOVA",
+      "state": "IL",
+      "chemical": "Perfluorononanoic acid",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 42,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' CORDOVA FACILITY",
+      "city": "CORDOVA",
+      "state": "IL",
+      "chemical": "Perfluorooctane sulfonic acid",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 43,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' CORDOVA FACILITY",
+      "city": "CORDOVA",
+      "state": "IL",
+      "chemical": "1,1,1-Trifluoro-N-[(trifluoromethyl)sulfonyl] methanesulfonamide (TFSI)",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 44,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' CORDOVA FACILITY",
+      "city": "CORDOVA",
+      "state": "IL",
+      "chemical": "Lithium bis[(trifluoromethyl)sulfonyl] azanide",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 45,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' CORDOVA FACILITY",
+      "city": "CORDOVA",
+      "state": "IL",
+      "chemical": "Perfluorobutane sulfonic acid",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 46,
+      "company_name": "3M CO",
+      "facility_name": "3M CHEMICAL OPERATIONS' CORDOVA FACILITY",
+      "city": "CORDOVA",
+      "state": "IL",
+      "chemical": "Potassium heptafluorobutanoate",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 47,
+      "company_name": "Chemours Co",
+      "facility_name": "CHEMOURS CO - FAYETTEVILLE WORKS",
+      "city": "FAYETTEVILLE",
+      "state": "NC",
+      "chemical": "Hexafluoropropylene oxide dimer acid",
+      "naics_code": "325120",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 48,
+      "company_name": "Chemours Co",
+      "facility_name": "CHEMOURS CO - FAYETTEVILLE WORKS",
+      "city": "FAYETTEVILLE",
+      "state": "NC",
+      "chemical": "Hexafluoropropylene oxide dimer acid ammonium salt",
+      "naics_code": "325120",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 49,
+      "company_name": "3M CO",
+      "facility_name": "3M CO - HARTFORD CITY",
+      "city": "HARTFORD CITY",
+      "state": "IN",
+      "chemical": "Perfluorooctane sulfonic acid",
+      "naics_code": "322220",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    },
+    {
+      "id": 50,
+      "company_name": "Johnson Controls International plc",
+      "facility_name": "TYCO FIRE PRODUCTS LP",
+      "city": "MARINETTE",
+      "state": "WI",
+      "chemical": "Thiols, C8-20, \u03b3-\u03c9-perfluoro, telomers with acrylamide",
+      "naics_code": "325998",
+      "report_year": "2024",
+      "extracted_at": "2026-11-11T03:47:06.619759+00:00"
+    }
+  ],
   "downstream_adjacency": {
     "325998": [
       {
@@ -2195,5 +2472,5 @@
       }
     ]
   },
-  "generated_at": "2026-11-09T01:38:05.809549+00:00"
+  "generated_at": "2026-11-11T03:47:19.551708+00:00"
 }

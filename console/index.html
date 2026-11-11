@@ -183,6 +183,12 @@
       <div id="veil-body"></div>
     </div>
 
+    <div class="card" id="facility-card" style="display:none;">
+      <h2>Facility-level chemical reporting (EPA TRI)</h2>
+      <p class="card-sub">Real EPA Toxics Release Inventory facility reports flagged as PFAS compounds, matched by EPA's own standardized parent-company name &mdash; not a corporate-level disclosure, a specific manufacturing site and chemical.</p>
+      <div id="facility-body"></div>
+    </div>
+
     <div class="card">
       <h2>Zero-Day IBNR signal</h2>
       <p class="card-sub">Severity anchor &times; filing velocity, as a dimensionless index &mdash; not a dollar reserve, not an actuarial estimate.</p>
@@ -256,7 +262,8 @@ function renderSeverity(naics, rows) {
     <div class="finding-line"><b>${esc(top.r.company_name)}</b> — ${esc(top.r.dollar_amount)} (${esc(top.r.liability_term)}, filed ${esc(top.r.filing_date || "n/a")})${srcLink(top.r.source_url, "View 10-K")}</div>
     <div class="empty-note" style="margin-bottom:10px">${esc((top.r.context_snippet || "").slice(0, 220))}${(top.r.context_snippet || "").length > 220 ? "…" : ""}</div>
     <div class="empty-note">SEC-registered SIC: ${esc(top.r.sec_sic_code || "n/a")} (${esc(top.r.sec_sic_description || "n/a")}) — registrant-level, not the liability-specific segment. naics_code ${esc(naics)} is a curated override.</div>
-    ${withVal.length > 1 ? `<div class="empty-note" style="margin-top:10px">+ ${withVal.length - 1} more finding(s) on file for this NAICS.</div>` : ""}`;
+    ${withVal.length > 1 ? `<div class="empty-note" style="margin-top:10px">+ ${withVal.length - 1} more finding(s) on file for this NAICS.</div>` : ""}
+    <div class="empty-note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg)">Defense-cost proxy: $${MoatEngine.getDccProxy(top.v).toLocaleString(undefined, { maximumFractionDigits: 0 })}M &mdash; NOT a PFAS-specific disclosure (no company checked discloses defense costs separately from settlement charges). Derived from RAND's 2005 asbestos-litigation study (31% of total mass-tort spending went to defense costs), applied here only as a historical order-of-magnitude analog, not an actuarial estimate.</div>`;
 }
 
 function renderThreat(color, label, rec) {
@@ -318,6 +325,27 @@ function renderVeilPiercing(defendants, flags) {
   ).join("");
 }
 
+function renderFacilityReports(defendants, reports) {
+  const card = document.getElementById("facility-card");
+  const el = document.getElementById("facility-body");
+  if (!defendants.length) {
+    card.style.display = "none";
+    return;
+  }
+  card.style.display = "block";
+  if (!reports.length) {
+    el.innerHTML = `<p class="empty-note">No PFAS-flagged EPA TRI facility found under this company's standardized parent name in the 2024 reporting year. This is checked, not skipped -- EPA's own TRI database simply has no PFAS-flagged release report on file for this company this year.</p>`;
+    return;
+  }
+  const byFacility = {};
+  reports.forEach(r => (byFacility[`${r.facility_name}|${r.city}|${r.state}`] = byFacility[`${r.facility_name}|${r.city}|${r.state}`] || []).push(r.chemical));
+  el.innerHTML = `<span class="tag amber">${Object.keys(byFacility).length} real facilit${Object.keys(byFacility).length === 1 ? "y" : "ies"} found</span>` +
+    Object.entries(byFacility).map(([key, chemicals]) => {
+      const [facility, city, state] = key.split("|");
+      return `<div class="finding-line"><b>${esc(facility)}</b> &mdash; ${esc(city)}, ${esc(state)}<br><span style="color:var(--ink-faint)">${chemicals.length} PFAS compound(s) reported: ${chemicals.map(esc).join(", ")}</span></div>`;
+    }).join("");
+}
+
 function runAssessment() {
   const naics = document.getElementById("naics-input").value.trim();
   const state = document.getElementById("state-input").value;
@@ -330,6 +358,7 @@ function runAssessment() {
   renderThreat(result.threat.color, result.threat.label, result.threat.rec);
   renderNextTarget(result.defendants, result.nextTarget);
   renderVeilPiercing(result.defendants, result.veilPiercing);
+  renderFacilityReports(result.defendants, result.facilityReports);
   renderIbnr(result.maxSeverity, result.velocity);
 }
 
