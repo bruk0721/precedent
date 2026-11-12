@@ -6,7 +6,7 @@
 <title>Precedent</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
 <style>
   :root {
     --page-bg: #f7f8fa;
@@ -28,6 +28,7 @@
     --nav-bg: rgba(247, 248, 250, 0.78);
     --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
     --radius-card: 20px;
     --radius-pill: 999px;
     --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
@@ -75,14 +76,33 @@
     .quotes-strip { flex-direction: column; }
   }
 
-  .hero { position: relative; padding: 50px 24px 60px; text-align: center; overflow: hidden; }
-  .hero-mesh { position: absolute; inset: -40px -40px auto -40px; height: 420px; z-index: -1; background: radial-gradient(ellipse 680px 380px at 50% 10%, rgba(59,110,246,0.10), transparent 70%); }
-  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 22px; }
+  .hero { position: relative; padding: 64px 24px 56px; text-align: center; overflow: hidden; }
+  .hero-mesh {
+    position: absolute; inset: -40px -40px auto -40px; height: 520px; z-index: -1;
+    background:
+      radial-gradient(ellipse 720px 420px at 18% 0%, rgba(59,110,246,0.14), transparent 60%),
+      radial-gradient(ellipse 620px 380px at 85% 10%, rgba(179,60,48,0.08), transparent 65%),
+      radial-gradient(ellipse 900px 480px at 50% -10%, rgba(14,17,22,0.05), transparent 70%);
+  }
+  :root[data-theme="dark"] .hero-mesh {
+    background:
+      radial-gradient(ellipse 720px 420px at 18% 0%, rgba(127,148,194,0.18), transparent 60%),
+      radial-gradient(ellipse 620px 380px at 85% 10%, rgba(226,118,106,0.10), transparent 65%),
+      radial-gradient(ellipse 900px 480px at 50% -10%, rgba(255,255,255,0.03), transparent 70%);
+  }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 26px; }
   .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
-  h1 { font-weight: 500; font-size: clamp(32px, 7vw, 54px); line-height: 1.1; margin: 0 auto 18px; letter-spacing: -0.02em; text-wrap: balance; max-width: 14ch; }
+  h1 { font-family: var(--font-serif); font-weight: 500; font-style: italic; font-size: clamp(34px, 6.4vw, 58px); line-height: 1.12; margin: 0 auto 20px; letter-spacing: -0.01em; text-wrap: balance; max-width: 16ch; }
   .hero p.dek { font-size: 17px; line-height: 1.6; color: var(--ink-muted); max-width: 54ch; margin: 0 auto; }
   .hero p.dek strong { color: var(--ink); font-weight: 600; }
-  .powered-by { margin-top: 26px; font-size: 12.5px; color: var(--ink-faint); }
+  .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+  .hero-btn { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font); font-size: 14.5px; font-weight: 600; padding: 13px 24px; border-radius: 12px; transition: transform 0.15s, opacity 0.15s; }
+  .hero-btn.primary { background: var(--ink); color: var(--page-bg); }
+  .hero-btn.primary:hover { opacity: 0.86; transform: translateY(-1px); }
+  .hero-btn.secondary { background: var(--card-bg); color: var(--ink); border: 1px solid rgba(14, 17, 22, 0.12); }
+  .hero-btn.secondary:hover { background: var(--chip-bg); }
+  .hero-trust-note { margin-top: 16px; font-size: 12.5px; color: var(--ink-faint); }
+  .powered-by { margin-top: 22px; font-size: 12.5px; color: var(--ink-faint); }
   .powered-by strong { color: var(--ink-muted); font-weight: 600; }
 
   section { padding: 20px 0 0; }
@@ -199,6 +219,38 @@
   .pilot-card p { font-size: 14px; line-height: 1.65; color: var(--ink-muted); margin: 0 0 16px; }
   .pilot-card a.pilot-btn { display: inline-flex; font-size: 13.5px; font-weight: 600; color: #fff; background: var(--accent-blue); padding: 10px 18px; border-radius: 10px; }
 
+  /* ---- Trust bar: real primary sources this platform reads, not logos we don't have rights to ---- */
+  .trust-bar { max-width: 880px; margin: 0 auto 8px; padding: 18px 20px; text-align: center; }
+  .trust-bar .tb-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-faint); margin-bottom: 14px; }
+  .tb-sources { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .tb-source { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 12.5px; font-weight: 600; color: var(--ink-muted); background: var(--card-bg); border: 1px solid var(--chip-bg); padding: 8px 14px; border-radius: 10px; }
+  .tb-source .tb-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ---- Named process: how this actually works, step by step ---- */
+  .process-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
+  .process-step { flex: 1 1 220px; background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 22px; box-shadow: var(--shadow-card); }
+  .process-step .ps-num { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--accent-blue); background: var(--accent-blue-bg); display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; margin-bottom: 14px; }
+  .process-step h4 { font-size: 15px; font-weight: 600; margin: 0 0 6px; }
+  .process-step p { font-size: 13.5px; line-height: 1.6; color: var(--ink-muted); margin: 0; }
+
+  /* ---- Module icons: a distinct mark per scenario, same idea as a segmented entry grid ---- */
+  .module-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-bottom: 14px; }
+  .module-top-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+
+  /* ---- FIG. 01: named, enumerated deliverable catalog (Postral-style "mapped to your rig" pattern) ---- */
+  .fig-label { font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 18px; text-align: center; }
+  .fig-catalog { display: flex; flex-direction: column; gap: 1px; background: var(--chip-bg); border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); }
+  .fig-row { display: flex; align-items: center; gap: 18px; background: var(--card-bg); padding: 18px 24px; }
+  .fig-row .fig-num { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--ink-faint); flex-shrink: 0; width: 26px; }
+  .fig-row .fig-body { flex: 1; min-width: 0; }
+  .fig-row .fig-name { font-size: 14.5px; font-weight: 600; margin-bottom: 2px; }
+  .fig-row .fig-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
+  .fig-row .fig-src { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); flex-shrink: 0; white-space: nowrap; background: var(--chip-bg); padding: 4px 10px; border-radius: var(--radius-pill); }
+  @media (max-width: 640px) {
+    .fig-row { flex-wrap: wrap; }
+    .fig-row .fig-src { margin-left: 44px; }
+  }
+
   /* Progressive disclosure for secondary/supporting content -- same pattern
      as the Console and X-Ray: collapses to a one-line summary, expands on
      click, nothing removed, just deferred. */
@@ -228,8 +280,15 @@
 <div class="hero">
   <div class="hero-mesh"></div>
   <span class="eyebrow-pill"><span class="dot"></span>Risk intelligence for casualty insurers</span>
-  <h1>Precedent</h1>
+  <h1>The claim you saw coming.</h1>
   <p class="dek">We track specific, emerging liability risks &mdash; like PFAS lawsuits and firefighter presumption laws &mdash; <strong>before they turn into claims</strong>, so underwriters can price or exclude them while there's still time. Every figure below comes from a primary source we opened and read, not an estimate.</p>
+  <div class="hero-ctas">
+    <a class="hero-btn primary" href="./console/">Open the Underwriter Console
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a class="hero-btn secondary" href="./xray/">Run the Free PFAS X-Ray</a>
+  </div>
+  <div class="hero-trust-note">No signup. No password. Nothing you enter ever leaves your browser.</div>
   <div class="powered-by">Scored by the <strong>Sibyl</strong> prediction model</div>
 </div>
 
@@ -251,7 +310,73 @@
 </div>
 <p class="quotes-note">Cited as industry commentary &mdash; not an endorsement of Precedent.</p>
 
+<div class="trust-bar">
+  <div class="tb-label">Every figure traces back to a primary source we read directly</div>
+  <div class="tb-sources">
+    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-blue)"></span>SEC EDGAR</span>
+    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-green)"></span>CourtListener / PACER</span>
+    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-amber)"></span>EPA</span>
+    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-purple)"></span>LegiScan (state legislatures)</span>
+    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-red)"></span>JPML</span>
+  </div>
+</div>
+
 <div class="wrap">
+
+  <section>
+    <div class="section-head">
+      <h2>How Precedent works</h2>
+      <p class="section-sub">Three steps, not a black box.</p>
+    </div>
+    <div class="process-row">
+      <div class="process-step">
+        <div class="ps-num">01</div>
+        <h4>Pick a risk scenario</h4>
+        <p>PFAS, turnout gear, or firefighter presumption &mdash; each a fully modeled litigation and legislation tracker, not a placeholder category.</p>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">02</div>
+        <h4>Read the evidence-tiered data</h4>
+        <p>Every claim is tagged VERIFIED (we opened the filing) or REPORTED (secondary coverage only) &mdash; so you know exactly how much to trust it before you act on it.</p>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">03</div>
+        <h4>Check it against your book</h4>
+        <p>Paste your states, NAICS codes, or full book of business and get back a ranked, flagged exposure view. Nothing you enter leaves your browser.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="fig-label">FIG. 01 &mdash; what Precedent actually delivers</div>
+    <div class="fig-catalog">
+      <div class="fig-row">
+        <span class="fig-num">01</span>
+        <div class="fig-body"><div class="fig-name">Settlement Stage Classification</div><div class="fig-desc">Where each tracked case actually sits right now &mdash; pre-filing, MDL consolidation, bellwether, or settlement &mdash; not a generic "active litigation" flag.</div></div>
+        <span class="fig-src">/v1/assess</span>
+      </div>
+      <div class="fig-row">
+        <span class="fig-num">02</span>
+        <div class="fig-body"><div class="fig-name">Plaintiff Firm &rarr; Defendant Concentration</div><div class="fig-desc">69 real plaintiff-firm-to-defendant edges, so you can see which firms are actually driving filings against which companies.</div></div>
+        <span class="fig-src">/v1/plaintiff-firm-tracker</span>
+      </div>
+      <div class="fig-row">
+        <span class="fig-num">03</span>
+        <div class="fig-body"><div class="fig-name">Historical Scale Comparison</div><div class="fig-desc">How today's PFAS and talc exposure actually compares in real dollars and real case counts to asbestos at the same stage of its own litigation life cycle.</div></div>
+        <span class="fig-src">/v1/historical-scale-comparison</span>
+      </div>
+      <div class="fig-row">
+        <span class="fig-num">04</span>
+        <div class="fig-body"><div class="fig-name">Litigation Timeline Milestones</div><div class="fig-desc">26 cited, dated developments across asbestos, PFAS, talc, and turnout gear &mdash; filterable by category, each sourced to a primary filing or report.</div></div>
+        <span class="fig-src">/v1/timeline-milestones</span>
+      </div>
+      <div class="fig-row">
+        <span class="fig-num">05</span>
+        <div class="fig-body"><div class="fig-name">JPML Consolidation Stats</div><div class="fig-desc">Real pending-case counts for each active MDL, pulled from the Judicial Panel on Multidistrict Litigation itself, not a secondhand estimate.</div></div>
+        <span class="fig-src">/v1/jpml-stats</span>
+      </div>
+    </div>
+  </section>
 
   <section>
     <div class="section-head">
@@ -261,6 +386,9 @@
 
     <div class="modules">
       <a class="module-card" href="./pfas2/">
+        <div class="module-icon" style="background:var(--accent-blue-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 4 12H8l4-12Z"/><path d="M8 20h8"/></svg>
+        </div>
         <div class="module-top">
           <span class="module-tag" style="background:var(--accent-blue-bg); color:var(--accent-blue)">Products liability</span>
         </div>
@@ -277,6 +405,9 @@
       </a>
 
       <a class="module-card" href="./presumption2/">
+        <div class="module-icon" style="background:var(--accent-purple-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-7h6v7"/></svg>
+        </div>
         <div class="module-top">
           <span class="module-tag" style="background:var(--accent-purple-bg); color:var(--accent-purple)">Workers' comp</span>
         </div>
@@ -293,6 +424,9 @@
       </a>
 
       <a class="module-card" href="./xray/">
+        <div class="module-icon" style="background:var(--accent-green-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </div>
         <div class="module-top">
           <span class="module-tag" style="background:var(--accent-green-bg); color:var(--accent-green)">Free scan</span>
         </div>
@@ -304,6 +438,9 @@
       </a>
 
       <a class="module-card" href="./console/">
+        <div class="module-icon" style="background:var(--accent-amber-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 14h2M8 17h5"/></svg>
+        </div>
         <div class="module-top">
           <span class="module-tag" style="background:var(--accent-amber-bg); color:var(--accent-amber)">Live tool</span>
         </div>
@@ -320,6 +457,9 @@
       </a>
 
       <a class="module-card" href="./timeline/">
+        <div class="module-icon" style="background:var(--accent-blue-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
         <div class="module-top">
           <span class="module-tag" style="background:var(--accent-blue-bg); color:var(--accent-blue)">Real history</span>
         </div>
