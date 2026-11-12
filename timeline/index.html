@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precedent — Litigation Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1;
+    --accent-amber: #b8601f; --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df;
+    --accent-gray: #5c6370; --accent-gray-bg: #eef0f3; --nav-bg: rgba(247, 248, 250, 0.78);
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px; --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
+    --accent-amber: #e2974f; --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816;
+    --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.78);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px 100px; }
+
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 980px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  .theme-toggle:hover { background: var(--chip-bg); }
+
+  @media (max-width: 640px) {
+    nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; }
+    .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; }
+  }
+
+  .hero { padding: 44px 24px 30px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
+  h1 { font-weight: 500; font-size: clamp(28px, 6vw, 42px); line-height: 1.1; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 20ch; }
+  .hero p.dek { font-size: 16px; line-height: 1.6; color: var(--ink-muted); max-width: 60ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
+  h2 { font-weight: 600; font-size: 16px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .card-sub { font-size: 13px; color: var(--ink-faint); margin: 0 0 14px; line-height: 1.6; }
+  .empty-note { font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; }
+  footer { margin-top: 40px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; text-align: center; }
+
+  /* Category filter chips */
+  .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+  .filter-chip { font-family: var(--font); font-size: 12.5px; font-weight: 600; padding: 7px 14px; border-radius: var(--radius-pill); border: 1px solid var(--chip-bg); background: var(--chip-bg); color: var(--ink-muted); cursor: pointer; display: flex; align-items: center; gap: 6px; }
+  .filter-chip .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .filter-chip[data-active="true"] { background: var(--ink); color: var(--page-bg); border-color: var(--ink); }
+  .filter-chip[data-active="true"] .dot { outline: 1.5px solid var(--page-bg); }
+
+  /* Horizontal rail */
+  .rail-wrap { position: relative; height: 64px; margin: 8px 0 24px; }
+  .rail-track { position: absolute; top: 28px; left: 0; right: 0; height: 2px; background: var(--chip-bg); }
+  .rail-dot { position: absolute; top: 20px; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; border: 2px solid var(--card-bg); cursor: pointer; transition: transform 0.12s; }
+  .rail-dot:hover { transform: scale(1.3); z-index: 5; }
+  .rail-year { position: absolute; top: 44px; font-size: 10.5px; color: var(--ink-faint); font-family: var(--font-mono); transform: translateX(-50%); white-space: nowrap; }
+  .rail-tooltip { position: fixed; background: var(--ink); color: var(--page-bg); font-size: 12px; padding: 7px 11px; border-radius: 8px; pointer-events: none; z-index: 50; max-width: 260px; line-height: 1.5; display: none; }
+
+  /* Milestone list */
+  .milestone { background: var(--card-bg); border-radius: var(--radius-card); padding: 0; margin-bottom: 10px; box-shadow: var(--shadow-card); scroll-margin-top: 90px; }
+  .milestone > summary { list-style: none; cursor: pointer; padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+  .milestone > summary::-webkit-details-marker { display: none; }
+  .milestone > summary::marker { content: ""; }
+  .milestone .cat-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .milestone .m-date { font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); white-space: nowrap; width: 76px; flex-shrink: 0; }
+  .milestone .m-title { font-weight: 600; font-size: 14px; flex: 1; }
+  .milestone .chevron { flex-shrink: 0; color: var(--ink-faint); font-size: 11px; transition: transform 0.15s; }
+  .milestone[open] .chevron { transform: rotate(90deg); }
+  .milestone .m-body { padding: 0 20px 18px 108px; font-size: 13px; line-height: 1.6; color: var(--ink-muted); }
+  .milestone .m-src { color: var(--accent-blue); font-weight: 600; font-size: 12.5px; }
+  .milestone .m-src:hover { text-decoration: underline; }
+  .m-tag { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; padding: 2px 7px; border-radius: var(--radius-pill); margin-bottom: 8px; }
+  .m-tag.REPORTED { background: var(--accent-gray-bg); color: var(--accent-gray); }
+  .m-tag.ESTIMATE { background: var(--accent-amber-bg); color: var(--accent-amber); }
+
+  @media (max-width: 640px) {
+    .milestone .m-date { width: 58px; font-size: 10.5px; }
+    .milestone .m-body { padding-left: 20px; }
+  }
+</style>
+</head>
+<body>
+<script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<div class="rail-tooltip" id="rail-tooltip"></div>
+
+<nav class="top">
+  <div class="brand"><span class="dot"></span> Precedent</div>
+  <div class="nav-links">
+    <a href="../">&larr; Back to overview</a>
+    <a href="../console/">Underwriter Console</a>
+    <a href="../xray/">PFAS X-Ray</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow-pill"><span class="dot"></span>Real, cited history</span>
+  <h1>Litigation Timeline</h1>
+  <p class="dek">Every real, dated development behind the categories Precedent tracks &mdash; pulled from this project's own SEC/JPML data where possible, and cited to a real external source everywhere else. <strong>Asbestos is shown as the historical analog</strong>, not a category this project prices.</p>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h2>Filter</h2>
+    <p class="card-sub">Toggle a category to narrow the timeline &mdash; everything starts visible.</p>
+    <div class="filter-row" id="filter-row"></div>
+    <div class="rail-wrap" id="rail-wrap">
+      <div class="rail-track"></div>
+    </div>
+  </div>
+
+  <div id="milestone-list"></div>
+
+  <footer>
+    Every entry above is either pulled directly from this project's own real pipeline data (SEC EDGAR, JPML) or cited to a real external source &mdash; see each entry's own link. <span id="snapshot-date"></span>
+  </footer>
+</div>
+
+<script src="../shared/moat-engine.js"></script>
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+const CATEGORY_META = {
+  pfas: { label: "PFAS / AFFF", colorVar: "--accent-red" },
+  talc: { label: "Talc", colorVar: "--accent-amber" },
+  turnout_gear: { label: "Turnout Gear", colorVar: "--accent-blue" },
+  asbestos: { label: "Asbestos (analog)", colorVar: "--accent-gray" },
+};
+
+let activeCategories = new Set(Object.keys(CATEGORY_META));
+let milestones = [];
+
+function catColor(cat) {
+  return getComputedStyle(document.documentElement).getPropertyValue(CATEGORY_META[cat].colorVar).trim();
+}
+
+function renderFilters() {
+  const el = document.getElementById("filter-row");
+  el.innerHTML = Object.keys(CATEGORY_META).map(cat => `
+    <button class="filter-chip" data-cat="${cat}" data-active="${activeCategories.has(cat)}">
+      <span class="dot" style="background:${catColor(cat)}"></span>${esc(CATEGORY_META[cat].label)}
+    </button>`).join("");
+  el.querySelectorAll(".filter-chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const cat = btn.dataset.cat;
+      if (activeCategories.has(cat)) activeCategories.delete(cat); else activeCategories.add(cat);
+      renderFilters();
+      renderRail();
+      renderMilestoneList();
+    });
+  });
+}
+
+function dateToFraction(dateStr, minTime, maxTime) {
+  const t = new Date(dateStr).getTime();
+  return (t - minTime) / (maxTime - minTime);
+}
+
+function renderRail() {
+  const wrap = document.getElementById("rail-wrap");
+  wrap.querySelectorAll(".rail-dot, .rail-year").forEach(e => e.remove());
+  const visible = milestones.filter(m => activeCategories.has(m.category));
+  if (!visible.length) return;
+  const times = milestones.map(m => new Date(m.date).getTime());
+  const minTime = Math.min(...times), maxTime = Math.max(...times);
+
+  // Year markers at ~even intervals
+  const minYear = new Date(minTime).getFullYear(), maxYear = new Date(maxTime).getFullYear();
+  const yearStep = Math.max(1, Math.round((maxYear - minYear) / 6));
+  for (let y = minYear; y <= maxYear; y += yearStep) {
+    const frac = dateToFraction(`${y}-01-01`, minTime, maxTime);
+    const yEl = document.createElement("div");
+    yEl.className = "rail-year";
+    yEl.style.left = (frac * 100) + "%";
+    yEl.textContent = y;
+    wrap.appendChild(yEl);
+  }
+
+  const tooltip = document.getElementById("rail-tooltip");
+  visible.forEach(m => {
+    const frac = dateToFraction(m.date, minTime, maxTime);
+    const dot = document.createElement("div");
+    dot.className = "rail-dot";
+    dot.style.left = (frac * 100) + "%";
+    dot.style.background = catColor(m.category);
+    dot.addEventListener("mousemove", (e) => {
+      tooltip.innerHTML = `<b>${esc(m.title)}</b><br>${esc(m.date.slice(0, 10))}`;
+      tooltip.style.display = "block";
+      tooltip.style.left = (e.clientX + 14) + "px";
+      tooltip.style.top = (e.clientY + 14) + "px";
+    });
+    dot.addEventListener("mouseleave", () => { tooltip.style.display = "none"; });
+    dot.addEventListener("click", () => {
+      const target = document.getElementById(m.id);
+      if (target) { target.open = true; target.scrollIntoView({ behavior: "smooth", block: "center" }); }
+    });
+    wrap.appendChild(dot);
+  });
+}
+
+function renderMilestoneList() {
+  const el = document.getElementById("milestone-list");
+  const visible = [...milestones].filter(m => activeCategories.has(m.category)).sort((a, b) => new Date(a.date) - new Date(b.date));
+  if (!visible.length) {
+    el.innerHTML = `<div class="card"><p class="empty-note">No milestones match the current filter.</p></div>`;
+    return;
+  }
+  el.innerHTML = visible.map(m => `
+    <details class="milestone" id="${m.id}">
+      <summary>
+        <span class="cat-dot" style="background:${catColor(m.category)}"></span>
+        <span class="m-date">${esc(m.date.slice(0, 10))}</span>
+        <span class="m-title">${esc(m.title)}</span>
+        <span class="chevron">&#9656;</span>
+      </summary>
+      <div class="m-body">
+        <span class="m-tag ${esc(m.tier)}">${esc(m.tier)}</span><br>
+        ${esc(m.description)}<br>
+        <span style="color:var(--ink-faint)">Source: ${esc(m.source)}</span>
+        ${m.source_url ? ` &mdash; <a class="m-src" href="${esc(m.source_url)}" target="_blank" rel="noopener">View source &#8599;</a>` : ""}
+      </div>
+    </details>`
+  ).join("");
+}
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;";
+  };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => {
+    isDark = !isDark;
+    try { localStorage.setItem("precedent:theme", isDark ? "dark" : "light"); } catch (e) {}
+    apply(isDark);
+    renderFilters();
+    renderRail();
+    renderMilestoneList();
+  });
+}
+
+async function init() {
+  setupThemeToggle();
+  const db = await MoatEngine.load("../shared/moat_export.json");
+  document.getElementById("snapshot-date").textContent = db.generated_at ? `Snapshot as of ${new Date(db.generated_at).toISOString().slice(0, 10)}.` : "";
+  milestones = (db.timeline_milestones || []).map((m, i) => ({ ...m, id: `milestone-${i}` }));
+  renderFilters();
+  renderRail();
+  renderMilestoneList();
+}
+init();
+</script>
+</body>
+</html>

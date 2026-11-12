@@ -660,7 +660,7 @@
       "sec_sic_code": "2834",
       "sec_sic_description": "Pharmaceutical Preparations",
       "naics_code": "325620",
-      "source_url": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
       "risk_category": "talc"
     },
     {
@@ -677,7 +677,7 @@
       "sec_sic_code": "2834",
       "sec_sic_description": "Pharmaceutical Preparations",
       "naics_code": "325620",
-      "source_url": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
       "risk_category": "talc"
     },
     {
@@ -694,7 +694,7 @@
       "sec_sic_code": "2834",
       "sec_sic_description": "Pharmaceutical Preparations",
       "naics_code": "325620",
-      "source_url": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
       "risk_category": "talc"
     },
     {
@@ -711,7 +711,7 @@
       "sec_sic_code": "2834",
       "sec_sic_description": "Pharmaceutical Preparations",
       "naics_code": "325620",
-      "source_url": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
       "risk_category": "talc"
     },
     {
@@ -728,7 +728,7 @@
       "sec_sic_code": "2834",
       "sec_sic_description": "Pharmaceutical Preparations",
       "naics_code": "325620",
-      "source_url": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
       "risk_category": "talc"
     },
     {
@@ -745,7 +745,7 @@
       "sec_sic_code": "2834",
       "sec_sic_description": "Pharmaceutical Preparations",
       "naics_code": "325620",
-      "source_url": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
       "risk_category": "talc"
     },
     {
@@ -762,7 +762,7 @@
       "sec_sic_code": "2834",
       "sec_sic_description": "Pharmaceutical Preparations",
       "naics_code": "325620",
-      "source_url": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
       "risk_category": "talc"
     },
     {
@@ -779,7 +779,7 @@
       "sec_sic_code": "2834",
       "sec_sic_description": "Pharmaceutical Preparations",
       "naics_code": "325620",
-      "source_url": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
       "risk_category": "talc"
     },
     {
@@ -796,7 +796,7 @@
       "sec_sic_code": "2834",
       "sec_sic_description": "Pharmaceutical Preparations",
       "naics_code": "325620",
-      "source_url": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
       "risk_category": "talc"
     },
     {
@@ -813,7 +813,7 @@
       "sec_sic_code": "2834",
       "sec_sic_description": "Pharmaceutical Preparations",
       "naics_code": "325620",
-      "source_url": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
       "risk_category": "talc"
     },
     {
@@ -830,7 +830,7 @@
       "sec_sic_code": "2834",
       "sec_sic_description": "Pharmaceutical Preparations",
       "naics_code": "325620",
-      "source_url": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
       "risk_category": "talc"
     },
     {
@@ -847,7 +847,7 @@
       "sec_sic_code": "2834",
       "sec_sic_description": "Pharmaceutical Preparations",
       "naics_code": "325620",
-      "source_url": null,
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000016/jnj-20251228.htm",
       "risk_category": "talc"
     }
   ],
@@ -10759,6 +10759,258 @@
       "timeline_note": "A quantified escalation curve distinct from asbestos's slower ramp: ~4.45x growth in settlement commitment within 18 months, then roughly flat on the third attempt before being rejected outright."
     }
   },
+  "timeline_milestones": [
+    {
+      "date": "1969-01-01",
+      "date_precision": "year",
+      "category": "asbestos",
+      "title": "Borel v. Fibreboard",
+      "description": "The best-documented first major products-liability suit against asbestos manufacturers for failure to warn -- the real opening of the asbestos litigation era.",
+      "tier": "REPORTED",
+      "source": "Simmons Law Firm (asbestos litigation history)",
+      "source_url": "https://www.simmonsfirm.com/blog/history-of-asbestos-litigation/"
+    },
+    {
+      "date": "1982-08-26",
+      "date_precision": "year",
+      "category": "asbestos",
+      "title": "Johns-Manville files Chapter 11",
+      "description": "One of the first and most consequential asbestos-driven bankruptcies -- the real origin of the bankruptcy-trust model later used across asbestos and (differently) talc litigation.",
+      "tier": "REPORTED",
+      "source": "Simmons Law Firm (asbestos litigation history)",
+      "source_url": "https://www.simmonsfirm.com/blog/history-of-asbestos-litigation/"
+    },
+    {
+      "date": "1988-01-01",
+      "date_precision": "year",
+      "category": "asbestos",
+      "title": "Manville Trust established",
+      "description": "The first of 60+ real asbestos bankruptcy trusts that would eventually form -- $2.5B set aside at founding.",
+      "tier": "REPORTED",
+      "source": "Simmons Law Firm (asbestos litigation history)",
+      "source_url": "https://www.simmonsfirm.com/blog/history-of-asbestos-litigation/"
+    },
+    {
+      "date": "2001-05-01",
+      "date_precision": "month",
+      "category": "asbestos",
+      "title": "Tillinghast projects $200B lifetime liability",
+      "description": "A real actuarial projection of total asbestos litigation cost (past + future payments) -- a different measure than RAND's later 'paid to date' figure, not a contradiction of it.",
+      "tier": "ESTIMATE",
+      "source": "Tillinghast-Towers Perrin, via 2003 Senate Judiciary testimony",
+      "source_url": "https://www.judiciary.senate.gov/download/2003/06/04/jennifer-biggs-testimony-060403?download=1"
+    },
+    {
+      "date": "2002-12-31",
+      "date_precision": "year",
+      "category": "asbestos",
+      "title": "$70B paid to 730,000+ claimants",
+      "description": "RAND's real, audited figure for total asbestos litigation payouts by 8,400+ defendants/insurers through 2002 -- only ~42 cents of every dollar actually reached claimants.",
+      "tier": "REPORTED",
+      "source": "RAND Institute for Civil Justice",
+      "source_url": "https://www.rand.org/pubs/research_briefs/RB9155.html"
+    },
+    {
+      "date": "2004-06-01",
+      "date_precision": "year",
+      "category": "asbestos",
+      "title": "73+ companies bankrupted by asbestos liability",
+      "description": "The real cumulative count of companies that filed bankruptcy specifically due to asbestos liability, as of mid-2004.",
+      "tier": "REPORTED",
+      "source": "RAND, via Claims Journal",
+      "source_url": "https://claimsjournal.com/news/national/2005/05/10/54887.htm"
+    },
+    {
+      "date": "2018-05-21",
+      "date_precision": "day",
+      "category": "talc",
+      "title": "Ingham verdict: $4.69 billion",
+      "description": "The original jury verdict against J&J in the real, landmark Ingham talc case -- later reduced on appeal.",
+      "tier": "REPORTED",
+      "source": "Winston & Strawn case summary",
+      "source_url": "https://winston.com/en/product-liability-and-mass-torts-digest/missouri-court-of-appeals-reduces-dollar469-billion-talc-verdict-as-a-result-of-personal-jurisdiction-challenge.html"
+    },
+    {
+      "date": "2020-06-23",
+      "date_precision": "day",
+      "category": "talc",
+      "title": "Ingham verdict reduced to ~$2.1 billion",
+      "description": "Missouri Court of Appeals cut the award on a personal-jurisdiction challenge; J&J's own real 8-K reported the reduced figure.",
+      "tier": "REPORTED",
+      "source": "J&J's own SEC 8-K filing",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040620000059/jnj-20201103.htm"
+    },
+    {
+      "date": "2021-10-14",
+      "date_precision": "day",
+      "category": "talc",
+      "title": "First Chapter 11 attempt (LTL Management): ~$2B",
+      "description": "J&J's first 'Texas two-step' bankruptcy filing via subsidiary LTL Management, committing roughly $2 billion.",
+      "tier": "REPORTED",
+      "source": "Fox Business",
+      "source_url": "https://www.foxbusiness.com/retail/johnson-johnson-to-pay-resolve-claims-baby-powder-talc-products-caused-cancer"
+    },
+    {
+      "date": "2023-04-04",
+      "date_precision": "day",
+      "category": "talc",
+      "title": "Second Chapter 11 attempt: $8.9B over 25 years",
+      "description": "After an appeals court invalidated the first filing's structure, LTL refiled with a real 4.45x larger commitment than its first attempt, 18 months earlier.",
+      "tier": "REPORTED",
+      "source": "Business Insurance",
+      "source_url": "https://www.businessinsurance.com/jj-unit-files-for-bankruptcy-again-to-pursue-89-billion-talc-settlement-john/"
+    },
+    {
+      "date": "2025-01-01",
+      "date_precision": "year",
+      "category": "talc",
+      "title": "Third Chapter 11 attempt (Red River Talc) rejected",
+      "description": "A new subsidiary's ~$8-10B proposal was rejected by the bankruptcy court; J&J announced it would litigate individual cases rather than appeal.",
+      "tier": "REPORTED",
+      "source": "Barchart / Chemistry World",
+      "source_url": "https://www.barchart.com/story/news/31679043/jjs-third-bankruptcy-attempt-to-end-talc-suits-rejected"
+    },
+    {
+      "date": "2026-11-02",
+      "date_precision": "day",
+      "category": "talc",
+      "title": "MDL-2738: 69,376 actions pending",
+      "description": "The real, official US Judicial Panel on Multidistrict Litigation case count, straight from the court system.",
+      "tier": "REPORTED",
+      "source": "JPML's own official pending-MDL report",
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0"
+    },
+    {
+      "date": "2018-02-01",
+      "date_precision": "month",
+      "category": "pfas",
+      "title": "3M's $897M Minnesota settlement",
+      "description": "3M's real settlement with the State of Minnesota over PFAS in groundwater, surface water, fish, and sediments.",
+      "tier": "REPORTED",
+      "source": "3M's own SEC 10-K",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm"
+    },
+    {
+      "date": "2022-10-01",
+      "date_precision": "quarter",
+      "category": "pfas",
+      "title": "3M's $0.8B PFAS exit charge",
+      "description": "3M's real pre-tax charge associated with its 2022 announcement to exit PFAS manufacturing by 2025.",
+      "tier": "REPORTED",
+      "source": "3M's own SEC 10-K",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm"
+    },
+    {
+      "date": "2023-06-01",
+      "date_precision": "month",
+      "category": "pfas",
+      "title": "DuPont/Chemours/Corteva $1.185B settlement",
+      "description": "The real AFFF MDL Water District settlement, under the companies' 2021 cost-sharing MOU.",
+      "tier": "REPORTED",
+      "source": "DuPont's own SEC 10-K",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm"
+    },
+    {
+      "date": "2024-04-10",
+      "date_precision": "day",
+      "category": "pfas",
+      "title": "EPA finalizes PFAS drinking-water rule",
+      "description": "EPA's National Primary Drinking Water Regulation set the first real enforceable Maximum Contaminant Levels for PFAS -- the regulatory trigger behind this project's own SDWA violation-tracking pipeline.",
+      "tier": "REPORTED",
+      "source": "EPA (via this project's own SDWA pipeline research)",
+      "source_url": "https://echo.epa.gov/"
+    },
+    {
+      "date": "2025-05-12",
+      "date_precision": "day",
+      "category": "pfas",
+      "title": "3M's New Jersey Judicial Consent Order",
+      "description": "Real-time signal caught by this project's own 8-K monitoring pipeline -- months before the next annual 10-K would have disclosed it.",
+      "tier": "REPORTED",
+      "source": "3M's own SEC 8-K",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674025000046/mmm-20250512.htm"
+    },
+    {
+      "date": "2025-08-04",
+      "date_precision": "day",
+      "category": "pfas",
+      "title": "Chemours' legacy contamination settlement",
+      "description": "Resolves legacy contamination claims across Chemours' Chambers Works, Parlin, and other operating sites.",
+      "tier": "REPORTED",
+      "source": "Chemours' own SEC 8-K",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000110465925073336/tm2522433d1_8k.htm"
+    },
+    {
+      "date": "2026-06-23",
+      "date_precision": "day",
+      "category": "pfas",
+      "title": "Chemours' EPA Consent Decree",
+      "description": "A real, proposed Consent Decree with the US EPA.",
+      "tier": "REPORTED",
+      "source": "Chemours' own SEC 8-K",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000162722326000017/cc-20260624.htm"
+    },
+    {
+      "date": "2026-09-10",
+      "date_precision": "day",
+      "category": "pfas",
+      "title": "Chemours' Fayetteville Works settlement & DuPont settlement agreement",
+      "description": "Two real, same-day material events: Chemours resolves Fayetteville Works emissions claims; DuPont/Corteva enter a separate settlement agreement.",
+      "tier": "REPORTED",
+      "source": "Chemours' and DuPont's own SEC 8-Ks",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000162722326000029/cc-20260910.htm"
+    },
+    {
+      "date": "2026-11-03",
+      "date_precision": "day",
+      "category": "pfas",
+      "title": "3M's newest settlement arrangement",
+      "description": "The most recent real material event this project's own 8-K pipeline has caught.",
+      "tier": "REPORTED",
+      "source": "3M's own SEC 8-K",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000318/mmm-20261103.htm"
+    },
+    {
+      "date": "2026-11-02",
+      "date_precision": "day",
+      "category": "pfas",
+      "title": "MDL-2873: 15,270 actions pending",
+      "description": "The real, official US Judicial Panel on Multidistrict Litigation case count.",
+      "tier": "REPORTED",
+      "source": "JPML's own official pending-MDL report",
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0"
+    },
+    {
+      "date": "2026-05-11",
+      "date_precision": "day",
+      "category": "turnout_gear",
+      "title": "MDL-3191 filed",
+      "description": "IN RE: Non-AFFF Firefighter Turnout Gear Marketing, Sales Practices, and Products Liability Litigation -- genuinely new federal litigation, D. Minn.",
+      "tier": "REPORTED",
+      "source": "JPML's own official pending-MDL report",
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0"
+    },
+    {
+      "date": "2026-08-18",
+      "date_precision": "day",
+      "category": "turnout_gear",
+      "title": "MDL-3191 centralized",
+      "description": "Transferred and centralized under Judge Jeffrey M. Bryan.",
+      "tier": "REPORTED",
+      "source": "JPML's own official pending-MDL report",
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0"
+    },
+    {
+      "date": "2026-11-02",
+      "date_precision": "day",
+      "category": "turnout_gear",
+      "title": "MDL-3191: 17 actions pending, 17 total historical",
+      "description": "Pending equals total -- nothing has resolved yet, the earliest possible stage of a real mass tort.",
+      "tier": "REPORTED",
+      "source": "JPML's own official pending-MDL report",
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0"
+    }
+  ],
   "reserve_development_benchmark": {
     "methodology": "Real, computed aggregate paid-loss development curves from the Casualty Actuarial Society's public 'Loss Reserving Data Pulled from NAIC Schedule P' dataset (accident years 1998-2007, compiled from real NAIC statutory filings). For each development lag N, the value is the aggregate cumulative paid loss at that lag divided by the aggregate cumulative paid loss at the latest observed lag (10) -- i.e. 'by lag N, this line of business had on average paid out this fraction of what it eventually paid.' NOT PFAS- or talc-specific; these accident years predate that litigation's real scale. Used only as a general products/liability-line benchmark for how slowly claims normally mature -- the same order-of-magnitude-analog role the RAND asbestos DCC ratio plays elsewhere in this project, never an actuarial estimate for any specific curated defendant.",
     "source_url": "https://www.casact.org/publications-research/research/research-resources/loss-reserving-data-pulled-naic-schedule-p",
@@ -10789,5 +11041,5 @@
       }
     }
   },
-  "generated_at": "2026-11-12T16:41:25.092636+00:00"
+  "generated_at": "2026-11-12T16:50:07.259436+00:00"
 }
