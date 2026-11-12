@@ -10336,6 +10336,241 @@
       "extracted_at": "2026-11-12T10:10:30.739386+00:00"
     }
   ],
+  "jpml_mdl_statistics": [
+    {
+      "id": 1,
+      "mdl_number": "2738",
+      "risk_category": "talc",
+      "title": "IN RE: Johnson & Johnson Talcum Powder Products Marketing, Sales Practices and Products Liability Litigation",
+      "judge": null,
+      "district": null,
+      "actions_pending": 69376,
+      "total_actions_historical": 72060,
+      "report_date": "11/2/2026",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "extracted_at": "2026-11-12T10:38:32.696832+00:00"
+    },
+    {
+      "id": 3,
+      "mdl_number": "2873",
+      "risk_category": "pfas",
+      "title": "IN RE: Aqueous Film-Forming Foams Products Liability Litigation",
+      "judge": null,
+      "district": null,
+      "actions_pending": 15270,
+      "total_actions_historical": 19846,
+      "report_date": "11/2/2026",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "extracted_at": "2026-11-12T10:38:32.744770+00:00"
+    },
+    {
+      "id": 98,
+      "mdl_number": "3191",
+      "risk_category": "turnout_gear",
+      "title": "IN RE: Non-AFFF Firefighter Turnout Gear Marketing, Sales Practices, and Products Liability Litigation",
+      "judge": null,
+      "district": null,
+      "actions_pending": 17,
+      "total_actions_historical": 17,
+      "report_date": "11/2/2026",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "extracted_at": "2026-11-12T10:38:35.181636+00:00"
+    }
+  ],
+  "federal_remediation_contracts": [
+    {
+      "id": 1,
+      "recipient_name": "SUSTAINMENT & RESTORATION SERVICES, LLC",
+      "awarding_agency": "Department of Defense",
+      "description": "PFAS REMEDIATION WITHIN FPWDS",
+      "award_amount": 4344965.21,
+      "award_id": "W912PL21C0027",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_W912PL21C0027_9700_-NONE-_-NONE-",
+      "extracted_at": "2026-11-12T10:39:23.809614+00:00"
+    },
+    {
+      "id": 2,
+      "recipient_name": "APTIM FEDERAL SERVICES, LLC",
+      "awarding_agency": "Department of Defense",
+      "description": "ESTCP PROJECT ER25-8624 \"COLLOIDAL ACTIVATED CARBON FOR IN SITU PFAS REMEDIATION AT COASTAL SITES: FIELD ASSESSMENT AND MODELING OF LONG-TERM EFFICACY\" TO DEVELOP AND VALIDATE A MODELING FRAMEWORK",
+      "award_amount": 671791.0,
+      "award_id": "W912HQ25C0060",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_W912HQ25C0060_9700_-NONE-_-NONE-",
+      "extracted_at": "2026-11-12T10:39:23.827958+00:00"
+    },
+    {
+      "id": 3,
+      "recipient_name": "GSI ENVIRONMENTAL INC.",
+      "awarding_agency": "Department of Defense",
+      "description": "ESTCP PROJECT ER25-8746 \"COLLECTING AND COMMUNICATING PFAS REMEDIATION PERFORMANCE VIA A WEB BASED ESTCP TOOL\"",
+      "award_amount": 339385.0,
+      "award_id": "W912HQ25C0041",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_W912HQ25C0041_9700_-NONE-_-NONE-",
+      "extracted_at": "2026-11-12T10:39:23.860042+00:00"
+    },
+    {
+      "id": 4,
+      "recipient_name": "GSI ENVIRONMENTAL INC.",
+      "awarding_agency": "Department of Defense",
+      "description": "ESTCP PROJECT ER24-8200. TITLE - TWO PFAS REMEDIATION MODELS FOR UNDERSTANDING AND MANAGING PFAS IN THE SATURATED ZONE. OBJECTIVE - DEVELOP 2 MODELS TO LEVERAGE EXISTING CODE, INTERFACES, AND KNOWLEDGE FOR REMEDIATION DECISION-MAKING",
+      "award_amount": 876438.0,
+      "award_id": "W912HQ24C0081",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_W912HQ24C0081_9700_-NONE-_-NONE-",
+      "extracted_at": "2026-11-12T10:39:23.879609+00:00"
+    },
+    {
+      "id": 5,
+      "recipient_name": "CORNELL UNIVERSITY",
+      "awarding_agency": "Department of Defense",
+      "description": "SERDP ER21-3964 (ER18-1026 FOLLOW-ON) \"NEXT GENERATION - CYCLODEXTRIN-BASED ADSORBENTS FOR PFAS REMEDIATION\"",
+      "award_amount": 819330.0,
+      "award_id": "W912HQ23C0020",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_W912HQ23C0020_9700_-NONE-_-NONE-",
+      "extracted_at": "2026-11-12T10:39:23.900641+00:00"
+    },
+    {
+      "id": 6,
+      "recipient_name": "CDM FEDERAL PROGRAMS CORPORATION",
+      "awarding_agency": "Department of Defense",
+      "description": "SERDP PROJECT ER21-C2-1124 CDM FEDERAL   PFAS REMEDIATION",
+      "award_amount": 752792.28,
+      "award_id": "W912HQ22C0038",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_W912HQ22C0038_9700_-NONE-_-NONE-",
+      "extracted_at": "2026-11-12T10:39:23.925615+00:00"
+    },
+    {
+      "id": 7,
+      "recipient_name": "CAPE-WESTON JV1 LLC",
+      "awarding_agency": "Department of Defense",
+      "description": "CANNON AFB PFAS REMEDIATION",
+      "award_amount": 6021694.36,
+      "award_id": "W9128F24F0047",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_W9128F24F0047_9700_W9128F23D0020_9700",
+      "extracted_at": "2026-11-12T10:39:23.945691+00:00"
+    },
+    {
+      "id": 8,
+      "recipient_name": "SOUTH DAKOTA SCHOOL OF MINES & TECHNOLOGY",
+      "awarding_agency": "Department of Defense",
+      "description": "RETROFITTING STORMWATER POND OUTLETS FOR SURFACE WATER PFAS REMEDIATION",
+      "award_amount": 484605.0,
+      "award_id": "FA890322C0031",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_FA890322C0031_9700_-NONE-_-NONE-",
+      "extracted_at": "2026-11-12T10:39:23.967763+00:00"
+    },
+    {
+      "id": 9,
+      "recipient_name": "GSI ENVIRONMENTAL INC.",
+      "awarding_agency": "Department of Defense",
+      "description": "CAN THE REMCHLOR-MD MODEL BE USED TO EVALUATE  PASSIVE AND ACTIVE PFAS REMEDIATION ALTERNATIVES",
+      "award_amount": 684002.0,
+      "award_id": "FA890322C0025",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_FA890322C0025_9700_-NONE-_-NONE-",
+      "extracted_at": "2026-11-12T10:39:23.988553+00:00"
+    },
+    {
+      "id": 10,
+      "recipient_name": "CDM FEDERAL PROGRAMS CORPORATION",
+      "awarding_agency": "Department of Defense",
+      "description": "MASS FLUX AS A TOOL TO ASSESS THE NEED FOR PERFLUORINATED ALKYLATED SUBSTANCES (PFAS) REMEDIATION",
+      "award_amount": 722405.0,
+      "award_id": "FA890321C0013",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_FA890321C0013_9700_-NONE-_-NONE-",
+      "extracted_at": "2026-11-12T10:39:24.007208+00:00"
+    },
+    {
+      "id": 11,
+      "recipient_name": "TETRA TECH, INC.",
+      "awarding_agency": "National Aeronautics and Space Administration",
+      "description": "GRC PFAS REMEDIATION SERVICES",
+      "award_amount": 1812076.0,
+      "award_id": "80GRC025FA032",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_80GRC025FA032_8000_80KSC024DA005_8000",
+      "extracted_at": "2026-11-12T10:39:24.025607+00:00"
+    },
+    {
+      "id": 12,
+      "recipient_name": "BOOZ ALLEN HAMILTON INC",
+      "awarding_agency": "Department of Transportation",
+      "description": "PFAS REMEDIATION SUPPORT",
+      "award_amount": 329593.28,
+      "award_id": "693KA926F00075",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_693KA926F00075_6920_693KA922D00009_6920",
+      "extracted_at": "2026-11-12T10:39:24.047811+00:00"
+    },
+    {
+      "id": 13,
+      "recipient_name": "ABT GLOBAL LLC",
+      "awarding_agency": "Environmental Protection Agency",
+      "description": "TECHNICAL SUPPORT FOR POLYFLUOROALKYL SUBSTANCES (PFAS) REMEDIATION COST MODELS, PFAS WBS UNIT COST MODELS, PFAS THERMAL TREATMENT DATABASE (PFASTT), AND DRINKING WATER TREATABILITY DATABASE (TDB)",
+      "award_amount": 143012.0,
+      "award_id": "68HERC21F0414",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_68HERC21F0414_6800_68HERC21A0011_6800",
+      "extracted_at": "2026-11-12T10:39:24.070678+00:00"
+    },
+    {
+      "id": 14,
+      "recipient_name": "PURAFIDE, LLC",
+      "awarding_agency": "Environmental Protection Agency",
+      "description": "SBIR PHASE I PROPOSAL #BB203A-0016.  PLASMA'S ROLE IN POTABLE REUSE FOR PFAS REMEDIATION. PURAFIDE, LLC",
+      "award_amount": 100000.0,
+      "award_id": "68HERC21C0019",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_68HERC21C0019_6800_-NONE-_-NONE-",
+      "extracted_at": "2026-11-12T10:39:24.088693+00:00"
+    },
+    {
+      "id": 15,
+      "recipient_name": "ABT GLOBAL LLC",
+      "awarding_agency": "Environmental Protection Agency",
+      "description": "TECHNICAL SUPPORT FOR POLYFLUOROALKYL SUBSTANCES (PFAS) REMEDIATION COST MODELS AND LINKING COMPTOX WITH THE DRINKING WATER TREATABILITY DATABASE.",
+      "award_amount": 89734.0,
+      "award_id": "68HERC19F0309",
+      "period_of_performance_start": null,
+      "keyword": "PFAS remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_68HERC19F0309_6800_EPBPA16C0001_6800",
+      "extracted_at": "2026-11-12T10:39:24.111262+00:00"
+    },
+    {
+      "id": 16,
+      "recipient_name": "BLUESTONE ENVIRONMENTAL GROUP, INC.",
+      "awarding_agency": "Department of Defense",
+      "description": "PFOA/AFFF REMEDIATION/REPLACE SUP SYS",
+      "award_amount": 74396.06,
+      "award_id": "W912JB19P9016",
+      "period_of_performance_start": null,
+      "keyword": "AFFF remediation",
+      "source_url": "https://www.usaspending.gov/award/CONT_AWD_W912JB19P9016_9700_-NONE-_-NONE-",
+      "extracted_at": "2026-11-12T10:39:29.125638+00:00"
+    }
+  ],
   "downstream_adjacency": {
     "325998": [
       {
@@ -10407,5 +10642,5 @@
       }
     }
   },
-  "generated_at": "2026-11-12T10:27:23.230816+00:00"
+  "generated_at": "2026-11-12T10:41:21.708718+00:00"
 }

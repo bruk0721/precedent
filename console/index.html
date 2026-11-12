@@ -248,12 +248,28 @@
     </div>
   </details>
 
+  <details class="card accordion" id="jpml-card" open>
+    <summary><h2>Real MDL case scale (JPML)</h2><span class="hint" id="jpml-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">Real, official pending-case counts straight from the US Judicial Panel on Multidistrict Litigation's own monthly report &mdash; not a news estimate or a single company's own disclosure. Includes turnout-gear litigation (MDL-3191), which has no curated defendant/NAICS yet but is real and current.</p>
+      <div id="jpml-body"></div>
+    </div>
+  </details>
+
   <details class="card accordion" id="contamination-sites-card">
     <summary><h2>State contamination sites</h2><span class="hint" id="contamination-sites-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
       <p class="card-sub">Real PFAS contamination sites (landfills, airports, fire-training grounds, industrial sites) from Michigan EGLE's public contamination-site registry &mdash; the outcome counterpart to the EPA TRI/ECHO data above: not what a facility released or was cited for, but where contamination was actually confirmed. <strong>Michigan only</strong> (the one state this project has actually pulled).</p>
       <div id="contamination-map-wrap" style="margin-bottom:14px;"><svg id="contamination-map" viewBox="0 0 960 600" style="width:100%;height:auto;max-height:280px;"></svg></div>
       <div id="contamination-sites-body"></div>
+    </div>
+  </details>
+
+  <details class="card accordion" id="federal-contracts-card">
+    <summary><h2>Federal remediation contracts</h2><span class="hint" id="federal-contracts-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">Real federal contract awards (via USASpending.gov) for PFAS/AFFF remediation &mdash; where federal cleanup money is actually flowing right now, a forward-looking signal distinct from litigation or corporate-disclosure data.</p>
+      <div id="federal-contracts-body"></div>
     </div>
   </details>
 
@@ -403,8 +419,12 @@ function renderSeverity(naics, rows) {
 // anything legal -- just a sourced, visible growth curve.
 function renderScientificMomentum(riskCategory) {
   if (!riskCategory) return "";
+  const jpml = MoatEngine.getJpmlStats(riskCategory);
+  const jpmlHtml = jpml.length ? jpml.map(j => `<div class="empty-note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg)">
+    <strong>Real JPML case count (MDL-${esc(j.mdl_number)}):</strong> ${j.actions_pending.toLocaleString()} actions currently pending, ${j.total_actions_historical.toLocaleString()} total historical -- straight from the US Judicial Panel on Multidistrict Litigation's own official report (${esc(j.report_date)}), not a news estimate.${srcLink(j.source_url, "View JPML report")}
+  </div>`).join("") : "";
   const rows = MoatEngine.getScientificMomentum(riskCategory);
-  if (!rows.length) return "";
+  if (!rows.length) return jpmlHtml;
   const max = Math.max(...rows.map(r => r.publication_count), 1);
   const first = rows[0], last = rows[rows.length - 1];
   const bars = rows.map(r =>
@@ -413,14 +433,14 @@ function renderScientificMomentum(riskCategory) {
       <div style="font-size:9px;color:var(--ink-faint);">${String(r.year).slice(2)}</div>
     </div>`
   ).join("");
-  const catLabel = { pfas: "PFAS", talc: "talc" }[riskCategory] || riskCategory;
+  const catLabel = { pfas: "PFAS", talc: "talc", turnout_gear: "turnout gear" }[riskCategory] || riskCategory;
   const adverse = MoatEngine.getAdverseEvents(riskCategory);
   const adverseHtml = adverse.length ? `<div style="margin-top:10px"><strong>Real FDA adverse-event reports</strong> (FAERS, exact product match "${esc(adverse[0].product_term)}"): ${adverse.map(a => `${a.year}: ${a.report_count}`).join(", ")}. Consumer-reported, not a legal or clinical fact -- shown here because its real spike (${Math.max(...adverse.map(a=>a.report_count)).toLocaleString()} reports in its peak year) coincides with the litigation publicity timeline, a pattern worth a human's attention, not a causal claim.</div>` : "";
   return `<div class="empty-note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg)">
     <strong>Scientific literature momentum:</strong> real PubMed publication counts for ${esc(catLabel)}-related health research, ${first.year}-${last.year}: ${first.publication_count.toLocaleString()} &rarr; ${last.publication_count.toLocaleString()} publications/year. A leading indicator of scientific maturity, not a legal fact -- litigation volume has historically tracked how settled the underlying science becomes (the asbestos pattern), not the reverse.
     <div style="display:flex;gap:2px;margin-top:8px;align-items:flex-end">${bars}</div>
     ${adverseHtml}
-  </div>`;
+  </div>${jpmlHtml}`;
 }
 
 // Reserving Uncertainty Signal -- real pain point found via research
@@ -676,6 +696,41 @@ function renderFirmTracker() {
   el.innerHTML = html;
 }
 
+function renderFederalContracts() {
+  const hint = document.getElementById("federal-contracts-hint");
+  const el = document.getElementById("federal-contracts-body");
+  const contracts = MoatEngine.getFederalRemediationContracts();
+  if (!contracts.length) {
+    el.innerHTML = `<p class="empty-note">No real federal remediation contract on record yet.</p>`;
+    hint.textContent = "0 found";
+    return;
+  }
+  const total = contracts.reduce((sum, c) => sum + (c.award_amount || 0), 0);
+  hint.textContent = `$${total.toLocaleString(undefined, { maximumFractionDigits: 0 })} across ${contracts.length} award(s)`;
+  el.innerHTML = `<span class="tag amber">$${total.toLocaleString(undefined, { maximumFractionDigits: 0 })} total across ${contracts.length} real award(s)</span>` +
+    contracts.map(c => `<div class="finding-line"><b>${esc(c.recipient_name)}</b> &mdash; $${(c.award_amount || 0).toLocaleString(undefined, { maximumFractionDigits: 0 })}<br><span style="color:var(--ink-faint)">${esc(c.awarding_agency || "")} &middot; ${esc((c.description || "").slice(0, 100))}</span>${srcLink(c.source_url, "View award")}</div>`).join("");
+}
+
+function renderJpmlStats() {
+  const hint = document.getElementById("jpml-hint");
+  const el = document.getElementById("jpml-body");
+  const categories = ["pfas", "talc", "turnout_gear"];
+  const catLabels = { pfas: "PFAS/AFFF", talc: "Talc", turnout_gear: "Turnout Gear (no curated defendant yet)" };
+  const allStats = categories.flatMap(c => MoatEngine.getJpmlStats(c));
+  if (!allStats.length) {
+    el.innerHTML = `<p class="empty-note">No real JPML data on record yet.</p>`;
+    hint.textContent = "0 found";
+    return;
+  }
+  hint.textContent = `${allStats.length} real MDL(s) tracked`;
+  el.innerHTML = allStats.map(j => `
+    <div class="finding-line"><b>MDL-${esc(j.mdl_number)}</b> [${esc(catLabels[j.risk_category] || j.risk_category)}] &mdash; ${esc(j.title)}<br>
+      <span class="tag ${j.actions_pending > 1000 ? "red" : "amber"}">${j.actions_pending.toLocaleString()} actions pending</span>
+      <span style="color:var(--ink-faint)">${j.total_actions_historical.toLocaleString()} total historical &middot; report date ${esc(j.report_date)}</span>
+      ${srcLink(j.source_url, "View JPML report")}</div>`
+  ).join("");
+}
+
 async function renderContaminationSites() {
   const sites = MoatEngine.getStateContaminationSites();
   const hint = document.getElementById("contamination-sites-hint");
@@ -849,6 +904,8 @@ async function init() {
 
   renderMarketFilings();
   renderContaminationSites();
+  renderJpmlStats();
+  renderFederalContracts();
 
   // Support deep-linking from the Portfolio X-Ray (?naics=...&state=...).
   const params = new URLSearchParams(window.location.search);

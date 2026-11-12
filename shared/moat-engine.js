@@ -375,6 +375,21 @@ const MoatEngine = (() => {
     return (DB.fda_adverse_events || []).filter(r => r.risk_category === riskCategory).sort((a, b) => a.year - b.year);
   }
 
+  // Real, official JPML pending-MDL case counts -- straight from the
+  // court system, not a news estimate or a single company's own
+  // disclosure. Most recent report only (one row per MDL per report
+  // date currently on file).
+  function getJpmlStats(riskCategory) {
+    return (DB.jpml_mdl_statistics || []).filter(r => r.risk_category === riskCategory);
+  }
+
+  // Real federal PFAS/AFFF remediation contract awards (USASpending.gov)
+  // -- where federal remediation money is actually flowing right now.
+  // Global, not NAICS/state scoped, same as the Plaintiff Firm Tracker.
+  function getFederalRemediationContracts() {
+    return DB.federal_remediation_contracts || [];
+  }
+
   function getRenewalWindow(quarterStartISO, quarterEndISO) {
     const start = new Date(quarterStartISO);
     const end = new Date(quarterEndISO);
@@ -424,7 +439,7 @@ const MoatEngine = (() => {
     getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES,
     searchEntity, getCrosswalkCoverage, getPlaintiffFirmTracker, getRenewalWindow,
     getComplianceRecords, getRegulatoryFilings, getScientificMomentum, getStateContaminationSites,
-    getMaterialEvents, getAdverseEvents,
+    getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts,
     get db() { return DB; },
   };
 })();
