@@ -221,16 +221,33 @@ function renderLegend() {
     <div class="mag-legend-item"><span class="mag-legend-dot" style="width:12px;height:12px"></span>Date/event only, no single $ figure</div>`;
 }
 
+// Click-to-isolate, not multi-select toggle: clicking a category shows
+// ONLY that one; clicking it again (or clicking "All") brings everything
+// back. Never defaults to an empty state -- a first-time visitor always
+// sees everything until they actively choose to isolate one category.
+const ALL_CATEGORIES = new Set(Object.keys(CATEGORY_META));
+let isolatedCategory = null; // null means "show all"
+
 function renderFilters() {
   const el = document.getElementById("filter-row");
-  el.innerHTML = Object.keys(CATEGORY_META).map(cat => `
-    <button class="filter-chip" data-cat="${cat}" data-active="${activeCategories.has(cat)}">
+  const allChip = `
+    <button class="filter-chip" data-cat="__all__" data-active="${isolatedCategory === null}">
+      All
+    </button>`;
+  const catChips = Object.keys(CATEGORY_META).map(cat => `
+    <button class="filter-chip" data-cat="${cat}" data-active="${isolatedCategory === cat}">
       <span class="dot" style="background:${catColor(cat)}"></span>${esc(CATEGORY_META[cat].label)}
     </button>`).join("");
+  el.innerHTML = allChip + catChips;
   el.querySelectorAll(".filter-chip").forEach(btn => {
     btn.addEventListener("click", () => {
       const cat = btn.dataset.cat;
-      if (activeCategories.has(cat)) activeCategories.delete(cat); else activeCategories.add(cat);
+      if (cat === "__all__" || isolatedCategory === cat) {
+        isolatedCategory = null; // "All" clicked, or re-clicking the already-isolated one resets
+      } else {
+        isolatedCategory = cat;
+      }
+      activeCategories = isolatedCategory === null ? new Set(ALL_CATEGORIES) : new Set([isolatedCategory]);
       renderFilters();
       renderRail();
       renderMilestoneList();
