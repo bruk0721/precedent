@@ -148,9 +148,9 @@
   /* Facility map -- real EPA TRI lat/long pins, not a text list beside the
      map (research finding: Betterview/Cape Analytics show risk directly on
      the object/location itself). */
-  #facility-map .state { fill: var(--chip-bg); stroke: var(--page-bg); stroke-width: 1; }
-  #facility-map .pin { fill: var(--accent-red); stroke: var(--card-bg); stroke-width: 1.5; cursor: pointer; }
-  #facility-map .pin:hover { fill: var(--accent-amber); }
+  #facility-map .state, #contamination-map .state { fill: var(--chip-bg); stroke: var(--page-bg); stroke-width: 1; }
+  #facility-map .pin, #contamination-map .pin { fill: var(--accent-red); stroke: var(--card-bg); stroke-width: 1.5; cursor: pointer; }
+  #facility-map .pin:hover, #contamination-map .pin:hover { fill: var(--accent-amber); }
   .map-tooltip { position: fixed; background: var(--ink); color: var(--page-bg); font-size: 12px; padding: 6px 10px; border-radius: 8px; pointer-events: none; z-index: 50; max-width: 240px; line-height: 1.5; display: none; }
 
   /* Case File header -- research finding: Palantir Foundry's underwriting
@@ -240,6 +240,23 @@
     </div>
   </details>
 
+  <details class="card accordion" id="market-filings-card">
+    <summary><h2>Market exclusion filings</h2><span class="hint" id="market-filings-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">Real state insurance rate/form filings (via Texas TDI's public filing list) showing where the insurance market has already approved PFAS/forever-chemical exclusion endorsements &mdash; a different signal than litigation risk: not "is there liability," but "has pricing already reacted." <strong>Texas only</strong> (the one state this project has actually pulled) &mdash; not implied to be nationwide.</p>
+      <div id="market-filings-body"></div>
+    </div>
+  </details>
+
+  <details class="card accordion" id="contamination-sites-card">
+    <summary><h2>State contamination sites</h2><span class="hint" id="contamination-sites-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">Real PFAS contamination sites (landfills, airports, fire-training grounds, industrial sites) from Michigan EGLE's public contamination-site registry &mdash; the outcome counterpart to the EPA TRI/ECHO data above: not what a facility released or was cited for, but where contamination was actually confirmed. <strong>Michigan only</strong> (the one state this project has actually pulled).</p>
+      <div id="contamination-map-wrap" style="margin-bottom:14px;"><svg id="contamination-map" viewBox="0 0 960 600" style="width:100%;height:auto;max-height:280px;"></svg></div>
+      <div id="contamination-sites-body"></div>
+    </div>
+  </details>
+
   <div class="results-wrap" id="results">
     <div class="case-file-header" id="case-file-header"></div>
     <div class="card">
@@ -278,6 +295,22 @@
         <p class="card-sub">Real EPA Toxics Release Inventory facility reports flagged as PFAS compounds, matched by EPA's own standardized parent-company name &mdash; not a corporate-level disclosure, a specific manufacturing site and chemical.</p>
         <div id="facility-map-wrap" style="display:none;margin-bottom:14px;"><svg id="facility-map" viewBox="0 0 960 600" style="width:100%;height:auto;max-height:280px;"></svg></div>
         <div id="facility-body"></div>
+      </div>
+    </details>
+
+    <details class="card accordion" id="compliance-card" style="display:none;">
+      <summary><h2>Facility compliance history (EPA ECHO)</h2><span class="hint" id="compliance-hint"></span><span class="chevron">&#9656;</span></summary>
+      <div class="disclosure-body">
+        <p class="card-sub">Real EPA enforcement/compliance records for these same facilities, via ECHO's public API &mdash; a different signal than TRI's chemical-release reporting: has this specific site actually been cited, and for how much. Multiple registry entries can exist for one physical site (different permits/programs); every real record found is shown, not collapsed into one number.</p>
+        <div id="compliance-body"></div>
+      </div>
+    </details>
+
+    <details class="card accordion" id="material-events-card" style="display:none;">
+      <summary><h2>Material event filings (SEC 8-K)</h2><span class="hint" id="material-events-hint"></span><span class="chevron">&#9656;</span></summary>
+      <div class="disclosure-body">
+        <p class="card-sub">Real-time signal, not an annual one: an 8-K is filed within 4 business days of a material event (a new settlement, consent decree, or material charge) &mdash; checked against the most recent 20 filings per curated company, so a new disclosure shows up here long before the next 10-K cycle would catch it.</p>
+        <div id="material-events-body"></div>
       </div>
     </details>
 
@@ -360,7 +393,34 @@ function renderSeverity(naics, rows) {
     <div class="empty-note">SEC-registered SIC: ${esc(top.r.sec_sic_code || "n/a")} (${esc(top.r.sec_sic_description || "n/a")}) — registrant-level, not the liability-specific segment. naics_code ${esc(naics)} is a curated override.</div>
     ${withVal.length > 1 ? `<div class="empty-note" style="margin-top:10px">+ ${withVal.length - 1} more finding(s) on file for this NAICS.</div>` : ""}
     <div class="empty-note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg)">Defense-cost proxy: $${MoatEngine.getDccProxy(top.v).toLocaleString(undefined, { maximumFractionDigits: 0 })}M &mdash; NOT a category-specific disclosure (no company checked discloses defense costs separately from settlement charges). Derived from RAND's 2005 asbestos-litigation study (31% of total mass-tort spending went to defense costs), applied here only as a historical order-of-magnitude analog, not an actuarial estimate.</div>
-    ${renderReservingBenchmark()}`;
+    ${renderReservingBenchmark()}
+    ${renderScientificMomentum(top.r.risk_category)}`;
+}
+
+// Scientific literature momentum (PubMed) -- a genuinely different axis
+// from legal/financial signal: how fast the peer-reviewed science itself
+// is accumulating. Real counts, year by year, never framed as proof of
+// anything legal -- just a sourced, visible growth curve.
+function renderScientificMomentum(riskCategory) {
+  if (!riskCategory) return "";
+  const rows = MoatEngine.getScientificMomentum(riskCategory);
+  if (!rows.length) return "";
+  const max = Math.max(...rows.map(r => r.publication_count), 1);
+  const first = rows[0], last = rows[rows.length - 1];
+  const bars = rows.map(r =>
+    `<div style="display:flex;flex-direction:column;align-items:center;gap:4px;flex:1">
+      <div style="width:100%;height:40px;display:flex;align-items:flex-end;"><div style="width:100%;background:var(--accent-blue);border-radius:2px 2px 0 0;height:${Math.max((r.publication_count / max) * 100, 3)}%"></div></div>
+      <div style="font-size:9px;color:var(--ink-faint);">${String(r.year).slice(2)}</div>
+    </div>`
+  ).join("");
+  const catLabel = { pfas: "PFAS", talc: "talc" }[riskCategory] || riskCategory;
+  const adverse = MoatEngine.getAdverseEvents(riskCategory);
+  const adverseHtml = adverse.length ? `<div style="margin-top:10px"><strong>Real FDA adverse-event reports</strong> (FAERS, exact product match "${esc(adverse[0].product_term)}"): ${adverse.map(a => `${a.year}: ${a.report_count}`).join(", ")}. Consumer-reported, not a legal or clinical fact -- shown here because its real spike (${Math.max(...adverse.map(a=>a.report_count)).toLocaleString()} reports in its peak year) coincides with the litigation publicity timeline, a pattern worth a human's attention, not a causal claim.</div>` : "";
+  return `<div class="empty-note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg)">
+    <strong>Scientific literature momentum:</strong> real PubMed publication counts for ${esc(catLabel)}-related health research, ${first.year}-${last.year}: ${first.publication_count.toLocaleString()} &rarr; ${last.publication_count.toLocaleString()} publications/year. A leading indicator of scientific maturity, not a legal fact -- litigation volume has historically tracked how settled the underlying science becomes (the asbestos pattern), not the reverse.
+    <div style="display:flex;gap:2px;margin-top:8px;align-items:flex-end">${bars}</div>
+    ${adverseHtml}
+  </div>`;
 }
 
 // Reserving Uncertainty Signal -- real pain point found via research
@@ -526,6 +586,50 @@ async function renderFacilityMap(byFacility) {
     .on("mouseleave", () => { tooltip.style.display = "none"; });
 }
 
+function renderCompliance(defendants, records) {
+  const card = document.getElementById("compliance-card");
+  const hint = document.getElementById("compliance-hint");
+  const el = document.getElementById("compliance-body");
+  if (!defendants.length) { card.style.display = "none"; return; }
+  card.style.display = "block";
+  if (!records.length) {
+    el.innerHTML = `<p class="empty-note">No EPA ECHO registry record found for these facilities. This is checked, not skipped.</p>`;
+    hint.textContent = "0 found";
+    card.open = false;
+    return;
+  }
+  const violations = records.filter(r => (r.significant_noncompliance_flag || "").toUpperCase() === "Y" || /violation/i.test(r.compliance_status || ""));
+  card.open = violations.length > 0;
+  hint.textContent = violations.length ? `${violations.length} with violations found` : `${records.length} record(s), none flagged`;
+  el.innerHTML = records.map(r => {
+    const flagged = (r.significant_noncompliance_flag || "").toUpperCase() === "Y";
+    const tagClass = flagged ? "red" : /violation/i.test(r.compliance_status || "") ? "amber" : "gray";
+    return `<div class="finding-line"><b>${esc(r.echo_fac_name || r.facility_name)}</b> &mdash; ${esc(r.city || "")}, ${esc(r.state || "")}<br>
+      <span class="tag ${tagClass}">${esc(r.compliance_status || "No status on file")}</span>
+      <span style="color:var(--ink-faint)">${r.formal_action_count && r.formal_action_count !== "0" ? ` &middot; ${esc(r.formal_action_count)} formal action(s)` : ""}${r.total_penalties && r.total_penalties !== "$0" ? ` &middot; ${esc(r.total_penalties)} in penalties` : ""}${r.last_inspection_date ? ` &middot; last inspected ${esc(r.last_inspection_date)}` : ""}</span>
+      ${srcLink(r.source_url, "View ECHO report")}</div>`;
+  }).join("");
+}
+
+function renderMaterialEvents(defendants, events) {
+  const card = document.getElementById("material-events-card");
+  const hint = document.getElementById("material-events-hint");
+  const el = document.getElementById("material-events-body");
+  if (!defendants.length) { card.style.display = "none"; return; }
+  card.style.display = "block";
+  if (!events.length) {
+    el.innerHTML = `<p class="empty-note">No real-event match in the most recent 8-Ks checked for these companies. This is checked, not skipped -- most 8-Ks are routine (earnings, executive changes) and correctly produce no match.</p>`;
+    hint.textContent = "0 found";
+    card.open = false;
+    return;
+  }
+  card.open = true;
+  hint.textContent = `${events.length} real event(s) found`;
+  el.innerHTML = `<span class="tag red">${events.length} real material event(s) found</span>` + events.map(e =>
+    `<div class="finding-line"><b>${esc(e.company_name)}</b> &mdash; filed ${esc(e.filing_date)}<br><span style="color:var(--ink-faint)">${esc((e.context_snippet || "").slice(0, 200))}${(e.context_snippet || "").length > 200 ? "…" : ""}</span>${srcLink(e.source_url, "View 8-K")}</div>`
+  ).join("");
+}
+
 function renderCrosswalkCoverage() {
   const parents = MoatEngine.getCrosswalkCoverage();
   document.getElementById("crosswalk-coverage").textContent = parents.length
@@ -570,6 +674,66 @@ function renderFirmTracker() {
     `<div class="finding-line"><b>${esc(f.firm)}</b><br><span style="color:var(--ink-faint)">${f.defendantCount} defendant(s) named, ${f.docketCount} docket(s): ${f.caseNames.map(esc).join("; ")}</span></div>`
   ).join("");
   el.innerHTML = html;
+}
+
+async function renderContaminationSites() {
+  const sites = MoatEngine.getStateContaminationSites();
+  const hint = document.getElementById("contamination-sites-hint");
+  const el = document.getElementById("contamination-sites-body");
+  hint.textContent = `${sites.length} real site(s), MI only`;
+  if (!sites.length) {
+    el.innerHTML = `<p class="empty-note">No real contamination-site data on record yet.</p>`;
+    return;
+  }
+
+  const byType = {};
+  sites.forEach(s => { const t = (s.site_type || "Unspecified").trim(); byType[t] = (byType[t] || 0) + 1; });
+  const typeRows = Object.entries(byType).sort((a, b) => b[1] - a[1]);
+  el.innerHTML = `<span class="tag amber">${sites.length} real confirmed contamination site(s)</span>` +
+    `<div class="finding-line" style="margin-top:8px"><b>By site type:</b> ${typeRows.map(([t, n]) => `${esc(t)} (${n})`).join(", ")}</div>`;
+
+  const svg = d3.select("#contamination-map");
+  svg.selectAll("*").remove();
+  if (!_usMapGeo) {
+    const topology = await (await fetch("us-states-10m.json")).json();
+    _usMapGeo = topojson.feature(topology, topology.objects.states);
+  }
+  const projection = d3.geoAlbersUsa().fitSize([960, 600], _usMapGeo);
+  const path = d3.geoPath(projection);
+  svg.append("g").selectAll("path").data(_usMapGeo.features).join("path").attr("class", "state").attr("d", path);
+
+  const tooltip = document.getElementById("facility-map-tooltip");
+  const withCoords = sites.filter(s => s.latitude != null && s.longitude != null);
+  svg.append("g").selectAll("circle").data(withCoords).join("circle")
+    .attr("class", "pin")
+    .attr("cx", s => { const p = projection([s.longitude, s.latitude]); return p ? p[0] : -100; })
+    .attr("cy", s => { const p = projection([s.longitude, s.latitude]); return p ? p[1] : -100; })
+    .attr("r", 3)
+    .attr("opacity", 0.65)
+    .on("mousemove", (event, s) => {
+      tooltip.innerHTML = `<b>${esc(s.site_name)}</b><br>${esc(s.site_type || "")}<br>${esc(s.city || "")}, ${esc(s.state)}`;
+      tooltip.style.display = "block";
+      tooltip.style.left = (event.clientX + 14) + "px";
+      tooltip.style.top = (event.clientY + 14) + "px";
+    })
+    .on("mouseleave", () => { tooltip.style.display = "none"; });
+}
+
+function renderMarketFilings() {
+  const filings = MoatEngine.getRegulatoryFilings();
+  const hint = document.getElementById("market-filings-hint");
+  const el = document.getElementById("market-filings-body");
+  hint.textContent = `${filings.length} filing(s), TX only`;
+  if (!filings.length) {
+    el.innerHTML = `<p class="empty-note">No real filings on record yet.</p>`;
+    return;
+  }
+  const active = filings.filter(f => !/withdrawn/i.test(f.description));
+  const withdrawn = filings.filter(f => /withdrawn/i.test(f.description));
+  const row = f => `<div class="finding-line"><b>${esc(f.organization)}</b> [${esc(f.company_tracking_number)}] &mdash; ${esc(f.description)}<br><span style="color:var(--ink-faint)">${esc(f.line_of_business)}, approved ${esc(f.date_approved)}</span>${srcLink(f.source_url, "View TDI filing list")}</div>`;
+  el.innerHTML = `<span class="tag amber">${active.length} active filing(s)${withdrawn.length ? `, ${withdrawn.length} withdrawn` : ""}</span>` +
+    active.map(row).join("") +
+    (withdrawn.length ? `<div class="empty-note" style="margin:10px 0 4px"><strong>Withdrawn filings (shown, not hidden):</strong></div>` + withdrawn.map(row).join("") : "");
 }
 
 function quarterRange(year, q) {
@@ -617,7 +781,7 @@ function renderCaseFileHeader(naics, state, result) {
   const generated = MoatEngine.db && MoatEngine.db.generated_at ? new Date(MoatEngine.db.generated_at).toISOString().slice(0, 10) : "n/a";
   el.innerHTML = `
     <span class="title">CASE FILE &middot; NAICS <b>${esc(naics)}</b> / <b>${esc(STATE_NAMES[state] || state)}</b> &mdash; <b>${esc(defLabel)}</b></span>
-    <span>Assembled from ${result.plaintiffRows.length} plaintiff record(s), ${result.severityRows.length} severity record(s), ${result.facilityReports.length} facility record(s) &mdash; snapshot ${esc(generated)}</span>
+    <span>Assembled from ${result.plaintiffRows.length} plaintiff record(s), ${result.severityRows.length} severity record(s), ${result.facilityReports.length} facility record(s), ${result.complianceRecords.length} compliance record(s) &mdash; snapshot ${esc(generated)}</span>
   `;
 }
 
@@ -635,6 +799,8 @@ function runAssessment() {
   renderNextTarget(result.defendants, result.nextTarget);
   renderVeilPiercing(result.defendants, result.veilPiercing);
   renderFacilityReports(result.defendants, result.facilityReports);
+  renderCompliance(result.defendants, result.complianceRecords);
+  renderMaterialEvents(result.defendants, result.materialEvents);
   renderIbnr(result.maxSeverity, result.velocity);
 }
 
@@ -680,6 +846,9 @@ async function init() {
   populateRenewalQuarters();
   document.getElementById("renewal-quarter").addEventListener("change", renderRenewalWindow);
   renderRenewalWindow();
+
+  renderMarketFilings();
+  renderContaminationSites();
 
   // Support deep-linking from the Portfolio X-Ray (?naics=...&state=...).
   const params = new URLSearchParams(window.location.search);

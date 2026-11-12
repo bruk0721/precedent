@@ -312,6 +312,69 @@ const MoatEngine = (() => {
   // check needs a live LegiScan API call this build didn't have the key to
   // run. Ships with that gap stated up front rather than silently treated
   // as resolved.
+  // Real EPA ECHO compliance/enforcement data for the SAME facilities
+  // already on file via facility_pfas_reports -- joined through
+  // facility_name, not a separate company crosswalk. Deliberately returns
+  // EVERY real registry record found for those facility names (see
+  // echo_compliance_pipeline.py's own comment on why picking a single
+  // "best match" silently discarded a real $79,500-penalty violation
+  // record at one site) -- never collapsed into one summary number.
+  function getComplianceRecords(defendants) {
+    if (!defendants.length) return [];
+    const facilityNames = new Set(
+      (DB.facility_pfas_reports || []).filter(r => defendants.includes(r.company_name)).map(r => r.facility_name)
+    );
+    if (!facilityNames.size) return [];
+    return (DB.facility_compliance_echo || []).filter(r => facilityNames.has(r.facility_name));
+  }
+
+  // State insurance rate/form filings (SERFF, via Texas TDI's real public
+  // filing list) -- a genuinely different signal type from everything else
+  // here: not "is there liability," but "has the insurance market itself
+  // already started pricing/excluding this risk." Global, not NAICS/state
+  // scoped, same as the Plaintiff Firm Tracker -- honestly labeled as
+  // Texas-only (the one state this project has actually pulled), never
+  // implied to be nationwide.
+  function getRegulatoryFilings() {
+    return DB.regulatory_filings || [];
+  }
+
+  // Scientific literature momentum (PubMed) -- a genuinely different axis
+  // from everything else here: not legal or financial, but how fast the
+  // underlying peer-reviewed science is accumulating. Returns the real
+  // per-year counts for a risk category, sorted by year.
+  function getScientificMomentum(riskCategory) {
+    return (DB.scientific_literature_momentum || [])
+      .filter(r => r.risk_category === riskCategory)
+      .sort((a, b) => a.year - b.year);
+  }
+
+  // Real state contamination-site geodata (Michigan EGLE) -- the
+  // contamination-OUTCOME counterpart to TRI (what was released) and ECHO
+  // (was the facility cited). Global, not NAICS/state scoped, and
+  // honestly limited to Michigan (the one state this project has pulled).
+  function getStateContaminationSites() {
+    return DB.state_contamination_sites || [];
+  }
+
+  // Real-time material events (SEC 8-Ks) -- closes a real gap: this
+  // project previously only pulled annual 10-Ks, so a settlement or
+  // material charge could sit unseen for up to a year. Joined by CIK
+  // against the account's own curated defendants, same join pattern as
+  // severity_anchors.
+  function getMaterialEvents(defendants) {
+    if (!defendants.length) return [];
+    const ciks = new Set((DB.severity_anchors || []).filter(r => defendants.includes(r.company_name)).map(r => r.cik));
+    return (DB.material_event_filings || []).filter(r => ciks.has(r.cik))
+      .sort((a, b) => new Date(b.filing_date) - new Date(a.filing_date));
+  }
+
+  // Real FDA FAERS adverse-event report counts (talc only -- PFAS isn't a
+  // drug and has no equivalent FAERS presence, not forced into this).
+  function getAdverseEvents(riskCategory) {
+    return (DB.fda_adverse_events || []).filter(r => r.risk_category === riskCategory).sort((a, b) => a.year - b.year);
+  }
+
   function getRenewalWindow(quarterStartISO, quarterEndISO) {
     const start = new Date(quarterStartISO);
     const end = new Date(quarterEndISO);
@@ -336,11 +399,16 @@ const MoatEngine = (() => {
     const velocity = getFilingVelocity(defendants);
     const severityValues = severityRows.map(r => parseDollarToMillions(r.dollar_amount)).filter(v => v !== null);
     const maxSeverity = severityValues.length ? Math.max(...severityValues) : null;
+    const maxRow = severityRows.find(r => parseDollarToMillions(r.dollar_amount) === maxSeverity);
+    const scientificMomentum = maxRow && maxRow.risk_category ? getScientificMomentum(maxRow.risk_category) : [];
     return {
       naics, state, defendants, plaintiffRows, legResult, severityRows, threat,
       maxSeverity, velocity, naicsIsRelevant, nextTarget: getDownstreamAdjacency(naics),
       veilPiercing: detectVeilPiercing(defendants), dccProxy: getDccProxy(maxSeverity),
       facilityReports: getFacilityReports(defendants),
+      complianceRecords: getComplianceRecords(defendants),
+      scientificMomentum,
+      materialEvents: getMaterialEvents(defendants),
     };
   }
 
@@ -355,6 +423,8 @@ const MoatEngine = (() => {
     querySeverityAnchor, parseDollarToMillions, computeThreatLevel, getFilingVelocity,
     getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES,
     searchEntity, getCrosswalkCoverage, getPlaintiffFirmTracker, getRenewalWindow,
+    getComplianceRecords, getRegulatoryFilings, getScientificMomentum, getStateContaminationSites,
+    getMaterialEvents, getAdverseEvents,
     get db() { return DB; },
   };
 })();
