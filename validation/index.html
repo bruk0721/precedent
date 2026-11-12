@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precedent — Methodology Validation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1; --accent-amber: #b8601f;
+    --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df; --accent-gray: #5c6370;
+    --accent-gray-bg: #eef0f3; --accent-green: #1a7a4c; --accent-green-bg: #e3f0e9;
+    --nav-bg: rgba(247, 248, 250, 0.78); --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px; --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433; --accent-amber: #e2974f;
+    --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816; --accent-gray: #9aa1ab;
+    --accent-gray-bg: #1e2228; --accent-green: #6fbf96; --accent-green-bg: #163026;
+    --nav-bg: rgba(11, 13, 16, 0.78);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px 100px; }
+
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 980px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  .theme-toggle:hover { background: var(--chip-bg); }
+
+  @media (max-width: 640px) {
+    nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; }
+    .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; }
+    .candidate-row { grid-template-columns: 1fr !important; }
+  }
+
+  .hero { padding: 44px 24px 36px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-red); }
+  h1 { font-weight: 500; font-size: clamp(28px, 6vw, 42px); line-height: 1.1; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 22ch; }
+  .hero p.dek { font-size: 16px; line-height: 1.6; color: var(--ink-muted); max-width: 62ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
+  h2 { font-weight: 600; font-size: 18px; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .card-sub { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; margin: 0 0 18px; }
+  .section-label { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin: 36px 0 10px; }
+
+  /* Backtest bar chart -- plain divs, no chart library, honest and simple */
+  .backtest-chart { display: flex; align-items: flex-end; gap: 6px; height: 160px; margin: 20px 0 8px; padding: 0 4px; }
+  .backtest-bar-wrap { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
+  .backtest-bar { width: 100%; max-width: 34px; border-radius: 4px 4px 0 0; position: relative; transition: opacity 0.15s; }
+  .backtest-bar:hover { opacity: 0.8; }
+  .backtest-bar .val { position: absolute; top: -18px; left: 50%; transform: translateX(-50%); font-family: var(--font-mono); font-size: 10px; color: var(--ink-faint); white-space: nowrap; }
+  .backtest-year { font-size: 10.5px; color: var(--ink-faint); margin-top: 6px; font-family: var(--font-mono); }
+  .backtest-event { font-size: 11px; color: var(--accent-red); margin-top: 2px; text-align: center; line-height: 1.3; max-width: 60px; }
+  .backtest-legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--ink-faint); margin-top: 14px; }
+  .backtest-legend span { display: inline-flex; align-items: center; gap: 6px; }
+  .backtest-legend .sw { width: 10px; height: 10px; border-radius: 3px; }
+
+  /* Discovery candidates */
+  .candidate-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 18px; }
+  .candidate-card { background: var(--page-bg); border-radius: 14px; padding: 18px 20px; }
+  .candidate-card .cname { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .candidate-card .cscore { font-family: var(--font-mono); font-size: 26px; font-weight: 600; margin: 8px 0 2px; }
+  .candidate-card .clabel { font-size: 11px; color: var(--ink-faint); margin-bottom: 10px; }
+  .candidate-card .cwhy { font-size: 12.5px; color: var(--ink-muted); line-height: 1.55; }
+  .candidate-card .ccaveat { font-size: 11.5px; color: var(--accent-amber); margin-top: 8px; line-height: 1.5; }
+
+  .compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin-top: 14px; }
+  .compare-table th { text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-faint); padding: 0 12px 8px 0; border-bottom: 1px solid var(--chip-bg); }
+  .compare-table td { padding: 10px 12px 10px 0; border-bottom: 1px solid var(--chip-bg); color: var(--ink-muted); }
+  .compare-table td:first-child { font-weight: 600; color: var(--ink); }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table .score-cell { font-family: var(--font-mono); font-weight: 600; }
+
+  footer { margin-top: 40px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; text-align: center; }
+</style>
+</head>
+<body>
+<script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+
+<nav class="top">
+  <div class="brand"><span class="dot"></span> Precedent</div>
+  <div class="nav-links">
+    <a href="../">&larr; Back to overview</a>
+    <a href="../console/">Underwriter Console</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow-pill"><span class="dot"></span>Methodology validation</span>
+  <h1>Would this have worked before the fact?</h1>
+  <p class="dek">A methodology that only "detects" PFAS as risky in 2026 &mdash; after a $10.3B settlement and 15,270 pending MDL actions already exist &mdash; proves nothing. Anyone could tell you that after the fact. Below: the exact same Emergence Signal formula, recomputed using <strong>only the data that existed at each earlier point in time</strong>, checked against what's now known to have actually happened &mdash; plus the same methodology pointed at three real candidates this project has never tracked.</p>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h2>Backtest: would the signal have shown up early?</h2>
+    <p class="card-sub">Each bar is the momentum score the Emergence Signal would have reported "as of" that year, computed using only publication data through that year &mdash; not hindsight. Real milestones from this project's own sourced timeline are marked where they fall.</p>
+    <div id="backtest-pfas"></div>
+    <div id="backtest-talc" style="margin-top:32px"></div>
+  </div>
+
+  <div class="section-label">Discovery scan &mdash; the harder test</div>
+  <div class="card">
+    <h2>Pointed at candidates nobody asked it to track</h2>
+    <p class="card-sub">Every category above was already a known mass tort before this project tracked it. The harder, more valuable test: run the identical scientific-momentum formula against real, named candidates currently in 2026 trade and legal press as possible "next PFAS" substances &mdash; including one deliberate mature-signal contrast case &mdash; and see whether the methodology correctly tells them apart.</p>
+    <div class="candidate-row" id="candidate-cards"></div>
+    <table class="compare-table" id="compare-table"></table>
+  </div>
+
+  <div class="card">
+    <h2>What this does and doesn't prove</h2>
+    <p class="card-sub" style="margin-bottom:0">
+      This shows the scientific-literature component of the Emergence Signal would have been directionally elevated years before PFAS's major settlement wave, and that it correctly separates an accelerating signal (microplastics, 6PPD-quinone) from a flat one (bisphenol A) without being told which is which. It does <b>not</b> prove legal causation, does not predict dollar amounts, and the 6PPD-quinone growth rate in particular is computed from a very small base (roughly 20 publications/year three years ago) &mdash; directionally real, but statistically noisier than a rate computed from a larger sample. None of this replaces an actuary's own judgment; it's one real, falsifiable input, shown with its own limits stated.
+    </p>
+  </div>
+
+  <footer>
+    Every number above comes from a real pipeline (momentum_backtest_pipeline.py, discovery_scan_pipeline.py) run against PubMed's own public E-utilities API, exported from the same snapshot as the rest of this project. <span id="snapshot-date"></span>
+  </footer>
+</div>
+
+<script src="../shared/moat-engine.js"></script>
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+const CAT_COLOR = { pfas: "var(--accent-blue)", talc: "var(--accent-amber)" };
+const REAL_EVENTS = {
+  pfas: [
+    { year: 2018, label: "3M $897M MN settlement" },
+    { year: 2023, label: "3M $10.3B water settlement" },
+  ],
+  talc: [
+    { year: 2018, label: "Ingham $4.69B verdict" },
+    { year: 2020, label: "Verdict reduced, 69,376 cases" },
+  ],
+};
+
+function renderBacktestChart(containerId, riskCategory, label) {
+  const rows = MoatEngine.getMomentumBacktest(riskCategory);
+  const el = document.getElementById(containerId);
+  if (!rows.length) { el.innerHTML = `<p class="empty-note">No backtest on record for ${esc(label)}.</p>`; return; }
+
+  const events = REAL_EVENTS[riskCategory] || [];
+  const eventByYear = Object.fromEntries(events.map(e => [e.year, e.label]));
+  const color = CAT_COLOR[riskCategory] || "var(--accent-blue)";
+
+  const bars = rows.map(r => `
+    <div class="backtest-bar-wrap">
+      <div class="backtest-bar" style="height:${Math.max(r.score, 4)}%; background:${color}">
+        <span class="val">${r.score}</span>
+      </div>
+      <div class="backtest-year">${r.as_of_year}</div>
+      ${eventByYear[r.as_of_year] ? `<div class="backtest-event">&#9650; ${esc(eventByYear[r.as_of_year])}</div>` : ""}
+    </div>`).join("");
+
+  el.innerHTML = `
+    <div style="font-size:14px;font-weight:600;margin-bottom:2px">${esc(label)}</div>
+    <div style="font-size:12px;color:var(--ink-faint)">Momentum score, recomputed "as of" each year using only data available through that year</div>
+    <div class="backtest-chart">${bars}</div>
+    <div class="backtest-legend">
+      <span><span class="sw" style="background:${color}"></span>Momentum score (0-100)</span>
+      <span style="color:var(--accent-red)">&#9650; real, sourced milestone from this project's own timeline</span>
+    </div>`;
+}
+
+function renderDiscoveryScan() {
+  const candidates = MoatEngine.getDiscoveryCandidates();
+  const emergence = MoatEngine.getEmergenceSignal();
+  const cardsEl = document.getElementById("candidate-cards");
+  const tableEl = document.getElementById("compare-table");
+  if (!candidates.length) { cardsEl.innerHTML = `<p class="empty-note">No discovery scan on record yet.</p>`; return; }
+
+  const byCandidate = {};
+  candidates.forEach(c => { (byCandidate[c.candidate] = byCandidate[c.candidate] || []).push(c); });
+
+  const CAND_LABELS = { microplastics: "Microplastics", "6ppd_quinone": "6PPD-quinone (tire rubber)", bisphenol_a: "Bisphenol A (contrast case)" };
+  const CAND_BADGE = { microplastics: "amber", "6ppd_quinone": "red", bisphenol_a: "gray" };
+
+  function growthToScore(g) { return Math.max(0, Math.min(100, 50 + (g / 150) * 50)); }
+  function computeGrowth(rows) {
+    const byYear = Object.fromEntries(rows.map(r => [r.year, r.publication_count]));
+    const years = rows.map(r => r.year).sort((a, b) => b - a);
+    const currentYear = years[0];
+    const recent = [0, 1, 2].map(i => byYear[currentYear - i]).filter(v => v != null);
+    const prior = [3, 4, 5].map(i => byYear[currentYear - i]).filter(v => v != null);
+    if (recent.length < 2 || prior.length < 2) return null;
+    const recentAvg = recent.reduce((a, b) => a + b, 0) / recent.length;
+    const priorAvg = prior.reduce((a, b) => a + b, 0) / prior.length;
+    if (priorAvg === 0) return null;
+    return { growth: (recentAvg / priorAvg - 1) * 100, recentAvg, priorAvg };
+  }
+
+  const candidateResults = Object.entries(byCandidate).map(([name, rows]) => {
+    const g = computeGrowth(rows);
+    const why = rows[0].why_candidate;
+    return { name, why, growth: g ? g.growth : null, score: g ? growthToScore(g.growth) : null, recentAvg: g ? g.recentAvg : null, priorAvg: g ? g.priorAvg : null };
+  });
+
+  cardsEl.innerHTML = candidateResults.map(c => `
+    <div class="candidate-card">
+      <div class="cname">${esc(CAND_LABELS[c.name] || c.name)}</div>
+      <div class="cscore" style="color:var(--accent-${CAND_BADGE[c.name] || "blue"})">${c.score != null ? c.score.toFixed(1) : "N/A"}</div>
+      <div class="clabel">momentum score /100 ${c.growth != null ? `(${c.growth > 0 ? "+" : ""}${c.growth.toFixed(1)}% growth)` : ""}</div>
+      <div class="cwhy">${esc(c.why)}</div>
+      ${c.priorAvg != null && c.priorAvg < 30 ? `<div class="ccaveat">Small-sample caveat: prior-period base is only ~${c.priorAvg.toFixed(0)}/yr -- this growth rate is directionally real but statistically noisier than one computed from a larger base.</div>` : ""}
+    </div>`).join("");
+
+  const pfas = emergence.find(e => e.risk_category === "pfas");
+  const talc = emergence.find(e => e.risk_category === "talc");
+  const compareRows = [
+    ...candidateResults.map(c => ({ label: CAND_LABELS[c.name] || c.name, score: c.score, note: "discovery candidate, not yet tracked" })),
+    { label: "PFAS (tracked)", score: pfas ? pfas.momentum_score : null, note: "for comparison -- already a known mass tort" },
+    { label: "Talc (tracked)", score: talc ? talc.momentum_score : null, note: "for comparison -- already a known mass tort" },
+  ].filter(r => r.score != null).sort((a, b) => b.score - a.score);
+
+  tableEl.innerHTML = `
+    <tr><th>Category</th><th>Momentum score</th><th>Status</th></tr>
+    ${compareRows.map(r => `<tr><td>${esc(r.label)}</td><td class="score-cell">${r.score.toFixed(1)}/100</td><td>${esc(r.note)}</td></tr>`).join("")}
+  `;
+}
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;";
+  };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => {
+    isDark = !isDark;
+    try { localStorage.setItem("precedent:theme", isDark ? "dark" : "light"); } catch (e) {}
+    apply(isDark);
+  });
+}
+
+async function init() {
+  setupThemeToggle();
+  const db = await MoatEngine.load("../shared/moat_export.json");
+  document.getElementById("snapshot-date").textContent = db.generated_at ? `Snapshot as of ${new Date(db.generated_at).toISOString().slice(0, 10)}.` : "";
+  renderBacktestChart("backtest-pfas", "pfas", "PFAS/AFFF");
+  renderBacktestChart("backtest-talc", "talc", "Talc");
+  renderDiscoveryScan();
+}
+init();
+</script>
+</body>
+</html>

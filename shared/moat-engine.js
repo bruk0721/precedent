@@ -436,6 +436,22 @@ const MoatEngine = (() => {
     return riskCategory ? (rows.find(r => r.risk_category === riskCategory) || null) : rows;
   }
 
+  // Momentum Backtest -- the same emergence-signal formula recomputed "as
+  // of" each historical year using only data that existed through that
+  // year. See momentum_backtest_pipeline.py.
+  function getMomentumBacktest(riskCategory) {
+    const rows = DB.momentum_backtest || [];
+    const filtered = riskCategory ? rows.filter(r => r.risk_category === riskCategory) : rows;
+    return [...filtered].sort((a, b) => a.as_of_year - b.as_of_year);
+  }
+
+  // Discovery Scan -- the same leading-indicator methodology pointed at
+  // real, named candidates this project does not yet track. See
+  // discovery_scan_pipeline.py.
+  function getDiscoveryCandidates() {
+    return DB.discovery_candidates || [];
+  }
+
   function getRenewalWindow(quarterStartISO, quarterEndISO) {
     const start = new Date(quarterStartISO);
     const end = new Date(quarterEndISO);
@@ -487,6 +503,7 @@ const MoatEngine = (() => {
     getComplianceRecords, getRegulatoryFilings, getScientificMomentum, getStateContaminationSites,
     getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts,
     getSettlementStage, getHistoricalScaleComparison, getEmergenceSignal,
+    getMomentumBacktest, getDiscoveryCandidates,
     get db() { return DB; },
   };
 })();

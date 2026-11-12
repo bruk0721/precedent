@@ -10647,6 +10647,760 @@
       "computed_at": "2026-11-12T21:58:02.547270+00:00"
     }
   ],
+  "momentum_backtest": [
+    {
+      "id": 1,
+      "risk_category": "pfas",
+      "as_of_year": 2015,
+      "growth_pct": 32.0,
+      "score": 60.7,
+      "recent_avg": 209.0,
+      "prior_avg": 158.0,
+      "computed_at": "2026-11-12T22:20:21.097799+00:00"
+    },
+    {
+      "id": 2,
+      "risk_category": "pfas",
+      "as_of_year": 2016,
+      "growth_pct": 37.1,
+      "score": 62.4,
+      "recent_avg": 245.0,
+      "prior_avg": 179.0,
+      "computed_at": "2026-11-12T22:20:21.097799+00:00"
+    },
+    {
+      "id": 3,
+      "risk_category": "pfas",
+      "as_of_year": 2017,
+      "growth_pct": 52.8,
+      "score": 67.6,
+      "recent_avg": 285.0,
+      "prior_avg": 186.0,
+      "computed_at": "2026-11-12T22:20:21.097799+00:00"
+    },
+    {
+      "id": 4,
+      "risk_category": "pfas",
+      "as_of_year": 2018,
+      "growth_pct": 58.1,
+      "score": 69.4,
+      "recent_avg": 330.0,
+      "prior_avg": 209.0,
+      "computed_at": "2026-11-12T22:20:21.097799+00:00"
+    },
+    {
+      "id": 5,
+      "risk_category": "pfas",
+      "as_of_year": 2019,
+      "growth_pct": 56.0,
+      "score": 68.7,
+      "recent_avg": 383.0,
+      "prior_avg": 245.0,
+      "computed_at": "2026-11-12T22:20:21.097799+00:00"
+    },
+    {
+      "id": 6,
+      "risk_category": "pfas",
+      "as_of_year": 2020,
+      "growth_pct": 72.5,
+      "score": 74.2,
+      "recent_avg": 491.0,
+      "prior_avg": 285.0,
+      "computed_at": "2026-11-12T22:20:21.097799+00:00"
+    },
+    {
+      "id": 7,
+      "risk_category": "pfas",
+      "as_of_year": 2021,
+      "growth_pct": 94.8,
+      "score": 81.6,
+      "recent_avg": 643.0,
+      "prior_avg": 330.0,
+      "computed_at": "2026-11-12T22:20:21.097799+00:00"
+    },
+    {
+      "id": 8,
+      "risk_category": "pfas",
+      "as_of_year": 2022,
+      "growth_pct": 114.5,
+      "score": 88.2,
+      "recent_avg": 821.0,
+      "prior_avg": 383.0,
+      "computed_at": "2026-11-12T22:20:21.097799+00:00"
+    },
+    {
+      "id": 9,
+      "risk_category": "pfas",
+      "as_of_year": 2023,
+      "growth_pct": 104.8,
+      "score": 84.9,
+      "recent_avg": 1005.0,
+      "prior_avg": 491.0,
+      "computed_at": "2026-11-12T22:20:21.097799+00:00"
+    },
+    {
+      "id": 10,
+      "risk_category": "pfas",
+      "as_of_year": 2024,
+      "growth_pct": 88.5,
+      "score": 79.5,
+      "recent_avg": 1213.0,
+      "prior_avg": 643.0,
+      "computed_at": "2026-11-12T22:20:21.097799+00:00"
+    },
+    {
+      "id": 11,
+      "risk_category": "pfas",
+      "as_of_year": 2025,
+      "growth_pct": 83.4,
+      "score": 77.8,
+      "recent_avg": 1505.0,
+      "prior_avg": 821.0,
+      "computed_at": "2026-11-12T22:20:21.097799+00:00"
+    },
+    {
+      "id": 12,
+      "risk_category": "pfas",
+      "as_of_year": 2026,
+      "growth_pct": 76.7,
+      "score": 75.6,
+      "recent_avg": 1776.0,
+      "prior_avg": 1005.0,
+      "computed_at": "2026-11-12T22:20:21.097799+00:00"
+    },
+    {
+      "id": 13,
+      "risk_category": "talc",
+      "as_of_year": 2015,
+      "growth_pct": -4.1,
+      "score": 48.6,
+      "recent_avg": 24.0,
+      "prior_avg": 25.0,
+      "computed_at": "2026-11-12T22:20:21.111599+00:00"
+    },
+    {
+      "id": 14,
+      "risk_category": "talc",
+      "as_of_year": 2016,
+      "growth_pct": 23.1,
+      "score": 57.7,
+      "recent_avg": 27.0,
+      "prior_avg": 22.0,
+      "computed_at": "2026-11-12T22:20:21.111599+00:00"
+    },
+    {
+      "id": 15,
+      "risk_category": "talc",
+      "as_of_year": 2017,
+      "growth_pct": 31.9,
+      "score": 60.6,
+      "recent_avg": 32.0,
+      "prior_avg": 24.0,
+      "computed_at": "2026-11-12T22:20:21.111599+00:00"
+    },
+    {
+      "id": 16,
+      "risk_category": "talc",
+      "as_of_year": 2018,
+      "growth_pct": 50.7,
+      "score": 66.9,
+      "recent_avg": 36.0,
+      "prior_avg": 24.0,
+      "computed_at": "2026-11-12T22:20:21.111599+00:00"
+    },
+    {
+      "id": 17,
+      "risk_category": "talc",
+      "as_of_year": 2019,
+      "growth_pct": 80.0,
+      "score": 76.7,
+      "recent_avg": 48.0,
+      "prior_avg": 27.0,
+      "computed_at": "2026-11-12T22:20:21.111599+00:00"
+    },
+    {
+      "id": 18,
+      "risk_category": "talc",
+      "as_of_year": 2020,
+      "growth_pct": 80.0,
+      "score": 76.7,
+      "recent_avg": 57.0,
+      "prior_avg": 32.0,
+      "computed_at": "2026-11-12T22:20:21.111599+00:00"
+    },
+    {
+      "id": 19,
+      "risk_category": "talc",
+      "as_of_year": 2021,
+      "growth_pct": 63.6,
+      "score": 71.2,
+      "recent_avg": 58.0,
+      "prior_avg": 36.0,
+      "computed_at": "2026-11-12T22:20:21.111599+00:00"
+    },
+    {
+      "id": 20,
+      "risk_category": "talc",
+      "as_of_year": 2022,
+      "growth_pct": 2.1,
+      "score": 50.7,
+      "recent_avg": 49.0,
+      "prior_avg": 48.0,
+      "computed_at": "2026-11-12T22:20:21.111599+00:00"
+    },
+    {
+      "id": 21,
+      "risk_category": "talc",
+      "as_of_year": 2023,
+      "growth_pct": -25.7,
+      "score": 41.4,
+      "recent_avg": 42.0,
+      "prior_avg": 57.0,
+      "computed_at": "2026-11-12T22:20:21.111599+00:00"
+    },
+    {
+      "id": 22,
+      "risk_category": "talc",
+      "as_of_year": 2024,
+      "growth_pct": -31.4,
+      "score": 39.5,
+      "recent_avg": 40.0,
+      "prior_avg": 58.0,
+      "computed_at": "2026-11-12T22:20:21.111599+00:00"
+    },
+    {
+      "id": 23,
+      "risk_category": "talc",
+      "as_of_year": 2025,
+      "growth_pct": -21.8,
+      "score": 42.7,
+      "recent_avg": 38.0,
+      "prior_avg": 49.0,
+      "computed_at": "2026-11-12T22:20:21.111599+00:00"
+    },
+    {
+      "id": 24,
+      "risk_category": "talc",
+      "as_of_year": 2026,
+      "growth_pct": -10.2,
+      "score": 46.6,
+      "recent_avg": 38.0,
+      "prior_avg": 42.0,
+      "computed_at": "2026-11-12T22:20:21.111599+00:00"
+    }
+  ],
+  "discovery_candidates": [
+    {
+      "id": 1,
+      "candidate": "microplastics",
+      "year": 2010,
+      "publication_count": 1,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2010-2010",
+      "extracted_at": "2026-11-12T22:17:00.638061+00:00"
+    },
+    {
+      "id": 2,
+      "candidate": "microplastics",
+      "year": 2011,
+      "publication_count": 6,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2011-2011",
+      "extracted_at": "2026-11-12T22:17:02.933720+00:00"
+    },
+    {
+      "id": 3,
+      "candidate": "microplastics",
+      "year": 2012,
+      "publication_count": 5,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2012-2012",
+      "extracted_at": "2026-11-12T22:17:05.562626+00:00"
+    },
+    {
+      "id": 4,
+      "candidate": "microplastics",
+      "year": 2013,
+      "publication_count": 11,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2013-2013",
+      "extracted_at": "2026-11-12T22:17:07.978853+00:00"
+    },
+    {
+      "id": 5,
+      "candidate": "microplastics",
+      "year": 2014,
+      "publication_count": 15,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2014-2014",
+      "extracted_at": "2026-11-12T22:17:10.646044+00:00"
+    },
+    {
+      "id": 6,
+      "candidate": "microplastics",
+      "year": 2015,
+      "publication_count": 34,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2015-2015",
+      "extracted_at": "2026-11-12T22:17:12.976859+00:00"
+    },
+    {
+      "id": 7,
+      "candidate": "microplastics",
+      "year": 2016,
+      "publication_count": 74,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2016-2016",
+      "extracted_at": "2026-11-12T22:17:15.219464+00:00"
+    },
+    {
+      "id": 8,
+      "candidate": "microplastics",
+      "year": 2017,
+      "publication_count": 119,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2017-2017",
+      "extracted_at": "2026-11-12T22:17:18.088362+00:00"
+    },
+    {
+      "id": 9,
+      "candidate": "microplastics",
+      "year": 2018,
+      "publication_count": 259,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2018-2018",
+      "extracted_at": "2026-11-12T22:17:20.853863+00:00"
+    },
+    {
+      "id": 10,
+      "candidate": "microplastics",
+      "year": 2019,
+      "publication_count": 477,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2019-2019",
+      "extracted_at": "2026-11-12T22:17:23.818696+00:00"
+    },
+    {
+      "id": 11,
+      "candidate": "microplastics",
+      "year": 2020,
+      "publication_count": 968,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2020-2020",
+      "extracted_at": "2026-11-12T22:17:26.577285+00:00"
+    },
+    {
+      "id": 12,
+      "candidate": "microplastics",
+      "year": 2021,
+      "publication_count": 1403,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2021-2021",
+      "extracted_at": "2026-11-12T22:17:28.947828+00:00"
+    },
+    {
+      "id": 13,
+      "candidate": "microplastics",
+      "year": 2022,
+      "publication_count": 2061,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2022-2022",
+      "extracted_at": "2026-11-12T22:17:31.761339+00:00"
+    },
+    {
+      "id": 14,
+      "candidate": "microplastics",
+      "year": 2023,
+      "publication_count": 2569,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2023-2023",
+      "extracted_at": "2026-11-12T22:17:34.879907+00:00"
+    },
+    {
+      "id": 15,
+      "candidate": "microplastics",
+      "year": 2024,
+      "publication_count": 3304,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2024-2024",
+      "extracted_at": "2026-11-12T22:17:37.207143+00:00"
+    },
+    {
+      "id": 16,
+      "candidate": "microplastics",
+      "year": 2025,
+      "publication_count": 3716,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2025-2025",
+      "extracted_at": "2026-11-12T22:17:39.068223+00:00"
+    },
+    {
+      "id": 17,
+      "candidate": "microplastics",
+      "year": 2026,
+      "publication_count": 3508,
+      "query_term": "(microplastics OR nanoplastics) AND (health OR toxicity OR human)",
+      "why_candidate": "EPA's draft 6th Contaminant Candidate List (April 2026) groups microplastics with PFAS; named the most-cited 'next PFAS' candidate in 2026 law-firm client alerts.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28microplastics%20OR%20nanoplastics%29%20AND%20%28health%20OR%20toxicity%20OR%20human%29&filter=years.2026-2026",
+      "extracted_at": "2026-11-12T22:17:41.500985+00:00"
+    },
+    {
+      "id": 18,
+      "candidate": "6ppd_quinone",
+      "year": 2010,
+      "publication_count": 0,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2010-2010",
+      "extracted_at": "2026-11-12T22:17:43.645297+00:00"
+    },
+    {
+      "id": 19,
+      "candidate": "6ppd_quinone",
+      "year": 2011,
+      "publication_count": 0,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2011-2011",
+      "extracted_at": "2026-11-12T22:17:45.536925+00:00"
+    },
+    {
+      "id": 20,
+      "candidate": "6ppd_quinone",
+      "year": 2012,
+      "publication_count": 0,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2012-2012",
+      "extracted_at": "2026-11-12T22:17:47.887648+00:00"
+    },
+    {
+      "id": 21,
+      "candidate": "6ppd_quinone",
+      "year": 2013,
+      "publication_count": 0,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2013-2013",
+      "extracted_at": "2026-11-12T22:17:49.722748+00:00"
+    },
+    {
+      "id": 22,
+      "candidate": "6ppd_quinone",
+      "year": 2014,
+      "publication_count": 0,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2014-2014",
+      "extracted_at": "2026-11-12T22:17:51.981046+00:00"
+    },
+    {
+      "id": 23,
+      "candidate": "6ppd_quinone",
+      "year": 2015,
+      "publication_count": 0,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2015-2015",
+      "extracted_at": "2026-11-12T22:17:54.205913+00:00"
+    },
+    {
+      "id": 24,
+      "candidate": "6ppd_quinone",
+      "year": 2016,
+      "publication_count": 0,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2016-2016",
+      "extracted_at": "2026-11-12T22:17:56.588220+00:00"
+    },
+    {
+      "id": 25,
+      "candidate": "6ppd_quinone",
+      "year": 2017,
+      "publication_count": 0,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2017-2017",
+      "extracted_at": "2026-11-12T22:17:58.756312+00:00"
+    },
+    {
+      "id": 26,
+      "candidate": "6ppd_quinone",
+      "year": 2018,
+      "publication_count": 0,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2018-2018",
+      "extracted_at": "2026-11-12T22:18:00.579391+00:00"
+    },
+    {
+      "id": 27,
+      "candidate": "6ppd_quinone",
+      "year": 2019,
+      "publication_count": 0,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2019-2019",
+      "extracted_at": "2026-11-12T22:18:02.742336+00:00"
+    },
+    {
+      "id": 28,
+      "candidate": "6ppd_quinone",
+      "year": 2020,
+      "publication_count": 1,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2020-2020",
+      "extracted_at": "2026-11-12T22:18:04.989325+00:00"
+    },
+    {
+      "id": 29,
+      "candidate": "6ppd_quinone",
+      "year": 2021,
+      "publication_count": 6,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2021-2021",
+      "extracted_at": "2026-11-12T22:18:07.248295+00:00"
+    },
+    {
+      "id": 30,
+      "candidate": "6ppd_quinone",
+      "year": 2022,
+      "publication_count": 18,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2022-2022",
+      "extracted_at": "2026-11-12T22:18:09.078042+00:00"
+    },
+    {
+      "id": 31,
+      "candidate": "6ppd_quinone",
+      "year": 2023,
+      "publication_count": 38,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2023-2023",
+      "extracted_at": "2026-11-12T22:18:10.928287+00:00"
+    },
+    {
+      "id": 32,
+      "candidate": "6ppd_quinone",
+      "year": 2024,
+      "publication_count": 80,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2024-2024",
+      "extracted_at": "2026-11-12T22:18:13.050165+00:00"
+    },
+    {
+      "id": 33,
+      "candidate": "6ppd_quinone",
+      "year": 2025,
+      "publication_count": 110,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2025-2025",
+      "extracted_at": "2026-11-12T22:18:15.229336+00:00"
+    },
+    {
+      "id": 34,
+      "candidate": "6ppd_quinone",
+      "year": 2026,
+      "publication_count": 178,
+      "query_term": "(\"6PPD-quinone\" OR \"6PPD quinone\" OR \"6PPD-Q\") AND (toxicity OR health OR fish OR coho OR aquatic)",
+      "why_candidate": "California DTSC named 6PPD a Priority Product under its Safer Consumer Products program (Final Alternatives Analysis due Aug 2026); EPA extended a health/safety reporting deadline for it in June 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28%226PPD-quinone%22%20OR%20%226PPD%20quinone%22%20OR%20%226PPD-Q%22%29%20AND%20%28toxicity%20OR%20health%20OR%20fish%20OR%20coho%20OR%20aquatic%29&filter=years.2026-2026",
+      "extracted_at": "2026-11-12T22:18:17.377830+00:00"
+    },
+    {
+      "id": 35,
+      "candidate": "bisphenol_a",
+      "year": 2010,
+      "publication_count": 343,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2010-2010",
+      "extracted_at": "2026-11-12T22:18:19.115054+00:00"
+    },
+    {
+      "id": 36,
+      "candidate": "bisphenol_a",
+      "year": 2011,
+      "publication_count": 383,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2011-2011",
+      "extracted_at": "2026-11-12T22:18:21.264835+00:00"
+    },
+    {
+      "id": 37,
+      "candidate": "bisphenol_a",
+      "year": 2012,
+      "publication_count": 432,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2012-2012",
+      "extracted_at": "2026-11-12T22:18:23.011500+00:00"
+    },
+    {
+      "id": 38,
+      "candidate": "bisphenol_a",
+      "year": 2013,
+      "publication_count": 520,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2013-2013",
+      "extracted_at": "2026-11-12T22:18:25.158625+00:00"
+    },
+    {
+      "id": 39,
+      "candidate": "bisphenol_a",
+      "year": 2014,
+      "publication_count": 600,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2014-2014",
+      "extracted_at": "2026-11-12T22:18:27.310174+00:00"
+    },
+    {
+      "id": 40,
+      "candidate": "bisphenol_a",
+      "year": 2015,
+      "publication_count": 620,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2015-2015",
+      "extracted_at": "2026-11-12T22:18:29.396656+00:00"
+    },
+    {
+      "id": 41,
+      "candidate": "bisphenol_a",
+      "year": 2016,
+      "publication_count": 646,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2016-2016",
+      "extracted_at": "2026-11-12T22:18:31.651064+00:00"
+    },
+    {
+      "id": 42,
+      "candidate": "bisphenol_a",
+      "year": 2017,
+      "publication_count": 672,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2017-2017",
+      "extracted_at": "2026-11-12T22:18:33.758939+00:00"
+    },
+    {
+      "id": 43,
+      "candidate": "bisphenol_a",
+      "year": 2018,
+      "publication_count": 762,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2018-2018",
+      "extracted_at": "2026-11-12T22:18:35.600283+00:00"
+    },
+    {
+      "id": 44,
+      "candidate": "bisphenol_a",
+      "year": 2019,
+      "publication_count": 873,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2019-2019",
+      "extracted_at": "2026-11-12T22:18:37.785419+00:00"
+    },
+    {
+      "id": 45,
+      "candidate": "bisphenol_a",
+      "year": 2020,
+      "publication_count": 983,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2020-2020",
+      "extracted_at": "2026-11-12T22:18:39.977376+00:00"
+    },
+    {
+      "id": 46,
+      "candidate": "bisphenol_a",
+      "year": 2021,
+      "publication_count": 972,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2021-2021",
+      "extracted_at": "2026-11-12T22:18:42.264773+00:00"
+    },
+    {
+      "id": 47,
+      "candidate": "bisphenol_a",
+      "year": 2022,
+      "publication_count": 981,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2022-2022",
+      "extracted_at": "2026-11-12T22:18:43.855056+00:00"
+    },
+    {
+      "id": 48,
+      "candidate": "bisphenol_a",
+      "year": 2023,
+      "publication_count": 975,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2023-2023",
+      "extracted_at": "2026-11-12T22:18:46.040351+00:00"
+    },
+    {
+      "id": 49,
+      "candidate": "bisphenol_a",
+      "year": 2024,
+      "publication_count": 1003,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2024-2024",
+      "extracted_at": "2026-11-12T22:18:47.838352+00:00"
+    },
+    {
+      "id": 50,
+      "candidate": "bisphenol_a",
+      "year": 2025,
+      "publication_count": 1127,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2025-2025",
+      "extracted_at": "2026-11-12T22:18:50.052817+00:00"
+    },
+    {
+      "id": 51,
+      "candidate": "bisphenol_a",
+      "year": 2026,
+      "publication_count": 1016,
+      "query_term": "(bisphenol A OR BPA) AND (health OR cancer OR endocrine)",
+      "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2026-2026",
+      "extracted_at": "2026-11-12T22:18:52.290556+00:00"
+    }
+  ],
   "downstream_adjacency": {
     "325998": [
       {
@@ -11179,5 +11933,5 @@
       }
     }
   },
-  "generated_at": "2026-11-12T21:58:22.287177+00:00"
+  "generated_at": "2026-11-12T22:20:40.882299+00:00"
 }
