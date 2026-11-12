@@ -10768,7 +10768,9 @@
       "description": "The best-documented first major products-liability suit against asbestos manufacturers for failure to warn -- the real opening of the asbestos litigation era.",
       "tier": "REPORTED",
       "source": "Simmons Law Firm (asbestos litigation history)",
-      "source_url": "https://www.simmonsfirm.com/blog/history-of-asbestos-litigation/"
+      "source_url": "https://www.simmonsfirm.com/blog/history-of-asbestos-litigation/",
+      "magnitude_usd_millions": null,
+      "case_count": null
     },
     {
       "date": "1982-08-26",
@@ -10778,7 +10780,9 @@
       "description": "One of the first and most consequential asbestos-driven bankruptcies -- the real origin of the bankruptcy-trust model later used across asbestos and (differently) talc litigation.",
       "tier": "REPORTED",
       "source": "Simmons Law Firm (asbestos litigation history)",
-      "source_url": "https://www.simmonsfirm.com/blog/history-of-asbestos-litigation/"
+      "source_url": "https://www.simmonsfirm.com/blog/history-of-asbestos-litigation/",
+      "magnitude_usd_millions": null,
+      "case_count": null
     },
     {
       "date": "1988-01-01",
@@ -10788,7 +10792,9 @@
       "description": "The first of 60+ real asbestos bankruptcy trusts that would eventually form -- $2.5B set aside at founding.",
       "tier": "REPORTED",
       "source": "Simmons Law Firm (asbestos litigation history)",
-      "source_url": "https://www.simmonsfirm.com/blog/history-of-asbestos-litigation/"
+      "source_url": "https://www.simmonsfirm.com/blog/history-of-asbestos-litigation/",
+      "magnitude_usd_millions": 2500,
+      "case_count": null
     },
     {
       "date": "2001-05-01",
@@ -10798,7 +10804,9 @@
       "description": "A real actuarial projection of total asbestos litigation cost (past + future payments) -- a different measure than RAND's later 'paid to date' figure, not a contradiction of it.",
       "tier": "ESTIMATE",
       "source": "Tillinghast-Towers Perrin, via 2003 Senate Judiciary testimony",
-      "source_url": "https://www.judiciary.senate.gov/download/2003/06/04/jennifer-biggs-testimony-060403?download=1"
+      "source_url": "https://www.judiciary.senate.gov/download/2003/06/04/jennifer-biggs-testimony-060403?download=1",
+      "magnitude_usd_millions": 200000,
+      "case_count": null
     },
     {
       "date": "2002-12-31",
@@ -10808,7 +10816,9 @@
       "description": "RAND's real, audited figure for total asbestos litigation payouts by 8,400+ defendants/insurers through 2002 -- only ~42 cents of every dollar actually reached claimants.",
       "tier": "REPORTED",
       "source": "RAND Institute for Civil Justice",
-      "source_url": "https://www.rand.org/pubs/research_briefs/RB9155.html"
+      "source_url": "https://www.rand.org/pubs/research_briefs/RB9155.html",
+      "magnitude_usd_millions": 70000,
+      "case_count": 730000
     },
     {
       "date": "2004-06-01",
@@ -10818,7 +10828,9 @@
       "description": "The real cumulative count of companies that filed bankruptcy specifically due to asbestos liability, as of mid-2004.",
       "tier": "REPORTED",
       "source": "RAND, via Claims Journal",
-      "source_url": "https://claimsjournal.com/news/national/2005/05/10/54887.htm"
+      "source_url": "https://claimsjournal.com/news/national/2005/05/10/54887.htm",
+      "magnitude_usd_millions": null,
+      "case_count": null
     },
     {
       "date": "2018-05-21",
@@ -10828,7 +10840,9 @@
       "description": "The original jury verdict against J&J in the real, landmark Ingham talc case -- later reduced on appeal.",
       "tier": "REPORTED",
       "source": "Winston & Strawn case summary",
-      "source_url": "https://winston.com/en/product-liability-and-mass-torts-digest/missouri-court-of-appeals-reduces-dollar469-billion-talc-verdict-as-a-result-of-personal-jurisdiction-challenge.html"
+      "source_url": "https://winston.com/en/product-liability-and-mass-torts-digest/missouri-court-of-appeals-reduces-dollar469-billion-talc-verdict-as-a-result-of-personal-jurisdiction-challenge.html",
+      "magnitude_usd_millions": 4690,
+      "case_count": null
     },
     {
       "date": "2020-06-23",
@@ -10838,7 +10852,9 @@
       "description": "Missouri Court of Appeals cut the award on a personal-jurisdiction challenge; J&J's own real 8-K reported the reduced figure.",
       "tier": "REPORTED",
       "source": "J&J's own SEC 8-K filing",
-      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040620000059/jnj-20201103.htm"
+      "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040620000059/jnj-20201103.htm",
+      "magnitude_usd_millions": 2100,
+      "case_count": null
     },
     {
       "date": "2021-10-14",
@@ -10848,7 +10864,9 @@
       "description": "J&J's first 'Texas two-step' bankruptcy filing via subsidiary LTL Management, committing roughly $2 billion.",
       "tier": "REPORTED",
       "source": "Fox Business",
-      "source_url": "https://www.foxbusiness.com/retail/johnson-johnson-to-pay-resolve-claims-baby-powder-talc-products-caused-cancer"
+      "source_url": "https://www.foxbusiness.com/retail/johnson-johnson-to-pay-resolve-claims-baby-powder-talc-products-caused-cancer",
+      "magnitude_usd_millions": 2000,
+      "case_count": null
     },
     {
       "date": "2023-04-04",
@@ -10858,7 +10876,9 @@
       "description": "After an appeals court invalidated the first filing's structure, LTL refiled with a real 4.45x larger commitment than its first attempt, 18 months earlier.",
       "tier": "REPORTED",
       "source": "Business Insurance",
-      "source_url": "https://www.businessinsurance.com/jj-unit-files-for-bankruptcy-again-to-pursue-89-billion-talc-settlement-john/"
+      "source_url": "https://www.businessinsurance.com/jj-unit-files-for-bankruptcy-again-to-pursue-89-billion-talc-settlement-john/",
+      "magnitude_usd_millions": 8900,
+      "case_count": null
     },
     {
       "date": "2025-01-01",
@@ -10868,7 +10888,9 @@
       "description": "A new subsidiary's ~$8-10B proposal was rejected by the bankruptcy court; J&J announced it would litigate individual cases rather than appeal.",
       "tier": "REPORTED",
       "source": "Barchart / Chemistry World",
-      "source_url": "https://www.barchart.com/story/news/31679043/jjs-third-bankruptcy-attempt-to-end-talc-suits-rejected"
+      "source_url": "https://www.barchart.com/story/news/31679043/jjs-third-bankruptcy-attempt-to-end-talc-suits-rejected",
+      "magnitude_usd_millions": 9000,
+      "case_count": null
     },
     {
       "date": "2026-11-02",
@@ -10878,7 +10900,9 @@
       "description": "The real, official US Judicial Panel on Multidistrict Litigation case count, straight from the court system.",
       "tier": "REPORTED",
       "source": "JPML's own official pending-MDL report",
-      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0"
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0",
+      "magnitude_usd_millions": null,
+      "case_count": 69376
     },
     {
       "date": "2018-02-01",
@@ -10888,7 +10912,9 @@
       "description": "3M's real settlement with the State of Minnesota over PFAS in groundwater, surface water, fish, and sediments.",
       "tier": "REPORTED",
       "source": "3M's own SEC 10-K",
-      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm"
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm",
+      "magnitude_usd_millions": 897,
+      "case_count": null
     },
     {
       "date": "2022-10-01",
@@ -10898,7 +10924,21 @@
       "description": "3M's real pre-tax charge associated with its 2022 announcement to exit PFAS manufacturing by 2025.",
       "tier": "REPORTED",
       "source": "3M's own SEC 10-K",
-      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm"
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/mmm-20251231.htm",
+      "magnitude_usd_millions": 800,
+      "case_count": null
+    },
+    {
+      "date": "2023-06-01",
+      "date_precision": "month",
+      "category": "pfas",
+      "title": "3M's $10.3B public water system settlement",
+      "description": "The single largest real PFAS settlement to date -- 3M's agreement to resolve claims from US public water systems over PFAS contamination, part of the broader AFFF MDL Water District settlement wave.",
+      "tier": "REPORTED",
+      "source": "Milliman / Verisk (industry settlement tracking)",
+      "source_url": "https://ae.milliman.com/en/insight/forever-chemical-risk-actuarial-reserving-insurers-prepare-for-pfas-claims-litigation",
+      "magnitude_usd_millions": 10300,
+      "case_count": null
     },
     {
       "date": "2023-06-01",
@@ -10908,7 +10948,9 @@
       "description": "The real AFFF MDL Water District settlement, under the companies' 2021 cost-sharing MOU.",
       "tier": "REPORTED",
       "source": "DuPont's own SEC 10-K",
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm"
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1666700/000166670026000013/dd-20251231.htm",
+      "magnitude_usd_millions": 1185,
+      "case_count": null
     },
     {
       "date": "2024-04-10",
@@ -10918,7 +10960,9 @@
       "description": "EPA's National Primary Drinking Water Regulation set the first real enforceable Maximum Contaminant Levels for PFAS -- the regulatory trigger behind this project's own SDWA violation-tracking pipeline.",
       "tier": "REPORTED",
       "source": "EPA (via this project's own SDWA pipeline research)",
-      "source_url": "https://echo.epa.gov/"
+      "source_url": "https://echo.epa.gov/",
+      "magnitude_usd_millions": null,
+      "case_count": null
     },
     {
       "date": "2025-05-12",
@@ -10928,7 +10972,9 @@
       "description": "Real-time signal caught by this project's own 8-K monitoring pipeline -- months before the next annual 10-K would have disclosed it.",
       "tier": "REPORTED",
       "source": "3M's own SEC 8-K",
-      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674025000046/mmm-20250512.htm"
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674025000046/mmm-20250512.htm",
+      "magnitude_usd_millions": null,
+      "case_count": null
     },
     {
       "date": "2025-08-04",
@@ -10938,7 +10984,9 @@
       "description": "Resolves legacy contamination claims across Chemours' Chambers Works, Parlin, and other operating sites.",
       "tier": "REPORTED",
       "source": "Chemours' own SEC 8-K",
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000110465925073336/tm2522433d1_8k.htm"
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000110465925073336/tm2522433d1_8k.htm",
+      "magnitude_usd_millions": null,
+      "case_count": null
     },
     {
       "date": "2026-06-23",
@@ -10948,7 +10996,9 @@
       "description": "A real, proposed Consent Decree with the US EPA.",
       "tier": "REPORTED",
       "source": "Chemours' own SEC 8-K",
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000162722326000017/cc-20260624.htm"
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000162722326000017/cc-20260624.htm",
+      "magnitude_usd_millions": null,
+      "case_count": null
     },
     {
       "date": "2026-09-10",
@@ -10958,7 +11008,9 @@
       "description": "Two real, same-day material events: Chemours resolves Fayetteville Works emissions claims; DuPont/Corteva enter a separate settlement agreement.",
       "tier": "REPORTED",
       "source": "Chemours' and DuPont's own SEC 8-Ks",
-      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000162722326000029/cc-20260910.htm"
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1627223/000162722326000029/cc-20260910.htm",
+      "magnitude_usd_millions": null,
+      "case_count": null
     },
     {
       "date": "2026-11-03",
@@ -10968,7 +11020,9 @@
       "description": "The most recent real material event this project's own 8-K pipeline has caught.",
       "tier": "REPORTED",
       "source": "3M's own SEC 8-K",
-      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000318/mmm-20261103.htm"
+      "source_url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000318/mmm-20261103.htm",
+      "magnitude_usd_millions": null,
+      "case_count": null
     },
     {
       "date": "2026-11-02",
@@ -10978,7 +11032,9 @@
       "description": "The real, official US Judicial Panel on Multidistrict Litigation case count.",
       "tier": "REPORTED",
       "source": "JPML's own official pending-MDL report",
-      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0"
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0",
+      "magnitude_usd_millions": null,
+      "case_count": 15270
     },
     {
       "date": "2026-05-11",
@@ -10988,7 +11044,9 @@
       "description": "IN RE: Non-AFFF Firefighter Turnout Gear Marketing, Sales Practices, and Products Liability Litigation -- genuinely new federal litigation, D. Minn.",
       "tier": "REPORTED",
       "source": "JPML's own official pending-MDL report",
-      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0"
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0",
+      "magnitude_usd_millions": null,
+      "case_count": null
     },
     {
       "date": "2026-08-18",
@@ -10998,7 +11056,9 @@
       "description": "Transferred and centralized under Judge Jeffrey M. Bryan.",
       "tier": "REPORTED",
       "source": "JPML's own official pending-MDL report",
-      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0"
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0",
+      "magnitude_usd_millions": null,
+      "case_count": null
     },
     {
       "date": "2026-11-02",
@@ -11008,7 +11068,9 @@
       "description": "Pending equals total -- nothing has resolved yet, the earliest possible stage of a real mass tort.",
       "tier": "REPORTED",
       "source": "JPML's own official pending-MDL report",
-      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0"
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0",
+      "magnitude_usd_millions": null,
+      "case_count": 17
     }
   ],
   "reserve_development_benchmark": {
@@ -11041,5 +11103,5 @@
       }
     }
   },
-  "generated_at": "2026-11-12T16:50:07.259436+00:00"
+  "generated_at": "2026-11-12T17:01:05.987930+00:00"
 }

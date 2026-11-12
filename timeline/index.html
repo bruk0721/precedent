@@ -32,7 +32,7 @@
   a { color: inherit; text-decoration: none; }
   .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px 100px; }
 
-  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 980px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 980px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 20; border-bottom: 1px solid var(--chip-bg); }
   .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
   .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
   .nav-links { display: flex; gap: 20px; align-items: center; }
@@ -59,28 +59,57 @@
   footer { margin-top: 40px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; text-align: center; }
 
   /* Category filter chips */
-  .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+  .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; }
   .filter-chip { font-family: var(--font); font-size: 12.5px; font-weight: 600; padding: 7px 14px; border-radius: var(--radius-pill); border: 1px solid var(--chip-bg); background: var(--chip-bg); color: var(--ink-muted); cursor: pointer; display: flex; align-items: center; gap: 6px; }
   .filter-chip .dot { width: 7px; height: 7px; border-radius: 50%; }
   .filter-chip[data-active="true"] { background: var(--ink); color: var(--page-bg); border-color: var(--ink); }
   .filter-chip[data-active="true"] .dot { outline: 1.5px solid var(--page-bg); }
 
-  /* Horizontal rail */
-  .rail-wrap { position: relative; height: 64px; margin: 8px 0 24px; }
-  .rail-track { position: absolute; top: 28px; left: 0; right: 0; height: 2px; background: var(--chip-bg); }
-  .rail-dot { position: absolute; top: 20px; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; border: 2px solid var(--card-bg); cursor: pointer; transition: transform 0.12s; }
-  .rail-dot:hover { transform: scale(1.3); z-index: 5; }
-  .rail-year { position: absolute; top: 44px; font-size: 10.5px; color: var(--ink-faint); font-family: var(--font-mono); transform: translateX(-50%); white-space: nowrap; }
+  /* Sticky rail card -- stays visible while the milestone list scrolls beneath it
+     (research finding: Scrollama-style pinning via plain CSS position:sticky,
+     no library needed). */
+  .rail-card { position: sticky; top: 76px; z-index: 15; padding-bottom: 14px; }
+  .rail-wrap { position: relative; height: 104px; margin: 10px 4px 0; }
+  .rail-track { position: absolute; top: 50px; left: 0; right: 0; height: 2px; background: var(--chip-bg); }
+  .rail-dot { position: absolute; top: 50%; border-radius: 50%; border: 2px solid var(--card-bg); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; transform: translate(-50%, -50%); }
+  .rail-dot:hover, .rail-dot.is-active { transform: translate(-50%, -50%) scale(1.25); z-index: 5; box-shadow: 0 0 0 3px var(--page-bg), 0 0 0 5px currentColor; }
+  .rail-dot.shape-case { border-radius: 3px; }
+  .rail-year { position: absolute; top: 62px; font-size: 10.5px; color: var(--ink-faint); font-family: var(--font-mono); transform: translateX(-50%); white-space: nowrap; }
   .rail-tooltip { position: fixed; background: var(--ink); color: var(--page-bg); font-size: 12px; padding: 7px 11px; border-radius: 8px; pointer-events: none; z-index: 50; max-width: 260px; line-height: 1.5; display: none; }
 
+  /* Hero annotation callouts -- always-visible labels (not hover-only) with a
+     connector line down to their real data point, for the biggest real
+     outcomes only (Stripe-style restraint: 1-2 focal moments, not every dot
+     decorated the same way). */
+  .rail-callout { position: absolute; bottom: 58px; transform: translateX(-50%); text-align: center; white-space: nowrap; pointer-events: none; }
+  .rail-callout .cv { font-family: var(--font-mono); font-weight: 700; font-size: 13px; }
+  .rail-callout .cl { font-size: 10px; color: var(--ink-faint); }
+  .rail-callout .connector { position: absolute; left: 50%; bottom: -40px; width: 1px; height: 30px; background: var(--chip-bg); }
+
+  /* Magnitude legend */
+  .mag-legend { display: flex; align-items: flex-end; gap: 18px; margin-top: 8px; padding-top: 10px; border-top: 1px solid var(--chip-bg); font-size: 11px; color: var(--ink-faint); }
+  .mag-legend-item { display: flex; align-items: center; gap: 6px; }
+  .mag-legend-dot { border-radius: 50%; background: var(--ink-faint); flex-shrink: 0; }
+
+  /* Era section headers in the milestone list */
+  .era-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; padding: 28px 4px 12px; }
+  .era-header:first-child { padding-top: 4px; }
+  .era-title { display: flex; align-items: center; gap: 9px; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
+  .era-title .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .era-hero-stat { font-family: var(--font-mono); font-size: 13px; color: var(--ink-muted); text-align: right; }
+  .era-hero-stat b { color: var(--ink); font-size: 16px; }
+
   /* Milestone list */
-  .milestone { background: var(--card-bg); border-radius: var(--radius-card); padding: 0; margin-bottom: 10px; box-shadow: var(--shadow-card); scroll-margin-top: 90px; }
+  .milestone { background: var(--card-bg); border-radius: var(--radius-card); padding: 0; margin-bottom: 10px; box-shadow: var(--shadow-card); scroll-margin-top: 196px; transition: box-shadow 0.2s; }
+  .milestone.is-active { box-shadow: 0 0 0 1.5px var(--accent-blue), var(--shadow-card); }
   .milestone > summary { list-style: none; cursor: pointer; padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
   .milestone > summary::-webkit-details-marker { display: none; }
   .milestone > summary::marker { content: ""; }
   .milestone .cat-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+  .milestone .cat-dot.shape-case { border-radius: 2px; }
   .milestone .m-date { font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); white-space: nowrap; width: 76px; flex-shrink: 0; }
   .milestone .m-title { font-weight: 600; font-size: 14px; flex: 1; }
+  .milestone .m-mag { font-family: var(--font-mono); font-size: 12.5px; font-weight: 700; color: var(--ink-muted); white-space: nowrap; }
   .milestone .chevron { flex-shrink: 0; color: var(--ink-faint); font-size: 11px; transition: transform 0.15s; }
   .milestone[open] .chevron { transform: rotate(90deg); }
   .milestone .m-body { padding: 0 20px 18px 108px; font-size: 13px; line-height: 1.6; color: var(--ink-muted); }
@@ -91,8 +120,12 @@
   .m-tag.ESTIMATE { background: var(--accent-amber-bg); color: var(--accent-amber); }
 
   @media (max-width: 640px) {
+    .rail-card { top: 66px; }
+    .milestone { scroll-margin-top: 150px; }
     .milestone .m-date { width: 58px; font-size: 10.5px; }
+    .milestone .m-mag { display: none; }
     .milestone .m-body { padding-left: 20px; }
+    .era-hero-stat { text-align: left; }
   }
 </style>
 </head>
@@ -113,17 +146,18 @@
 <div class="hero">
   <span class="eyebrow-pill"><span class="dot"></span>Real, cited history</span>
   <h1>Litigation Timeline</h1>
-  <p class="dek">Every real, dated development behind the categories Precedent tracks &mdash; pulled from this project's own SEC/JPML data where possible, and cited to a real external source everywhere else. <strong>Asbestos is shown as the historical analog</strong>, not a category this project prices.</p>
+  <p class="dek">Every real, dated development behind the categories Precedent tracks &mdash; pulled from this project's own SEC/JPML data where possible, and cited to a real external source everywhere else. <strong>Asbestos is shown as the historical analog</strong>, not a category this project prices. Circle size is a real dollar amount; squares are real case counts &mdash; the two are never compared on the same scale.</p>
 </div>
 
 <div class="wrap">
-  <div class="card">
-    <h2>Filter</h2>
-    <p class="card-sub">Toggle a category to narrow the timeline &mdash; everything starts visible.</p>
+  <div class="card rail-card">
+    <h2>Filter &amp; overview</h2>
+    <p class="card-sub">Toggle a category to narrow the timeline below. The highlighted dot tracks what you're scrolled to.</p>
     <div class="filter-row" id="filter-row"></div>
     <div class="rail-wrap" id="rail-wrap">
       <div class="rail-track"></div>
     </div>
+    <div class="mag-legend" id="mag-legend"></div>
   </div>
 
   <div id="milestone-list"></div>
@@ -143,12 +177,48 @@ const CATEGORY_META = {
   turnout_gear: { label: "Turnout Gear", colorVar: "--accent-blue" },
   asbestos: { label: "Asbestos (analog)", colorVar: "--accent-gray" },
 };
+// Real order-of-magnitude reference dots for the legend -- scaled by the
+// same sqrt(area) function used for real rail dots, so the legend is
+// honest about what a given circle size actually means (research finding:
+// a magnitude-encoded visual is meaningless without a reference legend).
+const LEGEND_VALUES = [100, 1000, 10000, 100000]; // $100M / $1B / $10B / $100B
 
 let activeCategories = new Set(Object.keys(CATEGORY_META));
 let milestones = [];
+let minTime, maxTime;
+let observer = null;
 
 function catColor(cat) {
   return getComputedStyle(document.documentElement).getPropertyValue(CATEGORY_META[cat].colorVar).trim();
+}
+
+// Area-based (not radius-based) sizing: radius scaling a 4x value makes it
+// look 16x bigger, a real distortion the design research flagged explicitly.
+// sqrt(value) keeps visual AREA proportional to the real dollar amount.
+function dotDiameter(usdMillions) {
+  if (usdMillions == null) return 12;
+  const minD = 12, maxD = 40;
+  const minV = Math.sqrt(100), maxV = Math.sqrt(200000); // $100M .. $200B real range on file
+  const v = Math.sqrt(Math.max(usdMillions, 100));
+  const frac = Math.min(Math.max((v - minV) / (maxV - minV), 0), 1);
+  return Math.round(minD + frac * (maxD - minD));
+}
+
+function formatUsd(m) {
+  if (m >= 1000) return `$${(m / 1000).toFixed(m % 1000 === 0 ? 0 : 1)}B`;
+  return `$${m.toLocaleString()}M`;
+}
+
+function renderLegend() {
+  const el = document.getElementById("mag-legend");
+  const dollarItems = LEGEND_VALUES.map(v => `
+    <div class="mag-legend-item">
+      <span class="mag-legend-dot" style="width:${dotDiameter(v)}px;height:${dotDiameter(v)}px"></span>
+      ${esc(formatUsd(v))}
+    </div>`).join("");
+  el.innerHTML = dollarItems + `
+    <div class="mag-legend-item"><span class="mag-legend-dot" style="width:12px;height:12px;border-radius:3px"></span>Real case count (JPML)</div>
+    <div class="mag-legend-item"><span class="mag-legend-dot" style="width:12px;height:12px"></span>Date/event only, no single $ figure</div>`;
 }
 
 function renderFilters() {
@@ -168,24 +238,21 @@ function renderFilters() {
   });
 }
 
-function dateToFraction(dateStr, minTime, maxTime) {
+function dateToFraction(dateStr) {
   const t = new Date(dateStr).getTime();
   return (t - minTime) / (maxTime - minTime);
 }
 
 function renderRail() {
   const wrap = document.getElementById("rail-wrap");
-  wrap.querySelectorAll(".rail-dot, .rail-year").forEach(e => e.remove());
+  wrap.querySelectorAll(".rail-dot, .rail-year, .rail-callout").forEach(e => e.remove());
   const visible = milestones.filter(m => activeCategories.has(m.category));
   if (!visible.length) return;
-  const times = milestones.map(m => new Date(m.date).getTime());
-  const minTime = Math.min(...times), maxTime = Math.max(...times);
 
-  // Year markers at ~even intervals
   const minYear = new Date(minTime).getFullYear(), maxYear = new Date(maxTime).getFullYear();
   const yearStep = Math.max(1, Math.round((maxYear - minYear) / 6));
   for (let y = minYear; y <= maxYear; y += yearStep) {
-    const frac = dateToFraction(`${y}-01-01`, minTime, maxTime);
+    const frac = dateToFraction(`${y}-01-01`);
     const yEl = document.createElement("div");
     yEl.className = "rail-year";
     yEl.style.left = (frac * 100) + "%";
@@ -193,15 +260,36 @@ function renderRail() {
     wrap.appendChild(yEl);
   }
 
+  // Hero callouts: always-visible labels (not hover-only) for the 2 single
+  // biggest real dollar outcomes currently visible -- a real connector line
+  // down to the actual data point (research finding: pair a callout with a
+  // visible connector to its exact data point, don't rely on text alone).
+  const byMagnitude = [...visible].filter(m => m.magnitude_usd_millions != null).sort((a, b) => b.magnitude_usd_millions - a.magnitude_usd_millions).slice(0, 2);
+  byMagnitude.forEach(m => {
+    const frac = dateToFraction(m.date);
+    const callout = document.createElement("div");
+    callout.className = "rail-callout";
+    callout.style.left = (frac * 100) + "%";
+    callout.innerHTML = `<div class="cv" style="color:${catColor(m.category)}">${esc(formatUsd(m.magnitude_usd_millions))}</div><div class="cl">${esc(m.title.slice(0, 26))}${m.title.length > 26 ? "…" : ""}</div><div class="connector"></div>`;
+    wrap.appendChild(callout);
+  });
+
   const tooltip = document.getElementById("rail-tooltip");
   visible.forEach(m => {
-    const frac = dateToFraction(m.date, minTime, maxTime);
+    const frac = dateToFraction(m.date);
     const dot = document.createElement("div");
-    dot.className = "rail-dot";
+    const isCase = m.magnitude_usd_millions == null && m.case_count != null;
+    dot.className = "rail-dot" + (isCase ? " shape-case" : "");
+    dot.id = "rail-" + m.id;
     dot.style.left = (frac * 100) + "%";
+    const size = isCase ? Math.min(12 + Math.sqrt(m.case_count) * 0.12, 32) : dotDiameter(m.magnitude_usd_millions);
+    dot.style.width = size + "px";
+    dot.style.height = size + "px";
     dot.style.background = catColor(m.category);
+    dot.style.color = catColor(m.category);
     dot.addEventListener("mousemove", (e) => {
-      tooltip.innerHTML = `<b>${esc(m.title)}</b><br>${esc(m.date.slice(0, 10))}`;
+      const magLabel = m.magnitude_usd_millions != null ? ` &mdash; ${formatUsd(m.magnitude_usd_millions)}` : m.case_count != null ? ` &mdash; ${m.case_count.toLocaleString()} cases` : "";
+      tooltip.innerHTML = `<b>${esc(m.title)}</b>${magLabel}<br>${esc(m.date.slice(0, 10))}`;
       tooltip.style.display = "block";
       tooltip.style.left = (e.clientX + 14) + "px";
       tooltip.style.top = (e.clientY + 14) + "px";
@@ -215,29 +303,71 @@ function renderRail() {
   });
 }
 
+// Scroll-driven highlight -- a real Scrollama-style pattern (IntersectionObserver
+// watching each milestone; whichever crosses the activation line near the top
+// of the viewport gets marked active, both in the list and on the rail dot
+// above). No library needed -- native IntersectionObserver only.
+function setupScrollObserver() {
+  if (observer) observer.disconnect();
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const railDot = document.getElementById("rail-" + entry.target.id);
+      const card = entry.target;
+      if (entry.isIntersecting) {
+        document.querySelectorAll(".rail-dot.is-active").forEach(d => d.classList.remove("is-active"));
+        document.querySelectorAll(".milestone.is-active").forEach(c => c.classList.remove("is-active"));
+        if (railDot) railDot.classList.add("is-active");
+        card.classList.add("is-active");
+      }
+    });
+  }, { rootMargin: "-40% 0px -55% 0px", threshold: 0 });
+  document.querySelectorAll(".milestone").forEach(el => observer.observe(el));
+}
+
+const CATEGORY_ORDER = ["asbestos", "pfas", "talc", "turnout_gear"];
+
+function eraHeroStat(catMilestones) {
+  const withMag = catMilestones.filter(m => m.magnitude_usd_millions != null).sort((a, b) => b.magnitude_usd_millions - a.magnitude_usd_millions);
+  if (withMag.length) return { big: formatUsd(withMag[0].magnitude_usd_millions), label: "largest real figure on file" };
+  const withCase = catMilestones.filter(m => m.case_count != null).sort((a, b) => b.case_count - a.case_count);
+  if (withCase.length) return { big: withCase[0].case_count.toLocaleString(), label: "largest real case count on file" };
+  return { big: catMilestones.length, label: "real milestone(s) on file" };
+}
+
 function renderMilestoneList() {
   const el = document.getElementById("milestone-list");
-  const visible = [...milestones].filter(m => activeCategories.has(m.category)).sort((a, b) => new Date(a.date) - new Date(b.date));
-  if (!visible.length) {
+  const visibleCats = CATEGORY_ORDER.filter(c => activeCategories.has(c) && milestones.some(m => m.category === c));
+  if (!visibleCats.length) {
     el.innerHTML = `<div class="card"><p class="empty-note">No milestones match the current filter.</p></div>`;
     return;
   }
-  el.innerHTML = visible.map(m => `
-    <details class="milestone" id="${m.id}">
-      <summary>
-        <span class="cat-dot" style="background:${catColor(m.category)}"></span>
-        <span class="m-date">${esc(m.date.slice(0, 10))}</span>
-        <span class="m-title">${esc(m.title)}</span>
-        <span class="chevron">&#9656;</span>
-      </summary>
-      <div class="m-body">
-        <span class="m-tag ${esc(m.tier)}">${esc(m.tier)}</span><br>
-        ${esc(m.description)}<br>
-        <span style="color:var(--ink-faint)">Source: ${esc(m.source)}</span>
-        ${m.source_url ? ` &mdash; <a class="m-src" href="${esc(m.source_url)}" target="_blank" rel="noopener">View source &#8599;</a>` : ""}
+  el.innerHTML = visibleCats.map(cat => {
+    const catMilestones = milestones.filter(m => m.category === cat).sort((a, b) => new Date(a.date) - new Date(b.date));
+    const hero = eraHeroStat(catMilestones);
+    const cards = catMilestones.map(m => `
+      <details class="milestone" id="${m.id}">
+        <summary>
+          <span class="cat-dot${m.magnitude_usd_millions == null && m.case_count != null ? " shape-case" : ""}" style="background:${catColor(m.category)}"></span>
+          <span class="m-date">${esc(m.date.slice(0, 10))}</span>
+          <span class="m-title">${esc(m.title)}</span>
+          <span class="m-mag">${m.magnitude_usd_millions != null ? esc(formatUsd(m.magnitude_usd_millions)) : m.case_count != null ? esc(m.case_count.toLocaleString()) : ""}</span>
+          <span class="chevron">&#9656;</span>
+        </summary>
+        <div class="m-body">
+          <span class="m-tag ${esc(m.tier)}">${esc(m.tier)}</span><br>
+          ${esc(m.description)}<br>
+          <span style="color:var(--ink-faint)">Source: ${esc(m.source)}</span>
+          ${m.source_url ? ` &mdash; <a class="m-src" href="${esc(m.source_url)}" target="_blank" rel="noopener">View source &#8599;</a>` : ""}
+        </div>
+      </details>`).join("");
+    return `
+      <div class="era-header">
+        <div class="era-title"><span class="dot" style="background:${catColor(cat)}"></span>${esc(CATEGORY_META[cat].label)}</div>
+        <div class="era-hero-stat"><b>${esc(hero.big)}</b> ${esc(hero.label)}</div>
       </div>
-    </details>`
-  ).join("");
+      ${cards}`;
+  }).join("");
+  setupScrollObserver();
 }
 
 function setupThemeToggle() {
@@ -255,7 +385,7 @@ function setupThemeToggle() {
     apply(isDark);
     renderFilters();
     renderRail();
-    renderMilestoneList();
+    renderLegend();
   });
 }
 
@@ -264,7 +394,11 @@ async function init() {
   const db = await MoatEngine.load("../shared/moat_export.json");
   document.getElementById("snapshot-date").textContent = db.generated_at ? `Snapshot as of ${new Date(db.generated_at).toISOString().slice(0, 10)}.` : "";
   milestones = (db.timeline_milestones || []).map((m, i) => ({ ...m, id: `milestone-${i}` }));
+  const times = milestones.map(m => new Date(m.date).getTime());
+  minTime = Math.min(...times);
+  maxTime = Math.max(...times);
   renderFilters();
+  renderLegend();
   renderRail();
   renderMilestoneList();
 }
