@@ -426,6 +426,16 @@ const MoatEngine = (() => {
     return DB.historical_scale_comparison || {};
   }
 
+  // Emergence Signal -- real JPML scale + real leading-indicator momentum,
+  // reported separately per risk category (never blended into one score).
+  // See emergence_signal_pipeline.py for the full methodology and why a
+  // category's missing components are reported as "not tracked," never
+  // silently scored as zero.
+  function getEmergenceSignal(riskCategory) {
+    const rows = DB.emergence_signal || [];
+    return riskCategory ? (rows.find(r => r.risk_category === riskCategory) || null) : rows;
+  }
+
   function getRenewalWindow(quarterStartISO, quarterEndISO) {
     const start = new Date(quarterStartISO);
     const end = new Date(quarterEndISO);
@@ -476,7 +486,7 @@ const MoatEngine = (() => {
     searchEntity, getCrosswalkCoverage, getPlaintiffFirmTracker, getRenewalWindow,
     getComplianceRecords, getRegulatoryFilings, getScientificMomentum, getStateContaminationSites,
     getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts,
-    getSettlementStage, getHistoricalScaleComparison,
+    getSettlementStage, getHistoricalScaleComparison, getEmergenceSignal,
     get db() { return DB; },
   };
 })();

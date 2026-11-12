@@ -10571,6 +10571,82 @@
       "extracted_at": "2026-11-12T10:39:29.125638+00:00"
     }
   ],
+  "emergence_signal": [
+    {
+      "id": 1,
+      "risk_category": "pfas",
+      "current_scale": 15270,
+      "current_scale_source": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "momentum_score": 75.6,
+      "momentum_components": {
+        "scientific_momentum": {
+          "growth_pct": 76.7,
+          "score": 75.6,
+          "detail": "1776 avg publications/yr (last 3yr) vs 1005 (prior 3yr)"
+        },
+        "legislative_velocity": {
+          "growth_pct": 120.0,
+          "score": 90.0,
+          "detail": "11 real state enactment(s) trailing 12mo vs 5 prior 12mo"
+        },
+        "material_event_trend": {
+          "growth_pct": 33.3,
+          "score": 61.1,
+          "detail": "4 real SEC 8-K filing(s) trailing 12mo vs 3 prior 12mo"
+        }
+      },
+      "missing_components": [],
+      "computed_at": "2026-11-12T21:58:02.514834+00:00"
+    },
+    {
+      "id": 2,
+      "risk_category": "talc",
+      "current_scale": 69376,
+      "current_scale_source": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "momentum_score": 46.6,
+      "momentum_components": {
+        "scientific_momentum": {
+          "growth_pct": -10.2,
+          "score": 46.6,
+          "detail": "38 avg publications/yr (last 3yr) vs 42 (prior 3yr)"
+        }
+      },
+      "missing_components": [
+        {
+          "component": "legislative_velocity",
+          "reason": "not tracked (no populated legislative category for this risk category yet)"
+        },
+        {
+          "component": "material_event_trend",
+          "reason": "not tracked (no material-event filings matched for this risk category yet)"
+        }
+      ],
+      "computed_at": "2026-11-12T21:58:02.533515+00:00"
+    },
+    {
+      "id": 3,
+      "risk_category": "turnout_gear",
+      "current_scale": 17,
+      "current_scale_source": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "momentum_score": null,
+      "momentum_components": {},
+      "missing_components": [
+        {
+          "component": "scientific_momentum",
+          "reason": "not tracked (no PubMed query term defined for this category)"
+        },
+        {
+          "component": "legislative_velocity",
+          "reason": "not tracked (no populated legislative category for this risk category yet)"
+        },
+        {
+          "component": "material_event_trend",
+          "reason": "not tracked (no material-event filings matched for this risk category yet)"
+        }
+      ],
+      "computed_at": "2026-11-12T21:58:02.547270+00:00"
+    }
+  ],
   "downstream_adjacency": {
     "325998": [
       {
@@ -11103,5 +11179,5 @@
       }
     }
   },
-  "generated_at": "2026-11-12T17:01:05.987930+00:00"
+  "generated_at": "2026-11-12T21:58:22.287177+00:00"
 }

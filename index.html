@@ -112,6 +112,7 @@
   .module-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 30px 32px; display: block; transition: transform 0.2s, background 0.2s, box-shadow 0.2s; box-shadow: var(--shadow-card); }
   .module-card:hover { box-shadow: 0 2px 4px rgba(14, 17, 22, 0.06), 0 10px 28px rgba(14, 17, 22, 0.1); }
   .module-card:hover { transform: translateY(-2px); background: #fcfcfb; }
+  .featured-module { border: 1px solid var(--accent-red); }
   .module-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
   .module-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 11px; border-radius: var(--radius-pill); }
   .module-card h3 { font-size: 20px; font-weight: 600; margin: 0 0 10px; }
@@ -407,6 +408,25 @@
     </div>
 
     <div class="modules">
+      <a class="module-card featured-module" href="./console/#emergence-signal-card">
+        <div class="module-icon" style="background:var(--accent-red-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+        </div>
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-red-bg); color:var(--accent-red)">New &mdash; prediction layer</span>
+        </div>
+        <h3>Emergence Signal</h3>
+        <p>Casualty-cat modeling's own named problem, per Lloyd's and Guy Carpenter research: by the time a litigation signal is visible, it's typically too late to act. This tracks the real leading indicators &mdash; scientific literature, state legislation, SEC 8-Ks &mdash; <strong>before</strong> the filings do, scored as two honest numbers (scale and momentum) per category, never blended into one black-box score.</p>
+        <div class="module-stats">
+          <div class="ms"><div class="n">75.6</div><div class="l">PFAS momentum /100</div></div>
+          <div class="ms"><div class="n">3</div><div class="l">real leading indicators</div></div>
+          <div class="ms"><div class="n">0</div><div class="l">fabricated components</div></div>
+        </div>
+        <div class="module-open">Open the signal
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
       <a class="module-card" href="./pfas2/">
         <div class="module-icon" style="background:var(--accent-blue-bg)">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 4 12H8l4-12Z"/><path d="M8 20h8"/></svg>
@@ -540,6 +560,44 @@
         </ul>
         <a class="plan-cta secondary" href="#get-in-touch">Contact sales</a>
       </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS ISN'T OPTIONAL: real, cited industry figures, not this project's own claims -->
+  <section class="block" id="why-now">
+    <div class="section-head">
+      <h2>Why this isn't optional</h2>
+      <p class="section-sub">Not our claim &mdash; the industry's own numbers.</p>
+    </div>
+    <div class="plans-row">
+      <div class="plan-card">
+        <span class="plan-badge" style="color:var(--accent-red); background:var(--accent-red-bg)">Reserve adequacy</span>
+        <h3>$9B deficiency, real not theoretical</h3>
+        <p class="plan-desc">AM Best estimated a <b>$9 billion</b> net casualty reserve deficiency industry-wide at year-end 2024. CNA alone booked <b>$106 million</b> of unfavorable casualty development in Q1 2026, concentrated in excess casualty. Moody's own research says tools built on historical loss data can't keep pace with emerging risk &mdash; this is the documentation gap that costs exactly this kind of money.</p>
+      </div>
+      <div class="plan-card">
+        <span class="plan-badge" style="color:var(--accent-amber); background:var(--accent-amber-bg)">Reinsurer pressure</span>
+        <h3>Already written into real treaties</h3>
+        <p class="plan-desc">Not hypothetical: a real 2026 SEC filing (Lemonade's Q3 10-Q) discloses a quota-share reinsurance treaty with an <b>absolute PFAS exclusion</b>, burden of proof on the reinsured. Swiss Re's own risk officer has said PFAS sits "at the boundary of insurability" without proper risk mitigation. This is the documentation layer behind the exclusion endorsement your reinsurer is already writing.</p>
+      </div>
+      <div class="plan-card">
+        <span class="plan-badge" style="color:var(--accent-blue); background:var(--accent-blue-bg)">Timing</span>
+        <h3>"Too late" is the industry's own words</h3>
+        <p class="plan-desc">Guy Carpenter's own casualty-cat research: by the time a casualty catastrophe signal is visible, it's typically too late to act. Lloyd's calls this modeling category "a relatively new field without an established methodology." The Emergence Signal exists specifically to surface leading indicators &mdash; before the filings, not after.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT CATEGORY: honestly flagged, not fabricated. No MDL exists yet -- checked directly. -->
+  <section class="block" id="next-category">
+    <div class="section-head">
+      <h2>What we're watching next</h2>
+      <p class="section-sub">Named by the industry itself, not yet tracked here &mdash; the honest difference between a signal and a tracked category.</p>
+    </div>
+    <div class="map-card" style="text-align:left;">
+      <h3 style="margin:0 0 8px;font-size:18px;">Indoor Air Quality &mdash; Mold &amp; Legionella</h3>
+      <p style="font-size:14px;line-height:1.7;color:var(--ink-muted);margin:0 0 14px;">Gallagher's own environment-practice director said in May 2026 that environmental casualty insurers are now tightening terms on PFAS <i>and</i> indoor air quality risks &mdash; mold, Legionella &mdash; together, as both escalate. Real, individual coverage disputes are already surfacing: a Florida Legionella/hot-tub exhaustion-of-limits dispute, an insurer (Arch) seeking a ruling that its pollution exclusion bars Legionella coverage, and a multi-state military-housing mold bad-faith suit against CGL/pollution insurers.</p>
+      <p style="font-size:13px;color:var(--ink-faint);line-height:1.6;margin:0;"><b>Checked directly, stated honestly:</b> no JPML multidistrict consolidation exists yet for mold or Legionella claims &mdash; this is scattered individual litigation, not a mass tort, the same early stage turnout-gear litigation was at when this project started tracking it. Flagged here as a real, named next category to watch, not fabricated as already-tracked data.</p>
     </div>
   </section>
 

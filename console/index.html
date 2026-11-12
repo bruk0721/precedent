@@ -185,6 +185,14 @@
 </div>
 
 <div class="wrap">
+  <details class="card accordion" id="since-visit-card" open>
+    <summary><h2>Since your last visit</h2><span class="hint" id="since-visit-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">A real, honest proof-of-concept for continuous monitoring on a static site with no backend: this compares the current snapshot against the last time this browser opened the Console (stored locally, never sent anywhere) and flags anything genuinely new -- a fresh 8-K, a new state enactment, a refreshed JPML report. It only works in this browser, on this device; a real mid-term alert system (email/webhook per subscribed NAICS+state) is the natural next step once this is validated.</p>
+      <div id="since-visit-body"></div>
+    </div>
+  </details>
+
   <div class="card">
     <h2>Account submission</h2>
     <p class="card-sub">6-digit NAICS code and a state jurisdiction.</p>
@@ -250,7 +258,15 @@
     </div>
   </details>
 
-  <details class="card accordion" id="jpml-card" open>
+  <details class="card accordion" id="emergence-signal-card" open>
+    <summary><h2>Emergence Signal</h2><span class="hint" id="emergence-signal-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">Two real numbers per category, reported separately on purpose: <b>scale</b> (real JPML pending-action count &mdash; how big this already is) and <b>momentum</b> (a composite of real leading-indicator growth rates &mdash; scientific literature, state legislation, SEC 8-K filings &mdash; is it still accelerating, or past its peak). Averaging these into one score would hide the actual story: a category can be large AND flat, or small AND accelerating, and those mean very different things to an underwriter. A category missing a component reports it as "not tracked," never a silent zero. See emergence_signal_pipeline.py for the full methodology.</p>
+      <div id="emergence-signal-body"></div>
+    </div>
+  </details>
+
+  <details class="card accordion" id="jpml-card">
     <summary><h2>Real MDL case scale (JPML)</h2><span class="hint" id="jpml-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
       <p class="card-sub">Real, official pending-case counts straight from the US Judicial Panel on Multidistrict Litigation's own monthly report &mdash; not a news estimate or a single company's own disclosure. Includes turnout-gear litigation (MDL-3191), which has no curated defendant/NAICS yet but is real and current. Each MDL also shows a curated settlement-stage assessment (individual settlements &rarr; global settlement &rarr; bankruptcy trust &rarr; bankruptcy preemption) -- a human judgment call citing real facts, never an algorithmic score.</p>
@@ -758,6 +774,101 @@ function renderHistoricalScale() {
   }).join("");
 }
 
+const LAST_VISIT_KEY = "precedent:consoleLastVisit";
+
+function renderSinceLastVisit() {
+  const hint = document.getElementById("since-visit-hint");
+  const el = document.getElementById("since-visit-body");
+  let last = null;
+  try { last = localStorage.getItem(LAST_VISIT_KEY); } catch (e) {}
+
+  if (!last) {
+    el.innerHTML = `<p class="empty-note">First time this Console has been opened in this browser -- nothing to compare against yet. Come back after the next data refresh and this card will show exactly what's new.</p>`;
+    hint.textContent = "first visit";
+  } else {
+    const lastDate = new Date(last);
+    const db = MoatEngine.db || {};
+    const newEvents = (db.material_event_filings || []).filter(e => e.filing_date && new Date(e.filing_date) > lastDate);
+    const newLaws = (db.legislative_timeline || []).filter(l => l.category === "pfas_regulation" && l.enactment_date && new Date(l.enactment_date) > lastDate);
+    const newJpml = (db.jpml_mdl_statistics || []).filter(j => j.report_date && new Date(j.report_date) > lastDate);
+    const totalNew = newEvents.length + newLaws.length + newJpml.length;
+    const lastLabel = lastDate.toISOString().slice(0, 10);
+    hint.textContent = `${totalNew} new since ${lastLabel}`;
+
+    if (totalNew === 0) {
+      el.innerHTML = `<p class="empty-note">Nothing new since your last visit (${lastLabel}). This snapshot was generated ${esc((db.generated_at || "").slice(0, 10))}.</p>`;
+    } else {
+      const rows = [];
+      newEvents.forEach(e => rows.push(`<div class="finding-line"><span class="tag red">New 8-K</span> ${esc(e.company_name)} filed ${esc(e.filing_date)} ${srcLink(e.source_url, "View filing")}</div>`));
+      newLaws.forEach(l => rows.push(`<div class="finding-line"><span class="tag amber">New law</span> ${esc(l.state)} ${esc(l.bill_number)} enacted ${esc(l.enactment_date)} ${srcLink(l.source_url, "View bill")}</div>`));
+      newJpml.forEach(j => rows.push(`<div class="finding-line"><span class="tag gray">JPML update</span> MDL-${esc(j.mdl_number)} report refreshed ${esc(j.report_date)} ${srcLink(j.source_url, "View report")}</div>`));
+      el.innerHTML = rows.join("");
+    }
+  }
+
+  try { localStorage.setItem(LAST_VISIT_KEY, new Date().toISOString()); } catch (e) {}
+}
+
+function renderEmergenceSignal() {
+  const hint = document.getElementById("emergence-signal-hint");
+  const el = document.getElementById("emergence-signal-body");
+  const categories = ["pfas", "talc", "turnout_gear"];
+  const catLabels = { pfas: "PFAS/AFFF", talc: "Talc", turnout_gear: "Turnout Gear" };
+  const rows = categories.map(c => MoatEngine.getEmergenceSignal(c)).filter(Boolean);
+  if (!rows.length) {
+    el.innerHTML = `<p class="empty-note">No emergence signal on record yet.</p>`;
+    hint.textContent = "0 found";
+    return;
+  }
+  hint.textContent = `${rows.length} categor${rows.length === 1 ? "y" : "ies"} scored`;
+
+  const COMPONENT_LABELS = {
+    scientific_momentum: "Scientific literature",
+    legislative_velocity: "State legislation",
+    material_event_trend: "SEC 8-K filings",
+  };
+
+  el.innerHTML = rows.map(r => {
+    const scaleTag = r.current_scale != null
+      ? `<span class="tag ${r.current_scale > 1000 ? "red" : "amber"}">${r.current_scale.toLocaleString()} pending actions (JPML)</span>`
+      : `<span class="tag gray">Scale not on file</span>`;
+
+    const momentumTag = r.momentum_score != null
+      ? `<span class="tag ${r.momentum_score >= 65 ? "red" : r.momentum_score >= 45 ? "amber" : "gray"}">Momentum ${r.momentum_score}/100</span>`
+      : `<span class="tag gray">Momentum not computable</span>`;
+
+    const used = Object.entries(r.momentum_components || {}).map(([name, c]) => `
+      <div class="finding-line" style="margin-top:4px">
+        <b>${esc(COMPONENT_LABELS[name] || name)}</b>: ${c.growth_pct > 0 ? "+" : ""}${c.growth_pct}% &rarr; ${c.score}/100
+        <div style="color:var(--ink-faint);font-size:12px">${esc(c.detail)}</div>
+      </div>`).join("");
+
+    const skipped = (r.missing_components || []).map(m => `
+      <div style="color:var(--ink-faint);font-size:12px;margin-top:4px">[not tracked] ${esc(COMPONENT_LABELS[m.component] || m.component)}: ${esc(m.reason)}</div>`
+    ).join("");
+
+    return `
+    <div class="finding-line" style="margin-bottom:14px">
+      <b>${esc(catLabels[r.risk_category] || r.risk_category)}</b><br>
+      ${scaleTag} ${momentumTag}
+      <div style="margin-top:8px">${used || `<span style="color:var(--ink-faint);font-size:12.5px">No momentum component computable for this category yet.</span>`}</div>
+      ${skipped}
+    </div>`;
+  }).join("") + renderSocialInflationNote();
+}
+
+function renderSocialInflationNote() {
+  const bench = MoatEngine.db && MoatEngine.db.reserve_development_benchmark;
+  const lines = bench && bench.lines && bench.lines.products_liability_occurrence;
+  const benchLine = lines
+    ? `As a general backdrop: the CAS's own real products-liability development benchmark (NAIC Schedule P, accident years 1998-2007 -- not PFAS/talc-specific) shows a typical claim paying out only ${(lines["1"] * 100).toFixed(0)}% of its eventual cost in year 1, reaching ${(lines["5"] * 100).toFixed(0)}% by year 5. That's the generic tort-maturation curve every line of business sits on.`
+    : "";
+  return `
+    <div class="empty-note" style="margin-top:4px;padding-top:12px;border-top:1px solid var(--chip-bg)">
+      <b style="color:var(--ink)">Why this isn't just social inflation:</b> every momentum component above is keyword- and category-tagged at the source -- the PubMed query is PFAS- or talc-specific, the legislative category is <code>pfas_regulation</code> specifically, the 8-K match requires the PFAS/talc keyword in the same filing. None of it is a generic severity or jury-verdict trend, which is exactly what's hard to separate from the broader tort climate. ${benchLine} A category's momentum accelerating faster than that generic backdrop can't be explained by "juries are just awarding more broadly" -- it has to be driven by something specific to the chemical: the science, the regulation, or the disclosures themselves.
+    </div>`;
+}
+
 function renderJpmlStats() {
   const hint = document.getElementById("jpml-hint");
   const el = document.getElementById("jpml-body");
@@ -959,6 +1070,8 @@ async function init() {
 
   renderMarketFilings();
   renderContaminationSites();
+  renderSinceLastVisit();
+  renderEmergenceSignal();
   renderJpmlStats();
   renderFederalContracts();
   renderHistoricalScale();
