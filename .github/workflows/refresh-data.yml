@@ -1,0 +1,60 @@
+name: Weekly data refresh
+
+# Gap #1 from the Lloyd's Lab alumni research (precedent_project_archive.md
+# item 70): moat_export.json was a manual, re-exported-by-hand snapshot.
+# This turns the already-vetted, safe pipelines (SEC EDGAR for the 6
+# curated companies, LegiScan for the 2 vetted categories, EPA TRI
+# month-gated) into a real weekly feed -- honestly labeled as "refreshed
+# weekly," never "real-time." CourtListener/plaintiff_network is
+# deliberately NOT automated here; see automation/run_refresh.py's
+# docstring for why that stays a manual, judgment-driven step.
+#
+# Required repository secrets (Settings -> Secrets and variables ->
+# Actions -> New repository secret) -- these must be added by a repo
+# owner; nothing in this repo or any tool run against it can set them:
+#   SEC_EDGAR_CONTACT   e.g. "Your Name your@email.com" (SEC's fair-access
+#                       policy just needs a real contact string -- not a
+#                       secret in the sensitive sense, but kept as a
+#                       repository secret here for simplicity).
+#   LEGISCAN_API_KEY    a free key from https://legiscan.com/legiscan
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"   # Every Monday at 13:00 UTC
+  workflow_dispatch: {}      # Allows manually triggering a run from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        working-directory: automation
+        run: pip install -r requirements.txt
+
+      - name: Run refresh pipelines
+        working-directory: automation
+        env:
+          SEC_EDGAR_CONTACT: ${{ secrets.SEC_EDGAR_CONTACT }}
+          LEGISCAN_API_KEY: ${{ secrets.LEGISCAN_API_KEY }}
+        run: python run_refresh.py
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "precedent-data-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add automation/precedent_moat.db shared/moat_export.json
+          if git diff --cached --quiet; then
+            echo "No new data this run."
+          else
+            git commit -m "Automated weekly data refresh"
+            git push
+          fi

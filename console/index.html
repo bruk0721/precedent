@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <style>
   :root {
     --page-bg: #f7f8fa;
@@ -30,6 +32,11 @@
     --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     --radius-card: 20px;
     --radius-pill: 999px;
+    /* Elevation system (research finding: Addepar's own design overhaul
+       replaced border-heavy UI with shadow/depth cues for a product
+       serving several personas off the same dense data) -- a subtle,
+       single-level depth cue instead of relying on borders alone. */
+    --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
     color-scheme: light;
   }
   :root[data-theme="dark"] {
@@ -50,6 +57,10 @@
     --accent-green: #6fbf96;
     --accent-green-bg: #163026;
     --nav-bg: rgba(11, 13, 16, 0.78);
+    /* Shadows barely read on a dark background -- a faint top highlight
+       plus a tighter, darker shadow reads as "raised" without the washed-
+       out look a light-mode shadow gets when just darkened. */
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
     color-scheme: dark;
   }
   * { box-sizing: border-box; }
@@ -78,7 +89,7 @@
   .hero p.dek { font-size: 16px; line-height: 1.6; color: var(--ink-muted); max-width: 58ch; margin: 0 auto; }
   .hero p.dek strong { color: var(--ink); font-weight: 600; }
 
-  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; }
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
   h2 { font-weight: 600; font-size: 16px; margin: 0 0 4px; letter-spacing: -0.01em; }
   .card-sub { font-size: 13px; color: var(--ink-faint); margin: 0 0 16px; }
 
@@ -133,10 +144,29 @@
   .card.accordion > summary:hover .chevron { color: var(--ink); }
   .card.accordion .disclosure-body { padding: 0 24px 22px; }
   .card.accordion .disclosure-body .card-sub { margin-top: -6px; }
+
+  /* Facility map -- real EPA TRI lat/long pins, not a text list beside the
+     map (research finding: Betterview/Cape Analytics show risk directly on
+     the object/location itself). */
+  #facility-map .state { fill: var(--chip-bg); stroke: var(--page-bg); stroke-width: 1; }
+  #facility-map .pin { fill: var(--accent-red); stroke: var(--card-bg); stroke-width: 1.5; cursor: pointer; }
+  #facility-map .pin:hover { fill: var(--accent-amber); }
+  .map-tooltip { position: fixed; background: var(--ink); color: var(--page-bg); font-size: 12px; padding: 6px 10px; border-radius: 8px; pointer-events: none; z-index: 50; max-width: 240px; line-height: 1.5; display: none; }
+
+  /* Case File header -- research finding: Palantir Foundry's underwriting
+     deployments auto-assemble one working object (account/exposure/loss)
+     from underlying data instead of a bare, disconnected result list.
+     This doesn't claim that architecture -- it's a framing device, making
+     explicit that every card below is ONE assembled file for ONE real
+     NAICS/state query, not a grab-bag of unrelated widgets. */
+  .case-file-header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding: 0 4px 12px; font-size: 12.5px; color: var(--ink-faint); }
+  .case-file-header .title { font-family: var(--font-mono); font-size: 13px; color: var(--ink-muted); font-weight: 600; }
+  .case-file-header .title b { color: var(--ink); }
 </style>
 </head>
 <body>
 <script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<div class="map-tooltip" id="facility-map-tooltip"></div>
 
 <nav class="top">
   <div class="brand"><span class="dot"></span> Precedent</div>
@@ -149,7 +179,7 @@
 <div class="hero">
   <span class="eyebrow-pill"><span class="dot"></span>Live underwriter console</span>
   <h1>Underwriter Console</h1>
-  <p class="dek">Enter a NAICS code and a state to see the real signal Precedent's data pipelines have found &mdash; pulled live from CourtListener, SEC EDGAR, and LegiScan, not simulated. <strong>No signal found is not the same as no risk</strong>: an empty result below means nothing has been collected yet, not that it's been checked and cleared.</p>
+  <p class="dek">Enter a NAICS code and a state to see the real signal Precedent's data pipelines have found &mdash; pulled live from CourtListener, SEC EDGAR, and LegiScan, not simulated, across two latent-liability categories (PFAS/AFFF and talc litigation) on the same curated-company basis. <strong>No signal found is not the same as no risk</strong>: an empty result below means nothing has been collected yet, not that it's been checked and cleared.</p>
 </div>
 
 <div class="wrap">
@@ -168,11 +198,50 @@
       <button class="run-btn" id="run-btn">Run threat assessment</button>
     </div>
     <div class="examples">
-      Try: <button data-naics="325998">325998 &mdash; 3M &amp; Tyco Fire Products/JCI</button><button data-naics="325199">325199 &mdash; DuPont, Chemours &amp; Corteva</button>
+      Try: <button data-naics="325998">325998 &mdash; 3M &amp; Tyco Fire Products/JCI</button><button data-naics="325199">325199 &mdash; DuPont, Chemours &amp; Corteva</button><button data-naics="325620">325620 &mdash; J&amp;J talc litigation</button>
     </div>
   </div>
 
+  <details class="card accordion" id="crosswalk-card" open>
+    <summary><h2>Entity resolution crosswalk</h2><span class="hint" id="crosswalk-hint">Search any name</span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">Underwriters don't insure "PFAS" &mdash; they insure specific companies that can be two steps removed from a chemical manufacturer. Search a company or subsidiary name against real SEC Exhibit-21 filings to find a hidden parent-company exposure before you assume there isn't one.</p>
+      <div class="input-row" style="margin-bottom:14px">
+        <div class="field" style="flex:1">
+          <label for="crosswalk-input">Company or subsidiary name</label>
+          <input id="crosswalk-input" type="text" placeholder="e.g. Tyco Fire Products" />
+        </div>
+        <button class="run-btn" id="crosswalk-btn">Search</button>
+      </div>
+      <div id="crosswalk-body"></div>
+      <div class="empty-note" id="crosswalk-coverage" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--chip-bg)"></div>
+    </div>
+  </details>
+
+  <details class="card accordion" id="firm-tracker-card">
+    <summary><h2>Plaintiff firm tracker</h2><span class="hint" id="firm-tracker-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">Every real plaintiff-firm filing this project has pulled so far, ranked by how many distinct dockets each firm appears in &mdash; not scoped to any one NAICS.</p>
+      <div id="firm-tracker-body"></div>
+    </div>
+  </details>
+
+  <details class="card accordion" id="renewal-card">
+    <summary><h2>Renewal window monitor</h2><span class="hint" id="renewal-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">Filter enacted legislation to a renewal quarter. <strong>Caveat:</strong> the date shown is each bill's signing/history-action date, not an independently verified statutory effective date &mdash; some statutes take effect later than signing, and this project hasn't yet confirmed how often that gap applies to the bills below.</p>
+      <div class="input-row" style="margin-bottom:14px">
+        <div class="field">
+          <label for="renewal-quarter">Quarter</label>
+          <select id="renewal-quarter"></select>
+        </div>
+      </div>
+      <div id="renewal-body"></div>
+    </div>
+  </details>
+
   <div class="results-wrap" id="results">
+    <div class="case-file-header" id="case-file-header"></div>
     <div class="card">
       <h2>Account threat level</h2>
       <div class="threat-box" id="threat-box">
@@ -207,6 +276,7 @@
       <summary><h2>Facility-level chemical reporting (EPA TRI)</h2><span class="hint" id="facility-hint"></span><span class="chevron">&#9656;</span></summary>
       <div class="disclosure-body">
         <p class="card-sub">Real EPA Toxics Release Inventory facility reports flagged as PFAS compounds, matched by EPA's own standardized parent-company name &mdash; not a corporate-level disclosure, a specific manufacturing site and chemical.</p>
+        <div id="facility-map-wrap" style="display:none;margin-bottom:14px;"><svg id="facility-map" viewBox="0 0 960 600" style="width:100%;height:auto;max-height:280px;"></svg></div>
         <div id="facility-body"></div>
       </div>
     </details>
@@ -241,9 +311,10 @@ function renderPlaintiff(defendants, rows) {
     return;
   }
   if (rows.length) {
-    el.innerHTML = `<span class="tag red">${rows.length} filing(s) found</span>` + rows.map(r =>
-      `<div class="finding-line"><b>${esc(r.plaintiff_firm)}</b> vs. ${esc(r.defendant)}<br><span style="color:var(--ink-faint)">${esc(r.case_name || "")} (confidence: ${esc(r.confidence)})</span>${srcLink(r.source_url, "View docket")}</div>`
-    ).join("");
+    el.innerHTML = `<span class="tag red">${rows.length} filing(s) found</span>` + rows.map(r => {
+      const catLabel = { pfas: "PFAS/AFFF", talc: "Talc" }[r.risk_category] || "";
+      return `<div class="finding-line"><b>${esc(r.plaintiff_firm)}</b> vs. ${esc(r.defendant)}${catLabel ? ` <span style="color:var(--ink-faint);font-size:11px">[${esc(catLabel)}]</span>` : ""}<br><span style="color:var(--ink-faint)">${esc(r.case_name || "")} (confidence: ${esc(r.confidence)})</span>${srcLink(r.source_url, "View docket")}</div>`;
+    }).join("");
   } else {
     el.innerHTML = `<p class="empty-note">No plaintiff-firm filings on record for this NAICS's known defendants yet.</p>`;
   }
@@ -282,12 +353,33 @@ function renderSeverity(naics, rows) {
   }
   withVal.sort((a, b) => b.v - a.v);
   const top = withVal[0];
-  el.innerHTML = `<span class="tag amber">$${top.v.toLocaleString(undefined, { maximumFractionDigits: 0 })}M max verified anchor</span>
+  const catLabel = { pfas: "PFAS/AFFF", talc: "Talc" }[top.r.risk_category] || top.r.risk_category || "";
+  el.innerHTML = `<span class="tag amber">$${top.v.toLocaleString(undefined, { maximumFractionDigits: 0 })}M max verified anchor${catLabel ? ` — ${esc(catLabel)}` : ""}</span>
     <div class="finding-line"><b>${esc(top.r.company_name)}</b> — ${esc(top.r.dollar_amount)} (${esc(top.r.liability_term)}, filed ${esc(top.r.filing_date || "n/a")})${srcLink(top.r.source_url, "View 10-K")}</div>
     <div class="empty-note" style="margin-bottom:10px">${esc((top.r.context_snippet || "").slice(0, 220))}${(top.r.context_snippet || "").length > 220 ? "…" : ""}</div>
     <div class="empty-note">SEC-registered SIC: ${esc(top.r.sec_sic_code || "n/a")} (${esc(top.r.sec_sic_description || "n/a")}) — registrant-level, not the liability-specific segment. naics_code ${esc(naics)} is a curated override.</div>
     ${withVal.length > 1 ? `<div class="empty-note" style="margin-top:10px">+ ${withVal.length - 1} more finding(s) on file for this NAICS.</div>` : ""}
-    <div class="empty-note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg)">Defense-cost proxy: $${MoatEngine.getDccProxy(top.v).toLocaleString(undefined, { maximumFractionDigits: 0 })}M &mdash; NOT a PFAS-specific disclosure (no company checked discloses defense costs separately from settlement charges). Derived from RAND's 2005 asbestos-litigation study (31% of total mass-tort spending went to defense costs), applied here only as a historical order-of-magnitude analog, not an actuarial estimate.</div>`;
+    <div class="empty-note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg)">Defense-cost proxy: $${MoatEngine.getDccProxy(top.v).toLocaleString(undefined, { maximumFractionDigits: 0 })}M &mdash; NOT a category-specific disclosure (no company checked discloses defense costs separately from settlement charges). Derived from RAND's 2005 asbestos-litigation study (31% of total mass-tort spending went to defense costs), applied here only as a historical order-of-magnitude analog, not an actuarial estimate.</div>
+    ${renderReservingBenchmark()}`;
+}
+
+// Reserving Uncertainty Signal -- real pain point found via research
+// (precedent_project_archive.md item 71): actuaries say standard reserving
+// methods assume historical claim-emergence patterns repeat, and PFAS/talc
+// don't have a stable one yet. Shows the REAL computed development curve
+// for a comparable, well-studied line of business (CAS's public data
+// pulled from real NAIC Schedule P filings, accident years 1998-2007) --
+// never a PFAS/talc-specific tail factor, which would be fabricated.
+function renderReservingBenchmark() {
+  const bench = MoatEngine.db && MoatEngine.db.reserve_development_benchmark;
+  if (!bench || !bench.lines) return "";
+  const line = bench.lines.products_liability_occurrence;
+  if (!line) return "";
+  const lag1 = line["1"] ?? line[1];
+  const lag5 = line["5"] ?? line[5];
+  return `<div class="empty-note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg)">
+    <strong>Reserving uncertainty signal:</strong> a real, computed benchmark for how slowly products-liability claims normally mature (CAS's public data from real NAIC Schedule P filings, accident years 1998-2007, NOT PFAS/talc-specific): on average, only ${(lag1 * 100).toFixed(0)}% of a claim's eventual paid loss is paid out in its first year, reaching ${(lag5 * 100).toFixed(0)}% by year 5. Standard reserving methods (chain-ladder, Bornhuetter-Ferguson) assume a pattern like this repeats -- PFAS and talc litigation are both still early enough in their own timelines that this assumption is explicitly unverified for either one.
+  </div>`;
 }
 
 function renderThreat(color, label, rec) {
@@ -376,18 +468,157 @@ function renderFacilityReports(defendants, reports) {
     el.innerHTML = `<p class="empty-note">No PFAS-flagged EPA TRI facility found under this company's standardized parent name in the 2024 reporting year. This is checked, not skipped -- EPA's own TRI database simply has no PFAS-flagged release report on file for this company this year.</p>`;
     hint.textContent = "0 found";
     card.open = false;
+    document.getElementById("facility-map-wrap").style.display = "none";
     return;
   }
   const byFacility = {};
-  reports.forEach(r => (byFacility[`${r.facility_name}|${r.city}|${r.state}`] = byFacility[`${r.facility_name}|${r.city}|${r.state}`] || []).push(r.chemical));
+  reports.forEach(r => (byFacility[`${r.facility_name}|${r.city}|${r.state}`] = byFacility[`${r.facility_name}|${r.city}|${r.state}`] || { chemicals: [], lat: r.latitude, lon: r.longitude }).chemicals.push(r.chemical));
   const n = Object.keys(byFacility).length;
   card.open = true;
   hint.textContent = `${n} facilit${n === 1 ? "y" : "ies"} found`;
   el.innerHTML = `<span class="tag amber">${n} real facilit${n === 1 ? "y" : "ies"} found</span>` +
-    Object.entries(byFacility).map(([key, chemicals]) => {
+    Object.entries(byFacility).map(([key, v]) => {
       const [facility, city, state] = key.split("|");
-      return `<div class="finding-line"><b>${esc(facility)}</b> &mdash; ${esc(city)}, ${esc(state)}<br><span style="color:var(--ink-faint)">${chemicals.length} PFAS compound(s) reported: ${chemicals.map(esc).join(", ")}</span></div>`;
+      return `<div class="finding-line"><b>${esc(facility)}</b> &mdash; ${esc(city)}, ${esc(state)}<br><span style="color:var(--ink-faint)">${v.chemicals.length} PFAS compound(s) reported: ${v.chemicals.map(esc).join(", ")}</span></div>`;
     }).join("");
+  renderFacilityMap(byFacility);
+}
+
+// Real EPA TRI lat/long pins on an actual US map, instead of only listing
+// city/state as text -- research finding: Betterview/Cape Analytics both
+// show risk directly on the object/location, not beside it. us-states-
+// 10m.json is the same real topojson file already used by the Presumption
+// tracker's own US map (copied here, not re-fetched from a CDN, same
+// zero-extra-dependency pattern as everything else in this project).
+let _usMapGeo = null;
+async function renderFacilityMap(byFacility) {
+  const wrap = document.getElementById("facility-map-wrap");
+  const pins = Object.entries(byFacility).filter(([, v]) => v.lat != null && v.lon != null);
+  if (!pins.length) { wrap.style.display = "none"; return; }
+  wrap.style.display = "block";
+
+  const svg = d3.select("#facility-map");
+  svg.selectAll("*").remove();
+
+  if (!_usMapGeo) {
+    const topology = await (await fetch("us-states-10m.json")).json();
+    _usMapGeo = topojson.feature(topology, topology.objects.states);
+  }
+  const projection = d3.geoAlbersUsa().fitSize([960, 600], _usMapGeo);
+  const path = d3.geoPath(projection);
+
+  svg.append("g").selectAll("path").data(_usMapGeo.features).join("path")
+    .attr("class", "state").attr("d", path);
+
+  const tooltip = document.getElementById("facility-map-tooltip");
+  svg.append("g").selectAll("circle").data(pins).join("circle")
+    .attr("class", "pin")
+    .attr("cx", ([, v]) => { const p = projection([v.lon, v.lat]); return p ? p[0] : -100; })
+    .attr("cy", ([, v]) => { const p = projection([v.lon, v.lat]); return p ? p[1] : -100; })
+    .attr("r", 6)
+    .on("mousemove", (event, [key, v]) => {
+      const [facility, city, state] = key.split("|");
+      tooltip.innerHTML = `<b>${esc(facility)}</b><br>${esc(city)}, ${esc(state)}<br>${v.chemicals.length} PFAS compound(s)`;
+      tooltip.style.display = "block";
+      tooltip.style.left = (event.clientX + 14) + "px";
+      tooltip.style.top = (event.clientY + 14) + "px";
+    })
+    .on("mouseleave", () => { tooltip.style.display = "none"; });
+}
+
+function renderCrosswalkCoverage() {
+  const parents = MoatEngine.getCrosswalkCoverage();
+  document.getElementById("crosswalk-coverage").textContent = parents.length
+    ? `Currently covers subsidiaries of: ${parents.join(", ")} (pulled from their real SEC Exhibit 21 filings). Other curated companies (DuPont, Chemours, Corteva) haven't had their subsidiary lists pulled yet -- this is a real coverage gap, not a general company-wide search.`
+    : "No subsidiary data on file yet.";
+}
+
+function runCrosswalkSearch() {
+  const q = document.getElementById("crosswalk-input").value.trim();
+  const el = document.getElementById("crosswalk-body");
+  const hint = document.getElementById("crosswalk-hint");
+  if (!q) { el.innerHTML = ""; hint.textContent = "Search any name"; return; }
+  const results = MoatEngine.searchEntity(q);
+  if (!results.length) {
+    hint.textContent = "0 matches";
+    el.innerHTML = `<p class="empty-note">No match found among the subsidiaries currently on file for "${esc(q)}". See the coverage note below -- this only searches companies whose Exhibit 21 has actually been pulled.</p>`;
+    return;
+  }
+  hint.textContent = `${results.length} match(es)`;
+  el.innerHTML = results.map(r => {
+    const sevTag = r.maxSeverityMillions !== null
+      ? `<span class="tag red">$${r.maxSeverityMillions.toLocaleString(undefined, { maximumFractionDigits: 0 })}M real severity anchor on the parent</span>`
+      : `<span class="tag gray">No severity anchor on file for the parent</span>`;
+    return `<div class="finding-line"><b>${esc(r.subsidiary)}</b> is a real subsidiary of <b>${esc(r.parent)}</b><br>${sevTag}</div>`;
+  }).join("");
+}
+
+function renderFirmTracker() {
+  const { rows, distinctDocketCount, venueConcentrationNote } = MoatEngine.getPlaintiffFirmTracker();
+  const hint = document.getElementById("firm-tracker-hint");
+  const el = document.getElementById("firm-tracker-body");
+  hint.textContent = `${rows.length} firm(s), ${distinctDocketCount} docket(s)`;
+  if (!rows.length) {
+    el.innerHTML = `<p class="empty-note">No real plaintiff-firm filings on record yet.</p>`;
+    return;
+  }
+  let html = "";
+  if (venueConcentrationNote) {
+    html += `<p class="empty-note" style="margin-bottom:12px"><strong>${esc(venueConcentrationNote)}</strong></p>`;
+  }
+  html += rows.map(f =>
+    `<div class="finding-line"><b>${esc(f.firm)}</b><br><span style="color:var(--ink-faint)">${f.defendantCount} defendant(s) named, ${f.docketCount} docket(s): ${f.caseNames.map(esc).join("; ")}</span></div>`
+  ).join("");
+  el.innerHTML = html;
+}
+
+function quarterRange(year, q) {
+  const startMonth = (q - 1) * 3;
+  const start = new Date(Date.UTC(year, startMonth, 1));
+  const end = new Date(Date.UTC(year, startMonth + 3, 0));
+  return { startISO: start.toISOString().slice(0, 10), endISO: end.toISOString().slice(0, 10), label: `Q${q} ${year}` };
+}
+
+function populateRenewalQuarters() {
+  const sel = document.getElementById("renewal-quarter");
+  const now = new Date();
+  let y = now.getUTCFullYear();
+  let q = Math.floor(now.getUTCMonth() / 3) + 1;
+  const opts = [];
+  for (let i = 0; i < 6; i++) {
+    opts.push(quarterRange(y, q));
+    q += 1;
+    if (q > 4) { q = 1; y += 1; }
+  }
+  sel.innerHTML = opts.map(o => `<option value="${o.startISO}|${o.endISO}">${o.label}</option>`).join("");
+}
+
+function renderRenewalWindow() {
+  const sel = document.getElementById("renewal-quarter");
+  const [start, end] = sel.value.split("|");
+  const { rows, dateFieldCaveat } = MoatEngine.getRenewalWindow(start, end);
+  const hint = document.getElementById("renewal-hint");
+  const el = document.getElementById("renewal-body");
+  hint.textContent = `${rows.length} bill(s)`;
+  if (!rows.length) {
+    el.innerHTML = `<p class="empty-note">No enacted bill on record with a recorded signing date in this window.</p><p class="empty-note" style="margin-top:8px">${esc(dateFieldCaveat)}</p>`;
+    return;
+  }
+  el.innerHTML = rows.map(r =>
+    `<div class="finding-line"><span class="tag amber">${esc(r.state)}</span> <b>${esc(r.bill_number)}</b> (${esc(r.enactment_date)}) &mdash; ${esc(r.title || "")}${srcLink(r.source_url, "View bill")}</div>`
+  ).join("") + `<p class="empty-note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg)">${esc(dateFieldCaveat)}</p>`;
+}
+
+function renderCaseFileHeader(naics, state, result) {
+  const el = document.getElementById("case-file-header");
+  const defLabel = result.defendants.length
+    ? result.defendants.join(", ")
+    : "no curated defendant on file for this NAICS";
+  const generated = MoatEngine.db && MoatEngine.db.generated_at ? new Date(MoatEngine.db.generated_at).toISOString().slice(0, 10) : "n/a";
+  el.innerHTML = `
+    <span class="title">CASE FILE &middot; NAICS <b>${esc(naics)}</b> / <b>${esc(STATE_NAMES[state] || state)}</b> &mdash; <b>${esc(defLabel)}</b></span>
+    <span>Assembled from ${result.plaintiffRows.length} plaintiff record(s), ${result.severityRows.length} severity record(s), ${result.facilityReports.length} facility record(s) &mdash; snapshot ${esc(generated)}</span>
+  `;
 }
 
 function runAssessment() {
@@ -396,6 +627,7 @@ function runAssessment() {
   document.getElementById("results").style.display = "block";
 
   const result = MoatEngine.assess(naics, state);
+  renderCaseFileHeader(naics, state, result);
   renderPlaintiff(result.defendants, result.plaintiffRows);
   renderLegislative(state, result.legResult);
   renderSeverity(naics, result.severityRows);
@@ -438,6 +670,16 @@ async function init() {
   document.querySelectorAll(".examples button").forEach(btn => {
     btn.addEventListener("click", () => { document.getElementById("naics-input").value = btn.dataset.naics; runAssessment(); });
   });
+
+  renderCrosswalkCoverage();
+  document.getElementById("crosswalk-btn").addEventListener("click", runCrosswalkSearch);
+  document.getElementById("crosswalk-input").addEventListener("keydown", (e) => { if (e.key === "Enter") runCrosswalkSearch(); });
+
+  renderFirmTracker();
+
+  populateRenewalQuarters();
+  document.getElementById("renewal-quarter").addEventListener("change", renderRenewalWindow);
+  renderRenewalWindow();
 
   // Support deep-linking from the Portfolio X-Ray (?naics=...&state=...).
   const params = new URLSearchParams(window.location.search);

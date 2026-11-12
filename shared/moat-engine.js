@@ -92,12 +92,21 @@ const MoatEngine = (() => {
   // to the pfas_regulation track, never firefighter_presumption -- so only
   // that category counts toward the verdict, even once naicsIsRelevant.
   const LEGISLATIVE_CATEGORIES_RELEVANT_TO_NAICS = ["pfas_regulation"];
+  const RISK_CATEGORY_LABELS = { pfas: "PFAS/chemical", talc: "talc litigation" };
+
   function computeThreatLevel(plaintiffRows, legResult, severityRows, naicsIsRelevant) {
     const hasPlaintiff = plaintiffRows.length > 0;
     const hasLegislative = naicsIsRelevant && Object.keys(legResult.byCategory)
       .some(cat => LEGISLATIVE_CATEGORIES_RELEVANT_TO_NAICS.includes(cat));
     const severityValues = severityRows.map(r => parseDollarToMillions(r.dollar_amount)).filter(v => v !== null);
     const maxSeverity = severityValues.length ? Math.max(...severityValues) : null;
+    // Which category actually drove the max severity figure -- so the RED
+    // recommendation never says "PFAS exclusion" for a talc finding or vice
+    // versa. Found live while adding talc as a second category: the
+    // recommendation text was hardcoded to "PFAS/chemical exclusion"
+    // regardless of which category's data actually triggered it.
+    const maxRow = severityRows.find(r => parseDollarToMillions(r.dollar_amount) === maxSeverity);
+    const categoryLabel = RISK_CATEGORY_LABELS[maxRow && maxRow.risk_category] || "this category's";
 
     if (!hasPlaintiff && !hasLegislative && maxSeverity === null) {
       return { color: "gray", label: "INSUFFICIENT DATA",
@@ -105,7 +114,7 @@ const MoatEngine = (() => {
     }
     if (maxSeverity !== null && maxSeverity >= 1000 && (hasPlaintiff || hasLegislative)) {
       return { color: "red", label: "HIGH THREAT",
-        rec: "Recommend: attach an absolute PFAS/chemical exclusion endorsement. Refer to the exposure team for a portfolio accumulation check given an active policy-trigger signal and a severity anchor above $1B." };
+        rec: `Recommend: attach an absolute ${categoryLabel} exclusion endorsement. Refer to the exposure team for a portfolio accumulation check given an active policy-trigger signal and a severity anchor above $1B.` };
     }
     if (maxSeverity !== null || hasPlaintiff || hasLegislative) {
       return { color: "amber", label: "ELEVATED — REVIEW",
@@ -205,6 +214,118 @@ const MoatEngine = (() => {
     return maxSeverity * DCC_ASBESTOS_ANALOG_RATIO;
   }
 
+  // Entity Resolution Crosswalk -- search any name against the real,
+  // SEC-Exhibit-21-sourced corporate_subsidiaries table and surface its
+  // parent's own real severity anchor, so a search for a benign-sounding
+  // subsidiary ("Tyco Fire Products") surfaces its parent's $7.7B PFAS
+  // liability instead of coming back empty. Honestly scoped: this only
+  // covers subsidiaries of companies whose Exhibit 21 has actually been
+  // pulled (3M, Johnson Controls as of this build) -- NOT a general
+  // web-scale company crosswalk. A broader version pitched alongside this
+  // (cross-referencing EPA's Chemical Data Reporting and 50 states' business
+  // registries) was checked and rejected: CDR manufacturer identity is
+  // routinely withheld as confidential business information per EPA's own
+  // CDR documentation, and bulk state-registry scraping across 50
+  // non-uniform systems is a real infrastructure project, not a feature --
+  // see precedent_project_archive.md for the full feasibility note.
+  function searchEntity(query) {
+    const q = normalizeForMatch(query);
+    if (!q) return [];
+    const subs = (DB.corporate_subsidiaries || []).filter(
+      s => normalizeForMatch(s.subsidiary_name).includes(q) || normalizeForMatch(s.parent_company).includes(q)
+    );
+    const seen = new Set();
+    const results = [];
+    for (const s of subs) {
+      const key = s.parent_company + "|" + s.subsidiary_name;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      const parentSeverity = (DB.severity_anchors || []).filter(r => r.company_name === s.parent_company);
+      const values = parentSeverity.map(r => parseDollarToMillions(r.dollar_amount)).filter(v => v !== null);
+      const maxSeverity = values.length ? Math.max(...values) : null;
+      results.push({ subsidiary: s.subsidiary_name, parent: s.parent_company, maxSeverityMillions: maxSeverity, severityRows: parentSeverity });
+    }
+    return results;
+  }
+
+  function getCrosswalkCoverage() {
+    return [...new Set((DB.corporate_subsidiaries || []).map(s => s.parent_company))];
+  }
+
+  // Plaintiff Firm Tracker -- a ranked, real view of which firms are filing
+  // against which defendants, in which courts, across every docket this
+  // project has actually pulled. Deliberately NOT called a "venue matrix":
+  // checked live against the real plaintiff_network data before building
+  // this, and as of this build every row resolves to just 3 distinct
+  // dockets and effectively ONE real venue (the MDL 2873 leadership docket
+  // sits with the national JPML; the other two member dockets are both in
+  // "scd", D. South Carolina, where MDL 2873 is centralized) -- there is no
+  // real cross-state venue-shopping signal in the data yet to show a
+  // multi-jurisdiction matrix. Excludes PRO SE and UNKNOWN rows (no real
+  // firm name) since this tracker is specifically about firm behavior.
+  function getPlaintiffFirmTracker() {
+    const byFirm = {};
+    for (const r of DB.plaintiff_network) {
+      if (/^PRO SE|^UNKNOWN/i.test(r.plaintiff_firm)) continue;
+      const entry = byFirm[r.plaintiff_firm] || { firm: r.plaintiff_firm, defendants: new Set(), courts: new Set(), dockets: new Set(), caseNames: new Set() };
+      entry.defendants.add(r.defendant);
+      entry.courts.add(r.court);
+      entry.dockets.add(r.docket_id);
+      entry.caseNames.add(r.case_name);
+      byFirm[r.plaintiff_firm] = entry;
+    }
+    const rows = Object.values(byFirm).map(f => ({
+      firm: f.firm,
+      defendantCount: f.defendants.size,
+      defendants: [...f.defendants],
+      courts: [...f.courts],
+      docketCount: f.dockets.size,
+      caseNames: [...f.caseNames],
+    })).sort((a, b) => b.docketCount - a.docketCount || a.firm.localeCompare(b.firm));
+    const distinctCourts = new Set(DB.plaintiff_network.map(r => r.court));
+    const distinctDockets = new Set(DB.plaintiff_network.map(r => r.docket_id));
+    // "United States Judicial Panel on Multidistrict Litigation" is the
+    // national panel that assigns where an MDL sits, not a filing venue
+    // itself -- excluded here so a real cross-state venue-shopping signal
+    // isn't confused with the MDL-leadership docket's procedural label.
+    const realVenues = new Set([...distinctCourts].filter(c => c !== "United States Judicial Panel on Multidistrict Litigation"));
+    return {
+      rows,
+      distinctCourtCount: distinctCourts.size,
+      distinctDocketCount: distinctDockets.size,
+      venueConcentrationNote: realVenues.size <= 1
+        ? "All real filings on record currently resolve to a single venue (D. South Carolina, where MDL 2873 is centralized) -- no cross-state venue-shopping signal exists in the data yet."
+        : null,
+    };
+  }
+
+  // Renewal Window Monitor -- filters legislative_timeline to bills whose
+  // RECORDED date falls in a given quarter. Important, honest limitation:
+  // the date we store (enactment_date) is the bill's SIGNING/history-action
+  // date pulled from LegiScan's history array (see time_resolution_pipeline.
+  // py's extract_enactment_date) -- it is NOT a verified statutory EFFECTIVE
+  // date. Many statutes take effect on a later date than signing (e.g. "90
+  // days after adjournment" or an explicit later date written into the
+  // bill), and this project has not yet verified, against real bill text,
+  // whether LegiScan exposes that separately or how often it actually
+  // differs from the signing date for the bills already on file -- that
+  // check needs a live LegiScan API call this build didn't have the key to
+  // run. Ships with that gap stated up front rather than silently treated
+  // as resolved.
+  function getRenewalWindow(quarterStartISO, quarterEndISO) {
+    const start = new Date(quarterStartISO);
+    const end = new Date(quarterEndISO);
+    const rows = DB.legislative_timeline.filter(r => {
+      if (!r.enactment_date) return false;
+      const d = new Date(r.enactment_date);
+      return d >= start && d <= end;
+    });
+    return {
+      rows,
+      dateFieldCaveat: "Filtered on the bill's recorded SIGNING date, not a verified statutory effective date -- see getRenewalWindow's comment in moat-engine.js for why that distinction is still open.",
+    };
+  }
+
   function assess(naics, state) {
     const defendants = getDefendantsForNaics(naics);
     const plaintiffRows = queryPlaintiffRadar(defendants);
@@ -233,6 +354,7 @@ const MoatEngine = (() => {
     load, assess, getDefendantsForNaics, queryPlaintiffRadar, queryLegislativeContagion,
     querySeverityAnchor, parseDollarToMillions, computeThreatLevel, getFilingVelocity,
     getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES,
+    searchEntity, getCrosswalkCoverage, getPlaintiffFirmTracker, getRenewalWindow,
     get db() { return DB; },
   };
 })();

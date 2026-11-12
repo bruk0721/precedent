@@ -15,13 +15,17 @@
     --accent-gray: #5c6370; --accent-gray-bg: #eef0f3; --nav-bg: rgba(247, 248, 250, 0.78);
     --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    --radius-card: 20px; --radius-pill: 999px; color-scheme: light;
+    --radius-card: 20px; --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
+    color-scheme: light;
   }
   :root[data-theme="dark"] {
     --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
     --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
     --accent-amber: #e2974f; --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816;
-    --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.78); color-scheme: dark;
+    --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.78);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
@@ -49,7 +53,7 @@
   .hero p.dek { font-size: 16px; line-height: 1.6; color: var(--ink-muted); max-width: 60ch; margin: 0 auto; }
   .hero p.dek strong { color: var(--ink); font-weight: 600; }
 
-  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; }
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
   h2 { font-weight: 600; font-size: 16px; margin: 0 0 4px; letter-spacing: -0.01em; }
   .card-sub { font-size: 13px; color: var(--ink-faint); margin: 0 0 14px; line-height: 1.6; }
 
@@ -135,8 +139,8 @@
 <div class="wrap">
   <div class="card">
     <h2>Your book of business</h2>
-    <p class="card-sub">One account per line: <code>account name, state code, NAICS code, policy limit (optional)</code> (e.g. <code>Acme Specialty Chemical, OH, 325998, 5000000</code>). The policy limit is optional but unlocks the portfolio accumulation view below &mdash; without it you still get the ranked, flagged-account list.</p>
-    <textarea id="book-input" placeholder="Acme Specialty Chemical, OH, 325998, 5000000&#10;Riverside Carpet Mills, GA, 314110, 2000000&#10;Midwest Refining Co, IL, 324110"></textarea>
+    <p class="card-sub">One account per line: <code>account name, state code, NAICS code, policy limit (optional), MGA/program name (optional)</code> (e.g. <code>Acme Specialty Chemical, OH, 325998, 5000000, Riverside Binding Authority</code>). The policy limit unlocks the portfolio accumulation view; the MGA/program name unlocks the delegated-authority aggregation view &mdash; both optional, you still get the ranked, flagged-account list without either.</p>
+    <textarea id="book-input" placeholder="Acme Specialty Chemical, OH, 325998, 5000000, Riverside Binding Authority&#10;Riverside Carpet Mills, GA, 314110, 2000000, Coastal MGA Program&#10;Midwest Refining Co, IL, 324110"></textarea>
     <div class="btn-row">
       <button class="run-btn" id="scan-btn">Scan portfolio</button>
       <button class="run-btn secondary" id="sample-btn">Load sample book</button>
@@ -145,8 +149,20 @@
       <button class="run-btn secondary" id="download-btn" style="display:none;">Download flagged-account CSV</button>
     </div>
     <p class="format-note" id="upload-status"></p>
-    <p class="format-note">Nothing is uploaded anywhere &mdash; this runs entirely client-side against the same real pipeline data behind the Underwriter Console. No signal found for an account is not the same as no risk; it means nothing has been collected for that NAICS/state yet.</p>
+    <p class="format-note">Nothing is uploaded anywhere &mdash; this runs entirely client-side against the same real pipeline data behind the Underwriter Console. No signal found for an account is not the same as no risk; it means nothing has been collected for that NAICS/state yet. Your last pasted book is saved in this browser only, so it's here next time you open this page &mdash; clear it by clearing the textarea and re-scanning, or by clearing this site's browser storage.</p>
   </div>
+
+  <details class="card accordion" id="decision-log-card">
+    <summary><h2>Decision audit trail</h2><span class="hint" id="decision-log-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">Every underwriting action you set below is timestamped here, with the real evidence and threat verdict on file at the moment you set it &mdash; so a decision stays reviewable later, instead of disappearing the moment you close the tab. This never binds, prices, or executes anything on its own; it only records the human decision. Saved locally in <strong>this browser only</strong> &mdash; nothing here leaves your browser or syncs between devices, same as the rest of this tool.</p>
+      <div class="btn-row" style="margin-bottom:12px">
+        <button class="run-btn secondary" id="decision-log-download">Download decision log (CSV)</button>
+        <button class="run-btn secondary" id="decision-log-clear">Clear log</button>
+      </div>
+      <div id="decision-log-body"></div>
+    </div>
+  </details>
 
   <div class="results-wrap" id="results">
     <div class="card">
@@ -159,6 +175,14 @@
       <div class="disclosure-body">
         <p class="card-sub">The real pattern behind large unexpected reserve charges isn't usually one bad account &mdash; it's PFAS exposure scattered invisibly across many accounts in the same book, concentrated by state or NAICS without anyone seeing the total until it's already a loss. This rolls up policy limits across every RED/AMBER account, so that total is visible now.</p>
         <div id="accumulation-body"></div>
+      </div>
+    </details>
+
+    <details class="card accordion" id="mga-card" style="display:none;">
+      <summary><h2>Delegated-authority aggregation</h2><span class="hint" id="mga-hint"></span><span class="chevron">&#9656;</span></summary>
+      <div class="disclosure-body">
+        <p class="card-sub">Lloyd's itself has reported weak oversight of parts of its delegated book contributing to real loss-ratio deterioration &mdash; MGA/program growth outpacing the data to track aggregate exposure across the chain. This rolls up concentrated (RED/AMBER) limits by the MGA/program name in column 5, so an aggregation nobody's underwriting a single account can see is visible at the delegated-authority level instead.</p>
+        <div id="mga-body"></div>
       </div>
     </details>
   </div>
@@ -174,14 +198,14 @@
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
 
 const SAMPLE_BOOK = [
-  "Acme Specialty Chemical Co, MN, 325998, 10000000",
-  "Riverside Carpet Mills, GA, 314110, 3000000",
-  "Heritage Textile Finishing, NC, 313310, 4000000",
-  "Lakeside Food Packaging, WI, 322299, 2500000",
-  "Summit Cosmetics Group, CA, 325620, 5000000",
-  "Northgate Petroleum Refining, TX, 324110, 8000000",
-  "Bayview Metal Finishing, OH, 332813, 1500000",
-  "Unrelated Regional Bakery, VA, 311811, 500000",
+  "Acme Specialty Chemical Co, MN, 325998, 10000000, Riverside Binding Authority",
+  "Riverside Carpet Mills, GA, 314110, 3000000, Riverside Binding Authority",
+  "Heritage Textile Finishing, NC, 313310, 4000000, Coastal MGA Program",
+  "Lakeside Food Packaging, WI, 322299, 2500000, Coastal MGA Program",
+  "Summit Cosmetics Group, CA, 325620, 5000000, Riverside Binding Authority",
+  "Northgate Petroleum Refining, TX, 324110, 8000000, Coastal MGA Program",
+  "Bayview Metal Finishing, OH, 332813, 1500000, Direct",
+  "Unrelated Regional Bakery, VA, 311811, 500000, Direct",
 ].join("\n");
 
 function parseBook(text) {
@@ -189,7 +213,10 @@ function parseBook(text) {
     const parts = line.split(",").map(p => p.trim());
     const rawLimit = parts[3] ? parts[3].replace(/[$,]/g, "") : "";
     const limit = rawLimit && !isNaN(parseFloat(rawLimit)) ? parseFloat(rawLimit) : null;
-    return { account: parts[0] || "(unnamed)", state: (parts[1] || "").toUpperCase(), naics: parts[2] || "", limit };
+    // 5th column (optional): MGA / delegated-authority / program name --
+    // see MGA_AGGREGATION_NOTE below for why this was added.
+    const mga = parts[4] ? parts[4].trim() : null;
+    return { account: parts[0] || "(unnamed)", state: (parts[1] || "").toUpperCase(), naics: parts[2] || "", limit, mga };
   }).filter(r => r.state && r.naics);
 }
 
@@ -203,6 +230,7 @@ const COLUMN_ALIASES = {
   state: ["state", "st", "jurisdiction"],
   naics: ["naics code", "naics", "sic code", "sic"],
   limit: ["policy limit", "policy limit ($)", "limit", "limit ($)", "total insured value", "tiv"],
+  mga: ["mga", "mga name", "program", "program name", "delegated authority", "binder", "coverholder"],
 };
 
 function findColumn(headerRow, aliases) {
@@ -221,15 +249,16 @@ function parseBordereauRows(rows) {
   const stateIdx = findColumn(header, COLUMN_ALIASES.state);
   const naicsIdx = findColumn(header, COLUMN_ALIASES.naics);
   const limitIdx = findColumn(header, COLUMN_ALIASES.limit);
+  const mgaIdx = findColumn(header, COLUMN_ALIASES.mga);
 
   if (stateIdx === -1 || naicsIdx === -1) {
     // No recognizable header -- treat every row (including the first) as
-    // data in the same fixed account/state/naics/limit column order the
+    // data in the same fixed account/state/naics/limit/mga column order the
     // plain-text format uses.
     return rows.map(r => {
       const rawLimit = r[3] != null ? String(r[3]).replace(/[$,]/g, "") : "";
       const limit = rawLimit && !isNaN(parseFloat(rawLimit)) ? parseFloat(rawLimit) : null;
-      return { account: String(r[0] || "(unnamed)"), state: String(r[1] || "").toUpperCase(), naics: String(r[2] || ""), limit };
+      return { account: String(r[0] || "(unnamed)"), state: String(r[1] || "").toUpperCase(), naics: String(r[2] || ""), limit, mga: r[4] != null ? String(r[4]).trim() : null };
     }).filter(r => r.state && r.naics);
   }
 
@@ -241,6 +270,7 @@ function parseBordereauRows(rows) {
       state: String(r[stateIdx] || "").toUpperCase(),
       naics: String(r[naicsIdx] || "").trim(),
       limit,
+      mga: mgaIdx !== -1 && r[mgaIdx] != null ? String(r[mgaIdx]).trim() : null,
     };
   }).filter(r => r.state && r.naics);
 }
@@ -262,7 +292,7 @@ function handleFileUpload(file) {
       const parsed = parseBordereauRows(rows);
       status.textContent = `Loaded ${parsed.length} account(s) from ${file.name}.`;
       document.getElementById("book-input").value = parsed.map(r =>
-        [r.account, r.state, r.naics, r.limit != null ? r.limit : ""].join(", ")
+        [r.account, r.state, r.naics, r.limit != null ? r.limit : "", r.mga || ""].join(", ")
       ).join("\n");
       scanPortfolio();
     } catch (err) {
@@ -279,16 +309,180 @@ function handleFileUpload(file) {
 const SEVERITY_RANK = { red: 3, amber: 2, gray: 1 };
 const STATUS_OPTIONS = ["No action", "Flag for review", "Refer to exposure team", "Monitor", "Reduce limit", "Decline"];
 
+// Decision Audit Trail -- the honest, non-autonomous version of "wiring the
+// verdict to a decision" (see precedent_project_archive.md item 70, gap #3
+// from the Lloyd's Lab alumni research). FloodFlash's sensor reading IS the
+// payout trigger; an underwriting bind/decline decision must never be
+// auto-executed the same way -- that would be reckless, not a feature. What
+// IS honestly buildable: making the human's decision durable, timestamped,
+// and evidence-linked instead of disappearing the moment the tab closes.
+// Stored in localStorage -- per-browser only, same privacy boundary as the
+// rest of this tool ("nothing leaves your browser").
+const DECISION_LOG_KEY = "precedent:decisionLog";
+
+function loadDecisionLog() {
+  try { return JSON.parse(localStorage.getItem(DECISION_LOG_KEY) || "[]"); } catch (e) { return []; }
+}
+
+function saveDecisionLog(log) {
+  try { localStorage.setItem(DECISION_LOG_KEY, JSON.stringify(log.slice(-1000))); } catch (e) {}
+}
+
+function appendDecisionLogEntry(a, oldStatus, newStatus) {
+  const log = loadDecisionLog();
+  log.push({
+    timestamp: new Date().toISOString(),
+    account: a.account,
+    state: a.state,
+    naics: a.naics,
+    old_status: oldStatus,
+    new_status: newStatus,
+    threat_color: a.result.threat.color,
+    threat_label: a.result.threat.label,
+    max_severity_millions: a.result.maxSeverity,
+    plaintiff_findings: a.result.plaintiffRows.length,
+    severity_findings: a.result.severityRows.length,
+    facility_findings: a.result.facilityReports.length,
+    data_snapshot_generated_at: (MoatEngine.db && MoatEngine.db.generated_at) || null,
+  });
+  saveDecisionLog(log);
+  renderDecisionLog();
+}
+
+function renderDecisionLog() {
+  const log = loadDecisionLog();
+  const hint = document.getElementById("decision-log-hint");
+  const el = document.getElementById("decision-log-body");
+  hint.textContent = `${log.length} entr${log.length === 1 ? "y" : "ies"}`;
+  if (!log.length) {
+    el.innerHTML = `<p class="empty-note">No decisions recorded yet in this browser. Set an action on a scanned account below to start one.</p>`;
+    return;
+  }
+  const rows = [...log].reverse().slice(0, 100);
+  el.innerHTML = `<table class="results">
+    <thead><tr><th>When</th><th>Account</th><th>State/NAICS</th><th>Threat</th><th>Action</th><th>Evidence on file</th></tr></thead>
+    <tbody>${rows.map(e => `
+      <tr>
+        <td style="font-family:var(--font-mono);font-size:12px;white-space:nowrap">${esc(e.timestamp.slice(0, 16).replace("T", " "))}</td>
+        <td><b>${esc(e.account)}</b></td>
+        <td style="font-family:var(--font-mono);font-size:12.5px;">${esc(e.state)} / ${esc(e.naics)}</td>
+        <td><span class="row-tag ${esc(e.threat_color)}">${esc((e.threat_color || "").toUpperCase())}</span></td>
+        <td>${esc(e.old_status)} &rarr; <b>${esc(e.new_status)}</b></td>
+        <td style="font-size:12px;color:var(--ink-muted)">${e.plaintiff_findings} plaintiff, ${e.severity_findings} severity, ${e.facility_findings} facility</td>
+      </tr>`).join("")}</tbody>
+  </table>${log.length > 100 ? `<p class="empty-note" style="margin-top:10px">Showing the 100 most recent of ${log.length} total entries. Download the CSV for the full log.</p>` : ""}`;
+}
+
+function downloadDecisionLogCsv() {
+  const log = loadDecisionLog();
+  if (!log.length) return;
+  const headers = ["timestamp", "account", "state", "naics", "old_status", "new_status", "threat_color", "threat_label", "max_severity_millions", "plaintiff_findings", "severity_findings", "facility_findings", "data_snapshot_generated_at"];
+  const csvEscape = (v) => { const s = v == null ? "" : String(v); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+  const csv = [headers.join(",")].concat(log.map(e => headers.map(h => csvEscape(e[h])).join(","))).join("\n");
+  const url = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `precedent-decision-log-${new Date().toISOString().slice(0, 10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Persisted so a returning underwriter sees their last scan immediately
+// instead of an empty textarea -- research finding: Betterview's dashboard
+// auto-surfaces saved-rule flags on login rather than requiring a fresh
+// query every time. Per-browser only (localStorage), same "nothing leaves
+// your browser" privacy boundary as the rest of this tool.
+const LAST_BOOK_KEY = "precedent:lastBook";
+
+function saveLastBook(text) {
+  try { localStorage.setItem(LAST_BOOK_KEY, text); } catch (e) {}
+}
+function loadLastBook() {
+  try { return localStorage.getItem(LAST_BOOK_KEY) || ""; } catch (e) { return ""; }
+}
+
+// Sortable results table -- research finding: dense financial tables
+// (Stripe, fintech dashboard convention) are right-aligned and
+// sortable/filterable, not static. Click a header to sort; click again to
+// reverse. Re-render only the table body/head, not the whole scan.
+const SORT_ACCESSORS = {
+  account: a => a.account.toLowerCase(),
+  state: a => a.state,
+  naics: a => a.naics,
+  limit: a => a.limit == null ? -1 : a.limit,
+  threat: a => SEVERITY_RANK[a.result.threat.color] || 0,
+};
+let _sortState = { key: null, dir: 1 };
+
+function renderTable(assessed) {
+  document.getElementById("table-wrap").innerHTML = `<table class="results">
+    <thead><tr>${["account", "state", "naics", "limit", "threat"].map(key => {
+      const labels = { account: "Account", state: "State", naics: "NAICS", limit: "Limit", threat: "Threat" };
+      const active = _sortState.key === key;
+      const arrow = active ? (_sortState.dir === 1 ? " ▲" : " ▼") : "";
+      return `<th data-sort-key="${key}" style="cursor:pointer;user-select:none;${key === "limit" ? "text-align:right;" : ""}">${labels[key]}${arrow}</th>`;
+    }).join("")}<th>Why</th><th>Action</th><th></th></tr></thead>
+    <tbody>${assessed.map((a, i) => `
+      <tr>
+        <td><b>${esc(a.account)}</b></td>
+        <td>${esc(a.state)}</td>
+        <td><span style="font-family:var(--font-mono)">${esc(a.naics)}</span></td>
+        <td style="font-family:var(--font-mono);font-size:12.5px;text-align:right;">${a.limit != null ? "$" + a.limit.toLocaleString(undefined, { maximumFractionDigits: 0 }) : "&mdash;"}</td>
+        <td><span class="row-tag ${a.result.threat.color}">${esc(a.result.threat.color.toUpperCase())}</span></td>
+        <td style="font-size:12.5px;color:var(--ink-muted)">${esc(a.result.threat.label)}${a.result.nextTarget.length ? ` &middot; ${a.result.nextTarget.length} downstream NAICS flagged` : ""}</td>
+        <td><select class="status-select" data-idx="${i}">${STATUS_OPTIONS.map(o => `<option${o === a.status ? " selected" : ""}>${esc(o)}</option>`).join("")}</select></td>
+        <td class="action-cell">
+          <a class="drill-link" href="../console/?naics=${encodeURIComponent(a.naics)}&state=${encodeURIComponent(a.state)}" target="_blank" rel="noopener">View evidence &#8599;</a>
+          <a class="memo-link" data-idx="${i}" href="${window._lastMemoUrls[i]}" target="_blank" rel="noopener">Open memo &#8599;</a>
+        </td>
+      </tr>`).join("")}</tbody>
+  </table>`;
+
+  document.getElementById("table-wrap").querySelectorAll(".status-select").forEach(sel => {
+    sel.addEventListener("change", () => {
+      const idx = Number(sel.dataset.idx);
+      const oldStatus = assessed[idx].status;
+      assessed[idx].status = sel.value;
+      appendDecisionLogEntry(assessed[idx], oldStatus, sel.value);
+      // Regenerate this row's memo link -- the Blob URL is a frozen
+      // snapshot at creation time, so changing the status afterward would
+      // otherwise leave the already-rendered memo link pointing at a memo
+      // that still says "No action."
+      URL.revokeObjectURL(window._lastMemoUrls[idx]);
+      const newUrl = URL.createObjectURL(new Blob([buildMemoHtml(assessed[idx])], { type: "text/html" }));
+      window._lastMemoUrls[idx] = newUrl;
+      document.querySelector(`.memo-link[data-idx="${idx}"]`).href = newUrl;
+    });
+  });
+
+  document.getElementById("table-wrap").querySelectorAll("th[data-sort-key]").forEach(th => {
+    th.addEventListener("click", () => {
+      const key = th.dataset.sortKey;
+      _sortState.dir = (_sortState.key === key) ? -_sortState.dir : 1;
+      _sortState.key = key;
+      const accessor = SORT_ACCESSORS[key];
+      assessed.sort((a, b) => {
+        const av = accessor(a), bv = accessor(b);
+        return av < bv ? -_sortState.dir : av > bv ? _sortState.dir : 0;
+      });
+      renderTable(assessed);
+    });
+  });
+}
+
 function scanPortfolio() {
-  const rows = parseBook(document.getElementById("book-input").value);
+  const bookText = document.getElementById("book-input").value;
+  const rows = parseBook(bookText);
   document.getElementById("results").style.display = rows.length ? "block" : "none";
   if (!rows.length) return;
+  saveLastBook(bookText);
 
   const assessed = rows.map(r => {
     const result = MoatEngine.assess(r.naics, r.state);
     return { ...r, result, status: "No action" };
   });
   assessed.sort((a, b) => (SEVERITY_RANK[b.result.threat.color] || 0) - (SEVERITY_RANK[a.result.threat.color] || 0));
+  _sortState = { key: null, dir: 1 };
 
   // Build each memo's Blob URL up front and bind it as a real <a href>
   // rather than calling window.open() inside a click handler -- a plain
@@ -307,40 +501,9 @@ function scanPortfolio() {
     <div class="summary-stat"><div class="n">${assessed.length}</div><div class="l">Accounts scanned</div></div>
   `;
 
-  document.getElementById("table-wrap").innerHTML = `<table class="results">
-    <thead><tr><th>Account</th><th>State</th><th>NAICS</th><th>Limit</th><th>Threat</th><th>Why</th><th>Action</th><th></th></tr></thead>
-    <tbody>${assessed.map((a, i) => `
-      <tr>
-        <td><b>${esc(a.account)}</b></td>
-        <td>${esc(a.state)}</td>
-        <td><span style="font-family:var(--font-mono)">${esc(a.naics)}</span></td>
-        <td style="font-family:var(--font-mono);font-size:12.5px;">${a.limit != null ? "$" + a.limit.toLocaleString(undefined, { maximumFractionDigits: 0 }) : "&mdash;"}</td>
-        <td><span class="row-tag ${a.result.threat.color}">${esc(a.result.threat.color.toUpperCase())}</span></td>
-        <td style="font-size:12.5px;color:var(--ink-muted)">${esc(a.result.threat.label)}${a.result.nextTarget.length ? ` &middot; ${a.result.nextTarget.length} downstream NAICS flagged` : ""}</td>
-        <td><select class="status-select" data-idx="${i}">${STATUS_OPTIONS.map(o => `<option${o === a.status ? " selected" : ""}>${esc(o)}</option>`).join("")}</select></td>
-        <td class="action-cell">
-          <a class="drill-link" href="../console/?naics=${encodeURIComponent(a.naics)}&state=${encodeURIComponent(a.state)}" target="_blank" rel="noopener">View evidence &#8599;</a>
-          <a class="memo-link" data-idx="${i}" href="${window._lastMemoUrls[i]}" target="_blank" rel="noopener">Open memo &#8599;</a>
-        </td>
-      </tr>`).join("")}</tbody>
-  </table>`;
-
-  document.getElementById("table-wrap").querySelectorAll(".status-select").forEach(sel => {
-    sel.addEventListener("change", () => {
-      const idx = Number(sel.dataset.idx);
-      assessed[idx].status = sel.value;
-      // Regenerate this row's memo link -- the Blob URL is a frozen
-      // snapshot at creation time, so changing the status afterward would
-      // otherwise leave the already-rendered memo link pointing at a memo
-      // that still says "No action."
-      URL.revokeObjectURL(window._lastMemoUrls[idx]);
-      const newUrl = URL.createObjectURL(new Blob([buildMemoHtml(assessed[idx])], { type: "text/html" }));
-      window._lastMemoUrls[idx] = newUrl;
-      document.querySelector(`.memo-link[data-idx="${idx}"]`).href = newUrl;
-    });
-  });
-
+  renderTable(assessed);
   renderAccumulation(assessed);
+  renderMgaAggregation(assessed);
 
   document.getElementById("download-btn").style.display = "inline-block";
   window._lastScan = assessed;
@@ -414,10 +577,57 @@ function renderAccumulation(assessed) {
   card.open = totalConcentrated > 0;
 }
 
+function renderMgaAggregation(assessed) {
+  const card = document.getElementById("mga-card");
+  const hint = document.getElementById("mga-hint");
+  const el = document.getElementById("mga-body");
+  const withMga = assessed.filter(a => a.mga && a.limit != null);
+
+  if (!assessed.length) { card.style.display = "none"; return; }
+  card.style.display = "block";
+
+  if (!withMga.length) {
+    el.innerHTML = `<p class="empty-note">No MGA/program name AND policy limit were both provided for any account (5th and 4th columns). Add both to see concentrated exposure rolled up by delegated authority.</p>`;
+    hint.textContent = "No MGA data provided";
+    card.open = false;
+    return;
+  }
+
+  const concentrated = withMga.filter(a => a.result.threat.color === "red" || a.result.threat.color === "amber");
+  if (!concentrated.length) {
+    el.innerHTML = `<p class="empty-note">${withMga.length} account(s) had an MGA/program name on file, but none are currently RED/AMBER -- nothing to aggregate yet.</p>`;
+    hint.textContent = "0 concentrated";
+    card.open = false;
+    return;
+  }
+
+  const byMga = {};
+  for (const a of concentrated) {
+    const entry = byMga[a.mga] || { limit: 0, accounts: [] };
+    entry.limit += a.limit;
+    entry.accounts.push(a.account);
+    byMga[a.mga] = entry;
+  }
+  const rows = Object.entries(byMga).sort((a, b) => b[1].limit - a[1].limit);
+  const totalConcentrated = rows.reduce((sum, [, v]) => sum + v.limit, 0);
+  const maxVal = Math.max(...rows.map(([, v]) => v.limit), 1);
+
+  el.innerHTML = rows.map(([mga, v]) => `
+    <div class="accum-bar-row">
+      <div class="accum-bar-label" style="width:180px">${esc(mga)}</div>
+      <div class="accum-bar-track"><div class="accum-bar-fill" style="width:${Math.max((v.limit / maxVal) * 100, 2)}%"></div></div>
+      <div class="accum-bar-value">$${v.limit.toLocaleString(undefined, { maximumFractionDigits: 0 })}</div>
+    </div>
+    <div class="empty-note" style="margin:-2px 0 10px 190px">${v.accounts.length} flagged account(s): ${v.accounts.map(esc).join(", ")}</div>
+  `).join("");
+  hint.textContent = `$${totalConcentrated.toLocaleString(undefined, { maximumFractionDigits: 0 })} across ${rows.length} MGA(s)`;
+  card.open = true;
+}
+
 function downloadCsv() {
   const assessed = window._lastScan || [];
-  const header = "account,state,naics,policy_limit,threat,label,action\n";
-  const body = assessed.map(a => [a.account, a.state, a.naics, a.limit != null ? a.limit : "", a.result.threat.color, a.result.threat.label, a.status]
+  const header = "account,state,naics,policy_limit,mga_program,threat,label,action\n";
+  const body = assessed.map(a => [a.account, a.state, a.naics, a.limit != null ? a.limit : "", a.mga || "", a.result.threat.color, a.result.threat.label, a.status]
     .map(v => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n");
   const blob = new Blob([header + body], { type: "text/csv" });
   const url = URL.createObjectURL(blob);
@@ -525,6 +735,12 @@ async function init() {
   const db = await MoatEngine.load("../shared/moat_export.json");
   document.getElementById("snapshot-date").textContent = db.generated_at ? `Snapshot as of ${new Date(db.generated_at).toISOString().slice(0, 10)}.` : "";
   document.getElementById("scan-btn").addEventListener("click", scanPortfolio);
+  const lastBook = loadLastBook();
+  if (lastBook) {
+    document.getElementById("book-input").value = lastBook;
+    document.getElementById("upload-status").textContent = "Loaded your last scanned book from this browser.";
+    scanPortfolio();
+  }
   document.getElementById("sample-btn").addEventListener("click", () => {
     document.getElementById("book-input").value = SAMPLE_BOOK;
     scanPortfolio();
@@ -533,6 +749,15 @@ async function init() {
   document.getElementById("upload-btn").addEventListener("click", () => document.getElementById("file-input").click());
   document.getElementById("file-input").addEventListener("change", (e) => {
     if (e.target.files[0]) handleFileUpload(e.target.files[0]);
+  });
+
+  renderDecisionLog();
+  document.getElementById("decision-log-download").addEventListener("click", downloadDecisionLogCsv);
+  document.getElementById("decision-log-clear").addEventListener("click", () => {
+    if (!loadDecisionLog().length) return;
+    if (!confirm("Clear the decision log stored in this browser? This cannot be undone.")) return;
+    saveDecisionLog([]);
+    renderDecisionLog();
   });
 }
 init();
