@@ -289,6 +289,22 @@ const MoatEngine = (() => {
     // itself -- excluded here so a real cross-state venue-shopping signal
     // isn't confused with the MDL-leadership docket's procedural label.
     const realVenues = new Set([...distinctCourts].filter(c => c !== "United States Judicial Panel on Multidistrict Litigation"));
+    // Plaintiff-firm concentration -- a real, buildable signal from
+    // research (precedent_project_archive.md item 78): legal trade press
+    // documents that a small number of firms tend to lead MDL after MDL,
+    // but no external study quantifies "how concentrated is normal" to
+    // compare against. This computes OUR OWN real concentration (top
+    // firm's and top-3 firms' share of all real, named-firm filing rows)
+    // as an honest internal metric -- not benchmarked against an
+    // external number that doesn't exist, just reported as what it is.
+    const namedFirmRows = DB.plaintiff_network.filter(r => !/^PRO SE|^UNKNOWN/i.test(r.plaintiff_firm));
+    const totalNamedRows = namedFirmRows.length;
+    const byFirmRowCount = {};
+    for (const r of namedFirmRows) byFirmRowCount[r.plaintiff_firm] = (byFirmRowCount[r.plaintiff_firm] || 0) + 1;
+    const sortedCounts = Object.values(byFirmRowCount).sort((a, b) => b - a);
+    const topFirmShare = totalNamedRows ? sortedCounts[0] / totalNamedRows : null;
+    const top3Share = totalNamedRows ? sortedCounts.slice(0, 3).reduce((s, v) => s + v, 0) / totalNamedRows : null;
+
     return {
       rows,
       distinctCourtCount: distinctCourts.size,
@@ -296,6 +312,11 @@ const MoatEngine = (() => {
       venueConcentrationNote: realVenues.size <= 1
         ? "All real filings on record currently resolve to a single venue (D. South Carolina, where MDL 2873 is centralized) -- no cross-state venue-shopping signal exists in the data yet."
         : null,
+      concentration: {
+        totalNamedFirmRows: totalNamedRows,
+        distinctFirmCount: rows.length,
+        topFirmShare, top3Share,
+      },
     };
   }
 
@@ -390,6 +411,21 @@ const MoatEngine = (() => {
     return DB.federal_remediation_contracts || [];
   }
 
+  // Settlement-Stage classification -- curated, not computed (see
+  // settlement_stage_classification.py for the real, cited reasoning per
+  // category). Never an algorithmic score.
+  function getSettlementStage(riskCategory) {
+    return (DB.settlement_stage_classification || {})[riskCategory] || null;
+  }
+
+  // Historical Scale Comparison -- curated, real, cited external
+  // benchmark totals (asbestos/PFAS/talc), same role as the RAND DCC
+  // proxy and the CAS reserving benchmark: context, never a legal or
+  // actuarial fact about any specific curated defendant.
+  function getHistoricalScaleComparison() {
+    return DB.historical_scale_comparison || {};
+  }
+
   function getRenewalWindow(quarterStartISO, quarterEndISO) {
     const start = new Date(quarterStartISO);
     const end = new Date(quarterEndISO);
@@ -440,6 +476,7 @@ const MoatEngine = (() => {
     searchEntity, getCrosswalkCoverage, getPlaintiffFirmTracker, getRenewalWindow,
     getComplianceRecords, getRegulatoryFilings, getScientificMomentum, getStateContaminationSites,
     getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts,
+    getSettlementStage, getHistoricalScaleComparison,
     get db() { return DB; },
   };
 })();

@@ -10612,6 +10612,153 @@
       }
     ]
   },
+  "settlement_stage_classification": {
+    "pfas": {
+      "mdl_number": "2873",
+      "stage": "global_settlement",
+      "stage_label": "Global settlement (pre-bankruptcy)",
+      "reasoning": "3M's real $10.3B public water system settlement (2023) and DuPont/Chemours/Corteva's real $1.185B settlement are large, negotiated, pre-bankruptcy global settlements covering a broad share of claims -- but no curated PFAS/AFFF defendant has filed Chapter 11 over this liability as of this writing. Real personal-injury claims (15,222 in MDL 2873 as of April 2026) remain in active MDL litigation outside any bankruptcy trust.",
+      "next_stage_watch": "Would move to bankruptcy_trust or bankruptcy_preemption if any curated defendant files Chapter 11 specifically over PFAS/AFFF liability -- watch the Material Event (8-K) pipeline for this; none has triggered it as of this writing."
+    },
+    "talc": {
+      "mdl_number": "2738",
+      "stage": "bankruptcy_preemption",
+      "stage_label": "Bankruptcy preemption",
+      "reasoning": "J&J is financially solvent, not insolvent -- it has filed Chapter 11 THREE times through two different subsidiaries (LTL Management in 2021 and again in 2023 after the first was dismissed; Red River Talc in 2025) specifically to halt and consolidate MDL 2738 litigation on its own settlement terms, the real pattern academic literature calls 'bankruptcy preemption.' The third attempt was rejected by the bankruptcy court in 2025; J&J announced it will litigate individual cases instead rather than appeal, per real reporting.",
+      "next_stage_watch": "A fourth bankruptcy attempt, or a return to large individual jury verdicts (the real Ingham pattern -- $4.69B original verdict, reduced to ~$2.1B on appeal) if the bankruptcy route is fully abandoned, are both real possible next moves -- watch the Material Event (8-K) pipeline and JPML's own pending-actions count for signals either way."
+    },
+    "turnout_gear": {
+      "mdl_number": "3191",
+      "stage": "individual_settlements",
+      "stage_label": "Individual settlements",
+      "reasoning": "MDL-3191 is genuinely new litigation -- JPML's own November 2026 report shows 17 pending actions and 17 total historical (pending equals total, meaning nothing has resolved yet). No curated defendant, no global settlement, and certainly no bankruptcy filing exists for this category as of this writing -- the earliest real stage in the documented progression.",
+      "next_stage_watch": "Watch for: a curated defendant being identified (none is yet), the first settlement disclosure in a 10-K/8-K, and the JPML pending-actions count growing past its current 17 -- any of these would be the first real sign of this MDL moving to the next stage."
+    }
+  },
+  "historical_scale_comparison": {
+    "asbestos": {
+      "display_name": "Asbestos (master historical analog)",
+      "figures": [
+        {
+          "label": "Total paid to claimants through 2002",
+          "value_display": "$70 billion",
+          "tier": "REPORTED",
+          "source": "RAND Institute for Civil Justice",
+          "source_url": "https://www.rand.org/pubs/research_briefs/RB9155.html",
+          "note": "Actually paid by 8,400+ defendants/insurers to ~730,000 claimants through 2002 -- only ~42 cents of every dollar reached claimants, the rest went to transaction/defense costs."
+        },
+        {
+          "label": "Projected total lifetime liability",
+          "value_display": "$200 billion",
+          "tier": "ESTIMATE",
+          "source": "Tillinghast-Towers Perrin (May 2001 projection)",
+          "source_url": "https://www.judiciary.senate.gov/download/2003/06/04/jennifer-biggs-testimony-060403?download=1",
+          "note": "A different measure than RAND's figure -- implies roughly $130B in future payments still owed on top of RAND's $70B paid-to-date. The two real figures are not in conflict; they measure different things."
+        },
+        {
+          "label": "Companies that went bankrupt from this liability",
+          "value_display": "73+",
+          "tier": "REPORTED",
+          "source": "RAND, via Claims Journal",
+          "source_url": "https://claimsjournal.com/news/national/2005/05/10/54887.htm",
+          "note": null
+        },
+        {
+          "label": "Remaining assets in bankruptcy trusts",
+          "value_display": "~$30 billion",
+          "tier": "REPORTED",
+          "source": "Simmons Law Firm (asbestos litigation history)",
+          "source_url": "https://www.simmonsfirm.com/blog/history-of-asbestos-litigation/",
+          "note": "Across 60+ real trusts; the Manville Trust alone set aside $2.5B."
+        }
+      ],
+      "timeline_note": "Real documented sequence: first medical/scientific warnings (1930s-1949) -> first major products-liability suit (Borel v. Fibreboard, 1969) -> litigation volume climbing into the early 2000s -> bankruptcy-trust era absorbing most new liability (Manville Trust established 1988, many more through the 1990s-2000s). Exact early dates vary by source; not all claimed 1920s-era dates could be independently confirmed."
+    },
+    "pfas": {
+      "display_name": "PFAS / AFFF",
+      "figures": [
+        {
+          "label": "Total potential US insured loss, wide range",
+          "value_display": "$120\u2013180 billion",
+          "tier": "ESTIMATE",
+          "source": "Verisk / Milliman (independent estimates, same order of magnitude)",
+          "source_url": "https://ae.milliman.com/en/insight/forever-chemical-risk-actuarial-reserving-insurers-prepare-for-pfas-claims-litigation",
+          "note": "Milliman's range is specifically for US drinking-water remediation costs, explicitly NOT the same as total insurance-industry ultimate liability -- stated as its own caveat by Milliman."
+        },
+        {
+          "label": "Settled to date (industry-wide)",
+          "value_display": "$16.7\u201318 billion",
+          "tier": "REPORTED",
+          "source": "Milliman / Verisk Arium",
+          "source_url": "https://www.insurancebusinessmag.com/reinsurance/news/breaking-news/guy-carpenter-verisk-highlight-emerging-pfas-risks-in-europe-511519.aspx",
+          "note": "Includes 3M's real $10.3B public water settlement and DuPont/Chemours/Corteva's real $1.185B settlement, among others."
+        },
+        {
+          "label": "Personal-injury lawsuits in MDL 2873",
+          "value_display": "15,222 (April 2026)",
+          "tier": "REPORTED",
+          "source": "AFFF MDL court reporting, cross-checked against JPML's own November 2026 report (15,270 actions pending)",
+          "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0",
+          "note": "The two real counts differ slightly because 'lawsuits' and 'actions pending' aren't always counted identically -- a reconciliation nuance, not an error in either source."
+        }
+      ],
+      "timeline_note": "Explicitly compared to asbestos in real 2026 trade press as potentially following a similar order-of-magnitude trajectory -- a real analogy some in the industry are already drawing, not one this project invented."
+    },
+    "talc": {
+      "display_name": "Talc (J&J talcum powder)",
+      "figures": [
+        {
+          "label": "First bankruptcy settlement commitment (LTL Management, Oct 2021)",
+          "value_display": "~$2 billion",
+          "tier": "REPORTED",
+          "source": "Multiple real news outlets covering the first Chapter 11 filing",
+          "source_url": "https://www.foxbusiness.com/retail/johnson-johnson-to-pay-resolve-claims-baby-powder-talc-products-caused-cancer",
+          "note": null
+        },
+        {
+          "label": "Second bankruptcy settlement commitment (April 2023)",
+          "value_display": "$8.9 billion over 25 years",
+          "tier": "REPORTED",
+          "source": "Business Insurance",
+          "source_url": "https://www.businessinsurance.com/jj-unit-files-for-bankruptcy-again-to-pursue-89-billion-talc-settlement-john/",
+          "note": "A real 4.45x increase over the first attempt in about 18 months."
+        },
+        {
+          "label": "Third bankruptcy settlement commitment (Red River Talc, 2025, rejected)",
+          "value_display": "~$8\u2013$10 billion (sources vary)",
+          "tier": "REPORTED",
+          "source": "Barchart / Chemistry World",
+          "source_url": "https://www.barchart.com/story/news/31679043/jjs-third-bankruptcy-attempt-to-end-talc-suits-rejected",
+          "note": "Rejected by Judge Christopher Lopez in 2025; J&J announced it will litigate individual cases rather than appeal."
+        },
+        {
+          "label": "Ingham verdict, original jury award (2018)",
+          "value_display": "$4.69 billion",
+          "tier": "REPORTED",
+          "source": "Winston & Strawn case summary",
+          "source_url": "https://winston.com/en/product-liability-and-mass-torts-digest/missouri-court-of-appeals-reduces-dollar469-billion-talc-verdict-as-a-result-of-personal-jurisdiction-challenge.html",
+          "note": null
+        },
+        {
+          "label": "Ingham verdict, after Missouri Court of Appeals reduction (2020)",
+          "value_display": "~$2.1 billion",
+          "tier": "REPORTED",
+          "source": "J&J's own real SEC 8-K filing",
+          "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040620000059/jnj-20201103.htm",
+          "note": "Missouri Supreme Court declined to hear J&J's further appeal in Nov 2020; the final post-SCOTUS-petition outcome was not confirmed in this project's research pass."
+        },
+        {
+          "label": "Pending actions in MDL 2738",
+          "value_display": "69,376 (Nov 2, 2026)",
+          "tier": "REPORTED",
+          "source": "JPML's own official pending-MDL report",
+          "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0",
+          "note": null
+        }
+      ],
+      "timeline_note": "A quantified escalation curve distinct from asbestos's slower ramp: ~4.45x growth in settlement commitment within 18 months, then roughly flat on the third attempt before being rejected outright."
+    }
+  },
   "reserve_development_benchmark": {
     "methodology": "Real, computed aggregate paid-loss development curves from the Casualty Actuarial Society's public 'Loss Reserving Data Pulled from NAIC Schedule P' dataset (accident years 1998-2007, compiled from real NAIC statutory filings). For each development lag N, the value is the aggregate cumulative paid loss at that lag divided by the aggregate cumulative paid loss at the latest observed lag (10) -- i.e. 'by lag N, this line of business had on average paid out this fraction of what it eventually paid.' NOT PFAS- or talc-specific; these accident years predate that litigation's real scale. Used only as a general products/liability-line benchmark for how slowly claims normally mature -- the same order-of-magnitude-analog role the RAND asbestos DCC ratio plays elsewhere in this project, never an actuarial estimate for any specific curated defendant.",
     "source_url": "https://www.casact.org/publications-research/research/research-resources/loss-reserving-data-pulled-naic-schedule-p",
@@ -10642,5 +10789,5 @@
       }
     }
   },
-  "generated_at": "2026-11-12T10:41:21.708718+00:00"
+  "generated_at": "2026-11-12T16:41:25.092636+00:00"
 }

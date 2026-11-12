@@ -251,7 +251,7 @@
   <details class="card accordion" id="jpml-card" open>
     <summary><h2>Real MDL case scale (JPML)</h2><span class="hint" id="jpml-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
-      <p class="card-sub">Real, official pending-case counts straight from the US Judicial Panel on Multidistrict Litigation's own monthly report &mdash; not a news estimate or a single company's own disclosure. Includes turnout-gear litigation (MDL-3191), which has no curated defendant/NAICS yet but is real and current.</p>
+      <p class="card-sub">Real, official pending-case counts straight from the US Judicial Panel on Multidistrict Litigation's own monthly report &mdash; not a news estimate or a single company's own disclosure. Includes turnout-gear litigation (MDL-3191), which has no curated defendant/NAICS yet but is real and current. Each MDL also shows a curated settlement-stage assessment (individual settlements &rarr; global settlement &rarr; bankruptcy trust &rarr; bankruptcy preemption) -- a human judgment call citing real facts, never an algorithmic score.</p>
       <div id="jpml-body"></div>
     </div>
   </details>
@@ -270,6 +270,14 @@
     <div class="disclosure-body">
       <p class="card-sub">Real federal contract awards (via USASpending.gov) for PFAS/AFFF remediation &mdash; where federal cleanup money is actually flowing right now, a forward-looking signal distinct from litigation or corporate-disclosure data.</p>
       <div id="federal-contracts-body"></div>
+    </div>
+  </details>
+
+  <details class="card accordion" id="historical-scale-card">
+    <summary><h2>Historical scale comparison</h2><span class="hint" id="historical-scale-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">Real, cited totals for asbestos (the master historical analog), PFAS, and talc &mdash; external benchmark context, same role as the RAND defense-cost proxy and the CAS reserving-development benchmark elsewhere in this console. Several real figures disagree by methodology, not error (e.g. "paid to date" vs. "lifetime projection") &mdash; both are shown rather than picking one.</p>
+      <div id="historical-scale-body"></div>
     </div>
   </details>
 
@@ -678,7 +686,7 @@ function runCrosswalkSearch() {
 }
 
 function renderFirmTracker() {
-  const { rows, distinctDocketCount, venueConcentrationNote } = MoatEngine.getPlaintiffFirmTracker();
+  const { rows, distinctDocketCount, venueConcentrationNote, concentration } = MoatEngine.getPlaintiffFirmTracker();
   const hint = document.getElementById("firm-tracker-hint");
   const el = document.getElementById("firm-tracker-body");
   hint.textContent = `${rows.length} firm(s), ${distinctDocketCount} docket(s)`;
@@ -689,6 +697,17 @@ function renderFirmTracker() {
   let html = "";
   if (venueConcentrationNote) {
     html += `<p class="empty-note" style="margin-bottom:12px"><strong>${esc(venueConcentrationNote)}</strong></p>`;
+  }
+  // Plaintiff-firm concentration -- real research finding (precedent_
+  // project_archive.md item 78): legal trade press documents that a
+  // small number of firms tend to lead MDL after MDL, but no external
+  // study quantifies "how concentrated is normal" to benchmark against.
+  // This is our own real, computed concentration -- reported honestly as
+  // an internal metric, not compared to a number that doesn't exist.
+  if (concentration && concentration.totalNamedFirmRows > 0) {
+    html += `<div class="empty-note" style="margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--chip-bg)">
+      <strong>Firm concentration</strong> (real, computed from the ${concentration.totalNamedFirmRows} real named-firm filing row(s) on file, ${concentration.distinctFirmCount} distinct firm(s)): top firm holds ${(concentration.topFirmShare * 100).toFixed(0)}%, top 3 firms hold ${(concentration.top3Share * 100).toFixed(0)}% of filings. No external benchmark exists for "normal" concentration in a mass tort -- this is reported as our own real measurement, not compared to one.
+    </div>`;
   }
   html += rows.map(f =>
     `<div class="finding-line"><b>${esc(f.firm)}</b><br><span style="color:var(--ink-faint)">${f.defendantCount} defendant(s) named, ${f.docketCount} docket(s): ${f.caseNames.map(esc).join("; ")}</span></div>`
@@ -711,6 +730,32 @@ function renderFederalContracts() {
     contracts.map(c => `<div class="finding-line"><b>${esc(c.recipient_name)}</b> &mdash; $${(c.award_amount || 0).toLocaleString(undefined, { maximumFractionDigits: 0 })}<br><span style="color:var(--ink-faint)">${esc(c.awarding_agency || "")} &middot; ${esc((c.description || "").slice(0, 100))}</span>${srcLink(c.source_url, "View award")}</div>`).join("");
 }
 
+function renderHistoricalScale() {
+  const hint = document.getElementById("historical-scale-hint");
+  const el = document.getElementById("historical-scale-body");
+  const data = MoatEngine.getHistoricalScaleComparison();
+  const keys = Object.keys(data);
+  if (!keys.length) {
+    el.innerHTML = `<p class="empty-note">No real historical comparison data on record yet.</p>`;
+    hint.textContent = "0 found";
+    return;
+  }
+  hint.textContent = `${keys.length} categor${keys.length === 1 ? "y" : "ies"} compared`;
+  el.innerHTML = keys.map(k => {
+    const cat = data[k];
+    const figuresHtml = cat.figures.map(f => `
+      <div class="finding-line">
+        <span class="tag ${f.tier === "ESTIMATE" ? "amber" : "gray"}">${esc(f.tier)}</span>
+        <b>${esc(f.label)}:</b> ${esc(f.value_display)}<br>
+        <span style="color:var(--ink-faint)">${esc(f.source)}${f.note ? " -- " + esc(f.note) : ""}</span>
+        ${srcLink(f.source_url, "View source")}
+      </div>`).join("");
+    return `<div style="margin-bottom:16px"><div class="accum-breakdown-title">${esc(cat.display_name)}</div>${figuresHtml}
+      <div class="empty-note" style="margin-top:6px">${esc(cat.timeline_note)}</div>
+    </div>`;
+  }).join("");
+}
+
 function renderJpmlStats() {
   const hint = document.getElementById("jpml-hint");
   const el = document.getElementById("jpml-body");
@@ -723,12 +768,20 @@ function renderJpmlStats() {
     return;
   }
   hint.textContent = `${allStats.length} real MDL(s) tracked`;
-  el.innerHTML = allStats.map(j => `
+  el.innerHTML = allStats.map(j => {
+    const stage = MoatEngine.getSettlementStage(j.risk_category);
+    const stageHtml = stage ? `<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--chip-bg)">
+      <span class="tag gray">Stage: ${esc(stage.stage_label)}</span>
+      <div style="color:var(--ink-faint);font-size:12.5px;margin-top:4px">${esc(stage.reasoning)}</div>
+    </div>` : "";
+    return `
     <div class="finding-line"><b>MDL-${esc(j.mdl_number)}</b> [${esc(catLabels[j.risk_category] || j.risk_category)}] &mdash; ${esc(j.title)}<br>
       <span class="tag ${j.actions_pending > 1000 ? "red" : "amber"}">${j.actions_pending.toLocaleString()} actions pending</span>
       <span style="color:var(--ink-faint)">${j.total_actions_historical.toLocaleString()} total historical &middot; report date ${esc(j.report_date)}</span>
-      ${srcLink(j.source_url, "View JPML report")}</div>`
-  ).join("");
+      ${srcLink(j.source_url, "View JPML report")}
+      ${stageHtml}
+    </div>`;
+  }).join("");
 }
 
 async function renderContaminationSites() {
@@ -906,6 +959,7 @@ async function init() {
   renderContaminationSites();
   renderJpmlStats();
   renderFederalContracts();
+  renderHistoricalScale();
 
   // Support deep-linking from the Portfolio X-Ray (?naics=...&state=...).
   const params = new URLSearchParams(window.location.search);
