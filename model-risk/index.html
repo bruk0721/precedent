@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Precedent — Model Risk &amp; Limitations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1; --accent-amber: #b8601f;
+    --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df; --accent-gray: #5c6370;
+    --accent-gray-bg: #eef0f3; --accent-green: #1a7a4c; --accent-green-bg: #e3f0e9;
+    --nav-bg: rgba(247, 248, 250, 0.78); --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px; --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433; --accent-amber: #e2974f;
+    --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816; --accent-gray: #9aa1ab;
+    --accent-gray-bg: #1e2228; --accent-green: #6fbf96; --accent-green-bg: #163026;
+    --nav-bg: rgba(11, 13, 16, 0.78);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 20px 100px; }
+
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 980px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  .theme-toggle:hover { background: var(--chip-bg); }
+
+  @media (max-width: 640px) {
+    nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; }
+    .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; }
+  }
+
+  .hero { padding: 44px 24px 30px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-amber); }
+  h1 { font-weight: 500; font-size: clamp(26px, 5.6vw, 38px); line-height: 1.15; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 26ch; }
+  .hero p.dek { font-size: 15.5px; line-height: 1.65; color: var(--ink-muted); max-width: 64ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+
+  .limit-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 26px; margin-bottom: 14px; box-shadow: var(--shadow-card); }
+  .limit-card .lc-top { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .limit-card .lc-badge { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; padding: 3px 10px; border-radius: var(--radius-pill); flex-shrink: 0; }
+  .limit-card h3 { font-size: 16px; font-weight: 600; margin: 0; }
+  .limit-card p { font-size: 13.5px; line-height: 1.65; color: var(--ink-muted); margin: 0; }
+  .limit-card p code { font-family: var(--font-mono); font-size: 12.5px; background: var(--chip-bg); padding: 1px 5px; border-radius: 5px; }
+
+  .section-label { font-family: var(--font-mono); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin: 36px 0 10px; }
+
+  footer { margin-top: 40px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; text-align: center; }
+</style>
+</head>
+<body>
+<script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+
+<nav class="top">
+  <div class="brand"><span class="dot"></span> Precedent</div>
+  <div class="nav-links">
+    <a href="../">&larr; Back to overview</a>
+    <a href="../validation/">Methodology Validation</a>
+    <a href="../console/">Underwriter Console</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow-pill"><span class="dot"></span>Model risk &amp; limitations</span>
+  <h1>What could make this wrong</h1>
+  <p class="dek">An actuarial standard of practice requires disclosing a model's limitations alongside its results. Overconfidence is the fastest way to lose a working actuary's trust &mdash; so here is every real, specific way this project's own data and methodology can fail, stated plainly, not buried in a terms-of-service page.</p>
+</div>
+
+<div class="wrap">
+  <div class="section-label">Data coverage</div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-amber-bg);color:var(--accent-amber)">Curation gap</span><h3>Only 5 companies have sourced severity data</h3></div>
+    <p>Every quantified dollar figure traces to one of 5 curated companies (3M, DuPont, Chemours, Corteva, J&amp;J). A company outside that set showing no signal means <b>not yet checked</b>, never "checked and cleared" &mdash; this is stated on every relevant screen, but it bears repeating here: absence of a flag is not evidence of absence of risk.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-amber-bg);color:var(--accent-amber)">Empty table</span><h3>SDWA drinking-water violations: 0 rows on file</h3></div>
+    <p><code>sdwa_pfas_violations</code> exists in schema and was built against a real, verified live EPA ECHO endpoint, but has only ever been run against one state (Michigan) in a prior session and currently holds no persisted rows. This is a real, known gap, not a silently-empty feature pretending to be complete.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-red-bg);color:var(--accent-red)">Found and excluded</span><h3>Litigation filing-velocity: a real data artifact, not a feature</h3></div>
+    <p>While building the Emergence Signal, every <code>plaintiff_network</code> row tagged <code>risk_category='pfas'</code> was found to share the identical <code>date_filed</code> value (2018-09-25) &mdash; a batch-import placeholder, not 63 real distinct filing dates. The component was dropped rather than reported. If this is fixed upstream, filing velocity could become a real fourth Emergence Signal component.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-amber-bg);color:var(--accent-amber)">Scope limit</span><h3>8-K scanning checks recent filings, not the full history</h3></div>
+    <p><code>material_event_pipeline.py</code> checks only the most recent N 8-Ks per curated company for a same-document keyword co-occurrence &mdash; by design, to stay fast and keyless against SEC EDGAR's rate limits. A real material PFAS/talc event disclosed further back in a company's filing history, before this pipeline's coverage window, would not appear here.</p>
+  </div>
+
+  <div class="section-label">Statistical limitations</div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-amber-bg);color:var(--accent-amber)">Small-N noise</span><h3>Growth percentages from single-digit counts are directionally real, not statistically precise</h3></div>
+    <p>PFAS's legislative-velocity component, for example, is a real 120% growth rate &mdash; computed from 5 enactments in one period vs 11 in the next. That is a genuine signal, but a percentage computed off single-digit counts moves a lot with one or two additional data points. The <a href="../validation/">Validation page</a> flags this explicitly for the 6PPD-quinone discovery candidate (prior-period base of ~21 publications/year); the same caveat applies, in degree, to every small-count component here.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-amber-bg);color:var(--accent-amber)">Keyword matching</span><h3>False negatives and false positives are both real possibilities</h3></div>
+    <p>Every pipeline that scans text (8-Ks, PubMed abstracts, legislative bill titles) matches on keyword co-occurrence. A real settlement disclosed in unusual language could be missed (false negative); a routine mention in an unrelated context could, in principle, pass a keyword filter without representing real liability exposure (false positive). Every hit here is still a human-reviewable snippet with a source link specifically so this can be checked, not just trusted.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-gray-bg);color:var(--accent-gray)">No causal claim</span><h3>A rising signal is correlation, never causation</h3></div>
+    <p>Scientific-literature momentum, legislative velocity, and 8-K frequency are leading indicators this project's own research found associated with past mass-tort emergence (asbestos, PFAS, talc) &mdash; not a proven causal mechanism. The <a href="../validation/">backtest</a> shows this pattern held for 2 real categories; it is not a law of litigation.</p>
+  </div>
+
+  <div class="section-label">What would break the signal</div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-red-bg);color:var(--accent-red)">Legal reversal</span><h3>A landmark pro-defendant ruling or federal preemption</h3></div>
+    <p>A successful federal-preemption defense (precedent exists in other product categories) or an unfavorable-to-plaintiffs appellate ruling in a bellwether case could sharply reverse real filing activity in a way these leading indicators would only show with a lag &mdash; scientific and legislative momentum would keep climbing even as the litigation pathway itself narrows.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-red-bg);color:var(--accent-red)">Regulatory reversal</span><h3>An EPA rule change or vacatur</h3></div>
+    <p>The real PFAS National Primary Drinking Water Regulation (finalized April 2024) is a structural input behind several of this project's real signals. A future administration rolling back or a court vacating that rule would remove a real regulatory tailwind this project currently treats as durable.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-gray-bg);color:var(--accent-gray)">By design</span><h3>This is decision support, never a substitute for actuarial or legal judgment</h3></div>
+    <p>Every module in this project repeats some version of this, deliberately: nothing here is an actuarially-certified reserve estimate, a legal opinion, or a guarantee of coverage outcome. It is one real, falsifiable, sourced input among the several a working underwriter or actuary should weigh.</p>
+  </div>
+
+  <footer>
+    This page exists because an honest account of what could be wrong is more credible than a confident account of what's right. See the <a href="../validation/">Methodology Validation</a> page for what has actually been tested, and every module's own inline VERIFIED/REPORTED tiers for source-level confidence on each individual figure.
+  </footer>
+</div>
+
+<script>
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;";
+  };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => {
+    isDark = !isDark;
+    try { localStorage.setItem("precedent:theme", isDark ? "dark" : "light"); } catch (e) {}
+    apply(isDark);
+  });
+}
+setupThemeToggle();
+</script>
+</body>
+</html>

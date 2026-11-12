@@ -267,6 +267,14 @@
     </div>
   </details>
 
+  <details class="card accordion" id="aggregation-map-card" open>
+    <summary><h2>Aggregation Map</h2><span class="hint" id="aggregation-map-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">The actual hard problem in casualty aggregation, not property catastrophe: one litigation event against a single parent touches many seemingly unrelated accounts through real, documented common-shock pathways &mdash; subsidiary entities (SEC Exhibit 21), facility locations (EPA TRI), and downstream NAICS use-cases. A reinsurer's first question at every treaty renewal is "how correlated is this book" &mdash; this is the real data behind that answer, not a correlation coefficient invented to sound precise. <a href="../model-risk/">Model risk &amp; limitations</a>.</p>
+      <div id="aggregation-map-body"></div>
+    </div>
+  </details>
+
   <details class="card accordion" id="jpml-card">
     <summary><h2>Real MDL case scale (JPML)</h2><span class="hint" id="jpml-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
@@ -810,6 +818,39 @@ function renderSinceLastVisit() {
   try { localStorage.setItem(LAST_VISIT_KEY, new Date().toISOString()); } catch (e) {}
 }
 
+function renderAggregationMap() {
+  const hint = document.getElementById("aggregation-map-hint");
+  const el = document.getElementById("aggregation-map-body");
+  const rows = MoatEngine.getAggregationMap();
+  if (!rows.length) {
+    el.innerHTML = `<p class="empty-note">No aggregation data on record yet.</p>`;
+    hint.textContent = "0 found";
+    return;
+  }
+  hint.textContent = `${rows.length} parent compan${rows.length === 1 ? "y" : "ies"} mapped`;
+
+  el.innerHTML = rows.map(r => {
+    const severityTag = r.maxSeverityMillions != null
+      ? `<span class="tag red">$${r.maxSeverityMillions.toLocaleString()}M real severity anchor</span>` : "";
+    const downstreamHtml = r.downstream.length ? `
+      <div style="margin-top:8px">
+        <b style="font-size:12.5px">Downstream NAICS reach (${r.downstreamCount}):</b>
+        ${r.downstream.map(d => `<div style="font-size:12px;color:var(--ink-muted);margin-top:3px">&bull; <b>${esc(d.label)}</b> (NAICS ${esc(d.naics)}) &mdash; ${esc(d.reason)}</div>`).join("")}
+      </div>` : "";
+
+    return `
+    <div class="finding-line" style="margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--chip-bg)">
+      <b style="font-size:14.5px">${esc(r.parent)}</b> ${r.naics ? `<span style="color:var(--ink-faint);font-size:12px">(NAICS ${esc(r.naics)})</span>` : ""}<br>
+      ${severityTag}
+      <div style="margin-top:8px;display:flex;gap:20px;flex-wrap:wrap">
+        <div><span class="tag amber">${r.subsidiaryCount} real subsidiar${r.subsidiaryCount === 1 ? "y" : "ies"}</span></div>
+        <div><span class="tag gray">${r.facilityCount} real facilit${r.facilityCount === 1 ? "y" : "ies"}${r.facilityStates.length ? " (" + esc(r.facilityStates.join(", ")) + ")" : ""}</span></div>
+      </div>
+      ${downstreamHtml}
+    </div>`;
+  }).join("") + `<div class="empty-note" style="margin-top:4px">One real settlement against ${esc(rows[0].parent)} doesn't just touch one named defendant -- it potentially touches ${rows[0].subsidiaryCount} subsidiary entities that may not share its name on a policy, ${rows[0].facilityCount} real physical sites across ${rows[0].facilityStates.length} state(s), and ${rows[0].downstreamCount} entire downstream industries. That's the real shape of aggregation risk this project can show -- not a fabricated correlation coefficient.</div>`;
+}
+
 function renderEmergenceSignal() {
   const hint = document.getElementById("emergence-signal-hint");
   const el = document.getElementById("emergence-signal-body");
@@ -1073,6 +1114,7 @@ async function init() {
   renderContaminationSites();
   renderSinceLastVisit();
   renderEmergenceSignal();
+  renderAggregationMap();
   renderJpmlStats();
   renderFederalContracts();
   renderHistoricalScale();

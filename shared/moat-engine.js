@@ -426,6 +426,49 @@ const MoatEngine = (() => {
     return DB.historical_scale_comparison || {};
   }
 
+  // Aggregation Map -- the real "common shock" correlation structure this
+  // project already has the raw data for, surfaced explicitly: how ONE
+  // litigation event against a single curated parent touches many
+  // seemingly-unrelated accounts, through real subsidiary entities (SEC
+  // Exhibit 21), real facility locations (EPA TRI), and real documented
+  // downstream NAICS use-cases -- the actual hard problem that separates
+  // casualty aggregation risk from property catastrophe risk. Every count
+  // below is real; the NAICS-mapping judgment calls mirror the same
+  // curated, cited decisions already made in severity_dollar_pipeline.py's
+  // CURATED_LIABILITY_NAICS, not re-derived or guessed here.
+  const PARENT_TIER1_NAICS = {
+    "3M CO": "325998",
+    "JOHNSON CONTROLS INTERNATIONAL PLC": "325998",
+    "CHEMOURS CO": "325199",
+    "DUPONT DE NEMOURS, INC.": "325199",
+  };
+
+  function getAggregationMap() {
+    const parents = new Set([
+      ...(DB.corporate_subsidiaries || []).map(s => s.parent_company),
+      ...(DB.facility_pfas_reports || []).map(f => f.company_name),
+    ]);
+    return [...parents].map(parent => {
+      const subsidiaries = (DB.corporate_subsidiaries || []).filter(s => s.parent_company === parent);
+      const facilities = (DB.facility_pfas_reports || []).filter(f => f.company_name === parent);
+      const states = [...new Set(facilities.map(f => f.state).filter(Boolean))];
+      const naics = PARENT_TIER1_NAICS[parent.toUpperCase()];
+      const downstream = naics ? getDownstreamAdjacency(naics) : [];
+      const severityRows = (DB.severity_anchors || []).filter(r => r.company_name === parent);
+      const severityValues = severityRows.map(r => parseDollarToMillions(r.dollar_amount)).filter(v => v !== null);
+      const maxSeverityMillions = severityValues.length ? Math.max(...severityValues) : null;
+      return {
+        parent, naics, maxSeverityMillions,
+        subsidiaryCount: subsidiaries.length,
+        facilityCount: facilities.length,
+        facilityStates: states,
+        downstreamCount: downstream.length,
+        downstream,
+      };
+    }).filter(r => r.subsidiaryCount > 0 || r.facilityCount > 0)
+      .sort((a, b) => (b.subsidiaryCount + b.facilityCount) - (a.subsidiaryCount + a.facilityCount));
+  }
+
   // Emergence Signal -- real JPML scale + real leading-indicator momentum,
   // reported separately per risk category (never blended into one score).
   // See emergence_signal_pipeline.py for the full methodology and why a
@@ -503,7 +546,7 @@ const MoatEngine = (() => {
     getComplianceRecords, getRegulatoryFilings, getScientificMomentum, getStateContaminationSites,
     getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts,
     getSettlementStage, getHistoricalScaleComparison, getEmergenceSignal,
-    getMomentumBacktest, getDiscoveryCandidates,
+    getMomentumBacktest, getDiscoveryCandidates, getAggregationMap,
     get db() { return DB; },
   };
 })();

@@ -87,6 +87,21 @@
   .compare-table tr:last-child td { border-bottom: none; }
   .compare-table .score-cell { font-family: var(--font-mono); font-weight: 600; }
 
+  /* Portfolio loss simulation */
+  .sim-controls { display: flex; gap: 14px; flex-wrap: wrap; align-items: flex-end; margin-top: 16px; }
+  .sim-field { display: flex; flex-direction: column; gap: 6px; }
+  .sim-field label { font-size: 12px; font-weight: 600; color: var(--ink-muted); }
+  .sim-field select, .sim-field input { font-family: var(--font-mono); font-size: 14px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(16, 17, 20, 0.12); background: var(--page-bg); color: var(--ink); outline: none; min-width: 150px; }
+  .sim-btn { font-family: var(--font); font-size: 13.5px; font-weight: 600; padding: 11px 22px; border-radius: 10px; border: none; background: var(--ink); color: var(--page-bg); cursor: pointer; }
+  .sim-btn:hover { opacity: 0.85; }
+  .sim-percentiles { display: flex; gap: 18px; flex-wrap: wrap; margin: 22px 0 14px; }
+  .sim-pstat { background: var(--page-bg); border-radius: 14px; padding: 16px 20px; flex: 1 1 140px; }
+  .sim-pstat .pn { font-family: var(--font-mono); font-size: 22px; font-weight: 600; }
+  .sim-pstat .pl { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
+  .sim-histogram { display: flex; align-items: flex-end; gap: 2px; height: 120px; margin-top: 10px; }
+  .sim-bar { flex: 1; background: var(--accent-blue); border-radius: 2px 2px 0 0; min-height: 2px; opacity: 0.85; }
+  .sim-axis { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--ink-faint); font-family: var(--font-mono); margin-top: 4px; }
+
   footer { margin-top: 40px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; text-align: center; }
 </style>
 </head>
@@ -124,10 +139,31 @@
     <table class="compare-table" id="compare-table"></table>
   </div>
 
+  <div class="section-label">Aggregate loss simulation</div>
+  <div class="card">
+    <h2>What's the actual exceedance curve?</h2>
+    <p class="card-sub">The real deliverable casualty-cat and property-cat models exist to produce: not "this is risky," but "at the 1-in-20 year level, here's the aggregate loss." Built honestly, in two separate real/assumed pieces: the <b>severity distribution</b> is real &mdash; bootstrap-resampled directly from this project's own sourced severity-anchor dollar figures, nothing invented. The <b>claim count</b> is a scenario you choose, explicitly labeled as your assumption, not a frequency this project claims to predict.</p>
+    <div class="sim-controls">
+      <div class="sim-field">
+        <label for="sim-category">Category</label>
+        <select id="sim-category">
+          <option value="pfas">PFAS/AFFF</option>
+          <option value="talc">Talc</option>
+        </select>
+      </div>
+      <div class="sim-field">
+        <label for="sim-claims">Assumed claims (your scenario)</label>
+        <input id="sim-claims" type="number" min="1" max="50" value="3" />
+      </div>
+      <button class="sim-btn" id="sim-run">Run simulation</button>
+    </div>
+    <div id="sim-result"></div>
+  </div>
+
   <div class="card">
     <h2>What this does and doesn't prove</h2>
     <p class="card-sub" style="margin-bottom:0">
-      This shows the scientific-literature component of the Emergence Signal would have been directionally elevated years before PFAS's major settlement wave, and that it correctly separates an accelerating signal (microplastics, 6PPD-quinone) from a flat one (bisphenol A) without being told which is which. It does <b>not</b> prove legal causation, does not predict dollar amounts, and the 6PPD-quinone growth rate in particular is computed from a very small base (roughly 20 publications/year three years ago) &mdash; directionally real, but statistically noisier than a rate computed from a larger sample. None of this replaces an actuary's own judgment; it's one real, falsifiable input, shown with its own limits stated.
+      This shows the scientific-literature component of the Emergence Signal would have been directionally elevated years before PFAS's major settlement wave, and that it correctly separates an accelerating signal (microplastics, 6PPD-quinone) from a flat one (bisphenol A) without being told which is which. It does <b>not</b> prove legal causation, does not predict dollar amounts, and the 6PPD-quinone growth rate in particular is computed from a very small base (roughly 20 publications/year three years ago) &mdash; directionally real, but statistically noisier than a rate computed from a larger sample. The loss simulation above is real on its severity side and explicitly assumption-driven on its frequency side &mdash; it is a scenario tool, not a frequency prediction. None of this replaces an actuary's own judgment; it's one real, falsifiable input, shown with its own limits stated. See <a href="../model-risk/">Model risk &amp; limitations</a> for the complete list.
     </p>
   </div>
 
@@ -236,6 +272,60 @@ function renderDiscoveryScan() {
   `;
 }
 
+function getSeverityPoolMillions(riskCategory) {
+  const rows = (MoatEngine.db.severity_anchors || []).filter(r => r.risk_category === riskCategory);
+  return rows.map(r => MoatEngine.parseDollarToMillions(r.dollar_amount)).filter(v => v !== null && v > 0);
+}
+
+function runLossSimulation() {
+  const category = document.getElementById("sim-category").value;
+  const claims = Math.max(1, Math.min(50, parseInt(document.getElementById("sim-claims").value, 10) || 1));
+  const el = document.getElementById("sim-result");
+  const pool = getSeverityPoolMillions(category);
+
+  if (pool.length < 3) {
+    el.innerHTML = `<p class="empty-note">Not enough real severity data on file for ${esc(category)} to bootstrap a distribution (need at least 3 real figures, found ${pool.length}).</p>`;
+    return;
+  }
+
+  const TRIALS = 5000;
+  const totals = [];
+  for (let t = 0; t < TRIALS; t++) {
+    let sum = 0;
+    for (let c = 0; c < claims; c++) {
+      sum += pool[Math.floor(Math.random() * pool.length)];
+    }
+    totals.push(sum);
+  }
+  totals.sort((a, b) => a - b);
+  const pct = p => totals[Math.min(totals.length - 1, Math.floor((p / 100) * totals.length))];
+
+  const p50 = pct(50), p90 = pct(90), p95 = pct(95), p99 = pct(99);
+  const min = totals[0], max = totals[totals.length - 1];
+
+  const BUCKETS = 24;
+  const bucketCounts = new Array(BUCKETS).fill(0);
+  const range = Math.max(max - min, 1);
+  totals.forEach(v => {
+    const idx = Math.min(BUCKETS - 1, Math.floor(((v - min) / range) * BUCKETS));
+    bucketCounts[idx]++;
+  });
+  const maxBucket = Math.max(...bucketCounts);
+
+  el.innerHTML = `
+    <div class="sim-percentiles">
+      <div class="sim-pstat"><div class="pn">$${p50.toFixed(0)}M</div><div class="pl">P50 (median) aggregate loss</div></div>
+      <div class="sim-pstat"><div class="pn">$${p90.toFixed(0)}M</div><div class="pl">P90 (1-in-10 scenario)</div></div>
+      <div class="sim-pstat"><div class="pn">$${p95.toFixed(0)}M</div><div class="pl">P95 (1-in-20 scenario)</div></div>
+      <div class="sim-pstat" style="border:1px solid var(--accent-red)"><div class="pn" style="color:var(--accent-red)">$${p99.toFixed(0)}M</div><div class="pl">P99 (1-in-100 scenario)</div></div>
+    </div>
+    <div class="sim-histogram">
+      ${bucketCounts.map(c => `<div class="sim-bar" style="height:${Math.max(2, (c / maxBucket) * 100)}%"></div>`).join("")}
+    </div>
+    <div class="sim-axis"><span>$${min.toFixed(0)}M</span><span>Simulated aggregate loss ($M) &mdash; ${TRIALS.toLocaleString()} trials, ${claims} assumed claim(s), bootstrapped from ${pool.length} real severity figures</span><span>$${max.toFixed(0)}M</span></div>
+  `;
+}
+
 function setupThemeToggle() {
   const btn = document.getElementById("theme-toggle");
   if (!btn) return;
@@ -259,6 +349,8 @@ async function init() {
   renderBacktestChart("backtest-pfas", "pfas", "PFAS/AFFF");
   renderBacktestChart("backtest-talc", "talc", "Talc");
   renderDiscoveryScan();
+  document.getElementById("sim-run").addEventListener("click", runLossSimulation);
+  runLossSimulation();
 }
 init();
 </script>
