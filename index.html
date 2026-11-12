@@ -76,34 +76,27 @@
     .quotes-strip { flex-direction: column; }
   }
 
-  .hero { position: relative; padding: 64px 24px 56px; text-align: center; overflow: hidden; }
-  .hero-mesh {
-    position: absolute; inset: -40px -40px auto -40px; height: 520px; z-index: -1;
+  .hero {
+    position: relative; padding: 130px 24px 100px; text-align: center; overflow: hidden;
     background:
-      radial-gradient(ellipse 720px 420px at 18% 0%, rgba(59,110,246,0.14), transparent 60%),
-      radial-gradient(ellipse 620px 380px at 85% 10%, rgba(179,60,48,0.08), transparent 65%),
-      radial-gradient(ellipse 900px 480px at 50% -10%, rgba(14,17,22,0.05), transparent 70%);
+      linear-gradient(180deg, rgba(8,10,14,0.78) 0%, rgba(8,10,14,0.60) 40%, rgba(8,10,14,0.88) 100%),
+      url("https://images.unsplash.com/photo-1783091478517-e6fb341b516e?fm=jpg&q=80&w=2400&auto=format&fit=crop") center 30% / cover no-repeat;
+    color: #f4f5f7;
   }
-  :root[data-theme="dark"] .hero-mesh {
-    background:
-      radial-gradient(ellipse 720px 420px at 18% 0%, rgba(127,148,194,0.18), transparent 60%),
-      radial-gradient(ellipse 620px 380px at 85% 10%, rgba(226,118,106,0.10), transparent 65%),
-      radial-gradient(ellipse 900px 480px at 50% -10%, rgba(255,255,255,0.03), transparent 70%);
-  }
-  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 26px; }
-  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
-  h1 { font-family: var(--font-serif); font-weight: 500; font-style: italic; font-size: clamp(34px, 6.4vw, 58px); line-height: 1.12; margin: 0 auto 20px; letter-spacing: -0.01em; text-wrap: balance; max-width: 16ch; }
-  .hero p.dek { font-size: 17px; line-height: 1.6; color: var(--ink-muted); max-width: 54ch; margin: 0 auto; }
-  .hero p.dek strong { color: var(--ink); font-weight: 600; }
-  .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.1); color: #d7dae0; font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 26px; backdrop-filter: blur(6px); }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: #7f94c2; }
+  h1 { font-family: var(--font-serif); font-weight: 500; font-style: italic; font-size: clamp(34px, 6.4vw, 60px); line-height: 1.12; margin: 0 auto 20px; letter-spacing: -0.01em; text-wrap: balance; max-width: 16ch; color: #ffffff; }
+  .hero p.dek { font-size: 17px; line-height: 1.6; color: #c7cbd3; max-width: 54ch; margin: 0 auto; }
+  .hero p.dek strong { color: #ffffff; font-weight: 600; }
+  .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
   .hero-btn { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font); font-size: 14.5px; font-weight: 600; padding: 13px 24px; border-radius: 12px; transition: transform 0.15s, opacity 0.15s; }
-  .hero-btn.primary { background: var(--ink); color: var(--page-bg); }
+  .hero-btn.primary { background: #ffffff; color: #0e1116; }
   .hero-btn.primary:hover { opacity: 0.86; transform: translateY(-1px); }
-  .hero-btn.secondary { background: var(--card-bg); color: var(--ink); border: 1px solid rgba(14, 17, 22, 0.12); }
-  .hero-btn.secondary:hover { background: var(--chip-bg); }
-  .hero-trust-note { margin-top: 16px; font-size: 12.5px; color: var(--ink-faint); }
-  .powered-by { margin-top: 22px; font-size: 12.5px; color: var(--ink-faint); }
-  .powered-by strong { color: var(--ink-muted); font-weight: 600; }
+  .hero-btn.secondary { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(6px); }
+  .hero-btn.secondary:hover { background: rgba(255,255,255,0.16); }
+  .hero-trust-note { margin-top: 16px; font-size: 12.5px; color: #9aa1ab; }
+  .powered-by { margin-top: 22px; font-size: 12.5px; color: #8b929c; }
+  .powered-by strong { color: #c7cbd3; font-weight: 600; }
 
   section { padding: 20px 0 0; }
   section.block { padding-top: 56px; }
@@ -237,6 +230,25 @@
   .module-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-bottom: 14px; }
   .module-top-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
 
+  /* ---- Plans: named tiers, not public dollar figures -- a casualty risk-data product sells on
+     an annual contract, not a self-serve checkout, so the goal here is visible structure and a
+     clear CTA per tier, the same thing Postral solves with its segmented quote flow. ---- */
+  .plans-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 30px; align-items: stretch; }
+  .plan-card { flex: 1 1 260px; background: var(--card-bg); border-radius: var(--radius-card); padding: 28px 26px; box-shadow: var(--shadow-card); display: flex; flex-direction: column; border: 1px solid transparent; }
+  .plan-card.featured { border-color: var(--accent-blue); }
+  .plan-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-blue); background: var(--accent-blue-bg); padding: 4px 11px; border-radius: var(--radius-pill); margin-bottom: 14px; align-self: flex-start; }
+  .plan-card h3 { font-size: 19px; font-weight: 600; margin: 0 0 6px; }
+  .plan-price { font-family: var(--font-mono); font-size: 15px; font-weight: 600; color: var(--ink-muted); margin-bottom: 14px; }
+  .plan-desc { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 18px; }
+  .plan-features { list-style: none; margin: 0 0 22px; padding: 0; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+  .plan-features li { font-size: 13.5px; color: var(--ink); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+  .plan-features li svg { flex-shrink: 0; margin-top: 3px; color: var(--accent-blue); }
+  .plan-cta { display: inline-flex; align-items: center; justify-content: center; font-size: 13.5px; font-weight: 600; padding: 11px 18px; border-radius: 10px; }
+  .plan-cta.primary { background: var(--ink); color: var(--page-bg); }
+  .plan-cta.primary:hover { opacity: 0.86; }
+  .plan-cta.secondary { background: var(--chip-bg); color: var(--ink); }
+  .plan-cta.secondary:hover { background: #e4e4e2; }
+
   /* ---- FIG. 01: named, enumerated deliverable catalog (Postral-style "mapped to your rig" pattern) ---- */
   .fig-label { font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 18px; text-align: center; }
   .fig-catalog { display: flex; flex-direction: column; gap: 1px; background: var(--chip-bg); border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); }
@@ -270,6 +282,7 @@
   <div class="brand"><span class="dot"></span> Precedent</div>
   <div class="nav-links">
     <a href="#ontology">How it works</a>
+    <a href="#plans">Plans</a>
     <a href="#portfolio">Check your exposure</a>
     <a href="./xray/">Free PFAS X-Ray</a>
     <a href="./console/" class="cta">Underwriter Console</a>
@@ -278,7 +291,6 @@
 </nav>
 
 <div class="hero">
-  <div class="hero-mesh"></div>
   <span class="eyebrow-pill"><span class="dot"></span>Risk intelligence for casualty insurers</span>
   <h1>Know the claim before it's filed.</h1>
   <p class="dek">We track specific, emerging liability risks &mdash; like PFAS lawsuits and firefighter presumption laws &mdash; <strong>before they turn into claims</strong>, so underwriters can price or exclude them while there's still time. Every figure below comes from a primary source we opened and read, not an estimate.</p>
@@ -472,6 +484,55 @@
     </div>
   </section>
 
+  <!-- PLANS: named tiers and a CTA per tier, not public checkout pricing -- this is a
+       high-touch annual-contract product, the same way Praedicat and Verisk sell. -->
+  <section class="block" id="plans">
+    <div class="section-head">
+      <h2>Plans</h2>
+      <p class="section-sub">Priced like the rest of this category &mdash; an annual license, not a self-serve checkout. No number here would mean anything before we've seen your book.</p>
+    </div>
+    <div class="plans-row">
+      <div class="plan-card">
+        <span class="plan-badge" style="color:var(--accent-green); background:var(--accent-green-bg)">Free</span>
+        <h3>PFAS X-Ray</h3>
+        <div class="plan-price">$0</div>
+        <p class="plan-desc">Paste your book, get back a ranked, flagged-account list with evidence links. Nothing you enter leaves your browser.</p>
+        <ul class="plan-features">
+          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Full PFAS portfolio scan</li>
+          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Evidence links to real filings</li>
+          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>No signup, no account</li>
+        </ul>
+        <a class="plan-cta secondary" href="./xray/">Run the free scan</a>
+      </div>
+
+      <div class="plan-card featured">
+        <span class="plan-badge">Most teams start here</span>
+        <h3>Console</h3>
+        <div class="plan-price">Per-seat annual license</div>
+        <p class="plan-desc">The full module suite for an underwriting team: PFAS &amp; turnout-gear tracker, presumption tracker, litigation timeline, live docket checks, and exportable file notes.</p>
+        <ul class="plan-features">
+          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Every scenario module, unlimited use</li>
+          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Book-of-business exposure calculator</li>
+          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Seats for your full underwriting team</li>
+        </ul>
+        <a class="plan-cta primary" href="#get-in-touch">Contact sales</a>
+      </div>
+
+      <div class="plan-card">
+        <span class="plan-badge" style="color:var(--accent-amber); background:var(--accent-amber-bg)">Enterprise</span>
+        <h3>Data Feed &amp; API</h3>
+        <div class="plan-price">Custom license</div>
+        <p class="plan-desc">The validated crosswalk itself &mdash; statute to chemical variant to NAICS code to policy trigger &mdash; licensed as an API feed into your own underwriting workbench.</p>
+        <ul class="plan-features">
+          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Direct API access to every endpoint</li>
+          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Weekly crosswalk updates</li>
+          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated account support</li>
+        </ul>
+        <a class="plan-cta secondary" href="#get-in-touch">Contact sales</a>
+      </div>
+    </div>
+  </section>
+
   <!-- 1. ONTOLOGY -->
   <section class="block" id="ontology">
     <div class="section-head">
@@ -593,7 +654,7 @@
   </section>
 
   <!-- 4. PILOT / ONE REAL USER -->
-  <section class="block">
+  <section class="block" id="get-in-touch">
     <div class="pilot-card">
       <h3>Looking for one real book to pilot this against</h3>
       <p>Every module here is built from public data, verified line by line. If you work casualty, workers' comp, or PFAS-exposed accounts and would spend 20 minutes walking through how your quarterly review actually works, that's the single most useful thing that could happen to this project right now.</p>
