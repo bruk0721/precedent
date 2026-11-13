@@ -10612,7 +10612,7 @@
   ],
   "emergence_signal": [
     {
-      "id": 4,
+      "id": 7,
       "risk_category": "pfas",
       "current_scale": 15270,
       "current_scale_source": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
@@ -10640,10 +10640,10 @@
           "reason": "not tracked (no FDA FAERS presence for this risk category)"
         }
       ],
-      "computed_at": "2026-11-13T09:44:13.839271+00:00"
+      "computed_at": "2026-11-13T10:11:35.919056+00:00"
     },
     {
-      "id": 5,
+      "id": 8,
       "risk_category": "talc",
       "current_scale": 69376,
       "current_scale_source": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
@@ -10670,10 +10670,10 @@
           "reason": "not tracked (no material-event filings matched for this risk category yet)"
         }
       ],
-      "computed_at": "2026-11-13T09:44:13.873289+00:00"
+      "computed_at": "2026-11-13T10:11:35.935892+00:00"
     },
     {
-      "id": 6,
+      "id": 9,
       "risk_category": "turnout_gear",
       "current_scale": 17,
       "current_scale_source": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
@@ -10697,249 +10697,249 @@
           "reason": "not tracked (no FDA FAERS presence for this risk category)"
         }
       ],
-      "computed_at": "2026-11-13T09:44:13.899405+00:00"
+      "computed_at": "2026-11-13T10:11:35.948384+00:00"
     }
   ],
   "momentum_backtest": [
     {
-      "id": 25,
+      "id": 49,
       "risk_category": "pfas",
       "as_of_year": 2015,
       "growth_pct": 32.0,
       "score": 60.7,
       "recent_avg": 209.0,
       "prior_avg": 158.0,
-      "computed_at": "2026-11-13T09:44:26.090545+00:00"
+      "computed_at": "2026-11-13T10:11:38.691757+00:00"
     },
     {
-      "id": 26,
+      "id": 50,
       "risk_category": "pfas",
       "as_of_year": 2016,
       "growth_pct": 37.1,
       "score": 62.4,
       "recent_avg": 245.0,
       "prior_avg": 179.0,
-      "computed_at": "2026-11-13T09:44:26.090545+00:00"
+      "computed_at": "2026-11-13T10:11:38.691757+00:00"
     },
     {
-      "id": 27,
+      "id": 51,
       "risk_category": "pfas",
       "as_of_year": 2017,
       "growth_pct": 52.8,
       "score": 67.6,
       "recent_avg": 285.0,
       "prior_avg": 186.0,
-      "computed_at": "2026-11-13T09:44:26.090545+00:00"
+      "computed_at": "2026-11-13T10:11:38.691757+00:00"
     },
     {
-      "id": 28,
+      "id": 52,
       "risk_category": "pfas",
       "as_of_year": 2018,
       "growth_pct": 58.1,
       "score": 69.4,
       "recent_avg": 330.0,
       "prior_avg": 209.0,
-      "computed_at": "2026-11-13T09:44:26.090545+00:00"
+      "computed_at": "2026-11-13T10:11:38.691757+00:00"
     },
     {
-      "id": 29,
+      "id": 53,
       "risk_category": "pfas",
       "as_of_year": 2019,
       "growth_pct": 56.0,
       "score": 68.7,
       "recent_avg": 383.0,
       "prior_avg": 245.0,
-      "computed_at": "2026-11-13T09:44:26.090545+00:00"
+      "computed_at": "2026-11-13T10:11:38.691757+00:00"
     },
     {
-      "id": 30,
+      "id": 54,
       "risk_category": "pfas",
       "as_of_year": 2020,
       "growth_pct": 72.5,
       "score": 74.2,
       "recent_avg": 491.0,
       "prior_avg": 285.0,
-      "computed_at": "2026-11-13T09:44:26.090545+00:00"
+      "computed_at": "2026-11-13T10:11:38.691757+00:00"
     },
     {
-      "id": 31,
+      "id": 55,
       "risk_category": "pfas",
       "as_of_year": 2021,
       "growth_pct": 94.8,
       "score": 81.6,
       "recent_avg": 643.0,
       "prior_avg": 330.0,
-      "computed_at": "2026-11-13T09:44:26.090545+00:00"
+      "computed_at": "2026-11-13T10:11:38.691757+00:00"
     },
     {
-      "id": 32,
+      "id": 56,
       "risk_category": "pfas",
       "as_of_year": 2022,
       "growth_pct": 114.5,
       "score": 88.2,
       "recent_avg": 821.0,
       "prior_avg": 383.0,
-      "computed_at": "2026-11-13T09:44:26.090545+00:00"
+      "computed_at": "2026-11-13T10:11:38.691757+00:00"
     },
     {
-      "id": 33,
+      "id": 57,
       "risk_category": "pfas",
       "as_of_year": 2023,
       "growth_pct": 104.8,
       "score": 84.9,
       "recent_avg": 1005.0,
       "prior_avg": 491.0,
-      "computed_at": "2026-11-13T09:44:26.090545+00:00"
+      "computed_at": "2026-11-13T10:11:38.691757+00:00"
     },
     {
-      "id": 34,
+      "id": 58,
       "risk_category": "pfas",
       "as_of_year": 2024,
       "growth_pct": 88.5,
       "score": 79.5,
       "recent_avg": 1213.0,
       "prior_avg": 643.0,
-      "computed_at": "2026-11-13T09:44:26.090545+00:00"
+      "computed_at": "2026-11-13T10:11:38.691757+00:00"
     },
     {
-      "id": 35,
+      "id": 59,
       "risk_category": "pfas",
       "as_of_year": 2025,
       "growth_pct": 83.4,
       "score": 77.8,
       "recent_avg": 1505.0,
       "prior_avg": 821.0,
-      "computed_at": "2026-11-13T09:44:26.090545+00:00"
+      "computed_at": "2026-11-13T10:11:38.691757+00:00"
     },
     {
-      "id": 36,
+      "id": 60,
       "risk_category": "pfas",
       "as_of_year": 2026,
       "growth_pct": 76.7,
       "score": 75.6,
       "recent_avg": 1776.0,
       "prior_avg": 1005.0,
-      "computed_at": "2026-11-13T09:44:26.090545+00:00"
+      "computed_at": "2026-11-13T10:11:38.691757+00:00"
     },
     {
-      "id": 37,
+      "id": 61,
       "risk_category": "talc",
       "as_of_year": 2015,
       "growth_pct": -4.1,
       "score": 48.6,
       "recent_avg": 24.0,
       "prior_avg": 25.0,
-      "computed_at": "2026-11-13T09:44:26.104863+00:00"
+      "computed_at": "2026-11-13T10:11:38.709761+00:00"
     },
     {
-      "id": 38,
+      "id": 62,
       "risk_category": "talc",
       "as_of_year": 2016,
       "growth_pct": 23.1,
       "score": 57.7,
       "recent_avg": 27.0,
       "prior_avg": 22.0,
-      "computed_at": "2026-11-13T09:44:26.104863+00:00"
+      "computed_at": "2026-11-13T10:11:38.709761+00:00"
     },
     {
-      "id": 39,
+      "id": 63,
       "risk_category": "talc",
       "as_of_year": 2017,
       "growth_pct": 31.9,
       "score": 60.6,
       "recent_avg": 32.0,
       "prior_avg": 24.0,
-      "computed_at": "2026-11-13T09:44:26.104863+00:00"
+      "computed_at": "2026-11-13T10:11:38.709761+00:00"
     },
     {
-      "id": 40,
+      "id": 64,
       "risk_category": "talc",
       "as_of_year": 2018,
       "growth_pct": 50.7,
       "score": 66.9,
       "recent_avg": 36.0,
       "prior_avg": 24.0,
-      "computed_at": "2026-11-13T09:44:26.104863+00:00"
+      "computed_at": "2026-11-13T10:11:38.709761+00:00"
     },
     {
-      "id": 41,
+      "id": 65,
       "risk_category": "talc",
       "as_of_year": 2019,
       "growth_pct": 80.0,
       "score": 76.7,
       "recent_avg": 48.0,
       "prior_avg": 27.0,
-      "computed_at": "2026-11-13T09:44:26.104863+00:00"
+      "computed_at": "2026-11-13T10:11:38.709761+00:00"
     },
     {
-      "id": 42,
+      "id": 66,
       "risk_category": "talc",
       "as_of_year": 2020,
       "growth_pct": 80.0,
       "score": 76.7,
       "recent_avg": 57.0,
       "prior_avg": 32.0,
-      "computed_at": "2026-11-13T09:44:26.104863+00:00"
+      "computed_at": "2026-11-13T10:11:38.709761+00:00"
     },
     {
-      "id": 43,
+      "id": 67,
       "risk_category": "talc",
       "as_of_year": 2021,
       "growth_pct": 63.6,
       "score": 71.2,
       "recent_avg": 58.0,
       "prior_avg": 36.0,
-      "computed_at": "2026-11-13T09:44:26.104863+00:00"
+      "computed_at": "2026-11-13T10:11:38.709761+00:00"
     },
     {
-      "id": 44,
+      "id": 68,
       "risk_category": "talc",
       "as_of_year": 2022,
       "growth_pct": 2.1,
       "score": 50.7,
       "recent_avg": 49.0,
       "prior_avg": 48.0,
-      "computed_at": "2026-11-13T09:44:26.104863+00:00"
+      "computed_at": "2026-11-13T10:11:38.709761+00:00"
     },
     {
-      "id": 45,
+      "id": 69,
       "risk_category": "talc",
       "as_of_year": 2023,
       "growth_pct": -25.7,
       "score": 41.4,
       "recent_avg": 42.0,
       "prior_avg": 57.0,
-      "computed_at": "2026-11-13T09:44:26.104863+00:00"
+      "computed_at": "2026-11-13T10:11:38.709761+00:00"
     },
     {
-      "id": 46,
+      "id": 70,
       "risk_category": "talc",
       "as_of_year": 2024,
       "growth_pct": -31.4,
       "score": 39.5,
       "recent_avg": 40.0,
       "prior_avg": 58.0,
-      "computed_at": "2026-11-13T09:44:26.104863+00:00"
+      "computed_at": "2026-11-13T10:11:38.709761+00:00"
     },
     {
-      "id": 47,
+      "id": 71,
       "risk_category": "talc",
       "as_of_year": 2025,
       "growth_pct": -21.8,
       "score": 42.7,
       "recent_avg": 38.0,
       "prior_avg": 49.0,
-      "computed_at": "2026-11-13T09:44:26.104863+00:00"
+      "computed_at": "2026-11-13T10:11:38.709761+00:00"
     },
     {
-      "id": 48,
+      "id": 72,
       "risk_category": "talc",
       "as_of_year": 2026,
       "growth_pct": -10.2,
       "score": 46.6,
       "recent_avg": 38.0,
       "prior_avg": 42.0,
-      "computed_at": "2026-11-13T09:44:26.104863+00:00"
+      "computed_at": "2026-11-13T10:11:38.709761+00:00"
     }
   ],
   "discovery_candidates": [
@@ -11976,6 +11976,11 @@
       "computed_at": "2026-11-13T09:44:13.839271+00:00"
     },
     {
+      "risk_category": "pfas",
+      "momentum_score": 75.6,
+      "computed_at": "2026-11-13T10:11:35.919056+00:00"
+    },
+    {
       "risk_category": "talc",
       "momentum_score": 46.6,
       "computed_at": "2026-11-12T21:58:02.533515+00:00"
@@ -11986,6 +11991,11 @@
       "computed_at": "2026-11-13T09:44:13.873289+00:00"
     },
     {
+      "risk_category": "talc",
+      "momentum_score": 73.3,
+      "computed_at": "2026-11-13T10:11:35.935892+00:00"
+    },
+    {
       "risk_category": "turnout_gear",
       "momentum_score": null,
       "computed_at": "2026-11-12T21:58:02.547270+00:00"
@@ -11994,6 +12004,11 @@
       "risk_category": "turnout_gear",
       "momentum_score": null,
       "computed_at": "2026-11-13T09:44:13.899405+00:00"
+    },
+    {
+      "risk_category": "turnout_gear",
+      "momentum_score": null,
+      "computed_at": "2026-11-13T10:11:35.948384+00:00"
     }
   ],
   "downstream_adjacency": {
@@ -12624,5 +12639,5 @@
       }
     }
   },
-  "generated_at": "2026-11-13T09:45:21.365313+00:00"
+  "generated_at": "2026-11-13T10:11:41.902760+00:00"
 }
