@@ -345,7 +345,7 @@
   <div class="hero-overlay"></div>
   <span class="eyebrow-pill"><span class="dot"></span>Risk intelligence for casualty insurers</span>
   <h1>Know the claim before it's filed.</h1>
-  <p class="dek">We track specific, emerging liability risks &mdash; like PFAS lawsuits and firefighter presumption laws &mdash; <strong>before they turn into claims</strong>, so underwriters can price or exclude them while there's still time. Every figure below comes from a primary source we opened and read, not an estimate.</p>
+  <p class="dek">We track emerging liability risks &mdash; like PFAS lawsuits and firefighter presumption laws &mdash; <strong>before they turn into claims</strong>, so underwriters can price or exclude them while there's still time.</p>
   <div class="hero-ctas">
     <a class="hero-btn primary" href="./console/">Open the Underwriter Console
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -386,6 +386,63 @@
 </div>
 
 <div class="wrap">
+
+  <!-- TRY IT NOW: the two actually-live tools, moved to the top of the page so the
+       first thing below the fold is the product running, not a description of it. -->
+  <section class="block" id="try-it" style="padding-top:20px;">
+    <div class="section-head">
+      <span class="eyebrow-pill" style="background:var(--chip-bg); color:var(--ink-muted); margin-bottom:14px;"><span class="dot" style="background:var(--accent-blue)"></span>Live, not a mockup</span>
+      <h2>Try it before you read about it</h2>
+      <p class="section-sub">Two real tools, running right now against live public data. Nothing you enter leaves your browser.</p>
+    </div>
+  </section>
+
+  <!-- 2. LIVE DOCKET CHECK -->
+  <section class="block" id="live-check" style="padding-top:24px;">
+    <div class="section-head">
+      <h2>Live docket check</h2>
+      <p class="section-sub">Queries CourtListener's public RECAP archive directly from your browser for new MDL 3191 filings, so this module doesn't go stale between manual research passes.</p>
+    </div>
+    <div class="map-card">
+      <div class="portfolio-input-row">
+        <input type="text" id="docket-query" value="MDL No. 3191 turnout gear" autocomplete="off">
+        <button id="docket-check" class="portfolio-btn">Check for new filings</button>
+      </div>
+      <div id="docket-result"></div>
+    </div>
+  </section>
+
+  <!-- 3. BOOK OF BUSINESS + existing simple checker -->
+  <section class="block" id="portfolio">
+    <div class="section-head">
+      <h2>Check your exposure</h2>
+      <p class="section-sub">Enter your actual book &mdash; state, policy count, and total insured value &mdash; and we'll weight it against active litigation, the prediction ranking, and all four presumption categories at once. Nothing you type here leaves your browser.</p>
+    </div>
+    <div class="map-card">
+      <table class="bob-table" id="bob-table">
+        <tr><th style="width:22%">State</th><th style="width:24%">Policy count</th><th style="width:34%">Total insured value ($)</th><th></th></tr>
+      </table>
+      <div class="bob-actions">
+        <button id="bob-add-row" class="portfolio-btn secondary">+ Add state</button>
+        <button id="bob-check" class="portfolio-btn">Calculate exposure</button>
+      </div>
+      <div id="bob-result"></div>
+    </div>
+
+    <details class="map-card disclosure">
+      <summary><p style="font-size:13px; color:var(--ink-faint); margin:0;">Prefer a quick state-only check instead of the full book above? Use the simple version:</p><span class="chevron">&#9656;</span></summary>
+      <div class="portfolio-input-row" style="margin-top:14px;">
+        <input type="text" id="portfolio-states" placeholder="e.g. MI, CO, OH or Michigan, Colorado, Ohio" autocomplete="off">
+        <button id="portfolio-check" class="portfolio-btn secondary">Check states</button>
+      </div>
+      <div class="portfolio-save-row">
+        <input type="text" id="portfolio-save-name" placeholder="Name this portfolio (e.g. Primary book)" autocomplete="off">
+        <button id="portfolio-save" class="portfolio-btn secondary">Save</button>
+      </div>
+      <div class="saved-portfolios" id="saved-portfolios"></div>
+      <div id="portfolio-result"></div>
+    </details>
+  </section>
 
   <section>
     <div class="section-head">
@@ -611,7 +668,9 @@
       <h2>Who this is for</h2>
       <p class="section-sub">Not just underwriters &mdash; the same real data, read differently by each real role in the chain.</p>
     </div>
-    <div class="persona-grid">
+    <details class="disclosure">
+      <summary><span style="font-size:14px; font-weight:600;">See all 6 roles</span><span class="chevron">&#9656;</span></summary>
+    <div class="persona-grid" style="margin-top:20px;">
       <div class="persona-card">
         <div class="p-role">Underwriting</div>
         <h3>Underwriters</h3>
@@ -654,6 +713,7 @@
       <h3>Built for how Lloyd's market actually works, not just one syndicate</h3>
       <p>Lloyd's own 2026 Realistic Disaster Scenarios (RDS) specification makes <b>RDS Liability</b> a compulsory, twice-yearly reporting requirement for every syndicate &mdash; casualty catastrophe reporting is no longer optional market-wide. Nubuye's evidence-tiered, leading-indicator data is built to inform exactly that kind of mandatory casualty-scenario reporting, not just a single underwriter's individual account review.</p>
     </div>
+    </details>
   </section>
 
   <section class="block" id="why-now">
@@ -661,7 +721,9 @@
       <h2>Why this isn't optional</h2>
       <p class="section-sub">Not our claim &mdash; the industry's own numbers.</p>
     </div>
-    <div class="plans-row">
+    <details class="disclosure">
+      <summary><span style="font-size:14px; font-weight:600;">Read the industry numbers</span><span class="chevron">&#9656;</span></summary>
+    <div class="plans-row" style="margin-top:20px;">
       <div class="plan-card">
         <span class="plan-badge" style="color:var(--accent-red); background:var(--accent-red-bg)">Reserve adequacy</span>
         <h3>$9B deficiency, real not theoretical</h3>
@@ -678,6 +740,7 @@
         <p class="plan-desc">Guy Carpenter's own casualty-cat research: by the time a casualty catastrophe signal is visible, it's typically too late to act. Lloyd's calls this modeling category "a relatively new field without an established methodology." The Emergence Signal exists specifically to surface leading indicators &mdash; before the filings, not after. <a href="./validation/" style="color:var(--accent-blue);font-weight:600">See the real backtest &rarr;</a></p>
       </div>
     </div>
+    </details>
   </section>
 
   <!-- NEXT CATEGORY: honestly flagged, not fabricated. No MDL exists yet -- checked directly. -->
@@ -686,11 +749,13 @@
       <h2>What we're watching next</h2>
       <p class="section-sub">Named by the industry itself, not yet tracked here &mdash; the honest difference between a signal and a tracked category.</p>
     </div>
-    <div class="map-card" style="text-align:left;">
-      <h3 style="margin:0 0 8px;font-size:18px;">Indoor Air Quality &mdash; Mold &amp; Legionella</h3>
+    <details class="disclosure">
+      <summary><span style="font-size:14px; font-weight:600;">Indoor Air Quality &mdash; Mold &amp; Legionella</span><span class="chevron">&#9656;</span></summary>
+    <div class="map-card" style="text-align:left;margin-top:20px;">
       <p style="font-size:14px;line-height:1.7;color:var(--ink-muted);margin:0 0 14px;">Gallagher's own environment-practice director said in May 2026 that environmental casualty insurers are now tightening terms on PFAS <i>and</i> indoor air quality risks &mdash; mold, Legionella &mdash; together, as both escalate. Real, individual coverage disputes are already surfacing: a Florida Legionella/hot-tub exhaustion-of-limits dispute, an insurer (Arch) seeking a ruling that its pollution exclusion bars Legionella coverage, and a multi-state military-housing mold bad-faith suit against CGL/pollution insurers.</p>
       <p style="font-size:13px;color:var(--ink-faint);line-height:1.6;margin:0;"><b>Checked directly, stated honestly:</b> no JPML multidistrict consolidation exists yet for mold or Legionella claims &mdash; this is scattered individual litigation, not a mass tort, the same early stage turnout-gear litigation was at when this project started tracking it. Flagged here as a real, named next category to watch, not fabricated as already-tracked data.</p>
     </div>
+    </details>
   </section>
 
   <!-- 1. ONTOLOGY -->
@@ -699,7 +764,9 @@
       <h2>How Nubuye models risk</h2>
       <p class="section-sub">Every module reads and writes to the same underlying objects. A new statute doesn't just update one page &mdash; it re-scores every state, every litigation action, and every prediction that touches it.</p>
     </div>
-    <div class="map-card">
+    <details class="disclosure">
+      <summary><span style="font-size:14px; font-weight:600;">See the data model</span><span class="chevron">&#9656;</span></summary>
+    <div class="map-card" style="margin-top:20px;">
       <div class="ontology-diagram">
         <div class="ont-row">
           <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">State</span></div>
@@ -728,6 +795,7 @@
       </div>
       <p class="ontology-note">This is why the two modules above and the exposure checker below all stay in sync off one data layer: a state is one object referenced everywhere it's relevant, not copy-pasted into three separate trackers. Click "Check your exposure" to query this layer against your own book, not just a state list.</p>
     </div>
+    </details>
   </section>
 
   <!-- 5. WHAT WE SELL, now a named workflow -->
@@ -763,53 +831,6 @@
         </tr>
       </table>
       <p style="font-size:13px; color:var(--ink-faint); margin:16px 0 0; line-height:1.6;">The underlying public records &mdash; court dockets, state statutes &mdash; aren't what makes this hard to copy; any competitor can pull the same filings. What isn't public is the validated crosswalk connecting a specific statute to a specific chemical variant to a specific NAICS code to a specific policy trigger: that mapping gets more accurate and harder to replicate every week it keeps running, which is the actual bet here. This isn't a claim to replace either category above. It's a different one: that a narrow, radically transparent tool updated weekly beats a broad platform updated quarterly, for the specific accounts where it actually matters.</p>
-    </details>
-  </section>
-
-  <!-- 2. LIVE DOCKET CHECK -->
-  <section class="block" id="live-check">
-    <div class="section-head">
-      <h2>Live docket check</h2>
-      <p class="section-sub">Queries CourtListener's public RECAP archive directly from your browser for new MDL 3191 filings, so this module doesn't go stale between manual research passes.</p>
-    </div>
-    <div class="map-card">
-      <div class="portfolio-input-row">
-        <input type="text" id="docket-query" value="MDL No. 3191 turnout gear" autocomplete="off">
-        <button id="docket-check" class="portfolio-btn">Check for new filings</button>
-      </div>
-      <div id="docket-result"></div>
-    </div>
-  </section>
-
-  <!-- 3. BOOK OF BUSINESS + existing simple checker -->
-  <section class="block" id="portfolio">
-    <div class="section-head">
-      <h2>Check your exposure</h2>
-      <p class="section-sub">Enter your actual book &mdash; state, policy count, and total insured value &mdash; and we'll weight it against active litigation, the prediction ranking, and all four presumption categories at once. Nothing you type here leaves your browser.</p>
-    </div>
-    <div class="map-card">
-      <table class="bob-table" id="bob-table">
-        <tr><th style="width:22%">State</th><th style="width:24%">Policy count</th><th style="width:34%">Total insured value ($)</th><th></th></tr>
-      </table>
-      <div class="bob-actions">
-        <button id="bob-add-row" class="portfolio-btn secondary">+ Add state</button>
-        <button id="bob-check" class="portfolio-btn">Calculate exposure</button>
-      </div>
-      <div id="bob-result"></div>
-    </div>
-
-    <details class="map-card disclosure">
-      <summary><p style="font-size:13px; color:var(--ink-faint); margin:0;">Prefer a quick state-only check instead of the full book above? Use the simple version:</p><span class="chevron">&#9656;</span></summary>
-      <div class="portfolio-input-row" style="margin-top:14px;">
-        <input type="text" id="portfolio-states" placeholder="e.g. MI, CO, OH or Michigan, Colorado, Ohio" autocomplete="off">
-        <button id="portfolio-check" class="portfolio-btn secondary">Check states</button>
-      </div>
-      <div class="portfolio-save-row">
-        <input type="text" id="portfolio-save-name" placeholder="Name this portfolio (e.g. Primary book)" autocomplete="off">
-        <button id="portfolio-save" class="portfolio-btn secondary">Save</button>
-      </div>
-      <div class="saved-portfolios" id="saved-portfolios"></div>
-      <div id="portfolio-result"></div>
     </details>
   </section>
 

@@ -12450,6 +12450,102 @@
       "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0",
       "magnitude_usd_millions": null,
       "case_count": 17
+    },
+    {
+      "date": "2022-10-17",
+      "date_precision": "day",
+      "category": "hair_relaxer",
+      "title": "NIH Sister Study links frequent use to uterine cancer",
+      "description": "The real NIEHS-led Sister Study (33,497 US women): frequent chemical hair straightener users estimated at 4.05% lifetime uterine cancer risk by age 70, vs. 1.64% for never-users -- a real association, not a proven causal mechanism, and the study didn't identify specific chemical drivers. The real epidemiological basis the entire litigation wave rests on.",
+      "tier": "REPORTED",
+      "source": "Real news coverage of the NIEHS/Sister Study findings (date of first wide coverage)",
+      "source_url": "https://www.fox6now.com/news/frequent-chemical-hair-straightening-linked-higher-uterine-cancer-risk-nih-study",
+      "magnitude_usd_millions": null,
+      "case_count": null
+    },
+    {
+      "date": "2023-02-06",
+      "date_precision": "day",
+      "category": "hair_relaxer",
+      "title": "MDL-3060 formed",
+      "description": "IN RE: Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- JPML's own real transfer order, centralized in N.D. Illinois before Judge Mary M. Rowland.",
+      "tier": "VERIFIED",
+      "source": "JPML's own real transfer order",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3060-Transfer_Order-1-23.pdf",
+      "magnitude_usd_millions": null,
+      "case_count": null
+    },
+    {
+      "date": "2026-11-02",
+      "date_precision": "day",
+      "category": "hair_relaxer",
+      "title": "MDL-3060: 12,743 actions pending, 17,018 total historical",
+      "description": "Real, current JPML scale -- already larger by pending-case count than PFAS/AFFF, despite resting on real scientific momentum that's nearly flat (see the Validation page's discovery scan).",
+      "tier": "REPORTED",
+      "source": "JPML's own official pending-MDL report",
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0",
+      "magnitude_usd_millions": null,
+      "case_count": 12743
+    },
+    {
+      "date": "2022-10-06",
+      "date_precision": "day",
+      "category": "social_media_mental_health",
+      "title": "MDL-3047 formed",
+      "description": "IN RE: Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- JPML's own real decision, centralized in N.D. California (Judge Yvonne Gonzalez Rogers).",
+      "tier": "VERIFIED",
+      "source": "JPML's own real transfer decision",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/MDL-3047-Transfer_Order-1-23.pdf",
+      "magnitude_usd_millions": null,
+      "case_count": null
+    },
+    {
+      "date": "2026-02-27",
+      "date_precision": "day",
+      "category": "social_media_mental_health",
+      "title": "Meta's own insurers ruled to owe no duty to defend",
+      "description": "Real Delaware Superior Court ruling (Hartford Casualty Ins. Co. v. Meta, applying California law): the underlying complaints don't allege an \"accident\"/\"occurrence,\" so CGL defense coverage isn't triggered. Meta has since appealed to the Delaware Supreme Court. The documented reason this category is already a real insurance-coverage fight, not just an underlying tort.",
+      "tier": "REPORTED",
+      "source": "Insurance Journal, trade-press coverage of the real ruling",
+      "source_url": "https://www.insurancejournal.com/magazines/mag-features/2026/03/23/862428.htm",
+      "magnitude_usd_millions": null,
+      "case_count": null
+    },
+    {
+      "date": "2026-11-02",
+      "date_precision": "day",
+      "category": "social_media_mental_health",
+      "title": "MDL-3047: 4,309 actions pending, 4,495 total historical",
+      "description": "Real, current JPML scale -- the smallest of the three newly tracked categories by case count, but the strongest real scientific momentum (80.0/100, see the Validation page).",
+      "tier": "REPORTED",
+      "source": "JPML's own official pending-MDL report",
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0",
+      "magnitude_usd_millions": null,
+      "case_count": 4309
+    },
+    {
+      "date": "2026-02-17",
+      "date_precision": "day",
+      "category": "glyphosate",
+      "title": "Bayer's real $7.25B proposed Roundup settlement",
+      "description": "Real, announced proposed settlement (Monsanto, a Bayer subsidiary) -- annual payments over up to 21 years, filed in the Circuit Court of the City of St. Louis, still subject to court approval as of this snapshot. Doesn't resolve the separate pending Supreme Court preemption case.",
+      "tier": "REPORTED",
+      "source": "Multiple real trade/business press (Fortune, ABC News affiliates), same day coverage",
+      "source_url": "https://fortune.com/2026/02/18/bayer-reaches-7-25-billion-settlement-over-claims-that-roundup-caused-cancer/",
+      "magnitude_usd_millions": 7250,
+      "case_count": null
+    },
+    {
+      "date": "2026-11-02",
+      "date_precision": "day",
+      "category": "glyphosate",
+      "title": "MDL-2741: 916 actions pending, 5,319 total historical",
+      "description": "Real, current JPML scale -- pending is a small fraction of total historical, the real signature of a mature tort moving through resolution, not an emerging one. Scientific momentum correctly scores near-neutral (48.2/100, see the Validation page).",
+      "tier": "REPORTED",
+      "source": "JPML's own official pending-MDL report",
+      "source_url": "https://www.jpml.uscourts.gov/pending-mdls-0",
+      "magnitude_usd_millions": null,
+      "case_count": 916
     }
   ],
   "reserve_development_benchmark": {
@@ -12482,5 +12578,5 @@
       }
     }
   },
-  "generated_at": "2026-11-13T04:10:20.244396+00:00"
+  "generated_at": "2026-11-13T09:17:01.112682+00:00"
 }

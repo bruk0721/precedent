@@ -13,6 +13,7 @@
     --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1;
     --accent-amber: #b8601f; --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df;
     --accent-gray: #5c6370; --accent-gray-bg: #eef0f3; --nav-bg: rgba(247, 248, 250, 0.78);
+    --accent-green: #1a7a4c; --accent-green-bg: #e3f0e9; --accent-purple: #6b46c1; --accent-purple-bg: #ece6f9; --accent-teal: #0f6e56; --accent-teal-bg: #e1f5ee;
     --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
     --radius-card: 20px; --radius-pill: 999px;
@@ -24,6 +25,7 @@
     --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
     --accent-amber: #e2974f; --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816;
     --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.78);
+    --accent-green: #6fbf96; --accent-green-bg: #163026; --accent-purple: #a78bda; --accent-purple-bg: #28213a; --accent-teal: #5dcaa5; --accent-teal-bg: #0e2420;
     --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
     color-scheme: dark;
   }
@@ -184,6 +186,9 @@ const CATEGORY_META = {
   talc: { label: "Talc", colorVar: "--accent-amber" },
   turnout_gear: { label: "Turnout Gear", colorVar: "--accent-blue" },
   asbestos: { label: "Asbestos (analog)", colorVar: "--accent-gray" },
+  hair_relaxer: { label: "Hair Relaxer", colorVar: "--accent-green" },
+  social_media_mental_health: { label: "Social Media / Mental Health", colorVar: "--accent-purple" },
+  glyphosate: { label: "Glyphosate / Roundup", colorVar: "--accent-teal" },
 };
 // Real order-of-magnitude reference dots for the legend -- scaled by the
 // same sqrt(area) function used for real rail dots, so the legend is
@@ -349,7 +354,7 @@ function setupScrollObserver() {
   document.querySelectorAll(".milestone").forEach(el => observer.observe(el));
 }
 
-const CATEGORY_ORDER = ["asbestos", "pfas", "talc", "turnout_gear"];
+const CATEGORY_ORDER = ["asbestos", "pfas", "talc", "turnout_gear", "hair_relaxer", "social_media_mental_health", "glyphosate"];
 
 function eraHeroStat(catMilestones) {
   const withMag = catMilestones.filter(m => m.magnitude_usd_millions != null).sort((a, b) => b.magnitude_usd_millions - a.magnitude_usd_millions);
