@@ -22570,6 +22570,365 @@
       "extracted_at": "2026-11-13T11:06:03.680234+00:00"
     }
   ],
+  "samhsa_treatment_facilities": [
+    {
+      "id": 1,
+      "state_code": "AL",
+      "facility_count": 245,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:22:43.295559+00:00"
+    },
+    {
+      "id": 2,
+      "state_code": "AK",
+      "facility_count": 164,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:22:45.850450+00:00"
+    },
+    {
+      "id": 3,
+      "state_code": "AZ",
+      "facility_count": 904,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:22:48.308576+00:00"
+    },
+    {
+      "id": 4,
+      "state_code": "AR",
+      "facility_count": 287,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:22:50.800510+00:00"
+    },
+    {
+      "id": 5,
+      "state_code": "CA",
+      "facility_count": 2074,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:22:53.606929+00:00"
+    },
+    {
+      "id": 6,
+      "state_code": "CO",
+      "facility_count": 472,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:22:56.582613+00:00"
+    },
+    {
+      "id": 7,
+      "state_code": "CT",
+      "facility_count": 383,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:22:59.446231+00:00"
+    },
+    {
+      "id": 8,
+      "state_code": "DE",
+      "facility_count": 87,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:02.105652+00:00"
+    },
+    {
+      "id": 9,
+      "state_code": "DC",
+      "facility_count": 55,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:05.054730+00:00"
+    },
+    {
+      "id": 10,
+      "state_code": "FL",
+      "facility_count": 1080,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:07.953787+00:00"
+    },
+    {
+      "id": 11,
+      "state_code": "GA",
+      "facility_count": 489,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:10.845693+00:00"
+    },
+    {
+      "id": 12,
+      "state_code": "HI",
+      "facility_count": 109,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:13.635538+00:00"
+    },
+    {
+      "id": 13,
+      "state_code": "ID",
+      "facility_count": 334,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:16.773534+00:00"
+    },
+    {
+      "id": 14,
+      "state_code": "IL",
+      "facility_count": 1035,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:19.591881+00:00"
+    },
+    {
+      "id": 15,
+      "state_code": "IN",
+      "facility_count": 727,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:22.190203+00:00"
+    },
+    {
+      "id": 16,
+      "state_code": "IA",
+      "facility_count": 387,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:25.195742+00:00"
+    },
+    {
+      "id": 17,
+      "state_code": "KS",
+      "facility_count": 269,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:27.923456+00:00"
+    },
+    {
+      "id": 18,
+      "state_code": "KY",
+      "facility_count": 807,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:31.043545+00:00"
+    },
+    {
+      "id": 19,
+      "state_code": "LA",
+      "facility_count": 315,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:33.722141+00:00"
+    },
+    {
+      "id": 20,
+      "state_code": "ME",
+      "facility_count": 237,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:36.425419+00:00"
+    },
+    {
+      "id": 21,
+      "state_code": "MD",
+      "facility_count": 870,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:39.309638+00:00"
+    },
+    {
+      "id": 22,
+      "state_code": "MA",
+      "facility_count": 628,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:42.012020+00:00"
+    },
+    {
+      "id": 23,
+      "state_code": "MI",
+      "facility_count": 733,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:44.759748+00:00"
+    },
+    {
+      "id": 24,
+      "state_code": "MN",
+      "facility_count": 741,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:47.583595+00:00"
+    },
+    {
+      "id": 25,
+      "state_code": "MS",
+      "facility_count": 218,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:50.305680+00:00"
+    },
+    {
+      "id": 26,
+      "state_code": "MO",
+      "facility_count": 516,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:53.527437+00:00"
+    },
+    {
+      "id": 27,
+      "state_code": "MT",
+      "facility_count": 139,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:56.087484+00:00"
+    },
+    {
+      "id": 28,
+      "state_code": "NE",
+      "facility_count": 249,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:23:58.495537+00:00"
+    },
+    {
+      "id": 29,
+      "state_code": "NV",
+      "facility_count": 221,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:01.349944+00:00"
+    },
+    {
+      "id": 30,
+      "state_code": "NH",
+      "facility_count": 140,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:04.018110+00:00"
+    },
+    {
+      "id": 31,
+      "state_code": "NJ",
+      "facility_count": 700,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:06.906184+00:00"
+    },
+    {
+      "id": 32,
+      "state_code": "NM",
+      "facility_count": 218,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:09.650407+00:00"
+    },
+    {
+      "id": 33,
+      "state_code": "NY",
+      "facility_count": 1504,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:12.652151+00:00"
+    },
+    {
+      "id": 34,
+      "state_code": "NC",
+      "facility_count": 787,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:15.317392+00:00"
+    },
+    {
+      "id": 35,
+      "state_code": "ND",
+      "facility_count": 112,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:18.097663+00:00"
+    },
+    {
+      "id": 36,
+      "state_code": "OH",
+      "facility_count": 1179,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:20.795932+00:00"
+    },
+    {
+      "id": 37,
+      "state_code": "OK",
+      "facility_count": 276,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:23.532029+00:00"
+    },
+    {
+      "id": 38,
+      "state_code": "OR",
+      "facility_count": 364,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:26.223574+00:00"
+    },
+    {
+      "id": 39,
+      "state_code": "PA",
+      "facility_count": 968,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:28.785427+00:00"
+    },
+    {
+      "id": 40,
+      "state_code": "RI",
+      "facility_count": 90,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:31.500050+00:00"
+    },
+    {
+      "id": 41,
+      "state_code": "SC",
+      "facility_count": 194,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:34.155520+00:00"
+    },
+    {
+      "id": 42,
+      "state_code": "SD",
+      "facility_count": 83,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:36.905334+00:00"
+    },
+    {
+      "id": 43,
+      "state_code": "TN",
+      "facility_count": 632,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:39.969218+00:00"
+    },
+    {
+      "id": 44,
+      "state_code": "TX",
+      "facility_count": 855,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:42.875136+00:00"
+    },
+    {
+      "id": 45,
+      "state_code": "UT",
+      "facility_count": 604,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:45.563401+00:00"
+    },
+    {
+      "id": 46,
+      "state_code": "VT",
+      "facility_count": 110,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:48.556114+00:00"
+    },
+    {
+      "id": 47,
+      "state_code": "VA",
+      "facility_count": 545,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:51.451286+00:00"
+    },
+    {
+      "id": 48,
+      "state_code": "WA",
+      "facility_count": 602,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:54.310593+00:00"
+    },
+    {
+      "id": 49,
+      "state_code": "WV",
+      "facility_count": 254,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:57.226875+00:00"
+    },
+    {
+      "id": 50,
+      "state_code": "WI",
+      "facility_count": 533,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:24:59.949902+00:00"
+    },
+    {
+      "id": 51,
+      "state_code": "WY",
+      "facility_count": 93,
+      "source_url": "https://findtreatment.gov/locator/exportsAsJson/v2",
+      "extracted_at": "2026-11-13T19:25:02.695668+00:00"
+    }
+  ],
   "jpml_mdl_statistics": [
     {
       "id": 1,
@@ -24903,5 +25262,5 @@
       }
     }
   },
-  "generated_at": "2026-11-13T11:09:44.495187+00:00"
+  "generated_at": "2026-11-13T19:25:35.081331+00:00"
 }
