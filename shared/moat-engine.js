@@ -524,6 +524,60 @@ const MoatEngine = (() => {
   // conclusion from the two real, independent numbers, not from a
   // computed trend this pipeline isn't equipped to state honestly.
   // See cancer_incidence_pipeline.py and state_contamination_sites.
+  // Coverage matrix -- the real answer to "what does Nubuye actually track."
+  // Different real pipelines name the same category differently (JPML
+  // calls it "hair_relaxer", the discovery-scan/clinical-trials/pharma
+  // pipelines call the same thing "hair_relaxer_chemicals"; JPML's
+  // "social_media_mental_health" vs discovery-scan's
+  // "social_media_adolescent_mental_health"). This alias map exists
+  // ONLY to let one canonical row represent the same real category
+  // across tables that independently named it differently -- it does
+  // not invent coverage; a category with zero real rows in a table
+  // still shows as not-tracked for that signal.
+  const CATEGORY_ALIASES = {
+    pfas: ["pfas"],
+    talc: ["talc"],
+    turnout_gear: ["turnout_gear"],
+    hair_relaxer: ["hair_relaxer", "hair_relaxer_chemicals"],
+    social_media_mental_health: ["social_media_mental_health", "social_media_adolescent_mental_health"],
+    glyphosate: ["glyphosate"],
+  };
+  const CATEGORY_LABELS = {
+    pfas: "PFAS / AFFF", talc: "Talc", turnout_gear: "Turnout Gear",
+    hair_relaxer: "Hair Relaxer", social_media_mental_health: "Social Media / Mental Health", glyphosate: "Glyphosate / Roundup",
+  };
+
+  function _hasAny(rows, field, aliases) {
+    return rows.some(r => aliases.includes(r[field]));
+  }
+
+  function getCoverageMatrix() {
+    const db = DB || {};
+    const sciMomentum = db.scientific_literature_momentum || [];
+    const legislative = db.legislative_timeline || [];
+    const materialEvents = db.material_event_filings || [];
+    const fdaEvents = db.fda_adverse_events || [];
+    const clinicalTrials = db.clinical_trials || [];
+    const pharmaRecalls = db.pharma_recalls || [];
+    const jpml = db.jpml_mdl_statistics || [];
+    const discovery = db.discovery_candidates || [];
+
+    const SIGNALS = [
+      { key: "jpml", label: "Real MDL / JPML scale", check: (al) => _hasAny(jpml, "risk_category", al) },
+      { key: "sci", label: "Scientific literature (PubMed)", check: (al) => _hasAny(sciMomentum, "risk_category", al) || _hasAny(discovery, "candidate", al) },
+      { key: "leg", label: "State legislation", check: (al) => al.some(a => legislative.some(r => r.category && r.category.includes(a))) },
+      { key: "sec", label: "SEC 8-K filings", check: (al) => _hasAny(materialEvents, "risk_category", al) },
+      { key: "fda", label: "FDA adverse events", check: (al) => _hasAny(fdaEvents, "risk_category", al) },
+      { key: "trials", label: "Clinical trials (terminated/withdrawn)", check: (al) => _hasAny(clinicalTrials, "candidate", al) },
+      { key: "recalls", label: "FDA drug recalls", check: (al) => _hasAny(pharmaRecalls, "candidate", al) },
+    ];
+
+    return Object.entries(CATEGORY_ALIASES).map(([key, aliases]) => ({
+      key, label: CATEGORY_LABELS[key],
+      signals: SIGNALS.map(s => ({ key: s.key, label: s.label, tracked: s.check(aliases) })),
+    }));
+  }
+
   function getContaminationCancerCorrelation() {
     const incidence = DB.cancer_incidence || [];
     const sites = DB.state_contamination_sites || [];
@@ -601,7 +655,7 @@ const MoatEngine = (() => {
     getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts,
     getSettlementStage, getHistoricalScaleComparison, getEmergenceSignal,
     getMomentumBacktest, getDiscoveryCandidates, getAggregationMap,
-    getClinicalTrials, getPharmaRecalls, getContaminationCancerCorrelation,
+    getClinicalTrials, getPharmaRecalls, getContaminationCancerCorrelation, getCoverageMatrix,
     get db() { return DB; },
   };
 })();

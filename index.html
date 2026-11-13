@@ -450,6 +450,23 @@
     </details>
   </section>
 
+  <!-- COVERAGE MATRIX: the single clear answer to "what does Nubuye actually
+       track" -- rows are the 7 real categories, columns are every real
+       signal source, computed live from the actual exported data, not
+       hand-typed claims. Presumption law is footnoted separately since it's
+       a real but structurally different category (no federal MDL -- it's
+       state legislative/workers'-comp, tracked on its own page). -->
+  <section class="block" id="coverage">
+    <div class="section-head">
+      <h2>What Nubuye actually tracks</h2>
+      <p class="section-sub">One real signal source per column, one real category per row &mdash; computed live from the same data every other page on this site reads, not a marketing summary of it.</p>
+    </div>
+    <div class="map-card" style="overflow-x:auto;">
+      <table class="compare-table" id="coverage-matrix" style="min-width:640px;"></table>
+    </div>
+    <p style="font-size:12.5px;color:var(--ink-faint);text-align:center;margin-top:14px;">Firefighter presumption law is tracked separately &mdash; it's a real category, but state legislative/workers'-comp, not a federal mass-tort MDL, so it doesn't share this matrix's columns. <a href="./presumption2/" style="color:var(--accent-blue);font-weight:600">See the Presumption Expansion Tracker &rarr;</a></p>
+  </section>
+
   <section>
     <div class="section-head">
       <h2>How Nubuye works</h2>
@@ -856,8 +873,24 @@
   </footer>
 </div>
 
+<script src="./shared/moat-engine.js"></script>
 <script>
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+function renderCoverageMatrix(rows) {
+  const el = document.getElementById("coverage-matrix");
+  if (!rows || !rows.length) { el.innerHTML = `<tr><td class="empty-note">Coverage data unavailable in this view.</td></tr>`; return; }
+  const signalLabels = rows[0].signals.map(s => s.label);
+  const check = `<svg width="15" height="15" viewBox="0 0 16 16" fill="none" style="display:block;margin:0 auto;"><path d="M3 8.5L6.5 12L13 4.5" stroke="var(--accent-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+  const dash = `<span style="color:var(--ink-faint)">&mdash;</span>`;
+  el.innerHTML = `
+    <tr><th>Category</th>${signalLabels.map(l => `<th style="text-align:center;font-size:10.5px;">${esc(l)}</th>`).join("")}</tr>
+    ${rows.map(r => `<tr>
+      <td>${esc(r.label)}</td>
+      ${r.signals.map(s => `<td style="text-align:center;">${s.tracked ? check : dash}</td>`).join("")}
+    </tr>`).join("")}
+  `;
+}
 
 const STATE_NAMES = {
   AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",
@@ -1257,6 +1290,12 @@ function setupNavScrollState() {
 setupNavScrollState();
 
 initPortfolio();
+
+MoatEngine.load("./shared/moat_export.json").then(() => {
+  renderCoverageMatrix(MoatEngine.getCoverageMatrix());
+}).catch(() => {
+  document.getElementById("coverage-matrix").innerHTML = `<tr><td class="empty-note">Coverage data unavailable in this view.</td></tr>`;
+});
 </script>
 
 </body>
