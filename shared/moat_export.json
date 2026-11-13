@@ -35575,6 +35575,58 @@
       "report_date": "11/2/2026",
       "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
       "extracted_at": "2026-11-13T04:06:50.090433+00:00"
+    },
+    {
+      "id": 772,
+      "mdl_number": "3004",
+      "risk_category": "paraquat",
+      "title": "IN RE: Paraquat Products Liability Litigation",
+      "judge": null,
+      "district": null,
+      "actions_pending": 6635,
+      "total_actions_historical": 8529,
+      "report_date": "11/2/2026",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "extracted_at": "2026-11-13T21:19:37.124013+00:00"
+    },
+    {
+      "id": 779,
+      "mdl_number": "3094",
+      "risk_category": "glp1_weight_loss",
+      "title": "IN RE: Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation",
+      "judge": null,
+      "district": null,
+      "actions_pending": 4082,
+      "total_actions_historical": 4196,
+      "report_date": "11/2/2026",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "extracted_at": "2026-11-13T21:19:37.231912+00:00"
+    },
+    {
+      "id": 788,
+      "mdl_number": "3014",
+      "risk_category": "cpap",
+      "title": "IN RE: Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation",
+      "judge": null,
+      "district": null,
+      "actions_pending": 626,
+      "total_actions_historical": 1036,
+      "report_date": "11/2/2026",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "extracted_at": "2026-11-13T21:19:37.345893+00:00"
+    },
+    {
+      "id": 906,
+      "mdl_number": "2885",
+      "risk_category": "earplugs",
+      "title": "IN RE: 3M Combat Arms Earplug Products Liability Litigation",
+      "judge": null,
+      "district": null,
+      "actions_pending": 2,
+      "total_actions_historical": 391239,
+      "report_date": "11/2/2026",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "extracted_at": "2026-11-13T21:19:39.286616+00:00"
     }
   ],
   "federal_remediation_contracts": [
@@ -37123,6 +37175,686 @@
       "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2026-2026",
       "extracted_at": "2026-11-13T04:09:55.488547+00:00"
+    },
+    {
+      "id": 561,
+      "candidate": "glp1_weight_loss",
+      "year": 2010,
+      "publication_count": 1,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2010-2010",
+      "extracted_at": "2026-11-13T21:23:46.888395+00:00"
+    },
+    {
+      "id": 562,
+      "candidate": "glp1_weight_loss",
+      "year": 2011,
+      "publication_count": 0,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2011-2011",
+      "extracted_at": "2026-11-13T21:23:48.677551+00:00"
+    },
+    {
+      "id": 563,
+      "candidate": "glp1_weight_loss",
+      "year": 2012,
+      "publication_count": 1,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2012-2012",
+      "extracted_at": "2026-11-13T21:23:50.494428+00:00"
+    },
+    {
+      "id": 564,
+      "candidate": "glp1_weight_loss",
+      "year": 2013,
+      "publication_count": 2,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2013-2013",
+      "extracted_at": "2026-11-13T21:23:51.844195+00:00"
+    },
+    {
+      "id": 565,
+      "candidate": "glp1_weight_loss",
+      "year": 2014,
+      "publication_count": 1,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2014-2014",
+      "extracted_at": "2026-11-13T21:23:53.327477+00:00"
+    },
+    {
+      "id": 566,
+      "candidate": "glp1_weight_loss",
+      "year": 2015,
+      "publication_count": 1,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2015-2015",
+      "extracted_at": "2026-11-13T21:23:55.296352+00:00"
+    },
+    {
+      "id": 567,
+      "candidate": "glp1_weight_loss",
+      "year": 2016,
+      "publication_count": 4,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2016-2016",
+      "extracted_at": "2026-11-13T21:23:57.099982+00:00"
+    },
+    {
+      "id": 568,
+      "candidate": "glp1_weight_loss",
+      "year": 2017,
+      "publication_count": 0,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2017-2017",
+      "extracted_at": "2026-11-13T21:23:58.577326+00:00"
+    },
+    {
+      "id": 569,
+      "candidate": "glp1_weight_loss",
+      "year": 2018,
+      "publication_count": 2,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2018-2018",
+      "extracted_at": "2026-11-13T21:24:00.329275+00:00"
+    },
+    {
+      "id": 570,
+      "candidate": "glp1_weight_loss",
+      "year": 2019,
+      "publication_count": 5,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2019-2019",
+      "extracted_at": "2026-11-13T21:24:02.268805+00:00"
+    },
+    {
+      "id": 571,
+      "candidate": "glp1_weight_loss",
+      "year": 2020,
+      "publication_count": 1,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2020-2020",
+      "extracted_at": "2026-11-13T21:24:04.107228+00:00"
+    },
+    {
+      "id": 572,
+      "candidate": "glp1_weight_loss",
+      "year": 2021,
+      "publication_count": 0,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2021-2021",
+      "extracted_at": "2026-11-13T21:24:05.865033+00:00"
+    },
+    {
+      "id": 573,
+      "candidate": "glp1_weight_loss",
+      "year": 2022,
+      "publication_count": 3,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2022-2022",
+      "extracted_at": "2026-11-13T21:24:07.579477+00:00"
+    },
+    {
+      "id": 574,
+      "candidate": "glp1_weight_loss",
+      "year": 2023,
+      "publication_count": 8,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2023-2023",
+      "extracted_at": "2026-11-13T21:24:10.178629+00:00"
+    },
+    {
+      "id": 575,
+      "candidate": "glp1_weight_loss",
+      "year": 2024,
+      "publication_count": 24,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2024-2024",
+      "extracted_at": "2026-11-13T21:24:12.009728+00:00"
+    },
+    {
+      "id": 576,
+      "candidate": "glp1_weight_loss",
+      "year": 2025,
+      "publication_count": 46,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2025-2025",
+      "extracted_at": "2026-11-13T21:24:13.819332+00:00"
+    },
+    {
+      "id": 577,
+      "candidate": "glp1_weight_loss",
+      "year": 2026,
+      "publication_count": 49,
+      "query_term": "(semaglutide OR Ozempic OR Wegovy OR tirzepatide OR Mounjaro OR \"GLP-1\") AND (gastroparesis OR \"bowel obstruction\" OR ileus)",
+      "why_candidate": "MDL-3094, In re Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) Products Liability Litigation -- 4,082 real pending actions (Nov 2026 JPML report). Query scoped to the actual litigation causation theory (gastroparesis/bowel obstruction), not a bare drug-name search, which would also count unrelated efficacy/diabetes-management literature. A second, newer sub-MDL (MDL-3163, GLP-1 NAION/eye-injury litigation, 278 pending) was found live in the same report but not yet separately curated here.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28semaglutide%20OR%20Ozempic%20OR%20Wegovy%20OR%20tirzepatide%20OR%20Mounjaro%20OR%20%22GLP-1%22%29%20AND%20%28gastroparesis%20OR%20%22bowel%20obstruction%22%20OR%20ileus%29&filter=years.2026-2026",
+      "extracted_at": "2026-11-13T21:24:15.450095+00:00"
+    },
+    {
+      "id": 578,
+      "candidate": "paraquat",
+      "year": 2010,
+      "publication_count": 37,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2010-2010",
+      "extracted_at": "2026-11-13T21:24:17.034277+00:00"
+    },
+    {
+      "id": 579,
+      "candidate": "paraquat",
+      "year": 2011,
+      "publication_count": 52,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2011-2011",
+      "extracted_at": "2026-11-13T21:24:18.803312+00:00"
+    },
+    {
+      "id": 580,
+      "candidate": "paraquat",
+      "year": 2012,
+      "publication_count": 51,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2012-2012",
+      "extracted_at": "2026-11-13T21:24:20.685564+00:00"
+    },
+    {
+      "id": 581,
+      "candidate": "paraquat",
+      "year": 2013,
+      "publication_count": 56,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2013-2013",
+      "extracted_at": "2026-11-13T21:24:22.074776+00:00"
+    },
+    {
+      "id": 582,
+      "candidate": "paraquat",
+      "year": 2014,
+      "publication_count": 52,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2014-2014",
+      "extracted_at": "2026-11-13T21:24:23.805977+00:00"
+    },
+    {
+      "id": 583,
+      "candidate": "paraquat",
+      "year": 2015,
+      "publication_count": 36,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2015-2015",
+      "extracted_at": "2026-11-13T21:24:25.628418+00:00"
+    },
+    {
+      "id": 584,
+      "candidate": "paraquat",
+      "year": 2016,
+      "publication_count": 40,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2016-2016",
+      "extracted_at": "2026-11-13T21:24:27.509008+00:00"
+    },
+    {
+      "id": 585,
+      "candidate": "paraquat",
+      "year": 2017,
+      "publication_count": 50,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2017-2017",
+      "extracted_at": "2026-11-13T21:24:29.236874+00:00"
+    },
+    {
+      "id": 586,
+      "candidate": "paraquat",
+      "year": 2018,
+      "publication_count": 57,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2018-2018",
+      "extracted_at": "2026-11-13T21:24:31.148092+00:00"
+    },
+    {
+      "id": 587,
+      "candidate": "paraquat",
+      "year": 2019,
+      "publication_count": 52,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2019-2019",
+      "extracted_at": "2026-11-13T21:24:33.055994+00:00"
+    },
+    {
+      "id": 588,
+      "candidate": "paraquat",
+      "year": 2020,
+      "publication_count": 65,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2020-2020",
+      "extracted_at": "2026-11-13T21:24:34.371102+00:00"
+    },
+    {
+      "id": 589,
+      "candidate": "paraquat",
+      "year": 2021,
+      "publication_count": 52,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2021-2021",
+      "extracted_at": "2026-11-13T21:24:35.943980+00:00"
+    },
+    {
+      "id": 590,
+      "candidate": "paraquat",
+      "year": 2022,
+      "publication_count": 50,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2022-2022",
+      "extracted_at": "2026-11-13T21:24:37.772514+00:00"
+    },
+    {
+      "id": 591,
+      "candidate": "paraquat",
+      "year": 2023,
+      "publication_count": 45,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2023-2023",
+      "extracted_at": "2026-11-13T21:24:39.507401+00:00"
+    },
+    {
+      "id": 592,
+      "candidate": "paraquat",
+      "year": 2024,
+      "publication_count": 59,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2024-2024",
+      "extracted_at": "2026-11-13T21:24:40.960519+00:00"
+    },
+    {
+      "id": 593,
+      "candidate": "paraquat",
+      "year": 2025,
+      "publication_count": 56,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2025-2025",
+      "extracted_at": "2026-11-13T21:24:42.762213+00:00"
+    },
+    {
+      "id": 594,
+      "candidate": "paraquat",
+      "year": 2026,
+      "publication_count": 52,
+      "query_term": "(paraquat) AND (Parkinson* OR neurotoxic)",
+      "why_candidate": "MDL-3004, In re Paraquat Products Liability Litigation -- 6,635 real pending actions (Nov 2026 JPML report), the second-largest active MDL on file after talc. Same agrochemical-defendant space already curated for glyphosate (Corteva/Syngenta); causation theory is Parkinson's disease risk.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28paraquat%29%20AND%20%28Parkinson%2A%20OR%20neurotoxic%29&filter=years.2026-2026",
+      "extracted_at": "2026-11-13T21:24:44.552046+00:00"
+    },
+    {
+      "id": 595,
+      "candidate": "cpap",
+      "year": 2010,
+      "publication_count": 158,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2010-2010",
+      "extracted_at": "2026-11-13T21:24:46.097399+00:00"
+    },
+    {
+      "id": 596,
+      "candidate": "cpap",
+      "year": 2011,
+      "publication_count": 144,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2011-2011",
+      "extracted_at": "2026-11-13T21:24:48.010417+00:00"
+    },
+    {
+      "id": 597,
+      "candidate": "cpap",
+      "year": 2012,
+      "publication_count": 148,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2012-2012",
+      "extracted_at": "2026-11-13T21:24:49.770624+00:00"
+    },
+    {
+      "id": 598,
+      "candidate": "cpap",
+      "year": 2013,
+      "publication_count": 190,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2013-2013",
+      "extracted_at": "2026-11-13T21:24:51.092512+00:00"
+    },
+    {
+      "id": 599,
+      "candidate": "cpap",
+      "year": 2014,
+      "publication_count": 194,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2014-2014",
+      "extracted_at": "2026-11-13T21:24:53.043260+00:00"
+    },
+    {
+      "id": 600,
+      "candidate": "cpap",
+      "year": 2015,
+      "publication_count": 237,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2015-2015",
+      "extracted_at": "2026-11-13T21:24:54.910969+00:00"
+    },
+    {
+      "id": 601,
+      "candidate": "cpap",
+      "year": 2016,
+      "publication_count": 253,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2016-2016",
+      "extracted_at": "2026-11-13T21:24:56.782258+00:00"
+    },
+    {
+      "id": 602,
+      "candidate": "cpap",
+      "year": 2017,
+      "publication_count": 259,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2017-2017",
+      "extracted_at": "2026-11-13T21:24:58.613540+00:00"
+    },
+    {
+      "id": 603,
+      "candidate": "cpap",
+      "year": 2018,
+      "publication_count": 280,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2018-2018",
+      "extracted_at": "2026-11-13T21:25:00.397212+00:00"
+    },
+    {
+      "id": 604,
+      "candidate": "cpap",
+      "year": 2019,
+      "publication_count": 338,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2019-2019",
+      "extracted_at": "2026-11-13T21:25:02.412575+00:00"
+    },
+    {
+      "id": 605,
+      "candidate": "cpap",
+      "year": 2020,
+      "publication_count": 430,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2020-2020",
+      "extracted_at": "2026-11-13T21:25:04.131032+00:00"
+    },
+    {
+      "id": 606,
+      "candidate": "cpap",
+      "year": 2021,
+      "publication_count": 504,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2021-2021",
+      "extracted_at": "2026-11-13T21:25:05.913342+00:00"
+    },
+    {
+      "id": 607,
+      "candidate": "cpap",
+      "year": 2022,
+      "publication_count": 487,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2022-2022",
+      "extracted_at": "2026-11-13T21:25:07.734287+00:00"
+    },
+    {
+      "id": 608,
+      "candidate": "cpap",
+      "year": 2023,
+      "publication_count": 378,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2023-2023",
+      "extracted_at": "2026-11-13T21:25:09.697701+00:00"
+    },
+    {
+      "id": 609,
+      "candidate": "cpap",
+      "year": 2024,
+      "publication_count": 376,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2024-2024",
+      "extracted_at": "2026-11-13T21:25:11.532201+00:00"
+    },
+    {
+      "id": 610,
+      "candidate": "cpap",
+      "year": 2025,
+      "publication_count": 442,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2025-2025",
+      "extracted_at": "2026-11-13T21:25:13.298222+00:00"
+    },
+    {
+      "id": 611,
+      "candidate": "cpap",
+      "year": 2026,
+      "publication_count": 382,
+      "query_term": "(CPAP OR \"polyester-based polyurethane\" OR \"PE-PUR\") AND (foam degradation OR cancer OR respiratory OR volatile organic)",
+      "why_candidate": "MDL-3014, In re Philips Recalled CPAP, Bi-Level PAP, and Mechanical Ventilator Products Liability Litigation -- a real MATURE-tort contrast case: 626 pending vs 1,036 total historical actions (Nov 2026 JPML report), already well past its 2021 recall and largely resolved via a 2024 settlement. Expected to show flat or declining scientific momentum, the same role bisphenol A/glyphosate play.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28CPAP%20OR%20%22polyester-based%20polyurethane%22%20OR%20%22PE-PUR%22%29%20AND%20%28foam%20degradation%20OR%20cancer%20OR%20respiratory%20OR%20volatile%20organic%29&filter=years.2026-2026",
+      "extracted_at": "2026-11-13T21:25:15.400373+00:00"
+    },
+    {
+      "id": 612,
+      "candidate": "earplugs",
+      "year": 2010,
+      "publication_count": 17,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2010-2010",
+      "extracted_at": "2026-11-13T21:25:17.377419+00:00"
+    },
+    {
+      "id": 613,
+      "candidate": "earplugs",
+      "year": 2011,
+      "publication_count": 43,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2011-2011",
+      "extracted_at": "2026-11-13T21:25:19.197969+00:00"
+    },
+    {
+      "id": 614,
+      "candidate": "earplugs",
+      "year": 2012,
+      "publication_count": 29,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2012-2012",
+      "extracted_at": "2026-11-13T21:25:20.622194+00:00"
+    },
+    {
+      "id": 615,
+      "candidate": "earplugs",
+      "year": 2013,
+      "publication_count": 23,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2013-2013",
+      "extracted_at": "2026-11-13T21:25:22.471197+00:00"
+    },
+    {
+      "id": 616,
+      "candidate": "earplugs",
+      "year": 2014,
+      "publication_count": 34,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2014-2014",
+      "extracted_at": "2026-11-13T21:25:24.368377+00:00"
+    },
+    {
+      "id": 617,
+      "candidate": "earplugs",
+      "year": 2015,
+      "publication_count": 36,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2015-2015",
+      "extracted_at": "2026-11-13T21:25:26.068669+00:00"
+    },
+    {
+      "id": 618,
+      "candidate": "earplugs",
+      "year": 2016,
+      "publication_count": 43,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2016-2016",
+      "extracted_at": "2026-11-13T21:25:27.856144+00:00"
+    },
+    {
+      "id": 619,
+      "candidate": "earplugs",
+      "year": 2017,
+      "publication_count": 27,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2017-2017",
+      "extracted_at": "2026-11-13T21:25:29.570236+00:00"
+    },
+    {
+      "id": 620,
+      "candidate": "earplugs",
+      "year": 2018,
+      "publication_count": 21,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2018-2018",
+      "extracted_at": "2026-11-13T21:25:31.372752+00:00"
+    },
+    {
+      "id": 621,
+      "candidate": "earplugs",
+      "year": 2019,
+      "publication_count": 23,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2019-2019",
+      "extracted_at": "2026-11-13T21:25:33.222532+00:00"
+    },
+    {
+      "id": 622,
+      "candidate": "earplugs",
+      "year": 2020,
+      "publication_count": 30,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2020-2020",
+      "extracted_at": "2026-11-13T21:25:34.938142+00:00"
+    },
+    {
+      "id": 623,
+      "candidate": "earplugs",
+      "year": 2021,
+      "publication_count": 23,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2021-2021",
+      "extracted_at": "2026-11-13T21:25:36.704650+00:00"
+    },
+    {
+      "id": 624,
+      "candidate": "earplugs",
+      "year": 2022,
+      "publication_count": 24,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2022-2022",
+      "extracted_at": "2026-11-13T21:25:38.205236+00:00"
+    },
+    {
+      "id": 625,
+      "candidate": "earplugs",
+      "year": 2023,
+      "publication_count": 23,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2023-2023",
+      "extracted_at": "2026-11-13T21:25:39.656891+00:00"
+    },
+    {
+      "id": 626,
+      "candidate": "earplugs",
+      "year": 2024,
+      "publication_count": 26,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2024-2024",
+      "extracted_at": "2026-11-13T21:25:41.606678+00:00"
+    },
+    {
+      "id": 627,
+      "candidate": "earplugs",
+      "year": 2025,
+      "publication_count": 22,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2025-2025",
+      "extracted_at": "2026-11-13T21:25:42.974131+00:00"
+    },
+    {
+      "id": 628,
+      "candidate": "earplugs",
+      "year": 2026,
+      "publication_count": 24,
+      "query_term": "(earplug OR \"hearing protection device\") AND (\"hearing loss\" OR tinnitus) AND (military OR occupational)",
+      "why_candidate": "MDL-2885, In re 3M Combat Arms Earplug Products Liability Litigation -- the single most extreme mature/resolved contrast case on file: only 2 pending vs 391,239 total historical actions (Nov 2026 JPML report), after a 2023 global settlement. A narrow product-name query (e.g. 'combat arms earplug') returns almost no real PubMed hits at all (1-2/year), since this is a product-defect mass tort, not a chemical-exposure science story -- an honest finding in itself, not a bug. Broadened to the real underlying hearing-protection/occupational-hearing-loss literature instead, which should still read flat, not accelerating.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28earplug%20OR%20%22hearing%20protection%20device%22%29%20AND%20%28%22hearing%20loss%22%20OR%20tinnitus%29%20AND%20%28military%20OR%20occupational%29&filter=years.2026-2026",
+      "extracted_at": "2026-11-13T21:25:44.807226+00:00"
     }
   ],
   "emergence_signal_history": [
@@ -37264,6 +37996,34 @@
       "stage_label": "Individual settlements",
       "reasoning": "MDL-3191 is genuinely new litigation -- JPML's own November 2026 report shows 17 pending actions and 17 total historical (pending equals total, meaning nothing has resolved yet). No curated defendant, no global settlement, and certainly no bankruptcy filing exists for this category as of this writing -- the earliest real stage in the documented progression.",
       "next_stage_watch": "Watch for: a curated defendant being identified (none is yet), the first settlement disclosure in a 10-K/8-K, and the JPML pending-actions count growing past its current 17 -- any of these would be the first real sign of this MDL moving to the next stage."
+    },
+    "glp1_weight_loss": {
+      "mdl_number": "3094",
+      "stage": "individual_settlements",
+      "stage_label": "Individual settlements",
+      "reasoning": "REPORTED: a June 2026 litigation-tracker update states plainly 'Allegations Only -- No Settlement Yet,' and real JPML numbers directly confirm this -- 4,082 pending vs 4,196 total historical actions (Nov 2026 report) is nearly a 1:1 ratio, meaning almost nothing has resolved. A related but distinct sub-MDL, MDL-3163 (GLP-1 NAION/vision-loss claims), was split off by the JPML in December 2025 -- a different claimed injury theory, not double-counted here.",
+      "next_stage_watch": "REPORTED estimates put a global resolution 'at least one to two years away' as of mid-2026 -- speculative, not a court-scheduled date. Watch for the first bellwether trial result (none selected as of this writing) and any 8-K settlement disclosure from Novo Nordisk or Eli Lilly, neither of which is currently a curated severity-anchor defendant in this project."
+    },
+    "paraquat": {
+      "mdl_number": "3004",
+      "stage": "global_settlement",
+      "stage_label": "Global settlement (pre-bankruptcy)",
+      "reasoning": "REPORTED (secondary/law-firm sources, not a primary court document directly read): the first Parkinson's bellwether (Philadelphia state court) settled the day before trial on undisclosed terms; a federal bellwether set for October 2025 was vacated to allow settlement talks; press coverage describes a qualified settlement fund approved around March 2026 and an 'MDL Settlement Order' dated April 21, 2026, with an April 2026 bellwether also canceled. JPML's own real count (6,635 pending / 8,529 total, Nov 2026) shows a meaningful share already resolved or transferred, consistent with an active global-settlement process, though the order's actual terms were not independently confirmed here.",
+      "next_stage_watch": "Watch for a primary-source confirmation of the settlement fund's terms and opt-out mechanics (reported but unverified as of this entry), and for Syngenta/Corteva 8-K disclosures of the real settlement amount, which would let this move from REPORTED to VERIFIED."
+    },
+    "cpap": {
+      "mdl_number": "3014",
+      "stage": "global_settlement",
+      "stage_label": "Global settlement (pre-bankruptcy)",
+      "reasoning": "Philips announced a real ~$1.1B economic-loss/consumer settlement plus a separate $25M medical-monitoring settlement in April 2024, filed in the W.D. Pa. federal court, with an Aug 9 2024 claims deadline and payments expected starting 2025 (widely reported, not yet independently confirmed as fully disbursed). Important: this settlement explicitly covers ECONOMIC LOSS / consumer claims, not the separate personal-injury tort claims that remain in MDL-3014 -- JPML's real 626 pending / 1,036 total (Nov 2026) reflects those still-active personal-injury claims, a genuinely different claim population than the $1.1B figure. Flagged explicitly to avoid the same conflation mistake this project's hard rules already guard against for 3M's three distinct PFAS dollar figures.",
+      "next_stage_watch": "Watch for a personal-injury-specific global settlement or bankruptcy filing, which has not occurred -- the $1.1B figure already in press coverage is NOT that."
+    },
+    "earplugs": {
+      "mdl_number": "2885",
+      "stage": "global_settlement",
+      "stage_label": "Global settlement (pre-bankruptcy)",
+      "reasoning": "3M's own real press release (news.3m.com, 2023-12-27) confirms a $6B global settlement agreement reached August 29, 2023, with payments continuing through 2029 and a 98% claimant-participation threshold 3M can walk away below (though it has not). JPML's own real count -- 2 pending / 391,239 total historical (Nov 2026) -- is the most extreme resolution ratio of any MDL this project tracks, directly confirming the federal MDL itself is functionally wound down; remaining work (per secondary law-firm sources) is claims administration and payment disbursement, not active litigation.",
+      "next_stage_watch": "None expected -- this is the most fully resolved category tracked. Only a real risk would be 3M invoking the 98% walk-away clause, which would be a genuine reversal worth watching for in 3M's own 8-K filings."
     }
   },
   "historical_scale_comparison": {
@@ -37830,5 +38590,5 @@
       }
     }
   },
-  "generated_at": "2026-11-13T20:24:54.366314+00:00"
+  "generated_at": "2026-11-13T21:28:34.352642+00:00"
 }

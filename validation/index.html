@@ -175,7 +175,7 @@
   <div class="section-label">Discovery scan &mdash; the harder test</div>
   <div class="card">
     <h2>Pointed at candidates nobody asked it to track</h2>
-    <p class="card-sub">Every category above was already a known mass tort before this project tracked it. The harder, more valuable test: run the identical scientific-momentum formula against real candidates and see whether the methodology correctly tells them apart. Two groups below: genuinely speculative candidates (microplastics, 6PPD-quinone, and bisphenol A as a mature-signal contrast), and three categories with a real, current federal MDL this project had simply never tracked before a direct question about other hazards worth watching &mdash; hair relaxer chemicals (MDL-3060, uterine cancer), social media/adolescent mental health (MDL-3047, already an active insurance-coverage fight), and glyphosate/Roundup (MDL-2741, a mature contrast case now mostly resolved into a $7.25B proposed settlement).</p>
+    <p class="card-sub">Every category above was already a known mass tort before this project tracked it. The harder, more valuable test: run the identical scientific-momentum formula against real candidates and see whether the methodology correctly tells them apart. Three groups below: genuinely speculative candidates (microplastics, 6PPD-quinone, and bisphenol A as a mature-signal contrast); real-but-new federal MDLs this project had simply never tracked before a direct question about other hazards worth watching &mdash; hair relaxer chemicals (MDL-3060, uterine cancer), social media/adolescent mental health (MDL-3047, already an active insurance-coverage fight), glyphosate/Roundup (MDL-2741, a mature contrast case now mostly resolved into a $7.25B proposed settlement), GLP-1 weight-loss drugs (MDL-3094, gastroparesis claims, still at "no settlement yet" per real JPML pending/total ratio), and paraquat (MDL-3004, Parkinson's claims, reportedly moving toward a global settlement as of early 2026); and two further mature-tort contrast cases, Philips CPAP (MDL-3014, a real 2024 economic-loss settlement that is explicitly NOT the same claim pool as its still-active personal-injury MDL) and 3M's Combat Arms earplugs (MDL-2885, the most completely resolved MDL on file at 2 of 391,239 actions still pending).</p>
     <div class="candidate-row" id="candidate-cards"></div>
     <table class="compare-table" id="compare-table"></table>
   </div>
@@ -367,12 +367,15 @@ function renderDiscoveryScan() {
   const CAND_LABELS = {
     microplastics: "Microplastics", "6ppd_quinone": "6PPD-quinone (tire rubber)", bisphenol_a: "Bisphenol A (contrast case)",
     hair_relaxer_chemicals: "Hair relaxer chemicals (MDL-3060)", social_media_adolescent_mental_health: "Social media / adolescent mental health (MDL-3047)", glyphosate: "Glyphosate / Roundup (MDL-2741, contrast case)",
+    glp1_weight_loss: "GLP-1 weight-loss drugs (MDL-3094)", paraquat: "Paraquat (MDL-3004)",
+    cpap: "Philips CPAP (MDL-3014, contrast case)", earplugs: "3M Combat Arms Earplugs (MDL-2885, contrast case)",
   };
   const CAND_BADGE = {
     microplastics: "amber", "6ppd_quinone": "red", bisphenol_a: "gray",
     hair_relaxer_chemicals: "amber", social_media_adolescent_mental_health: "red", glyphosate: "gray",
+    glp1_weight_loss: "red", paraquat: "amber", cpap: "gray", earplugs: "gray",
   };
-  const ALREADY_TRACKED_MDL = new Set(["hair_relaxer_chemicals", "social_media_adolescent_mental_health", "glyphosate"]);
+  const ALREADY_TRACKED_MDL = new Set(["hair_relaxer_chemicals", "social_media_adolescent_mental_health", "glyphosate", "glp1_weight_loss", "paraquat", "cpap", "earplugs"]);
 
   function growthToScore(g) { return Math.max(0, Math.min(100, 50 + (g / 150) * 50)); }
   function computeGrowth(rows) {

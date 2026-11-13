@@ -287,7 +287,7 @@
   <details class="card accordion" id="jpml-card">
     <summary><h2>Real MDL case scale (JPML)</h2><span class="hint" id="jpml-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
-      <p class="card-sub">Real, official pending-case counts straight from the US Judicial Panel on Multidistrict Litigation's own monthly report &mdash; not a news estimate or a single company's own disclosure. Now spans 6 real MDLs across PFAS, talc, turnout gear, hair relaxer (MDL-3060), social media/adolescent mental health (MDL-3047), and glyphosate/Roundup (MDL-2741) -- the last three added after a direct question about other hazards worth tracking, each verified live against the current JPML report before adding. Several have no curated defendant/NAICS yet but are real and current. Each MDL also shows a curated settlement-stage assessment where one exists -- a human judgment call citing real facts, never an algorithmic score.</p>
+      <p class="card-sub">Real, official pending-case counts straight from the US Judicial Panel on Multidistrict Litigation's own monthly report &mdash; not a news estimate or a single company's own disclosure. Now spans 10 real MDLs across PFAS, talc, turnout gear, hair relaxer (MDL-3060), social media/adolescent mental health (MDL-3047), glyphosate/Roundup (MDL-2741), GLP-1 weight-loss drugs (MDL-3094), paraquat (MDL-3004), Philips CPAP (MDL-3014), and 3M Combat Arms earplugs (MDL-2885) -- all but the original 3 added after direct questions about other hazards worth tracking, each verified live against the current JPML report before adding. Several have no curated defendant/NAICS yet but are real and current. Each MDL also shows a curated settlement-stage assessment where one exists -- a human judgment call citing real facts, never an algorithmic score.</p>
       <div id="jpml-body"></div>
     </div>
   </details>
@@ -942,10 +942,12 @@ function renderSocialInflationNote() {
 function renderJpmlStats() {
   const hint = document.getElementById("jpml-hint");
   const el = document.getElementById("jpml-body");
-  const categories = ["pfas", "talc", "turnout_gear", "hair_relaxer", "social_media_mental_health", "glyphosate"];
+  const categories = ["pfas", "talc", "turnout_gear", "hair_relaxer", "social_media_mental_health", "glyphosate", "glp1_weight_loss", "paraquat", "cpap", "earplugs"];
   const catLabels = {
     pfas: "PFAS/AFFF", talc: "Talc", turnout_gear: "Turnout Gear (no curated defendant yet)",
     hair_relaxer: "Hair Relaxer (no curated defendant yet)", social_media_mental_health: "Social Media / Adolescent Mental Health (no curated defendant yet)", glyphosate: "Glyphosate / Roundup (mature, contrast case)",
+    glp1_weight_loss: "GLP-1 Weight-Loss Drugs (no curated defendant yet)", paraquat: "Paraquat (no curated defendant yet)",
+    cpap: "Philips CPAP (mature, contrast case)", earplugs: "3M Combat Arms Earplugs (mature, contrast case)",
   };
   const allStats = categories.flatMap(c => MoatEngine.getJpmlStats(c));
   if (!allStats.length) {
