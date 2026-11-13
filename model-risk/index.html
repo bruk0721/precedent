@@ -93,6 +93,34 @@
 </div>
 
 <div class="wrap">
+  <div class="section-label">Corrections made</div>
+  <p style="font-size:14px;color:var(--ink-muted);line-height:1.7;margin:0 0 20px;max-width:70ch;">The VERIFIED/REPORTED discipline this site uses only means something if mistakes get fixed in the open, not quietly reworded. Every correction below is real, not illustrative &mdash; found during this project's own verification passes, fixed, and left on the record here instead of in a commit message nobody reads.</p>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-red-bg);color:var(--accent-red)">Wrong date, corrected</span><h3>Meta insurer-coverage ruling: stated as April 2026, actually February 27, 2026</h3></div>
+    <p>A timeline entry carried a wrong date (likely drifted in from secondary coverage, not the ruling itself) across the pipeline source and three already-exported data files. Caught during a fresh verification pass while sourcing an unrelated milestone, corrected everywhere it appeared, not just the one place it was first noticed.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-red-bg);color:var(--accent-red)">Caught before shipping</span><h3>A fabricated source URL was guessed, then caught by its own verification step</h3></div>
+    <p>A plausible-looking NIH press-release URL was typed from memory for a real milestone, rather than found live. Before publishing, the URL was opened directly &mdash; it was a real 404 &mdash; and replaced with a verified-real news URL instead. The catch came from this project's own "always verify live" discipline working as intended, not from an outside review.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-amber-bg);color:var(--accent-amber)">Shipped thin, then fixed</span><h3>Geographic correlation was n=1 (Michigan only) for one round, then expanded to 45 states</h3></div>
+    <p>The contamination-site &times; cancer-incidence correlation table went live honestly labeled but structurally thin &mdash; only Michigan had a real tracked contamination-site source. Rather than leave it as a one-state proof of concept, a second real national source (EPA's own PFAS Analytic Tools) was found and added, taking it to 45 states/territories.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-red-bg);color:var(--accent-red)">Found and fixed</span><h3>A silent data bug: leading whitespace collapsed real multi-state counts</h3></div>
+    <p>EPA's own national PFAS Superfund dataset returns state codes with a leading space (<code>" MI"</code>, not <code>"MI"</code>) on every row. Unnoticed, this would have silently split every state's real site count into two separate, wrong buckets. Caught by inspecting the actual rendered table output, not assumed correct because the pipeline ran without errors.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-gray-bg);color:var(--accent-gray)">Honest non-result</span><h3>The momentum score does not reliably track eventual settlement size</h3></div>
+    <p>Joining the real backtest scores against this project's own real, dated settlement amounts shows PFAS's momentum and real settlement size trending up together through 2023 &mdash; but talc's momentum score actually <i>fell</i> in later years while its real settlement size kept rising. Shown as-is on the <a href="../validation/" style="color:var(--accent-blue);font-weight:600">Validation page</a>, not reworded into a cleaner story than the data supports.</p>
+  </div>
+
   <div class="section-label">Data coverage</div>
 
   <div class="limit-card">

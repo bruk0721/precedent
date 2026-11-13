@@ -143,6 +143,14 @@
     <div id="backtest-talc" style="margin-top:32px"></div>
   </div>
 
+  <div class="section-label">Severity vs. momentum &mdash; the harder question</div>
+  <div class="card">
+    <h2>Does the score track eventual settlement SIZE, not just timing?</h2>
+    <p class="card-sub">The backtest above proves the model would have flagged PFAS early. That proves <i>timing</i>, not <i>magnitude</i> &mdash; a real pricing signal needs both. This joins the same real backtest scores against this project's own real, dated settlement amounts. <b>Stated honestly, this does not show a clean win for the methodology</b>: PFAS's momentum score and real settlement size both trended up together through 2023, but talc's momentum score actually fell in the project's own later years while its real settlement size kept rising &mdash; the scientific-literature-momentum formula tracks research attention, not eventual severity, and a maturing tort can show both at once moving in opposite directions.</p>
+    <div id="severity-momentum-pfas"></div>
+    <div id="severity-momentum-talc" style="margin-top:24px"></div>
+  </div>
+
   <div class="section-label">Geographic correlation &mdash; real, not causal</div>
   <div class="card">
     <h2>Do tracked contamination sites and cancer incidence line up geographically?</h2>
@@ -222,6 +230,25 @@ const REAL_EVENTS = {
 };
 
 const ELEVATED_THRESHOLD = 65; // same threshold the Console uses to tag a score "red"/elevated
+
+function renderSeverityMomentum(containerId, riskCategory, label, color) {
+  const rows = MoatEngine.getSeverityMomentumComparison(riskCategory);
+  const el = document.getElementById(containerId);
+  const withEvents = rows.filter(r => r.realMagnitudeMillions != null);
+  if (!withEvents.length) { el.innerHTML = `<p class="empty-note">No dated real settlement magnitude on file for ${esc(label)}.</p>`; return; }
+
+  el.innerHTML = `
+    <div style="font-size:14px;font-weight:600;margin-bottom:10px">${esc(label)}</div>
+    <table class="compare-table">
+      <tr><th>Year</th><th>Momentum score (0-100)</th><th>Real settlement amount that year</th></tr>
+      ${withEvents.map(r => `<tr>
+        <td>${r.year}</td>
+        <td class="score-cell" style="color:${color}">${r.momentumScore}</td>
+        <td>$${(r.realMagnitudeMillions / 1000).toFixed(1)}B &mdash; ${r.realEventTitles.map(esc).join("; ")}</td>
+      </tr>`).join("")}
+    </table>
+  `;
+}
 
 function renderBacktestChart(containerId, riskCategory, label) {
   const rows = MoatEngine.getMomentumBacktest(riskCategory);
@@ -472,6 +499,8 @@ async function init() {
   document.getElementById("snapshot-date").textContent = db.generated_at ? `Snapshot as of ${new Date(db.generated_at).toISOString().slice(0, 10)}.` : "";
   renderBacktestChart("backtest-pfas", "pfas", "PFAS/AFFF");
   renderBacktestChart("backtest-talc", "talc", "Talc");
+  renderSeverityMomentum("severity-momentum-pfas", "pfas", "PFAS/AFFF", "var(--accent-blue)");
+  renderSeverityMomentum("severity-momentum-talc", "talc", "Talc", "var(--accent-amber)");
   renderCorrelationTable();
   renderSamhsaTable();
   renderTscaTable();

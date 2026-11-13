@@ -488,6 +488,34 @@ const MoatEngine = (() => {
     return [...filtered].sort((a, b) => a.as_of_year - b.as_of_year);
   }
 
+  // Severity x Momentum comparison -- does the backtest's momentum
+  // score trajectory actually track real settlement MAGNITUDE, not just
+  // timing? Joins the real backtest scores against this project's own
+  // real, dated timeline milestones that carry a real dollar magnitude.
+  // Stated honestly: this is NOT guaranteed to show a clean correlation,
+  // and for talc it visibly does not (scientific-literature momentum
+  // drops in the project's own real later years while the real
+  // settlement size kept rising) -- shown as-is, not cherry-picked.
+  function getSeverityMomentumComparison(riskCategory) {
+    const backtest = getMomentumBacktest(riskCategory);
+    const milestones = (DB.timeline_milestones || []).filter(m =>
+      m.category === riskCategory && m.magnitude_usd_millions != null
+    );
+    const byYear = {};
+    milestones.forEach(m => {
+      const year = parseInt(String(m.date).slice(0, 4), 10);
+      if (!byYear[year]) byYear[year] = { year, totalMagnitude: 0, titles: [] };
+      byYear[year].totalMagnitude += m.magnitude_usd_millions;
+      byYear[year].titles.push(m.title);
+    });
+    return backtest.map(b => ({
+      year: b.as_of_year,
+      momentumScore: b.score,
+      realMagnitudeMillions: byYear[b.as_of_year] ? byYear[b.as_of_year].totalMagnitude : null,
+      realEventTitles: byYear[b.as_of_year] ? byYear[b.as_of_year].titles : [],
+    }));
+  }
+
   // Discovery Scan -- the same leading-indicator methodology pointed at
   // real, named candidates this project does not yet track. See
   // discovery_scan_pipeline.py.
@@ -703,7 +731,7 @@ const MoatEngine = (() => {
     getComplianceRecords, getRegulatoryFilings, getScientificMomentum, getStateContaminationSites,
     getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts,
     getSettlementStage, getHistoricalScaleComparison, getEmergenceSignal,
-    getMomentumBacktest, getDiscoveryCandidates, getAggregationMap,
+    getMomentumBacktest, getSeverityMomentumComparison, getDiscoveryCandidates, getAggregationMap,
     getClinicalTrials, getPharmaRecalls, getContaminationCancerCorrelation, getCoverageMatrix,
     getSamhsaTreatmentFacilities, getOshaInspections, getEpaTscaNotices, getSec10kRiskFactorMatches,
     get db() { return DB; },
