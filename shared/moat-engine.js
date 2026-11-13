@@ -583,6 +583,15 @@ const MoatEngine = (() => {
   // FindTreatment.gov API. A real proxy for existing behavioral-health
   // infrastructure, NOT an incidence or litigation signal on its own.
   // See samhsa_treatment_locator_pipeline.py.
+  // OSHA inspections -- real inspection records matched against this
+  // project's own already-sourced real defendant names (Fire-Dex, Globe
+  // Manufacturing, 3M, DuPont, Johnson, etc.), not a loose category
+  // keyword. See osha_inspection_pipeline.py.
+  function getOshaInspections(riskCategory) {
+    const rows = DB.osha_inspections || [];
+    return riskCategory ? rows.filter(r => r.risk_category === riskCategory) : rows;
+  }
+
   function getSamhsaTreatmentFacilities(stateCode) {
     const rows = DB.samhsa_treatment_facilities || [];
     return stateCode ? (rows.find(r => r.state_code === stateCode) || null) : rows;
@@ -666,7 +675,7 @@ const MoatEngine = (() => {
     getSettlementStage, getHistoricalScaleComparison, getEmergenceSignal,
     getMomentumBacktest, getDiscoveryCandidates, getAggregationMap,
     getClinicalTrials, getPharmaRecalls, getContaminationCancerCorrelation, getCoverageMatrix,
-    getSamhsaTreatmentFacilities,
+    getSamhsaTreatmentFacilities, getOshaInspections,
     get db() { return DB; },
   };
 })();

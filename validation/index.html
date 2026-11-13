@@ -150,6 +150,13 @@
     <table class="compare-table" id="correlation-table"></table>
   </div>
 
+  <div class="section-label">Behavioral-health infrastructure &mdash; context, not a signal</div>
+  <div class="card">
+    <h2>How much real mental-health/substance-use capacity already exists per state?</h2>
+    <p class="card-sub">Real, per-state counts of licensed facilities from SAMHSA's own FindTreatment.gov directory &mdash; relevant background for the social media / adolescent mental health category, since existing treatment capacity shapes how a rising caseload actually plays out in a state, not a measure of disease incidence or litigation risk on its own.</p>
+    <table class="compare-table" id="samhsa-table"></table>
+  </div>
+
   <div class="section-label">Discovery scan &mdash; the harder test</div>
   <div class="card">
     <h2>Pointed at candidates nobody asked it to track</h2>
@@ -290,6 +297,17 @@ const STATE_NAMES_FULL = {
   TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",
   WI:"Wisconsin",WY:"Wyoming",PR:"Puerto Rico"
 };
+
+function renderSamhsaTable() {
+  const rows = MoatEngine.getSamhsaTreatmentFacilities();
+  const el = document.getElementById("samhsa-table");
+  if (!rows || !rows.length) { el.innerHTML = `<tr><td class="empty-note">No SAMHSA data on record yet.</td></tr>`; return; }
+  const top10 = [...rows].sort((a, b) => b.facility_count - a.facility_count).slice(0, 10);
+  el.innerHTML = `
+    <tr><th>State</th><th>Real licensed facilities (mental health + substance use)</th></tr>
+    ${top10.map(r => `<tr><td>${esc(STATE_NAMES_FULL[r.state_code] || r.state_code)}</td><td class="score-cell">${r.facility_count.toLocaleString()}</td></tr>`).join("")}
+  `;
+}
 
 function renderDiscoveryScan() {
   const candidates = MoatEngine.getDiscoveryCandidates();
@@ -437,6 +455,7 @@ async function init() {
   renderBacktestChart("backtest-pfas", "pfas", "PFAS/AFFF");
   renderBacktestChart("backtest-talc", "talc", "Talc");
   renderCorrelationTable();
+  renderSamhsaTable();
   renderDiscoveryScan();
   document.getElementById("sim-run").addEventListener("click", runLossSimulation);
   runLossSimulation();
