@@ -495,6 +495,60 @@ const MoatEngine = (() => {
     return DB.discovery_candidates || [];
   }
 
+  // Clinical trials -- real terminated/withdrawn trials for a candidate,
+  // each classified SAFETY_FLAGGED (the stated reason mentions an adverse
+  // event/safety/toxicity finding) or NON_SAFETY (enrollment, funding, a
+  // sponsor decision, or no reason given) -- never counted as a danger
+  // signal just because a trial stopped. See clinical_trials_pipeline.py.
+  function getClinicalTrials(candidate) {
+    const rows = DB.clinical_trials || [];
+    return candidate ? rows.filter(r => r.candidate === candidate) : rows;
+  }
+
+  // Pharma recalls -- real FDA drug/enforcement recalls. Most tracked
+  // candidates here are not FDA-regulated drugs, so an empty result for
+  // a given candidate is expected, not a gap. See pharma_recall_pipeline.py.
+  function getPharmaRecalls(candidate) {
+    const rows = DB.pharma_recalls || [];
+    return candidate ? rows.filter(r => r.candidate === candidate) : rows;
+  }
+
+  // Cancer incidence x contamination-site correlation -- a real, honest
+  // CORRELATION, never presented as causation, and deliberately NOT a
+  // "trend" claim: these are raw case COUNTS, not age-adjusted rates, so
+  // comparing an early year's count to a recent year's count would mostly
+  // just measure population growth over that period, not any real change
+  // in cancer risk -- that comparison is left out on purpose. This only
+  // reports each state's most recent real case count alongside its real
+  // tracked contamination-site count; the viewer draws their own
+  // conclusion from the two real, independent numbers, not from a
+  // computed trend this pipeline isn't equipped to state honestly.
+  // See cancer_incidence_pipeline.py and state_contamination_sites.
+  function getContaminationCancerCorrelation() {
+    const incidence = DB.cancer_incidence || [];
+    const sites = DB.state_contamination_sites || [];
+    if (!incidence.length || !sites.length) return [];
+
+    const siteCountByState = {};
+    sites.forEach(s => { siteCountByState[s.state] = (siteCountByState[s.state] || 0) + 1; });
+
+    const byState = {};
+    incidence.forEach(r => {
+      if (!r.state_code) return;
+      (byState[r.state_code] = byState[r.state_code] || []).push(r);
+    });
+
+    return Object.entries(siteCountByState).map(([state, siteCount]) => {
+      const rows = (byState[state] || []).slice().sort((a, b) => b.year - a.year);
+      const latest = rows[0] || null;
+      return {
+        state, siteCount,
+        latestYear: latest ? latest.year : null,
+        latestCount: latest ? latest.case_count : null,
+      };
+    }).sort((a, b) => b.siteCount - a.siteCount);
+  }
+
   function getRenewalWindow(quarterStartISO, quarterEndISO) {
     const start = new Date(quarterStartISO);
     const end = new Date(quarterEndISO);
@@ -547,6 +601,7 @@ const MoatEngine = (() => {
     getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts,
     getSettlementStage, getHistoricalScaleComparison, getEmergenceSignal,
     getMomentumBacktest, getDiscoveryCandidates, getAggregationMap,
+    getClinicalTrials, getPharmaRecalls, getContaminationCancerCorrelation,
     get db() { return DB; },
   };
 })();

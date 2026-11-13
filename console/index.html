@@ -899,12 +899,23 @@ function renderEmergenceSignal() {
       <div style="color:var(--ink-faint);font-size:12px;margin-top:4px">[not tracked] ${esc(COMPONENT_LABELS[m.component] || m.component)}: ${esc(m.reason)}</div>`
     ).join("");
 
+    const trials = MoatEngine.getClinicalTrials(r.risk_category);
+    const recalls = MoatEngine.getPharmaRecalls(r.risk_category);
+    const safetyFlagged = trials.filter(t => t.classification === "SAFETY_FLAGGED");
+    const supplementary = (trials.length || recalls.length) ? `
+      <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg);font-size:12px;color:var(--ink-faint)">
+        Supplementary, not scored into momentum above:
+        ${trials.length ? ` ${trials.length} real terminated/withdrawn clinical trial(s) on file (${safetyFlagged.length} citing a safety-related reason, ${trials.length - safetyFlagged.length} citing enrollment/funding/sponsor reasons)` : ""}
+        ${recalls.length ? ` &middot; ${recalls.length} real FDA drug recall(s) on file` : ""}
+      </div>` : "";
+
     return `
     <div class="finding-line" style="margin-bottom:14px">
       <b>${esc(catLabels[r.risk_category] || r.risk_category)}</b><br>
       ${scaleTag} ${momentumTag}
       <div style="margin-top:8px">${used || `<span style="color:var(--ink-faint);font-size:12.5px">No momentum component computable for this category yet.</span>`}</div>
       ${skipped}
+      ${supplementary}
     </div>`;
   }).join("") + renderSocialInflationNote();
 }

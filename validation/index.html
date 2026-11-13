@@ -143,6 +143,13 @@
     <div id="backtest-talc" style="margin-top:32px"></div>
   </div>
 
+  <div class="section-label">Geographic correlation &mdash; real, not causal</div>
+  <div class="card">
+    <h2>Do tracked contamination sites and cancer incidence line up geographically?</h2>
+    <p class="card-sub">Two real, independent datasets, joined only by state: this project's own tracked PFAS contamination sites (state-reported) and CDC WONDER's own United States Cancer Statistics Incidence database (D205, 1999-2022, all invasive sites combined). <b>This is a correlation table, not a causation claim</b> &mdash; a state with more tracked contamination sites and a high cancer-case count did not necessarily get that case count FROM those sites; larger, more populous states will show more contamination sites AND more cancer cases simply by being larger. Raw case counts are shown, not age-adjusted rates, specifically so this isn't dressed up as more rigorous than it is.</p>
+    <table class="compare-table" id="correlation-table"></table>
+  </div>
+
   <div class="section-label">Discovery scan &mdash; the harder test</div>
   <div class="card">
     <h2>Pointed at candidates nobody asked it to track</h2>
@@ -259,6 +266,31 @@ function renderBacktestChart(containerId, riskCategory, label) {
   });
 }
 
+function renderCorrelationTable() {
+  const rows = MoatEngine.getContaminationCancerCorrelation();
+  const el = document.getElementById("correlation-table");
+  if (!rows.length) { el.innerHTML = `<tr><td class="empty-note">No correlation data on record yet.</td></tr>`; return; }
+  el.innerHTML = `
+    <tr><th>State</th><th>Tracked contamination sites</th><th>Real cancer cases, most recent year on file</th></tr>
+    ${rows.slice(0, 15).map(r => `<tr>
+      <td>${esc(STATE_NAMES_FULL[r.state] || r.state)}</td>
+      <td>${r.siteCount}</td>
+      <td>${r.latestCount != null ? `${r.latestCount.toLocaleString()} (${r.latestYear})` : "no CDC WONDER data for this state"}</td>
+    </tr>`).join("")}
+  `;
+}
+
+const STATE_NAMES_FULL = {
+  AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",
+  DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",
+  IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",
+  MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",
+  NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",
+  OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",
+  TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",
+  WI:"Wisconsin",WY:"Wyoming",PR:"Puerto Rico"
+};
+
 function renderDiscoveryScan() {
   const candidates = MoatEngine.getDiscoveryCandidates();
   const emergence = MoatEngine.getEmergenceSignal();
@@ -299,14 +331,20 @@ function renderDiscoveryScan() {
     return { name, why, growth: g ? g.growth : null, score: g ? growthToScore(g.growth) : null, recentAvg: g ? g.recentAvg : null, priorAvg: g ? g.priorAvg : null };
   });
 
-  cardsEl.innerHTML = candidateResults.map(c => `
+  cardsEl.innerHTML = candidateResults.map(c => {
+    const trials = MoatEngine.getClinicalTrials(c.name);
+    const recalls = MoatEngine.getPharmaRecalls(c.name);
+    const safetyFlagged = trials.filter(t => t.classification === "SAFETY_FLAGGED");
+    return `
     <div class="candidate-card">
       <div class="cname">${esc(CAND_LABELS[c.name] || c.name)}</div>
       <div class="cscore" style="color:var(--accent-${CAND_BADGE[c.name] || "blue"})">${c.score != null ? c.score.toFixed(1) : "N/A"}</div>
       <div class="clabel">momentum score /100 ${c.growth != null ? `(${c.growth > 0 ? "+" : ""}${c.growth.toFixed(1)}% growth)` : ""}</div>
       <div class="cwhy">${esc(c.why)}</div>
       ${c.priorAvg != null && c.priorAvg < 30 ? `<div class="ccaveat">Small-sample caveat: prior-period base is only ~${c.priorAvg.toFixed(0)}/yr -- this growth rate is directionally real but statistically noisier than one computed from a larger base.</div>` : ""}
-    </div>`).join("");
+      ${(trials.length || recalls.length) ? `<div class="ccaveat" style="color:var(--ink-faint)">${trials.length ? `${trials.length} real terminated/withdrawn clinical trial(s) on file (${safetyFlagged.length} safety-related)` : ""}${recalls.length ? ` &middot; ${recalls.length} real FDA drug recall(s)` : ""}</div>` : ""}
+    </div>`;
+  }).join("");
 
   const pfas = emergence.find(e => e.risk_category === "pfas");
   const talc = emergence.find(e => e.risk_category === "talc");
@@ -398,6 +436,7 @@ async function init() {
   document.getElementById("snapshot-date").textContent = db.generated_at ? `Snapshot as of ${new Date(db.generated_at).toISOString().slice(0, 10)}.` : "";
   renderBacktestChart("backtest-pfas", "pfas", "PFAS/AFFF");
   renderBacktestChart("backtest-talc", "talc", "Talc");
+  renderCorrelationTable();
   renderDiscoveryScan();
   document.getElementById("sim-run").addEventListener("click", runLossSimulation);
   runLossSimulation();
