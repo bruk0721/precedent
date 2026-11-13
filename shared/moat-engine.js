@@ -597,6 +597,15 @@ const MoatEngine = (() => {
     return DB.epa_tsca_new_chemical_notices || [];
   }
 
+  // SEC 10-K risk-factor language -- real, dated detection of which real
+  // companies have started naming a tracked category in their own 10-K
+  // risk factors, across ALL real SEC filers, not just this project's
+  // curated defendant list. See sec_10k_risk_factor_pipeline.py.
+  function getSec10kRiskFactorMatches(riskCategory) {
+    const rows = DB.sec_10k_risk_factor_matches || [];
+    return riskCategory ? rows.filter(r => r.risk_category === riskCategory) : rows;
+  }
+
   function getOshaInspections(riskCategory) {
     const rows = DB.osha_inspections || [];
     return riskCategory ? rows.filter(r => r.risk_category === riskCategory) : rows;
@@ -609,11 +618,22 @@ const MoatEngine = (() => {
 
   function getContaminationCancerCorrelation() {
     const incidence = DB.cancer_incidence || [];
-    const sites = DB.state_contamination_sites || [];
-    if (!incidence.length || !sites.length) return [];
+    // Two real, independent site sources, combined: Michigan's own EGLE
+    // sites (state-reported, "state_contamination_sites") and EPA's own
+    // national PFAS Analytic Tools Superfund-sites-with-detections layer
+    // ("national_pfas_superfund_sites", 45 states/territories) -- fixes
+    // the earlier n=1-state limitation. Both are real tracked-site
+    // counts from different real sources, summed per state, not
+    // deduplicated against each other (they're structurally different:
+    // state-reported investigation sites vs. federal Superfund sites),
+    // which is stated here rather than silently assumed away.
+    const mi = DB.state_contamination_sites || [];
+    const national = DB.national_pfas_superfund_sites || [];
+    if (!incidence.length || (!mi.length && !national.length)) return [];
 
     const siteCountByState = {};
-    sites.forEach(s => { siteCountByState[s.state] = (siteCountByState[s.state] || 0) + 1; });
+    mi.forEach(s => { siteCountByState[s.state] = (siteCountByState[s.state] || 0) + 1; });
+    national.forEach(s => { siteCountByState[s.state] = (siteCountByState[s.state] || 0) + 1; });
 
     const byState = {};
     incidence.forEach(r => {
@@ -685,7 +705,7 @@ const MoatEngine = (() => {
     getSettlementStage, getHistoricalScaleComparison, getEmergenceSignal,
     getMomentumBacktest, getDiscoveryCandidates, getAggregationMap,
     getClinicalTrials, getPharmaRecalls, getContaminationCancerCorrelation, getCoverageMatrix,
-    getSamhsaTreatmentFacilities, getOshaInspections, getEpaTscaNotices,
+    getSamhsaTreatmentFacilities, getOshaInspections, getEpaTscaNotices, getSec10kRiskFactorMatches,
     get db() { return DB; },
   };
 })();

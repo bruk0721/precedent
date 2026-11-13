@@ -902,14 +902,17 @@ function renderEmergenceSignal() {
     const trials = MoatEngine.getClinicalTrials(r.risk_category);
     const recalls = MoatEngine.getPharmaRecalls(r.risk_category);
     const osha = MoatEngine.getOshaInspections(r.risk_category);
+    const tenKs = MoatEngine.getSec10kRiskFactorMatches(r.risk_category);
+    const tenKCompanies = new Set(tenKs.map(t => t.company_name));
     const safetyFlagged = trials.filter(t => t.classification === "SAFETY_FLAGGED");
-    const supplementary = (trials.length || recalls.length || osha.length) ? `
+    const supplementary = (trials.length || recalls.length || osha.length || tenKs.length) ? `
       <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg)">
         <div style="font-size:11px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px">Additional real-world signals <span style="font-weight:500;text-transform:none;letter-spacing:0">&mdash; not scored into momentum above</span></div>
         <div style="display:flex;gap:8px;flex-wrap:wrap">
           ${trials.length ? `<span class="tag ${safetyFlagged.length ? "red" : "gray"}" title="ClinicalTrials.gov">${trials.length} clinical trial${trials.length === 1 ? "" : "s"} stopped${safetyFlagged.length ? ` (${safetyFlagged.length} safety-related)` : " (non-safety reasons)"}</span>` : ""}
           ${recalls.length ? `<span class="tag amber" title="openFDA">${recalls.length} FDA drug recall${recalls.length === 1 ? "" : "s"}</span>` : ""}
           ${osha.length ? `<span class="tag gray" title="OSHA (DOL Open Data Portal)">${osha.length} real OSHA inspection${osha.length === 1 ? "" : "s"} at named defendants</span>` : ""}
+          ${tenKs.length ? `<span class="tag red" title="SEC EDGAR Full-Text Search">${tenKCompanies.size} real compan${tenKCompanies.size === 1 ? "y" : "ies"} now naming this in 10-K risk factors</span>` : ""}
         </div>
       </div>` : "";
 
