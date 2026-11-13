@@ -25213,6 +25213,458 @@
       "extracted_at": "2026-11-13T19:49:32.155582+00:00"
     }
   ],
+  "epa_tsca_new_chemical_notices": [
+    {
+      "id": 1,
+      "document_number": "2026-17482",
+      "title": "Certain New Chemicals; Receipt and Status Information for March, May, and June 2026",
+      "publication_date": "2026-08-27",
+      "html_url": "https://www.federalregister.gov/documents/2026/08/27/2026-17482/certain-new-chemicals-receipt-and-status-information-for-march-may-and-june-2026",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-08-27/pdf/2026-17482.pdf",
+      "extracted_at": "2026-11-13T20:00:43.295206+00:00"
+    },
+    {
+      "id": 2,
+      "document_number": "2026-15193",
+      "title": "Certain New Chemicals; Receipt and Status Information for April and May 2026",
+      "publication_date": "2026-07-28",
+      "html_url": "https://www.federalregister.gov/documents/2026/07/28/2026-15193/certain-new-chemicals-receipt-and-status-information-for-april-and-may-2026",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-07-28/pdf/2026-15193.pdf",
+      "extracted_at": "2026-11-13T20:00:43.308559+00:00"
+    },
+    {
+      "id": 3,
+      "document_number": "2026-12564",
+      "title": "Certain New Chemicals; Receipt and Status Information for February, March, and April 2026",
+      "publication_date": "2026-06-23",
+      "html_url": "https://www.federalregister.gov/documents/2026/06/23/2026-12564/certain-new-chemicals-receipt-and-status-information-for-february-march-and-april-2026",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-06-23/pdf/2026-12564.pdf",
+      "extracted_at": "2026-11-13T20:00:43.320791+00:00"
+    },
+    {
+      "id": 4,
+      "document_number": "2026-11943",
+      "title": "Certain New Chemicals; Receipt and Status Information for February and March 2026",
+      "publication_date": "2026-06-15",
+      "html_url": "https://www.federalregister.gov/documents/2026/06/15/2026-11943/certain-new-chemicals-receipt-and-status-information-for-february-and-march-2026",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-06-15/pdf/2026-11943.pdf",
+      "extracted_at": "2026-11-13T20:00:43.335323+00:00"
+    },
+    {
+      "id": 5,
+      "document_number": "2026-11591",
+      "title": "Certain New Chemicals; Receipt and Status Information for November 2025, January 2026, and February 2026",
+      "publication_date": "2026-06-10",
+      "html_url": "https://www.federalregister.gov/documents/2026/06/10/2026-11591/certain-new-chemicals-receipt-and-status-information-for-november-2025-january-2026-and-february",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-06-10/pdf/2026-11591.pdf",
+      "extracted_at": "2026-11-13T20:00:43.347860+00:00"
+    },
+    {
+      "id": 6,
+      "document_number": "2026-11318",
+      "title": "Certain New Chemicals; Receipt and Status Information for November 2025, December 2025, and January 2026",
+      "publication_date": "2026-06-05",
+      "html_url": "https://www.federalregister.gov/documents/2026/06/05/2026-11318/certain-new-chemicals-receipt-and-status-information-for-november-2025-december-2025-and-january",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-06-05/pdf/2026-11318.pdf",
+      "extracted_at": "2026-11-13T20:00:43.360863+00:00"
+    },
+    {
+      "id": 7,
+      "document_number": "2026-04651",
+      "title": "Certain New Chemicals; Receipt and Status Information for September-December 2025",
+      "publication_date": "2026-03-10",
+      "html_url": "https://www.federalregister.gov/documents/2026/03/10/2026-04651/certain-new-chemicals-receipt-and-status-information-for-september-december-2025",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-03-10/pdf/2026-04651.pdf",
+      "extracted_at": "2026-11-13T20:00:43.373238+00:00"
+    },
+    {
+      "id": 8,
+      "document_number": "2025-24244",
+      "title": "Certain New Chemicals; Receipt and Status Information for September and October 2025",
+      "publication_date": "2026-01-05",
+      "html_url": "https://www.federalregister.gov/documents/2026/01/05/2025-24244/certain-new-chemicals-receipt-and-status-information-for-september-and-october-2025",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2026-01-05/pdf/2025-24244.pdf",
+      "extracted_at": "2026-11-13T20:00:43.385283+00:00"
+    },
+    {
+      "id": 9,
+      "document_number": "2025-21674",
+      "title": "Certain New Chemicals; Receipt and Status Information for July-August 2025",
+      "publication_date": "2025-12-01",
+      "html_url": "https://www.federalregister.gov/documents/2025/12/01/2025-21674/certain-new-chemicals-receipt-and-status-information-for-july-august-2025",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2025-12-01/pdf/2025-21674.pdf",
+      "extracted_at": "2026-11-13T20:00:43.399027+00:00"
+    },
+    {
+      "id": 10,
+      "document_number": "2025-21673",
+      "title": "Certain New Chemicals; Receipt and Status Information for August-September 2025",
+      "publication_date": "2025-12-01",
+      "html_url": "https://www.federalregister.gov/documents/2025/12/01/2025-21673/certain-new-chemicals-receipt-and-status-information-for-august-september-2025",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2025-12-01/pdf/2025-21673.pdf",
+      "extracted_at": "2026-11-13T20:00:43.411250+00:00"
+    },
+    {
+      "id": 11,
+      "document_number": "2025-17563",
+      "title": "Certain New Chemicals; Receipt and Status Information for July 2025",
+      "publication_date": "2025-09-11",
+      "html_url": "https://www.federalregister.gov/documents/2025/09/11/2025-17563/certain-new-chemicals-receipt-and-status-information-for-july-2025",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2025-09-11/pdf/2025-17563.pdf",
+      "extracted_at": "2026-11-13T20:00:43.423984+00:00"
+    },
+    {
+      "id": 12,
+      "document_number": "2025-15726",
+      "title": "Certain New Chemicals; Receipt and Status Information for June 2025",
+      "publication_date": "2025-08-19",
+      "html_url": "https://www.federalregister.gov/documents/2025/08/19/2025-15726/certain-new-chemicals-receipt-and-status-information-for-june-2025",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2025-08-19/pdf/2025-15726.pdf",
+      "extracted_at": "2026-11-13T20:00:43.437720+00:00"
+    },
+    {
+      "id": 13,
+      "document_number": "2025-15724",
+      "title": "Certain New Chemicals; Receipt and Status Information for May 2025",
+      "publication_date": "2025-08-19",
+      "html_url": "https://www.federalregister.gov/documents/2025/08/19/2025-15724/certain-new-chemicals-receipt-and-status-information-for-may-2025",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2025-08-19/pdf/2025-15724.pdf",
+      "extracted_at": "2026-11-13T20:00:43.451838+00:00"
+    },
+    {
+      "id": 14,
+      "document_number": "2025-13022",
+      "title": "Certain New Chemicals; Receipt and Status Information for April 2025",
+      "publication_date": "2025-07-11",
+      "html_url": "https://www.federalregister.gov/documents/2025/07/11/2025-13022/certain-new-chemicals-receipt-and-status-information-for-april-2025",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2025-07-11/pdf/2025-13022.pdf",
+      "extracted_at": "2026-11-13T20:00:43.465795+00:00"
+    },
+    {
+      "id": 15,
+      "document_number": "2025-13021",
+      "title": "Certain New Chemicals; Receipt and Status Information for March 2025",
+      "publication_date": "2025-07-11",
+      "html_url": "https://www.federalregister.gov/documents/2025/07/11/2025-13021/certain-new-chemicals-receipt-and-status-information-for-march-2025",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2025-07-11/pdf/2025-13021.pdf",
+      "extracted_at": "2026-11-13T20:00:43.479696+00:00"
+    },
+    {
+      "id": 16,
+      "document_number": "2025-07941",
+      "title": "Certain New Chemicals; Receipt and Status Information for February 2025",
+      "publication_date": "2025-05-07",
+      "html_url": "https://www.federalregister.gov/documents/2025/05/07/2025-07941/certain-new-chemicals-receipt-and-status-information-for-february-2025",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2025-05-07/pdf/2025-07941.pdf",
+      "extracted_at": "2026-11-13T20:00:43.493026+00:00"
+    },
+    {
+      "id": 17,
+      "document_number": "2025-02995",
+      "title": "Certain New Chemicals; Receipt and Status Information for January 2025",
+      "publication_date": "2025-02-24",
+      "html_url": "https://www.federalregister.gov/documents/2025/02/24/2025-02995/certain-new-chemicals-receipt-and-status-information-for-january-2025",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2025-02-24/pdf/2025-02995.pdf",
+      "extracted_at": "2026-11-13T20:00:43.506398+00:00"
+    },
+    {
+      "id": 18,
+      "document_number": "2025-02994",
+      "title": "Certain New Chemicals; Receipt and Status Information for December 2024",
+      "publication_date": "2025-02-24",
+      "html_url": "https://www.federalregister.gov/documents/2025/02/24/2025-02994/certain-new-chemicals-receipt-and-status-information-for-december-2024",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2025-02-24/pdf/2025-02994.pdf",
+      "extracted_at": "2026-11-13T20:00:43.520402+00:00"
+    },
+    {
+      "id": 19,
+      "document_number": "2024-29934",
+      "title": "Certain New Chemicals; Receipt and Status Information for November 2024",
+      "publication_date": "2024-12-18",
+      "html_url": "https://www.federalregister.gov/documents/2024/12/18/2024-29934/certain-new-chemicals-receipt-and-status-information-for-november-2024",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2024-12-18/pdf/2024-29934.pdf",
+      "extracted_at": "2026-11-13T20:00:43.535168+00:00"
+    },
+    {
+      "id": 20,
+      "document_number": "2024-27717",
+      "title": "Certain New Chemicals; Receipt and Status Information for October 2024",
+      "publication_date": "2024-11-27",
+      "html_url": "https://www.federalregister.gov/documents/2024/11/27/2024-27717/certain-new-chemicals-receipt-and-status-information-for-october-2024",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2024-11-27/pdf/2024-27717.pdf",
+      "extracted_at": "2026-11-13T20:00:43.551037+00:00"
+    },
+    {
+      "id": 21,
+      "document_number": "2024-24503",
+      "title": "Certain New Chemicals; Receipt and Status Information for September 2024",
+      "publication_date": "2024-10-23",
+      "html_url": "https://www.federalregister.gov/documents/2024/10/23/2024-24503/certain-new-chemicals-receipt-and-status-information-for-september-2024",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2024-10-23/pdf/2024-24503.pdf",
+      "extracted_at": "2026-11-13T20:00:43.574327+00:00"
+    },
+    {
+      "id": 22,
+      "document_number": "2024-21583",
+      "title": "Certain New Chemicals; Receipt and Status Information for August 2024",
+      "publication_date": "2024-09-20",
+      "html_url": "https://www.federalregister.gov/documents/2024/09/20/2024-21583/certain-new-chemicals-receipt-and-status-information-for-august-2024",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2024-09-20/pdf/2024-21583.pdf",
+      "extracted_at": "2026-11-13T20:00:43.587417+00:00"
+    },
+    {
+      "id": 23,
+      "document_number": "2024-19304",
+      "title": "Certain New Chemicals; Receipt and Status Information for July 2024",
+      "publication_date": "2024-08-28",
+      "html_url": "https://www.federalregister.gov/documents/2024/08/28/2024-19304/certain-new-chemicals-receipt-and-status-information-for-july-2024",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2024-08-28/pdf/2024-19304.pdf",
+      "extracted_at": "2026-11-13T20:00:43.592686+00:00"
+    },
+    {
+      "id": 24,
+      "document_number": "2024-15856",
+      "title": "Certain New Chemicals; Receipt and Status Information for June 2024",
+      "publication_date": "2024-07-18",
+      "html_url": "https://www.federalregister.gov/documents/2024/07/18/2024-15856/certain-new-chemicals-receipt-and-status-information-for-june-2024",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2024-07-18/pdf/2024-15856.pdf",
+      "extracted_at": "2026-11-13T20:00:43.614885+00:00"
+    },
+    {
+      "id": 25,
+      "document_number": "2024-15255",
+      "title": "Certain New Chemicals; Receipt and Status Information for May 2024",
+      "publication_date": "2024-07-11",
+      "html_url": "https://www.federalregister.gov/documents/2024/07/11/2024-15255/certain-new-chemicals-receipt-and-status-information-for-may-2024",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2024-07-11/pdf/2024-15255.pdf",
+      "extracted_at": "2026-11-13T20:00:43.627710+00:00"
+    },
+    {
+      "id": 26,
+      "document_number": "2024-11157",
+      "title": "Certain New Chemicals; Receipt and Status Information for April 2024",
+      "publication_date": "2024-05-21",
+      "html_url": "https://www.federalregister.gov/documents/2024/05/21/2024-11157/certain-new-chemicals-receipt-and-status-information-for-april-2024",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2024-05-21/pdf/2024-11157.pdf",
+      "extracted_at": "2026-11-13T20:00:43.640949+00:00"
+    },
+    {
+      "id": 27,
+      "document_number": "2024-07895",
+      "title": "Certain New Chemicals; Receipt and Status Information for March 2024",
+      "publication_date": "2024-04-15",
+      "html_url": "https://www.federalregister.gov/documents/2024/04/15/2024-07895/certain-new-chemicals-receipt-and-status-information-for-march-2024",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2024-04-15/pdf/2024-07895.pdf",
+      "extracted_at": "2026-11-13T20:00:43.655464+00:00"
+    },
+    {
+      "id": 28,
+      "document_number": "2024-06437",
+      "title": "Certain New Chemicals; Receipt and Status Information for February 2024",
+      "publication_date": "2024-03-27",
+      "html_url": "https://www.federalregister.gov/documents/2024/03/27/2024-06437/certain-new-chemicals-receipt-and-status-information-for-february-2024",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2024-03-27/pdf/2024-06437.pdf",
+      "extracted_at": "2026-11-13T20:00:43.667539+00:00"
+    },
+    {
+      "id": 29,
+      "document_number": "2024-03533",
+      "title": "Certain New Chemicals; Receipt and Status Information for January 2024",
+      "publication_date": "2024-02-22",
+      "html_url": "https://www.federalregister.gov/documents/2024/02/22/2024-03533/certain-new-chemicals-receipt-and-status-information-for-january-2024",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2024-02-22/pdf/2024-03533.pdf",
+      "extracted_at": "2026-11-13T20:00:43.672427+00:00"
+    },
+    {
+      "id": 30,
+      "document_number": "2024-00891",
+      "title": "Certain New Chemicals; Receipt and Status Information for December 2023",
+      "publication_date": "2024-01-18",
+      "html_url": "https://www.federalregister.gov/documents/2024/01/18/2024-00891/certain-new-chemicals-receipt-and-status-information-for-december-2023",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2024-01-18/pdf/2024-00891.pdf",
+      "extracted_at": "2026-11-13T20:00:43.696854+00:00"
+    },
+    {
+      "id": 31,
+      "document_number": "2023-28240",
+      "title": "Certain New Chemicals; Receipt and Status Information for November 2023",
+      "publication_date": "2023-12-22",
+      "html_url": "https://www.federalregister.gov/documents/2023/12/22/2023-28240/certain-new-chemicals-receipt-and-status-information-for-november-2023",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-12-22/pdf/2023-28240.pdf",
+      "extracted_at": "2026-11-13T20:00:43.709855+00:00"
+    },
+    {
+      "id": 32,
+      "document_number": "2023-25437",
+      "title": "Certain New Chemicals; Receipt and Status Information for October 2023",
+      "publication_date": "2023-11-17",
+      "html_url": "https://www.federalregister.gov/documents/2023/11/17/2023-25437/certain-new-chemicals-receipt-and-status-information-for-october-2023",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-11-17/pdf/2023-25437.pdf",
+      "extracted_at": "2026-11-13T20:00:43.723834+00:00"
+    },
+    {
+      "id": 33,
+      "document_number": "2023-23471",
+      "title": "Certain New Chemicals; Receipt and Status Information for September 2023",
+      "publication_date": "2023-10-24",
+      "html_url": "https://www.federalregister.gov/documents/2023/10/24/2023-23471/certain-new-chemicals-receipt-and-status-information-for-september-2023",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-10-24/pdf/2023-23471.pdf",
+      "extracted_at": "2026-11-13T20:00:43.736901+00:00"
+    },
+    {
+      "id": 34,
+      "document_number": "2023-20047",
+      "title": "Certain New Chemicals; Receipt and Status Information for August 2023",
+      "publication_date": "2023-09-15",
+      "html_url": "https://www.federalregister.gov/documents/2023/09/15/2023-20047/certain-new-chemicals-receipt-and-status-information-for-august-2023",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-09-15/pdf/2023-20047.pdf",
+      "extracted_at": "2026-11-13T20:00:43.751327+00:00"
+    },
+    {
+      "id": 35,
+      "document_number": "2023-17846",
+      "title": "Certain New Chemicals; Receipt and Status Information for July 2023",
+      "publication_date": "2023-08-21",
+      "html_url": "https://www.federalregister.gov/documents/2023/08/21/2023-17846/certain-new-chemicals-receipt-and-status-information-for-july-2023",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-08-21/pdf/2023-17846.pdf",
+      "extracted_at": "2026-11-13T20:00:43.765967+00:00"
+    },
+    {
+      "id": 36,
+      "document_number": "2023-15301",
+      "title": "Certain New Chemicals; Receipt and Status Information for June 2023",
+      "publication_date": "2023-07-19",
+      "html_url": "https://www.federalregister.gov/documents/2023/07/19/2023-15301/certain-new-chemicals-receipt-and-status-information-for-june-2023",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-07-19/pdf/2023-15301.pdf",
+      "extracted_at": "2026-11-13T20:00:43.779526+00:00"
+    },
+    {
+      "id": 37,
+      "document_number": "2023-13165",
+      "title": "Certain New Chemicals; Receipt and Status Information for May 2023",
+      "publication_date": "2023-06-21",
+      "html_url": "https://www.federalregister.gov/documents/2023/06/21/2023-13165/certain-new-chemicals-receipt-and-status-information-for-may-2023",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-06-21/pdf/2023-13165.pdf",
+      "extracted_at": "2026-11-13T20:00:43.792858+00:00"
+    },
+    {
+      "id": 38,
+      "document_number": "2023-11727",
+      "title": "Certain New Chemicals; Receipt and Status Information for April 2023",
+      "publication_date": "2023-06-02",
+      "html_url": "https://www.federalregister.gov/documents/2023/06/02/2023-11727/certain-new-chemicals-receipt-and-status-information-for-april-2023",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-06-02/pdf/2023-11727.pdf",
+      "extracted_at": "2026-11-13T20:00:43.805823+00:00"
+    },
+    {
+      "id": 39,
+      "document_number": "2023-08303",
+      "title": "Certain New Chemicals; Receipt and Status Information for March 2023",
+      "publication_date": "2023-04-20",
+      "html_url": "https://www.federalregister.gov/documents/2023/04/20/2023-08303/certain-new-chemicals-receipt-and-status-information-for-march-2023",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-04-20/pdf/2023-08303.pdf",
+      "extracted_at": "2026-11-13T20:00:43.818663+00:00"
+    },
+    {
+      "id": 40,
+      "document_number": "2023-05760",
+      "title": "Certain New Chemicals; Receipt and Status Information for January 2023; Extension of Comment Period",
+      "publication_date": "2023-03-20",
+      "html_url": "https://www.federalregister.gov/documents/2023/03/20/2023-05760/certain-new-chemicals-receipt-and-status-information-for-january-2023-extension-of-comment-period",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-03-20/pdf/2023-05760.pdf",
+      "extracted_at": "2026-11-13T20:00:43.832222+00:00"
+    },
+    {
+      "id": 41,
+      "document_number": "2023-05598",
+      "title": "Certain New Chemicals; Receipt and Status Information for February 2023",
+      "publication_date": "2023-03-20",
+      "html_url": "https://www.federalregister.gov/documents/2023/03/20/2023-05598/certain-new-chemicals-receipt-and-status-information-for-february-2023",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-03-20/pdf/2023-05598.pdf",
+      "extracted_at": "2026-11-13T20:00:43.846542+00:00"
+    },
+    {
+      "id": 42,
+      "document_number": "2023-03362",
+      "title": "Certain New Chemicals; Receipt and Status Information for January 2023",
+      "publication_date": "2023-02-17",
+      "html_url": "https://www.federalregister.gov/documents/2023/02/17/2023-03362/certain-new-chemicals-receipt-and-status-information-for-january-2023",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-02-17/pdf/2023-03362.pdf",
+      "extracted_at": "2026-11-13T20:00:43.859815+00:00"
+    },
+    {
+      "id": 43,
+      "document_number": "2023-00859",
+      "title": "Certain New Chemicals; Receipt and Status Information for December 2022",
+      "publication_date": "2023-01-18",
+      "html_url": "https://www.federalregister.gov/documents/2023/01/18/2023-00859/certain-new-chemicals-receipt-and-status-information-for-december-2022",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2023-01-18/pdf/2023-00859.pdf",
+      "extracted_at": "2026-11-13T20:00:43.873410+00:00"
+    },
+    {
+      "id": 44,
+      "document_number": "2022-27448",
+      "title": "Certain New Chemicals; Receipt and Status Information for November 2022",
+      "publication_date": "2022-12-19",
+      "html_url": "https://www.federalregister.gov/documents/2022/12/19/2022-27448/certain-new-chemicals-receipt-and-status-information-for-november-2022",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2022-12-19/pdf/2022-27448.pdf",
+      "extracted_at": "2026-11-13T20:00:43.886814+00:00"
+    },
+    {
+      "id": 45,
+      "document_number": "2022-25743",
+      "title": "Certain New Chemicals; Receipt and Status Information for October 2022",
+      "publication_date": "2022-11-25",
+      "html_url": "https://www.federalregister.gov/documents/2022/11/25/2022-25743/certain-new-chemicals-receipt-and-status-information-for-october-2022",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2022-11-25/pdf/2022-25743.pdf",
+      "extracted_at": "2026-11-13T20:00:43.899650+00:00"
+    },
+    {
+      "id": 46,
+      "document_number": "2022-23188",
+      "title": "Certain New Chemicals; Receipt and Status Information for September 2022",
+      "publication_date": "2022-10-25",
+      "html_url": "https://www.federalregister.gov/documents/2022/10/25/2022-23188/certain-new-chemicals-receipt-and-status-information-for-september-2022",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2022-10-25/pdf/2022-23188.pdf",
+      "extracted_at": "2026-11-13T20:00:43.913604+00:00"
+    },
+    {
+      "id": 47,
+      "document_number": "2022-20472",
+      "title": "Certain New Chemicals; Receipt and Status Information for August 2022",
+      "publication_date": "2022-09-22",
+      "html_url": "https://www.federalregister.gov/documents/2022/09/22/2022-20472/certain-new-chemicals-receipt-and-status-information-for-august-2022",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2022-09-22/pdf/2022-20472.pdf",
+      "extracted_at": "2026-11-13T20:00:43.927254+00:00"
+    },
+    {
+      "id": 48,
+      "document_number": "2022-17474",
+      "title": "Certain New Chemicals; Receipt and Status Information for July 2022",
+      "publication_date": "2022-08-15",
+      "html_url": "https://www.federalregister.gov/documents/2022/08/15/2022-17474/certain-new-chemicals-receipt-and-status-information-for-july-2022",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2022-08-15/pdf/2022-17474.pdf",
+      "extracted_at": "2026-11-13T20:00:43.941054+00:00"
+    },
+    {
+      "id": 49,
+      "document_number": "2022-15384",
+      "title": "Certain New Chemicals; Receipt and Status Information for June 2022",
+      "publication_date": "2022-07-19",
+      "html_url": "https://www.federalregister.gov/documents/2022/07/19/2022-15384/certain-new-chemicals-receipt-and-status-information-for-june-2022",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2022-07-19/pdf/2022-15384.pdf",
+      "extracted_at": "2026-11-13T20:00:43.955469+00:00"
+    },
+    {
+      "id": 50,
+      "document_number": "2022-13779",
+      "title": "Certain New Chemicals; Receipt and Status Information for May 2022",
+      "publication_date": "2022-06-28",
+      "html_url": "https://www.federalregister.gov/documents/2022/06/28/2022-13779/certain-new-chemicals-receipt-and-status-information-for-may-2022",
+      "pdf_url": "https://www.govinfo.gov/content/pkg/FR-2022-06-28/pdf/2022-13779.pdf",
+      "extracted_at": "2026-11-13T20:00:43.968979+00:00"
+    }
+  ],
   "jpml_mdl_statistics": [
     {
       "id": 1,
@@ -27546,5 +27998,5 @@
       }
     }
   },
-  "generated_at": "2026-11-13T19:50:03.585324+00:00"
+  "generated_at": "2026-11-13T20:01:54.159220+00:00"
 }

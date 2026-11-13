@@ -157,6 +157,13 @@
     <table class="compare-table" id="samhsa-table"></table>
   </div>
 
+  <div class="section-label">New-chemical watch &mdash; finding the next one before it has a name</div>
+  <div class="card">
+    <h2>What's entering EPA's review pipeline right now</h2>
+    <p class="card-sub">A real leading indicator nobody in this space is citing: manufacturers often substitute a close chemical cousin when an existing one gets sued over (GenX replaced PFOA) -- a real, dated signal of that substitution shows up here, in EPA's own monthly Federal Register notices of new substances entering TSCA review, years before any lawsuit could exist. <b>Not a claim any one substance is dangerous</b> &mdash; only that it exists and entered review, which is worth having on file before anyone else does.</p>
+    <table class="compare-table" id="tsca-table"></table>
+  </div>
+
   <div class="section-label">Discovery scan &mdash; the harder test</div>
   <div class="card">
     <h2>Pointed at candidates nobody asked it to track</h2>
@@ -309,6 +316,17 @@ function renderSamhsaTable() {
   `;
 }
 
+function renderTscaTable() {
+  const rows = MoatEngine.getEpaTscaNotices();
+  const el = document.getElementById("tsca-table");
+  if (!rows || !rows.length) { el.innerHTML = `<tr><td class="empty-note">No EPA TSCA data on record yet.</td></tr>`; return; }
+  const latest = [...rows].sort((a, b) => new Date(b.publication_date) - new Date(a.publication_date)).slice(0, 8);
+  el.innerHTML = `
+    <tr><th>Published</th><th>Notice</th></tr>
+    ${latest.map(r => `<tr><td style="white-space:nowrap">${esc(r.publication_date)}</td><td><a href="${esc(r.html_url)}" target="_blank" rel="noopener" style="color:var(--accent-blue);font-weight:500">${esc(r.title)}</a></td></tr>`).join("")}
+  `;
+}
+
 function renderDiscoveryScan() {
   const candidates = MoatEngine.getDiscoveryCandidates();
   const emergence = MoatEngine.getEmergenceSignal();
@@ -456,6 +474,7 @@ async function init() {
   renderBacktestChart("backtest-talc", "talc", "Talc");
   renderCorrelationTable();
   renderSamhsaTable();
+  renderTscaTable();
   renderDiscoveryScan();
   document.getElementById("sim-run").addEventListener("click", runLossSimulation);
   runLossSimulation();

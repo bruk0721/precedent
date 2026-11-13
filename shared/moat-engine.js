@@ -587,6 +587,16 @@ const MoatEngine = (() => {
   // project's own already-sourced real defendant names (Fire-Dex, Globe
   // Manufacturing, 3M, DuPont, Johnson, etc.), not a loose category
   // keyword. See osha_inspection_pipeline.py.
+  // EPA TSCA new-chemical notices -- real, dated monthly Federal Register
+  // notices of new substances entering EPA's TSCA review pipeline. Not a
+  // claim any one substance is dangerous -- a real "regrettable
+  // substitution" leading indicator: a replacement chemical for an
+  // already-litigated category often shows up here years before any
+  // litigation could exist around it. See epa_tsca_new_chemicals_pipeline.py.
+  function getEpaTscaNotices() {
+    return DB.epa_tsca_new_chemical_notices || [];
+  }
+
   function getOshaInspections(riskCategory) {
     const rows = DB.osha_inspections || [];
     return riskCategory ? rows.filter(r => r.risk_category === riskCategory) : rows;
@@ -675,7 +685,7 @@ const MoatEngine = (() => {
     getSettlementStage, getHistoricalScaleComparison, getEmergenceSignal,
     getMomentumBacktest, getDiscoveryCandidates, getAggregationMap,
     getClinicalTrials, getPharmaRecalls, getContaminationCancerCorrelation, getCoverageMatrix,
-    getSamhsaTreatmentFacilities, getOshaInspections,
+    getSamhsaTreatmentFacilities, getOshaInspections, getEpaTscaNotices,
     get db() { return DB; },
   };
 })();
