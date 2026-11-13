@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Precedent — Litigation Timeline</title>
+<title>Nubuye — Litigation Timeline</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
@@ -35,6 +35,14 @@
   nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 980px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 20; border-bottom: 1px solid var(--chip-bg); }
   .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
   .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
+  .brand-mark {
+    height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0;
+    background: var(--accent-blue); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
   .nav-links { display: flex; gap: 20px; align-items: center; }
   .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
   .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
@@ -130,11 +138,11 @@
 </style>
 </head>
 <body>
-<script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
 <div class="rail-tooltip" id="rail-tooltip"></div>
 
 <nav class="top">
-  <div class="brand"><span class="dot"></span> Precedent</div>
+  <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
   <div class="nav-links">
     <a href="../">&larr; Back to overview</a>
     <a href="../console/">Underwriter Console</a>
@@ -146,7 +154,7 @@
 <div class="hero">
   <span class="eyebrow-pill"><span class="dot"></span>Real, cited history</span>
   <h1>Litigation Timeline</h1>
-  <p class="dek">Every real, dated development behind the categories Precedent tracks &mdash; pulled from this project's own SEC/JPML data where possible, and cited to a real external source everywhere else. <strong>Asbestos is shown as the historical analog</strong>, not a category this project prices. Circle size is a real dollar amount; squares are real case counts &mdash; the two are never compared on the same scale.</p>
+  <p class="dek">Every real, dated development behind the categories Nubuye tracks &mdash; pulled from this project's own SEC/JPML data where possible, and cited to a real external source everywhere else. <strong>Asbestos is shown as the historical analog</strong>, not a category this project prices. Circle size is a real dollar amount; squares are real case counts &mdash; the two are never compared on the same scale.</p>
 </div>
 
 <div class="wrap">
@@ -398,7 +406,7 @@ function setupThemeToggle() {
   apply(isDark);
   btn.addEventListener("click", () => {
     isDark = !isDark;
-    try { localStorage.setItem("precedent:theme", isDark ? "dark" : "light"); } catch (e) {}
+    try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {}
     apply(isDark);
     renderFilters();
     renderRail();

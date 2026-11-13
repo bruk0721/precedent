@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Precedent — Underwriter Console</title>
+<title>Nubuye — Underwriter Console</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js"></script>
 <style>
@@ -71,6 +71,14 @@
   nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 980px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
   .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
   .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
+  .brand-mark {
+    height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0;
+    background: var(--accent-blue); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
   .nav-links { display: flex; gap: 20px; align-items: center; }
   .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
   .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
@@ -165,11 +173,11 @@
 </style>
 </head>
 <body>
-<script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
 <div class="map-tooltip" id="facility-map-tooltip"></div>
 
 <nav class="top">
-  <div class="brand"><span class="dot"></span> Precedent</div>
+  <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
   <div class="nav-links">
     <a href="../">&larr; Back to overview</a>
     <a href="../xray/">PFAS X-Ray</a>
@@ -182,7 +190,7 @@
 <div class="hero">
   <span class="eyebrow-pill"><span class="dot"></span>Live underwriter console</span>
   <h1>Underwriter Console</h1>
-  <p class="dek">Enter a NAICS code and a state to see the real signal Precedent's data pipelines have found &mdash; pulled live from CourtListener, SEC EDGAR, and LegiScan, not simulated, across two latent-liability categories (PFAS/AFFF and talc litigation) on the same curated-company basis. <strong>No signal found is not the same as no risk</strong>: an empty result below means nothing has been collected yet, not that it's been checked and cleared.</p>
+  <p class="dek">Enter a NAICS code and a state to see the real signal Nubuye's data pipelines have found &mdash; pulled live from CourtListener, SEC EDGAR, and LegiScan, not simulated, across two latent-liability categories (PFAS/AFFF and talc litigation) on the same curated-company basis. <strong>No signal found is not the same as no risk</strong>: an empty result below means nothing has been collected yet, not that it's been checked and cleared.</p>
 </div>
 
 <div class="wrap">
@@ -271,6 +279,7 @@
     <summary><h2>Aggregation Map</h2><span class="hint" id="aggregation-map-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
       <p class="card-sub">The actual hard problem in casualty aggregation, not property catastrophe: one litigation event against a single parent touches many seemingly unrelated accounts through real, documented common-shock pathways &mdash; subsidiary entities (SEC Exhibit 21), facility locations (EPA TRI), and downstream NAICS use-cases. A reinsurer's first question at every treaty renewal is "how correlated is this book" &mdash; this is the real data behind that answer, not a correlation coefficient invented to sound precise. <a href="../model-risk/">Model risk &amp; limitations</a>.</p>
+      <p class="card-sub" style="margin-top:-8px"><b style="color:var(--ink)">This data is symmetric, by design:</b> a cedent uses it to document aggregation for a treaty submission; a reinsurer uses the identical map to monitor their own assumed-book accumulation to one chemical family <i>across every cedent they write</i>, something no single cedent's own book can show them. Same real data, read from either side of the treaty.</p>
       <div id="aggregation-map-body"></div>
     </div>
   </details>
@@ -278,7 +287,7 @@
   <details class="card accordion" id="jpml-card">
     <summary><h2>Real MDL case scale (JPML)</h2><span class="hint" id="jpml-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
-      <p class="card-sub">Real, official pending-case counts straight from the US Judicial Panel on Multidistrict Litigation's own monthly report &mdash; not a news estimate or a single company's own disclosure. Includes turnout-gear litigation (MDL-3191), which has no curated defendant/NAICS yet but is real and current. Each MDL also shows a curated settlement-stage assessment (individual settlements &rarr; global settlement &rarr; bankruptcy trust &rarr; bankruptcy preemption) -- a human judgment call citing real facts, never an algorithmic score.</p>
+      <p class="card-sub">Real, official pending-case counts straight from the US Judicial Panel on Multidistrict Litigation's own monthly report &mdash; not a news estimate or a single company's own disclosure. Now spans 6 real MDLs across PFAS, talc, turnout gear, hair relaxer (MDL-3060), social media/adolescent mental health (MDL-3047), and glyphosate/Roundup (MDL-2741) -- the last three added after a direct question about other hazards worth tracking, each verified live against the current JPML report before adding. Several have no curated defendant/NAICS yet but are real and current. Each MDL also shows a curated settlement-stage assessment where one exists -- a human judgment call citing real facts, never an algorithmic score.</p>
       <div id="jpml-body"></div>
     </div>
   </details>
@@ -375,7 +384,7 @@
   </div>
 
   <footer>
-    Every figure in this console comes from a real pipeline run against CourtListener, SEC EDGAR, or LegiScan &mdash; the same data behind Precedent's scenario trackers, queried live in your browser against a snapshot exported from the underlying database. <span id="snapshot-date"></span>
+    Every figure in this console comes from a real pipeline run against CourtListener, SEC EDGAR, or LegiScan &mdash; the same data behind Nubuye's scenario trackers, queried live in your browser against a snapshot exported from the underlying database. <span id="snapshot-date"></span>
   </footer>
 </div>
 
@@ -783,7 +792,7 @@ function renderHistoricalScale() {
   }).join("");
 }
 
-const LAST_VISIT_KEY = "precedent:consoleLastVisit";
+const LAST_VISIT_KEY = "nubuye:consoleLastVisit";
 
 function renderSinceLastVisit() {
   const hint = document.getElementById("since-visit-hint");
@@ -914,8 +923,11 @@ function renderSocialInflationNote() {
 function renderJpmlStats() {
   const hint = document.getElementById("jpml-hint");
   const el = document.getElementById("jpml-body");
-  const categories = ["pfas", "talc", "turnout_gear"];
-  const catLabels = { pfas: "PFAS/AFFF", talc: "Talc", turnout_gear: "Turnout Gear (no curated defendant yet)" };
+  const categories = ["pfas", "talc", "turnout_gear", "hair_relaxer", "social_media_mental_health", "glyphosate"];
+  const catLabels = {
+    pfas: "PFAS/AFFF", talc: "Talc", turnout_gear: "Turnout Gear (no curated defendant yet)",
+    hair_relaxer: "Hair Relaxer (no curated defendant yet)", social_media_mental_health: "Social Media / Adolescent Mental Health (no curated defendant yet)", glyphosate: "Glyphosate / Roundup (mature, contrast case)",
+  };
   const allStats = categories.flatMap(c => MoatEngine.getJpmlStats(c));
   if (!allStats.length) {
     el.innerHTML = `<p class="empty-note">No real JPML data on record yet.</p>`;
@@ -1085,7 +1097,7 @@ function setupThemeToggle() {
   apply(isDark);
   btn.addEventListener("click", () => {
     isDark = !isDark;
-    try { localStorage.setItem("precedent:theme", isDark ? "dark" : "light"); } catch (e) {}
+    try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {}
     apply(isDark);
   });
 }

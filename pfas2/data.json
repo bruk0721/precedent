@@ -903,7 +903,7 @@
     {
       "date": "2026-11-08",
       "label": "Argentina contradiction resolved; primary-source retries; dual-exposure feature; evidence-maturity meter",
-      "detail": "Directly fetched and read the actual Resolucion 451/2019 Annex III PDF, resolving a prior contradiction about whether Argentina regulates PFOS firefighting foam (it does). Retried Illinois and New Hampshire primary legislative sources on a second, independent network path -- both remain genuinely unreachable, so both stay REPORTED rather than silently upgraded. Shipped a new cross-module \"Dual-exposure states\" panel on the Precedent landing page, and added this evidence-maturity meter and changelog."
+      "detail": "Directly fetched and read the actual Resolucion 451/2019 Annex III PDF, resolving a prior contradiction about whether Argentina regulates PFOS firefighting foam (it does). Retried Illinois and New Hampshire primary legislative sources on a second, independent network path -- both remain genuinely unreachable, so both stay REPORTED rather than silently upgraded. Shipped a new cross-module \"Dual-exposure states\" panel on the Nubuye landing page, and added this evidence-maturity meter and changelog."
     },
     {
       "date": "2026-11-07",

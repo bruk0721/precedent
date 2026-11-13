@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Precedent</title>
+<title>Nubuye</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Instrument+Serif:ital@0;1&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --page-bg: #f7f8fa;
@@ -28,7 +28,7 @@
     --nav-bg: rgba(247, 248, 250, 0.78);
     --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    --font-serif: "Fraunces", Georgia, "Times New Roman", serif;
+    --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
     --radius-card: 20px;
     --radius-pill: 999px;
     --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
@@ -60,19 +60,46 @@
   a { color: inherit; text-decoration: none; }
   .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px 100px; }
 
-  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 880px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  nav.top {
+    display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 1180px; margin: 0 auto;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: transparent; border-bottom: 1px solid transparent;
+    transition: background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease;
+  }
+  nav.top .brand, nav.top .nav-links a { color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.35); }
+  nav.top .brand .dot { background: #9fb0e0; }
+  nav.top[data-scrolled="true"] {
+    background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--chip-bg);
+  }
+  nav.top[data-scrolled="true"] .brand, nav.top[data-scrolled="true"] .nav-links a { color: var(--ink-muted); text-shadow: none; }
+  nav.top[data-scrolled="true"] .brand { color: var(--ink); }
+  nav.top[data-scrolled="true"] .brand .dot { background: var(--accent-blue); }
   .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
-  .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
-  .nav-links { display: flex; gap: 20px; align-items: center; }
-  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
-  .nav-links a.cta { color: var(--accent-blue); }
-  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
-  .theme-toggle:hover { background: var(--chip-bg); }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; }
+  .brand-mark {
+    height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0;
+    background: var(--accent-blue); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
+  .nav-links { display: flex; gap: 18px; align-items: center; flex-wrap: nowrap; }
+  .nav-links a { white-space: nowrap; }
+  .nav-links a { font-size: 14px; font-weight: 600; letter-spacing: 0.01em; }
+  nav.top .nav-links a.cta { color: #ffffff; }
+  nav.top[data-scrolled="true"] .nav-links a.cta { color: var(--accent-blue); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255,255,255,0.1); backdrop-filter: blur(6px); color: #fff; font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: background 0.25s ease, border-color 0.25s ease; }
+  nav.top[data-scrolled="true"] .theme-toggle { border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  .theme-toggle:hover { background: rgba(255,255,255,0.2); }
+  nav.top[data-scrolled="true"] .theme-toggle:hover { background: var(--chip-bg); }
+
+  body { padding-top: 0; }
 
   @media (max-width: 640px) {
     nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; }
     .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; }
-    .nav-links a { font-size: 13px; white-space: nowrap; }
+    .nav-links a { font-size: 13.5px; white-space: nowrap; }
     .quotes-strip { flex-direction: column; }
   }
 
@@ -89,7 +116,7 @@
   }
   .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.1); color: #d7dae0; font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 26px; backdrop-filter: blur(6px); }
   .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: #7f94c2; }
-  h1 { font-family: var(--font-serif); font-weight: 500; font-style: italic; font-size: clamp(34px, 6.4vw, 60px); line-height: 1.12; margin: 0 auto 20px; letter-spacing: -0.01em; text-wrap: balance; max-width: 16ch; color: #ffffff; }
+  h1 { font-family: var(--font-serif); font-weight: 400; font-style: italic; font-size: clamp(38px, 7vw, 66px); line-height: 1.1; margin: 0 auto 20px; letter-spacing: -0.01em; text-wrap: balance; max-width: 16ch; color: #ffffff; }
   .hero p.dek { font-size: 17px; line-height: 1.6; color: #c7cbd3; max-width: 54ch; margin: 0 auto; }
   .hero p.dek strong { color: #ffffff; font-weight: 600; }
   .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
@@ -254,6 +281,19 @@
   .plan-cta.secondary { background: var(--chip-bg); color: var(--ink); }
   .plan-cta.secondary:hover { background: #e4e4e2; }
 
+  /* ---- Who this is for: role-by-role, each tied to a real existing feature, not a generic persona slide ---- */
+  .persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 30px; }
+  @media (max-width: 720px) { .persona-grid { grid-template-columns: 1fr; } }
+  .persona-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 22px 24px; box-shadow: var(--shadow-card); }
+  .persona-card .p-role { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent-blue); margin-bottom: 8px; }
+  .persona-card h3 { font-size: 16px; font-weight: 600; margin: 0 0 8px; }
+  .persona-card p { font-size: 13px; line-height: 1.6; color: var(--ink-muted); margin: 0 0 10px; }
+  .persona-card a { font-size: 12.5px; font-weight: 600; color: var(--accent-blue); }
+
+  .rds-callout { background: linear-gradient(135deg, var(--accent-blue-bg), var(--card-bg)); border-radius: var(--radius-card); padding: 28px 30px; box-shadow: var(--shadow-card); margin-top: 20px; }
+  .rds-callout h3 { font-size: 18px; margin: 0 0 10px; }
+  .rds-callout p { font-size: 14px; line-height: 1.7; color: var(--ink-muted); margin: 0; }
+
   /* ---- FIG. 01: named, enumerated deliverable catalog (Postral-style "mapped to your rig" pattern) ---- */
   .fig-label { font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 18px; text-align: center; }
   .fig-catalog { display: flex; flex-direction: column; gap: 1px; background: var(--chip-bg); border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); }
@@ -281,10 +321,10 @@
 </style>
 </head>
 <body>
-<script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
 
 <nav class="top">
-  <div class="brand"><span class="dot"></span> Precedent</div>
+  <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
   <div class="nav-links">
     <a href="#ontology">How it works</a>
     <a href="#plans">Plans</a>
@@ -332,7 +372,7 @@
     <div class="q-src"><a href="https://www.amwins.com/who-we-are/newsroom/amwins-specialty-casualty-solutions-enhances-portfolio-with-public-entity-excess-casualty-program" target="_blank" rel="noopener">Amwins newsroom, Mar 17 2025</a></div>
   </div>
 </div>
-<p class="quotes-note">Cited as industry commentary &mdash; not an endorsement of Precedent.</p>
+<p class="quotes-note">Cited as industry commentary &mdash; not an endorsement of Nubuye.</p>
 
 <div class="trust-bar">
   <div class="tb-label">Every figure traces back to a primary source we read directly</div>
@@ -349,7 +389,7 @@
 
   <section>
     <div class="section-head">
-      <h2>How Precedent works</h2>
+      <h2>How Nubuye works</h2>
       <p class="section-sub">Three steps, not a black box.</p>
     </div>
     <div class="process-row">
@@ -372,7 +412,7 @@
   </section>
 
   <section class="block">
-    <div class="fig-label">FIG. 01 &mdash; what Precedent actually delivers</div>
+    <div class="fig-label">FIG. 01 &mdash; what Nubuye actually delivers</div>
     <div class="fig-catalog">
       <div class="fig-row">
         <span class="fig-num">01</span>
@@ -520,7 +560,7 @@
   <section class="block" id="plans">
     <div class="section-head">
       <h2>Plans</h2>
-      <p class="section-sub">Priced like the rest of this category &mdash; an annual license, not a self-serve checkout. No number here would mean anything before we've seen your book.</p>
+      <p class="section-sub">Priced like the rest of this category &mdash; an enterprise license sized to your book, integrated into your own systems, not a per-seat tool or a self-serve checkout. No number here would mean anything before we've seen your book.</p>
     </div>
     <div class="plans-row">
       <div class="plan-card">
@@ -539,12 +579,12 @@
       <div class="plan-card featured">
         <span class="plan-badge">Most teams start here</span>
         <h3>Console</h3>
-        <div class="plan-price">Per-seat annual license</div>
-        <p class="plan-desc">The full module suite for an underwriting team: PFAS &amp; turnout-gear tracker, presumption tracker, litigation timeline, live docket checks, and exportable file notes.</p>
+        <div class="plan-price">Enterprise license, sized to your book</div>
+        <p class="plan-desc">The full module suite for an underwriting, reserving, or claims team: PFAS &amp; turnout-gear tracker, presumption tracker, litigation timeline, live docket checks, and exportable file notes. Priced to your book's size (gross written premium in the tracked lines), not a per-seat fee &mdash; unlimited users across your team.</p>
         <ul class="plan-features">
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Every scenario module, unlimited use</li>
+          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Every scenario module, unlimited users</li>
           <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Book-of-business exposure calculator</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Seats for your full underwriting team</li>
+          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Underwriting, reserving, and claims teams, one license</li>
         </ul>
         <a class="plan-cta primary" href="#get-in-touch">Contact sales</a>
       </div>
@@ -552,12 +592,12 @@
       <div class="plan-card">
         <span class="plan-badge" style="color:var(--accent-amber); background:var(--accent-amber-bg)">Enterprise</span>
         <h3>Data Feed &amp; API</h3>
-        <div class="plan-price">Custom license</div>
-        <p class="plan-desc">The validated crosswalk itself &mdash; statute to chemical variant to NAICS code to policy trigger &mdash; licensed as an API feed into your own underwriting workbench.</p>
+        <div class="plan-price">Custom license + integration</div>
+        <p class="plan-desc">The validated crosswalk itself &mdash; statute to chemical variant to NAICS code to policy trigger &mdash; licensed as an API feed directly into your own underwriting workbench, reserving software, or treaty-accumulation system. Multi-year terms, with integration scoped and priced as its own line item, the same structure Verisk and Moody's RMS use.</p>
         <ul class="plan-features">
           <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Direct API access to every endpoint</li>
           <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Weekly crosswalk updates</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated account support</li>
+          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated integration &amp; account support</li>
         </ul>
         <a class="plan-cta secondary" href="#get-in-touch">Contact sales</a>
       </div>
@@ -565,6 +605,57 @@
   </section>
 
   <!-- WHY THIS ISN'T OPTIONAL: real, cited industry figures, not this project's own claims -->
+  <!-- WHO THIS IS FOR: each role tied to a real existing feature, not a generic market-sizing slide -->
+  <section class="block" id="who-its-for">
+    <div class="section-head">
+      <h2>Who this is for</h2>
+      <p class="section-sub">Not just underwriters &mdash; the same real data, read differently by each real role in the chain.</p>
+    </div>
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="p-role">Underwriting</div>
+        <h3>Underwriters</h3>
+        <p>Price or exclude an emerging-chemical exposure before it turns into a claim &mdash; the original use case, fully built.</p>
+        <a href="./console/">Open the Console &rarr;</a>
+      </div>
+      <div class="persona-card">
+        <div class="p-role">Actuarial</div>
+        <h3>Reserving &amp; pricing actuaries</h3>
+        <p>The Emergence Signal and the CAS reserving benchmark exist to inform exactly the reserve-adequacy question AM Best's real $9B industry deficiency is about.</p>
+        <a href="./validation/">See the methodology &rarr;</a>
+      </div>
+      <div class="persona-card">
+        <div class="p-role">Reinsurance</div>
+        <h3>Treaty underwriters, both sides</h3>
+        <p>A cedent uses the Aggregation Map to document accumulation for a submission; a reinsurer uses the identical data to monitor assumed-book accumulation across every cedent they write.</p>
+        <a href="./console/#aggregation-map-card">See the Aggregation Map &rarr;</a>
+      </div>
+      <div class="persona-card">
+        <div class="p-role">Claims &amp; legal</div>
+        <h3>Claims handlers &amp; coverage counsel</h3>
+        <p>When a claim lands, the first question is the real settlement range and litigation stage for that exact chemical and defendant &mdash; the Settlement Stage Classification and Severity Anchor data answer it directly, not generically.</p>
+        <a href="./console/">Open the Console &rarr;</a>
+      </div>
+      <div class="persona-card">
+        <div class="p-role">Corporate development</div>
+        <h3>M&amp;A &amp; portfolio due diligence</h3>
+        <p>Evaluating an acquisition's back book or a loss-portfolio transfer needs the same thing underwriting does: paste the book, see the real flagged exposure, in minutes not weeks.</p>
+        <a href="./xray/">Run the PFAS X-Ray &rarr;</a>
+      </div>
+      <div class="persona-card">
+        <div class="p-role">Placement</div>
+        <h3>Brokers</h3>
+        <p>Real, citable data to justify program structure and placement strategy to both client and market &mdash; the same role Postral's own quote-comparison pitch plays for trucking, built for complex casualty instead.</p>
+        <a href="#plans">See Plans &rarr;</a>
+      </div>
+    </div>
+
+    <div class="rds-callout">
+      <h3>Built for how Lloyd's market actually works, not just one syndicate</h3>
+      <p>Lloyd's own 2026 Realistic Disaster Scenarios (RDS) specification makes <b>RDS Liability</b> a compulsory, twice-yearly reporting requirement for every syndicate &mdash; casualty catastrophe reporting is no longer optional market-wide. Nubuye's evidence-tiered, leading-indicator data is built to inform exactly that kind of mandatory casualty-scenario reporting, not just a single underwriter's individual account review.</p>
+    </div>
+  </section>
+
   <section class="block" id="why-now">
     <div class="section-head">
       <h2>Why this isn't optional</h2>
@@ -605,7 +696,7 @@
   <!-- 1. ONTOLOGY -->
   <section class="block" id="ontology">
     <div class="section-head">
-      <h2>How Precedent models risk</h2>
+      <h2>How Nubuye models risk</h2>
       <p class="section-sub">Every module reads and writes to the same underlying objects. A new statute doesn't just update one page &mdash; it re-scores every state, every litigation action, and every prediction that touches it.</p>
     </div>
     <div class="map-card">
@@ -646,7 +737,7 @@
     </div>
     <div class="map-card" style="text-align:left;">
       <p style="font-size:14.5px; line-height:1.7; color:var(--ink-muted); margin:0 0 14px;"><b style="color:var(--ink)">Today, without this:</b> a casualty underwriter doing a quarterly PFAS-exposed account review manually re-checks state legislation trackers, searches PACER or news coverage for new filings, and cross-references that against a spreadsheet of which accounts sit in which states &mdash; usually a half-day of manual research per review cycle, done by hand, from scratch, every quarter.</p>
-      <p style="font-size:14.5px; line-height:1.7; color:var(--ink-muted); margin:0;"><b style="color:var(--ink)">What Precedent does instead:</b> one evidence-tiered view of litigation, legislation, and prediction, queried directly against your book of business, so the quarterly review becomes "open the tool, paste in this quarter's renewals, read the flagged accounts" rather than rebuilding the research from zero. Decision support, not a substitute for your own underwriting diligence.</p>
+      <p style="font-size:14.5px; line-height:1.7; color:var(--ink-muted); margin:0;"><b style="color:var(--ink)">What Nubuye does instead:</b> one evidence-tiered view of litigation, legislation, and prediction, queried directly against your book of business, so the quarterly review becomes "open the tool, paste in this quarter's renewals, read the flagged accounts" rather than rebuilding the research from zero. Decision support, not a substitute for your own underwriting diligence.</p>
     </div>
   </section>
 
@@ -659,7 +750,7 @@
     <details class="map-card disclosure" style="text-align:left; padding:24px;">
       <summary><span style="font-size:14px; font-weight:600;">Read the full competitive comparison</span><span class="chevron">&#9656;</span></summary>
       <table class="compare-table" style="margin-top:18px;">
-        <tr><th>Provider</th><th>What they do</th><th>Where Precedent differs</th></tr>
+        <tr><th>Provider</th><th>What they do</th><th>Where Nubuye differs</th></tr>
         <tr>
           <td>Large-scale casualty &amp; latent-liability platforms<br><span style="font-weight:400; color:var(--ink-faint); font-size:12px;">(enterprise liability-analytics vendors)</span></td>
           <td>Population-aware latent liability modeling for casualty reinsurance, built for large-carrier enterprise sales with long implementation cycles.</td>
@@ -727,7 +818,7 @@
     <div class="pilot-card">
       <h3>Looking for one real book to pilot this against</h3>
       <p>Every module here is built from public data, verified line by line. If you work casualty, workers' comp, or PFAS-exposed accounts and would spend 20 minutes walking through how your quarterly review actually works, that's the single most useful thing that could happen to this project right now.</p>
-      <a class="pilot-btn" href="mailto:brukf2205@gmail.com?subject=Precedent pilot">Get in touch</a>
+      <a class="pilot-btn" href="mailto:brukf2205@gmail.com?subject=Nubuye pilot">Get in touch</a>
     </div>
   </section>
 
@@ -862,7 +953,7 @@ function runPortfolioCheck(codes) {
   `;
 
   document.getElementById("portfolio-copy").addEventListener("click", () => {
-    const noteLines = [`Precedent portfolio exposure check -- ${codes.length} state(s): ${codes.join(", ")}`, ""];
+    const noteLines = [`Nubuye portfolio exposure check -- ${codes.length} state(s): ${codes.join(", ")}`, ""];
     codes.forEach(code => {
       const name = STATE_NAMES[code] || code;
       noteLines.push(`${name}:`);
@@ -882,7 +973,7 @@ function runPortfolioCheck(codes) {
       }
       noteLines.push("");
     });
-    noteLines.push(`Source: Precedent (precedent platform), checked ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}. Every figure sourced; evidence tiers shown on each module.`);
+    noteLines.push(`Source: Nubuye (Nubuye platform), checked ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}. Every figure sourced; evidence tiers shown on each module.`);
     const text = noteLines.join("\n");
     navigator.clipboard.writeText(text).then(() => {
       document.getElementById("portfolio-copy-feedback").textContent = "Copied.";
@@ -901,7 +992,7 @@ function updateUrlParam(codes) {
 }
 
 function renderSavedPortfolios() {
-  const STORAGE_KEY = "precedent:savedPortfolios";
+  const STORAGE_KEY = "nubuye:savedPortfolios";
   let saved = {};
   try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch (e) { saved = {}; }
   const container = document.getElementById("saved-portfolios");
@@ -1006,12 +1097,12 @@ function runBobCheck() {
   `;
 
   document.getElementById("bob-copy").addEventListener("click", () => {
-    const lines = [`Precedent book-of-business exposure check`, `Total: ${fmt(totalTiv)} across ${totalPolicies} policies in ${parsedRows.filter(r=>r.code).length} state(s)`, ""];
+    const lines = [`Nubuye book-of-business exposure check`, `Total: ${fmt(totalTiv)} across ${totalPolicies} policies in ${parsedRows.filter(r=>r.code).length} state(s)`, ""];
     parsedRows.filter(r => r.code).forEach(r => {
       lines.push(`${STATE_NAMES[r.code]}: ${r.policies} policies, ${fmt(r.tiv)} TIV -- ${r.status === "litigating" ? "confirmed PFAS litigation state" : r.status === "predicted" ? "top-10 predicted-next state" : "no current signal"}`);
     });
     lines.push("", `At-risk TIV (litigating + predicted): ${fmt(atRiskLitigatingTiv + atRiskPredictedTiv)}`);
-    lines.push(`Source: Precedent (precedent platform), checked ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}. Every figure sourced; evidence tiers shown on each module.`);
+    lines.push(`Source: Nubuye (Nubuye platform), checked ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}. Every figure sourced; evidence tiers shown on each module.`);
     navigator.clipboard.writeText(lines.join("\n")).then(() => {
       document.getElementById("bob-copy-feedback").textContent = "Copied.";
       setTimeout(() => { const el = document.getElementById("bob-copy-feedback"); if (el) el.textContent = ""; }, 2500);
@@ -1085,7 +1176,7 @@ async function initPortfolio() {
     const name = document.getElementById("portfolio-save-name").value.trim();
     const codes = parseStateInput(input.value);
     if (!name || codes.length === 0) return;
-    const STORAGE_KEY = "precedent:savedPortfolios";
+    const STORAGE_KEY = "nubuye:savedPortfolios";
     let saved = {};
     try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch (e) { saved = {}; }
     saved[name] = codes;
@@ -1116,11 +1207,25 @@ function setupThemeToggle() {
   apply(isDark);
   btn.addEventListener("click", () => {
     isDark = !isDark;
-    try { localStorage.setItem("precedent:theme", isDark ? "dark" : "light"); } catch (e) {}
+    try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {}
     apply(isDark);
   });
 }
 setupThemeToggle();
+
+function setupNavScrollState() {
+  const nav = document.querySelector("nav.top");
+  const hero = document.querySelector(".hero");
+  if (!nav || !hero) return;
+  const update = () => {
+    const threshold = hero.offsetHeight - nav.offsetHeight - 20;
+    nav.setAttribute("data-scrolled", window.scrollY > threshold ? "true" : "false");
+  };
+  update();
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+}
+setupNavScrollState();
 
 initPortfolio();
 </script>

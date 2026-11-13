@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Precedent — PFAS Portfolio X-Ray</title>
+<title>Nubuye — PFAS Portfolio X-Ray</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
@@ -35,6 +35,14 @@
   nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 1040px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
   .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
   .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
+  .brand-mark {
+    height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0;
+    background: var(--accent-blue); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
   .nav-links { display: flex; gap: 20px; align-items: center; }
   .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
   .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
@@ -119,10 +127,10 @@
 </style>
 </head>
 <body>
-<script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
 
 <nav class="top">
-  <div class="brand"><span class="dot"></span> Precedent</div>
+  <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
   <div class="nav-links">
     <a href="../">&larr; Back to overview</a>
     <a href="../console/">Underwriter Console</a>
@@ -189,7 +197,7 @@
   </div>
 
   <footer>
-    Every figure here comes from a real pipeline run against CourtListener, SEC EDGAR, or LegiScan &mdash; the same data behind Precedent's scenario trackers and the Underwriter Console, queried live in your browser against a snapshot exported from the underlying database. <span id="snapshot-date"></span>
+    Every figure here comes from a real pipeline run against CourtListener, SEC EDGAR, or LegiScan &mdash; the same data behind Nubuye's scenario trackers and the Underwriter Console, queried live in your browser against a snapshot exported from the underlying database. <span id="snapshot-date"></span>
   </footer>
 </div>
 
@@ -319,7 +327,7 @@ const STATUS_OPTIONS = ["No action", "Flag for review", "Refer to exposure team"
 // and evidence-linked instead of disappearing the moment the tab closes.
 // Stored in localStorage -- per-browser only, same privacy boundary as the
 // rest of this tool ("nothing leaves your browser").
-const DECISION_LOG_KEY = "precedent:decisionLog";
+const DECISION_LOG_KEY = "nubuye:decisionLog";
 
 function loadDecisionLog() {
   try { return JSON.parse(localStorage.getItem(DECISION_LOG_KEY) || "[]"); } catch (e) { return []; }
@@ -383,7 +391,7 @@ function downloadDecisionLogCsv() {
   const url = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));
   const a = document.createElement("a");
   a.href = url;
-  a.download = `precedent-decision-log-${new Date().toISOString().slice(0, 10)}.csv`;
+  a.download = `nubuye-decision-log-${new Date().toISOString().slice(0, 10)}.csv`;
   a.click();
   URL.revokeObjectURL(url);
 }
@@ -393,7 +401,7 @@ function downloadDecisionLogCsv() {
 // auto-surfaces saved-rule flags on login rather than requiring a fresh
 // query every time. Per-browser only (localStorage), same "nothing leaves
 // your browser" privacy boundary as the rest of this tool.
-const LAST_BOOK_KEY = "precedent:lastBook";
+const LAST_BOOK_KEY = "nubuye:lastBook";
 
 function saveLastBook(text) {
   try { localStorage.setItem(LAST_BOOK_KEY, text); } catch (e) {}
@@ -633,7 +641,7 @@ function downloadCsv() {
   const blob = new Blob([header + body], { type: "text/csv" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
-  a.href = url; a.download = "precedent-pfas-xray-flagged-accounts.csv";
+  a.href = url; a.download = "nubuye-pfas-xray-flagged-accounts.csv";
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   URL.revokeObjectURL(url);
 }
@@ -679,10 +687,10 @@ function buildMemoHtml(a) {
       <li>Whether a standard pollution exclusion would plausibly apply, or whether the complaint pleads around it (e.g. as a products-liability or completed-operations claim).</li>
       <li>Occurrence vs. claims-made trigger timing against the alleged exposure window.</li>
     </ul>
-    <p style="font-size:12px;color:#888;">This is a referral prompt, not a coverage opinion or a policy form -- Precedent does not generate or reproduce ISO or any licensed endorsement language. Final exclusion/endorsement language is a legal drafting decision.</p>
+    <p style="font-size:12px;color:#888;">This is a referral prompt, not a coverage opinion or a policy form -- Nubuye does not generate or reproduce ISO or any licensed endorsement language. Final exclusion/endorsement language is a legal drafting decision.</p>
   ` : "";
 
-  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Precedent memo — ${esc(a.account)}</title>
+  return `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Nubuye memo — ${esc(a.account)}</title>
 <style>
   body { font-family: Georgia, 'Times New Roman', serif; max-width: 720px; margin: 40px auto; padding: 0 20px; color: #111; line-height: 1.5; }
   h1 { font-size: 22px; margin-bottom: 4px; }
@@ -726,7 +734,7 @@ function setupThemeToggle() {
   apply(isDark);
   btn.addEventListener("click", () => {
     isDark = !isDark;
-    try { localStorage.setItem("precedent:theme", isDark ? "dark" : "light"); } catch (e) {}
+    try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {}
     apply(isDark);
   });
 }

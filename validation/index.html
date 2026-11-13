@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Precedent — Methodology Validation</title>
+<title>Nubuye — Methodology Validation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
@@ -36,6 +36,14 @@
   nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 980px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
   .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
   .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent-blue); }
+  .brand-mark {
+    height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0;
+    background: var(--accent-blue); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
   .nav-links { display: flex; gap: 20px; align-items: center; }
   .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
   .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
@@ -106,10 +114,10 @@
 </style>
 </head>
 <body>
-<script>(function(){try{var t=localStorage.getItem("precedent:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
 
 <nav class="top">
-  <div class="brand"><span class="dot"></span> Precedent</div>
+  <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
   <div class="nav-links">
     <a href="../">&larr; Back to overview</a>
     <a href="../console/">Underwriter Console</a>
@@ -134,7 +142,7 @@
   <div class="section-label">Discovery scan &mdash; the harder test</div>
   <div class="card">
     <h2>Pointed at candidates nobody asked it to track</h2>
-    <p class="card-sub">Every category above was already a known mass tort before this project tracked it. The harder, more valuable test: run the identical scientific-momentum formula against real, named candidates currently in 2026 trade and legal press as possible "next PFAS" substances &mdash; including one deliberate mature-signal contrast case &mdash; and see whether the methodology correctly tells them apart.</p>
+    <p class="card-sub">Every category above was already a known mass tort before this project tracked it. The harder, more valuable test: run the identical scientific-momentum formula against real candidates and see whether the methodology correctly tells them apart. Two groups below: genuinely speculative candidates (microplastics, 6PPD-quinone, and bisphenol A as a mature-signal contrast), and three categories with a real, current federal MDL this project had simply never tracked before a direct question about other hazards worth watching &mdash; hair relaxer chemicals (MDL-3060, uterine cancer), social media/adolescent mental health (MDL-3047, already an active insurance-coverage fight), and glyphosate/Roundup (MDL-2741, a mature contrast case now mostly resolved into a $7.25B proposed settlement).</p>
     <div class="candidate-row" id="candidate-cards"></div>
     <table class="compare-table" id="compare-table"></table>
   </div>
@@ -226,8 +234,15 @@ function renderDiscoveryScan() {
   const byCandidate = {};
   candidates.forEach(c => { (byCandidate[c.candidate] = byCandidate[c.candidate] || []).push(c); });
 
-  const CAND_LABELS = { microplastics: "Microplastics", "6ppd_quinone": "6PPD-quinone (tire rubber)", bisphenol_a: "Bisphenol A (contrast case)" };
-  const CAND_BADGE = { microplastics: "amber", "6ppd_quinone": "red", bisphenol_a: "gray" };
+  const CAND_LABELS = {
+    microplastics: "Microplastics", "6ppd_quinone": "6PPD-quinone (tire rubber)", bisphenol_a: "Bisphenol A (contrast case)",
+    hair_relaxer_chemicals: "Hair relaxer chemicals (MDL-3060)", social_media_adolescent_mental_health: "Social media / adolescent mental health (MDL-3047)", glyphosate: "Glyphosate / Roundup (MDL-2741, contrast case)",
+  };
+  const CAND_BADGE = {
+    microplastics: "amber", "6ppd_quinone": "red", bisphenol_a: "gray",
+    hair_relaxer_chemicals: "amber", social_media_adolescent_mental_health: "red", glyphosate: "gray",
+  };
+  const ALREADY_TRACKED_MDL = new Set(["hair_relaxer_chemicals", "social_media_adolescent_mental_health", "glyphosate"]);
 
   function growthToScore(g) { return Math.max(0, Math.min(100, 50 + (g / 150) * 50)); }
   function computeGrowth(rows) {
@@ -261,7 +276,7 @@ function renderDiscoveryScan() {
   const pfas = emergence.find(e => e.risk_category === "pfas");
   const talc = emergence.find(e => e.risk_category === "talc");
   const compareRows = [
-    ...candidateResults.map(c => ({ label: CAND_LABELS[c.name] || c.name, score: c.score, note: "discovery candidate, not yet tracked" })),
+    ...candidateResults.map(c => ({ label: CAND_LABELS[c.name] || c.name, score: c.score, note: ALREADY_TRACKED_MDL.has(c.name) ? "real MDL exists -- newly added, not speculative" : "discovery candidate, not yet tracked" })),
     { label: "PFAS (tracked)", score: pfas ? pfas.momentum_score : null, note: "for comparison -- already a known mass tort" },
     { label: "Talc (tracked)", score: talc ? talc.momentum_score : null, note: "for comparison -- already a known mass tort" },
   ].filter(r => r.score != null).sort((a, b) => b.score - a.score);
@@ -337,7 +352,7 @@ function setupThemeToggle() {
   apply(isDark);
   btn.addEventListener("click", () => {
     isDark = !isDark;
-    try { localStorage.setItem("precedent:theme", isDark ? "dark" : "light"); } catch (e) {}
+    try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {}
     apply(isDark);
   });
 }

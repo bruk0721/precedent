@@ -10375,6 +10375,45 @@
       "report_date": "11/2/2026",
       "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
       "extracted_at": "2026-11-12T10:38:35.181636+00:00"
+    },
+    {
+      "id": 157,
+      "mdl_number": "3060",
+      "risk_category": "hair_relaxer",
+      "title": "IN RE: Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation",
+      "judge": null,
+      "district": null,
+      "actions_pending": 12743,
+      "total_actions_historical": 17018,
+      "report_date": "11/2/2026",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "extracted_at": "2026-11-13T04:06:49.847467+00:00"
+    },
+    {
+      "id": 165,
+      "mdl_number": "3047",
+      "risk_category": "social_media_mental_health",
+      "title": "IN RE: Social Media Adolescent Addiction/Personal Injury Products Liability Litigation",
+      "judge": null,
+      "district": null,
+      "actions_pending": 4309,
+      "total_actions_historical": 4495,
+      "report_date": "11/2/2026",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "extracted_at": "2026-11-13T04:06:49.962901+00:00"
+    },
+    {
+      "id": 173,
+      "mdl_number": "2741",
+      "risk_category": "glyphosate",
+      "title": "IN RE: Roundup Products Liability Litigation",
+      "judge": null,
+      "district": null,
+      "actions_pending": 916,
+      "total_actions_historical": 5319,
+      "report_date": "11/2/2026",
+      "source_url": "https://www.jpml.uscourts.gov/sites/jpml/files/Pending_MDL_Dockets_By_Actions_Pending-November-2-2026.pdf",
+      "extracted_at": "2026-11-13T04:06:50.090433+00:00"
     }
   ],
   "federal_remediation_contracts": [
@@ -11399,6 +11438,516 @@
       "why_candidate": "Deliberate contrast case, not a new candidate: BPA litigation and research are decades-mature. Included to test whether this methodology correctly shows a plateaued signal rather than flagging everything as emerging.",
       "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28bisphenol%20A%20OR%20BPA%29%20AND%20%28health%20OR%20cancer%20OR%20endocrine%29&filter=years.2026-2026",
       "extracted_at": "2026-11-12T22:18:52.290556+00:00"
+    },
+    {
+      "id": 103,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2010,
+      "publication_count": 0,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2010-2010",
+      "extracted_at": "2026-11-13T04:08:32.652212+00:00"
+    },
+    {
+      "id": 104,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2011,
+      "publication_count": 1,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2011-2011",
+      "extracted_at": "2026-11-13T04:08:34.594396+00:00"
+    },
+    {
+      "id": 105,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2012,
+      "publication_count": 1,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2012-2012",
+      "extracted_at": "2026-11-13T04:08:36.554247+00:00"
+    },
+    {
+      "id": 106,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2013,
+      "publication_count": 3,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2013-2013",
+      "extracted_at": "2026-11-13T04:08:38.733609+00:00"
+    },
+    {
+      "id": 107,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2014,
+      "publication_count": 4,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2014-2014",
+      "extracted_at": "2026-11-13T04:08:40.881807+00:00"
+    },
+    {
+      "id": 108,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2015,
+      "publication_count": 1,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2015-2015",
+      "extracted_at": "2026-11-13T04:08:42.584521+00:00"
+    },
+    {
+      "id": 109,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2016,
+      "publication_count": 2,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2016-2016",
+      "extracted_at": "2026-11-13T04:08:44.165211+00:00"
+    },
+    {
+      "id": 110,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2017,
+      "publication_count": 4,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2017-2017",
+      "extracted_at": "2026-11-13T04:08:45.504528+00:00"
+    },
+    {
+      "id": 111,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2018,
+      "publication_count": 5,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2018-2018",
+      "extracted_at": "2026-11-13T04:08:47.321057+00:00"
+    },
+    {
+      "id": 112,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2019,
+      "publication_count": 4,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2019-2019",
+      "extracted_at": "2026-11-13T04:08:49.172678+00:00"
+    },
+    {
+      "id": 113,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2020,
+      "publication_count": 6,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2020-2020",
+      "extracted_at": "2026-11-13T04:08:51.145949+00:00"
+    },
+    {
+      "id": 114,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2021,
+      "publication_count": 5,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2021-2021",
+      "extracted_at": "2026-11-13T04:08:52.604737+00:00"
+    },
+    {
+      "id": 115,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2022,
+      "publication_count": 7,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2022-2022",
+      "extracted_at": "2026-11-13T04:08:54.008535+00:00"
+    },
+    {
+      "id": 116,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2023,
+      "publication_count": 10,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2023-2023",
+      "extracted_at": "2026-11-13T04:08:55.954591+00:00"
+    },
+    {
+      "id": 117,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2024,
+      "publication_count": 5,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2024-2024",
+      "extracted_at": "2026-11-13T04:08:57.344296+00:00"
+    },
+    {
+      "id": 118,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2025,
+      "publication_count": 6,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2025-2025",
+      "extracted_at": "2026-11-13T04:08:58.708022+00:00"
+    },
+    {
+      "id": 119,
+      "candidate": "hair_relaxer_chemicals",
+      "year": 2026,
+      "publication_count": 12,
+      "query_term": "(hair relaxer OR hair straightener OR chemical relaxer) AND (uterine cancer OR endocrine OR health)",
+      "why_candidate": "MDL-3060, In re Hair Relaxer Marketing, Sales Practices, and Products Liability Litigation -- 12,743 real pending actions as of the Nov 2026 JPML report. Litigation rests largely on a 2022 NIH study linking frequent use to uterine cancer; no settlement as of this scan.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28hair%20relaxer%20OR%20hair%20straightener%20OR%20chemical%20relaxer%29%20AND%20%28uterine%20cancer%20OR%20endocrine%20OR%20health%29&filter=years.2026-2026",
+      "extracted_at": "2026-11-13T04:09:00.608687+00:00"
+    },
+    {
+      "id": 120,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2010,
+      "publication_count": 27,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2010-2010",
+      "extracted_at": "2026-11-13T04:09:01.906745+00:00"
+    },
+    {
+      "id": 121,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2011,
+      "publication_count": 40,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2011-2011",
+      "extracted_at": "2026-11-13T04:09:03.354291+00:00"
+    },
+    {
+      "id": 122,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2012,
+      "publication_count": 47,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2012-2012",
+      "extracted_at": "2026-11-13T04:09:04.605285+00:00"
+    },
+    {
+      "id": 123,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2013,
+      "publication_count": 77,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2013-2013",
+      "extracted_at": "2026-11-13T04:09:06.711858+00:00"
+    },
+    {
+      "id": 124,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2014,
+      "publication_count": 98,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2014-2014",
+      "extracted_at": "2026-11-13T04:09:08.394726+00:00"
+    },
+    {
+      "id": 125,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2015,
+      "publication_count": 127,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2015-2015",
+      "extracted_at": "2026-11-13T04:09:09.694197+00:00"
+    },
+    {
+      "id": 126,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2016,
+      "publication_count": 177,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2016-2016",
+      "extracted_at": "2026-11-13T04:09:11.614223+00:00"
+    },
+    {
+      "id": 127,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2017,
+      "publication_count": 201,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2017-2017",
+      "extracted_at": "2026-11-13T04:09:12.864525+00:00"
+    },
+    {
+      "id": 128,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2018,
+      "publication_count": 273,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2018-2018",
+      "extracted_at": "2026-11-13T04:09:14.557830+00:00"
+    },
+    {
+      "id": 129,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2019,
+      "publication_count": 300,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2019-2019",
+      "extracted_at": "2026-11-13T04:09:16.174732+00:00"
+    },
+    {
+      "id": 130,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2020,
+      "publication_count": 494,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2020-2020",
+      "extracted_at": "2026-11-13T04:09:17.858021+00:00"
+    },
+    {
+      "id": 131,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2021,
+      "publication_count": 516,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2021-2021",
+      "extracted_at": "2026-11-13T04:09:19.574599+00:00"
+    },
+    {
+      "id": 132,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2022,
+      "publication_count": 541,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2022-2022",
+      "extracted_at": "2026-11-13T04:09:20.864144+00:00"
+    },
+    {
+      "id": 133,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2023,
+      "publication_count": 607,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2023-2023",
+      "extracted_at": "2026-11-13T04:09:22.664597+00:00"
+    },
+    {
+      "id": 134,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2024,
+      "publication_count": 818,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2024-2024",
+      "extracted_at": "2026-11-13T04:09:23.994599+00:00"
+    },
+    {
+      "id": 135,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2025,
+      "publication_count": 1201,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2025-2025",
+      "extracted_at": "2026-11-13T04:09:25.445775+00:00"
+    },
+    {
+      "id": 136,
+      "candidate": "social_media_adolescent_mental_health",
+      "year": 2026,
+      "publication_count": 1144,
+      "query_term": "(social media OR \"problematic internet use\") AND (adolescent OR teen OR youth) AND (mental health OR addiction OR depression)",
+      "why_candidate": "MDL-3047, In re Social Media Adolescent Addiction/Personal Injury Products Liability Litigation -- 4,309 real pending actions. Already an active INSURANCE COVERAGE fight, not just an underlying tort: a real April 2026 ruling held Meta's own insurers owe no duty to defend it in this litigation.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28social%20media%20OR%20%22problematic%20internet%20use%22%29%20AND%20%28adolescent%20OR%20teen%20OR%20youth%29%20AND%20%28mental%20health%20OR%20addiction%20OR%20depression%29&filter=years.2026-2026",
+      "extracted_at": "2026-11-13T04:09:27.566533+00:00"
+    },
+    {
+      "id": 137,
+      "candidate": "glyphosate",
+      "year": 2010,
+      "publication_count": 2,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2010-2010",
+      "extracted_at": "2026-11-13T04:09:29.666307+00:00"
+    },
+    {
+      "id": 138,
+      "candidate": "glyphosate",
+      "year": 2011,
+      "publication_count": 3,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2011-2011",
+      "extracted_at": "2026-11-13T04:09:31.208529+00:00"
+    },
+    {
+      "id": 139,
+      "candidate": "glyphosate",
+      "year": 2012,
+      "publication_count": 9,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2012-2012",
+      "extracted_at": "2026-11-13T04:09:32.781676+00:00"
+    },
+    {
+      "id": 140,
+      "candidate": "glyphosate",
+      "year": 2013,
+      "publication_count": 9,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2013-2013",
+      "extracted_at": "2026-11-13T04:09:34.124536+00:00"
+    },
+    {
+      "id": 141,
+      "candidate": "glyphosate",
+      "year": 2014,
+      "publication_count": 4,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2014-2014",
+      "extracted_at": "2026-11-13T04:09:35.996329+00:00"
+    },
+    {
+      "id": 142,
+      "candidate": "glyphosate",
+      "year": 2015,
+      "publication_count": 9,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2015-2015",
+      "extracted_at": "2026-11-13T04:09:37.621924+00:00"
+    },
+    {
+      "id": 143,
+      "candidate": "glyphosate",
+      "year": 2016,
+      "publication_count": 20,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2016-2016",
+      "extracted_at": "2026-11-13T04:09:39.522786+00:00"
+    },
+    {
+      "id": 144,
+      "candidate": "glyphosate",
+      "year": 2017,
+      "publication_count": 14,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2017-2017",
+      "extracted_at": "2026-11-13T04:09:41.322092+00:00"
+    },
+    {
+      "id": 145,
+      "candidate": "glyphosate",
+      "year": 2018,
+      "publication_count": 35,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2018-2018",
+      "extracted_at": "2026-11-13T04:09:42.839734+00:00"
+    },
+    {
+      "id": 146,
+      "candidate": "glyphosate",
+      "year": 2019,
+      "publication_count": 35,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2019-2019",
+      "extracted_at": "2026-11-13T04:09:44.378327+00:00"
+    },
+    {
+      "id": 147,
+      "candidate": "glyphosate",
+      "year": 2020,
+      "publication_count": 41,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2020-2020",
+      "extracted_at": "2026-11-13T04:09:45.887190+00:00"
+    },
+    {
+      "id": 148,
+      "candidate": "glyphosate",
+      "year": 2021,
+      "publication_count": 37,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2021-2021",
+      "extracted_at": "2026-11-13T04:09:47.799156+00:00"
+    },
+    {
+      "id": 149,
+      "candidate": "glyphosate",
+      "year": 2022,
+      "publication_count": 38,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2022-2022",
+      "extracted_at": "2026-11-13T04:09:49.633441+00:00"
+    },
+    {
+      "id": 150,
+      "candidate": "glyphosate",
+      "year": 2023,
+      "publication_count": 38,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2023-2023",
+      "extracted_at": "2026-11-13T04:09:51.050041+00:00"
+    },
+    {
+      "id": 151,
+      "candidate": "glyphosate",
+      "year": 2024,
+      "publication_count": 38,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2024-2024",
+      "extracted_at": "2026-11-13T04:09:52.422535+00:00"
+    },
+    {
+      "id": 152,
+      "candidate": "glyphosate",
+      "year": 2025,
+      "publication_count": 40,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2025-2025",
+      "extracted_at": "2026-11-13T04:09:54.020289+00:00"
+    },
+    {
+      "id": 153,
+      "candidate": "glyphosate",
+      "year": 2026,
+      "publication_count": 29,
+      "query_term": "(glyphosate OR Roundup) AND (cancer OR \"non-Hodgkin\" OR lymphoma)",
+      "why_candidate": "MDL-2741, In re Roundup Products Liability Litigation -- a real, deliberate MATURE-tort contrast case like bisphenol A: only 916 pending vs 5,319 total historical actions, consistent with a real proposed $7.25B settlement already on the table as of February 2026.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/?term=%28glyphosate%20OR%20Roundup%29%20AND%20%28cancer%20OR%20%22non-Hodgkin%22%20OR%20lymphoma%29&filter=years.2026-2026",
+      "extracted_at": "2026-11-13T04:09:55.488547+00:00"
     }
   ],
   "downstream_adjacency": {
@@ -11933,5 +12482,5 @@
       }
     }
   },
-  "generated_at": "2026-11-12T22:20:40.882299+00:00"
+  "generated_at": "2026-11-13T04:10:20.244396+00:00"
 }

@@ -2241,7 +2241,7 @@ function setupPortfolioMatch(DATA) {
       const clearCodes = codes.filter(c => !litigatingStates.has(c) && !withinCutoff(c));
 
       const lines = [
-        "PRECEDENT -- EVIDENCE-BACKED EXPOSURE REPORT",
+        "NUBUYE -- EVIDENCE-BACKED EXPOSURE REPORT",
         "PFAS & Turnout-Gear Litigation Tracker",
         `Checked: ${checkedDate}`,
         "",
@@ -2285,7 +2285,7 @@ function setupPortfolioMatch(DATA) {
         "- For predicted-next states: check whether new PFAS/AFFF legislation has passed since this check date, since the ranking is time-sensitive.",
         "- For any REPORTED-tier item above: treat as a lead for your own diligence, not a confirmed fact, until verified against a primary source.",
         "",
-        "Source: Precedent -- PFAS & Turnout-Gear Litigation Tracker. Every figure sourced; evidence tiers shown inline."
+        "Source: Nubuye -- PFAS & Turnout-Gear Litigation Tracker. Every figure sourced; evidence tiers shown inline."
       );
 
       navigator.clipboard.writeText(lines.join("\n")).then(() => {

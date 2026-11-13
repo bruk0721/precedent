@@ -1,4 +1,4 @@
-/* Precedent -- shared query engine for the Underwriter Console and the
+/* Nubuye -- shared query engine for the Underwriter Console and the
    PFAS Portfolio X-Ray. Single source of truth for the actual threat-
    assessment logic, mirroring underwriter-dashboard/app.py, so the two
    tools can never silently drift into different answers for the same
