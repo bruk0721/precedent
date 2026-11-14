@@ -252,6 +252,90 @@ const MoatEngine = (() => {
     return [...new Set((DB.corporate_subsidiaries || []).map(s => s.parent_company))];
   }
 
+  // Submission-intake auto-check -- "drop this into your submission-intake
+  // or underwriting workflow, and every new account gets auto-checked
+  // against real litigation/regulatory signal with zero manual step."
+  // Mirrors check_submission() in api-backend/main.py exactly (same "two
+  // implementations, one data source" discipline used everywhere else in
+  // this project) so the client-side demo here and the real API give
+  // byte-equivalent results for the same name. Company-name lookup, not
+  // NAICS -- works for a software/AI company exactly as it does for a
+  // chemical manufacturer, which is the whole point of adding it for the
+  // ai_agent_liability category.
+  const SUBMISSION_CHECK_MIN_QUERY_LEN = 3;
+
+  function checkSubmission(companyName) {
+    const q = normalizeForMatch(companyName);
+    if (q.length < SUBMISSION_CHECK_MIN_QUERY_LEN) {
+      return {
+        companyName, flagged: false, totalRealMatches: 0, findings: [],
+        note: `Name too short to check reliably (${q.length} significant characters) -- provide a fuller legal name.`,
+      };
+    }
+    const findings = [];
+
+    for (const c of (DB.ai_agent_liability_cases || [])) {
+      for (const role of ["plaintiff", "defendant"]) {
+        const name = c[role] || "";
+        if (name && normalizeForMatch(name).includes(q)) {
+          findings.push({
+            source: "ai_agent_liability_cases", evidenceTier: "REPORTED", role,
+            caseName: c.case_name, court: c.court, courtType: c.court_type,
+            date: c.date, summary: c.outcome_summary,
+          });
+        }
+      }
+    }
+    for (const r of (DB.sec_10k_risk_factor_matches || [])) {
+      if (normalizeForMatch(r.company_name || "").includes(q)) {
+        findings.push({
+          source: "sec_10k_risk_factor_matches", evidenceTier: "VERIFIED",
+          riskCategory: r.risk_category, phrase: r.phrase,
+          filingDate: r.filing_date, sourceUrl: r.source_url,
+        });
+      }
+    }
+    for (const r of (DB.cyber_incident_filings || [])) {
+      if (normalizeForMatch(r.company_name || "").includes(q)) {
+        findings.push({ source: "cyber_incident_filings", evidenceTier: "VERIFIED", filingDate: r.filing_date, sourceUrl: r.source_url });
+      }
+    }
+    for (const r of (DB.severity_anchors || [])) {
+      if (normalizeForMatch(r.company_name || "").includes(q)) {
+        findings.push({
+          source: "severity_anchors", evidenceTier: "VERIFIED", riskCategory: r.risk_category,
+          dollarAmount: r.dollar_amount, filingDate: r.filing_date, sourceUrl: r.source_url,
+        });
+      }
+    }
+    for (const r of (DB.plaintiff_network || [])) {
+      if (normalizeForMatch(r.defendant || "").includes(q)) {
+        findings.push({
+          source: "plaintiff_network", evidenceTier: "VERIFIED", riskCategory: r.risk_category,
+          caseName: r.case_name, plaintiffFirm: r.plaintiff_firm, sourceUrl: r.source_url,
+        });
+      }
+    }
+    for (const r of (DB.material_event_filings || [])) {
+      if (normalizeForMatch(r.company_name || "").includes(q)) {
+        findings.push({ source: "material_event_filings", evidenceTier: "VERIFIED", riskCategory: r.risk_category, filingDate: r.filing_date, sourceUrl: r.source_url });
+      }
+    }
+
+    return {
+      companyName, flagged: findings.length > 0, totalRealMatches: findings.length, findings,
+      checkedSources: [
+        "ai_agent_liability_cases (curated, REPORTED tier)",
+        "sec_10k_risk_factor_matches (SEC EDGAR full-text search, all filers)",
+        "cyber_incident_filings (SEC 8-K Item 1.05, all filers)",
+        "severity_anchors (curated defendant 10-Ks)",
+        "plaintiff_network (CourtListener-sourced dockets)",
+        "material_event_filings (SEC 8-K, curated defendants)",
+      ],
+      note: "Zero matches means nothing was found under this exact name across these real sources -- NOT the same as 'cleared' or 'no risk.' Matching is substring-based on a normalized legal name; a materially different name, alias, or unlisted subsidiary will not match.",
+    };
+  }
+
   // Plaintiff Firm Tracker -- a ranked, real view of which firms are filing
   // against which defendants, in which courts, across every docket this
   // project has actually pulled. Deliberately NOT called a "venue matrix":
@@ -762,7 +846,7 @@ const MoatEngine = (() => {
   return {
     load, assess, getDefendantsForNaics, queryPlaintiffRadar, queryLegislativeContagion,
     querySeverityAnchor, parseDollarToMillions, computeThreatLevel, getFilingVelocity,
-    getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES,
+    getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES, checkSubmission,
     searchEntity, getCrosswalkCoverage, getPlaintiffFirmTracker, getRenewalWindow,
     getComplianceRecords, getRegulatoryFilings, getScientificMomentum, getStateContaminationSites,
     getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts, getCyberIncidentFilings,
