@@ -579,10 +579,32 @@ const MoatEngine = (() => {
     hair_relaxer: ["hair_relaxer", "hair_relaxer_chemicals"],
     social_media_mental_health: ["social_media_mental_health", "social_media_adolescent_mental_health"],
     glyphosate: ["glyphosate"],
+    // Added after direct follow-up requests covering other emerging/
+    // unknown casualty risk -- this matrix is the real, comprehensive
+    // "what does Nubuye actually track" answer, so every real category
+    // added anywhere else on the site belongs here too, not just the
+    // original 6. Each key below is a real, live-verified category (see
+    // jpml_mdl_pipeline.py / discovery_scan_pipeline.py / settlement_
+    // stage_classification.py), not a placeholder.
+    glp1_weight_loss: ["glp1_weight_loss"],
+    paraquat: ["paraquat"],
+    cpap: ["cpap"],
+    earplugs: ["earplugs"],
+    opioid: ["opioid"],
+    insulin_pbm: ["insulin_pbm"],
+    // Climate-attribution litigation is real and growing but genuinely
+    // has NO federal MDL (confirmed live, state-court litigation only)
+    // and its sec_10k_risk_factor_matches rows use a different category
+    // key ("climate_litigation") than its discovery_candidates rows
+    // ("climate_attribution_litigation") -- both aliased together here,
+    // same purpose as the hair_relaxer/social_media aliasing above.
+    climate_litigation: ["climate_litigation", "climate_attribution_litigation"],
   };
   const CATEGORY_LABELS = {
     pfas: "PFAS / AFFF", talc: "Talc", turnout_gear: "Turnout Gear",
     hair_relaxer: "Hair Relaxer", social_media_mental_health: "Social Media / Mental Health", glyphosate: "Glyphosate / Roundup",
+    glp1_weight_loss: "GLP-1 Weight-Loss Drugs", paraquat: "Paraquat", cpap: "Philips CPAP", earplugs: "3M Combat Arms Earplugs",
+    opioid: "Opioid", insulin_pbm: "Insulin / PBM Pricing", climate_litigation: "Climate-Attribution Litigation*",
   };
 
   function _hasAny(rows, field, aliases) {
@@ -599,15 +621,19 @@ const MoatEngine = (() => {
     const pharmaRecalls = db.pharma_recalls || [];
     const jpml = db.jpml_mdl_statistics || [];
     const discovery = db.discovery_candidates || [];
+    const osha = db.osha_inspections || [];
+    const tenKs = db.sec_10k_risk_factor_matches || [];
 
     const SIGNALS = [
       { key: "jpml", label: "Real MDL / JPML scale", check: (al) => _hasAny(jpml, "risk_category", al) },
       { key: "sci", label: "Scientific literature (PubMed)", check: (al) => _hasAny(sciMomentum, "risk_category", al) || _hasAny(discovery, "candidate", al) },
       { key: "leg", label: "State legislation", check: (al) => al.some(a => legislative.some(r => r.category && r.category.includes(a))) },
-      { key: "sec", label: "SEC 8-K filings", check: (al) => _hasAny(materialEvents, "risk_category", al) },
+      { key: "sec8k", label: "SEC 8-K filings", check: (al) => _hasAny(materialEvents, "risk_category", al) },
+      { key: "ftf", label: "SEC 10-K risk factors", check: (al) => _hasAny(tenKs, "risk_category", al) },
       { key: "fda", label: "FDA adverse events", check: (al) => _hasAny(fdaEvents, "risk_category", al) },
       { key: "trials", label: "Clinical trials (terminated/withdrawn)", check: (al) => _hasAny(clinicalTrials, "candidate", al) },
       { key: "recalls", label: "FDA drug recalls", check: (al) => _hasAny(pharmaRecalls, "candidate", al) },
+      { key: "osha", label: "OSHA inspections", check: (al) => _hasAny(osha, "risk_category", al) },
     ];
 
     return Object.entries(CATEGORY_ALIASES).map(([key, aliases]) => ({
