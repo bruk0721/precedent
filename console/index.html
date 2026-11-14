@@ -317,6 +317,22 @@
     </div>
   </details>
 
+  <details class="card accordion" id="other-categories-card">
+    <summary><h2>Other tracked categories (opioid, insulin/PBM, climate litigation)</h2><span class="hint" id="other-categories-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">Three real categories added after a direct question about other emerging/unknown casualty risk, each with no curated defendant/NAICS yet. Opioid (MDL-2804) and insulin/PBM (MDL-3080) have real JPML pending-case counts and a curated settlement-stage assessment, same as the categories above. Climate-attribution litigation is structurally different from every other category this project tracks &mdash; real, growing (e.g. City &amp; County of Honolulu v. Sunoco LP), but with NO federal MDL at all, since this litigation runs in STATE courts, which the JPML and CourtListener/RECAP both don't cover. Tracked instead only via real 10-K risk-factor language (Chevron, ConocoPhillips, Sunoco, Murphy Oil, and others) and a real, accelerating climate-attribution-science PubMed signal &mdash; see the Validation page's discovery scan. No current-scale number exists for it, stated here rather than hidden.</p>
+      <div id="other-categories-body"></div>
+    </div>
+  </details>
+
+  <details class="card accordion" id="cyber-incidents-card">
+    <summary><h2>Material cyber-incident filings (SEC 8-K Item 1.05)</h2><span class="hint" id="cyber-incidents-hint"></span><span class="chevron">&#9656;</span></summary>
+    <div class="disclosure-body">
+      <p class="card-sub">Real, dated SEC Form 8-K Item 1.05 filings (the "material cybersecurity incident" disclosure item, required since Dec 2023) across ALL real SEC filers &mdash; not tied to a litigation category or a curated defendant list. The same portfolio-accumulation logic the Aggregation Map already applies to PFAS applies here too: no single account's own file shows an underwriter whether several of their insureds disclosed a material cyber incident in the same quarter, but this real roster, cross-referenced against an actual book of business, can. This card lists the real roster; it does not compute accumulation on its own.</p>
+      <div id="cyber-incidents-body"></div>
+    </div>
+  </details>
+
   <div class="results-wrap" id="results">
     <div class="case-file-header" id="case-file-header"></div>
     <div class="card">
@@ -766,6 +782,61 @@ function renderFederalContracts() {
     contracts.map(c => `<div class="finding-line"><b>${esc(c.recipient_name)}</b> &mdash; $${(c.award_amount || 0).toLocaleString(undefined, { maximumFractionDigits: 0 })}<br><span style="color:var(--ink-faint)">${esc(c.awarding_agency || "")} &middot; ${esc((c.description || "").slice(0, 100))}</span>${srcLink(c.source_url, "View award")}</div>`).join("");
 }
 
+function renderOtherCategories() {
+  const hint = document.getElementById("other-categories-hint");
+  const el = document.getElementById("other-categories-body");
+  const categories = [
+    { key: "opioid", label: "Opioid (MDL-2804)" },
+    { key: "insulin_pbm", label: "Insulin / PBM pricing (MDL-3080)" },
+  ];
+  let html = "";
+  let found = 0;
+  categories.forEach(({ key, label }) => {
+    const jpml = MoatEngine.getJpmlStats(key);
+    const stage = MoatEngine.getSettlementStage(key);
+    const tenKs = MoatEngine.getSec10kRiskFactorMatches(key);
+    if (!jpml.length) return;
+    found++;
+    html += jpml.map(j => `
+      <div class="finding-line"><b>${esc(label)}</b> &mdash; ${esc(j.title)}<br>
+        <span class="tag ${j.actions_pending > 1000 ? "red" : "amber"}">${j.actions_pending.toLocaleString()} actions pending</span>
+        <span style="color:var(--ink-faint)">${j.total_actions_historical.toLocaleString()} total historical &middot; report date ${esc(j.report_date)}</span>
+        ${srcLink(j.source_url, "View JPML report")}
+        ${stage ? `<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--chip-bg)"><span class="tag gray">Stage: ${esc(stage.stage_label)}</span><div style="color:var(--ink-faint);font-size:12.5px;margin-top:4px">${esc(stage.reasoning)}</div></div>` : ""}
+        ${tenKs.length ? `<div style="color:var(--ink-faint);font-size:12.5px;margin-top:4px">${tenKs.length} real 10-K risk-factor match(es) on file (e.g. ${esc((tenKs[0].company_name || "").split(";")[0])})</div>` : ""}
+      </div>`).join("");
+  });
+  // Climate-attribution litigation: deliberately has NO JPML entry (no
+  // federal MDL exists) -- shown via its real 10-K risk-factor matches
+  // only, with the gap stated plainly rather than omitted.
+  const climateTenKs = MoatEngine.getSec10kRiskFactorMatches("climate_litigation");
+  const climateCompanies = [...new Set(climateTenKs.map(r => (r.company_name || "").split(";")[0]).filter(Boolean))];
+  html += `
+    <div class="finding-line"><b>Climate-attribution litigation</b> &mdash; no federal MDL exists (state-court litigation; confirmed live against the JPML's own report)<br>
+      <span class="tag gray">No current-scale number available</span>
+      <span style="color:var(--ink-faint)">${climateTenKs.length} real 10-K risk-factor match(es) across ${climateCompanies.length} real compan${climateCompanies.length === 1 ? "y" : "ies"}${climateCompanies.length ? ": " + esc(climateCompanies.slice(0, 6).join(", ")) : ""}</span>
+    </div>`;
+  found++;
+  hint.textContent = `${found} categor${found === 1 ? "y" : "ies"} tracked`;
+  el.innerHTML = html;
+}
+
+function renderCyberIncidents() {
+  const hint = document.getElementById("cyber-incidents-hint");
+  const el = document.getElementById("cyber-incidents-body");
+  const filings = MoatEngine.getCyberIncidentFilings();
+  if (!filings.length) {
+    el.innerHTML = `<p class="empty-note">No real cyber-incident filing on record yet.</p>`;
+    hint.textContent = "0 found";
+    return;
+  }
+  hint.textContent = `${filings.length} real filing(s) since Dec 2023`;
+  const sorted = [...filings].sort((a, b) => new Date(b.filing_date) - new Date(a.filing_date));
+  el.innerHTML = `<span class="tag amber">${filings.length} real material cyber-incident 8-K(s) on file (since Dec 2023)</span>` +
+    sorted.slice(0, 25).map(f => `<div class="finding-line"><b>${esc((f.company_name || "").split(";")[0])}</b> &mdash; filed ${esc(f.filing_date)}${srcLink(f.source_url, "View 8-K")}</div>`).join("") +
+    (filings.length > 25 ? `<p class="empty-note">+ ${filings.length - 25} more on file.</p>` : "");
+}
+
 function renderHistoricalScale() {
   const hint = document.getElementById("historical-scale-hint");
   const el = document.getElementById("historical-scale-body");
@@ -1151,6 +1222,8 @@ async function init() {
   renderJpmlStats();
   renderFederalContracts();
   renderHistoricalScale();
+  renderOtherCategories();
+  renderCyberIncidents();
 
   // Support deep-linking from the Portfolio X-Ray (?naics=...&state=...).
   const params = new URLSearchParams(window.location.search);

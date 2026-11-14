@@ -411,6 +411,16 @@ const MoatEngine = (() => {
     return DB.federal_remediation_contracts || [];
   }
 
+  // Real SEC 8-K Item 1.05 (material cybersecurity incident) filings,
+  // across ALL real SEC filers -- not tied to a litigation category or a
+  // curated defendant list. See cyber_incident_pipeline.py. Global, same
+  // role as getFederalRemediationContracts: a real roster to cross-
+  // reference against a book of business, not a per-account finding this
+  // engine computes on its own.
+  function getCyberIncidentFilings() {
+    return DB.cyber_incident_filings || [];
+  }
+
   // Settlement-Stage classification -- curated, not computed (see
   // settlement_stage_classification.py for the real, cited reasoning per
   // category). Never an algorithmic score.
@@ -729,7 +739,7 @@ const MoatEngine = (() => {
     getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES,
     searchEntity, getCrosswalkCoverage, getPlaintiffFirmTracker, getRenewalWindow,
     getComplianceRecords, getRegulatoryFilings, getScientificMomentum, getStateContaminationSites,
-    getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts,
+    getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts, getCyberIncidentFilings,
     getSettlementStage, getHistoricalScaleComparison, getEmergenceSignal,
     getMomentumBacktest, getSeverityMomentumComparison, getDiscoveryCandidates, getAggregationMap,
     getClinicalTrials, getPharmaRecalls, getContaminationCancerCorrelation, getCoverageMatrix,

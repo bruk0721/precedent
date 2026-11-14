@@ -143,6 +143,16 @@
     <p><code>material_event_pipeline.py</code> checks only the most recent N 8-Ks per curated company for a same-document keyword co-occurrence &mdash; by design, to stay fast and keyless against SEC EDGAR's rate limits. A real material PFAS/talc event disclosed further back in a company's filing history, before this pipeline's coverage window, would not appear here.</p>
   </div>
 
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-amber-bg);color:var(--accent-amber)">Structural gap</span><h3>Climate-attribution litigation has no current-scale number at all</h3></div>
+    <p>Every other tracked category has a real JPML pending-case count, even a small one (turnout gear: 17). Climate-attribution litigation (e.g. City &amp; County of Honolulu v. Sunoco LP) genuinely has none to report &mdash; confirmed live against the JPML's own report that no federal MDL exists for it, because this litigation runs in STATE courts (Hawai'i's, in Honolulu's case), which both the JPML and CourtListener/RECAP structurally don't cover. Tracked only via real 10-K risk-factor language and a real PubMed climate-attribution-science momentum signal; there is no "how big is this already" number to pair with it, and that gap is stated here rather than hidden.</p>
+  </div>
+
+  <div class="limit-card">
+    <div class="lc-top"><span class="lc-badge" style="background:var(--accent-gray-bg);color:var(--accent-gray)">Explicitly not built</span><h3>Forced-labor (UFLPA) enforcement data and the Sabin Center's climate litigation database</h3></div>
+    <p>Both real sources were checked live and declined for stated reasons, not silently skipped. CBP's UFLPA enforcement statistics are a Tableau Public dashboard with no documented API or bulk-download path &mdash; the same reverse-engineering/fragility risk category this project already declined for Google Trends. The Sabin Center's Climate Litigation Database (climatecasechart.com) is the real, authoritative source for case-level climate litigation, but its own <code>robots.txt</code> explicitly disallows its search backend (<code>Disallow: /_search</code>) &mdash; checked live and respected, not worked around, consistent with this project's standing rule against scraping around a site's own stated restrictions.</p>
+  </div>
+
   <div class="section-label">Statistical limitations</div>
 
   <div class="limit-card">

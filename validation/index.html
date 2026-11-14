@@ -175,7 +175,7 @@
   <div class="section-label">Discovery scan &mdash; the harder test</div>
   <div class="card">
     <h2>Pointed at candidates nobody asked it to track</h2>
-    <p class="card-sub">Every category above was already a known mass tort before this project tracked it. The harder, more valuable test: run the identical scientific-momentum formula against real candidates and see whether the methodology correctly tells them apart. Three groups below: genuinely speculative candidates (microplastics, 6PPD-quinone, and bisphenol A as a mature-signal contrast); real-but-new federal MDLs this project had simply never tracked before a direct question about other hazards worth watching &mdash; hair relaxer chemicals (MDL-3060, uterine cancer), social media/adolescent mental health (MDL-3047, already an active insurance-coverage fight), glyphosate/Roundup (MDL-2741, a mature contrast case now mostly resolved into a $7.25B proposed settlement), GLP-1 weight-loss drugs (MDL-3094, gastroparesis claims, still at "no settlement yet" per real JPML pending/total ratio), and paraquat (MDL-3004, Parkinson's claims, reportedly moving toward a global settlement as of early 2026); and two further mature-tort contrast cases, Philips CPAP (MDL-3014, a real 2024 economic-loss settlement that is explicitly NOT the same claim pool as its still-active personal-injury MDL) and 3M's Combat Arms earplugs (MDL-2885, the most completely resolved MDL on file at 2 of 391,239 actions still pending).</p>
+    <p class="card-sub">Every category above was already a known mass tort before this project tracked it. The harder, more valuable test: run the identical scientific-momentum formula against real candidates and see whether the methodology correctly tells them apart. Four groups below: genuinely speculative candidates (microplastics, 6PPD-quinone, and bisphenol A as a mature-signal contrast); real-but-new federal MDLs this project had simply never tracked before a direct question about other hazards worth watching &mdash; hair relaxer chemicals (MDL-3060, uterine cancer), social media/adolescent mental health (MDL-3047, already an active insurance-coverage fight), glyphosate/Roundup (MDL-2741, a mature contrast case now mostly resolved into a $7.25B proposed settlement), GLP-1 weight-loss drugs (MDL-3094, gastroparesis claims, still at "no settlement yet" per real JPML pending/total ratio), paraquat (MDL-3004, Parkinson's claims, reportedly moving toward a global settlement as of early 2026), and opioid (MDL-2804, where the litigation has largely resolved via Purdue's May 2026 bankruptcy-trust plan and a ~$50B multistate settlement, yet the underlying science is still accelerating -- a real divergence, not forced into either bucket); two further mature-tort contrast cases, Philips CPAP (MDL-3014, a real 2024 economic-loss settlement that is explicitly NOT the same claim pool as its still-active personal-injury MDL) and 3M's Combat Arms earplugs (MDL-2885, the most completely resolved MDL on file at 2 of 391,239 actions still pending); a weak-fit case, insulin/PBM pricing (MDL-3080, a real, current antitrust claim where a scientific-momentum signal is a structurally poor match since this isn't an exposure-based health tort); and climate-attribution litigation, which is real and growing (e.g. Honolulu v. Sunoco) but has NO federal MDL at all -- it's state-court litigation, structurally outside what the JPML or CourtListener/RECAP cover, so unlike every other row here it carries no current-scale number alongside its momentum score.</p>
     <div class="candidate-row" id="candidate-cards"></div>
     <table class="compare-table" id="compare-table"></table>
   </div>
@@ -369,13 +369,22 @@ function renderDiscoveryScan() {
     hair_relaxer_chemicals: "Hair relaxer chemicals (MDL-3060)", social_media_adolescent_mental_health: "Social media / adolescent mental health (MDL-3047)", glyphosate: "Glyphosate / Roundup (MDL-2741, contrast case)",
     glp1_weight_loss: "GLP-1 weight-loss drugs (MDL-3094)", paraquat: "Paraquat (MDL-3004)",
     cpap: "Philips CPAP (MDL-3014, contrast case)", earplugs: "3M Combat Arms Earplugs (MDL-2885, contrast case)",
+    opioid: "Opioid (MDL-2804)", insulin_pbm: "Insulin / PBM pricing (MDL-3080)",
+    climate_attribution_litigation: "Climate-attribution litigation (no federal MDL)",
   };
   const CAND_BADGE = {
     microplastics: "amber", "6ppd_quinone": "red", bisphenol_a: "gray",
     hair_relaxer_chemicals: "amber", social_media_adolescent_mental_health: "red", glyphosate: "gray",
     glp1_weight_loss: "red", paraquat: "amber", cpap: "gray", earplugs: "gray",
+    opioid: "amber", insulin_pbm: "gray", climate_attribution_litigation: "red",
   };
-  const ALREADY_TRACKED_MDL = new Set(["hair_relaxer_chemicals", "social_media_adolescent_mental_health", "glyphosate", "glp1_weight_loss", "paraquat", "cpap", "earplugs"]);
+  const ALREADY_TRACKED_MDL = new Set(["hair_relaxer_chemicals", "social_media_adolescent_mental_health", "glyphosate", "glp1_weight_loss", "paraquat", "cpap", "earplugs", "opioid", "insulin_pbm"]);
+  // Climate-attribution litigation gets its own bucket, distinct from both
+  // "real MDL exists" and "discovery candidate, not yet tracked" -- it is
+  // real, current litigation (not speculative, like microplastics), but
+  // genuinely has no federal MDL at all (state-court only), so neither
+  // existing label would be honest here.
+  const NO_MDL_REAL_SIGNAL = new Set(["climate_attribution_litigation"]);
 
   function growthToScore(g) { return Math.max(0, Math.min(100, 50 + (g / 150) * 50)); }
   function computeGrowth(rows) {
@@ -415,7 +424,7 @@ function renderDiscoveryScan() {
   const pfas = emergence.find(e => e.risk_category === "pfas");
   const talc = emergence.find(e => e.risk_category === "talc");
   const compareRows = [
-    ...candidateResults.map(c => ({ label: CAND_LABELS[c.name] || c.name, score: c.score, note: ALREADY_TRACKED_MDL.has(c.name) ? "real MDL exists -- newly added, not speculative" : "discovery candidate, not yet tracked" })),
+    ...candidateResults.map(c => ({ label: CAND_LABELS[c.name] || c.name, score: c.score, note: NO_MDL_REAL_SIGNAL.has(c.name) ? "real, current litigation -- no federal MDL exists" : ALREADY_TRACKED_MDL.has(c.name) ? "real MDL exists -- newly added, not speculative" : "discovery candidate, not yet tracked" })),
     { label: "PFAS (tracked)", score: pfas ? pfas.momentum_score : null, note: "for comparison -- already a known mass tort" },
     { label: "Talc (tracked)", score: talc ? talc.momentum_score : null, note: "for comparison -- already a known mass tort" },
   ].filter(r => r.score != null).sort((a, b) => b.score - a.score);
