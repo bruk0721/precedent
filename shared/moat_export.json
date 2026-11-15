@@ -386495,7 +386495,7 @@
     }
   ],
   "leakage_model": {
-    "generated_at": "2026-11-15T07:27:44.809048+00:00",
+    "generated_at": "2026-11-15T23:37:38.219138+00:00",
     "scope_note": "This tests whether presumption-law states and PFAS regulatory/exposure signal correlate -- it does NOT test Bob's sharpest question (litigation substitution: does an easy WC claim path reduce PFAS lawsuits against manufacturers), because this project's own AFFF litigation data has no plaintiff-occupation or plaintiff-home-state field. That real test needs AFFF MDL plaintiff fact sheets, which sit behind PACER's per-page fee -- a real, named, one-time cost, not pulled here.",
     "thin_data_caveat": "Only 16 real pfas_regulation legislative rows exist project-wide -- read the regulation-bill averages as a weak, small-N signal, not a confident finding. The exposure-site comparison (480 real sites) is a larger, more defensible sample.",
     "rows": [
@@ -387791,6 +387791,474 @@
     ],
     "methodology_note": "Descriptive injury-rate benchmark only. The UK has no statutory firefighter cancer presumption law (IIAC has declined to prescribe it), so this is not a presumption-pricing engine -- it flags FRAs whose reported personnel-injury rate per 1,000 operational incidents is >=25% above either the England-wide benchmark or that FRA's own trailing 5-year average."
   },
+  "npdb_malpractice_severity_calibration": {
+    "source": "NPDB Public Use Data File, Medical Malpractice Payment Report subset (HRSA)",
+    "rectype_row_counts": {
+      "M": 250672,
+      "P": 284906
+    },
+    "methodology_note": "Aggregate reference distributions only, built from RECTYPE='P' records (the current reporting format, which is the only one where HRSA's own OUTCOME/severity field is populated). Payment amounts are HRSA's own range-midpoint coding, not exact dollar figures. Not linkable to any individual patient or clinical record -- use as a liability-scale reference for a given allegation type and severity tier, never as a per-case prediction.",
+    "allegations": [
+      {
+        "allegation_code": "101",
+        "allegation_label": "Failure to Diagnose",
+        "total_n_with_severity_and_payment": 47701,
+        "severity_payment_curve": [
+          {
+            "outcome_code": "1",
+            "outcome_label": "Emotional Injury Only",
+            "n": 222,
+            "median_payment": 77500.0,
+            "p25_payment": 27500.0,
+            "p75_payment": 245000.0
+          },
+          {
+            "outcome_code": "2",
+            "outcome_label": "Insignificant Injury",
+            "n": 325,
+            "median_payment": 17500.0,
+            "p25_payment": 8750.0,
+            "p75_payment": 47500.0
+          },
+          {
+            "outcome_code": "3",
+            "outcome_label": "Minor Temporary Injury",
+            "n": 2943,
+            "median_payment": 47500.0,
+            "p25_payment": 17500.0,
+            "p75_payment": 125000.0
+          },
+          {
+            "outcome_code": "4",
+            "outcome_label": "Major Temporary Injury",
+            "n": 3629,
+            "median_payment": 125000.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 275000.0
+          },
+          {
+            "outcome_code": "5",
+            "outcome_label": "Minor Permanent Injury",
+            "n": 4077,
+            "median_payment": 125000.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 295000.0
+          },
+          {
+            "outcome_code": "6",
+            "outcome_label": "Significant Permanent Injury",
+            "n": 7521,
+            "median_payment": 275000.0,
+            "p25_payment": 125000.0,
+            "p75_payment": 525000.0
+          },
+          {
+            "outcome_code": "7",
+            "outcome_label": "Major Permanent Injury",
+            "n": 6560,
+            "median_payment": 395000.0,
+            "p25_payment": 175000.0,
+            "p75_payment": 745000.0
+          },
+          {
+            "outcome_code": "8",
+            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
+            "n": 2405,
+            "median_payment": 495000.0,
+            "p25_payment": 245000.0,
+            "p75_payment": 995000.0
+          },
+          {
+            "outcome_code": "9",
+            "outcome_label": "Death",
+            "n": 19632,
+            "median_payment": 245000.0,
+            "p25_payment": 115000.0,
+            "p75_payment": 495000.0
+          },
+          {
+            "outcome_code": "10",
+            "outcome_label": "Cannot Be Determined from Available Records",
+            "n": 387,
+            "median_payment": 145000.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 295000.0
+          }
+        ]
+      },
+      {
+        "allegation_code": "200",
+        "allegation_label": "Delay in Diagnosis",
+        "total_n_with_severity_and_payment": 20858,
+        "severity_payment_curve": [
+          {
+            "outcome_code": "1",
+            "outcome_label": "Emotional Injury Only",
+            "n": 73,
+            "median_payment": 62500.0,
+            "p25_payment": 27500.0,
+            "p75_payment": 145000.0
+          },
+          {
+            "outcome_code": "2",
+            "outcome_label": "Insignificant Injury",
+            "n": 113,
+            "median_payment": 27500.0,
+            "p25_payment": 12500.0,
+            "p75_payment": 87500.0
+          },
+          {
+            "outcome_code": "3",
+            "outcome_label": "Minor Temporary Injury",
+            "n": 1157,
+            "median_payment": 57500.0,
+            "p25_payment": 22500.0,
+            "p75_payment": 145000.0
+          },
+          {
+            "outcome_code": "4",
+            "outcome_label": "Major Temporary Injury",
+            "n": 1774,
+            "median_payment": 145000.0,
+            "p25_payment": 57500.0,
+            "p75_payment": 305000.0
+          },
+          {
+            "outcome_code": "5",
+            "outcome_label": "Minor Permanent Injury",
+            "n": 2267,
+            "median_payment": 195000.0,
+            "p25_payment": 72500.0,
+            "p75_payment": 425000.0
+          },
+          {
+            "outcome_code": "6",
+            "outcome_label": "Significant Permanent Injury",
+            "n": 4096,
+            "median_payment": 295000.0,
+            "p25_payment": 145000.0,
+            "p75_payment": 595000.0
+          },
+          {
+            "outcome_code": "7",
+            "outcome_label": "Major Permanent Injury",
+            "n": 3127,
+            "median_payment": 395000.0,
+            "p25_payment": 185000.0,
+            "p75_payment": 745000.0
+          },
+          {
+            "outcome_code": "8",
+            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
+            "n": 1104,
+            "median_payment": 495000.0,
+            "p25_payment": 245000.0,
+            "p75_payment": 995000.0
+          },
+          {
+            "outcome_code": "9",
+            "outcome_label": "Death",
+            "n": 6988,
+            "median_payment": 245000.0,
+            "p25_payment": 115000.0,
+            "p75_payment": 495000.0
+          },
+          {
+            "outcome_code": "10",
+            "outcome_label": "Cannot Be Determined from Available Records",
+            "n": 159,
+            "median_payment": 135000.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 295000.0
+          }
+        ]
+      },
+      {
+        "allegation_code": "106",
+        "allegation_label": "Failure to Monitor",
+        "total_n_with_severity_and_payment": 9826,
+        "severity_payment_curve": [
+          {
+            "outcome_code": "1",
+            "outcome_label": "Emotional Injury Only",
+            "n": 101,
+            "median_payment": 47500.0,
+            "p25_payment": 17500.0,
+            "p75_payment": 135000.0
+          },
+          {
+            "outcome_code": "2",
+            "outcome_label": "Insignificant Injury",
+            "n": 105,
+            "median_payment": 12500.0,
+            "p25_payment": 4500.0,
+            "p75_payment": 37500.0
+          },
+          {
+            "outcome_code": "3",
+            "outcome_label": "Minor Temporary Injury",
+            "n": 864,
+            "median_payment": 27500.0,
+            "p25_payment": 12500.0,
+            "p75_payment": 72500.0
+          },
+          {
+            "outcome_code": "4",
+            "outcome_label": "Major Temporary Injury",
+            "n": 787,
+            "median_payment": 97500.0,
+            "p25_payment": 37500.0,
+            "p75_payment": 195000.0
+          },
+          {
+            "outcome_code": "5",
+            "outcome_label": "Minor Permanent Injury",
+            "n": 683,
+            "median_payment": 87500.0,
+            "p25_payment": 32500.0,
+            "p75_payment": 225000.0
+          },
+          {
+            "outcome_code": "6",
+            "outcome_label": "Significant Permanent Injury",
+            "n": 1072,
+            "median_payment": 225000.0,
+            "p25_payment": 87500.0,
+            "p75_payment": 495000.0
+          },
+          {
+            "outcome_code": "7",
+            "outcome_label": "Major Permanent Injury",
+            "n": 922,
+            "median_payment": 325000.0,
+            "p25_payment": 145000.0,
+            "p75_payment": 745000.0
+          },
+          {
+            "outcome_code": "8",
+            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
+            "n": 598,
+            "median_payment": 595000.0,
+            "p25_payment": 245000.0,
+            "p75_payment": 995000.0
+          },
+          {
+            "outcome_code": "9",
+            "outcome_label": "Death",
+            "n": 4627,
+            "median_payment": 175000.0,
+            "p25_payment": 67500.0,
+            "p75_payment": 395000.0
+          },
+          {
+            "outcome_code": "10",
+            "outcome_label": "Cannot Be Determined from Available Records",
+            "n": 67,
+            "median_payment": 87500.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 195000.0
+          }
+        ]
+      },
+      {
+        "allegation_code": "112",
+        "allegation_label": "Failure to Recognize a Complication",
+        "total_n_with_severity_and_payment": 9932,
+        "severity_payment_curve": [
+          {
+            "outcome_code": "1",
+            "outcome_label": "Emotional Injury Only",
+            "n": 38,
+            "median_payment": 77500.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 175000.0
+          },
+          {
+            "outcome_code": "2",
+            "outcome_label": "Insignificant Injury",
+            "n": 101,
+            "median_payment": 27500.0,
+            "p25_payment": 12500.0,
+            "p75_payment": 52500.0
+          },
+          {
+            "outcome_code": "3",
+            "outcome_label": "Minor Temporary Injury",
+            "n": 848,
+            "median_payment": 57500.0,
+            "p25_payment": 22500.0,
+            "p75_payment": 145000.0
+          },
+          {
+            "outcome_code": "4",
+            "outcome_label": "Major Temporary Injury",
+            "n": 1464,
+            "median_payment": 175000.0,
+            "p25_payment": 72500.0,
+            "p75_payment": 295000.0
+          },
+          {
+            "outcome_code": "5",
+            "outcome_label": "Minor Permanent Injury",
+            "n": 1048,
+            "median_payment": 145000.0,
+            "p25_payment": 72500.0,
+            "p75_payment": 275000.0
+          },
+          {
+            "outcome_code": "6",
+            "outcome_label": "Significant Permanent Injury",
+            "n": 1495,
+            "median_payment": 275000.0,
+            "p25_payment": 145000.0,
+            "p75_payment": 525000.0
+          },
+          {
+            "outcome_code": "7",
+            "outcome_label": "Major Permanent Injury",
+            "n": 1009,
+            "median_payment": 495000.0,
+            "p25_payment": 195000.0,
+            "p75_payment": 925000.0
+          },
+          {
+            "outcome_code": "8",
+            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
+            "n": 400,
+            "median_payment": 745000.0,
+            "p25_payment": 335000.0,
+            "p75_payment": 995000.0
+          },
+          {
+            "outcome_code": "9",
+            "outcome_label": "Death",
+            "n": 3441,
+            "median_payment": 245000.0,
+            "p25_payment": 125000.0,
+            "p75_payment": 495000.0
+          },
+          {
+            "outcome_code": "10",
+            "outcome_label": "Cannot Be Determined from Available Records",
+            "n": 88,
+            "median_payment": 125000.0,
+            "p25_payment": 72500.0,
+            "p75_payment": 195000.0
+          }
+        ]
+      },
+      {
+        "allegation_code": "108",
+        "allegation_label": "Failure to Order Appropriate Test",
+        "total_n_with_severity_and_payment": 4804,
+        "severity_payment_curve": [
+          {
+            "outcome_code": "1",
+            "outcome_label": "Emotional Injury Only",
+            "n": 65,
+            "median_payment": 47500.0,
+            "p25_payment": 27500.0,
+            "p75_payment": 185000.0
+          },
+          {
+            "outcome_code": "2",
+            "outcome_label": "Insignificant Injury",
+            "n": 28,
+            "median_payment": 32500.0,
+            "p25_payment": 17500.0,
+            "p75_payment": 77500.0
+          },
+          {
+            "outcome_code": "3",
+            "outcome_label": "Minor Temporary Injury",
+            "n": 207,
+            "median_payment": 42500.0,
+            "p25_payment": 17500.0,
+            "p75_payment": 97500.0
+          },
+          {
+            "outcome_code": "4",
+            "outcome_label": "Major Temporary Injury",
+            "n": 294,
+            "median_payment": 145000.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 295000.0
+          },
+          {
+            "outcome_code": "5",
+            "outcome_label": "Minor Permanent Injury",
+            "n": 339,
+            "median_payment": 115000.0,
+            "p25_payment": 52500.0,
+            "p75_payment": 245000.0
+          },
+          {
+            "outcome_code": "6",
+            "outcome_label": "Significant Permanent Injury",
+            "n": 711,
+            "median_payment": 295000.0,
+            "p25_payment": 135000.0,
+            "p75_payment": 595000.0
+          },
+          {
+            "outcome_code": "7",
+            "outcome_label": "Major Permanent Injury",
+            "n": 641,
+            "median_payment": 415000.0,
+            "p25_payment": 195000.0,
+            "p75_payment": 845000.0
+          },
+          {
+            "outcome_code": "8",
+            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
+            "n": 276,
+            "median_payment": 545000.0,
+            "p25_payment": 245000.0,
+            "p75_payment": 995000.0
+          },
+          {
+            "outcome_code": "9",
+            "outcome_label": "Death",
+            "n": 2202,
+            "median_payment": 245000.0,
+            "p25_payment": 105000.0,
+            "p75_payment": 495000.0
+          },
+          {
+            "outcome_code": "10",
+            "outcome_label": "Cannot Be Determined from Available Records",
+            "n": 41,
+            "median_payment": 145000.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 395000.0
+          }
+        ]
+      },
+      {
+        "allegation_code": "111",
+        "allegation_label": "Failure to Perform Resuscitation",
+        "total_n_with_severity_and_payment": 190,
+        "severity_payment_curve": [
+          {
+            "outcome_code": "8",
+            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
+            "n": 39,
+            "median_payment": 585000.0,
+            "p25_payment": 195000.0,
+            "p75_payment": 1950000.0
+          },
+          {
+            "outcome_code": "9",
+            "outcome_label": "Death",
+            "n": 151,
+            "median_payment": 275000.0,
+            "p25_payment": 125000.0,
+            "p75_payment": 625000.0
+          }
+        ]
+      }
+    ]
+  },
   "outcomes_ledger_summary": {
     "total_tracked": 253,
     "open_pending": 253,
@@ -387833,5 +388301,5 @@
       }
     }
   },
-  "generated_at": "2026-11-15T07:27:53.013252+00:00"
+  "generated_at": "2026-11-15T23:38:04.794038+00:00"
 }
