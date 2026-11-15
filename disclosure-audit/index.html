@@ -138,8 +138,10 @@ uvicorn main:app --reload --port 8000</code></pre>
       <input type="text" id="company-input" placeholder="e.g. Chemours Company">
       <input type="text" id="city-input" placeholder="City (optional)">
       <input type="text" id="state-input" placeholder="State (optional)" maxlength="2">
+      <input type="date" id="as-of-input" title="As-of date (optional) -- replay the audit as of a past date, e.g. the date a policy bound">
       <button class="primary" id="check-btn">Audit</button>
     </div>
+    <p class="try-examples" style="margin-top:6px;">Leave the date blank for right now, or set it to replay what this audit would have shown on a past bind date. <a href="../api/#point-in-time" style="color:var(--accent-blue);font-weight:600;">How exact is this?</a></p>
     <div class="try-examples">
       Try: <button data-name="Chemours Company" data-city="Wilmington" data-state="DE">Chemours Company</button><button data-name="Honeywell International Inc" data-city="" data-state="">Honeywell International Inc</button>
     </div>
@@ -160,6 +162,7 @@ uvicorn main:app --reload --port 8000</code></pre>
       <li><strong>FDA OAI inspections are NOT checked.</strong> Checked live before building this: FDA's inspection-classification dashboard is a session-ticketed Qlik Sense BI application, not a stable public API -- scraping an interactive BI session is a fundamentally less reliable integration than every other source here, so it's left out rather than faked.</li>
       <li><strong>Parent Name vs. Plant DBA Mismatch</strong>: EPA/OSHA records inspections under the local operating plant's name, not necessarily the Delaware holding-company name on the front of the slip. Always supply the subsidiary/facility name from the deal's own schedule.</li>
       <li>A match is a real federal enforcement record under this name -- not a legal finding that the seller breached a specific warranty.</li>
+      <li><strong>Point-in-time replay</strong>: set an as-of date to see what this would have shown on a past bind date, not just right now. OSHA and USAspending use real, exact dated fields (inspection-open date, award-start date). EPA ECHO uses its own rolling quarterly compliance-history strings, with quarter boundaries estimated by counting backward from today rather than read from ECHO's own boundary metadata -- disclosed as quarter-resolution, not exact, every time it's used.</li>
     </ul>
   </div>
 </div>
@@ -173,6 +176,12 @@ function srcLink(url, label) {
 function renderFinding(f) {
   if (f.source === "epa_echo") {
     if (f.error) return `<div class="finding-line"><span class="tag gray">EPA ECHO</span> search error: ${esc(f.error)}</div>`;
+    if (f.point_in_time) {
+      const programs = Object.entries(f.flagged_programs_as_of_date || {}).map(([p, c]) => `${esc(p)}: ${c === "S" ? "significant noncompliance" : "violation"}`).join(", ");
+      return `<div class="finding-line"><span class="tag amber">As of ${esc(f.as_of_date)}</span> <b>${esc(f.fac_name)}</b> (${esc(f.city)}, ${esc(f.state)}) &mdash;
+        ${esc(programs)} ${srcLink(f.source_url, "View EPA record")}
+        <div style="color:var(--ink-faint);font-size:11.5px;margin-top:3px;">${esc(f.quarter_anchoring_caveat)}</div></div>`;
+    }
     const sncTag = f.significant_noncompliance_flag === "Y" ? `<span class="tag red">Active SNC</span>` : `<span class="tag amber">Formal action on file</span>`;
     return `<div class="finding-line">${sncTag} <b>${esc(f.fac_name)}</b> (${esc(f.city)}, ${esc(f.state)}) &mdash;
       ${esc(f.formal_action_count || "0")} formal action(s), ${esc(f.total_penalties || "$0")} in penalties, last inspected ${esc(f.last_inspection_date || "unknown")}
@@ -193,13 +202,14 @@ function renderFinding(f) {
   return "";
 }
 
-async function runAudit(name, city, state) {
+async function runAudit(name, city, state, asOfDate) {
   const card = document.getElementById("result-card");
   const heading = document.getElementById("result-heading");
   const body = document.getElementById("result-body");
   const btn = document.getElementById("check-btn");
   card.style.display = "block";
-  heading.innerHTML = `<span class="tag gray">Running live...</span> ${esc(name)}`;
+  const asOfLabel = asOfDate ? ` as of ${esc(asOfDate)}` : "";
+  heading.innerHTML = `<span class="tag gray">Running live...</span> ${esc(name)}${asOfLabel}`;
   body.innerHTML = `<p class="empty-note">Querying EPA ECHO, OSHA, and USAspending live -- this can take a few seconds.</p>`;
   btn.disabled = true;
 
@@ -207,22 +217,23 @@ async function runAudit(name, city, state) {
   try {
     const resp = await fetch(`${apiBase}/v1/disclosure-schedule-audit`, {
       method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ company_name: name, city: city || "", state: state || "" }),
+      body: JSON.stringify({ company_name: name, city: city || "", state: state || "", as_of_date: asOfDate || "" }),
     });
     if (!resp.ok) throw new Error(`API returned ${resp.status}`);
     const result = await resp.json();
 
-    heading.innerHTML = result.flagged
+    heading.innerHTML = (result.flagged
       ? `<span class="tag red">Real findings</span> ${esc(result.company_name)}`
-      : `<span class="tag gray">No real findings</span> ${esc(result.company_name)}`;
+      : `<span class="tag gray">No real findings</span> ${esc(result.company_name)}`) + (result.as_of_date ? ` <span class="tag amber">as of ${esc(result.as_of_date)}</span>` : "");
 
     const realFindings = result.findings.filter(f => !f.skipped && !f.error);
     const skipped = result.findings.filter(f => f.skipped);
     let html = "";
+    if (result.point_in_time_caveat) html += `<p class="empty-note" style="margin-bottom:10px;"><b>Point-in-time caveat:</b> ${esc(result.point_in_time_caveat)}</p>`;
     if (realFindings.length) {
       html += `<p class="card-sub">${realFindings.length} real finding(s) across EPA ECHO, OSHA, and USAspending.</p>` + realFindings.map(renderFinding).join("");
     } else {
-      html += `<p class="empty-note">No real findings under this exact name.</p>`;
+      html += `<p class="empty-note">No real findings under this exact name${asOfLabel}.</p>`;
     }
     if (skipped.length) html += skipped.map(renderFinding).join("");
     html += `<p class="empty-note" style="margin-top:12px;">${esc(result.note)}</p>`;
@@ -256,14 +267,16 @@ document.getElementById("check-btn").addEventListener("click", () => {
   const name = document.getElementById("company-input").value.trim();
   const city = document.getElementById("city-input").value.trim();
   const state = document.getElementById("state-input").value.trim();
-  if (name) runAudit(name, city, state);
+  const asOf = document.getElementById("as-of-input").value.trim();
+  if (name) runAudit(name, city, state, asOf);
 });
 document.querySelectorAll(".try-examples button").forEach(btn => {
   btn.addEventListener("click", () => {
     document.getElementById("company-input").value = btn.dataset.name;
     document.getElementById("city-input").value = btn.dataset.city;
     document.getElementById("state-input").value = btn.dataset.state;
-    runAudit(btn.dataset.name, btn.dataset.city, btn.dataset.state);
+    const asOf = document.getElementById("as-of-input").value.trim();
+    runAudit(btn.dataset.name, btn.dataset.city, btn.dataset.state, asOf);
   });
 });
 </script>

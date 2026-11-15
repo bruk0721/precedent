@@ -78,10 +78,25 @@
     </table>
   </div>
 
+  <div class="card" id="point-in-time">
+    <span class="tag">Point-in-time</span>
+    <h2>What did the record show on the date you bound?</h2>
+    <p>The Disclosure Auditor's <code>as_of_date</code> field replays the audit against a past date instead of right now &mdash; the real question an underwriter or claims handler asks after the fact. How exact that replay is depends on what each source actually exposes:</p>
+    <table>
+      <tr><th>Source</th><th>Precision</th><th>How</th></tr>
+      <tr><td>OSHA</td><td>Exact</td><td>Real inspection-open date on each citation; excludes anything opened after the cutoff.</td></tr>
+      <tr><td>USAspending</td><td>Exact</td><td>Real award Start Date; excludes anything that hadn't started yet.</td></tr>
+      <tr><td>EPA ECHO</td><td>Quarter-resolution, estimated boundaries</td><td>ECHO's own rolling 12/13-quarter compliance-history strings (one character per quarter). Quarter boundaries are estimated by counting backward from today, not read from ECHO's own boundary metadata -- disclosed every time this is used, not assumed exact.</td></tr>
+    </table>
+    <pre>curl -X POST https://&lt;your-deployment&gt;/v1/disclosure-schedule-audit \
+  -H "Content-Type: application/json" \
+  -d '{"company_name": "Chemours Company", "as_of_date": "2024-06-30"}'</pre>
+  </div>
+
   <div class="card">
     <span class="tag">Honest status</span>
     <h2>What's real today, and what isn't yet</h2>
-    <p>All of the above is working, tested code today &mdash; not a roadmap slide. What it is NOT yet: deployed to a public production URL, or wired into email/Slack notifications (no mail or webhook credential exists in this environment yet). The batch and subscription logic itself is real and already running against live government data; standing it up as a hosted, authenticated production API is the real next step, not a claim this page is making ahead of it.</p>
+    <p>All of the above is working, tested code today &mdash; not a roadmap slide. What it is NOT yet: deployed to a public production URL, or wired into email/Slack notifications (no mail or webhook credential exists in this environment yet). There is also no audit-trail export into a specific underwriting workbench (Charles Taylor InsureTech, Whitespace, DXC, etc.) &mdash; every response here is already structured JSON with a real source URL per finding, which is the real precondition for that integration, but the integration itself needs a real platform and credentials we don't have in this environment. The batch, subscription, and point-in-time logic itself is real and already running against live government data; standing it up as a hosted, authenticated production API with a workbench connector is the real next step, not a claim this page is making ahead of it.</p>
   </div>
 </div>
 </html>
