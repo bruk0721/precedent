@@ -142,8 +142,11 @@ uvicorn main:app --reload --port 8000</code></pre>
       <button class="primary" id="check-btn">Audit</button>
     </div>
     <p class="try-examples" style="margin-top:6px;">Leave the date blank for right now, or set it to replay what this audit would have shown on a past bind date. <a href="../api/#point-in-time" style="color:var(--accent-blue);font-weight:600;">How exact is this?</a></p>
+    <label style="display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--ink-muted);margin-top:8px;cursor:pointer;">
+      <input type="checkbox" id="include-subs-input"> Also check up to 5 real GLEIF-listed direct subsidiaries (slower -- multiplies the live call count)
+    </label>
     <div class="try-examples">
-      Try: <button data-name="Chemours Company" data-city="Wilmington" data-state="DE">Chemours Company</button><button data-name="Honeywell International Inc" data-city="" data-state="">Honeywell International Inc</button>
+      Try: <button data-name="Chemours Company" data-city="Wilmington" data-state="DE">Chemours Company</button><button data-name="Honeywell International Inc" data-city="" data-state="">Honeywell International Inc</button><button data-name="Janssen Pharmaceuticals" data-city="" data-state="">Janssen Pharmaceuticals (entity resolution demo)</button>
     </div>
   </div>
 
@@ -161,6 +164,7 @@ uvicorn main:app --reload --port 8000</code></pre>
       <li><strong>USAspending</strong>: real, free, keyless. Only surfaces awards where the target is the actual federal contract recipient, not just mentioned in a product description.</li>
       <li><strong>FDA OAI inspections are NOT checked.</strong> Checked live before building this: FDA's inspection-classification dashboard is a session-ticketed Qlik Sense BI application, not a stable public API -- scraping an interactive BI session is a fundamentally less reliable integration than every other source here, so it's left out rather than faked.</li>
       <li><strong>Parent Name vs. Plant DBA Mismatch</strong>: EPA/OSHA records inspections under the local operating plant's name, not necessarily the Delaware holding-company name on the front of the slip. Always supply the subsidiary/facility name from the deal's own schedule.</li>
+      <li><strong>Entity resolution (GLEIF, not DUNS)</strong>: Dun &amp; Bradstreet's DUNS lookup has no free API -- checked live before ruling it out. GLEIF's Legal Entity Identifier registry does, and it carries real parent/subsidiary relationship data, not just a name match. Confirmed live on this exact "Janssen Pharmaceuticals vs. Johnson &amp; Johnson" scenario -- try the third example button above. LEI coverage skews toward financial-market participants, so a facility-level DBA with no LEI on file is a real, common "not found," not a bug.</li>
       <li>A match is a real federal enforcement record under this name -- not a legal finding that the seller breached a specific warranty.</li>
       <li><strong>Point-in-time replay</strong>: set an as-of date to see what this would have shown on a past bind date, not just right now. OSHA and USAspending use real, exact dated fields (inspection-open date, award-start date). EPA ECHO uses its own rolling quarterly compliance-history strings, with quarter boundaries estimated by counting backward from today rather than read from ECHO's own boundary metadata -- disclosed as quarter-resolution, not exact, every time it's used.</li>
     </ul>
@@ -174,6 +178,8 @@ function srcLink(url, label) {
 }
 
 function renderFinding(f) {
+  const subTag = f.found_via_subsidiary ? `<span class="tag amber">Via subsidiary: ${esc(f.found_via_subsidiary)}</span> ` : "";
+  if (f.found_via_subsidiary) return subTag + renderFinding({ ...f, found_via_subsidiary: undefined });
   if (f.source === "epa_echo") {
     if (f.error) return `<div class="finding-line"><span class="tag gray">EPA ECHO</span> search error: ${esc(f.error)}</div>`;
     if (f.point_in_time) {
@@ -202,7 +208,21 @@ function renderFinding(f) {
   return "";
 }
 
-async function runAudit(name, city, state, asOfDate) {
+function renderEntityResolution(er) {
+  if (!er) return "";
+  if (!er.found) return `<p class="empty-note" style="margin-bottom:10px;"><b>Entity resolution (GLEIF):</b> ${esc(er.reason || er.error || "no LEI record found for this name")}</p>`;
+  let html = `<div class="finding-line" style="border-top:none;padding-top:0;"><span class="tag gray">GLEIF LEI</span> <b>${esc(er.legal_name)}</b> (${esc(er.jurisdiction || "")}, reg. ${esc(er.registered_as || "n/a")}) ${srcLink(er.source_url, "View LEI record")}`;
+  if (er.ultimate_parent) {
+    html += `<br><span style="color:var(--ink-faint);">Ultimate parent: <b>${esc(er.ultimate_parent.legal_name)}</b> (LEI ${esc(er.ultimate_parent.lei)})</span>`;
+  }
+  if (er.direct_subsidiaries && er.direct_subsidiaries.length) {
+    html += `<br><span style="color:var(--ink-faint);">Direct subsidiaries on file (showing up to ${esc(er.direct_subsidiary_count_shown_capped_at)}): ${er.direct_subsidiaries.map(s => esc(s.legal_name)).join(", ")}</span>`;
+  }
+  html += `</div>`;
+  return html;
+}
+
+async function runAudit(name, city, state, asOfDate, includeSubsidiaries) {
   const card = document.getElementById("result-card");
   const heading = document.getElementById("result-heading");
   const body = document.getElementById("result-body");
@@ -210,14 +230,14 @@ async function runAudit(name, city, state, asOfDate) {
   card.style.display = "block";
   const asOfLabel = asOfDate ? ` as of ${esc(asOfDate)}` : "";
   heading.innerHTML = `<span class="tag gray">Running live...</span> ${esc(name)}${asOfLabel}`;
-  body.innerHTML = `<p class="empty-note">Querying EPA ECHO, OSHA, and USAspending live -- this can take a few seconds.</p>`;
+  body.innerHTML = `<p class="empty-note">Querying EPA ECHO, OSHA, USAspending, and GLEIF live -- this can take a few seconds${includeSubsidiaries ? ", longer with subsidiaries included" : ""}.</p>`;
   btn.disabled = true;
 
   const apiBase = document.getElementById("api-url").value.trim().replace(/\/$/, "");
   try {
     const resp = await fetch(`${apiBase}/v1/disclosure-schedule-audit`, {
       method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ company_name: name, city: city || "", state: state || "", as_of_date: asOfDate || "" }),
+      body: JSON.stringify({ company_name: name, city: city || "", state: state || "", as_of_date: asOfDate || "", include_subsidiaries: !!includeSubsidiaries }),
     });
     if (!resp.ok) throw new Error(`API returned ${resp.status}`);
     const result = await resp.json();
@@ -228,7 +248,7 @@ async function runAudit(name, city, state, asOfDate) {
 
     const realFindings = result.findings.filter(f => !f.skipped && !f.error);
     const skipped = result.findings.filter(f => f.skipped);
-    let html = "";
+    let html = renderEntityResolution(result.entity_resolution);
     if (result.point_in_time_caveat) html += `<p class="empty-note" style="margin-bottom:10px;"><b>Point-in-time caveat:</b> ${esc(result.point_in_time_caveat)}</p>`;
     if (realFindings.length) {
       html += `<p class="card-sub">${realFindings.length} real finding(s) across EPA ECHO, OSHA, and USAspending.</p>` + realFindings.map(renderFinding).join("");
@@ -268,7 +288,8 @@ document.getElementById("check-btn").addEventListener("click", () => {
   const city = document.getElementById("city-input").value.trim();
   const state = document.getElementById("state-input").value.trim();
   const asOf = document.getElementById("as-of-input").value.trim();
-  if (name) runAudit(name, city, state, asOf);
+  const includeSubs = document.getElementById("include-subs-input").checked;
+  if (name) runAudit(name, city, state, asOf, includeSubs);
 });
 document.querySelectorAll(".try-examples button").forEach(btn => {
   btn.addEventListener("click", () => {
@@ -276,7 +297,8 @@ document.querySelectorAll(".try-examples button").forEach(btn => {
     document.getElementById("city-input").value = btn.dataset.city;
     document.getElementById("state-input").value = btn.dataset.state;
     const asOf = document.getElementById("as-of-input").value.trim();
-    runAudit(btn.dataset.name, btn.dataset.city, btn.dataset.state, asOf);
+    const includeSubs = document.getElementById("include-subs-input").checked;
+    runAudit(btn.dataset.name, btn.dataset.city, btn.dataset.state, asOf, includeSubs);
   });
 });
 </script>
