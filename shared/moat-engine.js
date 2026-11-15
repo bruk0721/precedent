@@ -790,6 +790,14 @@ const MoatEngine = (() => {
     return DB.entity_resolution_examples || [];
   }
 
+  // UK Fire & Rescue Authority Risk Profile -- real MHCLG data (FIRE0508 +
+  // FIRE0102), NOT a presumption-pricing engine: the UK has no statutory
+  // firefighter cancer presumption law, so this is a descriptive injury-rate
+  // benchmark per authority instead. See uk_fire_authority_risk_profile.py.
+  function getUkFireAuthorityRiskProfile() {
+    return DB.uk_fire_authority_risk_profile || null;
+  }
+
   // Firefighter Presumption Statutory-Exposure Pricing Engine -- JS
   // mirror of check_firefighter_presumption() in api-backend/main.py.
   // Reads a pre-computed snapshot (firefighter_presumption_pricing_
@@ -1143,7 +1151,7 @@ const MoatEngine = (() => {
   return {
     load, assess, getDefendantsForNaics, queryPlaintiffRadar, queryLegislativeContagion,
     querySeverityAnchor, parseDollarToMillions, computeThreatLevel, getFilingVelocity,
-    getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES, checkSubmission, scanSubmissionDocument, getLeakageModel, generateRdsLiabilityScenario, getReserveDevelopmentAnomaly, checkClaimWatchlist, getOutcomesLedgerSummary, getCoverageRegistry, checkFirefighterPresumption, getHistoricalBacktest, getEntityResolutionExamples,
+    getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES, checkSubmission, scanSubmissionDocument, getLeakageModel, generateRdsLiabilityScenario, getReserveDevelopmentAnomaly, checkClaimWatchlist, getOutcomesLedgerSummary, getCoverageRegistry, checkFirefighterPresumption, getHistoricalBacktest, getEntityResolutionExamples, getUkFireAuthorityRiskProfile,
     searchEntity, getCrosswalkCoverage, getPlaintiffFirmTracker, getRenewalWindow,
     getComplianceRecords, getRegulatoryFilings, getScientificMomentum, getStateContaminationSites,
     getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts, getCyberIncidentFilings,

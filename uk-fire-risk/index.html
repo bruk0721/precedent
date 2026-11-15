@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nubuye — UK Fire &amp; Rescue Authority Risk Profile</title>
+<meta name="description" content="A real injury-rate benchmark across every English Fire and Rescue Authority, built from official MHCLG statistics -- not a US-style presumption-pricing engine, because the UK has no firefighter cancer presumption law to price against.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1;
+    --accent-amber: #b8601f; --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df;
+    --accent-green: #2f6f4f; --accent-green-bg: #e4f0e9;
+    --accent-gray: #5c6370; --accent-gray-bg: #eef0f3; --nav-bg: rgba(247, 248, 250, 0.78);
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px; --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
+    --accent-amber: #e2974f; --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816;
+    --accent-green: #6fae8c; --accent-green-bg: #16271e;
+    --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.78);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px 100px; }
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 960px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand-mark { height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0; background: var(--accent-blue); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em; box-shadow: 0 1px 2px rgba(0,0,0,0.15); }
+  :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  @media (max-width: 640px) { nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; } .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; } }
+  .hero { padding: 44px 24px 30px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
+  h1 { font-weight: 500; font-size: clamp(26px, 5.5vw, 36px); line-height: 1.15; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 28ch; }
+  .hero p.dek { font-size: 15.5px; line-height: 1.6; color: var(--ink-muted); max-width: 68ch; margin: 0 auto; }
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
+  h2 { font-weight: 600; font-size: 17px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .card-sub { font-size: 13.5px; color: var(--ink-faint); margin: 0 0 16px; line-height: 1.6; }
+  .stat-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 8px; }
+  .stat { flex: 1; min-width: 120px; }
+  .stat .num { font-size: 26px; font-weight: 600; font-family: var(--font-mono); }
+  .stat .label { font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; }
+  .tag.green { background: var(--accent-green-bg); color: var(--accent-green); }
+  .tag.gray { background: var(--accent-gray-bg); color: var(--accent-gray); }
+  .tag.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
+  .tag.red { background: var(--accent-red-bg); color: var(--accent-red); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 9px 8px; border-top: 1px solid var(--chip-bg); vertical-align: top; }
+  th { font-size: 11px; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; }
+  td.num-cell { font-family: var(--font-mono); font-size: 12.5px; }
+  .caveat-box { background: var(--accent-amber-bg); border-radius: 12px; padding: 16px 18px; font-size: 13.5px; line-height: 1.6; color: var(--ink); margin-bottom: 16px; }
+  .footer-note { text-align: center; font-size: 12px; color: var(--ink-faint); margin-top: 30px; }
+  .scroll-x { overflow-x: auto; }
+</style>
+</head>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+
+<nav class="top">
+  <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
+  <div class="nav-links">
+    <a href="../">&larr; Back to overview</a>
+    <a href="../explore/">All tools</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow-pill"><span class="dot"></span>Real MHCLG data &mdash; England, by Fire and Rescue Authority</span>
+  <h1>Which UK fire brigades carry more injury risk than the rest?</h1>
+  <p class="dek">Built from official MHCLG fire statistics (FIRE0102 and FIRE0508), not a US-style port of the Firefighter Presumption Pricing Engine. The UK has no statutory firefighter cancer presumption law to price against &mdash; so instead of a presumption engine, this is a straight, real benchmark: reported personnel injuries per 1,000 incidents attended, by authority, checked against both the England-wide rate and that authority's own 5-year trend.</p>
+</div>
+
+<div class="wrap">
+  <div class="caveat-box" id="caveat-box"></div>
+
+  <div class="card">
+    <h2>Fire &amp; Rescue Authority injury-rate benchmark</h2>
+    <p class="card-sub" id="table-sub"></p>
+    <div class="stat-row" id="summary-stats"></div>
+    <div class="scroll-x"><div id="profile-table"></div></div>
+  </div>
+
+  <div class="card">
+    <h2>Why this isn't a presumption-pricing engine</h2>
+    <p class="card-sub" style="margin-bottom:0;">The US product works because 20+ US states have passed laws that legally presume certain cancers are job-caused for firefighters, which is a real, date-stamped pricing trigger. The UK's Industrial Injuries Advisory Council has explicitly declined to add cancer (other than mesothelioma) to the prescribed-disease list for firefighters, and the Fire Brigades Union is still actively campaigning for one. Until that changes, there's no statutory exposure to price in the UK the way the US engine does &mdash; so this tool measures something real and different (reported injury rate vs. benchmark) rather than quietly reusing a US framing that wouldn't survive a basic coverage-counsel question.</p>
+  </div>
+  <p class="footer-note" id="snapshot-date"></p>
+</div>
+
+<script src="../shared/moat-engine.js"></script>
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => { document.documentElement.setAttribute("data-theme", dark ? "dark" : "light"); btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;"; };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => { isDark = !isDark; try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {} apply(isDark); });
+}
+
+async function init() {
+  setupThemeToggle();
+  const db = await MoatEngine.load("../shared/moat_export.json");
+  document.getElementById("snapshot-date").textContent = db.generated_at ? `Snapshot as of ${new Date(db.generated_at).toISOString().slice(0, 10)}.` : "";
+
+  const profile = MoatEngine.getUkFireAuthorityRiskProfile();
+  if (!profile) {
+    document.getElementById("caveat-box").textContent = "This snapshot doesn't have the UK fire data yet -- re-run export_moat_data.py.";
+    return;
+  }
+
+  document.getElementById("caveat-box").innerHTML =
+    `<b>Real limitation, stated plainly:</b> ${esc(profile.methodology_note)} Sources: ` +
+    profile.sources.map(s => `<a href="${esc(s.url)}" target="_blank" rel="noopener" style="color:var(--accent-blue);font-weight:600;">${esc(s.name)}</a>`).join(", ") + ".";
+
+  document.getElementById("table-sub").textContent =
+    `Latest complete financial year: ${profile.latest_financial_year}. England-wide benchmark: ${profile.england_benchmark_rate_per_1000} injuries per 1,000 incidents attended.`;
+
+  document.getElementById("summary-stats").innerHTML = `
+    <div class="stat"><div class="num">${esc(profile.authorities_scored)}</div><div class="label">authorities scored</div></div>
+    <div class="stat"><div class="num">${esc(profile.flagged_count)}</div><div class="label">flagged &ge;25% above benchmark or own trend</div></div>
+    <div class="stat"><div class="num">${esc(profile.england_benchmark_rate_per_1000)}</div><div class="label">England benchmark rate /1000</div></div>`;
+
+  const rows = profile.profiles.map(p => `<tr>
+      <td><b>${esc(p.fire_rescue_authority)}</b></td>
+      <td class="num-cell">${esc(p.total_incidents.toLocaleString())}</td>
+      <td class="num-cell">${esc(p.personnel_injured)}</td>
+      <td class="num-cell">${esc(p.injury_rate_per_1000_incidents)}</td>
+      <td class="num-cell">${p.vs_benchmark_pct != null ? (p.vs_benchmark_pct >= 0 ? "+" : "") + esc(p.vs_benchmark_pct) + "%" : "&mdash;"}</td>
+      <td class="num-cell">${p.vs_own_5yr_trend_pct != null ? (p.vs_own_5yr_trend_pct >= 0 ? "+" : "") + esc(p.vs_own_5yr_trend_pct) + "%" : "&mdash;"}</td>
+      <td>${p.flagged_elevated_risk ? '<span class="tag red">Elevated</span>' : '<span class="tag gray">Typical</span>'}</td>
+    </tr>`).join("");
+  document.getElementById("profile-table").innerHTML = `
+    <table><thead><tr><th>Fire &amp; Rescue Authority</th><th>Incidents (FY)</th><th>Personnel injured</th><th>Rate /1000</th><th>vs. England benchmark</th><th>vs. own 5yr trend</th><th>Flag</th></tr></thead>
+    <tbody>${rows}</tbody></table>
+    <p style="font-size:12px;color:var(--ink-faint);margin-top:10px;">Flagged when either column is &ge;25% &mdash; a few rows below the England benchmark are still flagged because they're well above their own trailing 5-year average (e.g. a real year-over-year rise for that authority specifically).</p>`;
+}
+init();
+</script>
+</html>
