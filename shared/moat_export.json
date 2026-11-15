@@ -386495,7 +386495,7 @@
     }
   ],
   "leakage_model": {
-    "generated_at": "2026-11-15T04:48:15.102136+00:00",
+    "generated_at": "2026-11-15T07:12:11.642499+00:00",
     "scope_note": "This tests whether presumption-law states and PFAS regulatory/exposure signal correlate -- it does NOT test Bob's sharpest question (litigation substitution: does an easy WC claim path reduce PFAS lawsuits against manufacturers), because this project's own AFFF litigation data has no plaintiff-occupation or plaintiff-home-state field. That real test needs AFFF MDL plaintiff fact sheets, which sit behind PACER's per-page fee -- a real, named, one-time cost, not pulled here.",
     "thin_data_caveat": "Only 16 real pfas_regulation legislative rows exist project-wide -- read the regulation-bill averages as a weak, small-N signal, not a confident finding. The exposure-site comparison (480 real sites) is a larger, more defensible sample.",
     "rows": [
@@ -387023,6 +387023,109 @@
       "real_issue_found": "Fails cleanly with a clear error rather than faking TPLF-disclosure data."
     }
   ],
+  "historical_backtest": [
+    {
+      "product": "Fitbit Force",
+      "source": "cpsc",
+      "result": "hit",
+      "signal_date": "2014-02-24",
+      "recall_date": "2014-03-12",
+      "lead_days": 16,
+      "recall_title": "Fitbit Recalls Force Activity-Tracking Wristband Due to Risk of Skin Irritation",
+      "note": "Confirmed real lead time, verified at multiple sensitivity thresholds (3/5/8/10/15 reports) -- all cross the same date."
+    },
+    {
+      "product": "LoHi/SOWTECH espresso machine",
+      "source": "cpsc",
+      "result": "miss",
+      "signal_date": "2021-08-09",
+      "recall_date": "2021-07-08",
+      "lead_days": -32,
+      "recall_title": "LoHi Tech Recalls SOWTECH Espresso Machines Due to Burn Hazard",
+      "note": "Our signal crossed threshold AFTER the real recall -- disclosed as a miss."
+    },
+    {
+      "product": "Mueller Austria onion chopper",
+      "source": "cpsc",
+      "result": "miss",
+      "signal_date": "2020-11-02",
+      "recall_date": "2020-10-29",
+      "lead_days": -4,
+      "recall_title": "Mueller Austria Recalls Onion Choppers Due to Serious Laceration Hazard",
+      "note": "Our signal crossed threshold just after the real recall -- disclosed as a miss."
+    },
+    {
+      "product": "GE dishwasher (GNE27JYMNFFS)",
+      "source": "cpsc",
+      "result": "no_match",
+      "signal_date": "2022-05-27",
+      "recall_date": null,
+      "lead_days": null,
+      "recall_title": null,
+      "note": "No matching real CPSC recall found for this specific model."
+    },
+    {
+      "product": "Keurig K10 / B31",
+      "source": "cpsc",
+      "result": "no_match",
+      "signal_date": "2015-01-14",
+      "recall_date": null,
+      "lead_days": null,
+      "recall_title": null,
+      "note": "Only a different Keurig product (MINI Plus, recalled 2014-12-23) was found -- not a valid match."
+    },
+    {
+      "product": "ZURU diapers (Size 4)",
+      "source": "cpsc",
+      "result": "open",
+      "signal_date": "2026-10-04",
+      "recall_date": null,
+      "lead_days": null,
+      "recall_title": null,
+      "note": "Live, currently open signal as of this writing -- too early to know the outcome."
+    },
+    {
+      "product": "Philips DreamStation CPAP",
+      "source": "maude",
+      "result": "no_signal",
+      "signal_date": null,
+      "recall_date": "2021-06-14",
+      "lead_days": null,
+      "recall_title": "Philips Respironics CPAP/BiPAP/Ventilator Foam Recall",
+      "note": "Real monthly Injury/Death reports for this brand were flat (1-2/month) for 17 straight months, then jumped to 25 the SAME month as the recall -- no pre-recall signal at all. Consistent with FDA's own stated limitation that MDR data isn't suited to trend detection."
+    }
+  ],
+  "entity_resolution_examples": [
+    {
+      "company": "Chemours Company",
+      "before_count": 16,
+      "after_count": 9,
+      "removed_examples": [
+        "DUPONT COMPANY - CORPUS CHRISTI PLANT (a real but legally separate entity since the 2015 spinoff)"
+      ]
+    },
+    {
+      "company": "DuPont de Nemours Inc",
+      "before_count": 192,
+      "after_count": 10,
+      "removed_examples": [
+        "3M COMPANY",
+        "CELANESE POLYMER PRODUCTS LLC",
+        "CORTEVA AGRISCIENCE LLC",
+        "INVISTA S.A.R.L.",
+        "PRIME COATINGS AND SUPPLY INC"
+      ]
+    },
+    {
+      "company": "Honeywell International Inc",
+      "before_count": 10,
+      "after_count": 6,
+      "removed_examples": [
+        "ORANGE PLANT (no shared token with the queried name)",
+        "SOLSTICE ADVANCED MATERIALS US INC"
+      ]
+    }
+  ],
   "outcomes_ledger_summary": {
     "total_tracked": 253,
     "open_pending": 253,
@@ -387030,9 +387133,9 @@
     "resolved_cases": [],
     "oldest_open_signal": "2026-11-15T01:13:18.019909+00:00",
     "by_source": {
-      "cpsc": 3,
+      "nhtsa_odi": 20,
       "maude": 230,
-      "nhtsa_odi": 20
+      "cpsc": 3
     }
   },
   "reserve_development_benchmark": {
@@ -387065,5 +387168,5 @@
       }
     }
   },
-  "generated_at": "2026-11-15T04:48:15.102136+00:00"
+  "generated_at": "2026-11-15T07:12:11.642499+00:00"
 }

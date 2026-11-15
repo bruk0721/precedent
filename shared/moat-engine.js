@@ -782,6 +782,14 @@ const MoatEngine = (() => {
     return DB.coverage_registry || [];
   }
 
+  function getHistoricalBacktest() {
+    return DB.historical_backtest || [];
+  }
+
+  function getEntityResolutionExamples() {
+    return DB.entity_resolution_examples || [];
+  }
+
   // Firefighter Presumption Statutory-Exposure Pricing Engine -- JS
   // mirror of check_firefighter_presumption() in api-backend/main.py.
   // Reads a pre-computed snapshot (firefighter_presumption_pricing_
@@ -1135,7 +1143,7 @@ const MoatEngine = (() => {
   return {
     load, assess, getDefendantsForNaics, queryPlaintiffRadar, queryLegislativeContagion,
     querySeverityAnchor, parseDollarToMillions, computeThreatLevel, getFilingVelocity,
-    getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES, checkSubmission, scanSubmissionDocument, getLeakageModel, generateRdsLiabilityScenario, getReserveDevelopmentAnomaly, checkClaimWatchlist, getOutcomesLedgerSummary, getCoverageRegistry, checkFirefighterPresumption,
+    getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES, checkSubmission, scanSubmissionDocument, getLeakageModel, generateRdsLiabilityScenario, getReserveDevelopmentAnomaly, checkClaimWatchlist, getOutcomesLedgerSummary, getCoverageRegistry, checkFirefighterPresumption, getHistoricalBacktest, getEntityResolutionExamples,
     searchEntity, getCrosswalkCoverage, getPlaintiffFirmTracker, getRenewalWindow,
     getComplianceRecords, getRegulatoryFilings, getScientificMomentum, getStateContaminationSites,
     getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts, getCyberIncidentFilings,

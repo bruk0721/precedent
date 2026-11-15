@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Developers — Nubuye API</title>
+<meta name="description" content="Nubuye's real API: batch endpoints for a nightly book-of-business run, and standing subscriptions that re-check automatically -- not just a one-by-one browser lookup.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1; --accent-green: #2f6f4f; --accent-green-bg: #e4f0e9;
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 16px; --shadow-card: 0 1px 2px rgba(14,17,22,0.04), 0 4px 16px rgba(14,17,22,0.06);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433; --accent-green: #6fae8c; --accent-green-bg: #16271e;
+    --shadow-card: 0 1px 0 rgba(255,255,255,0.04) inset, 0 4px 16px rgba(0,0,0,0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); }
+  a { color: var(--accent-blue); }
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; max-width: 820px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; color: var(--ink); }
+  .brand-mark { height: 26px; padding: 0 9px; border-radius: 8px; background: var(--accent-blue); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14.5px; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 20px 24px 80px; }
+  h1 { font-size: 30px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 8px; }
+  .lede { font-size: 15px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 36px; max-width: 64ch; }
+  h2 { font-size: 17px; font-weight: 600; margin: 0 0 8px; }
+  p { font-size: 14px; line-height: 1.7; color: var(--ink-muted); }
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 26px; box-shadow: var(--shadow-card); margin-bottom: 16px; }
+  .tag { display: inline-block; font-size: 10.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; background: var(--accent-green-bg); color: var(--accent-green); margin-bottom: 10px; }
+  pre { background: var(--chip-bg); border-radius: 10px; padding: 14px 16px; overflow-x: auto; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.6; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+  th, td { text-align: left; padding: 8px 6px; border-top: 1px solid var(--chip-bg); }
+  th { font-size: 11px; text-transform: uppercase; color: var(--ink-faint); }
+  code { font-family: var(--font-mono); font-size: 12.5px; }
+</style>
+</head>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<nav class="top"><a href="../" class="brand"><span class="brand-mark">ነበየ</span> Nubuye</a></nav>
+<div class="wrap">
+  <h1>For developers: this isn't just a browser lookup</h1>
+  <p class="lede">The interactive checks on this site run entirely client-side, by design &mdash; nothing you type into them ever leaves your browser. But every tool also has a real server-side API behind it, built for exactly what an enterprise underwriting or claims workflow actually needs: batch processing and standing subscriptions, not one-by-one manual checks.</p>
+
+  <div class="card">
+    <span class="tag">Batch</span>
+    <h2>Run a whole book of business in one call</h2>
+    <p>Each tool has a batch endpoint that takes a real list of accounts, claims, or facilities and returns every result in one response &mdash; the real shape of a nightly bordereau run, not a form a person fills in one at a time.</p>
+    <table>
+      <tr><th>Endpoint</th><th>Max per call</th><th>Why</th></tr>
+      <tr><td><code>/v1/claim-watchlist-check-batch</code></td><td>500</td><td>Reads a pre-computed snapshot &mdash; fast</td></tr>
+      <tr><td><code>/v1/firefighter-presumption-pricing-batch</code></td><td>500</td><td>Same &mdash; a full treaty's ceding-company list in one call</td></tr>
+      <tr><td><code>/v1/disclosure-schedule-audit-batch</code></td><td>50</td><td>Live external call per company (EPA/OSHA/USAspending)</td></tr>
+      <tr><td><code>/v1/hai-facility-check-batch</code></td><td>50</td><td>Live external call per facility (CMS)</td></tr>
+    </table>
+    <pre>curl -X POST https://&lt;your-deployment&gt;/v1/firefighter-presumption-pricing-batch \
+  -H "Content-Type: application/json" \
+  -d '{"departments": [{"state": "CO", "dept_name": "Colorado Springs"}]}'</pre>
+  </div>
+
+  <div class="card">
+    <span class="tag">Subscriptions</span>
+    <h2>Submit your book once. Get alerted automatically.</h2>
+    <p>Every tool also has a standing-subscription watcher: submit your open claims, insured facilities, or deal pipeline once, and it gets re-checked automatically on every data refresh &mdash; new matches only, never a duplicate alert. That's the real workflow-lock-in answer: nobody re-pastes a name into a web form.</p>
+    <table>
+      <tr><th>Watcher</th><th>Cadence</th></tr>
+      <tr><td>Claim Watchlist subscriptions</td><td>Daily</td></tr>
+      <tr><td>Disclosure Auditor subscriptions</td><td>Daily</td></tr>
+      <tr><td>Hospital Infection Radar subscriptions</td><td>Daily</td></tr>
+      <tr><td>Firefighter Pricing subscriptions</td><td>On each pricing-engine refresh (tied to new NFIRS data, not daily)</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <span class="tag">Honest status</span>
+    <h2>What's real today, and what isn't yet</h2>
+    <p>All of the above is working, tested code today &mdash; not a roadmap slide. What it is NOT yet: deployed to a public production URL, or wired into email/Slack notifications (no mail or webhook credential exists in this environment yet). The batch and subscription logic itself is real and already running against live government data; standing it up as a hosted, authenticated production API is the real next step, not a claim this page is making ahead of it.</p>
+  </div>
+</div>
+</html>

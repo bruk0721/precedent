@@ -91,6 +91,18 @@
   </div>
 
   <div class="card">
+    <h2>Historical Validation</h2>
+    <p class="card-sub">A real backtest of the Claim Watchlist mechanism against CPSC's own historical recall feed &mdash; every checkable case, not a cherry-picked win. One real hit, two real misses, two with no matching recall, one still open, and one medical-device case (Philips DreamStation CPAP) where the signal showed nothing useful at all before the real recall.</p>
+    <div id="backtest-table"></div>
+  </div>
+
+  <div class="card">
+    <h2>Entity Resolution</h2>
+    <p class="card-sub">Matching a parent company to its real facilities across messy government records is genuinely hard &mdash; a real bug was found and fixed here live: a loose government search for "DuPont de Nemours Inc" returned 192 rows, including completely unrelated real companies. Fixed with a real name-overlap check, shown below with real before/after counts.</p>
+    <div id="entity-table"></div>
+  </div>
+
+  <div class="card">
     <h2>Data Coverage Registry</h2>
     <p class="card-sub">Every real data source this project uses or has ruled out, and the real quirk found in each one before it was trusted. No single row here is hard to replicate alone -- maintaining all of them correctly, continuously, is the actual moat.</p>
     <div id="coverage-table"></div>
@@ -149,6 +161,30 @@ async function init() {
   document.getElementById("coverage-table").innerHTML = `
     <table><thead><tr><th>Source</th><th>Status</th><th>Last verified</th><th>Real issue found before trusting it</th></tr></thead>
     <tbody>${rows}</tbody></table>`;
+
+  const RESULT_TAG = { hit: "green", miss: "red", no_match: "gray", open: "amber", no_signal: "gray" };
+  const RESULT_LABEL = { hit: "Real hit", miss: "Miss", no_match: "No match found", open: "Still open", no_signal: "No signal at all" };
+  const backtest = MoatEngine.getHistoricalBacktest();
+  const backtestRows = backtest.map(b => `<tr>
+      <td><b>${esc(b.product)}</b><br><span style="color:var(--ink-faint);font-size:11.5px;">${esc(b.source === "cpsc" ? "CPSC" : "openFDA MAUDE")}</span></td>
+      <td><span class="tag ${RESULT_TAG[b.result]}">${esc(RESULT_LABEL[b.result])}</span></td>
+      <td>${b.lead_days != null ? esc(b.lead_days) + (b.lead_days >= 0 ? " days early" : " days late") : "&mdash;"}</td>
+      <td class="issue">${esc(b.note)}</td>
+    </tr>`).join("");
+  document.getElementById("backtest-table").innerHTML = `
+    <table><thead><tr><th>Product</th><th>Result</th><th>Real lead time</th><th>Detail</th></tr></thead>
+    <tbody>${backtestRows}</tbody></table>`;
+
+  const entity = MoatEngine.getEntityResolutionExamples();
+  const entityRows = entity.map(e => `<tr>
+      <td><b>${esc(e.company)}</b></td>
+      <td>${esc(e.before_count)} raw result(s)</td>
+      <td>${esc(e.after_count)} verified facilit(ies)</td>
+      <td class="issue">Removed: ${e.removed_examples.map(esc).join("; ")}</td>
+    </tr>`).join("");
+  document.getElementById("entity-table").innerHTML = `
+    <table><thead><tr><th>Company</th><th>Before filter</th><th>After filter</th><th>What got removed, and why</th></tr></thead>
+    <tbody>${entityRows}</tbody></table>`;
 }
 init();
 </script>
