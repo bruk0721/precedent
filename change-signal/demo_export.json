@@ -1,0 +1,455 @@
+{
+  "methodology_note": "Illustrative demo only, against 10 synthetic claims -- NOT real claims data. Rule-based comparison over structured fields, not a clinical-NLP extraction from raw report text. Human approval required on every generated action before any real use; this never independently changes a reserve or makes a medical/legal determination.",
+  "claims_processed": 10,
+  "claims_with_material_change": 5,
+  "total_actions_generated": 21,
+  "results": [
+    {
+      "claim_id": "SYN-001",
+      "claim_label": "Soft-tissue neck injury -> tendon tear requiring surgery",
+      "transitions": [
+        {
+          "from_report": "Initial Assessment (Week 1)",
+          "to_report": "3-Month Follow-up",
+          "material": true,
+          "changes": [
+            {
+              "flag": "diagnosis_changed",
+              "field": "diagnosis",
+              "from": "Cervical soft-tissue strain",
+              "to": "Rotator cuff tendon tear (MRI-confirmed)"
+            },
+            {
+              "flag": "treatment_escalated",
+              "field": "treatment_plan",
+              "from": "Physical therapy, NSAIDs",
+              "to": "Surgical repair recommended"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "field": "prognosis",
+              "from": "Full recovery expected",
+              "to": "Extended recovery, possible permanent limitation",
+              "recovery_estimate_weeks_from": 6,
+              "recovery_estimate_weeks_to": 52
+            },
+            {
+              "flag": "work_capacity_changed",
+              "field": "work_capacity",
+              "from": "Modified duty",
+              "to": "Unable to return to previous occupation"
+            }
+          ],
+          "actions": [
+            {
+              "flag": "diagnosis_changed",
+              "action": "Prepare clinical expert referral"
+            },
+            {
+              "flag": "treatment_escalated",
+              "action": "Create reserve-review task"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "action": "Generate updated claims assessment"
+            },
+            {
+              "flag": "work_capacity_changed",
+              "action": "Notify relevant claims stakeholders"
+            }
+          ],
+          "diagnosis_text_changed_informational": {
+            "from": "Cervical soft-tissue strain",
+            "to": "Rotator cuff tendon tear (MRI-confirmed)"
+          }
+        }
+      ],
+      "any_material_change_detected": true,
+      "total_actions_generated": 4
+    },
+    {
+      "claim_id": "SYN-002",
+      "claim_label": "Lower-back strain -- stable recovery, no material change",
+      "transitions": [
+        {
+          "from_report": "Initial Assessment (Week 1)",
+          "to_report": "2-Month Follow-up",
+          "material": false,
+          "changes": [],
+          "actions": [],
+          "diagnosis_text_changed_informational": null
+        }
+      ],
+      "any_material_change_detected": false,
+      "total_actions_generated": 0
+    },
+    {
+      "claim_id": "SYN-003",
+      "claim_label": "Concussion -> post-concussion syndrome",
+      "transitions": [
+        {
+          "from_report": "ER Assessment (Day 1)",
+          "to_report": "6-Week Follow-up",
+          "material": true,
+          "changes": [
+            {
+              "flag": "diagnosis_changed",
+              "field": "diagnosis",
+              "from": "Mild concussion",
+              "to": "Post-concussion syndrome"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "field": "prognosis",
+              "from": "Full recovery expected within 2 weeks",
+              "to": "Prolonged recovery, uncertain timeline",
+              "recovery_estimate_weeks_from": 2,
+              "recovery_estimate_weeks_to": 26
+            },
+            {
+              "flag": "work_capacity_changed",
+              "field": "work_capacity",
+              "from": "Full duty",
+              "to": "Unable to return to previous occupation"
+            }
+          ],
+          "actions": [
+            {
+              "flag": "diagnosis_changed",
+              "action": "Prepare clinical expert referral"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "action": "Generate updated claims assessment"
+            },
+            {
+              "flag": "work_capacity_changed",
+              "action": "Notify relevant claims stakeholders"
+            }
+          ],
+          "diagnosis_text_changed_informational": {
+            "from": "Mild concussion",
+            "to": "Post-concussion syndrome"
+          }
+        }
+      ],
+      "any_material_change_detected": true,
+      "total_actions_generated": 3
+    },
+    {
+      "claim_id": "SYN-004",
+      "claim_label": "Wrist fracture -- straightforward healing",
+      "transitions": [
+        {
+          "from_report": "Initial Assessment",
+          "to_report": "10-Week Follow-up",
+          "material": false,
+          "changes": [],
+          "actions": [],
+          "diagnosis_text_changed_informational": {
+            "from": "Distal radius fracture",
+            "to": "Distal radius fracture, healed"
+          }
+        }
+      ],
+      "any_material_change_detected": false,
+      "total_actions_generated": 0
+    },
+    {
+      "claim_id": "SYN-005",
+      "claim_label": "Knee sprain -> meniscus tear, escalating across 3 reports",
+      "transitions": [
+        {
+          "from_report": "Initial Assessment",
+          "to_report": "6-Week Follow-up",
+          "material": true,
+          "changes": [
+            {
+              "flag": "diagnosis_changed",
+              "field": "diagnosis",
+              "from": "Knee sprain",
+              "to": "Suspected meniscus tear"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "field": "prognosis",
+              "from": "Full recovery expected",
+              "to": "Recovery delayed pending imaging",
+              "recovery_estimate_weeks_from": 6,
+              "recovery_estimate_weeks_to": 12
+            }
+          ],
+          "actions": [
+            {
+              "flag": "diagnosis_changed",
+              "action": "Prepare clinical expert referral"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "action": "Generate updated claims assessment"
+            }
+          ],
+          "diagnosis_text_changed_informational": {
+            "from": "Knee sprain",
+            "to": "Suspected meniscus tear"
+          }
+        },
+        {
+          "from_report": "6-Week Follow-up",
+          "to_report": "3-Month Follow-up",
+          "material": true,
+          "changes": [
+            {
+              "flag": "diagnosis_changed",
+              "field": "diagnosis",
+              "from": "Suspected meniscus tear",
+              "to": "Confirmed meniscus tear"
+            },
+            {
+              "flag": "treatment_escalated",
+              "field": "treatment_plan",
+              "from": "MRI ordered, continued bracing",
+              "to": "Arthroscopic surgery recommended"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "field": "prognosis",
+              "from": "Recovery delayed pending imaging",
+              "to": "Extended recovery, some permanent limitation possible",
+              "recovery_estimate_weeks_from": 12,
+              "recovery_estimate_weeks_to": 20
+            },
+            {
+              "flag": "work_capacity_changed",
+              "field": "work_capacity",
+              "from": "Modified duty",
+              "to": "Unable to return to previous occupation"
+            }
+          ],
+          "actions": [
+            {
+              "flag": "diagnosis_changed",
+              "action": "Prepare clinical expert referral"
+            },
+            {
+              "flag": "treatment_escalated",
+              "action": "Create reserve-review task"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "action": "Generate updated claims assessment"
+            },
+            {
+              "flag": "work_capacity_changed",
+              "action": "Notify relevant claims stakeholders"
+            }
+          ],
+          "diagnosis_text_changed_informational": {
+            "from": "Suspected meniscus tear",
+            "to": "Confirmed meniscus tear"
+          }
+        }
+      ],
+      "any_material_change_detected": true,
+      "total_actions_generated": 6
+    },
+    {
+      "claim_id": "SYN-006",
+      "claim_label": "Minor laceration -- closed quickly, no material change",
+      "transitions": [
+        {
+          "from_report": "ER Assessment",
+          "to_report": "2-Week Follow-up",
+          "material": false,
+          "changes": [],
+          "actions": [],
+          "diagnosis_text_changed_informational": {
+            "from": "Laceration, forearm",
+            "to": "Laceration, healing well"
+          }
+        }
+      ],
+      "any_material_change_detected": false,
+      "total_actions_generated": 0
+    },
+    {
+      "claim_id": "SYN-007",
+      "claim_label": "Shoulder strain -> frozen shoulder, prognosis worsens without surgery",
+      "transitions": [
+        {
+          "from_report": "Initial Assessment",
+          "to_report": "4-Month Follow-up",
+          "material": true,
+          "changes": [
+            {
+              "flag": "diagnosis_changed",
+              "field": "diagnosis",
+              "from": "Shoulder strain",
+              "to": "Adhesive capsulitis (frozen shoulder)"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "field": "prognosis",
+              "from": "Full recovery expected",
+              "to": "Prolonged recovery, reduced range of motion likely permanent",
+              "recovery_estimate_weeks_from": 8,
+              "recovery_estimate_weeks_to": 40
+            }
+          ],
+          "actions": [
+            {
+              "flag": "diagnosis_changed",
+              "action": "Prepare clinical expert referral"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "action": "Generate updated claims assessment"
+            }
+          ],
+          "diagnosis_text_changed_informational": {
+            "from": "Shoulder strain",
+            "to": "Adhesive capsulitis (frozen shoulder)"
+          }
+        }
+      ],
+      "any_material_change_detected": true,
+      "total_actions_generated": 2
+    },
+    {
+      "claim_id": "SYN-008",
+      "claim_label": "Ankle sprain -- resolved as expected",
+      "transitions": [
+        {
+          "from_report": "Initial Assessment",
+          "to_report": "6-Week Follow-up",
+          "material": false,
+          "changes": [],
+          "actions": [],
+          "diagnosis_text_changed_informational": {
+            "from": "Ankle sprain, grade 2",
+            "to": "Ankle sprain, grade 2, resolved"
+          }
+        }
+      ],
+      "any_material_change_detected": false,
+      "total_actions_generated": 0
+    },
+    {
+      "claim_id": "SYN-009",
+      "claim_label": "Head injury -> traumatic brain injury, major escalation",
+      "transitions": [
+        {
+          "from_report": "ER Assessment",
+          "to_report": "2-Week Follow-up",
+          "material": true,
+          "changes": [
+            {
+              "flag": "diagnosis_changed",
+              "field": "diagnosis",
+              "from": "Head contusion, no loss of consciousness noted",
+              "to": "Mild traumatic brain injury"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "field": "prognosis",
+              "from": "Full recovery expected within days",
+              "to": "Uncertain, further evaluation needed",
+              "recovery_estimate_weeks_from": 1,
+              "recovery_estimate_weeks_to": 12
+            },
+            {
+              "flag": "work_capacity_changed",
+              "field": "work_capacity",
+              "from": "Full duty",
+              "to": "Unable to return to previous occupation"
+            }
+          ],
+          "actions": [
+            {
+              "flag": "diagnosis_changed",
+              "action": "Prepare clinical expert referral"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "action": "Generate updated claims assessment"
+            },
+            {
+              "flag": "work_capacity_changed",
+              "action": "Notify relevant claims stakeholders"
+            }
+          ],
+          "diagnosis_text_changed_informational": {
+            "from": "Head contusion, no loss of consciousness noted",
+            "to": "Mild traumatic brain injury"
+          }
+        },
+        {
+          "from_report": "2-Week Follow-up",
+          "to_report": "4-Month Follow-up",
+          "material": true,
+          "changes": [
+            {
+              "flag": "diagnosis_changed",
+              "field": "diagnosis",
+              "from": "Mild traumatic brain injury",
+              "to": "Moderate traumatic brain injury with cognitive deficits"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "field": "prognosis",
+              "from": "Uncertain, further evaluation needed",
+              "to": "Permanent cognitive impairment likely",
+              "recovery_estimate_weeks_from": 12,
+              "recovery_estimate_weeks_to": 104
+            },
+            {
+              "flag": "work_capacity_changed",
+              "field": "work_capacity",
+              "from": "Unable to return to previous occupation",
+              "to": "Unable to work"
+            }
+          ],
+          "actions": [
+            {
+              "flag": "diagnosis_changed",
+              "action": "Prepare clinical expert referral"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "action": "Generate updated claims assessment"
+            },
+            {
+              "flag": "work_capacity_changed",
+              "action": "Notify relevant claims stakeholders"
+            }
+          ],
+          "diagnosis_text_changed_informational": {
+            "from": "Mild traumatic brain injury",
+            "to": "Moderate traumatic brain injury with cognitive deficits"
+          }
+        }
+      ],
+      "any_material_change_detected": true,
+      "total_actions_generated": 6
+    },
+    {
+      "claim_id": "SYN-010",
+      "claim_label": "Hand laceration with tendon involvement -- surgery already planned, stable",
+      "transitions": [
+        {
+          "from_report": "Initial Assessment",
+          "to_report": "3-Month Post-Surgical Follow-up",
+          "material": false,
+          "changes": [],
+          "actions": [],
+          "diagnosis_text_changed_informational": {
+            "from": "Hand laceration with partial tendon injury",
+            "to": "Hand laceration with tendon repair, healing well"
+          }
+        }
+      ],
+      "any_material_change_detected": false,
+      "total_actions_generated": 0
+    }
+  ]
+}

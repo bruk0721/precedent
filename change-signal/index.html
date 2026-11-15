@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nubuye — ChangeSignal</title>
+<meta name="description" content="A mechanism demo: detect material clinical change between successive medical assessments on a bodily-injury claim, and generate the specific claims-handling action each change calls for. Synthetic illustrative data -- not a real claim, not real government data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1;
+    --accent-amber: #b8601f; --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df;
+    --accent-green: #2f6f4f; --accent-green-bg: #e4f0e9;
+    --accent-gray: #5c6370; --accent-gray-bg: #eef0f3; --nav-bg: rgba(247, 248, 250, 0.78);
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px; --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
+    --accent-amber: #e2974f; --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816;
+    --accent-green: #6fae8c; --accent-green-bg: #16271e;
+    --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.78);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px 100px; }
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 920px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand-mark { height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0; background: var(--accent-blue); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em; box-shadow: 0 1px 2px rgba(0,0,0,0.15); }
+  :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  @media (max-width: 640px) { nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; } .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; } }
+  .hero { padding: 44px 24px 24px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
+  h1 { font-weight: 500; font-size: clamp(26px, 5.5vw, 36px); line-height: 1.15; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 26ch; }
+  .hero p.dek { font-size: 15.5px; line-height: 1.6; color: var(--ink-muted); max-width: 68ch; margin: 0 auto; }
+  .synthetic-banner { background: var(--accent-amber-bg); color: var(--accent-amber); font-weight: 700; font-size: 13px; text-align: center; padding: 12px 20px; border-radius: 12px; max-width: 880px; margin: 0 auto 20px; }
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
+  h2 { font-weight: 600; font-size: 17px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .card-sub { font-size: 13.5px; color: var(--ink-faint); margin: 0 0 16px; line-height: 1.6; }
+  .stat-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 8px; }
+  .stat { flex: 1; min-width: 120px; }
+  .stat .num { font-size: 26px; font-weight: 600; font-family: var(--font-mono); }
+  .stat .label { font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; }
+  .tag.green { background: var(--accent-green-bg); color: var(--accent-green); }
+  .tag.gray { background: var(--accent-gray-bg); color: var(--accent-gray); }
+  .tag.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
+  .tag.red { background: var(--accent-red-bg); color: var(--accent-red); }
+  .claim-card { border-top: 1px solid var(--chip-bg); padding: 16px 0; }
+  .claim-card:first-child { border-top: none; }
+  .claim-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; cursor: pointer; }
+  .claim-head b { font-size: 14px; }
+  .transition { margin-top: 10px; padding: 12px 14px; background: var(--chip-bg); border-radius: 10px; font-size: 13px; display: none; }
+  .transition.open { display: block; }
+  .transition-label { font-size: 11.5px; color: var(--ink-faint); margin-bottom: 8px; font-weight: 600; text-transform: uppercase; }
+  .change-row { display: flex; gap: 8px; align-items: baseline; padding: 4px 0; }
+  .change-row .field { font-weight: 600; min-width: 110px; font-size: 12.5px; }
+  .change-row .vals { color: var(--ink-muted); font-size: 12.5px; }
+  .action-list { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--ink-faint); }
+  .action-item { font-size: 12.5px; color: var(--accent-blue); font-weight: 600; padding: 2px 0; }
+  .caveat-list { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
+  .footer-note { text-align: center; font-size: 12px; color: var(--ink-faint); margin-top: 30px; }
+</style>
+</head>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+
+<nav class="top">
+  <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
+  <div class="nav-links">
+    <a href="../">&larr; Back to overview</a>
+    <a href="../explore/">All tools</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow-pill"><span class="dot"></span>Casualty claims &middot; clinical change detection</span>
+  <h1>Catch the moment a minor claim stops being minor.</h1>
+  <p class="dek">Lloyd's has published this exact gap twice: Cohort 16 named "intelligent summarisation of loss adjuster reports identifying changes between versions," and Cohort 17 asked for "predictive analytics models that flag seemingly innocuous third-party casualty claims before they develop into major losses" (both quotes verified live on Lloyd's own accelerator pages). ChangeSignal compares successive medical assessments on the same claim, flags what materially changed, and generates the specific claims-handling action each change calls for.</p>
+</div>
+
+<div class="synthetic-banner">⚠ Every claim below is synthetic and invented for this demo. No real claimant, insurer, or medical record is involved -- this is a mechanism demo, not a validated prediction.</div>
+
+<div class="wrap">
+  <div class="card">
+    <h2>What this actually is, and its real limits</h2>
+    <ul class="caveat-list">
+      <li><strong>Not a clinical-NLP engine.</strong> This does not read raw, unstructured medical report text. It compares STRUCTURED fields (diagnosis, treatment plan, prognosis, recovery estimate, permanent impairment, work capacity) with a deterministic rule set -- stated plainly, not dressed up as an AI extraction capability that isn't built.</li>
+      <li><strong>A real bug was found and fixed building this demo</strong>: an early version flagged any change in the diagnosis text as material, which fired on purely benign restatements ("ankle sprain, grade 2" &rarr; "...resolved"). Fixed by making diagnosis-text-change informational only -- it's reported, but only counts toward "material" alongside a real objective severity signal (escalated treatment, worsened prognosis, or downgraded work capacity). See <code>change_signal_engine.py</code> for the full before/after.</li>
+      <li><strong>Competitive check, done live before building</strong>: Wisedocs documents real within-record inconsistency detection; EvolutionIQ's MedHub (a real $730M CCC Intelligent Solutions acquisition) documents real point-in-time medical synthesis and "next best action" guidance. Neither vendor's own public material documents comparing <em>successive</em> assessments over time and tying a specific detected change to a specific generated action -- the best available public evidence, not proof they don't do this privately.</li>
+      <li><strong>Real next step, not yet done</strong>: either a real LLM-based extraction layer in front of this engine (to go from raw report text to the structured fields this uses), or 25-50 real anonymised historical claim files from a managing agent/TPA to validate materiality judgments against an experienced claims handler's own calls. Neither exists in this environment yet.</li>
+      <li>Every generated action requires human approval. This never independently changes a reserve or makes a medical/legal determination.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Demo run: 10 synthetic claims</h2>
+    <p class="card-sub" id="run-sub"></p>
+    <div class="stat-row" id="summary-stats"></div>
+    <div id="claims-list"></div>
+  </div>
+  <p class="footer-note">Click a claim to see exactly what changed, cited field by field, and the action(s) it generated.</p>
+</div>
+
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => { document.documentElement.setAttribute("data-theme", dark ? "dark" : "light"); btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;"; };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => { isDark = !isDark; try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {} apply(isDark); });
+}
+
+function renderTransition(t) {
+  let html = `<div class="transition-label">${esc(t.from_report)} &rarr; ${esc(t.to_report)}</div>`;
+  if (!t.material) {
+    html += `<div style="color:var(--ink-faint);font-size:12.5px;">No material change -- stable or improving.</div>`;
+  } else {
+    html += t.changes.map(c => `<div class="change-row"><span class="field">${esc(c.field)}</span><span class="vals">${esc(c.from)} &rarr; <b>${esc(c.to)}</b></span></div>`).join("");
+    html += `<div class="action-list">` + t.actions.map(a => `<div class="action-item">&rarr; ${esc(a.action)}</div>`).join("") + `</div>`;
+  }
+  return html;
+}
+
+async function init() {
+  setupThemeToggle();
+  const resp = await fetch("demo_export.json");
+  const data = await resp.json();
+
+  document.getElementById("run-sub").textContent = data.methodology_note;
+  document.getElementById("summary-stats").innerHTML = `
+    <div class="stat"><div class="num">${esc(data.claims_processed)}</div><div class="label">synthetic claims processed</div></div>
+    <div class="stat"><div class="num">${esc(data.claims_with_material_change)}</div><div class="label">flagged with a material change</div></div>
+    <div class="stat"><div class="num">${esc(data.total_actions_generated)}</div><div class="label">action(s) generated</div></div>`;
+
+  const list = document.getElementById("claims-list");
+  list.innerHTML = data.results.map((r, i) => `
+    <div class="claim-card">
+      <div class="claim-head" data-idx="${i}">
+        <b>${esc(r.claim_id)}: ${esc(r.claim_label)}</b>
+        ${r.any_material_change_detected ? `<span class="tag red">${esc(r.total_actions_generated)} action(s)</span>` : '<span class="tag gray">No material change</span>'}
+      </div>
+      <div class="transitions" id="trans-${i}" style="display:none;">
+        ${r.transitions.map(renderTransition).join("")}
+      </div>
+    </div>`).join("");
+
+  list.querySelectorAll(".claim-head").forEach(h => {
+    h.addEventListener("click", () => {
+      const el = document.getElementById(`trans-${h.dataset.idx}`);
+      el.style.display = el.style.display === "none" ? "block" : "none";
+    });
+  });
+}
+init();
+</script>
+</html>
