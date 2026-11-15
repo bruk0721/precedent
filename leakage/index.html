@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nubuye — Statutory-to-Tort Leakage</title>
+<meta name="description" content="Does a firefighter workers'-comp presumption law change the real PFAS/AFFF signal in that state? A first real cross-tracker join, built from a real mentor review, between the Presumption Expansion Tracker and the PFAS tracker.">
+<meta property="og:title" content="Statutory-to-Tort Leakage — Nubuye">
+<meta property="og:description" content="A first real join between the Presumption Expansion Tracker and the PFAS tracker.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1;
+    --accent-amber: #b8601f; --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df;
+    --accent-green: #2f6f4f; --accent-green-bg: #e4f0e9;
+    --accent-gray: #5c6370; --accent-gray-bg: #eef0f3; --nav-bg: rgba(247, 248, 250, 0.78);
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px; --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
+    --accent-amber: #e2974f; --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816;
+    --accent-green: #6fae8c; --accent-green-bg: #16271e;
+    --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.78);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px 100px; }
+
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 980px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand-mark {
+    height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0;
+    background: var(--accent-blue); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
+  .nav-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  .theme-toggle:hover { background: var(--chip-bg); }
+
+  @media (max-width: 640px) {
+    nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; }
+    .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; }
+    table.leak-table { font-size: 11.5px; }
+  }
+
+  .hero { padding: 44px 24px 30px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
+  h1 { font-weight: 500; font-size: clamp(28px, 6vw, 40px); line-height: 1.15; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 24ch; }
+  .hero p.dek { font-size: 16px; line-height: 1.6; color: var(--ink-muted); max-width: 66ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
+  h2 { font-weight: 600; font-size: 17px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .card-sub { font-size: 13.5px; color: var(--ink-faint); margin: 0 0 16px; line-height: 1.6; }
+  .callout { border-left: 3px solid var(--accent-amber); background: var(--accent-amber-bg); border-radius: 0 12px 12px 0; padding: 14px 16px; font-size: 13.5px; line-height: 1.6; color: var(--ink); margin-bottom: 16px; }
+  .callout.red { border-color: var(--accent-red); background: var(--accent-red-bg); }
+
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 10px 0 18px; }
+  .stat-box { background: var(--chip-bg); border-radius: 14px; padding: 14px 16px; }
+  .stat-box .n { font-size: 24px; font-weight: 700; font-family: var(--font-mono); }
+  .stat-box .l { font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+
+  table.leak-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.leak-table th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.02em; color: var(--ink-faint); padding: 8px 10px; border-bottom: 1px solid var(--chip-bg); cursor: pointer; }
+  table.leak-table td { padding: 7px 10px; border-bottom: 1px solid var(--chip-bg); }
+  table.leak-table tr:hover td { background: var(--chip-bg); }
+  .tag { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.02em; padding: 2px 7px; border-radius: 999px; text-transform: uppercase; }
+  .tag.green { background: var(--accent-green-bg); color: var(--accent-green); }
+  .tag.gray { background: var(--accent-gray-bg); color: var(--accent-gray); }
+  .table-wrap { overflow-x: auto; }
+
+  .footer-note { text-align: center; font-size: 12px; color: var(--ink-faint); margin-top: 30px; }
+</style>
+</head>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+
+<nav class="top">
+  <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
+  <div class="nav-links">
+    <a href="../">&larr; Back to overview</a>
+    <a href="../presumption2/">Presumption Tracker</a>
+    <a href="../pfas2/">PFAS Tracker</a>
+    <a href="../console/">Console</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow-pill"><span class="dot"></span>First cross-tracker join</span>
+  <h1>Do presumption laws and PFAS litigation connect?</h1>
+  <p class="dek">A real mentor review asked a sharp question this project had never actually tested: does an easier path to a paid workers'-comp claim change the real PFAS/AFFF signal in that state? This is the first time the Presumption Expansion Tracker and the PFAS tracker have been read together. <strong>The honest answer below is a partial one</strong> — it tests correlation with real signal, not the litigation-substitution question itself, which needs data this project doesn't have yet.</p>
+</div>
+
+<div class="wrap">
+  <div class="card" id="scope-card">
+    <h2>What this does and doesn't test</h2>
+    <div class="callout red" id="scope-note"></div>
+    <div class="callout" id="thin-data-note"></div>
+  </div>
+
+  <div class="card">
+    <h2>The real numbers</h2>
+    <p class="card-sub">Presumption status is each state's real 2023 coverage (cancer, cardiovascular, or PTSD presumption — any of the three) from the Presumption Expansion Tracker's own NCCI-sourced data. PFAS signal is this project's own real legislative and exposure-site data, joined by state for the first time.</p>
+    <div class="stat-row" id="stat-row"></div>
+    <p class="card-sub" style="margin-top:0;">A real, honest divergence worth sitting with: presumption-law states show <b>fewer</b> real PFAS exposure sites on average, but <b>more</b> real PFAS regulation bills. Those point in opposite directions — not a clean story, and not forced into one.</p>
+  </div>
+
+  <div class="card">
+    <h2>Per-state table</h2>
+    <p class="card-sub">Click a column header to sort. Presumption columns reflect 2023 coverage for that specific disease category.</p>
+    <div class="table-wrap">
+      <table class="leak-table" id="leak-table"></table>
+    </div>
+  </div>
+
+  <p class="footer-note" id="snapshot-date"></p>
+</div>
+
+<script src="../shared/moat-engine.js"></script>
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+const boolTag = (b) => b ? `<span class="tag green">Yes</span>` : `<span class="tag gray">&mdash;</span>`;
+
+let currentModel = null;
+let sortKey = "state";
+let sortDir = 1;
+
+function renderTable() {
+  const el = document.getElementById("leak-table");
+  const rows = [...currentModel.rows].sort((a, b) => {
+    const av = a[sortKey], bv = b[sortKey];
+    if (typeof av === "boolean") return (av === bv ? 0 : av ? -1 : 1) * sortDir;
+    if (typeof av === "number") return (av - bv) * sortDir;
+    return String(av).localeCompare(String(bv)) * sortDir;
+  });
+  const cols = [
+    ["state", "State"], ["cancer_presumption_2023", "Cancer"], ["cardiovascular_presumption_2023", "Cardiovascular"],
+    ["ptsd_presumption_2023", "PTSD"], ["real_pfas_regulation_bills", "Real PFAS reg. bills"], ["real_pfas_exposure_sites", "Real PFAS exposure sites"],
+  ];
+  el.innerHTML = `<tr>${cols.map(([k, l]) => `<th data-key="${k}">${esc(l)}${sortKey === k ? (sortDir === 1 ? " &uarr;" : " &darr;") : ""}</th>`).join("")}</tr>` +
+    rows.map(r => `<tr>
+      <td><b>${esc(r.state)}</b></td>
+      <td>${boolTag(r.cancer_presumption_2023)}</td>
+      <td>${boolTag(r.cardiovascular_presumption_2023)}</td>
+      <td>${boolTag(r.ptsd_presumption_2023)}</td>
+      <td>${r.real_pfas_regulation_bills}</td>
+      <td>${r.real_pfas_exposure_sites}</td>
+    </tr>`).join("");
+  el.querySelectorAll("th").forEach(th => th.addEventListener("click", () => {
+    const key = th.dataset.key;
+    if (sortKey === key) sortDir *= -1; else { sortKey = key; sortDir = 1; }
+    renderTable();
+  }));
+}
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;";
+  };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => {
+    isDark = !isDark;
+    try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {}
+    apply(isDark);
+  });
+}
+
+async function init() {
+  setupThemeToggle();
+  const db = await MoatEngine.load("../shared/moat_export.json");
+  document.getElementById("snapshot-date").textContent = db.generated_at ? `Snapshot as of ${new Date(db.generated_at).toISOString().slice(0, 10)}.` : "";
+
+  currentModel = MoatEngine.getLeakageModel();
+  if (!currentModel) {
+    document.getElementById("scope-card").innerHTML = `<p class="empty-note">No leakage model data on record yet.</p>`;
+    return;
+  }
+
+  document.getElementById("scope-note").textContent = currentModel.scope_note;
+  document.getElementById("thin-data-note").textContent = currentModel.thin_data_caveat;
+
+  const s = currentModel.summary;
+  document.getElementById("stat-row").innerHTML = `
+    <div class="stat-box"><div class="n">${s.n_presumption_states}</div><div class="l">states with any 2023 presumption</div></div>
+    <div class="stat-box"><div class="n">${s.n_no_presumption_states}</div><div class="l">states with none</div></div>
+    <div class="stat-box"><div class="n">${s.avg_pfas_exposure_sites_in_presumption_states}</div><div class="l">avg real PFAS exposure sites (presumption states)</div></div>
+    <div class="stat-box"><div class="n">${s.avg_pfas_exposure_sites_in_no_presumption_states}</div><div class="l">avg real PFAS exposure sites (no presumption)</div></div>
+    <div class="stat-box"><div class="n">${s.avg_pfas_regulation_bills_in_presumption_states}</div><div class="l">avg real PFAS reg. bills (presumption states)</div></div>
+    <div class="stat-box"><div class="n">${s.avg_pfas_regulation_bills_in_no_presumption_states}</div><div class="l">avg real PFAS reg. bills (no presumption)</div></div>
+  `;
+
+  renderTable();
+}
+init();
+</script>
+</html>

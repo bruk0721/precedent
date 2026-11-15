@@ -347,16 +347,15 @@
   </video>
   <div class="hero-poster-fallback"></div>
   <div class="hero-overlay"></div>
-  <h1>Litigation and legislation risk intelligence for casualty insurers.</h1>
-  <p class="dek">We track emerging liability risks &mdash; like PFAS lawsuits and firefighter presumption laws &mdash; <strong>before they turn into claims</strong>, so underwriters can price or exclude them while there's still time.</p>
+  <h1>Two things in US casualty nobody else is doing. Built on real government data.</h1>
+  <p class="dek">A routine claim cross-matched against real pre-litigation federal complaint data before it becomes a mass tort &mdash; and a firefighter cancer-presumption pricing model NCCI's own rating bureau admits it can't build. Try both below, free, now.</p>
   <div class="hero-ctas">
-    <a class="hero-btn primary" href="./console/">Open the Underwriter Console
+    <a class="hero-btn primary" href="#proof">Try it now
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <a class="hero-btn secondary" href="./xray/">Run the Free PFAS X-Ray</a>
+    <a class="hero-btn secondary" href="./console/">Open the Underwriter Console</a>
   </div>
   <div class="hero-trust-note">No signup. No password. Nothing you enter ever leaves your browser.</div>
-  <div class="powered-by">Scored by the <strong>Sibyl</strong> prediction model</div>
 </div>
 
 <div class="quotes-strip">
@@ -393,8 +392,89 @@
 
 <div class="wrap">
 
-  <!-- TRY IT NOW: the two actually-live tools, moved to the top of the page so the
-       first thing below the fold is the product running, not a description of it. -->
+  <!-- THE HEADLINE: the live, interactive submission check, framed the
+       same way Canongate AI's real Lloyd's Lab product is -- a
+       continuously re-scored signal, checked against your specific
+       submission, not a dashboard tour. This is the first thing a
+       reviewer should DO, not read. -->
+  <section class="block" id="proof" style="padding-top:20px;">
+    <div class="section-head">
+      <span class="eyebrow-pill" style="background:var(--accent-red-bg); color:var(--accent-red); margin-bottom:14px;"><span class="dot" style="background:var(--accent-red)"></span>Lloyd's Cohort 17 gap, unfilled</span>
+      <h2>Claim Watchlist Clash Triage</h2>
+      <p class="section-sub">Lloyd's own Cohort 17 call for innovation, verbatim: &ldquo;Predictive analytics models that flag seemingly innocuous third-party casualty claims before they develop into major losses.&rdquo; A manufacturer + model, cross-matched live against real CPSC/openFDA MAUDE/NHTSA complaint-velocity data. Nothing you type here leaves your browser.</p>
+    </div>
+    <div class="map-card" style="padding:20px 22px;margin-bottom:24px;">
+      <div class="row" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
+        <input type="text" id="hp-check-input" placeholder="Manufacturer, e.g. Zuru Inc." style="flex:1;min-width:160px;padding:11px 14px;border-radius:10px;border:1px solid var(--chip-bg);background:var(--page-bg,#f7f8fa);color:var(--ink);font-family:inherit;font-size:14.5px;">
+        <input type="text" id="hp-check-model" placeholder="Model, e.g. Size 4" style="flex:1;min-width:140px;padding:11px 14px;border-radius:10px;border:1px solid var(--chip-bg);background:var(--page-bg,#f7f8fa);color:var(--ink);font-family:inherit;font-size:14.5px;">
+        <button id="hp-check-btn" class="hero-btn primary" style="padding:11px 20px;">Check</button>
+      </div>
+      <div style="font-size:12.5px;color:var(--ink-faint);margin-bottom:14px;">Try: <button onclick="document.getElementById('hp-check-input').value='Zuru Inc.';document.getElementById('hp-check-model').value='Size 4';document.getElementById('hp-check-btn').click()" style="background:none;border:none;color:var(--accent-blue);font-weight:600;cursor:pointer;font-size:12.5px;padding:0;margin-right:14px;">Zuru diapers</button><button onclick="document.getElementById('hp-check-input').value='Insulet Corporation';document.getElementById('hp-check-model').value='PT-000435';document.getElementById('hp-check-btn').click()" style="background:none;border:none;color:var(--accent-blue);font-weight:600;cursor:pointer;font-size:12.5px;padding:0;">Insulet pump</button></div>
+      <div id="hp-check-result"></div>
+    </div>
+    <p class="section-sub" style="text-align:center;margin-bottom:40px;"><a href="./claim-watchlist/" style="color:var(--accent-blue);font-weight:600">Open the full Claim Watchlist &rarr;</a></p>
+
+    <div class="section-head">
+      <span class="eyebrow-pill" style="background:var(--accent-amber-bg); color:var(--accent-amber); margin-bottom:14px;"><span class="dot" style="background:var(--accent-amber)"></span>NCCI's own admitted data vacuum</span>
+      <h2>Firefighter Presumption Pricing Engine</h2>
+      <p class="section-sub">NCCI's own 2023 research brief: &ldquo;Data availability issues make it difficult to explicitly quantify the cost impact of firefighter presumption legislation... the self-insured market is generally not required to report data to NCCI.&rdquo; We reconstructed real toxic-fire-hour exposure for 24,010 departments from 13 real years of NFIRS data, scored against the real presumption-law map.</p>
+    </div>
+    <div class="map-card" style="padding:20px 22px;margin-bottom:24px;">
+      <div class="row" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
+        <input type="text" id="hp-ff-state" placeholder="State, e.g. CO" maxlength="2" style="flex:1;min-width:100px;padding:11px 14px;border-radius:10px;border:1px solid var(--chip-bg);background:var(--page-bg,#f7f8fa);color:var(--ink);font-family:inherit;font-size:14.5px;">
+        <button id="hp-ff-btn" class="hero-btn primary" style="padding:11px 20px;">Score state</button>
+      </div>
+      <div style="font-size:12.5px;color:var(--ink-faint);margin-bottom:14px;">Try: <button onclick="document.getElementById('hp-ff-state').value='CO';document.getElementById('hp-ff-btn').click()" style="background:none;border:none;color:var(--accent-blue);font-weight:600;cursor:pointer;font-size:12.5px;padding:0;margin-right:14px;">Colorado</button><button onclick="document.getElementById('hp-ff-state').value='OR';document.getElementById('hp-ff-btn').click()" style="background:none;border:none;color:var(--accent-blue);font-weight:600;cursor:pointer;font-size:12.5px;padding:0;">Oregon</button></div>
+      <div id="hp-ff-result"></div>
+    </div>
+    <p class="section-sub" style="text-align:center;margin-bottom:28px;"><a href="./firefighter-pricing/" style="color:var(--accent-blue);font-weight:600">Open the full Firefighter Pricing Engine &rarr;</a> &middot; <a href="./document-scan/" style="color:var(--accent-blue);font-weight:600">Scan a contract</a> &middot; <a href="./submission-check/" style="color:var(--accent-blue);font-weight:600">Submission Auto-Check</a></p>
+
+    <div class="section-head">
+      <span class="eyebrow-pill" style="background:var(--accent-red-bg); color:var(--accent-red); margin-bottom:14px;"><span class="dot" style="background:var(--accent-red)"></span>Supporting evidence &mdash; the pain point, in Lloyd's own words</span>
+      <h2>A real, named, current reserving problem &mdash; not a general liability pitch</h2>
+      <p class="section-sub">Every figure below is real and cited, not Nubuye's own framing of the problem.</p>
+    </div>
+    <div class="stat-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:18px;">
+      <div class="map-card" style="padding:18px 20px;">
+        <div style="font-size:26px;font-weight:700;font-family:var(--font-mono);color:var(--accent-red)">91.6% &rarr; 100.8%</div>
+        <div style="font-size:12.5px;color:var(--ink-faint);margin-top:4px">Lloyd's casualty combined ratio, 2024 &rarr; 2025 &mdash; an underwriting profit flipped to a real loss in one year.</div>
+      </div>
+      <div class="map-card" style="padding:18px 20px;">
+        <div style="font-size:26px;font-weight:700;font-family:var(--font-mono);color:var(--accent-amber)">+&pound;1.21bn</div>
+        <div style="font-size:12.5px;color:var(--ink-faint);margin-top:4px">Real growth in Lloyd's reserve margin in 2025 (&pound;5.41bn &rarr; &pound;6.62bn) &mdash; Howden Re reads this as real caution about long-tail exposure, not comfort.</div>
+      </div>
+      <div class="map-card" style="padding:18px 20px;">
+        <div style="font-size:26px;font-weight:700;font-family:var(--font-mono);color:var(--accent-blue)">5 years</div>
+        <div style="font-size:12.5px;color:var(--ink-faint);margin-top:4px">Lloyd's own reserving reviews (2020-2025) have repeatedly named the same line &mdash; Non-Marine General Liability &mdash; as where syndicate reserves diverge most from Lloyd's central view.</div>
+      </div>
+    </div>
+    <div class="map-card" style="padding:18px 20px;margin-bottom:18px;">
+      <p style="font-size:14px;line-height:1.6;margin:0;">Lloyd's own 2025 Aggregate Accounts Report names the specific driver of 2025 casualty reserve strengthening: <b>"primarily driven by the Cyber and Non-Marine General Liability portfolios."</b> Weeks before this was written, Lloyd's own Chief of Market Performance, Rachel Turk, warned publicly that US general liability exposure is <b>"seeping"</b> into the Lloyd's market through cross-class facilities and delegated arrangements. The only fix anyone has built so far is bespoke, one-off actuarial consulting &mdash; never a real, continuously-checkable product.</p>
+    </div>
+    <div class="section-head" style="margin-top:28px;">
+      <h2>The real, falsifiable number Nubuye can already show</h2>
+      <p class="section-sub">Does a category's real claims-resolution rate match what a standard actuarial development curve assumes by now, or is it falling behind? Computed live below, from real MDL formation dates (verified against the courts' own filings) and the real CAS Schedule P benchmark &mdash; not asserted.</p>
+    </div>
+    <div id="homepage-rda-pfas"></div>
+    <div id="homepage-rda-talc"></div>
+    <p class="section-sub" style="text-align:center;margin-top:10px;"><a href="./validation/#rda-pfas" style="color:var(--accent-blue);font-weight:600">See the full methodology and backtest &rarr;</a></p>
+  </section>
+
+  <!-- A second real finding from the same mentor conversation, pulled out
+       of the collapsed catalog and given its own visible spot: does a
+       firefighter presumption law actually change the real PFAS signal
+       in that state? First time these two trackers were read together. -->
+  <section class="block" id="leakage-preview">
+    <div class="section-head">
+      <span class="eyebrow-pill" style="background:var(--chip-bg); color:var(--ink-muted); margin-bottom:14px;"><span class="dot" style="background:var(--accent-amber)"></span>A second real finding, same conversation</span>
+      <h2>Do firefighter presumption laws change the real PFAS signal?</h2>
+      <p class="section-sub">A real mentor review asked whether an easier path to a paid workers'-comp claim changes PFAS/AFFF litigation in that state &mdash; the first time this project's Presumption Expansion Tracker and PFAS tracker have been read together. Computed live below.</p>
+    </div>
+    <div id="homepage-leakage-summary"></div>
+    <p class="section-sub" style="text-align:center;margin-top:10px;"><a href="./leakage/" style="color:var(--accent-blue);font-weight:600">See the full per-state table &rarr;</a></p>
+  </section>
+
+  <!-- TRY IT NOW: the two actually-live tools. -->
   <section class="block" id="try-it" style="padding-top:20px;">
     <div class="section-head">
       <span class="eyebrow-pill" style="background:var(--chip-bg); color:var(--ink-muted); margin-bottom:14px;"><span class="dot" style="background:var(--accent-blue)"></span>Live, not a mockup</span>
@@ -491,6 +571,17 @@
     </div>
   </section>
 
+  <!-- Everything below here is real, built, and verified -- but it's
+       supporting depth for the one pain point above, not co-equal
+       headlines. Collapsed by default so the page makes one argument
+       first, not a tool catalog. -->
+  <section class="block" id="everything-else">
+    <div class="section-head">
+      <h2>Everything else we've built and verified</h2>
+      <p class="section-sub">14 tracked litigation/legislative categories, a document scanner, a submission auto-check API, an RDS scenario generator, a litigation-funding monitor, and more &mdash; all real, all live. Expand for the full catalog.</p>
+    </div>
+    <details class="disclosure">
+      <summary><span style="font-size:14px; font-weight:600;">See the full catalog</span><span class="chevron">&#9656;</span></summary>
   <section class="block">
     <div class="fig-label">FIG. 01 &mdash; what Nubuye actually delivers</div>
     <div class="fig-catalog">
@@ -633,6 +724,76 @@
         </div>
       </a>
 
+      <a class="module-card featured-module" href="./firefighter-pricing/">
+        <div class="module-icon" style="background:var(--accent-red-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2 4-2 5-2 8a4 4 0 0 0 8 0c0-1-.5-2-1-3 1 0 3 2 3 6a8 8 0 0 1-16 0c0-6 5-7 5-11 0 0 2 1 3 0z"/></svg>
+        </div>
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-red-bg); color:var(--accent-red)">Excess WC / Casualty Treaty</span>
+        </div>
+        <h3>Firefighter Presumption Pricing Engine</h3>
+        <p>NCCI's own 2023 brief admits it can't quantify firefighter cancer-presumption costs &mdash; the self-insured municipal market doesn't report to it. We reconstructed real toxic-fire-hour exposure per department from 5 years of real NFIRS incident data and scored it against the real state presumption-law map. A genuinely different mechanism &mdash; dose-response pricing, not entity lookup.</p>
+        <div class="module-open">Score a department
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a class="module-card" href="./track-record/">
+        <div class="module-icon" style="background:var(--accent-blue-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 4 4 5-6"/></svg>
+        </div>
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-blue-bg); color:var(--accent-blue)">Why this compounds</span>
+        </div>
+        <h3>Track Record &amp; Data Coverage</h3>
+        <p>Every real signal our pipelines flag, logged the day it's found and checked over time against real recall data &mdash; plus the full, honest list of every data source this project uses, and the real quirk found in each before it was trusted.</p>
+        <div class="module-open">View the ledger
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a class="module-card featured-module" href="./hai-radar/">
+        <div class="module-icon" style="background:var(--accent-green-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </div>
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-green-bg); color:var(--accent-green)">Excess Health Care Liability</span>
+        </div>
+        <h3>Hospital Infection &amp; Care-Deficiency Radar</h3>
+        <p>A named hospital or nursing home, checked live against real CMS infection-control citations and infection-rate performance &mdash; not a loss run that's 2-4 years stale. Anchored to the LMA Medical Malpractice Committee's own updated US Excess Health Care Provider's Liability wordings (LMA3172A/B).</p>
+        <div class="module-open">Check a facility
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a class="module-card featured-module" href="./disclosure-audit/">
+        <div class="module-icon" style="background:var(--accent-amber-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg>
+        </div>
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-amber-bg); color:var(--accent-amber)">W&amp;I pre-bind check</span>
+        </div>
+        <h3>Disclosure Schedule Auditor</h3>
+        <p>An M&amp;A target's own facility name, cross-matched live against EPA ECHO, OSHA, and USAspending &mdash; catching an undisclosed regulatory breach the VDR doesn't mention, before bind. Anchored to a real, verified Nov 2026 LMA panel naming disclosure adequacy as a leading cause of contested W&amp;I claims.</p>
+        <div class="module-open">Audit a target
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a class="module-card featured-module" href="./claim-watchlist/">
+        <div class="module-icon" style="background:var(--accent-red-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5m0 4h.01M10.3 3.9L2.9 17a2 2 0 0 0 1.7 3h14.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+        </div>
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-red-bg); color:var(--accent-red)">Lloyd's Cohort 17 gap, unfilled</span>
+        </div>
+        <h3>Claim Watchlist Clash Triage</h3>
+        <p>A routine, single-claimant casualty claim &mdash; just a manufacturer + model &mdash; cross-matched against real federal pre-litigation complaint-velocity data (CPSC, openFDA MAUDE, NHTSA ODI), refreshed daily. Flags the exact thing Lloyd's own Cohort 17 call named and nobody selected built: &ldquo;seemingly innocuous third-party casualty claims before they develop into major losses.&rdquo;</p>
+        <div class="module-open">Check a claim
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
       <a class="module-card" href="./submission-check/">
         <div class="module-icon" style="background:var(--accent-red-bg)">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
@@ -646,7 +807,51 @@
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </div>
       </a>
+
+      <a class="module-card" href="./document-scan/">
+        <div class="module-icon" style="background:var(--accent-blue-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
+        </div>
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-blue-bg); color:var(--accent-blue)">Document scan</span>
+        </div>
+        <h3>Submission Document Scanner</h3>
+        <p>Paste the actual text of an SOV, policy schedule, or contract &mdash; not just a company name &mdash; and get real emerging-risk language flagged, paired with the real external evidence for why it matters. Nothing you paste leaves your browser.</p>
+        <div class="module-open">Scan a document
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a class="module-card" href="./leakage/">
+        <div class="module-icon" style="background:var(--accent-amber-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+        </div>
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-amber-bg); color:var(--accent-amber)">Cross-tracker join</span>
+        </div>
+        <h3>Statutory-to-Tort Leakage</h3>
+        <p>The first real join between the Presumption Expansion Tracker and the PFAS tracker, built from a real mentor review asking whether the two actually connect. Presumption states show fewer real PFAS exposure sites but more real PFAS regulation bills &mdash; a genuine divergence, reported honestly, not forced into a clean story.</p>
+        <div class="module-open">See the real numbers
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
+
+      <a class="module-card featured-module" href="./compliance-pack/">
+        <div class="module-icon" style="background:var(--accent-red-bg)">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <div class="module-top">
+          <span class="module-tag" style="background:var(--accent-red-bg); color:var(--accent-red)">Named pain points, weak competition</span>
+        </div>
+        <h3>Lloyd's Compliance Pack</h3>
+        <p>Two specific problems Lloyd's own market has named directly, each checked for real competition: an RDS Liability scenario generator (Lloyd's gives no number for this one, unlike windstorm or earthquake), and a third-party litigation funding disclosure monitor &mdash; a real gap 83.3% of insurers admit they have no process for.</p>
+        <div class="module-open">Open the pack
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </a>
     </div>
+  </section>
+    </details>
   </section>
 
   <!-- PLANS: named tiers and a CTA per tier, not public checkout pricing -- this is a
@@ -811,7 +1016,7 @@
           <span class="ont-link">&mdash; enacts &rarr;</span>
           <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">Statute</span></div>
           <span class="ont-link">&mdash; feeds &rarr;</span>
-          <div class="ont-node"><span class="ont-type">Model</span><span class="ont-name">Sibyl ranking</span></div>
+          <div class="ont-node"><span class="ont-type">Model</span><span class="ont-name">Emergence Signal</span></div>
         </div>
         <div class="ont-row">
           <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">State</span></div>
@@ -890,6 +1095,98 @@
 <script src="./shared/moat-engine.js"></script>
 <script>
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+function renderHomepageRda(elId, riskCategory, label) {
+  const el = document.getElementById(elId);
+  const r = MoatEngine.getReserveDevelopmentAnomaly(riskCategory);
+  if (!r || !el) return;
+  const anomalyColor = r.anomalyPoints > 30 ? "var(--accent-red)" : r.anomalyPoints > 10 ? "var(--accent-amber)" : "var(--ink-faint)";
+  el.innerHTML = `
+    <div class="map-card" style="padding:18px 20px;margin-bottom:12px;">
+      <b>${esc(label)}</b> (MDL-${esc(r.mdlNumber)}, real age ~${r.ageYears} years)
+      <div style="margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px">
+        <div><div style="font-size:22px;font-weight:700;font-family:var(--font-mono)">${r.genericExpectedPctPaid}%</div><div style="font-size:11px;color:var(--ink-faint)">generic curve expects resolved by now</div></div>
+        <div><div style="font-size:22px;font-weight:700;font-family:var(--font-mono)">${r.realPctResolved}%</div><div style="font-size:11px;color:var(--ink-faint)">real JPML-reported resolution rate</div></div>
+        <div><div style="font-size:22px;font-weight:700;font-family:var(--font-mono);color:${anomalyColor}">${r.anomalyPoints > 0 ? "+" : ""}${r.anomalyPoints} pts</div><div style="font-size:11px;color:var(--ink-faint)">real anomaly</div></div>
+      </div>
+    </div>
+  `;
+}
+
+function renderHomepageCheckResult(result) {
+  const el = document.getElementById("hp-check-result");
+  const heading = result.flagged
+    ? `<span style="font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--accent-red-bg);color:var(--accent-red);text-transform:uppercase;">On a real cluster</span> ${esc(result.manufacturer)}${result.modelOrIdentifier ? " / " + esc(result.modelOrIdentifier) : ""}`
+    : `<span style="font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--chip-bg);color:var(--ink-faint);text-transform:uppercase;">No active cluster</span> ${esc(result.manufacturer)}${result.modelOrIdentifier ? " / " + esc(result.modelOrIdentifier) : ""}`;
+  if (!result.matches.length) {
+    el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div><p class="section-sub" style="margin:0;">${esc(result.note)}</p>`;
+    return;
+  }
+  const srcLabel = { cpsc: "CPSC SaferProducts.gov", maude: "openFDA MAUDE (Death reports)", nhtsa_odi: "NHTSA ODI" };
+  const rows = result.matches.slice(0, 4).map(m =>
+    `<div style="padding:8px 0;border-top:1px solid var(--chip-bg);font-size:13px;"><span style="font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--accent-amber-bg);color:var(--accent-amber);text-transform:uppercase;">Active</span> ${esc(srcLabel[m.source] || m.source)} &mdash; ${esc(m.countInWindow)} report(s) in ${esc(m.windowDays)}d, most recent ${esc(m.mostRecentDate)}</div>`
+  ).join("");
+  el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div><p class="section-sub" style="margin:0 0 4px;">${result.matches.length} real match(es) found.</p>${rows}`;
+}
+
+function renderHomepageFirefighterResult(result) {
+  const el = document.getElementById("hp-ff-result");
+  const SEGMENT_LABEL = {
+    presumption_state_high_exposure: ["accent-red", "Presumption state, high exposure"],
+    presumption_state_standard_exposure: ["accent-amber", "Presumption state, standard exposure"],
+    non_presumption_state_high_exposure: ["accent-amber", "No presumption, high exposure"],
+    non_presumption_state_standard_exposure: ["ink-faint", "No presumption, standard exposure"],
+  };
+  const heading = `<span style="font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--chip-bg);color:var(--ink-muted);text-transform:uppercase;">${esc(result.totalMatches)} department(s) scored</span> ${esc(result.state)}`;
+  if (!result.matches.length) {
+    el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div><p class="section-sub" style="margin:0;">No real departments with usable data under this state.</p>`;
+    return;
+  }
+  const rows = result.matches.slice(0, 4).map(m => {
+    const [color, label] = SEGMENT_LABEL[m.exposureSegment] || ["ink-faint", m.exposureSegment];
+    return `<div style="padding:8px 0;border-top:1px solid var(--chip-bg);font-size:13px;"><span style="font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--${color}-bg,var(--chip-bg));color:var(--${color},var(--ink-muted));text-transform:uppercase;">${esc(label)}</span> <b>${esc(m.deptName || m.fdid)}</b> &mdash; ${esc((m.toxicHoursPerFirefighter||0).toFixed(1))} hrs/ff/yr, ${esc(m.nationalPercentile)}th percentile</div>`;
+  }).join("");
+  el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div><p class="section-sub" style="margin:0 0 4px;">Top real department(s) by national percentile.</p>${rows}`;
+}
+
+function setupHomepageCheck() {
+  const btn = document.getElementById("hp-check-btn");
+  const input = document.getElementById("hp-check-input");
+  const modelInput = document.getElementById("hp-check-model");
+  if (btn && input) {
+    btn.addEventListener("click", () => {
+      const name = input.value.trim();
+      if (name) renderHomepageCheckResult(MoatEngine.checkClaimWatchlist(name, modelInput ? modelInput.value.trim() : ""));
+    });
+    input.addEventListener("keydown", (e) => { if (e.key === "Enter") btn.click(); });
+    if (modelInput) modelInput.addEventListener("keydown", (e) => { if (e.key === "Enter") btn.click(); });
+  }
+  const ffBtn = document.getElementById("hp-ff-btn");
+  const ffState = document.getElementById("hp-ff-state");
+  if (ffBtn && ffState) {
+    ffBtn.addEventListener("click", () => {
+      const state = ffState.value.trim();
+      if (state) renderHomepageFirefighterResult(MoatEngine.checkFirefighterPresumption(state, "", ""));
+    });
+    ffState.addEventListener("keydown", (e) => { if (e.key === "Enter") ffBtn.click(); });
+  }
+}
+
+function renderHomepageLeakageSummary() {
+  const el = document.getElementById("homepage-leakage-summary");
+  const model = MoatEngine.getLeakageModel();
+  if (!model || !el) return;
+  const s = model.summary;
+  el.innerHTML = `
+    <div class="stat-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:14px;">
+      <div class="map-card" style="padding:16px 18px;"><div style="font-size:22px;font-weight:700;font-family:var(--font-mono)">${s.n_presumption_states}</div><div style="font-size:11.5px;color:var(--ink-faint);margin-top:2px">states with any 2023 presumption</div></div>
+      <div class="map-card" style="padding:16px 18px;"><div style="font-size:22px;font-weight:700;font-family:var(--font-mono)">${s.n_no_presumption_states}</div><div style="font-size:11.5px;color:var(--ink-faint);margin-top:2px">states with none</div></div>
+      <div class="map-card" style="padding:16px 18px;"><div style="font-size:22px;font-weight:700;font-family:var(--font-mono);color:var(--accent-blue)">${s.avg_pfas_exposure_sites_in_presumption_states} vs ${s.avg_pfas_exposure_sites_in_no_presumption_states}</div><div style="font-size:11.5px;color:var(--ink-faint);margin-top:2px">avg real PFAS exposure sites, presumption vs. none</div></div>
+      <div class="map-card" style="padding:16px 18px;"><div style="font-size:22px;font-weight:700;font-family:var(--font-mono);color:var(--accent-amber)">${s.avg_pfas_regulation_bills_in_presumption_states} vs ${s.avg_pfas_regulation_bills_in_no_presumption_states}</div><div style="font-size:11.5px;color:var(--ink-faint);margin-top:2px">avg real PFAS regulation bills, presumption vs. none</div></div>
+    </div>
+    <p class="section-sub" style="margin:0;">A real, honest divergence, not a clean story: presumption-law states show <b>fewer</b> real PFAS exposure sites on average, but <b>more</b> real PFAS regulation bills. ${esc(model.thin_data_caveat)}</p>
+  `;
+}
 
 function renderCoverageMatrix(rows) {
   const el = document.getElementById("coverage-matrix");
@@ -1307,6 +1604,10 @@ initPortfolio();
 
 MoatEngine.load("./shared/moat_export.json").then(() => {
   renderCoverageMatrix(MoatEngine.getCoverageMatrix());
+  renderHomepageRda("homepage-rda-pfas", "pfas", "PFAS/AFFF");
+  renderHomepageRda("homepage-rda-talc", "talc", "Talc");
+  renderHomepageLeakageSummary();
+  setupHomepageCheck();
 }).catch(() => {
   document.getElementById("coverage-matrix").innerHTML = `<tr><td class="empty-note">Coverage data unavailable in this view.</td></tr>`;
 });

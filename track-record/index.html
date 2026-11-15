@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nubuye — Track Record & Data Coverage</title>
+<meta name="description" content="Every cluster Nubuye has flagged, logged the day it was found, checked against real recall data over time -- plus the full, honest list of every data source this project uses, including the real quirks found in each one.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1;
+    --accent-amber: #b8601f; --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df;
+    --accent-green: #2f6f4f; --accent-green-bg: #e4f0e9;
+    --accent-gray: #5c6370; --accent-gray-bg: #eef0f3; --nav-bg: rgba(247, 248, 250, 0.78);
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px; --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
+    --accent-amber: #e2974f; --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816;
+    --accent-green: #6fae8c; --accent-green-bg: #16271e;
+    --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.78);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px 100px; }
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 920px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand-mark { height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0; background: var(--accent-blue); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em; box-shadow: 0 1px 2px rgba(0,0,0,0.15); }
+  :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  @media (max-width: 640px) { nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; } .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; } }
+  .hero { padding: 44px 24px 30px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
+  h1 { font-weight: 500; font-size: clamp(26px, 5.5vw, 36px); line-height: 1.15; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 26ch; }
+  .hero p.dek { font-size: 15.5px; line-height: 1.6; color: var(--ink-muted); max-width: 66ch; margin: 0 auto; }
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
+  h2 { font-weight: 600; font-size: 17px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .card-sub { font-size: 13.5px; color: var(--ink-faint); margin: 0 0 16px; line-height: 1.6; }
+  .stat-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 8px; }
+  .stat { flex: 1; min-width: 120px; }
+  .stat .num { font-size: 26px; font-weight: 600; font-family: var(--font-mono); }
+  .stat .label { font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; }
+  .tag.green { background: var(--accent-green-bg); color: var(--accent-green); }
+  .tag.gray { background: var(--accent-gray-bg); color: var(--accent-gray); }
+  .tag.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 10px 8px; border-top: 1px solid var(--chip-bg); vertical-align: top; }
+  th { font-size: 11.5px; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; }
+  td.issue { color: var(--ink-muted); font-size: 12.5px; max-width: 360px; }
+  .footer-note { text-align: center; font-size: 12px; color: var(--ink-faint); margin-top: 30px; }
+</style>
+</head>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+
+<nav class="top">
+  <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
+  <div class="nav-links">
+    <a href="../">&larr; Back to overview</a>
+    <a href="../claim-watchlist/">Claim Watchlist</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow-pill"><span class="dot"></span>Why this is harder to copy than it looks</span>
+  <h1>A track record a competitor can't backdate.</h1>
+  <p class="dek">Every real cluster Nubuye's pipelines flag gets logged the day it's found, then checked over time against official recall data. Shown here honestly, including the days it has nothing to brag about yet — the point isn't one big win, it's that this keeps running and the clock only moves forward.</p>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h2>Outcomes Ledger</h2>
+    <p class="card-sub">Real signals this project's own pipelines have flagged, with a first-flagged date that never moves backward, and a live check against CPSC's real recall feed for every CPSC-sourced signal.</p>
+    <div id="ledger-stats"></div>
+    <p class="empty-note" id="ledger-note" style="font-size:13px;color:var(--ink-faint);margin-top:10px;"></p>
+  </div>
+
+  <div class="card">
+    <h2>Data Coverage Registry</h2>
+    <p class="card-sub">Every real data source this project uses or has ruled out, and the real quirk found in each one before it was trusted. No single row here is hard to replicate alone -- maintaining all of them correctly, continuously, is the actual moat.</p>
+    <div id="coverage-table"></div>
+  </div>
+  <p class="footer-note" id="snapshot-date"></p>
+</div>
+
+<script src="../shared/moat-engine.js"></script>
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => { document.documentElement.setAttribute("data-theme", dark ? "dark" : "light"); btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;"; };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => { isDark = !isDark; try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {} apply(isDark); });
+}
+
+async function init() {
+  setupThemeToggle();
+  const db = await MoatEngine.load("../shared/moat_export.json");
+  document.getElementById("snapshot-date").textContent = db.generated_at ? `Snapshot as of ${new Date(db.generated_at).toISOString().slice(0, 10)}.` : "";
+
+  const ledger = MoatEngine.getOutcomesLedgerSummary();
+  if (ledger) {
+    document.getElementById("ledger-stats").innerHTML = `
+      <div class="stat-row">
+        <div class="stat"><div class="num">${esc(ledger.total_tracked)}</div><div class="label">signals tracked</div></div>
+        <div class="stat"><div class="num">${esc(ledger.open_pending)}</div><div class="label">open / pending</div></div>
+        <div class="stat"><div class="num">${esc(ledger.resolved)}</div><div class="label">resolved (confirmed recall)</div></div>
+      </div>`;
+    const sourceList = Object.entries(ledger.by_source || {}).map(([s, n]) => `${esc(s)}: ${esc(n)}`).join(", ");
+    document.getElementById("ledger-note").textContent =
+      ledger.resolved > 0
+        ? `${ledger.resolved} signal(s) have since matched a real CPSC recall -- see each one's real lead time below.`
+        : `Honest status: 0 confirmed recall matches yet as of this snapshot -- the ledger only started logging on ${esc((ledger.oldest_open_signal || "").slice(0,10))}. By source: ${sourceList}.`;
+    if (ledger.resolved_cases && ledger.resolved_cases.length) {
+      document.getElementById("ledger-stats").innerHTML += ledger.resolved_cases.map(c =>
+        `<div style="padding:10px 0;border-top:1px solid var(--chip-bg);font-size:13.5px;"><span class="tag green">Confirmed</span> ${esc(c.manufacturer)} / ${esc(c.model_or_identifier)} &mdash; flagged ${esc(c.first_flagged_date.slice(0,10))}, recalled ${esc((c.resolution_date||"").slice(0,10))} (lead time: ${esc(c.lead_time_days)} days) <a href="${esc(c.resolution_evidence_url)}" target="_blank" rel="noopener" style="color:var(--accent-blue);font-weight:600;">View recall &rarr;</a></div>`
+      ).join("");
+    }
+  }
+
+  const coverage = MoatEngine.getCoverageRegistry();
+  const rows = coverage.map(r => {
+    const used = !r.used_by.startsWith("Not used");
+    return `<tr>
+      <td><b>${esc(r.source)}</b><br><span style="color:var(--ink-faint);font-size:11.5px;">${esc(r.used_by)}</span></td>
+      <td>${used ? '<span class="tag green">Used</span>' : '<span class="tag gray">Gap</span>'}</td>
+      <td>${esc(r.last_verified)}</td>
+      <td class="issue">${esc(r.real_issue_found)}</td>
+    </tr>`;
+  }).join("");
+  document.getElementById("coverage-table").innerHTML = `
+    <table><thead><tr><th>Source</th><th>Status</th><th>Last verified</th><th>Real issue found before trusting it</th></tr></thead>
+    <tbody>${rows}</tbody></table>`;
+}
+init();
+</script>
+</html>

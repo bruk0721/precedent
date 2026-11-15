@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nubuye — Firefighter Presumption Pricing Engine</title>
+<meta name="description" content="A real biological dose-reconstruction model for US Excess Workers' Compensation and Casualty Treaty Reinsurance -- scoring municipal fire departments' real toxic-fire-hour exposure against real state presumption statutes, built on real NFIRS 2020-2024 data.">
+<meta property="og:title" content="Firefighter Presumption Pricing Engine — Nubuye">
+<meta property="og:description" content="NCCI admits its own firefighter-cancer pricing data is broken. Real NFIRS exposure data, scored against real presumption statutes.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1;
+    --accent-amber: #b8601f; --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df;
+    --accent-green: #2f6f4f; --accent-green-bg: #e4f0e9;
+    --accent-gray: #5c6370; --accent-gray-bg: #eef0f3; --nav-bg: rgba(247, 248, 250, 0.78);
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px; --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
+    --accent-amber: #e2974f; --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816;
+    --accent-green: #6fae8c; --accent-green-bg: #16271e;
+    --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.78);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 20px 100px; }
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 900px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand-mark { height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0; background: var(--accent-blue); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em; box-shadow: 0 1px 2px rgba(0,0,0,0.15); }
+  :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  @media (max-width: 640px) { nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; } .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; } }
+  .hero { padding: 44px 24px 30px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
+  h1 { font-weight: 500; font-size: clamp(26px, 5.5vw, 38px); line-height: 1.15; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 24ch; }
+  .hero p.dek { font-size: 15.5px; line-height: 1.6; color: var(--ink-muted); max-width: 66ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
+  h2 { font-weight: 600; font-size: 17px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .card-sub { font-size: 13.5px; color: var(--ink-faint); margin: 0 0 16px; line-height: 1.6; }
+  .check-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  input[type=text] { flex: 1; min-width: 140px; padding: 11px 14px; border-radius: 10px; border: 1px solid var(--chip-bg); background: var(--page-bg); color: var(--ink); font-family: var(--font); font-size: 14.5px; }
+  input[type=text]:focus { outline: 2px solid var(--accent-blue); outline-offset: 1px; }
+  button.primary { background: var(--accent-blue); color: #fff; border: none; border-radius: 10px; padding: 11px 20px; font-family: var(--font); font-weight: 600; font-size: 14px; cursor: pointer; }
+  button.primary:hover { opacity: 0.9; }
+  .try-examples { margin-top: 10px; font-size: 12.5px; color: var(--ink-faint); }
+  .try-examples button { background: none; border: none; color: var(--accent-blue); font-weight: 600; cursor: pointer; font-size: 12.5px; padding: 0; margin: 0 14px 6px 0; font-family: var(--font); }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; }
+  .tag.red { background: var(--accent-red-bg); color: var(--accent-red); }
+  .tag.green { background: var(--accent-green-bg); color: var(--accent-green); }
+  .tag.gray { background: var(--accent-gray-bg); color: var(--accent-gray); }
+  .tag.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
+  .finding-line { padding: 12px 0; border-top: 1px solid var(--chip-bg); font-size: 13.5px; line-height: 1.6; }
+  .finding-line:first-child { border-top: none; }
+  .empty-note { color: var(--ink-faint); font-size: 13.5px; }
+  pre { background: var(--chip-bg); border-radius: 12px; padding: 16px; overflow-x: auto; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+  code { font-family: var(--font-mono); }
+  .caveat-list { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
+  .footer-note { text-align: center; font-size: 12px; color: var(--ink-faint); margin-top: 30px; }
+  .quote { border-left: 3px solid var(--accent-blue); padding-left: 14px; font-size: 13.5px; color: var(--ink-muted); font-style: italic; margin: 10px 0; }
+</style>
+</head>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+
+<nav class="top">
+  <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
+  <div class="nav-links">
+    <a href="../">&larr; Back to overview</a>
+    <a href="../track-record/">Track Record</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow-pill"><span class="dot"></span>NCCI's own admitted data vacuum</span>
+  <h1>NCCI can't price this. We used real fire data instead.</h1>
+  <p class="dek">NCCI's own 2023 research brief: <strong>&ldquo;Data availability issues make it difficult to explicitly quantify the cost impact of firefighter presumption legislation... the self-insured market is generally not required to report data to NCCI.&rdquo;</strong> Over 35 states now have firefighter cancer presumption statutes. We reconstructed real toxic-fire-hour exposure per department from 13 real years of NFIRS incident data (2012-2024) and scored it against the real statutory map.</p>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h2>Score a department</h2>
+    <p class="card-sub">Enter a state (and optionally a department name or FDID) to see its real computed exposure score.</p>
+    <div class="check-row">
+      <input type="text" id="state-input" placeholder="State, e.g. CO" maxlength="2">
+      <input type="text" id="name-input" placeholder="Department name (optional)">
+      <button class="primary" id="check-btn">Check</button>
+    </div>
+    <div class="try-examples">
+      Try: <button data-state="CO" data-name="">Colorado (all depts)</button><button data-state="OR" data-name="">Oregon (all depts)</button>
+    </div>
+  </div>
+
+  <div class="card" id="result-card" style="display:none;">
+    <h2 id="result-heading"></h2>
+    <div id="result-body"></div>
+  </div>
+
+  <div class="card">
+    <h2>The real mechanism</h2>
+    <p class="card-sub">Not an entity-lookup tool like our other three products &mdash; a biological dose-reconstruction pricing model.</p>
+    <ol style="font-size:13.5px;color:var(--ink-muted);line-height:1.8;padding-left:20px;">
+      <li><strong>Toxic Fire-Hours</strong>: for every real fire incident (NFIRS INC_TYPE 1xx) in 2020-2024, duration &times; suppression personnel &times; a toxicity weight (2.5&times; for industrial/manufacturing structures, 1.5&times; for commercial, 3&times; for a hazmat release, 0.3&times; for outdoor/wildland).</li>
+      <li>Divided by each department's real active-firefighter count (NFIRS fdheader.txt, with the real USFA National Fire Department Registry as a fallback).</li>
+      <li>Ranked into a national percentile, then crossed against the real 2023 cancer-presumption state list (independently cross-confirmed: this project's own presumption-law tracker lists the same 20 states NCCI's own 2023 brief footnotes).</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2>What this actually is, and its real limits</h2>
+    <ul class="caveat-list">
+      <li><strong>Scope</strong>: 2012-2024 (13 real years), not the full 20-year cumulative-dose window the biological-latency argument ideally wants, and missing 2006-2011 after finding those years use a genuinely different file format (raw CSV/DBF, not the caret-delimited .txt layout 2012-2024 share) -- a real, disclosed scope boundary, not a silent one.</li>
+      <li><strong>Data source</strong>: basicincident.txt only, not fireincident.txt's combustion-material detail &mdash; the toxicity weighting is a documented, defensible simplification (property-use category + hazmat flag), not a full chemistry model.</li>
+      <li><strong>Access</strong>: FEMA's own CDN blocked this project's automated download (a real Akamai "Access Denied," confirmed with both a script and a real browser engine) &mdash; these 5 files were downloaded manually and supplied directly, not auto-refreshed. A production version needs an allowlisted feed or a scheduled manual pull, stated plainly.</li>
+      <li><strong>Biological anchor</strong>: IARC Monograph 132 (2023) classifies firefighting as Group 1 carcinogenic, strongest evidence specifically for mesothelioma and bladder cancer &mdash; cited at that real tier, not with invented precise relative-risk decimals we didn't independently verify.</li>
+      <li><strong>Small-department variance</strong>: a department with only a handful of real firefighters can swing to an extreme per-firefighter rate from a single severe incident (confirmed on a real example: an 8-firefighter Oregon district in a county with real severe 2020 wildfire activity) -- real, not a bug, but noisier than a large department's rate. We excluded departments reporting fewer than 5 real firefighters entirely (an earlier pass found several 1-firefighter departments producing absurd outliers from incomplete self-reporting) -- disclosed and fixed, not hidden.</li>
+      <li>A high percentile is a real, computed exposure-intensity ranking, not a medical or legal causation finding for any individual claim.</li>
+    </ul>
+  </div>
+
+  <p class="footer-note" id="snapshot-date"></p>
+</div>
+
+<script src="../shared/moat-engine.js"></script>
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+const SEGMENT_LABEL = {
+  presumption_state_high_exposure: ["red", "Presumption state, high exposure"],
+  presumption_state_standard_exposure: ["amber", "Presumption state, standard exposure"],
+  non_presumption_state_high_exposure: ["amber", "No presumption, high exposure"],
+  non_presumption_state_standard_exposure: ["gray", "No presumption, standard exposure"],
+};
+
+function renderMatch(m) {
+  const [tagClass, label] = SEGMENT_LABEL[m.exposureSegment] || ["gray", m.exposureSegment];
+  return `<div class="finding-line"><span class="tag ${tagClass}">${esc(label)}</span> <b>${esc(m.deptName || m.fdid)}</b> (${esc(m.state)})
+    &mdash; ${esc((m.toxicHoursPerFirefighter || 0).toFixed(1))} toxic fire-hours/firefighter/yr, ${esc(m.nationalPercentile)}th percentile (years: ${esc(m.yearsCovered)})</div>`;
+}
+
+function runCheck(state, name) {
+  const result = MoatEngine.checkFirefighterPresumption(state, "", name);
+  const card = document.getElementById("result-card");
+  const heading = document.getElementById("result-heading");
+  const body = document.getElementById("result-body");
+  card.style.display = "block";
+  heading.innerHTML = result.flagged
+    ? `<span class="tag green">${esc(result.totalMatches)} department(s) scored</span> ${esc(result.state)}`
+    : `<span class="tag gray">No scored departments</span> ${esc(result.state)}`;
+  if (!result.matches.length) {
+    body.innerHTML = `<p class="empty-note">No real departments with usable data under this state/name -- NFIRS participation is voluntary, so coverage gaps are real, not a bug.</p>`;
+    return;
+  }
+  body.innerHTML = `<p class="card-sub">Showing up to 50 of ${result.totalMatches} real department(s), ranked by national percentile.</p>` +
+    result.matches.map(renderMatch).join("") +
+    `<p class="empty-note" style="margin-top:12px;">${esc(result.note)}</p>`;
+}
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => { document.documentElement.setAttribute("data-theme", dark ? "dark" : "light"); btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;"; };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => { isDark = !isDark; try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {} apply(isDark); });
+}
+
+async function init() {
+  setupThemeToggle();
+  const db = await MoatEngine.load("../shared/moat_export.json");
+  document.getElementById("snapshot-date").textContent = db.generated_at ? `Snapshot as of ${new Date(db.generated_at).toISOString().slice(0, 10)}.` : "";
+
+  document.getElementById("check-btn").addEventListener("click", () => {
+    const state = document.getElementById("state-input").value.trim();
+    const name = document.getElementById("name-input").value.trim();
+    if (state) runCheck(state, name);
+  });
+  document.querySelectorAll(".try-examples button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.getElementById("state-input").value = btn.dataset.state;
+      document.getElementById("name-input").value = btn.dataset.name;
+      runCheck(btn.dataset.state, btn.dataset.name);
+    });
+  });
+}
+init();
+</script>
+</html>

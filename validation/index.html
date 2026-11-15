@@ -202,6 +202,15 @@
   </div>
 
   <div class="card">
+    <h2>Does this look like a reserving early-warning signal, or just noise?</h2>
+    <p class="card-sub" style="margin-bottom:14px">
+      Built from a direct, real Q&amp;A about what would actually convince a Lloyd's actuary this project's signal is useful for casualty reserving specifically (NM General Liability has repeatedly been the line where Lloyd's own central reserve view and syndicate reserves diverge most, per real 2020-2025 Lloyd's reserving reviews). The question: does this category's REAL claims-resolution rate match what a GENERIC liability development curve assumes by now, or is it developing slower than standard reserving patterns expect? Both real MDL formation dates below were verified live against the JPML's own court filings, not assumed.
+    </p>
+    <div id="rda-pfas"></div>
+    <div id="rda-talc"></div>
+  </div>
+
+  <div class="card">
     <h2>What this does and doesn't prove</h2>
     <p class="card-sub" style="margin-bottom:0">
       This shows the scientific-literature component of the Emergence Signal would have been directionally elevated years before PFAS's major settlement wave, and that it correctly separates an accelerating signal (microplastics, 6PPD-quinone) from a flat one (bisphenol A) without being told which is which. It does <b>not</b> prove legal causation, does not predict dollar amounts, and the 6PPD-quinone growth rate in particular is computed from a very small base (roughly 20 publications/year three years ago) &mdash; directionally real, but statistically noisier than a rate computed from a larger sample. The loss simulation above is real on its severity side and explicitly assumption-driven on its frequency side &mdash; it is a scenario tool, not a frequency prediction. None of this replaces an actuary's own judgment; it's one real, falsifiable input, shown with its own limits stated. See <a href="../model-risk/">Model risk &amp; limitations</a> for the complete list.
@@ -505,6 +514,24 @@ function setupThemeToggle() {
   });
 }
 
+function renderReserveDevelopmentAnomaly(elId, riskCategory, label) {
+  const el = document.getElementById(elId);
+  const r = MoatEngine.getReserveDevelopmentAnomaly(riskCategory);
+  if (!r) { el.innerHTML = `<p class="empty-note">No reserve development data on file for ${esc(label)}.</p>`; return; }
+  const anomalyColor = r.anomalyPoints > 30 ? "var(--accent-red)" : r.anomalyPoints > 10 ? "var(--accent-amber)" : "var(--ink-faint)";
+  el.innerHTML = `
+    <div class="finding-line" style="border-top:1px solid var(--chip-bg);padding-top:14px;margin-top:10px">
+      <b>${esc(label)}</b> (MDL-${esc(r.mdlNumber)}, real age ~${r.ageYears} years)
+      <div style="margin-top:8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px">
+        <div><div style="font-size:20px;font-weight:700;font-family:var(--font-mono)">${r.genericExpectedPctPaid}%</div><div style="font-size:11px;color:var(--ink-faint)">generic curve expects resolved by now (lag ${r.lagUsed}, ${esc(r.benchmarkLine)})</div></div>
+        <div><div style="font-size:20px;font-weight:700;font-family:var(--font-mono)">${r.realPctResolved}%</div><div style="font-size:11px;color:var(--ink-faint)">real JPML-reported resolution rate</div></div>
+        <div><div style="font-size:20px;font-weight:700;font-family:var(--font-mono);color:${anomalyColor}">${r.anomalyPoints > 0 ? "+" : ""}${r.anomalyPoints} pts</div><div style="font-size:11px;color:var(--ink-faint)">real anomaly (generic expectation minus real resolution)</div></div>
+      </div>
+      <p class="empty-note" style="margin-top:8px">${esc(r.note)}</p>
+    </div>
+  `;
+}
+
 async function init() {
   setupThemeToggle();
   const db = await MoatEngine.load("../shared/moat_export.json");
@@ -519,6 +546,8 @@ async function init() {
   renderDiscoveryScan();
   document.getElementById("sim-run").addEventListener("click", runLossSimulation);
   runLossSimulation();
+  renderReserveDevelopmentAnomaly("rda-pfas", "pfas", "PFAS/AFFF");
+  renderReserveDevelopmentAnomaly("rda-talc", "talc", "Talc");
 }
 init();
 </script>

@@ -252,6 +252,92 @@ const MoatEngine = (() => {
     return [...new Set((DB.corporate_subsidiaries || []).map(s => s.parent_company))];
   }
 
+  // Submission DOCUMENT scanner -- the "ImageFast for Nubuye" move,
+  // researched directly from how real Lloyd's Lab alumni succeeded: each
+  // one replaced a manual human-verification step with an automated one
+  // that reads a REAL primary document (a contract, a sensor reading),
+  // not a public administrative record everyone already has API access
+  // to. checkSubmission() above matches a company NAME against public
+  // filings; this instead reads the actual text of a submitted contract,
+  // SOV, or policy schedule and flags real risk-category language in it
+  // directly -- a signal nobody else creates, because it requires
+  // actually reading THIS underwriter's own document.
+  //
+  // Deliberately rule-based (same sentence-level keyword-matching
+  // discipline as every pipeline in this project), not an LLM call --
+  // no API key is assumed available, and this project's own standing
+  // rule is to never claim an extraction capability that hasn't been
+  // run and checked. Runs entirely in the browser -- the real privacy
+  // story matters MORE here than for the X-Ray, since a submission
+  // document is the underwriter's own confidential text, not a public
+  // bordereau row.
+  const DOCUMENT_SCAN_CATEGORIES = {
+    pfas: { label: "PFAS / AFFF", keywords: ["PFAS", "AFFF", "per- and polyfluoroalkyl", "forever chemical", "perfluoro"] },
+    talc: { label: "Talc", keywords: ["talc", "talcum"] },
+    ai_agent_liability: { label: "AI-agent liability", keywords: ["AI agent", "autonomous agent", "agentic AI", "artificial intelligence agent", "automated decision", "AI-driven decision"] },
+    climate_litigation: { label: "Climate-attribution litigation", keywords: ["climate change", "greenhouse gas", "carbon emissions", "climate-related"] },
+    glp1_weight_loss: { label: "GLP-1 weight-loss drugs", keywords: ["GLP-1", "semaglutide", "Ozempic", "Wegovy", "tirzepatide", "Mounjaro"] },
+    paraquat: { label: "Paraquat", keywords: ["paraquat"] },
+    cpap: { label: "Philips CPAP", keywords: ["CPAP", "PE-PUR", "polyester-based polyurethane"] },
+    earplugs: { label: "Combat Arms earplugs", keywords: ["combat arms earplug", "dual-ended earplug", "hearing protection device"] },
+    opioid: { label: "Opioid", keywords: ["opioid", "opiate"] },
+    insulin_pbm: { label: "Insulin / PBM pricing", keywords: ["insulin pricing", "pharmacy benefit manager", "PBM rebate"] },
+    hair_relaxer: { label: "Hair relaxer chemicals", keywords: ["hair relaxer", "chemical relaxer", "hair straightener"] },
+    social_media_mental_health: { label: "Social media / mental health", keywords: ["social media", "algorithmic feed", "addictive design", "adolescent mental health"] },
+    glyphosate: { label: "Glyphosate / Roundup", keywords: ["glyphosate", "roundup"] },
+    turnout_gear: { label: "Turnout gear", keywords: ["turnout gear", "firefighter protective equipment"] },
+  };
+  // Contract-specific liability language -- deliberately different from
+  // the 10-K-style ("charge", "reserve", "settlement") list used
+  // elsewhere, since a submission document is a CONTRACT, not a
+  // financial filing. A category keyword alone (e.g. "talc" appearing in
+  // an ingredient list) isn't actionable; paired with contract language
+  // like "indemnify" or "exclusion," it is.
+  const CONTRACT_LIABILITY_TERMS = ["indemnif", "hold harmless", "exclusion", "exclude", "warrant", "represents and warrants", "limitation of liability", "defend", "liability", "indemnitee"];
+  const DOC_SENTENCE_SPLIT_RE = /(?<=[.!?])\s+(?=[A-Z])/;
+
+  function scanSubmissionDocument(text) {
+    const sentences = String(text || "").split(DOC_SENTENCE_SPLIT_RE);
+    const findingsByCategory = {};
+
+    for (const sentence of sentences) {
+      const lower = sentence.toLowerCase();
+      for (const [key, cat] of Object.entries(DOCUMENT_SCAN_CATEGORIES)) {
+        const matchedKeyword = cat.keywords.find(kw => lower.includes(kw.toLowerCase()));
+        if (!matchedKeyword) continue;
+        const hasContractTerm = CONTRACT_LIABILITY_TERMS.some(term => lower.includes(term));
+        (findingsByCategory[key] = findingsByCategory[key] || []).push({
+          sentence: sentence.trim().slice(0, 300),
+          matchedKeyword, highRelevance: hasContractTerm,
+        });
+      }
+    }
+
+    const results = Object.entries(findingsByCategory).map(([key, hits]) => {
+      const stage = getSettlementStage(key);
+      const jpml = getJpmlStats(key);
+      const emergence = (DB.emergence_signal || []).find(e => e.risk_category === key);
+      return {
+        category: key,
+        label: DOCUMENT_SCAN_CATEGORIES[key].label,
+        hits,
+        highRelevanceCount: hits.filter(h => h.highRelevance).length,
+        realContext: {
+          jpmlScale: jpml.length ? jpml[0] : null,
+          settlementStage: stage || null,
+          emergenceMomentum: emergence ? emergence.momentum_score : null,
+        },
+      };
+    });
+
+    return {
+      totalCategories: results.length,
+      flagged: results.length > 0,
+      results: results.sort((a, b) => b.highRelevanceCount - a.highRelevanceCount),
+      note: "Rule-based sentence-level keyword matching (same discipline as every other pipeline in this project), not an LLM read -- a differently-worded clause may not match. Runs entirely in this browser; the document text is never sent anywhere.",
+    };
+  }
+
   // Submission-intake auto-check -- "drop this into your submission-intake
   // or underwriting workflow, and every new account gets auto-checked
   // against real litigation/regulatory signal with zero manual step."
@@ -333,6 +419,52 @@ const MoatEngine = (() => {
         "material_event_filings (SEC 8-K, curated defendants)",
       ],
       note: "Zero matches means nothing was found under this exact name across these real sources -- NOT the same as 'cleared' or 'no risk.' Matching is substring-based on a normalized legal name; a materially different name, alias, or unlisted subsidiary will not match.",
+    };
+  }
+
+  // Early-Lifecycle Casualty FNOL & Claim Watchlist Clash Triage -- the
+  // Lloyd's Lab Cohort 17 build (see cpsc_defect_velocity_pipeline.py /
+  // maude_defect_velocity_pipeline.py / nhtsa_odi_defect_velocity_pipeline.py
+  // for exactly how each real cluster below was computed and verified
+  // live, including each feed's disclosed limitations). A syndicate's own
+  // routine, $N=1$ casualty claim -- just a product manufacturer + model --
+  // gets cross-matched against defect_velocity_clusters: CPSC, openFDA
+  // MAUDE, and NHTSA ODI. A match means this exact manufacturer+model is
+  // ALSO sitting on a real, currently-tracked federal pre-litigation
+  // complaint-velocity spike, months before a plaintiff firm would
+  // aggregate it into a mass tort.
+  function checkClaimWatchlist(manufacturer, modelOrIdentifier) {
+    const normMfr = normalizeForMatch(manufacturer);
+    const normModel = modelOrIdentifier ? normalizeForMatch(modelOrIdentifier) : "";
+    if (normMfr.length < SUBMISSION_CHECK_MIN_QUERY_LEN) {
+      return {
+        manufacturer, modelOrIdentifier, flagged: false, matches: [],
+        note: "Manufacturer name too short to check reliably -- provide a fuller legal name.",
+      };
+    }
+    const matches = [];
+    for (const r of (DB.defect_velocity_clusters || [])) {
+      const rowMfr = normalizeForMatch(r.manufacturer || "");
+      const rowModel = normalizeForMatch(r.model_or_identifier || "");
+      const mfrHit = normMfr && (rowMfr.includes(normMfr) || normMfr.includes(rowMfr));
+      if (!mfrHit) continue;
+      const modelHit = !normModel || rowModel.includes(normModel) || normModel.includes(rowModel);
+      if (modelHit) {
+        matches.push({
+          source: r.source, manufacturer: r.manufacturer, modelOrIdentifier: r.model_or_identifier,
+          countInWindow: r.count_in_window, windowDays: r.window_days, lifetimeCount: r.lifetime_count,
+          mostRecentDate: r.most_recent_date, sourceUrl: r.source_url,
+        });
+      }
+    }
+    return {
+      manufacturer, modelOrIdentifier, flagged: matches.length > 0, matches,
+      checkedSources: [
+        "cpsc (SaferProducts.gov bulk incident export)",
+        "maude (openFDA device adverse-event Death reports)",
+        "nhtsa_odi (NHTSA complaint database, crash/injury/death-flagged)",
+      ],
+      note: "A match means this manufacturer+model is sitting on a real, currently-tracked federal complaint-velocity cluster -- not a legal conclusion that this specific claim is part of it. Zero matches means nothing was found under this exact name/model, not 'cleared.'",
     };
   }
 
@@ -518,6 +650,163 @@ const MoatEngine = (() => {
   // actuarial fact about any specific curated defendant.
   function getHistoricalScaleComparison() {
     return DB.historical_scale_comparison || {};
+  }
+
+  // RDS Liability Scenario generator -- built directly from Lloyd's own
+  // real RDS Scenario Specification (fetched and read live, not guessed
+  // at): unlike windstorm/earthquake/terrorism, which come with Lloyd's
+  // own pre-built industry loss figures, Liability RDS requires every
+  // managing agent to submit TWO INTERNALLY MODELLED scenarios -- Lloyd's
+  // gives example categories only, no number. The real example category
+  // that matches this project's own data almost exactly is "Multiple
+  // Public/Products Losses" (non-professional lines, section 22.2.2):
+  // "An agent managing a syndicate with multiple peak exposures... would
+  // capture the cumulative effect of a number of vertical spikes." That
+  // is precisely what the Aggregation Map + severity-anchor bootstrap
+  // already compute -- this just labels and packages the existing real
+  // Monte Carlo simulation (same logic as the Validation page's own
+  // runLossSimulation()) explicitly as RDS submission support, with
+  // Lloyd's own category language, not a generic "risk score."
+  const RDS_CATEGORY_LABEL = "Multiple Public/Products Losses (RDS Liability, non-professional lines, Lloyd's RDS Scenario Specification s.22.2.2)";
+
+  function generateRdsLiabilityScenario(riskCategory, claims, trials) {
+    trials = trials || 5000;
+    claims = Math.max(1, Math.min(50, claims || 1));
+    const rows = (DB.severity_anchors || []).filter(r => r.risk_category === riskCategory);
+    const pool = rows.map(r => parseDollarToMillions(r.dollar_amount)).filter(v => v !== null && v > 0);
+
+    if (pool.length < 3) {
+      return {
+        riskCategory, flagged: false,
+        note: `Not enough real severity data on file for ${riskCategory} to bootstrap a defensible distribution (need at least 3 real figures, found ${pool.length}).`,
+      };
+    }
+
+    const totals = [];
+    for (let t = 0; t < trials; t++) {
+      let sum = 0;
+      for (let c = 0; c < claims; c++) sum += pool[Math.floor(Math.random() * pool.length)];
+      totals.push(sum);
+    }
+    totals.sort((a, b) => a - b);
+    const pct = (p) => totals[Math.min(totals.length - 1, Math.floor((p / 100) * totals.length))];
+
+    return {
+      riskCategory,
+      rdsCategoryLabel: RDS_CATEGORY_LABEL,
+      flagged: true,
+      trials, claims,
+      realSeverityFigureCount: pool.length,
+      p50: pct(50), p90: pct(90), p95: pct(95), p99: pct(99),
+      min: totals[0], max: totals[totals.length - 1],
+      scenarioNarrative: (
+        `Internally modelled liability RDS scenario: ${riskCategory.toUpperCase()} litigation produces a cumulative loss across ` +
+        `${claims} assumed claim(s) against this syndicate's book, bootstrapped from ${pool.length} real, sourced severity-anchor ` +
+        `figures already on file (not invented). Frequency and claim count remain an explicit underwriting assumption, same as every ` +
+        `other scenario tool on this site -- the severity side is real, the frequency side is a scenario you choose.`
+      ),
+      note: "This supports an internally modelled RDS Liability submission -- it is not itself a regulatory filing, and the claim-count assumption must be set and owned by the managing agent, not treated as a Nubuye prediction.",
+    };
+  }
+
+  // Reserve Development Anomaly -- built directly from a real mentor
+  // Q&A about what would actually prove this project's signal is useful
+  // for NM General Liability reserving, not just noise: "does the real
+  // claims-resolution rate for a category match what a GENERIC liability
+  // development curve would assume by now, or is it developing slower
+  // than standard reserving patterns expect?" Real, dated MDL formation
+  // dates (verified live: MDL-2873/AFFF, Dec 7 2018; MDL-2738/talc, Oct
+  // 4 2016) give a real "age," compared against the real CAS Schedule P
+  // benchmark curve (reserve_development_benchmark.json) and the real
+  // current JPML pending/total ratio -- no invented numbers on either
+  // side. Honest limitation stated directly in the output: the CAS
+  // benchmark only observes maturity lags 1-10, so talc (age ~10) sits
+  // right at the edge of that window -- a less clean comparison than
+  // PFAS (age ~8, safely inside it), and that distinction is reported,
+  // not smoothed over.
+  const MDL_FORMATION_DATES = {
+    pfas: { date: "2018-12-07", mdl: "2873", benchmarkLine: "products_liability_occurrence" },
+    talc: { date: "2016-10-04", mdl: "2738", benchmarkLine: "other_liability_occurrence" },
+  };
+
+  function getReserveDevelopmentAnomaly(riskCategory) {
+    const info = MDL_FORMATION_DATES[riskCategory];
+    if (!info) return null;
+    const jpml = (DB.jpml_mdl_statistics || []).find(r => r.risk_category === riskCategory);
+    const benchmark = DB.reserve_development_benchmark;
+    if (!jpml || !benchmark) return null;
+
+    const ageYears = Math.floor((new Date() - new Date(info.date)) / (365.25 * 24 * 3600 * 1000));
+    const lag = Math.min(10, Math.max(1, ageYears));
+    const curve = benchmark.lines[info.benchmarkLine] || {};
+    const genericExpectedPctPaid = (curve[String(lag)] || 0) * 100;
+    const realPctResolved = 100 - (jpml.actions_pending / jpml.total_actions_historical * 100);
+    const anomalyPoints = genericExpectedPctPaid - realPctResolved;
+
+    return {
+      riskCategory, mdlNumber: info.mdl, ageYears, lagUsed: lag,
+      benchmarkLine: info.benchmarkLine,
+      genericExpectedPctPaid: Math.round(genericExpectedPctPaid * 10) / 10,
+      realPctResolved: Math.round(realPctResolved * 10) / 10,
+      anomalyPoints: Math.round(anomalyPoints * 10) / 10,
+      atBenchmarkEdge: lag >= 10,
+      note: lag >= 10
+        ? "This category's real age is at or beyond the CAS benchmark's own observed maturity window (lags 1-10) -- the generic curve's '100% by lag 10' figure is that dataset's own definition of ultimate, not an independent prediction, so this specific comparison is less informative than a mid-window one. Reported anyway, flagged honestly, not hidden."
+        : "This category's real age sits safely inside the CAS benchmark's observed window -- a cleaner comparison than one at the edge.",
+    };
+  }
+
+  // Statutory-to-Tort Leakage model -- the real first cross-tracker join
+  // between the presumption tracker's own state/disease data and this
+  // project's PFAS regulatory/exposure signal, built directly from a real
+  // mentor review (not an internal idea) asking whether the two trackers
+  // this project has always kept separate actually connect. See
+  // leakage_model.py for the real scope note: this tests correlation
+  // between presumption-law status and PFAS signal, NOT litigation
+  // substitution (that needs AFFF MDL plaintiff fact sheets, a real
+  // PACER-gated document type not pulled here).
+  function getLeakageModel() {
+    return DB.leakage_model || null;
+  }
+
+  // The "time-compounding moat" and "breadth moat" made visible, honestly
+  // -- see outcomes_ledger.py and coverage_registry.py for how each is
+  // actually computed. Shown openly including when there's nothing to
+  // brag about yet (0 resolved cases as of this build) -- the point is
+  // that the ledger keeps checking, not that it already has a win.
+  function getOutcomesLedgerSummary() {
+    return DB.outcomes_ledger_summary || null;
+  }
+
+  function getCoverageRegistry() {
+    return DB.coverage_registry || [];
+  }
+
+  // Firefighter Presumption Statutory-Exposure Pricing Engine -- JS
+  // mirror of check_firefighter_presumption() in api-backend/main.py.
+  // Reads a pre-computed snapshot (firefighter_presumption_pricing_
+  // engine.py), not a live external query -- see that pipeline's
+  // docstring for exactly how each department's score was computed from
+  // real NFIRS 2020-2024 data and its disclosed scope limitations.
+  function checkFirefighterPresumption(state, fdid, deptName) {
+    const normState = (state || "").trim().toUpperCase();
+    const normFdid = (fdid || "").trim();
+    const normName = deptName ? normalizeForMatch(deptName) : "";
+    const matches = (DB.firefighter_presumption_pricing || [])
+      .filter(r => r.state === normState)
+      .filter(r => !normFdid || r.fdid === normFdid)
+      .filter(r => !normName || normalizeForMatch(r.dept_name || "").includes(normName))
+      .map(r => ({
+        state: r.state, fdid: r.fdid, deptName: r.dept_name, yearsCovered: r.years_covered,
+        toxicHoursPerFirefighter: r.toxic_hours_per_firefighter, nationalPercentile: r.national_percentile,
+        presumptionState: !!r.presumption_state, exposureSegment: r.exposure_segment,
+      }))
+      .sort((a, b) => (b.nationalPercentile || 0) - (a.nationalPercentile || 0));
+    return {
+      state: normState, fdid, deptName, flagged: matches.length > 0,
+      matches: matches.slice(0, 50), totalMatches: matches.length,
+      note: "Scores are computed from real NFIRS 2020-2024 Fire/HazMat incident data and the real 2023 cancer-presumption state list. nationalPercentile is this department's toxic-fire-hours-per-firefighter rank among all real departments with usable data, not a legal or medical causation finding.",
+    };
   }
 
   // Aggregation Map -- the real "common shock" correlation structure this
@@ -846,7 +1135,7 @@ const MoatEngine = (() => {
   return {
     load, assess, getDefendantsForNaics, queryPlaintiffRadar, queryLegislativeContagion,
     querySeverityAnchor, parseDollarToMillions, computeThreatLevel, getFilingVelocity,
-    getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES, checkSubmission,
+    getDownstreamAdjacency, detectVeilPiercing, getDccProxy, getFacilityReports, normalizeForMatch, US_BORDERS, STATE_NAMES, checkSubmission, scanSubmissionDocument, getLeakageModel, generateRdsLiabilityScenario, getReserveDevelopmentAnomaly, checkClaimWatchlist, getOutcomesLedgerSummary, getCoverageRegistry, checkFirefighterPresumption,
     searchEntity, getCrosswalkCoverage, getPlaintiffFirmTracker, getRenewalWindow,
     getComplianceRecords, getRegulatoryFilings, getScientificMomentum, getStateContaminationSites,
     getMaterialEvents, getAdverseEvents, getJpmlStats, getFederalRemediationContracts, getCyberIncidentFilings,
