@@ -4,1614 +4,330 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nubuye</title>
-<meta name="description" content="Litigation and legislation risk intelligence for casualty insurers -- PFAS, turnout gear, firefighter presumption laws, and emerging mass torts, tracked from primary sources before they turn into claims.">
-<meta property="og:title" content="Nubuye — Litigation & Legislation Risk Intelligence">
-<meta property="og:description" content="Litigation and legislation risk intelligence for casualty insurers -- PFAS, turnout gear, firefighter presumption laws, and emerging mass torts, tracked from primary sources before they turn into claims.">
+<meta name="description" content="Nubuye checks real government safety, compliance, and fire records so casualty insurers can catch a problem before it becomes a claim.">
+<meta property="og:title" content="Nubuye">
+<meta property="og:description" content="Real government records, checked for you -- not a dashboard to dig through.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Instrument+Serif:ital@0;1&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --page-bg: #f7f8fa;
-    --card-bg: #ffffff;
-    --ink: #0e1116;
-    --ink-muted: #5c6370;
-    --ink-faint: #9aa1ab;
-    --chip-bg: #eef0f3;
-    --accent-blue: #14213d;
-    --accent-blue-bg: #e7eaf1;
-    --accent-green: #14213d;
-    --accent-green-bg: #e7eaf1;
-    --accent-amber: #b8601f;
-    --accent-amber-bg: #f5e8da;
-    --accent-red: #b33c30;
-    --accent-red-bg: #f7e2df;
-    --accent-purple: #6b7280;
-    --accent-purple-bg: #ebedef;
-    --nav-bg: rgba(247, 248, 250, 0.78);
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1;
+    --accent-amber: #b8601f; --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df;
+    --accent-green: #2f6f4f; --accent-green-bg: #e4f0e9;
+    --accent-gray: #5c6370; --accent-gray-bg: #eef0f3; --nav-bg: rgba(247, 248, 250, 0.82);
     --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
     --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-    --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
-    --radius-card: 20px;
-    --radius-pill: 999px;
+    --radius-card: 20px; --radius-pill: 999px;
     --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
     color-scheme: light;
   }
   :root[data-theme="dark"] {
-    --page-bg: #0b0d10;
-    --card-bg: #15181d;
-    --ink: #eef0f3;
-    --ink-muted: #9aa1ab;
-    --ink-faint: #6a7079;
-    --chip-bg: #1e2228;
-    --accent-blue: #7f94c2;
-    --accent-blue-bg: #1c2433;
-    --accent-green: #7f94c2;
-    --accent-green-bg: #1c2433;
-    --accent-amber: #e2974f;
-    --accent-amber-bg: #2b2114;
-    --accent-red: #e2766a;
-    --accent-red-bg: #2e1816;
-    --accent-purple: #8b929c;
-    --accent-purple-bg: #1e2228;
-    --nav-bg: rgba(11, 13, 16, 0.78);
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
+    --accent-amber: #e2974f; --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816;
+    --accent-green: #6fae8c; --accent-green-bg: #16271e;
+    --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.82);
     --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
     color-scheme: dark;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px 100px; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
 
-  nav.top {
-    display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 1180px; margin: 0 auto;
-    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
-    background: transparent; border-bottom: 1px solid transparent;
-    transition: background 0.25s ease, border-color 0.25s ease, backdrop-filter 0.25s ease;
-  }
-  nav.top .brand, nav.top .nav-links a { color: #ffffff; text-shadow: 0 1px 3px rgba(0,0,0,0.35); }
-  nav.top .brand .dot { background: #9fb0e0; }
-  nav.top[data-scrolled="true"] {
-    background: var(--nav-bg); backdrop-filter: blur(10px); border-bottom: 1px solid var(--chip-bg);
-  }
-  nav.top[data-scrolled="true"] .brand, nav.top[data-scrolled="true"] .nav-links a { color: var(--ink-muted); text-shadow: none; }
-  nav.top[data-scrolled="true"] .brand { color: var(--ink); }
-  nav.top[data-scrolled="true"] .brand .dot { background: var(--accent-blue); }
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; max-width: 980px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
   .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
-  .brand .dot { width: 9px; height: 9px; border-radius: 50%; }
-  .brand-mark {
-    height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0;
-    background: var(--accent-blue); color: #fff;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-  }
+  .brand-mark { height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0; background: var(--accent-blue); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em; box-shadow: 0 1px 2px rgba(0,0,0,0.15); }
   :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
-  .nav-links { display: flex; gap: 18px; align-items: center; flex-wrap: nowrap; }
-  .nav-links a { white-space: nowrap; }
-  .nav-links a { font-size: 14px; font-weight: 600; letter-spacing: 0.01em; }
-  nav.top .nav-links a.cta { color: #ffffff; }
-  nav.top[data-scrolled="true"] .nav-links a.cta { color: var(--accent-blue); }
-  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, 0.3); background: rgba(255,255,255,0.1); backdrop-filter: blur(6px); color: #fff; font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: background 0.25s ease, border-color 0.25s ease; }
-  nav.top[data-scrolled="true"] .theme-toggle { border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
-  .theme-toggle:hover { background: rgba(255,255,255,0.2); }
-  nav.top[data-scrolled="true"] .theme-toggle:hover { background: var(--chip-bg); }
+  .nav-links { display: flex; gap: 22px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .nav-links a:hover { color: var(--ink); }
+  .theme-toggle { width: 34px; height: 34px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 15px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; }
+  @media (max-width: 680px) { nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; } .nav-links { gap: 14px; } }
 
-  body { padding-top: 0; }
+  .hero { padding: 72px 24px 48px; text-align: center; }
+  h1 { font-weight: 500; font-size: clamp(30px, 5.5vw, 44px); line-height: 1.18; margin: 0 auto 18px; letter-spacing: -0.02em; max-width: 18ch; }
+  .dek { font-size: 17px; line-height: 1.6; color: var(--ink-muted); max-width: 54ch; margin: 0 auto 30px; }
+  .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 13px 22px; font-weight: 600; font-size: 14.5px; cursor: pointer; border: none; font-family: var(--font); }
+  .btn.primary { background: var(--accent-blue); color: #fff; }
+  .btn.secondary { background: var(--card-bg); color: var(--ink); border: 1px solid var(--chip-bg); box-shadow: var(--shadow-card); }
+  .btn:hover { opacity: 0.92; }
 
-  @media (max-width: 640px) {
-    nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; }
-    .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; }
-    .nav-links a { font-size: 13.5px; white-space: nowrap; }
-    .quotes-strip { flex-direction: column; }
-  }
+  section { padding: 56px 0; }
+  .section-head { text-align: center; max-width: 60ch; margin: 0 auto 34px; }
+  .section-head h2 { font-size: 26px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.01em; }
+  .section-head p { font-size: 15px; color: var(--ink-muted); line-height: 1.6; margin: 0; }
+  .eyebrow { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 10px; }
 
-  .hero { position: relative; z-index: 0; padding: 130px 24px 100px; text-align: center; overflow: hidden; color: #f4f5f7; }
-  .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; z-index: -2; }
-  .hero-overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(8,10,14,0.82) 0%, rgba(8,10,14,0.68) 40%, rgba(8,10,14,0.90) 100%); }
-  .hero-poster-fallback {
-    position: absolute; inset: 0; z-index: -2; display: none;
-    background: url("https://images.unsplash.com/photo-1783091478517-e6fb341b516e?fm=jpg&q=80&w=2400&auto=format&fit=crop") center 30% / cover no-repeat;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .hero-video { display: none; }
-    .hero-poster-fallback { display: block; }
-  }
-  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: rgba(255,255,255,0.1); color: #d7dae0; font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 26px; backdrop-filter: blur(6px); }
-  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: #7f94c2; }
-  h1 { font-family: var(--font); font-weight: 600; font-size: clamp(26px, 4vw, 36px); line-height: 1.3; margin: 0 auto 18px; letter-spacing: -0.01em; text-wrap: balance; max-width: 22ch; color: #ffffff; }
-  .hero p.dek { font-size: 17px; line-height: 1.6; color: #c7cbd3; max-width: 54ch; margin: 0 auto; }
-  .hero p.dek strong { color: #ffffff; font-weight: 600; }
-  .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
-  .hero-btn { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font); font-size: 14.5px; font-weight: 600; padding: 13px 24px; border-radius: 12px; transition: transform 0.15s, opacity 0.15s; }
-  .hero-btn.primary { background: #ffffff; color: #0e1116; }
-  .hero-btn.primary:hover { opacity: 0.86; transform: translateY(-1px); }
-  .hero-btn.secondary { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.22); backdrop-filter: blur(6px); }
-  .hero-btn.secondary:hover { background: rgba(255,255,255,0.16); }
-  .hero-trust-note { margin-top: 16px; font-size: 12.5px; color: #9aa1ab; }
-  .powered-by { margin-top: 22px; font-size: 12.5px; color: #8b929c; }
-  .powered-by strong { color: #c7cbd3; font-weight: 600; }
+  .grid-4 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 760px) { .grid-4 { grid-template-columns: 1fr; } }
+  .product-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px; box-shadow: var(--shadow-card); display: block; transition: transform 0.15s; }
+  .product-card:hover { transform: translateY(-2px); }
+  .product-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+  .product-card h3 { font-size: 17px; font-weight: 600; margin: 0 0 8px; }
+  .product-card p { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; margin: 0 0 12px; }
+  .product-card .go { font-size: 13px; font-weight: 600; color: var(--accent-blue); }
 
-  section { padding: 20px 0 0; }
-  section.block { padding-top: 56px; }
-  .section-head { margin-bottom: 22px; text-align: center; }
-  h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; letter-spacing: -0.01em; }
-  .section-sub { font-size: 14.5px; line-height: 1.6; color: var(--ink-muted); max-width: 56ch; margin: 0 auto; }
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 26px; box-shadow: var(--shadow-card); }
+  .tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+  .tab-btn { background: var(--chip-bg); border: none; border-radius: 10px; padding: 9px 16px; font-weight: 600; font-size: 13.5px; color: var(--ink-muted); cursor: pointer; font-family: var(--font); }
+  .tab-btn.active { background: var(--accent-blue); color: #fff; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .check-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  input[type=text] { flex: 1; min-width: 140px; padding: 11px 14px; border-radius: 10px; border: 1px solid var(--chip-bg); background: var(--page-bg); color: var(--ink); font-family: var(--font); font-size: 14px; }
+  .try-row { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 14px; }
+  .try-row button { background: none; border: none; color: var(--accent-blue); font-weight: 600; cursor: pointer; font-size: 12.5px; padding: 0; margin-right: 14px; font-family: var(--font); }
+  .tag { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; }
+  .tag.red { background: var(--accent-red-bg); color: var(--accent-red); }
+  .tag.gray { background: var(--chip-bg); color: var(--ink-faint); }
+  .tag.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
+  .result-line { padding: 10px 0; border-top: 1px solid var(--chip-bg); font-size: 13px; line-height: 1.6; }
+  .result-note { color: var(--ink-faint); font-size: 12.5px; margin-top: 10px; }
 
-  .modules { display: flex; flex-direction: column; gap: 14px; margin-top: 30px; }
-  .module-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 30px 32px; display: block; transition: transform 0.2s, background 0.2s, box-shadow 0.2s; box-shadow: var(--shadow-card); }
-  .module-card:hover { box-shadow: 0 2px 4px rgba(14, 17, 22, 0.06), 0 10px 28px rgba(14, 17, 22, 0.1); }
-  .module-card:hover { transform: translateY(-2px); background: #fcfcfb; }
-  .featured-module { border: 1px solid var(--accent-red); }
-  .module-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
-  .module-tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 11px; border-radius: var(--radius-pill); }
-  .module-card h3 { font-size: 20px; font-weight: 600; margin: 0 0 10px; }
-  .module-card p { font-size: 14.5px; line-height: 1.65; color: var(--ink-muted); margin: 0 0 16px; }
-  .module-stats { display: flex; gap: 24px; flex-wrap: wrap; }
-  .module-stats .ms { display: flex; flex-direction: column; }
-  .module-stats .ms .n { font-family: var(--font-mono); font-size: 20px; font-weight: 600; letter-spacing: -0.01em; display: inline-block; padding-bottom: 4px; border-bottom: 2px solid var(--chip-bg); }
-  .module-stats .ms .l { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
-  .module-open { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; margin-top: 20px; color: var(--accent-blue); }
-  .module-open svg { transition: transform 0.15s; }
-  .module-card:hover .module-open svg { transform: translateX(3px); }
+  .trust-bar { text-align: center; padding: 30px 0; }
+  .trust-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 14px; }
+  .trust-sources { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: center; font-size: 13px; color: var(--ink-muted); }
 
-  footer { margin-top: 60px; padding: 24px 0 0; font-size: 12.5px; color: var(--ink-faint); line-height: 1.6; text-align: center; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+  .step-num { width: 30px; height: 30px; border-radius: 50%; background: var(--accent-blue-bg); color: var(--accent-blue); font-weight: 700; font-size: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+  .step h3 { font-size: 15.5px; font-weight: 600; margin: 0 0 6px; }
+  .step p { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; margin: 0; }
 
-  .map-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 24px 18px; margin-bottom: 14px; text-align: left; box-shadow: var(--shadow-card); }
-  .portfolio-input-row { display: flex; gap: 10px; flex-wrap: wrap; }
-  .portfolio-input-row input { flex: 1; min-width: 220px; font-family: var(--font); font-size: 14px; padding: 11px 14px; border-radius: 12px; border: 1px solid rgba(16, 17, 20, 0.08); background: var(--page-bg); color: var(--ink); outline: none; transition: border-color 0.15s; }
-  .portfolio-input-row input:focus { border-color: var(--accent-blue); }
-  .portfolio-btn { font-family: var(--font); font-size: 13.5px; font-weight: 600; padding: 11px 20px; border-radius: 12px; border: none; background: var(--ink); color: var(--page-bg); cursor: pointer; }
-  .portfolio-btn:hover { opacity: 0.85; }
-  .portfolio-btn.secondary { background: var(--chip-bg); color: var(--ink); }
-  .portfolio-btn.secondary:hover { background: #e4e4e2; }
-  .portfolio-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-  .portfolio-save-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
-  .portfolio-save-row input { flex: 1; min-width: 160px; font-family: var(--font); font-size: 13px; padding: 9px 12px; border-radius: 10px; border: 1px solid rgba(16, 17, 20, 0.08); background: var(--page-bg); color: var(--ink); }
-  .saved-portfolios { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-  .saved-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 500; background: var(--chip-bg); padding: 6px 10px 6px 12px; border-radius: var(--radius-pill); color: var(--ink); }
-  .saved-chip button { border: none; background: none; cursor: pointer; color: var(--ink-faint); font-size: 14px; line-height: 1; padding: 0 2px; }
-  .saved-chip .load { cursor: pointer; font-weight: 600; }
-  .portfolio-summary { display: flex; gap: 20px; flex-wrap: wrap; margin: 18px 0 2px; padding-top: 18px; border-top: 1px solid var(--chip-bg); }
-  .portfolio-summary .ps { display: flex; flex-direction: column; }
-  .portfolio-summary .ps .n { font-family: var(--font-mono); font-size: 22px; font-weight: 600; letter-spacing: -0.01em; }
-  .portfolio-summary .ps .n.warn { color: var(--accent-amber); }
-  .portfolio-summary .ps .n.bad { color: var(--accent-red); }
-  .portfolio-summary .ps .l { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
-  .portfolio-state-row { padding: 14px 0; border-top: 1px solid var(--chip-bg); font-size: 13.5px; }
-  .portfolio-state-row:first-of-type { border-top: none; }
-  .portfolio-state-row .psr-name { font-weight: 600; margin-bottom: 6px; }
-  .portfolio-state-row .psr-line { color: var(--ink-muted); line-height: 1.6; margin-bottom: 4px; }
-  .portfolio-state-row .psr-line b { color: var(--ink); }
-  .portfolio-cat-chip { display: inline-block; font-size: 11.5px; font-weight: 600; padding: 2px 9px; border-radius: var(--radius-pill); margin: 2px 4px 2px 0; }
-  .copy-note-row { margin-top: 16px; display: flex; align-items: center; gap: 10px; }
-  .copy-note-feedback { font-size: 12.5px; color: var(--accent-green); }
-
-  /* ---- Ontology diagram ---- */
-  .ontology-diagram { display: flex; flex-direction: column; gap: 10px; }
-  .ont-row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .ont-node { display: inline-flex; flex-direction: column; gap: 2px; background: var(--card-bg); border-radius: 14px; padding: 12px 16px; min-width: 120px; }
-  .ont-node .ont-type { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-faint); }
-  .ont-node .ont-name { font-size: 14px; font-weight: 600; }
-  .ont-link { font-size: 11.5px; color: var(--ink-faint); white-space: nowrap; display: flex; align-items: center; gap: 4px; }
-  .ont-link svg { flex-shrink: 0; }
-  .ontology-note { margin-top: 16px; font-size: 13.5px; color: var(--ink-muted); line-height: 1.65; }
-
-  /* ---- Competitive table ---- */
-  .compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-  .compare-table th { text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-faint); padding: 0 12px 10px; border-bottom: 1px solid var(--chip-bg); }
-  .compare-table td { padding: 12px; border-bottom: 1px solid var(--chip-bg); color: var(--ink-muted); line-height: 1.5; vertical-align: top; }
-  .compare-table td:first-child, .compare-table th:first-child { padding-left: 0; font-weight: 600; color: var(--ink); white-space: nowrap; }
-  .compare-table tr:last-child td { border-bottom: none; }
-
-  /* ---- Book of business ---- */
-  .bob-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
-  .bob-table th { text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-faint); padding: 0 8px 8px 0; }
-  .bob-table td { padding: 4px 8px 4px 0; }
-  .bob-table input { width: 100%; font-family: var(--font); font-size: 13.5px; padding: 8px 10px; border-radius: 9px; border: 1px solid rgba(16, 17, 20, 0.08); background: var(--page-bg); color: var(--ink); outline: none; }
-  .bob-table input:focus { border-color: var(--accent-blue); }
-  .bob-remove { border: none; background: none; cursor: pointer; color: var(--ink-faint); font-size: 16px; padding: 4px 8px; }
-  .bob-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
-  .bob-exposure-summary { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--chip-bg); }
-  .bob-exposure-summary .beg { font-family: var(--font-mono); font-size: 28px; font-weight: 600; letter-spacing: -0.01em; display: inline-block; padding-bottom: 4px; border-bottom: 2px solid var(--accent-red); }
-  .bob-exposure-summary .bel { font-size: 12.5px; color: var(--ink-faint); margin-top: 2px; }
-  .bob-breakdown { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
-  .bob-breakdown-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-muted); }
-  .bob-breakdown-row b { color: var(--ink); }
-
-  /* ---- Live docket check ---- */
-  .docket-status { font-size: 13px; padding: 10px 14px; border-radius: 10px; margin-top: 12px; }
-  .docket-status.loading { background: var(--chip-bg); color: var(--ink-muted); }
-  .docket-status.ok { background: var(--accent-green-bg); color: var(--accent-green); }
-  .docket-status.empty { background: var(--chip-bg); color: var(--ink-muted); }
-  .docket-status.error { background: var(--accent-amber-bg); color: var(--accent-amber); }
-  .docket-result { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; }
-  .docket-item { padding: 12px 14px; background: var(--page-bg); border-radius: 12px; font-size: 13px; line-height: 1.5; }
-  .docket-item .di-title { font-weight: 600; margin-bottom: 3px; }
-  .docket-item .di-meta { color: var(--ink-faint); font-size: 12px; }
-
-  /* ---- Industry-voices quotes (cited, not endorsements) ---- */
-  .quotes-strip { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin: 0 auto 8px; max-width: 880px; padding: 0 20px; }
-  .quote-card { flex: 1 1 320px; background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 26px; text-align: left; border: 1px solid var(--chip-bg); }
-  .quote-card .q-mark { font-family: var(--font-mono); font-size: 28px; color: var(--chip-bg); line-height: 1; margin-bottom: 4px; }
-  .quote-card p.q-text { font-size: 15px; line-height: 1.55; font-style: italic; color: var(--ink); margin: 0 0 16px; }
-  .quote-card .q-name { font-size: 13px; font-weight: 600; color: var(--ink); }
-  .quote-card .q-title { font-size: 12.5px; color: var(--ink-muted); margin-top: 1px; }
-  .quote-card .q-src { font-size: 11.5px; color: var(--ink-faint); margin-top: 10px; }
-  .quote-card .q-src a { color: var(--accent-blue); font-weight: 500; }
-  .quotes-note { text-align: center; font-size: 12px; color: var(--ink-faint); max-width: 600px; margin: 2px auto 0; line-height: 1.6; }
-
-  /* ---- Roadmap / pilot note ---- */
-  .pilot-card { background: linear-gradient(135deg, var(--accent-blue-bg), var(--card-bg)); border-radius: var(--radius-card); padding: 28px 30px; text-align: left; box-shadow: var(--shadow-card); }
-  .pilot-card h3 { font-size: 18px; margin: 0 0 8px; }
-  .pilot-card p { font-size: 14px; line-height: 1.65; color: var(--ink-muted); margin: 0 0 16px; }
-  .pilot-card a.pilot-btn { display: inline-flex; font-size: 13.5px; font-weight: 600; color: #fff; background: var(--accent-blue); padding: 10px 18px; border-radius: 10px; }
-
-  /* ---- Trust bar: real primary sources this platform reads, not logos we don't have rights to ---- */
-  .trust-bar { max-width: 880px; margin: 0 auto 8px; padding: 18px 20px; text-align: center; }
-  .trust-bar .tb-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-faint); margin-bottom: 14px; }
-  .tb-sources { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-  .tb-source { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 12.5px; font-weight: 600; color: var(--ink-muted); background: var(--card-bg); border: 1px solid var(--chip-bg); padding: 8px 14px; border-radius: 10px; }
-  .tb-source .tb-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-
-  /* ---- Named process: how this actually works, step by step ---- */
-  .process-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; }
-  .process-step { flex: 1 1 220px; background: var(--card-bg); border-radius: var(--radius-card); padding: 24px 22px; box-shadow: var(--shadow-card); }
-  .process-step .ps-num { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--accent-blue); background: var(--accent-blue-bg); display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; margin-bottom: 14px; }
-  .process-step h4 { font-size: 15px; font-weight: 600; margin: 0 0 6px; }
-  .process-step p { font-size: 13.5px; line-height: 1.6; color: var(--ink-muted); margin: 0; }
-
-  /* ---- Module icons: a distinct mark per scenario, same idea as a segmented entry grid ---- */
-  .module-icon { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-bottom: 14px; }
-  .module-top-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
-
-  /* ---- Plans: named tiers, not public dollar figures -- a casualty risk-data product sells on
-     an annual contract, not a self-serve checkout, so the goal here is visible structure and a
-     clear CTA per tier, the same thing Postral solves with its segmented quote flow. ---- */
-  .plans-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 30px; align-items: stretch; }
-  .plan-card { flex: 1 1 260px; background: var(--card-bg); border-radius: var(--radius-card); padding: 28px 26px; box-shadow: var(--shadow-card); display: flex; flex-direction: column; border: 1px solid transparent; }
-  .plan-card.featured { border-color: var(--accent-blue); }
-  .plan-badge { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-blue); background: var(--accent-blue-bg); padding: 4px 11px; border-radius: var(--radius-pill); margin-bottom: 14px; align-self: flex-start; }
-  .plan-card h3 { font-size: 19px; font-weight: 600; margin: 0 0 6px; }
-  .plan-price { font-family: var(--font-mono); font-size: 15px; font-weight: 600; color: var(--ink-muted); margin-bottom: 14px; }
-  .plan-desc { font-size: 13.5px; color: var(--ink-muted); line-height: 1.6; margin-bottom: 18px; }
-  .plan-features { list-style: none; margin: 0 0 22px; padding: 0; display: flex; flex-direction: column; gap: 9px; flex: 1; }
-  .plan-features li { font-size: 13.5px; color: var(--ink); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
-  .plan-features li svg { flex-shrink: 0; margin-top: 3px; color: var(--accent-blue); }
-  .plan-cta { display: inline-flex; align-items: center; justify-content: center; font-size: 13.5px; font-weight: 600; padding: 11px 18px; border-radius: 10px; }
-  .plan-cta.primary { background: var(--ink); color: var(--page-bg); }
-  .plan-cta.primary:hover { opacity: 0.86; }
-  .plan-cta.secondary { background: var(--chip-bg); color: var(--ink); }
-  .plan-cta.secondary:hover { background: #e4e4e2; }
-
-  /* ---- Who this is for: role-by-role, each tied to a real existing feature, not a generic persona slide ---- */
-  .persona-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 30px; }
-  @media (max-width: 720px) { .persona-grid { grid-template-columns: 1fr; } }
-  .persona-card { background: var(--card-bg); border-radius: var(--radius-card); padding: 22px 24px; box-shadow: var(--shadow-card); }
-  .persona-card .p-role { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent-blue); margin-bottom: 8px; }
-  .persona-card h3 { font-size: 16px; font-weight: 600; margin: 0 0 8px; }
-  .persona-card p { font-size: 13px; line-height: 1.6; color: var(--ink-muted); margin: 0 0 10px; }
-  .persona-card a { font-size: 12.5px; font-weight: 600; color: var(--accent-blue); }
-
-  .rds-callout { background: linear-gradient(135deg, var(--accent-blue-bg), var(--card-bg)); border-radius: var(--radius-card); padding: 28px 30px; box-shadow: var(--shadow-card); margin-top: 20px; }
-  .rds-callout h3 { font-size: 18px; margin: 0 0 10px; }
-  .rds-callout p { font-size: 14px; line-height: 1.7; color: var(--ink-muted); margin: 0; }
-
-  /* ---- FIG. 01: named, enumerated deliverable catalog (Postral-style "mapped to your rig" pattern) ---- */
-  .fig-label { font-family: var(--font-mono); font-size: 11.5px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink-faint); text-transform: uppercase; margin-bottom: 18px; text-align: center; }
-  .fig-catalog { display: flex; flex-direction: column; gap: 1px; background: var(--chip-bg); border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-card); }
-  .fig-row { display: flex; align-items: center; gap: 18px; background: var(--card-bg); padding: 18px 24px; }
-  .fig-row .fig-num { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--ink-faint); flex-shrink: 0; width: 26px; }
-  .fig-row .fig-body { flex: 1; min-width: 0; }
-  .fig-row .fig-name { font-size: 14.5px; font-weight: 600; margin-bottom: 2px; }
-  .fig-row .fig-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.5; }
-  .fig-row .fig-src { font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint); flex-shrink: 0; white-space: nowrap; background: var(--chip-bg); padding: 4px 10px; border-radius: var(--radius-pill); }
-  @media (max-width: 640px) {
-    .fig-row { flex-wrap: wrap; }
-    .fig-row .fig-src { margin-left: 44px; }
-  }
-
-  /* Progressive disclosure for secondary/supporting content -- same pattern
-     as the Console and X-Ray: collapses to a one-line summary, expands on
-     click, nothing removed, just deferred. */
-  details.disclosure { }
-  details.disclosure > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; }
-  details.disclosure > summary::-webkit-details-marker { display: none; }
-  details.disclosure > summary::marker { content: ""; }
-  details.disclosure > summary .chevron { flex-shrink: 0; color: var(--ink-faint); font-size: 11px; transition: transform 0.15s; margin-left: auto; }
-  details.disclosure[open] > summary .chevron { transform: rotate(90deg); }
-  details.disclosure > summary:hover .chevron { color: var(--ink); }
+  footer { border-top: 1px solid var(--chip-bg); padding: 44px 0 30px; margin-top: 30px; }
+  .footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 26px; margin-bottom: 30px; }
+  @media (max-width: 680px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  .footer-brand p { font-size: 13px; color: var(--ink-faint); line-height: 1.6; margin: 10px 0 0; max-width: 28ch; }
+  .footer-col h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-faint); margin: 0 0 12px; }
+  .footer-col a { display: block; font-size: 13.5px; color: var(--ink-muted); margin-bottom: 9px; }
+  .footer-col a:hover { color: var(--ink); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; padding-top: 20px; border-top: 1px solid var(--chip-bg); font-size: 12.5px; color: var(--ink-faint); }
 </style>
 </head>
-<body>
 <script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
 
 <nav class="top">
   <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
   <div class="nav-links">
-    <a href="#ontology">How it works</a>
-    <a href="#plans">Plans</a>
-    <a href="#portfolio">Check your exposure</a>
-    <a href="./validation/">Validation</a>
-    <a href="./xray/">Free PFAS X-Ray</a>
-    <a href="./console/" class="cta">Underwriter Console</a>
+    <a href="#products">Products</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="./track-record/">Track record</a>
+    <a href="#contact">Contact</a>
     <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
   </div>
 </nav>
 
 <div class="hero">
-  <video class="hero-video" autoplay muted loop playsinline preload="auto"
-    poster="https://images.unsplash.com/photo-1783091478517-e6fb341b516e?fm=jpg&q=80&w=2400&auto=format&fit=crop">
-    <source src="https://videos.pexels.com/video-files/6854190/6854190-hd_1920_1080_30fps.mp4" type="video/mp4">
-  </video>
-  <div class="hero-poster-fallback"></div>
-  <div class="hero-overlay"></div>
-  <h1>Two things in US casualty nobody else is doing. Built on real government data.</h1>
-  <p class="dek">A routine claim cross-matched against real pre-litigation federal complaint data before it becomes a mass tort &mdash; and a firefighter cancer-presumption pricing model NCCI's own rating bureau admits it can't build. Try both below, free, now.</p>
+  <h1>Real records, checked for you.</h1>
+  <p class="dek">Nubuye checks real government safety, compliance, and fire data so your team can catch a problem before it becomes a claim &mdash; not another dashboard to search through yourself.</p>
   <div class="hero-ctas">
-    <a class="hero-btn primary" href="#proof">Try it now
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a class="hero-btn secondary" href="./console/">Open the Underwriter Console</a>
-  </div>
-  <div class="hero-trust-note">No signup. No password. Nothing you enter ever leaves your browser.</div>
-</div>
-
-<div class="quotes-strip">
-  <div class="quote-card">
-    <div class="q-mark">&ldquo;</div>
-    <p class="q-text">&ldquo;One of the most watched legislative topics for us&rdquo; &mdash; and NCCI still has no plans to adjust pricing for it, because the impact is too hard to estimate.</p>
-    <div class="q-name">Jeff Eddinger</div>
-    <div class="q-title">Senior Division Executive, NCCI</div>
-    <div class="q-src"><a href="https://www.businessinsurance.com/presumption-law-changes-bring-cost-uncertainty-minnesota-arizona/" target="_blank" rel="noopener">Business Insurance, 2020</a></div>
-  </div>
-  <div class="quote-card">
-    <div class="q-mark">&ldquo;</div>
-    <p class="q-text">&ldquo;This program positions us as an industry leader in the public entity market&rdquo; &mdash; announcing a dedicated Public Entity Excess Casualty program, March 2025.</p>
-    <div class="q-name">Andrew Kay</div>
-    <div class="q-title">President, Amwins Specialty Casualty Solutions</div>
-    <div class="q-src"><a href="https://www.amwins.com/who-we-are/newsroom/amwins-specialty-casualty-solutions-enhances-portfolio-with-public-entity-excess-casualty-program" target="_blank" rel="noopener">Amwins newsroom, Mar 17 2025</a></div>
-  </div>
-</div>
-<p class="quotes-note">Cited as industry commentary &mdash; not an endorsement of Nubuye.</p>
-
-<div class="trust-bar">
-  <div class="tb-label">Every figure traces back to a primary source we read directly</div>
-  <div class="tb-sources">
-    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-blue)"></span>SEC EDGAR</span>
-    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-green)"></span>CourtListener / PACER</span>
-    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-amber)"></span>EPA</span>
-    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-purple)"></span>LegiScan (state legislatures)</span>
-    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-red)"></span>JPML</span>
-    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-blue)"></span>ClinicalTrials.gov</span>
-    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-amber)"></span>openFDA</span>
-    <span class="tb-source"><span class="tb-dot" style="background:var(--accent-green)"></span>CDC WONDER</span>
+    <a class="btn primary" href="#try-it">Try it now</a>
+    <a class="btn secondary" href="#products">See what we check</a>
   </div>
 </div>
 
 <div class="wrap">
 
-  <!-- THE HEADLINE: the live, interactive submission check, framed the
-       same way Canongate AI's real Lloyd's Lab product is -- a
-       continuously re-scored signal, checked against your specific
-       submission, not a dashboard tour. This is the first thing a
-       reviewer should DO, not read. -->
-  <section class="block" id="proof" style="padding-top:20px;">
+  <section id="products">
     <div class="section-head">
-      <span class="eyebrow-pill" style="background:var(--accent-red-bg); color:var(--accent-red); margin-bottom:14px;"><span class="dot" style="background:var(--accent-red)"></span>Lloyd's Cohort 17 gap, unfilled</span>
-      <h2>Claim Watchlist Clash Triage</h2>
-      <p class="section-sub">Lloyd's own Cohort 17 call for innovation, verbatim: &ldquo;Predictive analytics models that flag seemingly innocuous third-party casualty claims before they develop into major losses.&rdquo; A manufacturer + model, cross-matched live against real CPSC/openFDA MAUDE/NHTSA complaint-velocity data. Nothing you type here leaves your browser.</p>
+      <span class="eyebrow">What we do</span>
+      <h2>Four checks, built on real data</h2>
+      <p>Each one answers a specific question by checking real public records live &mdash; no manual research, no guessing.</p>
     </div>
-    <div class="map-card" style="padding:20px 22px;margin-bottom:24px;">
-      <div class="row" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
-        <input type="text" id="hp-check-input" placeholder="Manufacturer, e.g. Zuru Inc." style="flex:1;min-width:160px;padding:11px 14px;border-radius:10px;border:1px solid var(--chip-bg);background:var(--page-bg,#f7f8fa);color:var(--ink);font-family:inherit;font-size:14.5px;">
-        <input type="text" id="hp-check-model" placeholder="Model, e.g. Size 4" style="flex:1;min-width:140px;padding:11px 14px;border-radius:10px;border:1px solid var(--chip-bg);background:var(--page-bg,#f7f8fa);color:var(--ink);font-family:inherit;font-size:14.5px;">
-        <button id="hp-check-btn" class="hero-btn primary" style="padding:11px 20px;">Check</button>
-      </div>
-      <div style="font-size:12.5px;color:var(--ink-faint);margin-bottom:14px;">Try: <button onclick="document.getElementById('hp-check-input').value='Zuru Inc.';document.getElementById('hp-check-model').value='Size 4';document.getElementById('hp-check-btn').click()" style="background:none;border:none;color:var(--accent-blue);font-weight:600;cursor:pointer;font-size:12.5px;padding:0;margin-right:14px;">Zuru diapers</button><button onclick="document.getElementById('hp-check-input').value='Insulet Corporation';document.getElementById('hp-check-model').value='PT-000435';document.getElementById('hp-check-btn').click()" style="background:none;border:none;color:var(--accent-blue);font-weight:600;cursor:pointer;font-size:12.5px;padding:0;">Insulet pump</button></div>
-      <div id="hp-check-result"></div>
-    </div>
-    <p class="section-sub" style="text-align:center;margin-bottom:40px;"><a href="./claim-watchlist/" style="color:var(--accent-blue);font-weight:600">Open the full Claim Watchlist &rarr;</a></p>
-
-    <div class="section-head">
-      <span class="eyebrow-pill" style="background:var(--accent-amber-bg); color:var(--accent-amber); margin-bottom:14px;"><span class="dot" style="background:var(--accent-amber)"></span>NCCI's own admitted data vacuum</span>
-      <h2>Firefighter Presumption Pricing Engine</h2>
-      <p class="section-sub">NCCI's own 2023 research brief: &ldquo;Data availability issues make it difficult to explicitly quantify the cost impact of firefighter presumption legislation... the self-insured market is generally not required to report data to NCCI.&rdquo; We reconstructed real toxic-fire-hour exposure for 24,010 departments from 13 real years of NFIRS data, scored against the real presumption-law map.</p>
-    </div>
-    <div class="map-card" style="padding:20px 22px;margin-bottom:24px;">
-      <div class="row" style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
-        <input type="text" id="hp-ff-state" placeholder="State, e.g. CO" maxlength="2" style="flex:1;min-width:100px;padding:11px 14px;border-radius:10px;border:1px solid var(--chip-bg);background:var(--page-bg,#f7f8fa);color:var(--ink);font-family:inherit;font-size:14.5px;">
-        <button id="hp-ff-btn" class="hero-btn primary" style="padding:11px 20px;">Score state</button>
-      </div>
-      <div style="font-size:12.5px;color:var(--ink-faint);margin-bottom:14px;">Try: <button onclick="document.getElementById('hp-ff-state').value='CO';document.getElementById('hp-ff-btn').click()" style="background:none;border:none;color:var(--accent-blue);font-weight:600;cursor:pointer;font-size:12.5px;padding:0;margin-right:14px;">Colorado</button><button onclick="document.getElementById('hp-ff-state').value='OR';document.getElementById('hp-ff-btn').click()" style="background:none;border:none;color:var(--accent-blue);font-weight:600;cursor:pointer;font-size:12.5px;padding:0;">Oregon</button></div>
-      <div id="hp-ff-result"></div>
-    </div>
-    <p class="section-sub" style="text-align:center;margin-bottom:28px;"><a href="./firefighter-pricing/" style="color:var(--accent-blue);font-weight:600">Open the full Firefighter Pricing Engine &rarr;</a> &middot; <a href="./document-scan/" style="color:var(--accent-blue);font-weight:600">Scan a contract</a> &middot; <a href="./submission-check/" style="color:var(--accent-blue);font-weight:600">Submission Auto-Check</a></p>
-
-    <div class="section-head">
-      <span class="eyebrow-pill" style="background:var(--accent-red-bg); color:var(--accent-red); margin-bottom:14px;"><span class="dot" style="background:var(--accent-red)"></span>Supporting evidence &mdash; the pain point, in Lloyd's own words</span>
-      <h2>A real, named, current reserving problem &mdash; not a general liability pitch</h2>
-      <p class="section-sub">Every figure below is real and cited, not Nubuye's own framing of the problem.</p>
-    </div>
-    <div class="stat-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:18px;">
-      <div class="map-card" style="padding:18px 20px;">
-        <div style="font-size:26px;font-weight:700;font-family:var(--font-mono);color:var(--accent-red)">91.6% &rarr; 100.8%</div>
-        <div style="font-size:12.5px;color:var(--ink-faint);margin-top:4px">Lloyd's casualty combined ratio, 2024 &rarr; 2025 &mdash; an underwriting profit flipped to a real loss in one year.</div>
-      </div>
-      <div class="map-card" style="padding:18px 20px;">
-        <div style="font-size:26px;font-weight:700;font-family:var(--font-mono);color:var(--accent-amber)">+&pound;1.21bn</div>
-        <div style="font-size:12.5px;color:var(--ink-faint);margin-top:4px">Real growth in Lloyd's reserve margin in 2025 (&pound;5.41bn &rarr; &pound;6.62bn) &mdash; Howden Re reads this as real caution about long-tail exposure, not comfort.</div>
-      </div>
-      <div class="map-card" style="padding:18px 20px;">
-        <div style="font-size:26px;font-weight:700;font-family:var(--font-mono);color:var(--accent-blue)">5 years</div>
-        <div style="font-size:12.5px;color:var(--ink-faint);margin-top:4px">Lloyd's own reserving reviews (2020-2025) have repeatedly named the same line &mdash; Non-Marine General Liability &mdash; as where syndicate reserves diverge most from Lloyd's central view.</div>
-      </div>
-    </div>
-    <div class="map-card" style="padding:18px 20px;margin-bottom:18px;">
-      <p style="font-size:14px;line-height:1.6;margin:0;">Lloyd's own 2025 Aggregate Accounts Report names the specific driver of 2025 casualty reserve strengthening: <b>"primarily driven by the Cyber and Non-Marine General Liability portfolios."</b> Weeks before this was written, Lloyd's own Chief of Market Performance, Rachel Turk, warned publicly that US general liability exposure is <b>"seeping"</b> into the Lloyd's market through cross-class facilities and delegated arrangements. The only fix anyone has built so far is bespoke, one-off actuarial consulting &mdash; never a real, continuously-checkable product.</p>
-    </div>
-    <div class="section-head" style="margin-top:28px;">
-      <h2>The real, falsifiable number Nubuye can already show</h2>
-      <p class="section-sub">Does a category's real claims-resolution rate match what a standard actuarial development curve assumes by now, or is it falling behind? Computed live below, from real MDL formation dates (verified against the courts' own filings) and the real CAS Schedule P benchmark &mdash; not asserted.</p>
-    </div>
-    <div id="homepage-rda-pfas"></div>
-    <div id="homepage-rda-talc"></div>
-    <p class="section-sub" style="text-align:center;margin-top:10px;"><a href="./validation/#rda-pfas" style="color:var(--accent-blue);font-weight:600">See the full methodology and backtest &rarr;</a></p>
-  </section>
-
-  <!-- A second real finding from the same mentor conversation, pulled out
-       of the collapsed catalog and given its own visible spot: does a
-       firefighter presumption law actually change the real PFAS signal
-       in that state? First time these two trackers were read together. -->
-  <section class="block" id="leakage-preview">
-    <div class="section-head">
-      <span class="eyebrow-pill" style="background:var(--chip-bg); color:var(--ink-muted); margin-bottom:14px;"><span class="dot" style="background:var(--accent-amber)"></span>A second real finding, same conversation</span>
-      <h2>Do firefighter presumption laws change the real PFAS signal?</h2>
-      <p class="section-sub">A real mentor review asked whether an easier path to a paid workers'-comp claim changes PFAS/AFFF litigation in that state &mdash; the first time this project's Presumption Expansion Tracker and PFAS tracker have been read together. Computed live below.</p>
-    </div>
-    <div id="homepage-leakage-summary"></div>
-    <p class="section-sub" style="text-align:center;margin-top:10px;"><a href="./leakage/" style="color:var(--accent-blue);font-weight:600">See the full per-state table &rarr;</a></p>
-  </section>
-
-  <!-- TRY IT NOW: the two actually-live tools. -->
-  <section class="block" id="try-it" style="padding-top:20px;">
-    <div class="section-head">
-      <span class="eyebrow-pill" style="background:var(--chip-bg); color:var(--ink-muted); margin-bottom:14px;"><span class="dot" style="background:var(--accent-blue)"></span>Live, not a mockup</span>
-      <h2>Try it before you read about it</h2>
-      <p class="section-sub">Two real tools, running right now against live public data. Nothing you enter leaves your browser.</p>
-    </div>
-  </section>
-
-  <!-- 2. LIVE DOCKET CHECK -->
-  <section class="block" id="live-check" style="padding-top:24px;">
-    <div class="section-head">
-      <h2>Live docket check</h2>
-      <p class="section-sub">Queries CourtListener's public RECAP archive directly from your browser for new MDL 3191 filings, so this module doesn't go stale between manual research passes.</p>
-    </div>
-    <div class="map-card">
-      <div class="portfolio-input-row">
-        <input type="text" id="docket-query" value="MDL No. 3191 turnout gear" autocomplete="off">
-        <button id="docket-check" class="portfolio-btn">Check for new filings</button>
-      </div>
-      <div id="docket-result"></div>
-    </div>
-  </section>
-
-  <!-- 3. BOOK OF BUSINESS + existing simple checker -->
-  <section class="block" id="portfolio">
-    <div class="section-head">
-      <h2>Check your exposure</h2>
-      <p class="section-sub">Enter your actual book &mdash; state, policy count, and total insured value &mdash; and we'll weight it against active litigation, the prediction ranking, and all four presumption categories at once. Nothing you type here leaves your browser.</p>
-    </div>
-    <div class="map-card">
-      <table class="bob-table" id="bob-table">
-        <tr><th style="width:22%">State</th><th style="width:24%">Policy count</th><th style="width:34%">Total insured value ($)</th><th></th></tr>
-      </table>
-      <div class="bob-actions">
-        <button id="bob-add-row" class="portfolio-btn secondary">+ Add state</button>
-        <button id="bob-check" class="portfolio-btn">Calculate exposure</button>
-      </div>
-      <div id="bob-result"></div>
-    </div>
-
-    <details class="map-card disclosure">
-      <summary><p style="font-size:13px; color:var(--ink-faint); margin:0;">Prefer a quick state-only check instead of the full book above? Use the simple version:</p><span class="chevron">&#9656;</span></summary>
-      <div class="portfolio-input-row" style="margin-top:14px;">
-        <input type="text" id="portfolio-states" placeholder="e.g. MI, CO, OH or Michigan, Colorado, Ohio" autocomplete="off">
-        <button id="portfolio-check" class="portfolio-btn secondary">Check states</button>
-      </div>
-      <div class="portfolio-save-row">
-        <input type="text" id="portfolio-save-name" placeholder="Name this portfolio (e.g. Primary book)" autocomplete="off">
-        <button id="portfolio-save" class="portfolio-btn secondary">Save</button>
-      </div>
-      <div class="saved-portfolios" id="saved-portfolios"></div>
-      <div id="portfolio-result"></div>
-    </details>
-  </section>
-
-  <!-- COVERAGE MATRIX: the single clear answer to "what does Nubuye actually
-       track" -- rows are the 7 real categories, columns are every real
-       signal source, computed live from the actual exported data, not
-       hand-typed claims. Presumption law is footnoted separately since it's
-       a real but structurally different category (no federal MDL -- it's
-       state legislative/workers'-comp, tracked on its own page). -->
-  <section class="block" id="coverage">
-    <div class="section-head">
-      <h2>What Nubuye actually tracks</h2>
-      <p class="section-sub">One real signal source per column, one real category per row &mdash; computed live from the same data every other page on this site reads, not a marketing summary of it.</p>
-    </div>
-    <div class="map-card" style="overflow-x:auto;">
-      <table class="compare-table" id="coverage-matrix" style="min-width:640px;"></table>
-    </div>
-    <p style="font-size:12.5px;color:var(--ink-faint);text-align:center;margin-top:14px;">Firefighter presumption law is tracked separately &mdash; it's a real category, but state legislative/workers'-comp, not a federal mass-tort MDL, so it doesn't share this matrix's columns. <a href="./presumption2/" style="color:var(--accent-blue);font-weight:600">See the Presumption Expansion Tracker &rarr;</a> &middot; *Climate-attribution litigation's "Real MDL / JPML scale" column is blank for a real reason, not a gap: no federal MDL exists for it at all (confirmed live), since this litigation runs in state courts. It's still real and tracked, via 10-K risk factors and a scientific-momentum signal. Separately, this project also monitors real SEC 8-K Item 1.05 material cyber-incident filings across all SEC filers &mdash; a cross-cutting signal, not tied to any single category above, so it isn't a row here. <a href="./console/" style="color:var(--accent-blue);font-weight:600">See it in the Console &rarr;</a></p>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <h2>How Nubuye works</h2>
-      <p class="section-sub">Three steps, not a black box.</p>
-    </div>
-    <div class="process-row">
-      <div class="process-step">
-        <div class="ps-num">01</div>
-        <h4>Pick a risk scenario</h4>
-        <p>PFAS, turnout gear, or firefighter presumption &mdash; each a fully modeled litigation and legislation tracker, not a placeholder category.</p>
-      </div>
-      <div class="process-step">
-        <div class="ps-num">02</div>
-        <h4>Read the evidence-tiered data</h4>
-        <p>Every claim is tagged VERIFIED (we opened the filing) or REPORTED (secondary coverage only) &mdash; so you know exactly how much to trust it before you act on it.</p>
-      </div>
-      <div class="process-step">
-        <div class="ps-num">03</div>
-        <h4>Check it against your book</h4>
-        <p>Paste your states, NAICS codes, or full book of business and get back a ranked, flagged exposure view. Nothing you enter leaves your browser.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Everything below here is real, built, and verified -- but it's
-       supporting depth for the one pain point above, not co-equal
-       headlines. Collapsed by default so the page makes one argument
-       first, not a tool catalog. -->
-  <section class="block" id="everything-else">
-    <div class="section-head">
-      <h2>Everything else we've built and verified</h2>
-      <p class="section-sub">14 tracked litigation/legislative categories, a document scanner, a submission auto-check API, an RDS scenario generator, a litigation-funding monitor, and more &mdash; all real, all live. Expand for the full catalog.</p>
-    </div>
-    <details class="disclosure">
-      <summary><span style="font-size:14px; font-weight:600;">See the full catalog</span><span class="chevron">&#9656;</span></summary>
-  <section class="block">
-    <div class="fig-label">FIG. 01 &mdash; what Nubuye actually delivers</div>
-    <div class="fig-catalog">
-      <div class="fig-row">
-        <span class="fig-num">01</span>
-        <div class="fig-body"><div class="fig-name">Settlement Stage Classification</div><div class="fig-desc">Where each tracked case actually sits right now &mdash; pre-filing, MDL consolidation, bellwether, or settlement &mdash; not a generic "active litigation" flag.</div></div>
-        <span class="fig-src">/v1/assess</span>
-      </div>
-      <div class="fig-row">
-        <span class="fig-num">02</span>
-        <div class="fig-body"><div class="fig-name">Plaintiff Firm &rarr; Defendant Concentration</div><div class="fig-desc">69 real plaintiff-firm-to-defendant edges, so you can see which firms are actually driving filings against which companies.</div></div>
-        <span class="fig-src">/v1/plaintiff-firm-tracker</span>
-      </div>
-      <div class="fig-row">
-        <span class="fig-num">03</span>
-        <div class="fig-body"><div class="fig-name">Historical Scale Comparison</div><div class="fig-desc">How today's PFAS and talc exposure actually compares in real dollars and real case counts to asbestos at the same stage of its own litigation life cycle.</div></div>
-        <span class="fig-src">/v1/historical-scale-comparison</span>
-      </div>
-      <div class="fig-row">
-        <span class="fig-num">04</span>
-        <div class="fig-body"><div class="fig-name">Litigation Timeline Milestones</div><div class="fig-desc">26 cited, dated developments across asbestos, PFAS, talc, and turnout gear &mdash; filterable by category, each sourced to a primary filing or report.</div></div>
-        <span class="fig-src">/v1/timeline-milestones</span>
-      </div>
-      <div class="fig-row">
-        <span class="fig-num">05</span>
-        <div class="fig-body"><div class="fig-name">JPML Consolidation Stats</div><div class="fig-desc">Real pending-case counts for each active MDL, pulled from the Judicial Panel on Multidistrict Litigation itself, not a secondhand estimate.</div></div>
-        <span class="fig-src">/v1/jpml-stats</span>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="section-head">
-      <h2>Scenario modules</h2>
-      <p class="section-sub">Click into any module for the full litigation tracker, the real prediction model behind it, and exactly what it does and doesn't claim to know.</p>
-    </div>
-
-    <div class="modules">
-      <a class="module-card featured-module" href="./console/#emergence-signal-card">
-        <div class="module-icon" style="background:var(--accent-red-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>
+    <div class="grid-4">
+      <a class="product-card" href="./claim-watchlist/">
+        <div class="product-icon" style="background:var(--accent-red-bg)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5m0 4h.01M10.3 3.9L2.9 17a2 2 0 0 0 1.7 3h14.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
         </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-red-bg); color:var(--accent-red)">New &mdash; prediction layer</span>
-        </div>
-        <h3>Emergence Signal</h3>
-        <p>Casualty-cat modeling's own named problem, per Lloyd's and Guy Carpenter research: by the time a litigation signal is visible, it's typically too late to act. This tracks the real leading indicators &mdash; scientific literature, state legislation, SEC 8-Ks &mdash; <strong>before</strong> the filings do, scored as two honest numbers (scale and momentum) per category, never blended into one black-box score.</p>
-        <div class="module-stats">
-          <div class="ms"><div class="n">75.6</div><div class="l">PFAS momentum /100</div></div>
-          <div class="ms"><div class="n">3</div><div class="l">real leading indicators</div></div>
-          <div class="ms"><div class="n">0</div><div class="l">fabricated components</div></div>
-        </div>
-        <div class="module-open">Open the signal
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <h3>Claim Watchlist</h3>
+        <p>Catch a product defect pattern before it becomes a mass lawsuit. Checks a product against real federal safety-complaint data.</p>
+        <span class="go">Try it &rarr;</span>
       </a>
-
-      <a class="module-card" href="./pfas2/">
-        <div class="module-icon" style="background:var(--accent-blue-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 4 12H8l4-12Z"/><path d="M8 20h8"/></svg>
+      <a class="product-card" href="./disclosure-audit/">
+        <div class="product-icon" style="background:var(--accent-amber-bg)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg>
         </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-blue-bg); color:var(--accent-blue)">Products liability</span>
-        </div>
-        <h3>PFAS &amp; Turnout-Gear Litigation Tracker</h3>
-        <p>Every confirmed lawsuit where a municipality or firefighter has sued a gear or foam manufacturer over PFAS exposure &mdash; plus a real prediction of which US state is next, and an interactive world map now spanning North America, Western Europe, the Middle East, Asia, South America, and Africa.</p>
-        <div class="module-stats">
-          <div class="ms"><div class="n">10</div><div class="l">US actions tracked</div></div>
-          <div class="ms"><div class="n">18</div><div class="l">countries covered</div></div>
-          <div class="ms"><div class="n">10/10</div><div class="l">US actions VERIFIED</div></div>
-        </div>
-        <div class="module-open">Open module
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <h3>Disclosure Auditor</h3>
+        <p>Check a company's real compliance record before you sign a deal. Live check against environmental, safety, and federal contract records.</p>
+        <span class="go">Try it &rarr;</span>
       </a>
-
-      <a class="module-card" href="./presumption2/">
-        <div class="module-icon" style="background:var(--accent-purple-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-purple)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-7h6v7"/></svg>
+      <a class="product-card" href="./hai-radar/">
+        <div class="product-icon" style="background:var(--accent-green-bg)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
         </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-purple-bg); color:var(--accent-purple)">Workers' comp</span>
-        </div>
-        <h3>Presumption Expansion Tracker</h3>
-        <p>How firefighter cancer, heart, lung, and PTSD presumption laws actually changed across US states from 2016 to 2023 &mdash; a real three-point comparison, not a two-point guess &mdash; now with an interactive world map covering Canada, Australia, the UK, Germany, Denmark, and New Zealand, plus the documented precedent base for expansion into the private sector.</p>
-        <div class="module-stats">
-          <div class="ms"><div class="n">20</div><div class="l">states, cancer presumption</div></div>
-          <div class="ms"><div class="n">6</div><div class="l">states, PTSD, up from 0</div></div>
-          <div class="ms"><div class="n">6</div><div class="l">countries covered globally</div></div>
-        </div>
-        <div class="module-open">Open module
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <h3>Hospital Infection Radar</h3>
+        <p>See a hospital or care facility's real, current safety record &mdash; not a loss run that's years out of date.</p>
+        <span class="go">Try it &rarr;</span>
       </a>
-
-      <a class="module-card" href="./xray/">
-        <div class="module-icon" style="background:var(--accent-green-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <a class="product-card" href="./firefighter-pricing/">
+        <div class="product-icon" style="background:var(--accent-blue-bg)">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2 4-2 5-2 8a4 4 0 0 0 8 0c0-1-.5-2-1-3 1 0 3 2 3 6a8 8 0 0 1-16 0c0-6 5-7 5-11 0 0 2 1 3 0z"/></svg>
         </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-green-bg); color:var(--accent-green)">Free scan</span>
-        </div>
-        <h3>PFAS Portfolio X-Ray</h3>
-        <p>Paste your own book of business &mdash; account, state, NAICS &mdash; and get back a ranked, flagged-account list with evidence links to the real filings behind each flag. Nothing leaves your browser.</p>
-        <div class="module-open">Scan your book
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </a>
-
-      <a class="module-card" href="./console/">
-        <div class="module-icon" style="background:var(--accent-amber-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 14h2M8 17h5"/></svg>
-        </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-amber-bg); color:var(--accent-amber)">Live tool</span>
-        </div>
-        <h3>Underwriter Console</h3>
-        <p>Enter a NAICS code and a state and get the real signal our data pipelines have actually found &mdash; pulled live from CourtListener, SEC EDGAR, and LegiScan. This is the crosswalk itself, not a description of it.</p>
-        <div class="module-stats">
-          <div class="ms"><div class="n">5</div><div class="l">companies with sourced severity data</div></div>
-          <div class="ms"><div class="n">69</div><div class="l">plaintiff-firm &rarr; defendant edges</div></div>
-          <div class="ms"><div class="n">37</div><div class="l">legislative actions tracked</div></div>
-        </div>
-        <div class="module-open">Open console
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </a>
-
-      <a class="module-card" href="./timeline/">
-        <div class="module-icon" style="background:var(--accent-blue-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-blue-bg); color:var(--accent-blue)">Real history</span>
-        </div>
-        <h3>Litigation Timeline</h3>
-        <p>Every real, dated development across PFAS, talc, and turnout-gear litigation &mdash; filterable, cited, and set against asbestos as the historical analog, not a feature this project invented.</p>
-        <div class="module-open">View timeline
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </a>
-
-      <a class="module-card featured-module" href="./firefighter-pricing/">
-        <div class="module-icon" style="background:var(--accent-red-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2 4-2 5-2 8a4 4 0 0 0 8 0c0-1-.5-2-1-3 1 0 3 2 3 6a8 8 0 0 1-16 0c0-6 5-7 5-11 0 0 2 1 3 0z"/></svg>
-        </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-red-bg); color:var(--accent-red)">Excess WC / Casualty Treaty</span>
-        </div>
-        <h3>Firefighter Presumption Pricing Engine</h3>
-        <p>NCCI's own 2023 brief admits it can't quantify firefighter cancer-presumption costs &mdash; the self-insured municipal market doesn't report to it. We reconstructed real toxic-fire-hour exposure per department from 5 years of real NFIRS incident data and scored it against the real state presumption-law map. A genuinely different mechanism &mdash; dose-response pricing, not entity lookup.</p>
-        <div class="module-open">Score a department
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </a>
-
-      <a class="module-card" href="./track-record/">
-        <div class="module-icon" style="background:var(--accent-blue-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18M7 14l4-4 4 4 5-6"/></svg>
-        </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-blue-bg); color:var(--accent-blue)">Why this compounds</span>
-        </div>
-        <h3>Track Record &amp; Data Coverage</h3>
-        <p>Every real signal our pipelines flag, logged the day it's found and checked over time against real recall data &mdash; plus the full, honest list of every data source this project uses, and the real quirk found in each before it was trusted.</p>
-        <div class="module-open">View the ledger
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </a>
-
-      <a class="module-card featured-module" href="./hai-radar/">
-        <div class="module-icon" style="background:var(--accent-green-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
-        </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-green-bg); color:var(--accent-green)">Excess Health Care Liability</span>
-        </div>
-        <h3>Hospital Infection &amp; Care-Deficiency Radar</h3>
-        <p>A named hospital or nursing home, checked live against real CMS infection-control citations and infection-rate performance &mdash; not a loss run that's 2-4 years stale. Anchored to the LMA Medical Malpractice Committee's own updated US Excess Health Care Provider's Liability wordings (LMA3172A/B).</p>
-        <div class="module-open">Check a facility
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </a>
-
-      <a class="module-card featured-module" href="./disclosure-audit/">
-        <div class="module-icon" style="background:var(--accent-amber-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg>
-        </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-amber-bg); color:var(--accent-amber)">W&amp;I pre-bind check</span>
-        </div>
-        <h3>Disclosure Schedule Auditor</h3>
-        <p>An M&amp;A target's own facility name, cross-matched live against EPA ECHO, OSHA, and USAspending &mdash; catching an undisclosed regulatory breach the VDR doesn't mention, before bind. Anchored to a real, verified Nov 2026 LMA panel naming disclosure adequacy as a leading cause of contested W&amp;I claims.</p>
-        <div class="module-open">Audit a target
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </a>
-
-      <a class="module-card featured-module" href="./claim-watchlist/">
-        <div class="module-icon" style="background:var(--accent-red-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v5m0 4h.01M10.3 3.9L2.9 17a2 2 0 0 0 1.7 3h14.8a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
-        </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-red-bg); color:var(--accent-red)">Lloyd's Cohort 17 gap, unfilled</span>
-        </div>
-        <h3>Claim Watchlist Clash Triage</h3>
-        <p>A routine, single-claimant casualty claim &mdash; just a manufacturer + model &mdash; cross-matched against real federal pre-litigation complaint-velocity data (CPSC, openFDA MAUDE, NHTSA ODI), refreshed daily. Flags the exact thing Lloyd's own Cohort 17 call named and nobody selected built: &ldquo;seemingly innocuous third-party casualty claims before they develop into major losses.&rdquo;</p>
-        <div class="module-open">Check a claim
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </a>
-
-      <a class="module-card" href="./submission-check/">
-        <div class="module-icon" style="background:var(--accent-red-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-        </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-red-bg); color:var(--accent-red)">Drop-in check</span>
-        </div>
-        <h3>Submission Auto-Check</h3>
-        <p>Type a company name, get a real answer: every new account auto-checked against litigation and regulatory signal, zero manual step. Also available as an API for submission-intake and underwriting workflows &mdash; and the first real test case is AI-agent liability, a category no incumbent tracker covers yet.</p>
-        <div class="module-open">Check a company
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </a>
-
-      <a class="module-card" href="./document-scan/">
-        <div class="module-icon" style="background:var(--accent-blue-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>
-        </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-blue-bg); color:var(--accent-blue)">Document scan</span>
-        </div>
-        <h3>Submission Document Scanner</h3>
-        <p>Paste the actual text of an SOV, policy schedule, or contract &mdash; not just a company name &mdash; and get real emerging-risk language flagged, paired with the real external evidence for why it matters. Nothing you paste leaves your browser.</p>
-        <div class="module-open">Scan a document
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </a>
-
-      <a class="module-card" href="./leakage/">
-        <div class="module-icon" style="background:var(--accent-amber-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-amber)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
-        </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-amber-bg); color:var(--accent-amber)">Cross-tracker join</span>
-        </div>
-        <h3>Statutory-to-Tort Leakage</h3>
-        <p>The first real join between the Presumption Expansion Tracker and the PFAS tracker, built from a real mentor review asking whether the two actually connect. Presumption states show fewer real PFAS exposure sites but more real PFAS regulation bills &mdash; a genuine divergence, reported honestly, not forced into a clean story.</p>
-        <div class="module-open">See the real numbers
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-      </a>
-
-      <a class="module-card featured-module" href="./compliance-pack/">
-        <div class="module-icon" style="background:var(--accent-red-bg)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-red)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-        </div>
-        <div class="module-top">
-          <span class="module-tag" style="background:var(--accent-red-bg); color:var(--accent-red)">Named pain points, weak competition</span>
-        </div>
-        <h3>Lloyd's Compliance Pack</h3>
-        <p>Two specific problems Lloyd's own market has named directly, each checked for real competition: an RDS Liability scenario generator (Lloyd's gives no number for this one, unlike windstorm or earthquake), and a third-party litigation funding disclosure monitor &mdash; a real gap 83.3% of insurers admit they have no process for.</p>
-        <div class="module-open">Open the pack
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
+        <h3>Firefighter Pricing</h3>
+        <p>Real exposure data for firefighter cancer risk, built from 13 years of real fire department records across the US.</p>
+        <span class="go">Try it &rarr;</span>
       </a>
     </div>
   </section>
-    </details>
-  </section>
 
-  <!-- PLANS: named tiers and a CTA per tier, not public checkout pricing -- this is a
-       high-touch annual-contract product, the same way Praedicat and Verisk sell. -->
-  <section class="block" id="plans">
+  <section id="try-it">
     <div class="section-head">
-      <h2>Plans</h2>
-      <p class="section-sub">Priced like the rest of this category &mdash; an enterprise license sized to your book, integrated into your own systems, not a per-seat tool or a self-serve checkout. No number here would mean anything before we've seen your book. Sized for your book also means sized for a regional carrier or MGA's book, not just the handful of reinsurers big enough to justify a platform-scale sales cycle.</p>
+      <span class="eyebrow">Try it now</span>
+      <h2>See a real result, right now</h2>
+      <p>Nothing you type here leaves your browser.</p>
     </div>
-    <div class="plans-row">
-      <div class="plan-card">
-        <span class="plan-badge" style="color:var(--accent-green); background:var(--accent-green-bg)">Free</span>
-        <h3>PFAS X-Ray</h3>
-        <div class="plan-price">$0</div>
-        <p class="plan-desc">Paste your book, get back a ranked, flagged-account list with evidence links. Nothing you enter leaves your browser.</p>
-        <ul class="plan-features">
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Full PFAS portfolio scan</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Evidence links to real filings</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>No signup, no account</li>
-        </ul>
-        <a class="plan-cta secondary" href="./xray/">Run the free scan</a>
+    <div class="card">
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="cw">Claim Watchlist</button>
+        <button class="tab-btn" data-tab="ff">Firefighter Pricing</button>
       </div>
-
-      <div class="plan-card featured">
-        <span class="plan-badge">Most teams start here</span>
-        <h3>Console</h3>
-        <div class="plan-price">Enterprise license, sized to your book</div>
-        <p class="plan-desc">The full module suite for an underwriting, reserving, or claims team: PFAS &amp; turnout-gear tracker, presumption tracker, litigation timeline, live docket checks, and exportable file notes. Priced to your book's size (gross written premium in the tracked lines), not a per-seat fee &mdash; unlimited users across your team.</p>
-        <ul class="plan-features">
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Every scenario module, unlimited users</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Book-of-business exposure calculator</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Underwriting, reserving, and claims teams, one license</li>
-        </ul>
-        <a class="plan-cta primary" href="#get-in-touch">Contact sales</a>
-      </div>
-
-      <div class="plan-card">
-        <span class="plan-badge" style="color:var(--accent-amber); background:var(--accent-amber-bg)">Enterprise</span>
-        <h3>Data Feed &amp; API</h3>
-        <div class="plan-price">Custom license + integration</div>
-        <p class="plan-desc">The validated crosswalk itself &mdash; statute to chemical variant to NAICS code to policy trigger &mdash; licensed as an API feed directly into your own underwriting workbench, reserving software, or treaty-accumulation system. Multi-year terms, with integration scoped and priced as its own line item, the same structure Verisk and Moody's RMS use.</p>
-        <ul class="plan-features">
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Direct API access to every endpoint</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Weekly crosswalk updates, automated</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Plain, open JSON &mdash; no proprietary schema to get locked into</li>
-          <li><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated integration &amp; account support</li>
-        </ul>
-        <a class="plan-cta secondary" href="#get-in-touch">Contact sales</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY THIS ISN'T OPTIONAL: real, cited industry figures, not this project's own claims -->
-  <!-- WHO THIS IS FOR: each role tied to a real existing feature, not a generic market-sizing slide -->
-  <section class="block" id="who-its-for">
-    <div class="section-head">
-      <h2>Who this is for</h2>
-      <p class="section-sub">Not just underwriters &mdash; the same real data, read differently by each real role in the chain.</p>
-    </div>
-    <details class="disclosure">
-      <summary><span style="font-size:14px; font-weight:600;">See all 6 roles</span><span class="chevron">&#9656;</span></summary>
-    <div class="persona-grid" style="margin-top:20px;">
-      <div class="persona-card">
-        <div class="p-role">Underwriting</div>
-        <h3>Underwriters</h3>
-        <p>Price or exclude an emerging-chemical exposure before it turns into a claim &mdash; the original use case, fully built.</p>
-        <a href="./console/">Open the Console &rarr;</a>
-      </div>
-      <div class="persona-card">
-        <div class="p-role">Actuarial</div>
-        <h3>Reserving &amp; pricing actuaries</h3>
-        <p>The Emergence Signal and the CAS reserving benchmark exist to inform exactly the reserve-adequacy question AM Best's real $9B industry deficiency is about &mdash; and every number cites a primary source, so it can be shown directly to a regulator or rating agency as the basis for a reserve assumption, not just used internally.</p>
-        <a href="./validation/">See the methodology &rarr;</a>
-      </div>
-      <div class="persona-card">
-        <div class="p-role">Reinsurance</div>
-        <h3>Treaty underwriters, both sides</h3>
-        <p>A cedent uses the Aggregation Map to document accumulation for a submission; a reinsurer uses the identical data to monitor assumed-book accumulation across every cedent they write.</p>
-        <a href="./console/#aggregation-map-card">See the Aggregation Map &rarr;</a>
-      </div>
-      <div class="persona-card">
-        <div class="p-role">Claims &amp; legal</div>
-        <h3>Claims handlers &amp; coverage counsel</h3>
-        <p>When a claim lands, the first question is the real settlement range and litigation stage for that exact chemical and defendant &mdash; the Settlement Stage Classification and Severity Anchor data answer it directly, not generically.</p>
-        <a href="./console/">Open the Console &rarr;</a>
-      </div>
-      <div class="persona-card">
-        <div class="p-role">Corporate development</div>
-        <h3>M&amp;A &amp; portfolio due diligence</h3>
-        <p>Evaluating an acquisition's back book or a loss-portfolio transfer needs the same thing underwriting does: paste the book, see the real flagged exposure, in minutes not weeks.</p>
-        <a href="./xray/">Run the PFAS X-Ray &rarr;</a>
-      </div>
-      <div class="persona-card">
-        <div class="p-role">Placement</div>
-        <h3>Brokers</h3>
-        <p>Real, citable data to justify program structure and placement strategy to both client and market &mdash; the same role Postral's own quote-comparison pitch plays for trucking, built for complex casualty instead.</p>
-        <a href="#plans">See Plans &rarr;</a>
-      </div>
-    </div>
-
-    <div class="rds-callout">
-      <h3>Built for how Lloyd's market actually works, not just one syndicate</h3>
-      <p>Lloyd's own 2026 Realistic Disaster Scenarios (RDS) specification makes <b>RDS Liability</b> a compulsory, twice-yearly reporting requirement for every syndicate &mdash; casualty catastrophe reporting is no longer optional market-wide. Nubuye's evidence-tiered, leading-indicator data is built to inform exactly that kind of mandatory casualty-scenario reporting, not just a single underwriter's individual account review.</p>
-    </div>
-    </details>
-  </section>
-
-  <section class="block" id="why-now">
-    <div class="section-head">
-      <h2>Why this isn't optional</h2>
-      <p class="section-sub">Not our claim &mdash; the industry's own numbers.</p>
-    </div>
-    <details class="disclosure">
-      <summary><span style="font-size:14px; font-weight:600;">Read the industry numbers</span><span class="chevron">&#9656;</span></summary>
-    <div class="plans-row" style="margin-top:20px;">
-      <div class="plan-card">
-        <span class="plan-badge" style="color:var(--accent-red); background:var(--accent-red-bg)">Reserve adequacy</span>
-        <h3>$9B deficiency, real not theoretical</h3>
-        <p class="plan-desc">AM Best estimated a <b>$9 billion</b> net casualty reserve deficiency industry-wide at year-end 2024. CNA alone booked <b>$106 million</b> of unfavorable casualty development in Q1 2026, concentrated in excess casualty. Moody's own research says tools built on historical loss data can't keep pace with emerging risk &mdash; this is the documentation gap that costs exactly this kind of money.</p>
-      </div>
-      <div class="plan-card">
-        <span class="plan-badge" style="color:var(--accent-amber); background:var(--accent-amber-bg)">Reinsurer pressure</span>
-        <h3>Already written into real treaties</h3>
-        <p class="plan-desc">Not hypothetical: a real 2026 SEC filing (Lemonade's Q3 10-Q) discloses a quota-share reinsurance treaty with an <b>absolute PFAS exclusion</b>, burden of proof on the reinsured. Swiss Re's own risk officer has said PFAS sits "at the boundary of insurability" without proper risk mitigation. This is the documentation layer behind the exclusion endorsement your reinsurer is already writing.</p>
-      </div>
-      <div class="plan-card">
-        <span class="plan-badge" style="color:var(--accent-blue); background:var(--accent-blue-bg)">Timing</span>
-        <h3>"Too late" is the industry's own words</h3>
-        <p class="plan-desc">Guy Carpenter's own casualty-cat research: by the time a casualty catastrophe signal is visible, it's typically too late to act. Lloyd's calls this modeling category "a relatively new field without an established methodology." The Emergence Signal exists specifically to surface leading indicators &mdash; before the filings, not after. <a href="./validation/" style="color:var(--accent-blue);font-weight:600">See the real backtest &rarr;</a></p>
-      </div>
-    </div>
-    </details>
-  </section>
-
-  <!-- NEXT CATEGORY: honestly flagged, not fabricated. No MDL exists yet -- checked directly. -->
-  <section class="block" id="next-category">
-    <div class="section-head">
-      <h2>What we're watching next</h2>
-      <p class="section-sub">Named by the industry itself, not yet tracked here &mdash; the honest difference between a signal and a tracked category.</p>
-    </div>
-    <details class="disclosure">
-      <summary><span style="font-size:14px; font-weight:600;">Indoor Air Quality &mdash; Mold &amp; Legionella</span><span class="chevron">&#9656;</span></summary>
-    <div class="map-card" style="text-align:left;margin-top:20px;">
-      <p style="font-size:14px;line-height:1.7;color:var(--ink-muted);margin:0 0 14px;">Gallagher's own environment-practice director said in May 2026 that environmental casualty insurers are now tightening terms on PFAS <i>and</i> indoor air quality risks &mdash; mold, Legionella &mdash; together, as both escalate. Real, individual coverage disputes are already surfacing: a Florida Legionella/hot-tub exhaustion-of-limits dispute, an insurer (Arch) seeking a ruling that its pollution exclusion bars Legionella coverage, and a multi-state military-housing mold bad-faith suit against CGL/pollution insurers.</p>
-      <p style="font-size:13px;color:var(--ink-faint);line-height:1.6;margin:0;"><b>Checked directly, stated honestly:</b> no JPML multidistrict consolidation exists yet for mold or Legionella claims &mdash; this is scattered individual litigation, not a mass tort, the same early stage turnout-gear litigation was at when this project started tracking it. Flagged here as a real, named next category to watch, not fabricated as already-tracked data.</p>
-    </div>
-    </details>
-  </section>
-
-  <!-- 1. ONTOLOGY -->
-  <section class="block" id="ontology">
-    <div class="section-head">
-      <h2>How Nubuye models risk</h2>
-      <p class="section-sub">Every module reads and writes to the same underlying objects. A new statute doesn't just update one page &mdash; it re-scores every state, every litigation action, and every prediction that touches it.</p>
-    </div>
-    <details class="disclosure">
-      <summary><span style="font-size:14px; font-weight:600;">See the data model</span><span class="chevron">&#9656;</span></summary>
-    <div class="map-card" style="margin-top:20px;">
-      <div class="ontology-diagram">
-        <div class="ont-row">
-          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">State</span></div>
-          <span class="ont-link">&mdash; enacts &rarr;</span>
-          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">Statute</span></div>
-          <span class="ont-link">&mdash; feeds &rarr;</span>
-          <div class="ont-node"><span class="ont-type">Model</span><span class="ont-name">Emergence Signal</span></div>
+      <div class="tab-panel active" id="panel-cw">
+        <div class="check-row">
+          <input type="text" id="cw-mfr" placeholder="Manufacturer, e.g. Zuru Inc.">
+          <input type="text" id="cw-model" placeholder="Model, e.g. Size 4">
+          <button class="btn primary" id="cw-btn">Check</button>
         </div>
-        <div class="ont-row">
-          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">State</span></div>
-          <span class="ont-link">&mdash; named in &rarr;</span>
-          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">Litigation action</span></div>
-          <span class="ont-link">&mdash; consolidated into &rarr;</span>
-          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">MDL</span></div>
-        </div>
-        <div class="ont-row">
-          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">State</span></div>
-          <span class="ont-link">&mdash; has/gained/lost &rarr;</span>
-          <div class="ont-node"><span class="ont-type">Object</span><span class="ont-name">Presumption category</span></div>
-        </div>
-        <div class="ont-row">
-          <div class="ont-node" style="background:var(--accent-blue-bg)"><span class="ont-type">Your data</span><span class="ont-name">Book of business</span></div>
-          <span class="ont-link">&mdash; weighted against all three &rarr;</span>
-          <div class="ont-node" style="background:var(--accent-amber-bg)"><span class="ont-type">Output</span><span class="ont-name">At-risk exposure</span></div>
-        </div>
+        <div class="try-row">Try: <button onclick="document.getElementById('cw-mfr').value='Zuru Inc.';document.getElementById('cw-model').value='Size 4';document.getElementById('cw-btn').click()">Zuru diapers</button><button onclick="document.getElementById('cw-mfr').value='Insulet Corporation';document.getElementById('cw-model').value='PT-000435';document.getElementById('cw-btn').click()">Insulet pump</button></div>
+        <div id="cw-result"></div>
       </div>
-      <p class="ontology-note">This is why the two modules above and the exposure checker below all stay in sync off one data layer: a state is one object referenced everywhere it's relevant, not copy-pasted into three separate trackers. Click "Check your exposure" to query this layer against your own book, not just a state list.</p>
+      <div class="tab-panel" id="panel-ff">
+        <div class="check-row">
+          <input type="text" id="ff-state" placeholder="State, e.g. CO" maxlength="2">
+          <button class="btn primary" id="ff-btn">Score state</button>
+        </div>
+        <div class="try-row">Try: <button onclick="document.getElementById('ff-state').value='CO';document.getElementById('ff-btn').click()">Colorado</button><button onclick="document.getElementById('ff-state').value='OR';document.getElementById('ff-btn').click()">Oregon</button></div>
+        <div id="ff-result"></div>
+      </div>
     </div>
-    </details>
   </section>
 
-  <!-- 5. WHAT WE SELL, now a named workflow -->
-  <section class="block" id="workflow">
+  <section id="how-it-works">
     <div class="section-head">
-      <h2>The workflow this replaces</h2>
+      <span class="eyebrow">How it works</span>
+      <h2>No dashboards to dig through</h2>
     </div>
-    <div class="map-card" style="text-align:left;">
-      <p style="font-size:14.5px; line-height:1.7; color:var(--ink-muted); margin:0 0 14px;"><b style="color:var(--ink)">Today, without this:</b> a casualty underwriter doing a quarterly PFAS-exposed account review manually re-checks state legislation trackers, searches PACER or news coverage for new filings, and cross-references that against a spreadsheet of which accounts sit in which states &mdash; usually a half-day of manual research per review cycle, done by hand, from scratch, every quarter.</p>
-      <p style="font-size:14.5px; line-height:1.7; color:var(--ink-muted); margin:0;"><b style="color:var(--ink)">What Nubuye does instead:</b> one evidence-tiered view of litigation, legislation, and prediction, queried directly against your book of business, so the quarterly review becomes "open the tool, paste in this quarter's renewals, read the flagged accounts" rather than rebuilding the research from zero. Decision support, not a substitute for your own underwriting diligence.</p>
-    </div>
-  </section>
-
-  <!-- 6. COMPETITIVE POSITIONING -->
-  <section class="block" id="compare">
-    <div class="section-head">
-      <h2>Why isn't this just public data anyone could scrape?</h2>
-      <p class="section-sub">Worth naming the real competitive landscape rather than pretending this space is empty &mdash; and being honest about what's actually hard to copy here and what isn't.</p>
-    </div>
-    <details class="map-card disclosure" style="text-align:left; padding:24px;">
-      <summary><span style="font-size:14px; font-weight:600;">Read the full competitive comparison</span><span class="chevron">&#9656;</span></summary>
-      <table class="compare-table" style="margin-top:18px;">
-        <tr><th>Provider</th><th>What they do</th><th>Where Nubuye differs</th></tr>
-        <tr>
-          <td>Large-scale casualty &amp; latent-liability platforms<br><span style="font-weight:400; color:var(--ink-faint); font-size:12px;">(enterprise liability-analytics vendors)</span></td>
-          <td>Population-aware latent liability modeling for casualty reinsurance, built for large-carrier enterprise sales with long implementation cycles.</td>
-          <td>Smaller surface area by design, one or two scenario threads modeled end to end and fully transparent, rather than a broad platform sold top-down.</td>
-        </tr>
-        <tr>
-          <td>ISO / Verisk</td>
-          <td>Broad industry-standard catastrophe and loss-cost data, trusted but typically a black box on methodology.</td>
-          <td>Every figure is tagged VERIFIED or REPORTED inline, and corrections are kept visible rather than silently fixed.</td>
-        </tr>
-      </table>
-      <p style="font-size:13px; color:var(--ink-faint); margin:16px 0 0; line-height:1.6;">The underlying public records &mdash; court dockets, state statutes &mdash; aren't what makes this hard to copy; any competitor can pull the same filings. What isn't public is the validated crosswalk connecting a specific statute to a specific chemical variant to a specific NAICS code to a specific policy trigger: that mapping gets more accurate and harder to replicate every week it keeps running, which is the actual bet here. This isn't a claim to replace either category above. It's a different one: that a narrow, radically transparent tool updated weekly beats a broad platform updated quarterly, for the specific accounts where it actually matters.</p>
-    </details>
-  </section>
-
-  <!-- 4. PILOT / ONE REAL USER -->
-  <section class="block" id="get-in-touch">
-    <div class="pilot-card">
-      <h3>Looking for one real book to pilot this against</h3>
-      <p>Every module here is built from public data, verified line by line. If you work casualty, workers' comp, or PFAS-exposed accounts and would spend 20 minutes walking through how your quarterly review actually works, that's the single most useful thing that could happen to this project right now.</p>
-      <a class="pilot-btn" href="mailto:brukf2205@gmail.com?subject=Nubuye pilot">Get in touch</a>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><h3>Give us a name or detail</h3><p>A manufacturer, a company, a facility, a state &mdash; whatever the check needs.</p></div>
+      <div class="step"><div class="step-num">2</div><h3>We check it live</h3><p>Against real government records, the moment you ask &mdash; not a stale report.</p></div>
+      <div class="step"><div class="step-num">3</div><h3>You get a clear answer</h3><p>Flagged or not, with the real source linked &mdash; no interpretation needed.</p></div>
     </div>
   </section>
 
-  <footer>
-    Every number on every module is sourced. Evidence tiers are shown inline: VERIFIED = source directly opened and read, REPORTED = secondary coverage only. More scenario modules in progress.
-    <div style="margin-top:10px">This entire platform &mdash; every module, the Emergence Signal model, and the automated weekly data refresh &mdash; was built and shipped in 6 days, not 6 months. When a new real mass-tort category needs tracking, that's the turnaround to expect, not a committee cycle.</div>
-  </footer>
+  <div class="trust-bar">
+    <div class="trust-label">Every check reads directly from</div>
+    <div class="trust-sources">
+      <span>CPSC</span><span>openFDA</span><span>NHTSA</span><span>EPA</span><span>OSHA</span><span>USAspending</span><span>CMS</span><span>NFIRS</span>
+    </div>
+  </div>
+
 </div>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
+        <p>Real government records, checked for you. Built for casualty insurers who want an answer, not a search.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <a href="./claim-watchlist/">Claim Watchlist</a>
+        <a href="./disclosure-audit/">Disclosure Auditor</a>
+        <a href="./hai-radar/">Hospital Infection Radar</a>
+        <a href="./firefighter-pricing/">Firefighter Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="./track-record/">Track record</a>
+        <a href="./about/">About</a>
+        <a href="mailto:hello@nubuye.com">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="./terms/">Terms of Service</a>
+        <a href="./privacy/">Privacy Policy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Nubuye. All rights reserved.</span>
+      <span>Made for casualty insurers.</span>
+    </div>
+  </div>
+</footer>
 
 <script src="./shared/moat-engine.js"></script>
 <script>
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
 
-function renderHomepageRda(elId, riskCategory, label) {
-  const el = document.getElementById(elId);
-  const r = MoatEngine.getReserveDevelopmentAnomaly(riskCategory);
-  if (!r || !el) return;
-  const anomalyColor = r.anomalyPoints > 30 ? "var(--accent-red)" : r.anomalyPoints > 10 ? "var(--accent-amber)" : "var(--ink-faint)";
-  el.innerHTML = `
-    <div class="map-card" style="padding:18px 20px;margin-bottom:12px;">
-      <b>${esc(label)}</b> (MDL-${esc(r.mdlNumber)}, real age ~${r.ageYears} years)
-      <div style="margin-top:10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px">
-        <div><div style="font-size:22px;font-weight:700;font-family:var(--font-mono)">${r.genericExpectedPctPaid}%</div><div style="font-size:11px;color:var(--ink-faint)">generic curve expects resolved by now</div></div>
-        <div><div style="font-size:22px;font-weight:700;font-family:var(--font-mono)">${r.realPctResolved}%</div><div style="font-size:11px;color:var(--ink-faint)">real JPML-reported resolution rate</div></div>
-        <div><div style="font-size:22px;font-weight:700;font-family:var(--font-mono);color:${anomalyColor}">${r.anomalyPoints > 0 ? "+" : ""}${r.anomalyPoints} pts</div><div style="font-size:11px;color:var(--ink-faint)">real anomaly</div></div>
-      </div>
-    </div>
-  `;
-}
-
-function renderHomepageCheckResult(result) {
-  const el = document.getElementById("hp-check-result");
-  const heading = result.flagged
-    ? `<span style="font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--accent-red-bg);color:var(--accent-red);text-transform:uppercase;">On a real cluster</span> ${esc(result.manufacturer)}${result.modelOrIdentifier ? " / " + esc(result.modelOrIdentifier) : ""}`
-    : `<span style="font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--chip-bg);color:var(--ink-faint);text-transform:uppercase;">No active cluster</span> ${esc(result.manufacturer)}${result.modelOrIdentifier ? " / " + esc(result.modelOrIdentifier) : ""}`;
-  if (!result.matches.length) {
-    el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div><p class="section-sub" style="margin:0;">${esc(result.note)}</p>`;
-    return;
-  }
-  const srcLabel = { cpsc: "CPSC SaferProducts.gov", maude: "openFDA MAUDE (Death reports)", nhtsa_odi: "NHTSA ODI" };
-  const rows = result.matches.slice(0, 4).map(m =>
-    `<div style="padding:8px 0;border-top:1px solid var(--chip-bg);font-size:13px;"><span style="font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--accent-amber-bg);color:var(--accent-amber);text-transform:uppercase;">Active</span> ${esc(srcLabel[m.source] || m.source)} &mdash; ${esc(m.countInWindow)} report(s) in ${esc(m.windowDays)}d, most recent ${esc(m.mostRecentDate)}</div>`
-  ).join("");
-  el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div><p class="section-sub" style="margin:0 0 4px;">${result.matches.length} real match(es) found.</p>${rows}`;
-}
-
-function renderHomepageFirefighterResult(result) {
-  const el = document.getElementById("hp-ff-result");
-  const SEGMENT_LABEL = {
-    presumption_state_high_exposure: ["accent-red", "Presumption state, high exposure"],
-    presumption_state_standard_exposure: ["accent-amber", "Presumption state, standard exposure"],
-    non_presumption_state_high_exposure: ["accent-amber", "No presumption, high exposure"],
-    non_presumption_state_standard_exposure: ["ink-faint", "No presumption, standard exposure"],
-  };
-  const heading = `<span style="font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--chip-bg);color:var(--ink-muted);text-transform:uppercase;">${esc(result.totalMatches)} department(s) scored</span> ${esc(result.state)}`;
-  if (!result.matches.length) {
-    el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div><p class="section-sub" style="margin:0;">No real departments with usable data under this state.</p>`;
-    return;
-  }
-  const rows = result.matches.slice(0, 4).map(m => {
-    const [color, label] = SEGMENT_LABEL[m.exposureSegment] || ["ink-faint", m.exposureSegment];
-    return `<div style="padding:8px 0;border-top:1px solid var(--chip-bg);font-size:13px;"><span style="font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:999px;background:var(--${color}-bg,var(--chip-bg));color:var(--${color},var(--ink-muted));text-transform:uppercase;">${esc(label)}</span> <b>${esc(m.deptName || m.fdid)}</b> &mdash; ${esc((m.toxicHoursPerFirefighter||0).toFixed(1))} hrs/ff/yr, ${esc(m.nationalPercentile)}th percentile</div>`;
-  }).join("");
-  el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div><p class="section-sub" style="margin:0 0 4px;">Top real department(s) by national percentile.</p>${rows}`;
-}
-
-function setupHomepageCheck() {
-  const btn = document.getElementById("hp-check-btn");
-  const input = document.getElementById("hp-check-input");
-  const modelInput = document.getElementById("hp-check-model");
-  if (btn && input) {
-    btn.addEventListener("click", () => {
-      const name = input.value.trim();
-      if (name) renderHomepageCheckResult(MoatEngine.checkClaimWatchlist(name, modelInput ? modelInput.value.trim() : ""));
-    });
-    input.addEventListener("keydown", (e) => { if (e.key === "Enter") btn.click(); });
-    if (modelInput) modelInput.addEventListener("keydown", (e) => { if (e.key === "Enter") btn.click(); });
-  }
-  const ffBtn = document.getElementById("hp-ff-btn");
-  const ffState = document.getElementById("hp-ff-state");
-  if (ffBtn && ffState) {
-    ffBtn.addEventListener("click", () => {
-      const state = ffState.value.trim();
-      if (state) renderHomepageFirefighterResult(MoatEngine.checkFirefighterPresumption(state, "", ""));
-    });
-    ffState.addEventListener("keydown", (e) => { if (e.key === "Enter") ffBtn.click(); });
-  }
-}
-
-function renderHomepageLeakageSummary() {
-  const el = document.getElementById("homepage-leakage-summary");
-  const model = MoatEngine.getLeakageModel();
-  if (!model || !el) return;
-  const s = model.summary;
-  el.innerHTML = `
-    <div class="stat-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:14px;">
-      <div class="map-card" style="padding:16px 18px;"><div style="font-size:22px;font-weight:700;font-family:var(--font-mono)">${s.n_presumption_states}</div><div style="font-size:11.5px;color:var(--ink-faint);margin-top:2px">states with any 2023 presumption</div></div>
-      <div class="map-card" style="padding:16px 18px;"><div style="font-size:22px;font-weight:700;font-family:var(--font-mono)">${s.n_no_presumption_states}</div><div style="font-size:11.5px;color:var(--ink-faint);margin-top:2px">states with none</div></div>
-      <div class="map-card" style="padding:16px 18px;"><div style="font-size:22px;font-weight:700;font-family:var(--font-mono);color:var(--accent-blue)">${s.avg_pfas_exposure_sites_in_presumption_states} vs ${s.avg_pfas_exposure_sites_in_no_presumption_states}</div><div style="font-size:11.5px;color:var(--ink-faint);margin-top:2px">avg real PFAS exposure sites, presumption vs. none</div></div>
-      <div class="map-card" style="padding:16px 18px;"><div style="font-size:22px;font-weight:700;font-family:var(--font-mono);color:var(--accent-amber)">${s.avg_pfas_regulation_bills_in_presumption_states} vs ${s.avg_pfas_regulation_bills_in_no_presumption_states}</div><div style="font-size:11.5px;color:var(--ink-faint);margin-top:2px">avg real PFAS regulation bills, presumption vs. none</div></div>
-    </div>
-    <p class="section-sub" style="margin:0;">A real, honest divergence, not a clean story: presumption-law states show <b>fewer</b> real PFAS exposure sites on average, but <b>more</b> real PFAS regulation bills. ${esc(model.thin_data_caveat)}</p>
-  `;
-}
-
-function renderCoverageMatrix(rows) {
-  const el = document.getElementById("coverage-matrix");
-  if (!rows || !rows.length) { el.innerHTML = `<tr><td class="empty-note">Coverage data unavailable in this view.</td></tr>`; return; }
-  const signalLabels = rows[0].signals.map(s => s.label);
-  const check = `<svg width="15" height="15" viewBox="0 0 16 16" fill="none" style="display:block;margin:0 auto;"><path d="M3 8.5L6.5 12L13 4.5" stroke="var(--accent-blue)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-  const dash = `<span style="color:var(--ink-faint)">&mdash;</span>`;
-  el.innerHTML = `
-    <tr><th>Category</th>${signalLabels.map(l => `<th style="text-align:center;font-size:10.5px;">${esc(l)}</th>`).join("")}</tr>
-    ${rows.map(r => `<tr>
-      <td>${esc(r.label)}</td>
-      ${r.signals.map(s => `<td style="text-align:center;">${s.tracked ? check : dash}</td>`).join("")}
-    </tr>`).join("")}
-  `;
-}
-
-const STATE_NAMES = {
-  AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",
-  DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",
-  IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",
-  MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",
-  NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",
-  OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",
-  TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",
-  WI:"Wisconsin",WY:"Wyoming",PR:"Puerto Rico"
-};
-const NAME_TO_CODE = Object.fromEntries(Object.entries(STATE_NAMES).map(([code, name]) => [name.toLowerCase(), code]));
-
-let PFAS_DATA = null, PRESUMPTION_DATA = null;
-
-async function loadPortfolioData() {
-  try {
-    const [pfasRes, presRes] = await Promise.all([
-      fetch("pfas2/data.json").catch(() => null),
-      fetch("presumption2/data.json").catch(() => null),
-    ]);
-    if (pfasRes && pfasRes.ok) PFAS_DATA = await pfasRes.json();
-    if (presRes && presRes.ok) PRESUMPTION_DATA = await presRes.json();
-  } catch (e) { /* leave nulls; UI will say what's unavailable */ }
-}
-
-function parseStateInput(raw) {
-  return [...new Set(raw.split(/[,;]/).map(s => s.trim()).filter(Boolean).map(tok => {
-    const upper = tok.toUpperCase();
-    if (STATE_NAMES[upper]) return upper;
-    return NAME_TO_CODE[tok.toLowerCase()] || null;
-  }).filter(Boolean))];
-}
-
-function catStatus(cat, code) {
-  const had2016 = (cat.states_2016 || []).filter(s => s.length === 2).includes(code);
-  const has2023 = (cat.states_2023 || []).filter(s => s.length === 2).includes(code);
-  if (has2023 && had2016) return "has";
-  if (has2023 && !had2016) return "gained";
-  if (!has2023 && had2016) return "lost";
-  return "never";
-}
-
-function getLitigatingStates() {
-  const set = new Set();
-  if (!PFAS_DATA) return set;
-  PFAS_DATA.litigation_actions.forEach(a => {
-    if (a.state) set.add(a.state);
-    a.plaintiffs_named.forEach(p => { const m = p.match(/,\s*([A-Z]{2})\b/); if (m) set.add(m[1]); });
-  });
-  return set;
-}
-
-function getCandidateMap() {
-  const map = {};
-  if (!PFAS_DATA) return map;
-  PFAS_DATA.prediction_model.top_candidates.forEach((c, i) => { map[c.code] = { ...c, rank: i + 1 }; });
-  return map;
-}
-
-function runPortfolioCheck(codes) {
-  const resultEl = document.getElementById("portfolio-result");
-  if (codes.length === 0) {
-    resultEl.innerHTML = `<p style="font-size:13.5px; color:var(--ink-muted); margin:14px 0 0;">Enter at least one recognizable US state (two-letter code or full name) to check.</p>`;
-    return;
-  }
-
-  let litigatingCount = 0, predictedCount = 0, presumptionGainedCount = 0, presumptionLostCount = 0;
-  const litigatingStates = getLitigatingStates();
-  const candidateMap = getCandidateMap();
-
-  const rows = codes.map(code => {
-    const name = STATE_NAMES[code] || code;
-    const lines = [];
-
-    if (PFAS_DATA) {
-      if (litigatingStates.has(code)) {
-        litigatingCount++;
-        lines.push(`<div class="psr-line"><b>PFAS:</b> confirmed litigation &mdash; already a named plaintiff state.</div>`);
-      } else if (candidateMap[code]) {
-        predictedCount++;
-        const c = candidateMap[code];
-        lines.push(`<div class="psr-line"><b>PFAS:</b> ranked #${c.rank} of 10 predicted-next &mdash; ${esc(c.airports)} FAA airports, has enacted PFAS/AFFF legislation.</div>`);
-      } else {
-        lines.push(`<div class="psr-line"><b>PFAS:</b> no current signal tracked.</div>`);
-      }
-    } else {
-      lines.push(`<div class="psr-line"><b>PFAS:</b> module data unavailable in this view.</div>`);
-    }
-
-    if (PRESUMPTION_DATA) {
-      const chips = PRESUMPTION_DATA.disease_categories.map(cat => {
-        const status = catStatus(cat, code);
-        if (status === "never") return "";
-        if (status === "gained") presumptionGainedCount++;
-        if (status === "lost") presumptionLostCount++;
-        const palette = { has: ["var(--chip-bg)", "var(--ink-muted)"], gained: ["var(--accent-blue-bg)", "var(--accent-blue)"], lost: ["var(--accent-red-bg)", "var(--accent-red)"] };
-        const [bg, fg] = palette[status];
-        const label = status === "has" ? "has it" : status === "gained" ? "gained since 2016" : "lost since 2016";
-        return `<span class="portfolio-cat-chip" style="background:${bg}; color:${fg}">${esc(cat.label)}: ${label}</span>`;
-      }).filter(Boolean).join("");
-      lines.push(`<div class="psr-line"><b>Presumption:</b></div>${chips || `<div class="psr-line" style="margin-left:0;">No active, gained, or lost presumption category for this state.</div>`}`);
-    } else {
-      lines.push(`<div class="psr-line"><b>Presumption:</b> module data unavailable in this view.</div>`);
-    }
-
-    return `<div class="portfolio-state-row"><div class="psr-name">${esc(name)}</div>${lines.join("")}</div>`;
-  }).join("");
-
-  resultEl.innerHTML = `
-    <div class="portfolio-summary">
-      <div class="ps"><div class="n bad">${litigatingCount}</div><div class="l">of ${codes.length} in active PFAS litigation</div></div>
-      <div class="ps"><div class="n warn">${predictedCount}</div><div class="l">of ${codes.length} top-10 predicted-next (PFAS)</div></div>
-      <div class="ps"><div class="n">${presumptionGainedCount}</div><div class="l">presumption categories gained since 2016</div></div>
-      <div class="ps"><div class="n bad">${presumptionLostCount}</div><div class="l">presumption categories lost since 2016</div></div>
-    </div>
-    ${rows}
-    <div class="copy-note-row">
-      <button class="portfolio-btn secondary" id="portfolio-copy">Copy as file note</button>
-      <span class="copy-note-feedback" id="portfolio-copy-feedback"></span>
-    </div>
-  `;
-
-  document.getElementById("portfolio-copy").addEventListener("click", () => {
-    const noteLines = [`Nubuye portfolio exposure check -- ${codes.length} state(s): ${codes.join(", ")}`, ""];
-    codes.forEach(code => {
-      const name = STATE_NAMES[code] || code;
-      noteLines.push(`${name}:`);
-      if (PFAS_DATA) {
-        if (litigatingStates.has(code)) noteLines.push(`  - PFAS: confirmed litigation, already a named plaintiff state.`);
-        else if (candidateMap[code]) noteLines.push(`  - PFAS: ranked #${candidateMap[code].rank} of 10 predicted-next (${candidateMap[code].airports} FAA airports, enacted legislation).`);
-        else noteLines.push(`  - PFAS: no current signal tracked.`);
-      }
-      if (PRESUMPTION_DATA) {
-        const parts = PRESUMPTION_DATA.disease_categories.map(cat => {
-          const status = catStatus(cat, code);
-          if (status === "never") return null;
-          const label = status === "has" ? "has it" : status === "gained" ? "gained since 2016" : "lost since 2016";
-          return `${cat.label} (${label})`;
-        }).filter(Boolean);
-        noteLines.push(`  - Presumption: ${parts.length ? parts.join("; ") : "no active, gained, or lost category"}.`);
-      }
-      noteLines.push("");
-    });
-    noteLines.push(`Source: Nubuye (Nubuye platform), checked ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}. Every figure sourced; evidence tiers shown on each module.`);
-    const text = noteLines.join("\n");
-    navigator.clipboard.writeText(text).then(() => {
-      document.getElementById("portfolio-copy-feedback").textContent = "Copied.";
-      setTimeout(() => { const el = document.getElementById("portfolio-copy-feedback"); if (el) el.textContent = ""; }, 2500);
-    }).catch(() => {
-      document.getElementById("portfolio-copy-feedback").textContent = "Couldn't copy -- select and copy manually.";
-    });
-  });
-}
-
-function updateUrlParam(codes) {
-  const url = new URL(window.location.href);
-  if (codes.length) url.searchParams.set("states", codes.join(","));
-  else url.searchParams.delete("states");
-  window.history.replaceState({}, "", url);
-}
-
-function renderSavedPortfolios() {
-  const STORAGE_KEY = "nubuye:savedPortfolios";
-  let saved = {};
-  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch (e) { saved = {}; }
-  const container = document.getElementById("saved-portfolios");
-  const names = Object.keys(saved);
-  if (names.length === 0) { container.innerHTML = ""; return; }
-  container.innerHTML = names.map(name => `
-    <span class="saved-chip">
-      <span class="load" data-name="${esc(name)}">${esc(name)}</span>
-      <button data-delete="${esc(name)}" title="Delete">&times;</button>
-    </span>
-  `).join("");
-  container.querySelectorAll(".load").forEach(el => {
-    el.addEventListener("click", () => {
-      const codes = saved[el.dataset.name] || [];
-      document.getElementById("portfolio-states").value = codes.join(", ");
-      updateUrlParam(codes);
-      runPortfolioCheck(codes);
-    });
-  });
-  container.querySelectorAll("[data-delete]").forEach(el => {
-    el.addEventListener("click", () => {
-      try {
-        const current = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-        delete current[el.dataset.delete];
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(current));
-      } catch (e) {}
-      renderSavedPortfolios();
-    });
-  });
-}
-
-/* ---- 3. Book of business calculator ---- */
-let bobRowCount = 0;
-function addBobRow(stateVal = "", policyVal = "", tivVal = "") {
-  bobRowCount++;
-  const id = bobRowCount;
-  const table = document.getElementById("bob-table");
-  const tr = document.createElement("tr");
-  tr.id = `bob-row-${id}`;
-  tr.innerHTML = `
-    <td><input type="text" class="bob-state" placeholder="e.g. OH" value="${esc(stateVal)}"></td>
-    <td><input type="number" class="bob-policies" placeholder="e.g. 40" min="0" value="${esc(policyVal)}"></td>
-    <td><input type="number" class="bob-tiv" placeholder="e.g. 8000000" min="0" value="${esc(tivVal)}"></td>
-    <td><button class="bob-remove" data-row="${id}" title="Remove">&times;</button></td>
-  `;
-  table.appendChild(tr);
-  tr.querySelector(".bob-remove").addEventListener("click", () => tr.remove());
-}
-
-function runBobCheck() {
-  const rows = [...document.querySelectorAll("#bob-table tr")].slice(1); // skip header
-  const litigatingStates = getLitigatingStates();
-  const candidateMap = getCandidateMap();
-  const resultEl = document.getElementById("bob-result");
-
-  let totalTiv = 0, atRiskLitigatingTiv = 0, atRiskPredictedTiv = 0;
-  let totalPolicies = 0, atRiskLitigatingPolicies = 0, atRiskPredictedPolicies = 0;
-  const parsedRows = [];
-
-  rows.forEach(tr => {
-    const stateRaw = tr.querySelector(".bob-state")?.value.trim();
-    const policies = parseFloat(tr.querySelector(".bob-policies")?.value) || 0;
-    const tiv = parseFloat(tr.querySelector(".bob-tiv")?.value) || 0;
-    if (!stateRaw) return;
-    const upper = stateRaw.toUpperCase();
-    const code = STATE_NAMES[upper] ? upper : (NAME_TO_CODE[stateRaw.toLowerCase()] || null);
-    if (!code) { parsedRows.push({ stateRaw, code: null, policies, tiv }); return; }
-    totalTiv += tiv; totalPolicies += policies;
-    let status = "none";
-    if (litigatingStates.has(code)) { status = "litigating"; atRiskLitigatingTiv += tiv; atRiskLitigatingPolicies += policies; }
-    else if (candidateMap[code]) { status = "predicted"; atRiskPredictedTiv += tiv; atRiskPredictedPolicies += policies; }
-    parsedRows.push({ stateRaw, code, policies, tiv, status });
-  });
-
-  if (parsedRows.length === 0) {
-    resultEl.innerHTML = `<p style="font-size:13.5px; color:var(--ink-muted); margin:14px 0 0;">Add at least one state row with a recognizable state to calculate exposure.</p>`;
-    return;
-  }
-  if (!PFAS_DATA) {
-    resultEl.innerHTML = `<p style="font-size:13.5px; color:var(--ink-muted); margin:14px 0 0;">PFAS module data unavailable in this view, so exposure can't be weighted right now.</p>`;
-    return;
-  }
-
-  const fmt = n => "$" + Math.round(n).toLocaleString("en-US");
-  const badRows = parsedRows.filter(r => !r.code).map(r => r.stateRaw);
-
-  resultEl.innerHTML = `
-    <div class="bob-exposure-summary">
-      <div class="beg">${fmt(atRiskLitigatingTiv + atRiskPredictedTiv)}</div>
-      <div class="bel">of ${fmt(totalTiv)} total insured value sits in a state with confirmed PFAS litigation or a top-10 predicted-next ranking</div>
-      <div class="bob-breakdown">
-        <div class="bob-breakdown-row"><span>Confirmed litigation states</span><b>${fmt(atRiskLitigatingTiv)} &middot; ${atRiskLitigatingPolicies} polic${atRiskLitigatingPolicies === 1 ? "y" : "ies"}</b></div>
-        <div class="bob-breakdown-row"><span>Predicted-next states</span><b>${fmt(atRiskPredictedTiv)} &middot; ${atRiskPredictedPolicies} polic${atRiskPredictedPolicies === 1 ? "y" : "ies"}</b></div>
-        <div class="bob-breakdown-row"><span>Total policies entered</span><b>${totalPolicies}</b></div>
-      </div>
-    </div>
-    ${badRows.length ? `<p style="font-size:12.5px; color:var(--accent-amber); margin:14px 0 0;">Couldn't recognize: ${badRows.map(esc).join(", ")} &mdash; use a two-letter state code or full state name.</p>` : ""}
-    <div class="copy-note-row">
-      <button class="portfolio-btn secondary" id="bob-copy">Copy as file note</button>
-      <span class="copy-note-feedback" id="bob-copy-feedback"></span>
-    </div>
-  `;
-
-  document.getElementById("bob-copy").addEventListener("click", () => {
-    const lines = [`Nubuye book-of-business exposure check`, `Total: ${fmt(totalTiv)} across ${totalPolicies} policies in ${parsedRows.filter(r=>r.code).length} state(s)`, ""];
-    parsedRows.filter(r => r.code).forEach(r => {
-      lines.push(`${STATE_NAMES[r.code]}: ${r.policies} policies, ${fmt(r.tiv)} TIV -- ${r.status === "litigating" ? "confirmed PFAS litigation state" : r.status === "predicted" ? "top-10 predicted-next state" : "no current signal"}`);
-    });
-    lines.push("", `At-risk TIV (litigating + predicted): ${fmt(atRiskLitigatingTiv + atRiskPredictedTiv)}`);
-    lines.push(`Source: Nubuye (Nubuye platform), checked ${new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}. Every figure sourced; evidence tiers shown on each module.`);
-    navigator.clipboard.writeText(lines.join("\n")).then(() => {
-      document.getElementById("bob-copy-feedback").textContent = "Copied.";
-      setTimeout(() => { const el = document.getElementById("bob-copy-feedback"); if (el) el.textContent = ""; }, 2500);
-    }).catch(() => { document.getElementById("bob-copy-feedback").textContent = "Couldn't copy -- select and copy manually."; });
-  });
-}
-
-/* ---- 2. Live docket check against CourtListener's public RECAP API ---- */
-async function runDocketCheck() {
-  const query = document.getElementById("docket-query").value.trim();
-  const resultEl = document.getElementById("docket-result");
-  const btn = document.getElementById("docket-check");
-  if (!query) return;
-
-  btn.disabled = true;
-  resultEl.innerHTML = `<div class="docket-status loading">Querying CourtListener's public docket search&hellip;</div>`;
-
-  try {
-    const url = `https://www.courtlistener.com/api/rest/v4/search/?q=${encodeURIComponent(query)}&type=r&order_by=dateFiled%20desc`;
-    const res = await fetch(url, { headers: { "Accept": "application/json" } });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    const items = (data.results || []).slice(0, 5);
-    if (items.length === 0) {
-      resultEl.innerHTML = `<div class="docket-status empty">No matching dockets found for this query right now.</div>`;
-    } else {
-      resultEl.innerHTML = `<div class="docket-status ok">Live result from CourtListener, ${items.length} most recent match${items.length === 1 ? "" : "es"}:</div>
-        <div class="docket-result">${items.map(it => `
-          <div class="docket-item">
-            <div class="di-title">${esc(it.caseName || it.case_name || "Untitled docket")}</div>
-            <div class="di-meta">${esc(it.court || it.court_id || "")}${it.dateFiled ? " &middot; filed " + esc(it.dateFiled) : ""}</div>
-          </div>
-        `).join("")}</div>`;
-    }
-  } catch (e) {
-    resultEl.innerHTML = `<div class="docket-status error">Couldn't reach CourtListener right now. <a href="https://www.courtlistener.com/?q=${encodeURIComponent(query)}&type=r" target="_blank" rel="noopener">View this search directly on CourtListener</a>.</div>`;
-  } finally {
-    btn.disabled = false;
-  }
-}
-
-async function initPortfolio() {
-  await loadPortfolioData();
-
-  const input = document.getElementById("portfolio-states");
-  const params = new URLSearchParams(window.location.search);
-  const fromUrl = params.get("states");
-  if (fromUrl) {
-    input.value = fromUrl;
-    runPortfolioCheck(parseStateInput(fromUrl));
-    // This control lives inside a collapsed <details> by default (progressive
-    // disclosure) -- open it so a deep link still shows its result immediately.
-    const simpleCheckDetails = input.closest("details.disclosure");
-    if (simpleCheckDetails) simpleCheckDetails.open = true;
-  }
-
-  document.getElementById("portfolio-check").addEventListener("click", () => {
-    const codes = parseStateInput(input.value);
-    updateUrlParam(codes);
-    runPortfolioCheck(codes);
-  });
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      const codes = parseStateInput(input.value);
-      updateUrlParam(codes);
-      runPortfolioCheck(codes);
-    }
-  });
-
-  document.getElementById("portfolio-save").addEventListener("click", () => {
-    const name = document.getElementById("portfolio-save-name").value.trim();
-    const codes = parseStateInput(input.value);
-    if (!name || codes.length === 0) return;
-    const STORAGE_KEY = "nubuye:savedPortfolios";
-    let saved = {};
-    try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}"); } catch (e) { saved = {}; }
-    saved[name] = codes;
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(saved)); } catch (e) {}
-    document.getElementById("portfolio-save-name").value = "";
-    renderSavedPortfolios();
-  });
-
-  renderSavedPortfolios();
-
-  // Book of business
-  addBobRow(); addBobRow(); addBobRow();
-  document.getElementById("bob-add-row").addEventListener("click", () => addBobRow());
-  document.getElementById("bob-check").addEventListener("click", runBobCheck);
-
-  // Live docket check
-  document.getElementById("docket-check").addEventListener("click", runDocketCheck);
-}
-
 function setupThemeToggle() {
   const btn = document.getElementById("theme-toggle");
   if (!btn) return;
-  const apply = (dark) => {
-    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
-    btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;";
-  };
+  const apply = (dark) => { document.documentElement.setAttribute("data-theme", dark ? "dark" : "light"); btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;"; };
   let isDark = document.documentElement.getAttribute("data-theme") === "dark";
   apply(isDark);
-  btn.addEventListener("click", () => {
-    isDark = !isDark;
-    try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {}
-    apply(isDark);
+  btn.addEventListener("click", () => { isDark = !isDark; try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {} apply(isDark); });
+}
+
+function setupTabs() {
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".tab-panel").forEach(p => p.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(`panel-${btn.dataset.tab}`).classList.add("active");
+    });
   });
 }
-setupThemeToggle();
 
-function setupNavScrollState() {
-  const nav = document.querySelector("nav.top");
-  const hero = document.querySelector(".hero");
-  if (!nav || !hero) return;
-  const update = () => {
-    const threshold = hero.offsetHeight - nav.offsetHeight - 20;
-    nav.setAttribute("data-scrolled", window.scrollY > threshold ? "true" : "false");
-  };
-  update();
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update);
+function renderClaimWatchlist(result) {
+  const el = document.getElementById("cw-result");
+  const heading = result.flagged
+    ? `<span class="tag red">On a real cluster</span> ${esc(result.manufacturer)}${result.modelOrIdentifier ? " / " + esc(result.modelOrIdentifier) : ""}`
+    : `<span class="tag gray">No active cluster</span> ${esc(result.manufacturer)}`;
+  if (!result.matches.length) {
+    el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div><p class="result-note">${esc(result.note)}</p>`;
+    return;
+  }
+  const srcLabel = { cpsc: "CPSC", maude: "openFDA MAUDE", nhtsa_odi: "NHTSA" };
+  const rows = result.matches.slice(0, 3).map(m =>
+    `<div class="result-line"><span class="tag amber">Active</span> ${esc(srcLabel[m.source] || m.source)} &mdash; ${esc(m.countInWindow)} reports in ${esc(m.windowDays)}d, most recent ${esc(m.mostRecentDate)}</div>`
+  ).join("");
+  el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div>${rows}`;
 }
-setupNavScrollState();
 
-initPortfolio();
+function renderFirefighter(result) {
+  const el = document.getElementById("ff-result");
+  const heading = `<span class="tag gray">${esc(result.totalMatches)} department(s) scored</span> ${esc(result.state)}`;
+  if (!result.matches.length) {
+    el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div><p class="result-note">No real departments found for this state.</p>`;
+    return;
+  }
+  const rows = result.matches.slice(0, 3).map(m =>
+    `<div class="result-line"><span class="tag red">High exposure</span> <b>${esc(m.deptName || m.fdid)}</b> &mdash; ${esc((m.toxicHoursPerFirefighter||0).toFixed(1))} hrs/firefighter/yr, ${esc(m.nationalPercentile)}th percentile</div>`
+  ).join("");
+  el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div>${rows}`;
+}
 
-MoatEngine.load("./shared/moat_export.json").then(() => {
-  renderCoverageMatrix(MoatEngine.getCoverageMatrix());
-  renderHomepageRda("homepage-rda-pfas", "pfas", "PFAS/AFFF");
-  renderHomepageRda("homepage-rda-talc", "talc", "Talc");
-  renderHomepageLeakageSummary();
-  setupHomepageCheck();
-}).catch(() => {
-  document.getElementById("coverage-matrix").innerHTML = `<tr><td class="empty-note">Coverage data unavailable in this view.</td></tr>`;
-});
+async function init() {
+  setupThemeToggle();
+  setupTabs();
+  await MoatEngine.load("./shared/moat_export.json");
+
+  document.getElementById("cw-btn").addEventListener("click", () => {
+    const mfr = document.getElementById("cw-mfr").value.trim();
+    const model = document.getElementById("cw-model").value.trim();
+    if (mfr) renderClaimWatchlist(MoatEngine.checkClaimWatchlist(mfr, model));
+  });
+  document.getElementById("ff-btn").addEventListener("click", () => {
+    const state = document.getElementById("ff-state").value.trim();
+    if (state) renderFirefighter(MoatEngine.checkFirefighterPresumption(state, "", ""));
+  });
+}
+init();
 </script>
-
-</body>
 </html>

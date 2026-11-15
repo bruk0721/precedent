@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Nubuye</title>
+<meta name="description" content="Nubuye checks real government records so casualty insurers can catch a problem before it becomes a claim.">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1;
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --radius-card: 16px; --shadow-card: 0 1px 2px rgba(14,17,22,0.04), 0 4px 16px rgba(14,17,22,0.06);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
+    --shadow-card: 0 1px 0 rgba(255,255,255,0.04) inset, 0 4px 16px rgba(0,0,0,0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); }
+  a { color: var(--accent-blue); }
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; max-width: 760px; margin: 0 auto; }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand-mark { height: 26px; padding: 0 9px; border-radius: 8px; background: var(--accent-blue); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14.5px; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 20px 24px 80px; }
+  h1 { font-size: 32px; font-weight: 600; letter-spacing: -0.01em; margin-bottom: 18px; }
+  h2 { font-size: 18px; font-weight: 600; margin: 28px 0 10px; }
+  p, li { font-size: 15px; line-height: 1.7; color: var(--ink-muted); }
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 28px 30px; box-shadow: var(--shadow-card); margin-bottom: 16px; }
+</style>
+</head>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+<nav class="top"><a href="../" class="brand"><span class="brand-mark">ነበየ</span> Nubuye</a></nav>
+<div class="wrap">
+  <div class="card">
+    <h1>Why we built Nubuye</h1>
+    <p>Most of the data that would catch a casualty claim early already exists &mdash; it's just scattered across dozens of separate government databases, each with its own quirks, that nobody has time to check by hand for every submission, claim, or renewal.</p>
+    <p>Nubuye reads that data directly, live, and gives a straight answer: flagged or not, with the real source attached. No dashboard to learn, no report to interpret &mdash; just the check you actually needed.</p>
+    <h2>How we work</h2>
+    <p>Every number on this site traces back to a real, named government source &mdash; CPSC, openFDA, NHTSA, EPA, OSHA, USAspending, CMS, and NFIRS among them. We don't estimate or infer; if a data source has a real gap or limitation, we say so on the page rather than paper over it.</p>
+    <h2>Get in touch</h2>
+    <p>Questions, feedback, or want to talk about how this fits your workflow? Email <a href="mailto:hello@nubuye.com">hello@nubuye.com</a>.</p>
+  </div>
+</div>
+</html>
