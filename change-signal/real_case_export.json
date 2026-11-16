@@ -1,6 +1,6 @@
 {
   "methodology_note": "Illustrative demo only, against 10 synthetic claims -- NOT real claims data. Rule-based comparison over structured fields, not a clinical-NLP extraction from raw report text. Human approval required on every generated action before any real use; this never independently changes a reserve or makes a medical/legal determination.",
-  "claims_processed": 6,
+  "claims_processed": 7,
   "claims_with_material_change": 2,
   "total_actions_generated": 7,
   "results": [
@@ -220,6 +220,27 @@
       "total_actions_generated": 0,
       "source_pdf_url": "https://www.dir.ca.gov/wcab/Panel-Decisions-2026/ChristopherMAGUIRE-ADJ12317646.pdf",
       "real_outcome": "Petition for reconsideration DENIED. Included deliberately as a real NEGATIVE/boundary result: PQME Dr. Amster's real reports add bilateral hips as a newly-found injured body part between Jan and Nov 2021 -- a real diagnosis-scope expansion with NO accompanying severity signal (no surgery, prognosis, or work-capacity change at these citations). The engine correctly does NOT flag this as material, which is honest and correct given its rules, but is a real, disclosed gap: scope expansion alone isn't caught unless paired with an objective severity change."
+    },
+    {
+      "claim_id": "REAL-OBRIEN",
+      "claim_label": "O'Brien v. Covenant Living at the Samarkand (ADJ19939689) -- a second real boundary case",
+      "transitions": [
+        {
+          "from_report": "QME Dr. Feingold, initial report (Apr 7, 2025) -- Exhibit 2, p.9",
+          "to_report": "QME Dr. Feingold, supplemental report after reviewing a 4/2/2021 MRI (Dec 30, 2025) -- Exhibit 1, p.20",
+          "material": false,
+          "changes": [],
+          "actions": [],
+          "diagnosis_text_changed_informational": {
+            "from": "Left knee arthritis, status post total knee arthroplasty (two surgeries: 6/9/2021 primary, 11/20/2023 revision)",
+            "to": "Left knee arthritis, status post total knee arthroplasty -- unchanged diagnosis"
+          }
+        }
+      ],
+      "any_material_change_detected": false,
+      "total_actions_generated": 0,
+      "source_pdf_url": "https://www.dir.ca.gov/wcab/Panel-Decisions-2026/Greg-OBRIEN-ADJ19939689.pdf",
+      "real_outcome": "Petition for reconsideration GRANTED on the permanent-disability percentage. Included as a real NEGATIVE/boundary result found while checking whether LLM-based extraction could scale this further: QME Dr. Feingold's real apportionment opinion shifted from 80%-non-industrial/20%-industrial to a 50/50 split after reviewing an MRI -- a real, meaningful escalation in compensable share, but one this engine's schema has no field for (it models diagnosis/treatment/prognosis/recovery/impairment/work-capacity, not apportionment percentage). Correctly reported as no material change by the engine's existing rules; a real, disclosed gap in what the schema covers, not a bug."
     }
   ],
   "extraction_honesty_note": "Every field traces to a specific page or exhibit citation in the real decision PDF, except any field marked '*_inferred': true, which was inferred from context rather than explicitly quoted."
