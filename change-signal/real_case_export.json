@@ -1,8 +1,8 @@
 {
   "methodology_note": "Illustrative demo only, against 10 synthetic claims -- NOT real claims data. Rule-based comparison over structured fields, not a clinical-NLP extraction from raw report text. Human approval required on every generated action before any real use; this never independently changes a reserve or makes a medical/legal determination.",
-  "claims_processed": 2,
-  "claims_with_material_change": 1,
-  "total_actions_generated": 4,
+  "claims_processed": 6,
+  "claims_with_material_change": 2,
+  "total_actions_generated": 7,
   "results": [
     {
       "claim_id": "REAL-CUNNINGHAM",
@@ -86,6 +86,140 @@
       "total_actions_generated": 4,
       "source_pdf_url": "https://www.dir.ca.gov/wcab/Panel-Decisions-2026/Eugenio-GARCIA-ADJ17022785.pdf",
       "real_outcome": "Defendant's petition for reconsideration GRANTED on a separate wage-rate issue -- but the real escalation below (PTP's MMI finding reopened by the PQME) is the claim-trajectory event ChangeSignal targets."
+    },
+    {
+      "claim_id": "REAL-JONES",
+      "claim_label": "Jones v. Motor City General Sales & Service (ADJ10111444)",
+      "transitions": [
+        {
+          "from_report": "PTP Dr. Alvidrez, PR-4 Permanent & Stationary Report (Jul 13, 2015) -- Defendant's Exhibit A",
+          "to_report": "QME Dr. Choi, initial report (Mar 10, 2017) -- Joint Exhibit 05, p.10",
+          "material": true,
+          "changes": [
+            {
+              "flag": "diagnosis_changed",
+              "field": "diagnosis",
+              "from": "Neck, left shoulder and arm injury (industrial MVA, 10/8/2014)",
+              "to": "Left shoulder condition pending arthroscopy evaluation"
+            },
+            {
+              "flag": "treatment_escalated",
+              "field": "treatment_plan",
+              "from": "Discharged from care; declined surgical options after consultation",
+              "to": "Total shoulder arthroscopy of left shoulder under consideration"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "field": "prognosis",
+              "from": "Maximum medical improvement / permanent and stationary",
+              "to": "NOT yet permanent and stationary, pending surgery consideration",
+              "recovery_estimate_weeks_from": 0,
+              "recovery_estimate_weeks_to": 26
+            }
+          ],
+          "actions": [
+            {
+              "flag": "diagnosis_changed",
+              "action": "Prepare clinical expert referral"
+            },
+            {
+              "flag": "treatment_escalated",
+              "action": "Create reserve-review task"
+            },
+            {
+              "flag": "prognosis_worsened",
+              "action": "Generate updated claims assessment"
+            }
+          ],
+          "diagnosis_text_changed_informational": {
+            "from": "Neck, left shoulder and arm injury (industrial MVA, 10/8/2014)",
+            "to": "Left shoulder condition pending arthroscopy evaluation"
+          }
+        },
+        {
+          "from_report": "QME Dr. Choi, initial report (Mar 10, 2017) -- Joint Exhibit 05, p.10",
+          "to_report": "QME Dr. Choi, re-evaluation (Jan 19, 2018) -- Joint Exhibit 04, p.7",
+          "material": false,
+          "changes": [],
+          "actions": [],
+          "diagnosis_text_changed_informational": {
+            "from": "Left shoulder condition pending arthroscopy evaluation",
+            "to": "Left shoulder condition, \"getting along reasonably well\""
+          }
+        },
+        {
+          "from_report": "QME Dr. Choi, re-evaluation (Jan 19, 2018) -- Joint Exhibit 04, p.7",
+          "to_report": "QME Dr. Choi, supplemental report (Jul 24, 2018) -- Joint Exhibit 02, p.2",
+          "material": false,
+          "changes": [],
+          "actions": [],
+          "diagnosis_text_changed_informational": {
+            "from": "Left shoulder condition, \"getting along reasonably well\"",
+            "to": "Left shoulder condition, surgery ruled out"
+          }
+        }
+      ],
+      "any_material_change_detected": true,
+      "total_actions_generated": 3,
+      "source_pdf_url": "https://www.dir.ca.gov/wcab/Panel-Decisions-2026/Edward-JONES-ADJ10111444.pdf",
+      "real_outcome": "Petition for reconsideration GRANTED (on a separate TD-entitlement issue) -- the real escalate-then-resolve medical trajectory below (4 real dated reports) is the claim-progression pattern ChangeSignal targets."
+    },
+    {
+      "claim_id": "REAL-CLEVENGER",
+      "claim_label": "Clevenger v. California Highway Patrol (ADJ14048813)",
+      "transitions": [
+        {
+          "from_report": "QME Dr. Tirmizi, initial report (Apr 10, 2021) -- Exhibit 1, p.4",
+          "to_report": "QME Dr. Tirmizi, supplemental report after reviewing additional records (Jul 15, 2021) -- Exhibit 1, p.2",
+          "material": false,
+          "changes": [],
+          "actions": [],
+          "diagnosis_text_changed_informational": null
+        }
+      ],
+      "any_material_change_detected": false,
+      "total_actions_generated": 0,
+      "source_pdf_url": "https://www.dir.ca.gov/wcab/Panel-Decisions-2026/James-CLEVENGER-ADJ14048813.pdf",
+      "real_outcome": "Petition for reconsideration DENIED -- industrial COVID-19 causation finding affirmed (no material change across reports)."
+    },
+    {
+      "claim_id": "REAL-BARAJAS",
+      "claim_label": "Barajas v. Reyes Fleet Management, LLC (ADJ15707231)",
+      "transitions": [
+        {
+          "from_report": "QME Dr. Khodaparast, report (Jun 28, 2022) -- Exhibit AA, p.23",
+          "to_report": "QME Dr. Khodaparast, report (Jan 10, 2024) -- Exhibit Z, p.18",
+          "material": false,
+          "changes": [],
+          "actions": [],
+          "diagnosis_text_changed_informational": null
+        }
+      ],
+      "any_material_change_detected": false,
+      "total_actions_generated": 0,
+      "source_pdf_url": "https://www.dir.ca.gov/wcab/Panel-Decisions-2026/Eduardo-BARAJAS-ADJ15707231.pdf",
+      "real_outcome": "Petition for reconsideration DENIED -- industrial psychiatric injury finding affirmed (no material change across 4 real reports)."
+    },
+    {
+      "claim_id": "REAL-MAGUIRE",
+      "claim_label": "Maguire v. Sierra Conservation Center (ADJ12317646) -- a real boundary case",
+      "transitions": [
+        {
+          "from_report": "PQME Dr. Amster, report (Jan 27, 2021) -- Exhibit 6, p.22",
+          "to_report": "PQME Dr. Amster, report (Nov 16, 2021) -- Exhibit 5, p.19",
+          "material": false,
+          "changes": [],
+          "actions": [],
+          "diagnosis_text_changed_informational": {
+            "from": "Right shoulder (2014), left shoulder (2018), lumbar spine, bilateral shoulders, eyes, hernia, cardiovascular system (cumulative injury)",
+            "to": "Same body parts as prior report, PLUS newly found bilateral hip injury (cumulative trauma)"
+          }
+        }
+      ],
+      "any_material_change_detected": false,
+      "total_actions_generated": 0,
+      "source_pdf_url": "https://www.dir.ca.gov/wcab/Panel-Decisions-2026/ChristopherMAGUIRE-ADJ12317646.pdf",
+      "real_outcome": "Petition for reconsideration DENIED. Included deliberately as a real NEGATIVE/boundary result: PQME Dr. Amster's real reports add bilateral hips as a newly-found injured body part between Jan and Nov 2021 -- a real diagnosis-scope expansion with NO accompanying severity signal (no surgery, prognosis, or work-capacity change at these citations). The engine correctly does NOT flag this as material, which is honest and correct given its rules, but is a real, disclosed gap: scope expansion alone isn't caught unless paired with an objective severity change."
     }
   ],
   "extraction_honesty_note": "Every field traces to a specific page or exhibit citation in the real decision PDF, except any field marked '*_inferred': true, which was inferred from context rather than explicitly quoted."
