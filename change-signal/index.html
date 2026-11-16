@@ -102,9 +102,15 @@
       <li><strong>Not a clinical-NLP engine.</strong> This does not read raw, unstructured medical report text. It compares STRUCTURED fields (diagnosis, treatment plan, prognosis, recovery estimate, permanent impairment, work capacity) with a deterministic rule set -- stated plainly, not dressed up as an AI extraction capability that isn't built.</li>
       <li><strong>A real bug was found and fixed building this demo</strong>: an early version flagged any change in the diagnosis text as material, which fired on purely benign restatements ("ankle sprain, grade 2" &rarr; "...resolved"). Fixed by making diagnosis-text-change informational only -- it's reported, but only counts toward "material" alongside a real objective severity signal (escalated treatment, worsened prognosis, or downgraded work capacity). See <code>change_signal_engine.py</code> for the full before/after.</li>
       <li><strong>Competitive check, done live before building</strong>: Wisedocs documents real within-record inconsistency detection; EvolutionIQ's MedHub (a real $730M CCC Intelligent Solutions acquisition) documents real point-in-time medical synthesis and "next best action" guidance. Neither vendor's own public material documents comparing <em>successive</em> assessments over time and tying a specific detected change to a specific generated action -- the best available public evidence, not proof they don't do this privately.</li>
-      <li><strong>Real next step, not yet done</strong>: either a real LLM-based extraction layer in front of this engine (to go from raw report text to the structured fields this uses), or 25-50 real anonymised historical claim files from a managing agent/TPA to validate materiality judgments against an experienced claims handler's own calls. Neither exists in this environment yet.</li>
+      <li><strong>Real next step</strong>: 2 real cases is a proof of concept, not a validation sample -- scaling this past 25-50 real cases needs either a real LLM-extraction layer (to go from raw report text to structured fields automatically, instead of by hand) or a larger hand-coded sample from a public case-law source. Real managing-agent claim files, specifically, are only available once accepted into Lloyd's Accelerator (checked live -- no pre-application path exists).</li>
       <li>Every generated action requires human approval. This never independently changes a reserve or makes a medical/legal determination.</li>
     </ul>
+  </div>
+
+  <div class="card">
+    <h2>Validated against 2 real cases -- not a managing agent's data, but real</h2>
+    <p class="card-sub">Real managing-agent claims data is only available DURING Lloyd's 10-week Accelerator, after a mutual NDA -- checked live against Lloyd's own FAQ, no pre-application path exists. A genuine free alternative does: California's Workers' Compensation Appeals Board publishes every panel decision as a real PDF, no login or fee -- 5,884 for 2026 alone -- and routinely narrates a claimant's actual successive medical reports. These 2 cases were hand-extracted from real decision text, each field cited to its exact page or exhibit.</p>
+    <div id="real-case-list"></div>
   </div>
 
   <div class="card">
@@ -141,6 +147,16 @@ function renderTransition(t) {
 
 async function init() {
   setupThemeToggle();
+
+  const realResp = await fetch("real_case_export.json");
+  const realData = await realResp.json();
+  document.getElementById("real-case-list").innerHTML = realData.results.map(r => `
+    <div class="claim-card">
+      <div style="margin-bottom:6px;"><b>${esc(r.claim_label)}</b> <a href="${esc(r.source_pdf_url)}" target="_blank" rel="noopener" style="color:var(--accent-blue);font-size:12px;font-weight:600;">View real decision PDF &rarr;</a></div>
+      <div style="font-size:12.5px;color:var(--ink-faint);margin-bottom:8px;">Real outcome: ${esc(r.real_outcome)}</div>
+      ${r.transitions.map(renderTransition).join("")}
+    </div>`).join("") + `<p style="font-size:12px;color:var(--ink-faint);margin-top:10px;">${esc(realData.extraction_honesty_note)}</p>`;
+
   const resp = await fetch("demo_export.json");
   const data = await resp.json();
 
