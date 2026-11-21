@@ -65,7 +65,8 @@
         }
       ],
       "any_material_change_detected": true,
-      "total_actions_generated": 4
+      "total_actions_generated": 4,
+      "reserve_review_memo": "# Reserve Review Memo -- Soft-tissue neck injury -> tendon tear requiring surgery\n**Claim ID:** SYN-001  |  **Generated:** 2026-11-21 (ChangeSignal, draft -- requires human sign-off before filing)\n\n## Summary\n1 of 1 reviewed transition(s) show a material change: diagnosis changed, prognosis worsened, treatment escalated, work capacity changed. See evidence below.\n\n## What changed, and the evidence for it\n### Initial Assessment (Week 1) -> 3-Month Follow-up\n- **Diagnosis**: The diagnosis on file has changed.\n  - Prior: \"Cervical soft-tissue strain\"\n  - Current: \"Rotator cuff tendon tear (MRI-confirmed)\"\n- **Treatment Plan**: Treatment has escalated to surgical intervention, where none was previously recommended.\n  - Prior: \"Physical therapy, NSAIDs\"\n  - Current: \"Surgical repair recommended\"\n- **Prognosis**: The prognosis has materially worsened -- either the expected recovery window lengthened or permanent impairment was newly indicated.\n  - Prior: \"Full recovery expected\"\n  - Current: \"Extended recovery, possible permanent limitation\"\n  - Recovery estimate: 6 weeks -> 52 weeks\n- **Work Capacity**: The claimant's work capacity has been downgraded from the prior assessment.\n  - Prior: \"Modified duty\"\n  - Current: \"Unable to return to previous occupation\"\n\n## Reserve-impact direction (not a dollar recommendation -- that decision belongs to the reviewing handler)\n- **Diagnosis Changed**: Informational -- confirm this reflects a genuine clinical change, not a restatement, before acting on it alone.\n- **Prognosis Worsened**: Likely upward reserve pressure -- a longer or less certain recovery window, or newly indicated permanent impairment, both increase expected claim value.\n- **Treatment Escalated**: Likely upward reserve pressure -- surgical intervention materially changes the expected cost and duration of this claim.\n- **Work Capacity Changed**: Likely upward reserve and duration pressure -- a downgraded work capacity extends indemnity exposure.\n\n## Recommended next actions\n- Create reserve-review task\n- Generate updated claims assessment\n- Notify relevant claims stakeholders\n- Prepare clinical expert referral\n\n*This memo is a draft produced by ChangeSignal's rule-based comparison engine, not a clinical, legal, or actuarial determination. A human claims handler must review and approve before this memo or any reserve change is finalized.*"
     },
     {
       "claim_id": "SYN-002",
@@ -81,7 +82,8 @@
         }
       ],
       "any_material_change_detected": false,
-      "total_actions_generated": 0
+      "total_actions_generated": 0,
+      "reserve_review_memo": "# Reserve Review Memo -- Lower-back strain -- stable recovery, no material change\n**Claim ID:** SYN-002  |  **Generated:** 2026-11-21 (ChangeSignal, draft -- requires human sign-off before filing)\n\n## Summary\nNo material change detected across the assessments reviewed. All comparisons were either stable (same clinical picture) or improving. No reserve-review action is indicated on the evidence checked.\n\n## Assessments reviewed\n- Initial Assessment (Week 1) -> 2-Month Follow-up: no material change.\n\n*This memo is a draft produced by ChangeSignal's rule-based comparison engine. A human claims handler should confirm before relying on it.*"
     },
     {
       "claim_id": "SYN-003",
@@ -134,7 +136,8 @@
         }
       ],
       "any_material_change_detected": true,
-      "total_actions_generated": 3
+      "total_actions_generated": 3,
+      "reserve_review_memo": "# Reserve Review Memo -- Concussion -> post-concussion syndrome\n**Claim ID:** SYN-003  |  **Generated:** 2026-11-21 (ChangeSignal, draft -- requires human sign-off before filing)\n\n## Summary\n1 of 1 reviewed transition(s) show a material change: diagnosis changed, prognosis worsened, work capacity changed. See evidence below.\n\n## What changed, and the evidence for it\n### ER Assessment (Day 1) -> 6-Week Follow-up\n- **Diagnosis**: The diagnosis on file has changed.\n  - Prior: \"Mild concussion\"\n  - Current: \"Post-concussion syndrome\"\n- **Prognosis**: The prognosis has materially worsened -- either the expected recovery window lengthened or permanent impairment was newly indicated.\n  - Prior: \"Full recovery expected within 2 weeks\"\n  - Current: \"Prolonged recovery, uncertain timeline\"\n  - Recovery estimate: 2 weeks -> 26 weeks\n- **Work Capacity**: The claimant's work capacity has been downgraded from the prior assessment.\n  - Prior: \"Full duty\"\n  - Current: \"Unable to return to previous occupation\"\n\n## Reserve-impact direction (not a dollar recommendation -- that decision belongs to the reviewing handler)\n- **Diagnosis Changed**: Informational -- confirm this reflects a genuine clinical change, not a restatement, before acting on it alone.\n- **Prognosis Worsened**: Likely upward reserve pressure -- a longer or less certain recovery window, or newly indicated permanent impairment, both increase expected claim value.\n- **Work Capacity Changed**: Likely upward reserve and duration pressure -- a downgraded work capacity extends indemnity exposure.\n\n## Recommended next actions\n- Generate updated claims assessment\n- Notify relevant claims stakeholders\n- Prepare clinical expert referral\n\n*This memo is a draft produced by ChangeSignal's rule-based comparison engine, not a clinical, legal, or actuarial determination. A human claims handler must review and approve before this memo or any reserve change is finalized.*"
     },
     {
       "claim_id": "SYN-004",
@@ -153,7 +156,8 @@
         }
       ],
       "any_material_change_detected": false,
-      "total_actions_generated": 0
+      "total_actions_generated": 0,
+      "reserve_review_memo": "# Reserve Review Memo -- Wrist fracture -- straightforward healing\n**Claim ID:** SYN-004  |  **Generated:** 2026-11-21 (ChangeSignal, draft -- requires human sign-off before filing)\n\n## Summary\nNo material change detected across the assessments reviewed. All comparisons were either stable (same clinical picture) or improving. No reserve-review action is indicated on the evidence checked.\n\n## Assessments reviewed\n- Initial Assessment -> 10-Week Follow-up: no material change.\n\n*This memo is a draft produced by ChangeSignal's rule-based comparison engine. A human claims handler should confirm before relying on it.*"
     },
     {
       "claim_id": "SYN-005",
@@ -251,7 +255,8 @@
         }
       ],
       "any_material_change_detected": true,
-      "total_actions_generated": 6
+      "total_actions_generated": 6,
+      "reserve_review_memo": "# Reserve Review Memo -- Knee sprain -> meniscus tear, escalating across 3 reports\n**Claim ID:** SYN-005  |  **Generated:** 2026-11-21 (ChangeSignal, draft -- requires human sign-off before filing)\n\n## Summary\n2 of 2 reviewed transition(s) show a material change: diagnosis changed, prognosis worsened, treatment escalated, work capacity changed. See evidence below.\n\n## What changed, and the evidence for it\n### Initial Assessment -> 6-Week Follow-up\n- **Diagnosis**: The diagnosis on file has changed.\n  - Prior: \"Knee sprain\"\n  - Current: \"Suspected meniscus tear\"\n- **Prognosis**: The prognosis has materially worsened -- either the expected recovery window lengthened or permanent impairment was newly indicated.\n  - Prior: \"Full recovery expected\"\n  - Current: \"Recovery delayed pending imaging\"\n  - Recovery estimate: 6 weeks -> 12 weeks\n\n### 6-Week Follow-up -> 3-Month Follow-up\n- **Diagnosis**: The diagnosis on file has changed.\n  - Prior: \"Suspected meniscus tear\"\n  - Current: \"Confirmed meniscus tear\"\n- **Treatment Plan**: Treatment has escalated to surgical intervention, where none was previously recommended.\n  - Prior: \"MRI ordered, continued bracing\"\n  - Current: \"Arthroscopic surgery recommended\"\n- **Prognosis**: The prognosis has materially worsened -- either the expected recovery window lengthened or permanent impairment was newly indicated.\n  - Prior: \"Recovery delayed pending imaging\"\n  - Current: \"Extended recovery, some permanent limitation possible\"\n  - Recovery estimate: 12 weeks -> 20 weeks\n- **Work Capacity**: The claimant's work capacity has been downgraded from the prior assessment.\n  - Prior: \"Modified duty\"\n  - Current: \"Unable to return to previous occupation\"\n\n## Reserve-impact direction (not a dollar recommendation -- that decision belongs to the reviewing handler)\n- **Diagnosis Changed**: Informational -- confirm this reflects a genuine clinical change, not a restatement, before acting on it alone.\n- **Prognosis Worsened**: Likely upward reserve pressure -- a longer or less certain recovery window, or newly indicated permanent impairment, both increase expected claim value.\n- **Treatment Escalated**: Likely upward reserve pressure -- surgical intervention materially changes the expected cost and duration of this claim.\n- **Work Capacity Changed**: Likely upward reserve and duration pressure -- a downgraded work capacity extends indemnity exposure.\n\n## Recommended next actions\n- Create reserve-review task\n- Generate updated claims assessment\n- Notify relevant claims stakeholders\n- Prepare clinical expert referral\n\n*This memo is a draft produced by ChangeSignal's rule-based comparison engine, not a clinical, legal, or actuarial determination. A human claims handler must review and approve before this memo or any reserve change is finalized.*"
     },
     {
       "claim_id": "SYN-006",
@@ -270,7 +275,8 @@
         }
       ],
       "any_material_change_detected": false,
-      "total_actions_generated": 0
+      "total_actions_generated": 0,
+      "reserve_review_memo": "# Reserve Review Memo -- Minor laceration -- closed quickly, no material change\n**Claim ID:** SYN-006  |  **Generated:** 2026-11-21 (ChangeSignal, draft -- requires human sign-off before filing)\n\n## Summary\nNo material change detected across the assessments reviewed. All comparisons were either stable (same clinical picture) or improving. No reserve-review action is indicated on the evidence checked.\n\n## Assessments reviewed\n- ER Assessment -> 2-Week Follow-up: no material change.\n\n*This memo is a draft produced by ChangeSignal's rule-based comparison engine. A human claims handler should confirm before relying on it.*"
     },
     {
       "claim_id": "SYN-007",
@@ -313,7 +319,8 @@
         }
       ],
       "any_material_change_detected": true,
-      "total_actions_generated": 2
+      "total_actions_generated": 2,
+      "reserve_review_memo": "# Reserve Review Memo -- Shoulder strain -> frozen shoulder, prognosis worsens without surgery\n**Claim ID:** SYN-007  |  **Generated:** 2026-11-21 (ChangeSignal, draft -- requires human sign-off before filing)\n\n## Summary\n1 of 1 reviewed transition(s) show a material change: diagnosis changed, prognosis worsened. See evidence below.\n\n## What changed, and the evidence for it\n### Initial Assessment -> 4-Month Follow-up\n- **Diagnosis**: The diagnosis on file has changed.\n  - Prior: \"Shoulder strain\"\n  - Current: \"Adhesive capsulitis (frozen shoulder)\"\n- **Prognosis**: The prognosis has materially worsened -- either the expected recovery window lengthened or permanent impairment was newly indicated.\n  - Prior: \"Full recovery expected\"\n  - Current: \"Prolonged recovery, reduced range of motion likely permanent\"\n  - Recovery estimate: 8 weeks -> 40 weeks\n\n## Reserve-impact direction (not a dollar recommendation -- that decision belongs to the reviewing handler)\n- **Diagnosis Changed**: Informational -- confirm this reflects a genuine clinical change, not a restatement, before acting on it alone.\n- **Prognosis Worsened**: Likely upward reserve pressure -- a longer or less certain recovery window, or newly indicated permanent impairment, both increase expected claim value.\n\n## Recommended next actions\n- Generate updated claims assessment\n- Prepare clinical expert referral\n\n*This memo is a draft produced by ChangeSignal's rule-based comparison engine, not a clinical, legal, or actuarial determination. A human claims handler must review and approve before this memo or any reserve change is finalized.*"
     },
     {
       "claim_id": "SYN-008",
@@ -332,7 +339,8 @@
         }
       ],
       "any_material_change_detected": false,
-      "total_actions_generated": 0
+      "total_actions_generated": 0,
+      "reserve_review_memo": "# Reserve Review Memo -- Ankle sprain -- resolved as expected\n**Claim ID:** SYN-008  |  **Generated:** 2026-11-21 (ChangeSignal, draft -- requires human sign-off before filing)\n\n## Summary\nNo material change detected across the assessments reviewed. All comparisons were either stable (same clinical picture) or improving. No reserve-review action is indicated on the evidence checked.\n\n## Assessments reviewed\n- Initial Assessment -> 6-Week Follow-up: no material change.\n\n*This memo is a draft produced by ChangeSignal's rule-based comparison engine. A human claims handler should confirm before relying on it.*"
     },
     {
       "claim_id": "SYN-009",
@@ -430,7 +438,8 @@
         }
       ],
       "any_material_change_detected": true,
-      "total_actions_generated": 6
+      "total_actions_generated": 6,
+      "reserve_review_memo": "# Reserve Review Memo -- Head injury -> traumatic brain injury, major escalation\n**Claim ID:** SYN-009  |  **Generated:** 2026-11-21 (ChangeSignal, draft -- requires human sign-off before filing)\n\n## Summary\n2 of 2 reviewed transition(s) show a material change: diagnosis changed, prognosis worsened, work capacity changed. See evidence below.\n\n## What changed, and the evidence for it\n### ER Assessment -> 2-Week Follow-up\n- **Diagnosis**: The diagnosis on file has changed.\n  - Prior: \"Head contusion, no loss of consciousness noted\"\n  - Current: \"Mild traumatic brain injury\"\n- **Prognosis**: The prognosis has materially worsened -- either the expected recovery window lengthened or permanent impairment was newly indicated.\n  - Prior: \"Full recovery expected within days\"\n  - Current: \"Uncertain, further evaluation needed\"\n  - Recovery estimate: 1 weeks -> 12 weeks\n- **Work Capacity**: The claimant's work capacity has been downgraded from the prior assessment.\n  - Prior: \"Full duty\"\n  - Current: \"Unable to return to previous occupation\"\n\n### 2-Week Follow-up -> 4-Month Follow-up\n- **Diagnosis**: The diagnosis on file has changed.\n  - Prior: \"Mild traumatic brain injury\"\n  - Current: \"Moderate traumatic brain injury with cognitive deficits\"\n- **Prognosis**: The prognosis has materially worsened -- either the expected recovery window lengthened or permanent impairment was newly indicated.\n  - Prior: \"Uncertain, further evaluation needed\"\n  - Current: \"Permanent cognitive impairment likely\"\n  - Recovery estimate: 12 weeks -> 104 weeks\n- **Work Capacity**: The claimant's work capacity has been downgraded from the prior assessment.\n  - Prior: \"Unable to return to previous occupation\"\n  - Current: \"Unable to work\"\n\n## Reserve-impact direction (not a dollar recommendation -- that decision belongs to the reviewing handler)\n- **Diagnosis Changed**: Informational -- confirm this reflects a genuine clinical change, not a restatement, before acting on it alone.\n- **Prognosis Worsened**: Likely upward reserve pressure -- a longer or less certain recovery window, or newly indicated permanent impairment, both increase expected claim value.\n- **Work Capacity Changed**: Likely upward reserve and duration pressure -- a downgraded work capacity extends indemnity exposure.\n\n## Recommended next actions\n- Generate updated claims assessment\n- Notify relevant claims stakeholders\n- Prepare clinical expert referral\n\n*This memo is a draft produced by ChangeSignal's rule-based comparison engine, not a clinical, legal, or actuarial determination. A human claims handler must review and approve before this memo or any reserve change is finalized.*"
     },
     {
       "claim_id": "SYN-010",
@@ -449,7 +458,8 @@
         }
       ],
       "any_material_change_detected": false,
-      "total_actions_generated": 0
+      "total_actions_generated": 0,
+      "reserve_review_memo": "# Reserve Review Memo -- Hand laceration with tendon involvement -- surgery already planned, stable\n**Claim ID:** SYN-010  |  **Generated:** 2026-11-21 (ChangeSignal, draft -- requires human sign-off before filing)\n\n## Summary\nNo material change detected across the assessments reviewed. All comparisons were either stable (same clinical picture) or improving. No reserve-review action is indicated on the evidence checked.\n\n## Assessments reviewed\n- Initial Assessment -> 3-Month Post-Surgical Follow-up: no material change.\n\n*This memo is a draft produced by ChangeSignal's rule-based comparison engine. A human claims handler should confirm before relying on it.*"
     }
   ]
 }
