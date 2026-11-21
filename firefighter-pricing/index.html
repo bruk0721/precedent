@@ -67,6 +67,13 @@
   .tag.gray { background: var(--accent-gray-bg); color: var(--accent-gray); }
   .tag.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
   .finding-line { padding: 12px 0; border-top: 1px solid var(--chip-bg); font-size: 13.5px; line-height: 1.6; }
+  .memo-toggle { margin-top: 10px; background: var(--accent-blue-bg); color: var(--accent-blue); border: none; border-radius: 8px; padding: 7px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: var(--font); }
+  .memo-box { margin-top: 10px; padding: 16px 18px; background: var(--chip-bg); border-radius: 12px; font-size: 13px; line-height: 1.6; }
+  .memo-box h3 { font-size: 14px; margin: 0 0 8px; }
+  .memo-box h4 { font-size: 12.5px; margin: 12px 0 4px; color: var(--ink-muted); }
+  .memo-box p { margin: 4px 0; font-size: 12.5px; }
+  .memo-box ul { margin: 4px 0 10px; padding-left: 18px; }
+  .memo-box li { margin: 2px 0; font-size: 12.5px; }
   .finding-line:first-child { border-top: none; }
   .empty-note { color: var(--ink-faint); font-size: 13.5px; }
   pre { background: var(--chip-bg); border-radius: 12px; padding: 16px; overflow-x: auto; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
@@ -155,6 +162,41 @@ function renderMatch(m) {
     &mdash; ${esc((m.toxicHoursPerFirefighter || 0).toFixed(1))} toxic fire-hours/firefighter/yr, ${esc(m.nationalPercentile)}th percentile (years: ${esc(m.yearsCovered)})</div>`;
 }
 
+// Minimal, safe markdown->HTML for the generated memo -- same pattern as
+// /change-signal/'s formatMemo.
+function formatMemo(md) {
+  const escaped = esc(md);
+  const lines = escaped.split("\n");
+  let html = ""; let inList = false;
+  for (const line of lines) {
+    if (line.startsWith("## ")) { if (inList) { html += "</ul>"; inList = false; } html += `<h4>${line.slice(3)}</h4>`; continue; }
+    if (line.startsWith("# "))  { if (inList) { html += "</ul>"; inList = false; } html += `<h3>${line.slice(2)}</h3>`; continue; }
+    if (line.startsWith("- ")) { if (!inList) { html += "<ul>"; inList = true; } html += `<li>${line.slice(2)}</li>`; continue; }
+    if (inList) { html += "</ul>"; inList = false; }
+    if (line.trim() === "") continue;
+    html += `<p>${line}</p>`;
+  }
+  if (inList) html += "</ul>";
+  html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  return html.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+}
+
+function renderMemoToggle(memo, idPrefix) {
+  return `<button class="memo-toggle" data-memo-id="${idPrefix}">&#128196; View generated exposure summary memo</button>
+    <div class="memo-box" id="${idPrefix}" style="display:none;">${formatMemo(memo)}</div>`;
+}
+
+function wireMemoToggle(root) {
+  root.querySelectorAll(".memo-toggle").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const box = document.getElementById(btn.dataset.memoId);
+      const open = box.style.display !== "none";
+      box.style.display = open ? "none" : "block";
+      btn.innerHTML = open ? "&#128196; View generated exposure summary memo" : "&#128196; Hide exposure summary memo";
+    });
+  });
+}
+
 function runCheck(state, name) {
   const result = MoatEngine.checkFirefighterPresumption(state, "", name);
   const card = document.getElementById("result-card");
@@ -165,12 +207,14 @@ function runCheck(state, name) {
     ? `<span class="tag green">${esc(result.totalMatches)} department(s) scored</span> ${esc(result.state)}`
     : `<span class="tag gray">No scored departments</span> ${esc(result.state)}`;
   if (!result.matches.length) {
-    body.innerHTML = `<p class="empty-note">No real departments with usable data under this state/name -- NFIRS participation is voluntary, so coverage gaps are real, not a bug.</p>`;
+    body.innerHTML = `<p class="empty-note">No real departments with usable data under this state/name -- NFIRS participation is voluntary, so coverage gaps are real, not a bug.</p>${renderMemoToggle(result.exposureSummaryMemo, "ff-memo")}`;
+    wireMemoToggle(body);
     return;
   }
   body.innerHTML = `<p class="card-sub">Showing up to 50 of ${result.totalMatches} real department(s), ranked by national percentile.</p>` +
     result.matches.map(renderMatch).join("") +
-    `<p class="empty-note" style="margin-top:12px;">${esc(result.note)}</p>`;
+    `<p class="empty-note" style="margin-top:12px;">${esc(result.note)}</p>${renderMemoToggle(result.exposureSummaryMemo, "ff-memo")}`;
+  wireMemoToggle(body);
 }
 
 function setupThemeToggle() {

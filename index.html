@@ -296,6 +296,42 @@ function setupTabs() {
   });
 }
 
+// Minimal, safe markdown->HTML for the generated memos: escape first, then
+// only recognize the handful of constructs the memo generators emit
+// (# / ## headers, "- " bullets, **bold**). Same pattern as /change-signal/.
+function formatMemo(md) {
+  const escaped = esc(md);
+  const lines = escaped.split("\n");
+  let html = ""; let inList = false;
+  for (const line of lines) {
+    if (line.startsWith("## ")) { if (inList) { html += "</ul>"; inList = false; } html += `<h4 style="font-size:13px;margin:12px 0 4px;">${line.slice(3)}</h4>`; continue; }
+    if (line.startsWith("# "))  { if (inList) { html += "</ul>"; inList = false; } html += `<h3 style="font-size:14px;margin:0 0 8px;">${line.slice(2)}</h3>`; continue; }
+    if (line.startsWith("- ")) { if (!inList) { html += "<ul style=\"margin:4px 0 10px;padding-left:18px;\">"; inList = true; } html += `<li style="font-size:12.5px;margin:2px 0;">${line.slice(2)}</li>`; continue; }
+    if (inList) { html += "</ul>"; inList = false; }
+    if (line.trim() === "") continue;
+    html += `<p style="font-size:12.5px;margin:4px 0;">${line}</p>`;
+  }
+  if (inList) html += "</ul>";
+  html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  return html.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+}
+
+function renderMemoToggle(memo, idPrefix) {
+  return `<button class="memo-toggle" data-memo-id="${idPrefix}" style="margin-top:10px;background:var(--accent-blue-bg);color:var(--accent-blue);border:none;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:700;cursor:pointer;font-family:var(--font);">&#128196; View generated memo</button>
+    <div class="memo-box" id="${idPrefix}" style="display:none;margin-top:10px;padding:14px 16px;background:var(--chip-bg);border-radius:10px;">${formatMemo(memo)}</div>`;
+}
+
+function wireMemoToggle(root) {
+  root.querySelectorAll(".memo-toggle").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const box = document.getElementById(btn.dataset.memoId);
+      const open = box.style.display !== "none";
+      box.style.display = open ? "none" : "block";
+      btn.innerHTML = open ? "&#128196; View generated memo" : "&#128196; Hide generated memo";
+    });
+  });
+}
+
 function renderClaimWatchlist(result) {
   const el = document.getElementById("cw-result");
   const heading = result.flagged
@@ -309,7 +345,8 @@ function renderClaimWatchlist(result) {
   const rows = result.matches.slice(0, 3).map(m =>
     `<div class="result-line"><span class="tag amber">Active</span> ${esc(srcLabel[m.source] || m.source)} &mdash; ${esc(m.countInWindow)} reports in ${esc(m.windowDays)}d, most recent ${esc(m.mostRecentDate)}</div>`
   ).join("");
-  el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div>${rows}`;
+  el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div>${rows}${renderMemoToggle(result.fnolEscalationBrief, "cw-memo")}`;
+  wireMemoToggle(el);
 }
 
 function renderFirefighter(result) {
@@ -322,7 +359,8 @@ function renderFirefighter(result) {
   const rows = result.matches.slice(0, 3).map(m =>
     `<div class="result-line"><span class="tag red">High exposure</span> <b>${esc(m.deptName || m.fdid)}</b> &mdash; ${esc((m.toxicHoursPerFirefighter||0).toFixed(1))} hrs/firefighter/yr, ${esc(m.nationalPercentile)}th percentile</div>`
   ).join("");
-  el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div>${rows}`;
+  el.innerHTML = `<div style="font-weight:600;margin-bottom:6px;">${heading}</div>${rows}${renderMemoToggle(result.exposureSummaryMemo, "ff-memo")}`;
+  wireMemoToggle(el);
 }
 
 async function init() {

@@ -172,6 +172,7 @@ function formatMemo(md) {
     html += `<p>${line}</p>`;
   }
   if (inList) html += "</ul>";
+  html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
   return html.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
 }
 

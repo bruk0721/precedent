@@ -433,6 +433,47 @@ const MoatEngine = (() => {
   // ALSO sitting on a real, currently-tracked federal pre-litigation
   // complaint-velocity spike, months before a plaintiff firm would
   // aggregate it into a mass tort.
+  // Same fix applied across every Nubuye product -- see
+  // change_signal_memo_generator.py's module docstring (data-pipelines)
+  // for the full reasoning: stop returning a flag a claims handler still
+  // has to act on, and draft the actual FNOL triage note for the claim
+  // file instead. Mirrors api-backend/main.py's
+  // _generate_fnol_escalation_brief() exactly -- same source, two
+  // implementations.
+  function generateFnolEscalationBrief(result) {
+    const now = new Date().toISOString().slice(0, 10);
+    const mfr = result.manufacturer, model = result.modelOrIdentifier;
+    let lines = [
+      `# FNOL Escalation Brief -- ${mfr}${model ? " / " + model : ""}`,
+      `**Generated:** ${now} (Claim Watchlist, draft -- requires human sign-off before filing)`,
+      "",
+      "## Summary",
+    ];
+    if (!result.flagged) {
+      lines.push("No active federal complaint-velocity cluster was found under this exact manufacturer/model name. Routine handling is appropriate absent other red flags in the file. Note: zero matches means nothing was found under this exact name, not that the product has been cleared.");
+      lines.push("");
+      lines.push("*This brief is a draft produced by Claim Watchlist's real-time cross-match. A human claims handler should confirm before relying on it.*");
+      return lines.join("\n");
+    }
+    const srcLabel = { cpsc: "CPSC", maude: "openFDA MAUDE", nhtsa_odi: "NHTSA ODI" };
+    lines.push(`This manufacturer/model is sitting on ${result.matches.length} real, currently-tracked federal complaint-velocity cluster(s). Recommend escalating this claim beyond routine handling -- the pattern below is not a legal conclusion that this specific claim is part of it, but it is a real, active signal.`);
+    lines.push("");
+    lines.push("## Evidence");
+    for (const m of result.matches) {
+      lines.push(`- **${srcLabel[m.source] || m.source}**: ${m.countInWindow} report(s) in ${m.windowDays} days (lifetime: ${m.lifetimeCount ?? "n/a"}), most recent ${m.mostRecentDate}. [Source](${m.sourceUrl})`);
+    }
+    lines.push("");
+    lines.push("## Recommended handling");
+    lines.push("- Escalate to senior claims handler / SIU for review given the active federal signal");
+    lines.push("- Flag this claim's reserve for review in light of the broader complaint-velocity pattern");
+    lines.push("- Document the cited federal records in the claim file");
+    lines.push("- Re-check this manufacturer/model at the next data refresh for new developments");
+    lines.push("");
+    lines.push(`*${result.note}*`);
+    lines.push("*This brief is a draft produced by Claim Watchlist's real-time cross-match, not a legal or medical determination. A human claims handler must review and approve before any escalation is finalized.*");
+    return lines.join("\n");
+  }
+
   function checkClaimWatchlist(manufacturer, modelOrIdentifier) {
     const normMfr = normalizeForMatch(manufacturer);
     const normModel = modelOrIdentifier ? normalizeForMatch(modelOrIdentifier) : "";
@@ -457,7 +498,7 @@ const MoatEngine = (() => {
         });
       }
     }
-    return {
+    const cwResult = {
       manufacturer, modelOrIdentifier, flagged: matches.length > 0, matches,
       checkedSources: [
         "cpsc (SaferProducts.gov bulk incident export)",
@@ -466,6 +507,8 @@ const MoatEngine = (() => {
       ],
       note: "A match means this manufacturer+model is sitting on a real, currently-tracked federal complaint-velocity cluster -- not a legal conclusion that this specific claim is part of it. Zero matches means nothing was found under this exact name/model, not 'cleared.'",
     };
+    cwResult.fnolEscalationBrief = generateFnolEscalationBrief(cwResult);
+    return cwResult;
   }
 
   // Plaintiff Firm Tracker -- a ranked, real view of which firms are filing
@@ -804,6 +847,43 @@ const MoatEngine = (() => {
   // engine.py), not a live external query -- see that pipeline's
   // docstring for exactly how each department's score was computed from
   // real NFIRS 2020-2024 data and its disclosed scope limitations.
+  // Mirrors api-backend/main.py's _generate_exposure_summary_memo() --
+  // same fix as every other product, see change_signal_memo_generator.py.
+  // The real finished artifact here is a book/treaty exposure summary an
+  // actuary or underwriter can act on directly, not a raw department list
+  // they'd otherwise have to scan and rank by hand.
+  function generateExposureSummaryMemo(result) {
+    const now = new Date().toISOString().slice(0, 10);
+    let lines = [`# Firefighter Presumption Exposure Summary -- ${result.state}`,
+      `**Generated:** ${now} (Firefighter Pricing, draft -- requires human sign-off before filing)`, ""];
+    if (!result.flagged) {
+      lines.push("## Summary");
+      lines.push(`No departments matched for ${result.state} under the given search. Broaden the department name/FDID or confirm the state code.`);
+      lines.push("");
+      lines.push("*This summary is a draft produced from a pre-computed NFIRS-based snapshot. A human underwriter should confirm before relying on it.*");
+      return lines.join("\n");
+    }
+    const matches = result.matches;
+    const presumptionCount = matches.filter(m => m.presumptionState).length;
+    const topDecile = matches.filter(m => (m.nationalPercentile || 0) >= 90);
+    lines.push("## Summary");
+    lines.push(`${result.totalMatches} department(s) scored in ${result.state}. ${presumptionCount} sit in a state with an active, statutory firefighter cancer presumption law. ${topDecile.length} show toxic-fire-hour exposure in the top decile nationally (90th percentile or above).`);
+    lines.push("");
+    lines.push("## Highest-exposure departments");
+    for (const m of matches.slice(0, 10)) {
+      lines.push(`- **${m.deptName || m.fdid}** (FDID ${m.fdid}): ${(m.toxicHoursPerFirefighter || 0).toFixed(1)} toxic fire-hours/firefighter/yr, ${m.nationalPercentile}th percentile nationally${m.presumptionState ? ", presumption state" : ""}, segment: ${m.exposureSegment || "n/a"}`);
+    }
+    lines.push("");
+    lines.push("## Recommended underwriting approach");
+    lines.push("- Departments in the top decile nationally AND in a presumption state represent the highest real exposure combination in this book -- prioritize for detailed underwriting review");
+    lines.push("- Presumption-state status is a real statutory fact as of the data's own reference year, not a prediction -- confirm current effective dates per department before pricing");
+    lines.push("- Toxic-fire-hour percentile is a real, computed exposure-intensity ranking, not a legal or medical causation finding for any individual claim");
+    lines.push("");
+    lines.push(`*${result.note}*`);
+    lines.push("*This summary is a draft produced from a pre-computed NFIRS-based snapshot. A human underwriter or actuary must review and approve before it informs any pricing decision.*");
+    return lines.join("\n");
+  }
+
   function checkFirefighterPresumption(state, fdid, deptName) {
     const normState = (state || "").trim().toUpperCase();
     const normFdid = (fdid || "").trim();
@@ -818,11 +898,13 @@ const MoatEngine = (() => {
         presumptionState: !!r.presumption_state, exposureSegment: r.exposure_segment,
       }))
       .sort((a, b) => (b.nationalPercentile || 0) - (a.nationalPercentile || 0));
-    return {
+    const ffResult = {
       state: normState, fdid, deptName, flagged: matches.length > 0,
       matches: matches.slice(0, 50), totalMatches: matches.length,
       note: "Scores are computed from real NFIRS 2020-2024 Fire/HazMat incident data and the real 2023 cancer-presumption state list. nationalPercentile is this department's toxic-fire-hours-per-firefighter rank among all real departments with usable data, not a legal or medical causation finding.",
     };
+    ffResult.exposureSummaryMemo = generateExposureSummaryMemo(ffResult);
+    return ffResult;
   }
 
   // Aggregation Map -- the real "common shock" correlation structure this
