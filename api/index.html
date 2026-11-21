@@ -98,6 +98,7 @@
     <span class="tag">Honest status</span>
     <h2>What's real today, and what isn't yet</h2>
     <p>All of the above is working, tested code today &mdash; not a roadmap slide. What it is NOT yet: deployed to a public production URL, or wired into email/Slack notifications (no mail or webhook credential exists in this environment yet). There is also no audit-trail export into a specific underwriting workbench (Charles Taylor InsureTech, Whitespace, DXC, etc.) &mdash; every response here is already structured JSON with a real source URL per finding, which is the real precondition for that integration, but the integration itself needs a real platform and credentials we don't have in this environment. The batch, subscription, and point-in-time logic itself is real and already running against live government data; standing it up as a hosted, authenticated production API with a workbench connector is the real next step, not a claim this page is making ahead of it.</p>
+    <p style="margin-top:12px;"><strong>ChangeSignal is not in this table.</strong> It's a local rule-based engine (see <a href="../change-signal/" style="color:var(--accent-blue);font-weight:600;">change_signal_engine.py</a>), not yet wired into this API backend as a batch or subscription endpoint &mdash; stated plainly rather than implied by omission.</p>
   </div>
 </div>
 </html>
