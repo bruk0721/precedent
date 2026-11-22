@@ -1,0 +1,17 @@
+[
+  {
+    "manufacturer": "Zuru Inc.",
+    "model_or_identifier": "Size 4",
+    "claim_ref": "CLM-2026-00142"
+  },
+  {
+    "manufacturer": "Insulet Corporation",
+    "model_or_identifier": "PT-000435",
+    "claim_ref": "CLM-2026-00198"
+  },
+  {
+    "manufacturer": "Acme Bakery Co",
+    "model_or_identifier": "N/A",
+    "claim_ref": "CLM-2026-00003"
+  }
+]

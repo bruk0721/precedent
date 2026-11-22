@@ -1,0 +1,32 @@
+[
+  {
+    "claim_ref": "CLM-2026-00142",
+    "source": "cpsc",
+    "manufacturer": "Zuru Inc.",
+    "model_or_identifier": "size 4",
+    "count_in_window": 12,
+    "window_days": 45,
+    "most_recent_date": "2026-09-20",
+    "detected_at": "2026-11-15T03:18:11.552894+00:00"
+  },
+  {
+    "claim_ref": "CLM-2026-00198",
+    "source": "maude",
+    "manufacturer": "INSULET CORPORATION",
+    "model_or_identifier": "PT-000435",
+    "count_in_window": 18,
+    "window_days": 45,
+    "most_recent_date": "2026-07-17",
+    "detected_at": "2026-11-15T03:18:11.552894+00:00"
+  },
+  {
+    "claim_ref": "CLM-2026-00198",
+    "source": "maude",
+    "manufacturer": "Insulet Corporation",
+    "model_or_identifier": "PT-000435",
+    "count_in_window": 18,
+    "window_days": 45,
+    "most_recent_date": "2026-10-13",
+    "detected_at": "2026-11-15T03:18:11.552894+00:00"
+  }
+]

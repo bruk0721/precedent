@@ -128,10 +128,18 @@
 <div class="hero">
   <span class="eyebrow-pill"><span class="dot"></span>Not another dashboard</span>
   <h1>Stop checking one claim at a time.</h1>
-  <p class="dek">Every other tool on this site checks a single claim because that's the demo-friendly shape. A real claims desk doesn't have one open claim, it has a book. <strong>Upload the whole thing.</strong> This runs every row through the same real federal cross-match as Claim Watchlist, then shows you only the rows that are sitting on an active cluster &mdash; not the whole book re-read back to you.</p>
+  <p class="dek">Every other tool on this site checks a single claim because that's the demo-friendly shape. A real claims desk doesn't have one open claim, it has a book. <strong>Subscribe the book once</strong> and a daily job rechecks every row for you, surfacing only what's new &mdash; or upload a one-off book below and get the same digest right now.</p>
 </div>
 
 <div class="wrap">
+  <div class="card" id="sub-card">
+    <h2>Subscribed book &mdash; rechecked automatically every day</h2>
+    <p class="card-sub" id="sub-last-checked">Loading the latest daily-checked subscription list&hellip;</p>
+    <div class="digest-summary" id="sub-digest-summary"></div>
+    <div id="sub-digest-flagged"></div>
+    <div id="sub-digest-clear"></div>
+  </div>
+
   <div class="card">
     <h2>Upload an open-claims book</h2>
     <p class="card-sub">One claim per line, comma-separated: <code>claim_id,manufacturer,model_or_identifier</code>. The first line can be a header row (auto-detected) or omitted. This checks every row against the same real <code>defect_velocity_clusters</code> table as Claim Watchlist &mdash; CPSC, openFDA MAUDE, and NHTSA ODI.</p>
@@ -159,7 +167,10 @@
     <ul class="caveat-list">
       <li>This is the <strong>same</strong> <code>checkClaimWatchlist</code> logic as the single-claim page, just looped over every row in the book, client-side. No new data source, no new matching logic -- only the delivery shape changes.</li>
       <li>CSV parsing here is intentionally simple (comma-split, no quoted-field support) -- a real bordereau ingest would need a proper CSV/Excel parser. Stated, not hidden.</li>
-      <li>This still runs on a button click, not on a schedule -- a real "book monitor" would re-run this automatically (daily, against a stored book) and only notify on a <em>new</em> flag since the last run. That's the real next step, not yet built: see the Claim Watchlist page's batch API and <code>claim_watchlist_subscriptions.py</code> in the private pipelines repo, which already re-checks a subscribed book daily and diffs against the prior run -- this page is the same underlying engine, manually triggered, so you can see the digest shape without needing the daily job wired to this UI yet.</li>
+      <li>The "Subscribed book" panel above reads two files a GitHub Actions workflow publishes daily from the private pipelines repo: the subscription list itself, and an append-only alert log stamped with when Nubuye first noticed each match (<code>claim_watchlist_subscriptions.py</code>). A row tagged <b>NEW</b> was newly detected within the last 2 days; everything else was already known as of a prior run -- that's the actual diff, not just "re-run the same check and show it again."</li>
+      <li>The subscription list itself is still the illustrative 3-claim demo list from that script, not a real bordereau intake form -- subscribing a real book means adding rows to that file (or, eventually, an upload form that writes to it), not something this page can do yet.</li>
+      <li>No notification channel is wired to the alert log (no email/Slack credential exists in this environment) -- same disclosed gap as every other subscription engine in this project. You have to come look at this page; it doesn't yet come find you. That's the honest remaining gap between this and a real FloodFlash-style push.</li>
+      <li>The paste-a-CSV flow below this is still here for a one-off book that isn't on a standing subscription -- same underlying engine, just not rechecked daily.</li>
       <li>A match means the manufacturer+model is sitting on a real, currently-tracked federal complaint-velocity cluster -- not a legal conclusion that this specific claim is part of it.</li>
     </ul>
   </div>
@@ -177,10 +188,26 @@ function srcLink(url, label) {
 
 const SOURCE_LABEL = { cpsc: "CPSC SaferProducts.gov", maude: "openFDA MAUDE (Death reports)", nhtsa_odi: "NHTSA ODI (crash/injury/death)" };
 
-function renderMatch(m) {
-  return `<div class="finding-line"><span class="tag amber">Active cluster</span> <b>${esc(SOURCE_LABEL[m.source] || m.source)}</b> &mdash;
+function renderMatch(m, isNew) {
+  return `<div class="finding-line">${isNew ? '<span class="tag red">New</span> ' : ''}<span class="tag amber">Active cluster</span> <b>${esc(SOURCE_LABEL[m.source] || m.source)}</b> &mdash;
     ${esc(m.countInWindow)} report(s) in a ${esc(m.windowDays)}-day window (${esc(m.lifetimeCount)} lifetime), most recent ${esc(m.mostRecentDate)}
     ${srcLink(m.sourceUrl, "View source")}</div>`;
+}
+
+function normKey(s) { return String(s || "").toUpperCase().replace(/[^A-Z0-9]/g, ""); }
+
+// An alert is "new" for badging purposes if Nubuye first detected it
+// within the last 2 days -- matches claim_watchlist_subscriptions.py's
+// own diff semantics (alerts are only appended when NOT seen before).
+function recentAlertKeys(alerts) {
+  const cutoff = Date.now() - 2 * 24 * 60 * 60 * 1000;
+  const keys = new Set();
+  for (const a of (alerts || [])) {
+    if (new Date(a.detected_at).getTime() >= cutoff) {
+      keys.add(a.source + "|" + normKey(a.manufacturer) + "|" + normKey(a.model_or_identifier));
+    }
+  }
+  return keys;
 }
 
 // Same minimal, safe markdown->HTML as every other memo-rendering page.
@@ -236,25 +263,30 @@ function parseBookCsv(text) {
   return rows;
 }
 
-function runBookCheck(rows) {
-  const card = document.getElementById("digest-card");
-  const heading = document.getElementById("digest-heading");
-  const sub = document.getElementById("digest-sub");
-  const summary = document.getElementById("digest-summary");
-  const flaggedEl = document.getElementById("digest-flagged");
-  const clearEl = document.getElementById("digest-clear");
-  card.style.display = "block";
+// ids: {heading, sub, summary, flagged, clear, memoPrefix}. opts: {newKeys: Set}
+function renderDigest(ids, rows, opts) {
+  opts = opts || {};
+  const newKeys = opts.newKeys || new Set();
+  const heading = document.getElementById(ids.heading);
+  const sub = document.getElementById(ids.sub);
+  const summary = document.getElementById(ids.summary);
+  const flaggedEl = document.getElementById(ids.flagged);
+  const clearEl = document.getElementById(ids.clear);
 
   const results = rows.map(r => ({ row: r, result: MoatEngine.checkClaimWatchlist(r.manufacturer, r.modelOrIdentifier) }));
   const flagged = results.filter(x => x.result.flagged);
   const clear = results.filter(x => !x.result.flagged);
+  const newCount = flagged.reduce((n, x) => n + x.result.matches.filter(m =>
+    newKeys.has(m.source + "|" + normKey(x.row.manufacturer) + "|" + normKey(x.row.modelOrIdentifier))).length, 0);
 
-  heading.textContent = `Book digest: ${rows.length} claim(s) checked`;
-  sub.textContent = flagged.length
-    ? `${flagged.length} of ${rows.length} are sitting on a real, currently-tracked federal complaint-velocity cluster. The other ${clear.length} are not shown in full below -- a digest surfaces what changed, not the whole book.`
+  if (heading) heading.textContent = `Book digest: ${rows.length} claim(s) checked`;
+  if (sub) sub.textContent = flagged.length
+    ? `${flagged.length} of ${rows.length} are sitting on a real, currently-tracked federal complaint-velocity cluster`
+      + (newKeys.size ? `, ${newCount} of them new since the last check` : "")
+      + `. The other ${clear.length} are not shown in full below -- a digest surfaces what changed, not the whole book.`
     : `None of the ${rows.length} claim(s) checked are currently sitting on a tracked federal complaint-velocity cluster.`;
 
-  summary.innerHTML = `
+  if (summary) summary.innerHTML = `
     <div class="digest-stat"><div class="n">${rows.length}</div><div class="label">Claims checked</div></div>
     <div class="digest-stat"><div class="n red">${flagged.length}</div><div class="label">Flagged -- active cluster</div></div>
     <div class="digest-stat"><div class="n green">${clear.length}</div><div class="label">Clear</div></div>
@@ -267,8 +299,8 @@ function runBookCheck(rows) {
         <span><span class="tag red">On a real cluster</span> <b>${esc(r.manufacturer)}</b>${r.modelOrIdentifier ? " / " + esc(r.modelOrIdentifier) : ""}</span>
         <span class="claim-id">${esc(x.row.claimId)}</span>
       </div>
-      ${r.matches.map(renderMatch).join("")}
-      ${renderMemoToggle(r.fnolEscalationBrief, "book-memo-" + i)}
+      ${r.matches.map(m => renderMatch(m, newKeys.has(m.source + "|" + normKey(x.row.manufacturer) + "|" + normKey(x.row.modelOrIdentifier)))).join("")}
+      ${renderMemoToggle(r.fnolEscalationBrief, ids.memoPrefix + "-" + i)}
     </div>`;
   }).join("");
   wireMemoToggle(flaggedEl);
@@ -276,6 +308,32 @@ function runBookCheck(rows) {
   clearEl.innerHTML = clear.length
     ? `<p class="card-sub" style="margin-top:4px;">Clear (${clear.length}): <span class="clear-list">${clear.map(x => esc(x.row.claimId)).join(", ")}</span></p>`
     : "";
+}
+
+function runBookCheck(rows) {
+  document.getElementById("digest-card").style.display = "block";
+  renderDigest({ heading: "digest-heading", sub: "digest-sub", summary: "digest-summary",
+    flagged: "digest-flagged", clear: "digest-clear", memoPrefix: "book-memo" }, rows);
+}
+
+async function loadSubscribedBook() {
+  const lastChecked = document.getElementById("sub-last-checked");
+  try {
+    const [subs, alerts] = await Promise.all([
+      fetch("../shared/claim_watchlist_subscriptions.json").then(r => { if (!r.ok) throw new Error("no subscriptions published yet"); return r.json(); }),
+      fetch("../shared/claim_watchlist_subscription_alerts.json").then(r => r.ok ? r.json() : []),
+    ]);
+    const rows = subs.map(s => ({ claimId: s.claim_ref, manufacturer: s.manufacturer, modelOrIdentifier: s.model_or_identifier || "" }));
+    const newKeys = recentAlertKeys(alerts);
+    const lastDetected = alerts.reduce((max, a) => a.detected_at > max ? a.detected_at : max, "");
+    lastChecked.textContent = lastDetected
+      ? `${rows.length} claim(s) subscribed. Last daily check detected an alert as of ${new Date(lastDetected).toISOString().slice(0, 10)} (${alerts.length} total alert(s) on file).`
+      : `${rows.length} claim(s) subscribed. No alerts on file yet.`;
+    renderDigest({ heading: null, sub: null, summary: "sub-digest-summary",
+      flagged: "sub-digest-flagged", clear: "sub-digest-clear", memoPrefix: "sub-memo" }, rows, { newKeys });
+  } catch (e) {
+    lastChecked.textContent = "Couldn't load the published subscription list (" + e.message + ") -- see the GitHub Actions workflow in the private pipelines repo, which publishes these two files daily.";
+  }
 }
 
 const SAMPLE_BOOK = `claim_id,manufacturer,model_or_identifier
@@ -330,6 +388,8 @@ async function init() {
     reader.onload = () => { document.getElementById("csv-input").value = reader.result; };
     reader.readAsText(file);
   });
+
+  loadSubscribedBook();
 }
 init();
 </script>
