@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nubuye — Book Monitor</title>
+<meta name="description" content="Upload a whole open-claims book, not one claim at a time. Cross-matches every row against real federal pre-litigation complaint-velocity data and surfaces only the ones that changed -- not a dashboard you have to read, a digest of what's new.">
+<meta property="og:title" content="Book Monitor — Nubuye">
+<meta property="og:description" content="Stop checking one claim at a time. Upload the book; this tells you which rows just became a problem.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1;
+    --accent-amber: #b8601f; --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df;
+    --accent-green: #2f6f4f; --accent-green-bg: #e4f0e9;
+    --accent-gray: #5c6370; --accent-gray-bg: #eef0f3; --nav-bg: rgba(247, 248, 250, 0.78);
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px; --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
+    --accent-amber: #e2974f; --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816;
+    --accent-green: #6fae8c; --accent-green-bg: #16271e;
+    --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.78);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 20px 100px; }
+
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 900px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand-mark {
+    height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0;
+    background: var(--accent-blue); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  .theme-toggle:hover { background: var(--chip-bg); }
+
+  @media (max-width: 640px) {
+    nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; }
+    .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; }
+  }
+
+  .hero { padding: 44px 24px 30px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
+  h1 { font-weight: 500; font-size: clamp(28px, 6vw, 40px); line-height: 1.15; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 26ch; }
+  .hero p.dek { font-size: 16px; line-height: 1.6; color: var(--ink-muted); max-width: 64ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
+  h2 { font-weight: 600; font-size: 17px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .card-sub { font-size: 13.5px; color: var(--ink-faint); margin: 0 0 16px; line-height: 1.6; }
+
+  textarea { width: 100%; min-height: 150px; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--chip-bg); background: var(--page-bg); color: var(--ink); font-family: var(--font-mono); font-size: 13px; line-height: 1.6; resize: vertical; }
+  textarea:focus { outline: 2px solid var(--accent-blue); outline-offset: 1px; }
+  .upload-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; align-items: center; }
+  button.primary { background: var(--accent-blue); color: #fff; border: none; border-radius: 10px; padding: 11px 20px; font-family: var(--font); font-weight: 600; font-size: 14px; cursor: pointer; }
+  button.primary:hover { opacity: 0.9; }
+  button.secondary { background: var(--chip-bg); color: var(--ink); border: none; border-radius: 10px; padding: 11px 16px; font-family: var(--font); font-weight: 600; font-size: 13.5px; cursor: pointer; }
+  button.secondary:hover { opacity: 0.85; }
+  .try-examples { margin-top: 10px; font-size: 12.5px; color: var(--ink-faint); }
+  .try-examples button { background: none; border: none; color: var(--accent-blue); font-weight: 600; cursor: pointer; font-size: 12.5px; padding: 0; margin: 0 14px 6px 0; font-family: var(--font); }
+  input[type=file] { font-family: var(--font); font-size: 13px; color: var(--ink-muted); }
+
+  .digest-summary { display: flex; gap: 24px; flex-wrap: wrap; padding: 4px 0 18px; }
+  .digest-stat { }
+  .digest-stat .n { font-size: 26px; font-weight: 600; letter-spacing: -0.02em; }
+  .digest-stat .n.red { color: var(--accent-red); }
+  .digest-stat .n.green { color: var(--accent-green); }
+  .digest-stat .label { font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+
+  .tag { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; }
+  .tag.red { background: var(--accent-red-bg); color: var(--accent-red); }
+  .tag.green { background: var(--accent-green-bg); color: var(--accent-green); }
+  .tag.gray { background: var(--accent-gray-bg); color: var(--accent-gray); }
+  .tag.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
+
+  .claim-card { border: 1px solid var(--chip-bg); border-radius: 14px; padding: 16px 18px; margin-bottom: 12px; }
+  .claim-card .claim-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .claim-card .claim-id { font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); }
+  .finding-line { padding: 10px 0; border-top: 1px solid var(--chip-bg); font-size: 13px; line-height: 1.6; }
+  .finding-line:first-child { border-top: none; }
+  .memo-toggle { margin-top: 10px; background: var(--accent-blue-bg); color: var(--accent-blue); border: none; border-radius: 8px; padding: 7px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: var(--font); }
+  .memo-box { margin-top: 10px; padding: 16px 18px; background: var(--chip-bg); border-radius: 12px; font-size: 13px; line-height: 1.6; }
+  .memo-box h3 { font-size: 14px; margin: 0 0 8px; }
+  .memo-box h4 { font-size: 12.5px; margin: 12px 0 4px; color: var(--ink-muted); }
+  .memo-box p { margin: 4px 0; font-size: 12.5px; }
+  .memo-box ul { margin: 4px 0 10px; padding-left: 18px; }
+  .memo-box li { margin: 2px 0; font-size: 12.5px; }
+  .src-link { color: var(--accent-blue); font-weight: 600; font-size: 12.5px; }
+  .empty-note { color: var(--ink-faint); font-size: 13.5px; }
+  .clear-list { font-size: 12.5px; color: var(--ink-faint); line-height: 1.8; }
+
+  .caveat-list { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
+  .footer-note { text-align: center; font-size: 12px; color: var(--ink-faint); margin-top: 30px; }
+</style>
+</head>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+
+<nav class="top">
+  <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
+  <div class="nav-links">
+    <a href="../">&larr; Back to overview</a>
+    <a href="../claim-watchlist/">Claim Watchlist</a>
+    <a href="../track-record/">Track Record</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow-pill"><span class="dot"></span>Not another dashboard</span>
+  <h1>Stop checking one claim at a time.</h1>
+  <p class="dek">Every other tool on this site checks a single claim because that's the demo-friendly shape. A real claims desk doesn't have one open claim, it has a book. <strong>Upload the whole thing.</strong> This runs every row through the same real federal cross-match as Claim Watchlist, then shows you only the rows that are sitting on an active cluster &mdash; not the whole book re-read back to you.</p>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h2>Upload an open-claims book</h2>
+    <p class="card-sub">One claim per line, comma-separated: <code>claim_id,manufacturer,model_or_identifier</code>. The first line can be a header row (auto-detected) or omitted. This checks every row against the same real <code>defect_velocity_clusters</code> table as Claim Watchlist &mdash; CPSC, openFDA MAUDE, and NHTSA ODI.</p>
+    <textarea id="csv-input" placeholder="claim_id,manufacturer,model_or_identifier&#10;CLM-1001,Zuru Inc.,Size 4&#10;CLM-1002,Acme Bakery Co,&#10;..."></textarea>
+    <div class="upload-row">
+      <input type="file" id="csv-file" accept=".csv,.txt">
+      <button class="primary" id="run-btn">Run book check</button>
+    </div>
+    <div class="try-examples">
+      <button id="sample-btn">Try: a sample 14-claim book</button>
+    </div>
+  </div>
+
+  <div class="card" id="digest-card" style="display:none;">
+    <h2 id="digest-heading"></h2>
+    <p class="card-sub" id="digest-sub"></p>
+    <div class="digest-summary" id="digest-summary"></div>
+    <div id="digest-flagged"></div>
+    <div id="digest-clear"></div>
+  </div>
+
+  <div class="card">
+    <h2>What this actually changes, and what it doesn't</h2>
+    <p class="card-sub">Stated honestly, same discipline as every other tool on this site:</p>
+    <ul class="caveat-list">
+      <li>This is the <strong>same</strong> <code>checkClaimWatchlist</code> logic as the single-claim page, just looped over every row in the book, client-side. No new data source, no new matching logic -- only the delivery shape changes.</li>
+      <li>CSV parsing here is intentionally simple (comma-split, no quoted-field support) -- a real bordereau ingest would need a proper CSV/Excel parser. Stated, not hidden.</li>
+      <li>This still runs on a button click, not on a schedule -- a real "book monitor" would re-run this automatically (daily, against a stored book) and only notify on a <em>new</em> flag since the last run. That's the real next step, not yet built: see the Claim Watchlist page's batch API and <code>claim_watchlist_subscriptions.py</code> in the private pipelines repo, which already re-checks a subscribed book daily and diffs against the prior run -- this page is the same underlying engine, manually triggered, so you can see the digest shape without needing the daily job wired to this UI yet.</li>
+      <li>A match means the manufacturer+model is sitting on a real, currently-tracked federal complaint-velocity cluster -- not a legal conclusion that this specific claim is part of it.</li>
+    </ul>
+  </div>
+
+  <p class="footer-note" id="snapshot-date"></p>
+</div>
+
+<script src="../shared/moat-engine.js"></script>
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+function srcLink(url, label) {
+  return url ? ` <a href="${esc(url)}" target="_blank" rel="noopener" class="src-link">${esc(label || "View source")} &rarr;</a>` : "";
+}
+
+const SOURCE_LABEL = { cpsc: "CPSC SaferProducts.gov", maude: "openFDA MAUDE (Death reports)", nhtsa_odi: "NHTSA ODI (crash/injury/death)" };
+
+function renderMatch(m) {
+  return `<div class="finding-line"><span class="tag amber">Active cluster</span> <b>${esc(SOURCE_LABEL[m.source] || m.source)}</b> &mdash;
+    ${esc(m.countInWindow)} report(s) in a ${esc(m.windowDays)}-day window (${esc(m.lifetimeCount)} lifetime), most recent ${esc(m.mostRecentDate)}
+    ${srcLink(m.sourceUrl, "View source")}</div>`;
+}
+
+// Same minimal, safe markdown->HTML as every other memo-rendering page.
+function formatMemo(md) {
+  const escaped = esc(md);
+  const lines = escaped.split("\n");
+  let html = ""; let inList = false;
+  for (const line of lines) {
+    if (line.startsWith("## ")) { if (inList) { html += "</ul>"; inList = false; } html += `<h4>${line.slice(3)}</h4>`; continue; }
+    if (line.startsWith("# "))  { if (inList) { html += "</ul>"; inList = false; } html += `<h3>${line.slice(2)}</h3>`; continue; }
+    if (line.startsWith("- ")) { if (!inList) { html += "<ul>"; inList = true; } html += `<li>${line.slice(2)}</li>`; continue; }
+    if (inList) { html += "</ul>"; inList = false; }
+    if (line.trim() === "") continue;
+    html += `<p>${line}</p>`;
+  }
+  if (inList) html += "</ul>";
+  html = html.replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  return html.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+}
+
+function renderMemoToggle(memo, idPrefix) {
+  return `<button class="memo-toggle" data-memo-id="${idPrefix}">&#128196; View generated FNOL escalation brief</button>
+    <div class="memo-box" id="${idPrefix}" style="display:none;">${formatMemo(memo)}</div>`;
+}
+
+function wireMemoToggle(root) {
+  root.querySelectorAll(".memo-toggle").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const box = document.getElementById(btn.dataset.memoId);
+      const open = box.style.display !== "none";
+      box.style.display = open ? "none" : "block";
+      btn.innerHTML = open ? "&#128196; View generated FNOL escalation brief" : "&#128196; Hide escalation brief";
+    });
+  });
+}
+
+// Deliberately simple: comma-split, no quoted-field support -- see the
+// honest caveat in the page body. A header row is detected by checking
+// whether column 2 looks like a real manufacturer name vs. literally
+// "manufacturer".
+function parseBookCsv(text) {
+  const rows = [];
+  for (const raw of text.split("\n")) {
+    const line = raw.trim();
+    if (!line) continue;
+    const parts = line.split(",").map(s => s.trim());
+    if (parts.length < 2) continue;
+    const [claimId, manufacturer, modelOrIdentifier] = parts;
+    if (/^claim.?id$/i.test(claimId) && /^manufacturer$/i.test(manufacturer)) continue; // header row
+    if (!manufacturer) continue;
+    rows.push({ claimId: claimId || "(no id)", manufacturer, modelOrIdentifier: modelOrIdentifier || "" });
+  }
+  return rows;
+}
+
+function runBookCheck(rows) {
+  const card = document.getElementById("digest-card");
+  const heading = document.getElementById("digest-heading");
+  const sub = document.getElementById("digest-sub");
+  const summary = document.getElementById("digest-summary");
+  const flaggedEl = document.getElementById("digest-flagged");
+  const clearEl = document.getElementById("digest-clear");
+  card.style.display = "block";
+
+  const results = rows.map(r => ({ row: r, result: MoatEngine.checkClaimWatchlist(r.manufacturer, r.modelOrIdentifier) }));
+  const flagged = results.filter(x => x.result.flagged);
+  const clear = results.filter(x => !x.result.flagged);
+
+  heading.textContent = `Book digest: ${rows.length} claim(s) checked`;
+  sub.textContent = flagged.length
+    ? `${flagged.length} of ${rows.length} are sitting on a real, currently-tracked federal complaint-velocity cluster. The other ${clear.length} are not shown in full below -- a digest surfaces what changed, not the whole book.`
+    : `None of the ${rows.length} claim(s) checked are currently sitting on a tracked federal complaint-velocity cluster.`;
+
+  summary.innerHTML = `
+    <div class="digest-stat"><div class="n">${rows.length}</div><div class="label">Claims checked</div></div>
+    <div class="digest-stat"><div class="n red">${flagged.length}</div><div class="label">Flagged -- active cluster</div></div>
+    <div class="digest-stat"><div class="n green">${clear.length}</div><div class="label">Clear</div></div>
+  `;
+
+  flaggedEl.innerHTML = flagged.map((x, i) => {
+    const r = x.result;
+    return `<div class="claim-card">
+      <div class="claim-head">
+        <span><span class="tag red">On a real cluster</span> <b>${esc(r.manufacturer)}</b>${r.modelOrIdentifier ? " / " + esc(r.modelOrIdentifier) : ""}</span>
+        <span class="claim-id">${esc(x.row.claimId)}</span>
+      </div>
+      ${r.matches.map(renderMatch).join("")}
+      ${renderMemoToggle(r.fnolEscalationBrief, "book-memo-" + i)}
+    </div>`;
+  }).join("");
+  wireMemoToggle(flaggedEl);
+
+  clearEl.innerHTML = clear.length
+    ? `<p class="card-sub" style="margin-top:4px;">Clear (${clear.length}): <span class="clear-list">${clear.map(x => esc(x.row.claimId)).join(", ")}</span></p>`
+    : "";
+}
+
+const SAMPLE_BOOK = `claim_id,manufacturer,model_or_identifier
+CLM-10234,Zuru Inc.,Size 4
+CLM-10235,Zuru Inc.,Size 5
+CLM-10236,MEDTRONIC SINGAPORE OPERATIONS,W1DR01
+CLM-10237,Acme Household Goods Inc,Model 220
+CLM-10238,Northfield Appliance Co,NF-900
+CLM-10239,Riverstone Baby Products,RB-12
+CLM-10240,Cascadia Outdoor Equipment,CO-77
+CLM-10241,Palmetto Medical Devices,PM-5500
+CLM-10242,Sterling Industrial Supply,SIS-14
+CLM-10243,Brightwater Consumer Goods,BW-3
+CLM-10244,Hallmark Kitchenware,HK-200
+CLM-10245,Juniper Electronics,JE-900X
+CLM-10246,Dalewood Furniture Co,DF-61
+CLM-10247,Vantage Sporting Goods,VSG-8`;
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;";
+  };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => {
+    isDark = !isDark;
+    try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {}
+    apply(isDark);
+  });
+}
+
+async function init() {
+  setupThemeToggle();
+  const db = await MoatEngine.load("../shared/moat_export.json");
+  document.getElementById("snapshot-date").textContent = db.generated_at ? `Snapshot as of ${new Date(db.generated_at).toISOString().slice(0, 10)}.` : "";
+
+  document.getElementById("run-btn").addEventListener("click", () => {
+    const rows = parseBookCsv(document.getElementById("csv-input").value);
+    if (rows.length) runBookCheck(rows);
+  });
+  document.getElementById("sample-btn").addEventListener("click", () => {
+    document.getElementById("csv-input").value = SAMPLE_BOOK;
+    runBookCheck(parseBookCsv(SAMPLE_BOOK));
+  });
+  document.getElementById("csv-file").addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => { document.getElementById("csv-input").value = reader.result; };
+    reader.readAsText(file);
+  });
+}
+init();
+</script>
+</html>
