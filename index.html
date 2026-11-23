@@ -89,6 +89,28 @@
   .result-line { padding: 10px 0; border-top: 1px solid var(--chip-bg); font-size: 13px; line-height: 1.6; }
   .result-note { color: var(--ink-faint); font-size: 12.5px; margin-top: 10px; }
 
+  .story { padding: 10px 0 50px; }
+  .story-card { background: var(--card-bg); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 30px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 30px; align-items: center; }
+  @media (max-width: 760px) { .story-card { grid-template-columns: 1fr; gap: 22px; padding: 24px; } }
+  .story-visual { background: var(--page-bg); border-radius: 14px; padding: 28px 20px; display: flex; align-items: center; justify-content: center; min-height: 200px; position: relative; overflow: hidden; }
+  .story-icon { width: 72px; height: 72px; transition: opacity 0.35s, transform 0.35s; }
+  .story-icon svg { width: 100%; height: 100%; }
+  .story-progress { display: flex; gap: 6px; margin-bottom: 20px; }
+  .story-progress-seg { flex: 1; height: 4px; border-radius: 999px; background: var(--chip-bg); overflow: hidden; position: relative; }
+  .story-progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: var(--accent-blue); border-radius: 999px; }
+  .story-progress-seg.done .story-progress-fill { width: 100%; transition: none; }
+  .story-progress-seg.active .story-progress-fill { width: 100%; transition: width linear; }
+  .story-step-label { font-size: 12px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 8px; }
+  .story-step-title { font-size: 19px; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .story-step-body { font-size: 14px; line-height: 1.65; color: var(--ink-muted); margin: 0 0 20px; min-height: 66px; }
+  .story-controls { display: flex; align-items: center; gap: 14px; }
+  .story-dots { display: flex; gap: 7px; }
+  .story-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--chip-bg); border: none; cursor: pointer; padding: 0; }
+  .story-dot.active { background: var(--accent-blue); width: 20px; border-radius: 999px; transition: width 0.2s; }
+  .story-playpause { background: var(--chip-bg); border: none; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--ink-muted); margin-left: auto; flex-shrink: 0; }
+  .story-playpause:hover { color: var(--ink); }
+  .story-foot-note { font-size: 12px; color: var(--ink-faint); margin: 16px 2px 0; }
+
   .trust-bar { text-align: center; padding: 30px 0; }
   .trust-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 14px; }
   .trust-sources { display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: center; font-size: 13px; color: var(--ink-muted); }
@@ -132,6 +154,28 @@
 </div>
 
 <div class="wrap">
+
+  <section class="story">
+    <div class="section-head">
+      <span class="eyebrow">How a miss becomes a catch</span>
+      <h2>One claim, the way Nubuye actually sees it</h2>
+      <p>Not six separate tools &mdash; one mechanism, checking real records the whole way through. This is the general shape of every check on this site, walked through once.</p>
+    </div>
+    <div class="story-card">
+      <div class="story-visual"><div class="story-icon" id="story-icon"></div></div>
+      <div>
+        <div class="story-progress" id="story-progress"></div>
+        <div class="story-step-label" id="story-label"></div>
+        <h3 class="story-step-title" id="story-title"></h3>
+        <p class="story-step-body" id="story-body"></p>
+        <div class="story-controls">
+          <div class="story-dots" id="story-dots"></div>
+          <button class="story-playpause" id="story-playpause" aria-label="Pause"></button>
+        </div>
+      </div>
+    </div>
+    <p class="story-foot-note">Illustrative walkthrough of the mechanism, not a real claim or a specific prediction &mdash; see the real checks below for live results against real records.</p>
+  </section>
 
   <section id="products">
     <div class="section-head">
@@ -373,9 +417,105 @@ function renderFirefighter(result) {
   wireMemoToggle(el);
 }
 
+const STORY_STEPS = [
+  {
+    label: "Step 1 of 4",
+    title: "A claim or account comes in that looks routine",
+    body: "Nothing in the file itself stands out. On paper it reads like any other claim or any other insured on the books.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>`
+  },
+  {
+    label: "Step 2 of 4",
+    title: "Nubuye checks it against real records, live",
+    body: "The same manufacturer, company, facility, or location is checked at that moment against real government data — CPSC, openFDA, EPA, OSHA, CMS, NFIRS, or USAspending, depending on the check.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M19.5 19.5l-4.3-4.3"/></svg>`
+  },
+  {
+    label: "Step 3 of 4",
+    title: "A pattern shows up that the file alone never would",
+    body: "Not one report, but a real cluster forming — or a momentum shift, or a compliance history — the kind of signal that only appears once you look past the single file in front of you.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="6" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M8 7.3L10.5 16M16 7.3L13.5 16M8.3 6h7.4"/></svg>`
+  },
+  {
+    label: "Step 4 of 4",
+    title: "You get a clear answer, before the reserve moves",
+    body: "Flagged or not, with the real source linked and a memo ready to go — caught while it's still a minor claim, not after it's already become a mass tort or a bad renewal.",
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a6 6 0 0 0-6 6c0 4-2 5-2 7h16c0-2-2-3-2-7a6 6 0 0 0-6-6z"/><path d="M9.5 19a2.5 2.5 0 0 0 5 0"/></svg>`
+  }
+];
+const STORY_STEP_MS = 4200;
+
+function setupStory() {
+  const progressEl = document.getElementById("story-progress");
+  const dotsEl = document.getElementById("story-dots");
+  const labelEl = document.getElementById("story-label");
+  const titleEl = document.getElementById("story-title");
+  const bodyEl = document.getElementById("story-body");
+  const iconEl = document.getElementById("story-icon");
+  const playBtn = document.getElementById("story-playpause");
+  if (!progressEl) return;
+
+  STORY_STEPS.forEach((_, i) => {
+    const seg = document.createElement("div");
+    seg.className = "story-progress-seg";
+    seg.innerHTML = `<div class="story-progress-fill"></div>`;
+    progressEl.appendChild(seg);
+    const dot = document.createElement("button");
+    dot.className = "story-dot";
+    dot.setAttribute("aria-label", `Go to step ${i + 1}`);
+    dot.addEventListener("click", () => goTo(i));
+    dotsEl.appendChild(dot);
+  });
+
+  let current = 0;
+  let playing = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let timer = null;
+
+  function render() {
+    const step = STORY_STEPS[current];
+    labelEl.textContent = step.label;
+    titleEl.textContent = step.title;
+    bodyEl.textContent = step.body;
+    iconEl.innerHTML = step.icon;
+    progressEl.querySelectorAll(".story-progress-seg").forEach((seg, i) => {
+      seg.classList.remove("done", "active");
+      const fill = seg.querySelector(".story-progress-fill");
+      fill.style.transitionDuration = "0s";
+      if (i < current) { seg.classList.add("done"); }
+      else if (i === current) { seg.classList.add("active"); fill.style.width = "0%"; }
+      else { fill.style.width = "0%"; }
+    });
+    dotsEl.querySelectorAll(".story-dot").forEach((d, i) => d.classList.toggle("active", i === current));
+    if (playing) {
+      requestAnimationFrame(() => {
+        const activeFill = progressEl.querySelector(".story-progress-seg.active .story-progress-fill");
+        if (activeFill) { activeFill.style.transitionDuration = `${STORY_STEP_MS}ms`; activeFill.style.width = "100%"; }
+      });
+    }
+  }
+
+  function advance() { current = (current + 1) % STORY_STEPS.length; render(); schedule(); }
+  function goTo(i) { current = i; render(); schedule(); }
+  function schedule() {
+    if (timer) clearTimeout(timer);
+    if (playing) timer = setTimeout(advance, STORY_STEP_MS);
+  }
+  function setPlaying(p) {
+    playing = p;
+    playBtn.innerHTML = playing ? "&#10073;&#10073;" : "&#9654;";
+    playBtn.setAttribute("aria-label", playing ? "Pause" : "Play");
+    render();
+    schedule();
+  }
+
+  playBtn.addEventListener("click", () => setPlaying(!playing));
+  setPlaying(playing);
+}
+
 async function init() {
   setupThemeToggle();
   setupTabs();
+  setupStory();
   await MoatEngine.load("./shared/moat_export.json");
 
   document.getElementById("cw-btn").addEventListener("click", () => {
