@@ -93,8 +93,19 @@
   .story-card { background: var(--card-bg); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 30px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 30px; align-items: center; }
   @media (max-width: 760px) { .story-card { grid-template-columns: 1fr; gap: 22px; padding: 24px; } }
   .story-visual { background: var(--page-bg); border-radius: 14px; padding: 28px 20px; display: flex; align-items: center; justify-content: center; min-height: 200px; position: relative; overflow: hidden; }
-  .story-icon { width: 72px; height: 72px; transition: opacity 0.35s, transform 0.35s; }
-  .story-icon svg { width: 100%; height: 100%; }
+  .story-icon { width: 92px; height: 92px; transition: opacity 0.35s, transform 0.35s; }
+  .story-icon svg { width: 100%; height: 100%; overflow: visible; }
+  .ic-draw { stroke-dasharray: 44; stroke-dashoffset: 44; animation: icDraw 0.65s ease forwards; }
+  @keyframes icDraw { to { stroke-dashoffset: 0; } }
+  .ic-pop { opacity: 0; transform: scale(0.4); transform-origin: center; transform-box: fill-box; animation: icPop 0.42s cubic-bezier(.34,1.56,.64,1) forwards; }
+  @keyframes icPop { to { opacity: 1; transform: scale(1); } }
+  .ic-pulse-ring { animation: icPulseRing 1.8s ease-out infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes icPulseRing { 0% { opacity: 0.6; transform: scale(0.75); } 100% { opacity: 0; transform: scale(1.6); } }
+  .ic-dot-pulse { animation: icDotPulse 1.3s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes icDotPulse { 0%, 100% { transform: scale(1); opacity: 0.7; } 50% { transform: scale(1.6); opacity: 1; } }
+  .ic-bell-ring { animation: icBellRing 1.7s ease-in-out 0.3s infinite; transform-origin: 32px 11px; transform-box: fill-box; }
+  @keyframes icBellRing { 0%, 55%, 100% { transform: rotate(0deg); } 8% { transform: rotate(-11deg); } 16% { transform: rotate(9deg); } 24% { transform: rotate(-7deg); } 32% { transform: rotate(5deg); } 40% { transform: rotate(-2deg); } }
+  @media (prefers-reduced-motion: reduce) { .ic-draw, .ic-pop, .ic-pulse-ring, .ic-dot-pulse, .ic-bell-ring { animation: none !important; stroke-dashoffset: 0 !important; opacity: 1 !important; transform: none !important; } }
   .story-progress { display: flex; gap: 6px; margin-bottom: 20px; }
   .story-progress-seg { flex: 1; height: 4px; border-radius: 999px; background: var(--chip-bg); overflow: hidden; position: relative; }
   .story-progress-fill { position: absolute; left: 0; top: 0; height: 100%; width: 0%; background: var(--accent-blue); border-radius: 999px; }
@@ -422,25 +433,57 @@ const STORY_STEPS = [
     label: "Step 1 of 4",
     title: "A claim or account comes in that looks routine",
     body: "Nothing in the file itself stands out. On paper it reads like any other claim or any other insured on the books.",
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>`
+    icon: `<svg viewBox="0 0 64 64">
+      <rect x="12" y="9" width="32" height="42" rx="5" fill="var(--accent-blue-bg)"/>
+      <rect x="12" y="9" width="32" height="42" rx="5" fill="none" stroke="var(--accent-blue)" stroke-width="2"/>
+      <path class="ic-draw" d="M19 20h18" stroke="var(--accent-blue)" stroke-width="2.4" stroke-linecap="round"/>
+      <path class="ic-draw" style="animation-delay:.18s" d="M19 28h18" stroke="var(--accent-blue)" stroke-width="2.4" stroke-linecap="round"/>
+      <path class="ic-draw" style="animation-delay:.36s" d="M19 36h11" stroke="var(--accent-blue)" stroke-width="2.4" stroke-linecap="round"/>
+      <circle class="ic-pop" style="animation-delay:.5s" cx="47" cy="45" r="10" fill="var(--accent-amber-bg)"/>
+      <circle class="ic-dot-pulse" style="animation-delay:.9s" cx="47" cy="45" r="2.6" fill="var(--accent-amber)"/>
+    </svg>`
   },
   {
     label: "Step 2 of 4",
     title: "Nubuye checks it against real records, live",
     body: "The same manufacturer, company, facility, or location is checked at that moment against real government data — CPSC, openFDA, EPA, OSHA, CMS, NFIRS, or USAspending, depending on the check.",
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M19.5 19.5l-4.3-4.3"/></svg>`
+    icon: `<svg viewBox="0 0 64 64">
+      <rect x="10" y="12" width="28" height="8" rx="2.5" fill="var(--accent-blue-bg)" stroke="var(--accent-blue)" stroke-width="1.6"/>
+      <rect x="10" y="23" width="28" height="8" rx="2.5" fill="var(--accent-blue-bg)" stroke="var(--accent-blue)" stroke-width="1.6"/>
+      <rect x="10" y="34" width="28" height="8" rx="2.5" fill="var(--accent-blue-bg)" stroke="var(--accent-blue)" stroke-width="1.6"/>
+      <circle class="ic-dot-pulse" cx="15" cy="16" r="1.5" fill="var(--accent-green)"/>
+      <circle class="ic-dot-pulse" style="animation-delay:.3s" cx="15" cy="27" r="1.5" fill="var(--accent-green)"/>
+      <circle class="ic-dot-pulse" style="animation-delay:.6s" cx="15" cy="38" r="1.5" fill="var(--accent-green)"/>
+      <circle class="ic-pulse-ring" cx="45" cy="45" r="9" fill="none" stroke="var(--accent-blue)" stroke-width="2"/>
+      <circle cx="45" cy="45" r="9" fill="var(--card-bg)" stroke="var(--accent-blue)" stroke-width="2.4"/>
+      <line x1="51.4" y1="51.4" x2="57" y2="57" stroke="var(--accent-blue)" stroke-width="3.2" stroke-linecap="round"/>
+    </svg>`
   },
   {
     label: "Step 3 of 4",
     title: "A pattern shows up that the file alone never would",
     body: "Not one report, but a real cluster forming — or a momentum shift, or a compliance history — the kind of signal that only appears once you look past the single file in front of you.",
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="6" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M8 7.3L10.5 16M16 7.3L13.5 16M8.3 6h7.4"/></svg>`
+    icon: `<svg viewBox="0 0 64 64">
+      <path class="ic-draw" d="M18 16L32 46" stroke="var(--accent-blue)" stroke-width="2" stroke-dasharray="40"/>
+      <path class="ic-draw" style="animation-delay:.15s" d="M48 16L32 46" stroke="var(--accent-blue)" stroke-width="2" stroke-dasharray="40"/>
+      <path class="ic-draw" style="animation-delay:.3s" d="M18 16h30" stroke="var(--accent-blue)" stroke-width="2" stroke-dasharray="34"/>
+      <circle class="ic-pop" cx="18" cy="16" r="6" fill="var(--accent-blue-bg)" stroke="var(--accent-blue)" stroke-width="1.8"/>
+      <circle class="ic-pop" style="animation-delay:.12s" cx="48" cy="16" r="6" fill="var(--accent-blue-bg)" stroke="var(--accent-blue)" stroke-width="1.8"/>
+      <circle class="ic-pulse-ring" style="animation-delay:.6s" cx="32" cy="46" r="7.5" fill="none" stroke="var(--accent-red)" stroke-width="2"/>
+      <circle class="ic-pop" style="animation-delay:.5s" cx="32" cy="46" r="7.5" fill="var(--accent-red-bg)" stroke="var(--accent-red)" stroke-width="2"/>
+    </svg>`
   },
   {
     label: "Step 4 of 4",
     title: "You get a clear answer, before the reserve moves",
     body: "Flagged or not, with the real source linked and a memo ready to go — caught while it's still a minor claim, not after it's already become a mass tort or a bad renewal.",
-    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="var(--accent-blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a6 6 0 0 0-6 6c0 4-2 5-2 7h16c0-2-2-3-2-7a6 6 0 0 0-6-6z"/><path d="M9.5 19a2.5 2.5 0 0 0 5 0"/></svg>`
+    icon: `<svg viewBox="0 0 64 64">
+      <path class="ic-bell-ring" d="M32 10c7 0 12 6 12 13 0 8 3 10 4 13H16c1-3 4-5 4-13 0-7 5-13 12-13z" fill="var(--accent-blue-bg)" stroke="var(--accent-blue)" stroke-width="2"/>
+      <path class="ic-bell-ring" d="M27 40a5 5 0 0 0 10 0" stroke="var(--accent-blue)" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+      <circle class="ic-pulse-ring" style="animation-delay:.9s" cx="47" cy="19" r="10" fill="none" stroke="var(--accent-green)" stroke-width="2"/>
+      <circle class="ic-pop" style="animation-delay:.5s" cx="47" cy="19" r="10" fill="var(--accent-green-bg)"/>
+      <path class="ic-pop" style="animation-delay:.65s" d="M42.5 19l3 3 6-6" stroke="var(--accent-green)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>`
   }
 ];
 const STORY_STEP_MS = 4200;
