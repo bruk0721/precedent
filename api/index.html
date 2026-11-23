@@ -113,6 +113,15 @@
   </div>
 
   <div class="card">
+    <span class="tag">PFAS</span>
+    <h2>Check a corporate family against real PFAS manufacture, import, and release data</h2>
+    <p>Same subsidiary-tree pattern as the accumulation screen, swapped onto EPA's real PFAS Analytic Tools FeatureServer (a separate, keyless public ArcGIS service -- not subject to ECHO's throttle) instead of EPA ECHO/OSHA: TRI on-site PFAS releases by real parent-company name, and TSCA Chemical Data Reporting PFAS manufacture/import by real facility name. Confirmed live against Chemours -- its parent entity alone returned 10 real TRI releases (HCFC-124, named facilities including Louisville Packaging and the Gregory, TX site) and 10 real TSCA CDR rows naming Chambers Works, Fayetteville Works, and Washington Works. Honest gap: EPA CompTox/CTX chemical-hazard scoring and UCMR 5 drinking-water data were both named in the research behind this endpoint but aren't wired in yet -- see <code>not_checked</code> in the response.</p>
+    <pre>curl -X POST https://&lt;your-deployment&gt;/v1/pfas-exposure-monitor \
+  -H "Content-Type: application/json" \
+  -d '{"company": "Chemours"}'</pre>
+  </div>
+
+  <div class="card">
     <span class="tag">Honest status</span>
     <h2>What's real today, and what isn't yet</h2>
     <p>All of the above is working, tested code today &mdash; not a roadmap slide. What it is NOT yet: deployed to a public production URL, or wired into email/Slack notifications (no mail or webhook credential exists in this environment yet). There is also no audit-trail export into a specific underwriting workbench (Charles Taylor InsureTech, Whitespace, DXC, etc.) &mdash; every response here is already structured JSON with a real source URL per finding, which is the real precondition for that integration, but the integration itself needs a real platform and credentials we don't have in this environment. The batch, subscription, and point-in-time logic itself is real and already running against live government data; standing it up as a hosted, authenticated production API with a workbench connector is the real next step, not a claim this page is making ahead of it.</p>
