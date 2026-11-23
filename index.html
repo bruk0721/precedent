@@ -89,6 +89,9 @@
   .result-line { padding: 10px 0; border-top: 1px solid var(--chip-bg); font-size: 13px; line-height: 1.6; }
   .result-note { color: var(--ink-faint); font-size: 12.5px; margin-top: 10px; }
 
+  .video-card { background: var(--card-bg); border-radius: var(--radius-card); box-shadow: var(--shadow-card); overflow: hidden; max-width: 760px; margin: 0 auto; }
+  .video-card video { display: block; width: 100%; height: auto; background: #0b0d10; }
+
   .story { padding: 10px 0 50px; }
   .story-card { background: var(--card-bg); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 30px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 30px; align-items: center; }
   @media (max-width: 760px) { .story-card { grid-template-columns: 1fr; gap: 22px; padding: 24px; } }
@@ -168,9 +171,21 @@
 
   <section class="story">
     <div class="section-head">
+      <span class="eyebrow">Watch it in 20 seconds</span>
+      <h2>The whole mechanism, as a video</h2>
+      <p>No sound needed &mdash; it's a 20-second motion walkthrough of the same four steps, if you'd rather watch than click.</p>
+    </div>
+    <div class="video-card">
+      <video src="./assets/nubuye-explainer.mp4" controls muted autoplay loop playsinline></video>
+    </div>
+    <p class="story-foot-note" style="text-align:center">Illustrative walkthrough of the mechanism, not a real claim or a specific prediction.</p>
+  </section>
+
+  <section class="story">
+    <div class="section-head">
       <span class="eyebrow">How a miss becomes a catch</span>
-      <h2>One claim, the way Nubuye actually sees it</h2>
-      <p>Not six separate tools &mdash; one mechanism, checking real records the whole way through. This is the general shape of every check on this site, walked through once.</p>
+      <h2>Or step through it yourself</h2>
+      <p>Same four steps, at your own pace. Not six separate tools &mdash; one mechanism, checking real records the whole way through.</p>
     </div>
     <div class="story-card">
       <div class="story-visual"><div class="story-icon" id="story-icon"></div></div>
