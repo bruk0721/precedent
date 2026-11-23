@@ -42359,6 +42359,61 @@
       "filing_date": "2026-02-24",
       "source_url": "https://www.sec.gov/Archives/edgar/data/1278021/000119312526067009/mktx-20251231.htm",
       "extracted_at": "2026-11-14T02:07:22.862169+00:00"
+    },
+    {
+      "id": 1521,
+      "risk_category": "climate_litigation",
+      "phrase": "\"climate-related litigation\"",
+      "accession_number": "0001171843-26-007589:ntic20260831_10k.htm",
+      "company_name": "NORTHERN TECHNOLOGIES INTERNATIONAL CORP  (NTIC)  (CIK 0000875582)",
+      "cik": "0000875582",
+      "filing_date": "2026-11-19",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/875582/000117184326007589/ntic20260831_10k.htm",
+      "extracted_at": "2026-11-22T03:53:30.850299+00:00"
+    },
+    {
+      "id": 1666,
+      "risk_category": "ai_agent_liability",
+      "phrase": "\"AI agents\" litigation",
+      "accession_number": "0001048695-26-000077:ffiv-20260930.htm",
+      "company_name": "F5, INC.  (FFIV)  (CIK 0001048695)",
+      "cik": "0001048695",
+      "filing_date": "2026-11-17",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1048695/000104869526000077/ffiv-20260930.htm",
+      "extracted_at": "2026-11-22T03:53:31.657043+00:00"
+    },
+    {
+      "id": 1716,
+      "risk_category": "ai_agent_liability",
+      "phrase": "\"AI agents\" litigation",
+      "accession_number": "0001314727-26-000113:sono-20261003.htm",
+      "company_name": "Sonos Inc  (SONO)  (CIK 0001314727)",
+      "cik": "0001314727",
+      "filing_date": "2026-11-18",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1314727/000131472726000113/sono-20261003.htm",
+      "extracted_at": "2026-11-22T03:53:31.741167+00:00"
+    },
+    {
+      "id": 1741,
+      "risk_category": "ai_agent_liability",
+      "phrase": "\"AI agents\" litigation",
+      "accession_number": "0000936528-26-000079:wfsl-20260930.htm",
+      "company_name": "WAFD INC  (WAFD, WAFDP)  (CIK 0000936528)",
+      "cik": "0000936528",
+      "filing_date": "2026-11-18",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/936528/000093652826000079/wfsl-20260930.htm",
+      "extracted_at": "2026-11-22T03:53:31.782989+00:00"
+    },
+    {
+      "id": 1837,
+      "risk_category": "ai_agent_liability",
+      "phrase": "\"agentic AI\"",
+      "accession_number": "0001728688-26-000055:iiiv-20260930.htm",
+      "company_name": "i3 Verticals, Inc.  (IIIV)  (CIK 0001728688)",
+      "cik": "0001728688",
+      "filing_date": "2026-11-20",
+      "source_url": "https://www.sec.gov/Archives/edgar/data/1728688/000172868826000055/iiiv-20260930.htm",
+      "extracted_at": "2026-11-22T03:53:32.645433+00:00"
     }
   ],
   "jpml_mdl_statistics": [
@@ -46076,11 +46131,11 @@
       "category": "",
       "count_in_window": 5,
       "window_days": 45,
-      "lifetime_count": 6,
+      "lifetime_count": 5,
       "most_recent_date": "2026-07-17",
       "window_end_date": "2026-07-17",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.509086+00:00"
+      "extracted_at": "2026-11-22T03:54:21.554187+00:00"
     },
     {
       "id": 5,
@@ -46102,13 +46157,13 @@
       "manufacturer": "MEDTRONIC PUERTO RICO VILLALBA",
       "model_or_identifier": "5076-52",
       "category": "",
-      "count_in_window": 7,
+      "count_in_window": 6,
       "window_days": 45,
-      "lifetime_count": 10,
+      "lifetime_count": 7,
       "most_recent_date": "2026-07-22",
       "window_end_date": "2026-06-29",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.522740+00:00"
+      "extracted_at": "2026-11-22T03:54:21.483376+00:00"
     },
     {
       "id": 7,
@@ -46118,11 +46173,11 @@
       "category": "",
       "count_in_window": 53,
       "window_days": 45,
-      "lifetime_count": 73,
+      "lifetime_count": 63,
       "most_recent_date": "2026-07-22",
       "window_end_date": "2026-07-22",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.540990+00:00"
+      "extracted_at": "2026-11-22T03:54:21.390668+00:00"
     },
     {
       "id": 8,
@@ -46132,11 +46187,11 @@
       "category": "",
       "count_in_window": 12,
       "window_days": 45,
-      "lifetime_count": 15,
+      "lifetime_count": 12,
       "most_recent_date": "2026-07-10",
       "window_end_date": "2026-07-10",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.553833+00:00"
+      "extracted_at": "2026-11-22T03:54:21.416688+00:00"
     },
     {
       "id": 9,
@@ -46146,11 +46201,11 @@
       "category": "",
       "count_in_window": 19,
       "window_days": 45,
-      "lifetime_count": 48,
+      "lifetime_count": 47,
       "most_recent_date": "2026-10-28",
       "window_end_date": "2026-10-28",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.553833+00:00"
+      "extracted_at": "2026-11-22T03:54:21.431805+00:00"
     },
     {
       "id": 10,
@@ -46188,11 +46243,11 @@
       "category": "",
       "count_in_window": 3,
       "window_days": 45,
-      "lifetime_count": 7,
+      "lifetime_count": 6,
       "most_recent_date": "2026-10-16",
       "window_end_date": "2026-07-07",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.601573+00:00"
+      "extracted_at": "2026-11-22T03:54:21.555787+00:00"
     },
     {
       "id": 13,
@@ -46216,11 +46271,11 @@
       "category": "",
       "count_in_window": 29,
       "window_days": 45,
-      "lifetime_count": 33,
+      "lifetime_count": 31,
       "most_recent_date": "2026-07-15",
       "window_end_date": "2026-07-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.635143+00:00"
+      "extracted_at": "2026-11-22T03:54:21.434674+00:00"
     },
     {
       "id": 15,
@@ -46230,11 +46285,11 @@
       "category": "",
       "count_in_window": 6,
       "window_days": 45,
-      "lifetime_count": 8,
+      "lifetime_count": 7,
       "most_recent_date": "2026-07-17",
       "window_end_date": "2026-07-16",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.649543+00:00"
+      "extracted_at": "2026-11-22T03:54:21.443187+00:00"
     },
     {
       "id": 16,
@@ -46244,11 +46299,11 @@
       "category": "",
       "count_in_window": 5,
       "window_days": 45,
-      "lifetime_count": 12,
+      "lifetime_count": 11,
       "most_recent_date": "2026-10-23",
       "window_end_date": "2026-09-28",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.666237+00:00"
+      "extracted_at": "2026-11-22T03:54:21.400939+00:00"
     },
     {
       "id": 17,
@@ -46258,11 +46313,11 @@
       "category": "",
       "count_in_window": 3,
       "window_days": 45,
-      "lifetime_count": 4,
+      "lifetime_count": 3,
       "most_recent_date": "2026-07-16",
       "window_end_date": "2026-07-16",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.666237+00:00"
+      "extracted_at": "2026-11-22T03:54:21.444718+00:00"
     },
     {
       "id": 18,
@@ -46286,11 +46341,11 @@
       "category": "",
       "count_in_window": 4,
       "window_days": 45,
-      "lifetime_count": 5,
+      "lifetime_count": 4,
       "most_recent_date": "2026-07-13",
       "window_end_date": "2026-07-13",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.700364+00:00"
+      "extracted_at": "2026-11-22T03:54:21.557744+00:00"
     },
     {
       "id": 20,
@@ -46328,11 +46383,11 @@
       "category": "",
       "count_in_window": 3,
       "window_days": 45,
-      "lifetime_count": 6,
+      "lifetime_count": 5,
       "most_recent_date": "2026-09-11",
       "window_end_date": "2026-08-21",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.746783+00:00"
+      "extracted_at": "2026-11-22T03:54:21.409637+00:00"
     },
     {
       "id": 23,
@@ -46370,11 +46425,11 @@
       "category": "",
       "count_in_window": 18,
       "window_days": 45,
-      "lifetime_count": 23,
+      "lifetime_count": 19,
       "most_recent_date": "2026-07-17",
       "window_end_date": "2026-07-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.776922+00:00"
+      "extracted_at": "2026-11-22T03:54:21.446042+00:00"
     },
     {
       "id": 26,
@@ -46398,11 +46453,11 @@
       "category": "",
       "count_in_window": 5,
       "window_days": 45,
-      "lifetime_count": 7,
+      "lifetime_count": 5,
       "most_recent_date": "2026-07-14",
       "window_end_date": "2026-07-14",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.808343+00:00"
+      "extracted_at": "2026-11-22T03:54:21.472858+00:00"
     },
     {
       "id": 28,
@@ -46424,13 +46479,13 @@
       "manufacturer": "PHILIPS MEDICAL SYSTEMS",
       "model_or_identifier": "PATIENT INFORMATION CENTER IX",
       "category": "",
-      "count_in_window": 8,
+      "count_in_window": 7,
       "window_days": 45,
-      "lifetime_count": 8,
+      "lifetime_count": 7,
       "most_recent_date": "2026-07-01",
       "window_end_date": "2026-07-01",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.841370+00:00"
+      "extracted_at": "2026-11-22T03:54:21.486429+00:00"
     },
     {
       "id": 30,
@@ -46480,13 +46535,13 @@
       "manufacturer": "ABBOTT MEDICAL (CRM-SYLMAR)",
       "model_or_identifier": "LSCD201",
       "category": "",
-      "count_in_window": 6,
+      "count_in_window": 4,
       "window_days": 45,
-      "lifetime_count": 7,
+      "lifetime_count": 5,
       "most_recent_date": "2026-07-17",
       "window_end_date": "2026-06-23",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.888487+00:00"
+      "extracted_at": "2026-11-22T03:54:21.427096+00:00"
     },
     {
       "id": 34,
@@ -46508,13 +46563,13 @@
       "manufacturer": "ABBOTT MEDICAL (CRM-SYLMAR)",
       "model_or_identifier": "7122Q/58",
       "category": "",
-      "count_in_window": 4,
+      "count_in_window": 3,
       "window_days": 45,
-      "lifetime_count": 4,
+      "lifetime_count": 3,
       "most_recent_date": "2026-06-23",
       "window_end_date": "2026-06-23",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.920134+00:00"
+      "extracted_at": "2026-11-22T03:54:21.453932+00:00"
     },
     {
       "id": 36,
@@ -46538,11 +46593,11 @@
       "category": "",
       "count_in_window": 13,
       "window_days": 45,
-      "lifetime_count": 15,
+      "lifetime_count": 14,
       "most_recent_date": "2026-07-16",
       "window_end_date": "2026-07-09",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.951536+00:00"
+      "extracted_at": "2026-11-22T03:54:21.428846+00:00"
     },
     {
       "id": 38,
@@ -46552,11 +46607,11 @@
       "category": "",
       "count_in_window": 12,
       "window_days": 45,
-      "lifetime_count": 15,
+      "lifetime_count": 14,
       "most_recent_date": "2026-07-20",
       "window_end_date": "2026-07-09",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.967376+00:00"
+      "extracted_at": "2026-11-22T03:54:21.408216+00:00"
     },
     {
       "id": 39,
@@ -46564,13 +46619,13 @@
       "manufacturer": "PHYSIO-CONTROL, INC. - 3015876",
       "model_or_identifier": "35",
       "category": "",
-      "count_in_window": 4,
+      "count_in_window": 3,
       "window_days": 45,
-      "lifetime_count": 4,
+      "lifetime_count": 3,
       "most_recent_date": "2026-06-25",
       "window_end_date": "2026-06-25",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.983137+00:00"
+      "extracted_at": "2026-11-22T03:54:21.403889+00:00"
     },
     {
       "id": 40,
@@ -46578,13 +46633,13 @@
       "manufacturer": "MEDTRONIC MEXICO S. DE R.L. DE CV",
       "model_or_identifier": "EVFXPLUS-34",
       "category": "",
-      "count_in_window": 8,
+      "count_in_window": 7,
       "window_days": 45,
       "lifetime_count": 10,
       "most_recent_date": "2026-07-21",
       "window_end_date": "2026-07-01",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:33.999371+00:00"
+      "extracted_at": "2026-11-22T03:54:21.378223+00:00"
     },
     {
       "id": 41,
@@ -46592,13 +46647,13 @@
       "manufacturer": "HEARTWARE, INC.",
       "model_or_identifier": "1104",
       "category": "",
-      "count_in_window": 11,
+      "count_in_window": 8,
       "window_days": 45,
       "lifetime_count": 11,
       "most_recent_date": "2026-07-07",
       "window_end_date": "2026-07-07",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.015307+00:00"
+      "extracted_at": "2026-11-22T03:54:21.383195+00:00"
     },
     {
       "id": 42,
@@ -46612,7 +46667,7 @@
       "most_recent_date": "2026-07-16",
       "window_end_date": "2026-07-16",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.015307+00:00"
+      "extracted_at": "2026-11-22T03:54:21.389022+00:00"
     },
     {
       "id": 43,
@@ -46626,7 +46681,7 @@
       "most_recent_date": "2026-07-21",
       "window_end_date": "2026-07-21",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.041574+00:00"
+      "extracted_at": "2026-11-22T03:54:21.392237+00:00"
     },
     {
       "id": 44,
@@ -46654,7 +46709,7 @@
       "most_recent_date": "2026-08-04",
       "window_end_date": "2026-07-27",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.062249+00:00"
+      "extracted_at": "2026-11-22T03:54:21.395670+00:00"
     },
     {
       "id": 46,
@@ -46662,13 +46717,13 @@
       "manufacturer": "MEDTRONIC PUERTO RICO OPERATIONS CO.",
       "model_or_identifier": "MMT-1884",
       "category": "",
-      "count_in_window": 7,
+      "count_in_window": 4,
       "window_days": 45,
       "lifetime_count": 7,
       "most_recent_date": "2026-06-24",
       "window_end_date": "2026-06-24",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.078787+00:00"
+      "extracted_at": "2026-11-22T03:54:21.397275+00:00"
     },
     {
       "id": 47,
@@ -46676,13 +46731,13 @@
       "manufacturer": "SOFRADIM PRODUCTION SAS",
       "model_or_identifier": "UNKNOWN PARIETENE",
       "category": "",
-      "count_in_window": 6,
+      "count_in_window": 5,
       "window_days": 45,
       "lifetime_count": 8,
       "most_recent_date": "2026-09-22",
       "window_end_date": "2026-06-30",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.093855+00:00"
+      "extracted_at": "2026-11-22T03:54:21.402586+00:00"
     },
     {
       "id": 48,
@@ -46696,7 +46751,7 @@
       "most_recent_date": "2026-06-16",
       "window_end_date": "2026-06-16",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.109605+00:00"
+      "extracted_at": "2026-11-22T03:54:21.405202+00:00"
     },
     {
       "id": 49,
@@ -46710,7 +46765,7 @@
       "most_recent_date": "2026-07-20",
       "window_end_date": "2026-06-29",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.129038+00:00"
+      "extracted_at": "2026-11-22T03:54:21.406773+00:00"
     },
     {
       "id": 50,
@@ -46724,7 +46779,7 @@
       "most_recent_date": "2026-07-02",
       "window_end_date": "2026-07-02",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.142908+00:00"
+      "extracted_at": "2026-11-22T03:54:21.411352+00:00"
     },
     {
       "id": 51,
@@ -46738,7 +46793,7 @@
       "most_recent_date": "2026-10-27",
       "window_end_date": "2026-09-04",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.158476+00:00"
+      "extracted_at": "2026-11-22T03:54:21.418287+00:00"
     },
     {
       "id": 52,
@@ -46752,7 +46807,7 @@
       "most_recent_date": "2026-06-30",
       "window_end_date": "2026-06-30",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.173822+00:00"
+      "extracted_at": "2026-11-22T03:54:21.419776+00:00"
     },
     {
       "id": 53,
@@ -46766,7 +46821,7 @@
       "most_recent_date": "2026-06-30",
       "window_end_date": "2026-06-30",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.191762+00:00"
+      "extracted_at": "2026-11-22T03:54:21.421464+00:00"
     },
     {
       "id": 54,
@@ -46780,7 +46835,7 @@
       "most_recent_date": "2026-10-27",
       "window_end_date": "2026-09-23",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.205565+00:00"
+      "extracted_at": "2026-11-22T03:54:21.423103+00:00"
     },
     {
       "id": 55,
@@ -46794,7 +46849,7 @@
       "most_recent_date": "2026-07-22",
       "window_end_date": "2026-06-25",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.221598+00:00"
+      "extracted_at": "2026-11-22T03:54:21.424318+00:00"
     },
     {
       "id": 56,
@@ -46808,7 +46863,7 @@
       "most_recent_date": "2026-06-09",
       "window_end_date": "2026-06-09",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.237371+00:00"
+      "extracted_at": "2026-11-22T03:54:21.425638+00:00"
     },
     {
       "id": 57,
@@ -46822,7 +46877,7 @@
       "most_recent_date": "2026-08-17",
       "window_end_date": "2026-06-22",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.253330+00:00"
+      "extracted_at": "2026-11-22T03:54:21.430510+00:00"
     },
     {
       "id": 58,
@@ -46836,7 +46891,7 @@
       "most_recent_date": "2026-07-10",
       "window_end_date": "2026-07-10",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.270052+00:00"
+      "extracted_at": "2026-11-22T03:54:21.433137+00:00"
     },
     {
       "id": 59,
@@ -46850,7 +46905,7 @@
       "most_recent_date": "2026-10-28",
       "window_end_date": "2026-06-22",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.285008+00:00"
+      "extracted_at": "2026-11-22T03:54:21.436246+00:00"
     },
     {
       "id": 60,
@@ -46864,7 +46919,7 @@
       "most_recent_date": "2026-07-08",
       "window_end_date": "2026-07-08",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.300788+00:00"
+      "extracted_at": "2026-11-22T03:54:21.437877+00:00"
     },
     {
       "id": 61,
@@ -46878,7 +46933,7 @@
       "most_recent_date": "2026-07-03",
       "window_end_date": "2026-07-03",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.303842+00:00"
+      "extracted_at": "2026-11-22T03:54:21.439706+00:00"
     },
     {
       "id": 62,
@@ -46892,7 +46947,7 @@
       "most_recent_date": "2026-10-30",
       "window_end_date": "2026-10-29",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.316894+00:00"
+      "extracted_at": "2026-11-22T03:54:21.441406+00:00"
     },
     {
       "id": 63,
@@ -46906,7 +46961,7 @@
       "most_recent_date": "2026-07-15",
       "window_end_date": "2026-07-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.343774+00:00"
+      "extracted_at": "2026-11-22T03:54:21.447879+00:00"
     },
     {
       "id": 64,
@@ -46920,7 +46975,7 @@
       "most_recent_date": "2026-06-09",
       "window_end_date": "2026-06-09",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.350536+00:00"
+      "extracted_at": "2026-11-22T03:54:21.450296+00:00"
     },
     {
       "id": 65,
@@ -46934,7 +46989,7 @@
       "most_recent_date": "2026-07-15",
       "window_end_date": "2026-07-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.364310+00:00"
+      "extracted_at": "2026-11-22T03:54:21.451954+00:00"
     },
     {
       "id": 66,
@@ -46948,7 +47003,7 @@
       "most_recent_date": "2026-07-15",
       "window_end_date": "2026-07-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.380136+00:00"
+      "extracted_at": "2026-11-22T03:54:21.455860+00:00"
     },
     {
       "id": 67,
@@ -46962,7 +47017,7 @@
       "most_recent_date": "2026-07-20",
       "window_end_date": "2026-06-18",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.395947+00:00"
+      "extracted_at": "2026-11-22T03:54:21.457385+00:00"
     },
     {
       "id": 68,
@@ -46976,7 +47031,7 @@
       "most_recent_date": "2026-10-06",
       "window_end_date": "2026-07-06",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.411897+00:00"
+      "extracted_at": "2026-11-22T03:54:21.459170+00:00"
     },
     {
       "id": 69,
@@ -46990,7 +47045,7 @@
       "most_recent_date": "2026-06-15",
       "window_end_date": "2026-06-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.427820+00:00"
+      "extracted_at": "2026-11-22T03:54:21.460864+00:00"
     },
     {
       "id": 70,
@@ -47004,7 +47059,7 @@
       "most_recent_date": "2026-07-06",
       "window_end_date": "2026-07-06",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.443851+00:00"
+      "extracted_at": "2026-11-22T03:54:21.462564+00:00"
     },
     {
       "id": 71,
@@ -47018,7 +47073,7 @@
       "most_recent_date": "2026-06-15",
       "window_end_date": "2026-06-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.459577+00:00"
+      "extracted_at": "2026-11-22T03:54:21.464696+00:00"
     },
     {
       "id": 72,
@@ -47032,7 +47087,7 @@
       "most_recent_date": "2026-06-15",
       "window_end_date": "2026-06-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.459577+00:00"
+      "extracted_at": "2026-11-22T03:54:21.465915+00:00"
     },
     {
       "id": 73,
@@ -47046,7 +47101,7 @@
       "most_recent_date": "2026-06-30",
       "window_end_date": "2026-06-30",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.475392+00:00"
+      "extracted_at": "2026-11-22T03:54:21.467298+00:00"
     },
     {
       "id": 74,
@@ -47060,7 +47115,7 @@
       "most_recent_date": "2026-07-21",
       "window_end_date": "2026-07-17",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.492326+00:00"
+      "extracted_at": "2026-11-22T03:54:21.471298+00:00"
     },
     {
       "id": 75,
@@ -47074,7 +47129,7 @@
       "most_recent_date": "2026-10-15",
       "window_end_date": "2026-10-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.511917+00:00"
+      "extracted_at": "2026-11-22T03:54:21.474838+00:00"
     },
     {
       "id": 76,
@@ -47088,7 +47143,7 @@
       "most_recent_date": "2026-07-14",
       "window_end_date": "2026-07-14",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.522818+00:00"
+      "extracted_at": "2026-11-22T03:54:21.476629+00:00"
     },
     {
       "id": 77,
@@ -47102,7 +47157,7 @@
       "most_recent_date": "2026-07-14",
       "window_end_date": "2026-07-14",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.549435+00:00"
+      "extracted_at": "2026-11-22T03:54:21.478382+00:00"
     },
     {
       "id": 78,
@@ -47116,7 +47171,7 @@
       "most_recent_date": "2026-06-13",
       "window_end_date": "2026-06-13",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.554187+00:00"
+      "extracted_at": "2026-11-22T03:54:21.481850+00:00"
     },
     {
       "id": 79,
@@ -47130,7 +47185,7 @@
       "most_recent_date": "2026-10-07",
       "window_end_date": "2026-06-16",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.569986+00:00"
+      "extracted_at": "2026-11-22T03:54:21.484863+00:00"
     },
     {
       "id": 80,
@@ -47144,7 +47199,7 @@
       "most_recent_date": "2026-06-29",
       "window_end_date": "2026-06-29",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.586164+00:00"
+      "extracted_at": "2026-11-22T03:54:21.487971+00:00"
     },
     {
       "id": 81,
@@ -47158,7 +47213,7 @@
       "most_recent_date": "2026-07-06",
       "window_end_date": "2026-07-06",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.603138+00:00"
+      "extracted_at": "2026-11-22T03:54:21.491653+00:00"
     },
     {
       "id": 82,
@@ -47172,7 +47227,7 @@
       "most_recent_date": "2026-07-16",
       "window_end_date": "2026-07-16",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.619176+00:00"
+      "extracted_at": "2026-11-22T03:54:21.495699+00:00"
     },
     {
       "id": 83,
@@ -47186,7 +47241,7 @@
       "most_recent_date": "2026-07-02",
       "window_end_date": "2026-07-02",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.633806+00:00"
+      "extracted_at": "2026-11-22T03:54:21.497407+00:00"
     },
     {
       "id": 84,
@@ -47200,7 +47255,7 @@
       "most_recent_date": "2026-10-29",
       "window_end_date": "2026-09-10",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.653421+00:00"
+      "extracted_at": "2026-11-22T03:54:21.499389+00:00"
     },
     {
       "id": 85,
@@ -47214,7 +47269,7 @@
       "most_recent_date": "2026-06-26",
       "window_end_date": "2026-06-26",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.666218+00:00"
+      "extracted_at": "2026-11-22T03:54:21.500683+00:00"
     },
     {
       "id": 86,
@@ -47228,7 +47283,7 @@
       "most_recent_date": "2026-08-04",
       "window_end_date": "2026-07-27",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.684771+00:00"
+      "extracted_at": "2026-11-22T03:54:21.501989+00:00"
     },
     {
       "id": 87,
@@ -47242,7 +47297,7 @@
       "most_recent_date": "2026-06-17",
       "window_end_date": "2026-06-17",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.697352+00:00"
+      "extracted_at": "2026-11-22T03:54:21.503378+00:00"
     },
     {
       "id": 88,
@@ -47256,7 +47311,7 @@
       "most_recent_date": "2026-06-17",
       "window_end_date": "2026-06-17",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.713144+00:00"
+      "extracted_at": "2026-11-22T03:54:21.504798+00:00"
     },
     {
       "id": 89,
@@ -47270,7 +47325,7 @@
       "most_recent_date": "2026-06-11",
       "window_end_date": "2026-06-11",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.728972+00:00"
+      "extracted_at": "2026-11-22T03:54:21.506397+00:00"
     },
     {
       "id": 90,
@@ -47284,7 +47339,7 @@
       "most_recent_date": "2026-10-27",
       "window_end_date": "2026-06-17",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.746326+00:00"
+      "extracted_at": "2026-11-22T03:54:21.508118+00:00"
     },
     {
       "id": 91,
@@ -47298,7 +47353,7 @@
       "most_recent_date": "2026-06-12",
       "window_end_date": "2026-06-12",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.760240+00:00"
+      "extracted_at": "2026-11-22T03:54:21.509738+00:00"
     },
     {
       "id": 92,
@@ -47312,7 +47367,7 @@
       "most_recent_date": "2026-06-11",
       "window_end_date": "2026-06-11",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.776248+00:00"
+      "extracted_at": "2026-11-22T03:54:21.511323+00:00"
     },
     {
       "id": 93,
@@ -47326,7 +47381,7 @@
       "most_recent_date": "2026-06-14",
       "window_end_date": "2026-06-14",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.790449+00:00"
+      "extracted_at": "2026-11-22T03:54:21.512897+00:00"
     },
     {
       "id": 94,
@@ -47340,7 +47395,7 @@
       "most_recent_date": "2026-06-11",
       "window_end_date": "2026-06-11",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.803934+00:00"
+      "extracted_at": "2026-11-22T03:54:21.514176+00:00"
     },
     {
       "id": 95,
@@ -47354,7 +47409,7 @@
       "most_recent_date": "2026-06-15",
       "window_end_date": "2026-06-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.815789+00:00"
+      "extracted_at": "2026-11-22T03:54:21.516009+00:00"
     },
     {
       "id": 96,
@@ -47368,7 +47423,7 @@
       "most_recent_date": "2026-09-19",
       "window_end_date": "2026-06-17",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.815789+00:00"
+      "extracted_at": "2026-11-22T03:54:21.517245+00:00"
     },
     {
       "id": 97,
@@ -47382,7 +47437,7 @@
       "most_recent_date": "2026-06-17",
       "window_end_date": "2026-06-17",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.834500+00:00"
+      "extracted_at": "2026-11-22T03:54:21.518865+00:00"
     },
     {
       "id": 98,
@@ -47396,7 +47451,7 @@
       "most_recent_date": "2026-07-03",
       "window_end_date": "2026-07-03",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.847917+00:00"
+      "extracted_at": "2026-11-22T03:54:21.520307+00:00"
     },
     {
       "id": 99,
@@ -47410,7 +47465,7 @@
       "most_recent_date": "2026-07-15",
       "window_end_date": "2026-07-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.850003+00:00"
+      "extracted_at": "2026-11-22T03:54:21.522638+00:00"
     },
     {
       "id": 100,
@@ -47424,7 +47479,7 @@
       "most_recent_date": "2026-10-26",
       "window_end_date": "2026-06-23",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.867590+00:00"
+      "extracted_at": "2026-11-22T03:54:21.524370+00:00"
     },
     {
       "id": 101,
@@ -47438,7 +47493,7 @@
       "most_recent_date": "2026-10-26",
       "window_end_date": "2026-06-23",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.884358+00:00"
+      "extracted_at": "2026-11-22T03:54:21.525571+00:00"
     },
     {
       "id": 102,
@@ -47452,7 +47507,7 @@
       "most_recent_date": "2026-07-08",
       "window_end_date": "2026-07-08",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.899044+00:00"
+      "extracted_at": "2026-11-22T03:54:21.527300+00:00"
     },
     {
       "id": 103,
@@ -47466,7 +47521,7 @@
       "most_recent_date": "2026-10-29",
       "window_end_date": "2026-09-29",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.901551+00:00"
+      "extracted_at": "2026-11-22T03:54:21.529183+00:00"
     },
     {
       "id": 104,
@@ -47480,7 +47535,7 @@
       "most_recent_date": "2026-10-06",
       "window_end_date": "2026-10-06",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.917996+00:00"
+      "extracted_at": "2026-11-22T03:54:21.530995+00:00"
     },
     {
       "id": 105,
@@ -47494,7 +47549,7 @@
       "most_recent_date": "2026-06-17",
       "window_end_date": "2026-06-17",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.942465+00:00"
+      "extracted_at": "2026-11-22T03:54:21.532810+00:00"
     },
     {
       "id": 106,
@@ -47508,7 +47563,7 @@
       "most_recent_date": "2026-06-17",
       "window_end_date": "2026-06-17",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.955725+00:00"
+      "extracted_at": "2026-11-22T03:54:21.534324+00:00"
     },
     {
       "id": 107,
@@ -47522,7 +47577,7 @@
       "most_recent_date": "2026-10-23",
       "window_end_date": "2026-10-23",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.967868+00:00"
+      "extracted_at": "2026-11-22T03:54:21.536207+00:00"
     },
     {
       "id": 108,
@@ -47536,7 +47591,7 @@
       "most_recent_date": "2026-10-29",
       "window_end_date": "2026-10-29",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:34.984081+00:00"
+      "extracted_at": "2026-11-22T03:54:21.537686+00:00"
     },
     {
       "id": 109,
@@ -47550,7 +47605,7 @@
       "most_recent_date": "2026-07-02",
       "window_end_date": "2026-07-02",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.001361+00:00"
+      "extracted_at": "2026-11-22T03:54:21.539328+00:00"
     },
     {
       "id": 110,
@@ -47564,7 +47619,7 @@
       "most_recent_date": "2026-07-20",
       "window_end_date": "2026-07-20",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.018377+00:00"
+      "extracted_at": "2026-11-22T03:54:21.540582+00:00"
     },
     {
       "id": 111,
@@ -47578,7 +47633,7 @@
       "most_recent_date": "2026-06-17",
       "window_end_date": "2026-06-17",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.034826+00:00"
+      "extracted_at": "2026-11-22T03:54:21.542311+00:00"
     },
     {
       "id": 112,
@@ -47592,7 +47647,7 @@
       "most_recent_date": "2026-10-27",
       "window_end_date": "2026-07-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.050679+00:00"
+      "extracted_at": "2026-11-22T03:54:21.543650+00:00"
     },
     {
       "id": 113,
@@ -47606,7 +47661,7 @@
       "most_recent_date": "2026-06-18",
       "window_end_date": "2026-06-18",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.064788+00:00"
+      "extracted_at": "2026-11-22T03:54:21.545596+00:00"
     },
     {
       "id": 114,
@@ -47620,7 +47675,7 @@
       "most_recent_date": "2026-10-24",
       "window_end_date": "2026-09-11",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.068801+00:00"
+      "extracted_at": "2026-11-22T03:54:21.548424+00:00"
     },
     {
       "id": 115,
@@ -47634,7 +47689,7 @@
       "most_recent_date": "2026-10-13",
       "window_end_date": "2026-09-23",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.092007+00:00"
+      "extracted_at": "2026-11-22T03:54:21.549749+00:00"
     },
     {
       "id": 116,
@@ -47648,7 +47703,7 @@
       "most_recent_date": "2026-10-28",
       "window_end_date": "2026-09-03",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.101041+00:00"
+      "extracted_at": "2026-11-22T03:54:21.551166+00:00"
     },
     {
       "id": 117,
@@ -47662,7 +47717,7 @@
       "most_recent_date": "2026-09-29",
       "window_end_date": "2026-09-29",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.124869+00:00"
+      "extracted_at": "2026-11-22T03:54:21.559534+00:00"
     },
     {
       "id": 118,
@@ -47676,7 +47731,7 @@
       "most_recent_date": "2026-09-18",
       "window_end_date": "2026-09-18",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.134102+00:00"
+      "extracted_at": "2026-11-22T03:54:21.561042+00:00"
     },
     {
       "id": 119,
@@ -47690,7 +47745,7 @@
       "most_recent_date": "2026-07-02",
       "window_end_date": "2026-07-02",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.150982+00:00"
+      "extracted_at": "2026-11-22T03:54:21.564240+00:00"
     },
     {
       "id": 120,
@@ -47704,7 +47759,7 @@
       "most_recent_date": "2026-07-02",
       "window_end_date": "2026-07-02",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.167630+00:00"
+      "extracted_at": "2026-11-22T03:54:21.565765+00:00"
     },
     {
       "id": 121,
@@ -47718,7 +47773,7 @@
       "most_recent_date": "2026-07-08",
       "window_end_date": "2026-07-08",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.184320+00:00"
+      "extracted_at": "2026-11-22T03:54:21.567508+00:00"
     },
     {
       "id": 122,
@@ -47732,7 +47787,7 @@
       "most_recent_date": "2026-07-09",
       "window_end_date": "2026-07-09",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.199233+00:00"
+      "extracted_at": "2026-11-22T03:54:21.571075+00:00"
     },
     {
       "id": 123,
@@ -47746,7 +47801,7 @@
       "most_recent_date": "2026-07-14",
       "window_end_date": "2026-07-14",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.200563+00:00"
+      "extracted_at": "2026-11-22T03:54:21.573959+00:00"
     },
     {
       "id": 124,
@@ -47760,7 +47815,7 @@
       "most_recent_date": "2026-10-22",
       "window_end_date": "2026-07-31",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.217757+00:00"
+      "extracted_at": "2026-11-22T03:54:21.575421+00:00"
     },
     {
       "id": 125,
@@ -47774,7 +47829,7 @@
       "most_recent_date": "2026-09-25",
       "window_end_date": "2026-08-28",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.243031+00:00"
+      "extracted_at": "2026-11-22T03:54:21.577291+00:00"
     },
     {
       "id": 126,
@@ -47788,7 +47843,7 @@
       "most_recent_date": "2026-09-24",
       "window_end_date": "2026-08-28",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.250836+00:00"
+      "extracted_at": "2026-11-22T03:54:21.578533+00:00"
     },
     {
       "id": 127,
@@ -47802,7 +47857,7 @@
       "most_recent_date": "2026-10-05",
       "window_end_date": "2026-09-01",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.270046+00:00"
+      "extracted_at": "2026-11-22T03:54:21.580046+00:00"
     },
     {
       "id": 128,
@@ -47816,7 +47871,7 @@
       "most_recent_date": "2026-10-20",
       "window_end_date": "2026-07-31",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.284313+00:00"
+      "extracted_at": "2026-11-22T03:54:21.581450+00:00"
     },
     {
       "id": 129,
@@ -47830,7 +47885,7 @@
       "most_recent_date": "2026-10-29",
       "window_end_date": "2026-10-29",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.301613+00:00"
+      "extracted_at": "2026-11-22T03:54:21.582873+00:00"
     },
     {
       "id": 130,
@@ -47844,7 +47899,7 @@
       "most_recent_date": "2026-10-22",
       "window_end_date": "2026-08-27",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.317440+00:00"
+      "extracted_at": "2026-11-22T03:54:21.584490+00:00"
     },
     {
       "id": 131,
@@ -47858,7 +47913,7 @@
       "most_recent_date": "2026-10-16",
       "window_end_date": "2026-08-11",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.333419+00:00"
+      "extracted_at": "2026-11-22T03:54:21.586147+00:00"
     },
     {
       "id": 132,
@@ -47872,7 +47927,7 @@
       "most_recent_date": "2026-10-14",
       "window_end_date": "2026-08-24",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.349242+00:00"
+      "extracted_at": "2026-11-22T03:54:21.587554+00:00"
     },
     {
       "id": 133,
@@ -47886,7 +47941,7 @@
       "most_recent_date": "2026-10-30",
       "window_end_date": "2026-10-05",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.350659+00:00"
+      "extracted_at": "2026-11-22T03:54:21.588942+00:00"
     },
     {
       "id": 134,
@@ -47900,7 +47955,7 @@
       "most_recent_date": "2026-08-31",
       "window_end_date": "2026-08-31",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.367706+00:00"
+      "extracted_at": "2026-11-22T03:54:21.590546+00:00"
     },
     {
       "id": 135,
@@ -47914,7 +47969,7 @@
       "most_recent_date": "2026-10-15",
       "window_end_date": "2026-09-03",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.392707+00:00"
+      "extracted_at": "2026-11-22T03:54:21.592243+00:00"
     },
     {
       "id": 136,
@@ -47928,7 +47983,7 @@
       "most_recent_date": "2026-10-21",
       "window_end_date": "2026-09-21",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.401482+00:00"
+      "extracted_at": "2026-11-22T03:54:21.593556+00:00"
     },
     {
       "id": 137,
@@ -47942,7 +47997,7 @@
       "most_recent_date": "2026-10-13",
       "window_end_date": "2026-09-11",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.417434+00:00"
+      "extracted_at": "2026-11-22T03:54:21.595519+00:00"
     },
     {
       "id": 138,
@@ -47956,7 +48011,7 @@
       "most_recent_date": "2026-10-09",
       "window_end_date": "2026-10-09",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.433887+00:00"
+      "extracted_at": "2026-11-22T03:54:21.597458+00:00"
     },
     {
       "id": 139,
@@ -47970,7 +48025,7 @@
       "most_recent_date": "2026-09-01",
       "window_end_date": "2026-09-01",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.450643+00:00"
+      "extracted_at": "2026-11-22T03:54:21.598640+00:00"
     },
     {
       "id": 140,
@@ -47984,7 +48039,7 @@
       "most_recent_date": "2026-10-05",
       "window_end_date": "2026-10-05",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.467850+00:00"
+      "extracted_at": "2026-11-22T03:54:21.600156+00:00"
     },
     {
       "id": 141,
@@ -47998,7 +48053,7 @@
       "most_recent_date": "2026-10-27",
       "window_end_date": "2026-10-27",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.467850+00:00"
+      "extracted_at": "2026-11-22T03:54:21.601595+00:00"
     },
     {
       "id": 142,
@@ -48012,7 +48067,7 @@
       "most_recent_date": "2026-10-13",
       "window_end_date": "2026-08-24",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.484056+00:00"
+      "extracted_at": "2026-11-22T03:54:21.603441+00:00"
     },
     {
       "id": 143,
@@ -48026,7 +48081,7 @@
       "most_recent_date": "2026-08-07",
       "window_end_date": "2026-08-07",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.501126+00:00"
+      "extracted_at": "2026-11-22T03:54:21.605094+00:00"
     },
     {
       "id": 144,
@@ -48040,7 +48095,7 @@
       "most_recent_date": "2026-10-28",
       "window_end_date": "2026-09-08",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.523259+00:00"
+      "extracted_at": "2026-11-22T03:54:21.606714+00:00"
     },
     {
       "id": 145,
@@ -48054,7 +48109,7 @@
       "most_recent_date": "2026-10-27",
       "window_end_date": "2026-09-29",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.533992+00:00"
+      "extracted_at": "2026-11-22T03:54:21.608348+00:00"
     },
     {
       "id": 146,
@@ -48068,7 +48123,7 @@
       "most_recent_date": "2026-08-25",
       "window_end_date": "2026-08-25",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.551146+00:00"
+      "extracted_at": "2026-11-22T03:54:21.609624+00:00"
     },
     {
       "id": 147,
@@ -48082,7 +48137,7 @@
       "most_recent_date": "2026-10-12",
       "window_end_date": "2026-09-04",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.567715+00:00"
+      "extracted_at": "2026-11-22T03:54:21.611018+00:00"
     },
     {
       "id": 148,
@@ -48096,7 +48151,7 @@
       "most_recent_date": "2026-10-28",
       "window_end_date": "2026-10-28",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.584477+00:00"
+      "extracted_at": "2026-11-22T03:54:21.612447+00:00"
     },
     {
       "id": 149,
@@ -48110,7 +48165,7 @@
       "most_recent_date": "2026-10-19",
       "window_end_date": "2026-10-19",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.599293+00:00"
+      "extracted_at": "2026-11-22T03:54:21.614121+00:00"
     },
     {
       "id": 150,
@@ -48124,7 +48179,7 @@
       "most_recent_date": "2026-10-28",
       "window_end_date": "2026-10-28",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.614904+00:00"
+      "extracted_at": "2026-11-22T03:54:21.615580+00:00"
     },
     {
       "id": 151,
@@ -48138,7 +48193,7 @@
       "most_recent_date": "2026-10-15",
       "window_end_date": "2026-09-10",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.619151+00:00"
+      "extracted_at": "2026-11-22T03:54:21.617034+00:00"
     },
     {
       "id": 152,
@@ -48152,7 +48207,7 @@
       "most_recent_date": "2026-10-23",
       "window_end_date": "2026-10-23",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.643292+00:00"
+      "extracted_at": "2026-11-22T03:54:21.618325+00:00"
     },
     {
       "id": 153,
@@ -48166,7 +48221,7 @@
       "most_recent_date": "2026-09-23",
       "window_end_date": "2026-09-11",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.650689+00:00"
+      "extracted_at": "2026-11-22T03:54:21.619862+00:00"
     },
     {
       "id": 154,
@@ -48180,7 +48235,7 @@
       "most_recent_date": "2026-09-15",
       "window_end_date": "2026-08-17",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.667190+00:00"
+      "extracted_at": "2026-11-22T03:54:21.621302+00:00"
     },
     {
       "id": 155,
@@ -48194,7 +48249,7 @@
       "most_recent_date": "2026-10-29",
       "window_end_date": "2026-08-26",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.691226+00:00"
+      "extracted_at": "2026-11-22T03:54:21.622530+00:00"
     },
     {
       "id": 156,
@@ -48208,7 +48263,7 @@
       "most_recent_date": "2026-08-30",
       "window_end_date": "2026-08-30",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.701282+00:00"
+      "extracted_at": "2026-11-22T03:54:21.624057+00:00"
     },
     {
       "id": 157,
@@ -48222,7 +48277,7 @@
       "most_recent_date": "2026-10-21",
       "window_end_date": "2026-10-21",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.717589+00:00"
+      "extracted_at": "2026-11-22T03:54:21.625938+00:00"
     },
     {
       "id": 158,
@@ -48236,7 +48291,7 @@
       "most_recent_date": "2026-10-30",
       "window_end_date": "2026-10-30",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.734310+00:00"
+      "extracted_at": "2026-11-22T03:54:21.627812+00:00"
     },
     {
       "id": 159,
@@ -48250,7 +48305,7 @@
       "most_recent_date": "2026-10-16",
       "window_end_date": "2026-09-04",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.749764+00:00"
+      "extracted_at": "2026-11-22T03:54:21.629075+00:00"
     },
     {
       "id": 160,
@@ -48264,7 +48319,7 @@
       "most_recent_date": "2026-10-26",
       "window_end_date": "2026-10-26",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.751199+00:00"
+      "extracted_at": "2026-11-22T03:54:21.630585+00:00"
     },
     {
       "id": 161,
@@ -48278,7 +48333,7 @@
       "most_recent_date": "2026-10-26",
       "window_end_date": "2026-07-29",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.778113+00:00"
+      "extracted_at": "2026-11-22T03:54:21.632037+00:00"
     },
     {
       "id": 162,
@@ -48292,7 +48347,7 @@
       "most_recent_date": "2026-10-26",
       "window_end_date": "2026-10-26",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.785760+00:00"
+      "extracted_at": "2026-11-22T03:54:21.633318+00:00"
     },
     {
       "id": 163,
@@ -48306,7 +48361,7 @@
       "most_recent_date": "2026-10-16",
       "window_end_date": "2026-08-31",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.824423+00:00"
+      "extracted_at": "2026-11-22T03:54:21.634772+00:00"
     },
     {
       "id": 164,
@@ -48320,7 +48375,7 @@
       "most_recent_date": "2026-10-08",
       "window_end_date": "2026-08-26",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.832284+00:00"
+      "extracted_at": "2026-11-22T03:54:21.636309+00:00"
     },
     {
       "id": 165,
@@ -48334,7 +48389,7 @@
       "most_recent_date": "2026-10-08",
       "window_end_date": "2026-09-09",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.849020+00:00"
+      "extracted_at": "2026-11-22T03:54:21.637976+00:00"
     },
     {
       "id": 166,
@@ -48348,7 +48403,7 @@
       "most_recent_date": "2026-09-15",
       "window_end_date": "2026-09-03",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.865786+00:00"
+      "extracted_at": "2026-11-22T03:54:21.639434+00:00"
     },
     {
       "id": 167,
@@ -48362,7 +48417,7 @@
       "most_recent_date": "2026-10-26",
       "window_end_date": "2026-10-26",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.882276+00:00"
+      "extracted_at": "2026-11-22T03:54:21.640926+00:00"
     },
     {
       "id": 168,
@@ -48376,7 +48431,7 @@
       "most_recent_date": "2026-10-22",
       "window_end_date": "2026-10-12",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.882276+00:00"
+      "extracted_at": "2026-11-22T03:54:21.642193+00:00"
     },
     {
       "id": 169,
@@ -48390,7 +48445,7 @@
       "most_recent_date": "2026-09-17",
       "window_end_date": "2026-08-28",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.910593+00:00"
+      "extracted_at": "2026-11-22T03:54:21.643677+00:00"
     },
     {
       "id": 170,
@@ -48404,7 +48459,7 @@
       "most_recent_date": "2026-10-23",
       "window_end_date": "2026-10-23",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.918591+00:00"
+      "extracted_at": "2026-11-22T03:54:21.645125+00:00"
     },
     {
       "id": 171,
@@ -48418,7 +48473,7 @@
       "most_recent_date": "2026-09-23",
       "window_end_date": "2026-09-14",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.932470+00:00"
+      "extracted_at": "2026-11-22T03:54:21.646383+00:00"
     },
     {
       "id": 172,
@@ -48432,7 +48487,7 @@
       "most_recent_date": "2026-08-27",
       "window_end_date": "2026-08-27",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.952140+00:00"
+      "extracted_at": "2026-11-22T03:54:21.647883+00:00"
     },
     {
       "id": 173,
@@ -48446,7 +48501,7 @@
       "most_recent_date": "2026-10-14",
       "window_end_date": "2026-09-10",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.967936+00:00"
+      "extracted_at": "2026-11-22T03:54:21.649364+00:00"
     },
     {
       "id": 174,
@@ -48460,7 +48515,7 @@
       "most_recent_date": "2026-10-15",
       "window_end_date": "2026-10-15",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.984590+00:00"
+      "extracted_at": "2026-11-22T03:54:21.651082+00:00"
     },
     {
       "id": 175,
@@ -48474,7 +48529,7 @@
       "most_recent_date": "2026-09-25",
       "window_end_date": "2026-09-25",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.999065+00:00"
+      "extracted_at": "2026-11-22T03:54:21.652807+00:00"
     },
     {
       "id": 176,
@@ -48488,7 +48543,7 @@
       "most_recent_date": "2026-07-31",
       "window_end_date": "2026-07-31",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:35.999065+00:00"
+      "extracted_at": "2026-11-22T03:54:21.654480+00:00"
     },
     {
       "id": 177,
@@ -48502,7 +48557,7 @@
       "most_recent_date": "2026-09-02",
       "window_end_date": "2026-09-02",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.015878+00:00"
+      "extracted_at": "2026-11-22T03:54:21.659159+00:00"
     },
     {
       "id": 178,
@@ -48516,7 +48571,7 @@
       "most_recent_date": "2026-10-16",
       "window_end_date": "2026-10-16",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.043844+00:00"
+      "extracted_at": "2026-11-22T03:54:21.660870+00:00"
     },
     {
       "id": 179,
@@ -48530,7 +48585,7 @@
       "most_recent_date": "2026-10-09",
       "window_end_date": "2026-09-14",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.049230+00:00"
+      "extracted_at": "2026-11-22T03:54:21.662631+00:00"
     },
     {
       "id": 180,
@@ -48544,7 +48599,7 @@
       "most_recent_date": "2026-10-26",
       "window_end_date": "2026-08-07",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.065868+00:00"
+      "extracted_at": "2026-11-22T03:54:21.663884+00:00"
     },
     {
       "id": 181,
@@ -48558,7 +48613,7 @@
       "most_recent_date": "2026-10-23",
       "window_end_date": "2026-09-08",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.082426+00:00"
+      "extracted_at": "2026-11-22T03:54:21.665513+00:00"
     },
     {
       "id": 182,
@@ -48572,7 +48627,7 @@
       "most_recent_date": "2026-10-13",
       "window_end_date": "2026-10-13",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.099240+00:00"
+      "extracted_at": "2026-11-22T03:54:21.667358+00:00"
     },
     {
       "id": 183,
@@ -48586,7 +48641,7 @@
       "most_recent_date": "2026-10-30",
       "window_end_date": "2026-10-30",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.099240+00:00"
+      "extracted_at": "2026-11-22T03:54:21.668903+00:00"
     },
     {
       "id": 184,
@@ -48600,7 +48655,7 @@
       "most_recent_date": "2026-09-17",
       "window_end_date": "2026-09-17",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.126611+00:00"
+      "extracted_at": "2026-11-22T03:54:21.670160+00:00"
     },
     {
       "id": 185,
@@ -48614,7 +48669,7 @@
       "most_recent_date": "2026-10-22",
       "window_end_date": "2026-09-05",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.132462+00:00"
+      "extracted_at": "2026-11-22T03:54:21.671989+00:00"
     },
     {
       "id": 186,
@@ -48628,7 +48683,7 @@
       "most_recent_date": "2026-09-24",
       "window_end_date": "2026-09-24",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.153313+00:00"
+      "extracted_at": "2026-11-22T03:54:21.673368+00:00"
     },
     {
       "id": 187,
@@ -48642,7 +48697,7 @@
       "most_recent_date": "2026-08-31",
       "window_end_date": "2026-08-31",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.165635+00:00"
+      "extracted_at": "2026-11-22T03:54:21.675229+00:00"
     },
     {
       "id": 188,
@@ -48656,7 +48711,7 @@
       "most_recent_date": "2026-09-10",
       "window_end_date": "2026-09-10",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.181700+00:00"
+      "extracted_at": "2026-11-22T03:54:21.676782+00:00"
     },
     {
       "id": 189,
@@ -48670,7 +48725,7 @@
       "most_recent_date": "2026-09-01",
       "window_end_date": "2026-09-01",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.182479+00:00"
+      "extracted_at": "2026-11-22T03:54:21.678125+00:00"
     },
     {
       "id": 190,
@@ -48684,7 +48739,7 @@
       "most_recent_date": "2026-09-01",
       "window_end_date": "2026-09-01",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.199228+00:00"
+      "extracted_at": "2026-11-22T03:54:21.679925+00:00"
     },
     {
       "id": 191,
@@ -48698,7 +48753,7 @@
       "most_recent_date": "2026-10-27",
       "window_end_date": "2026-10-27",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.215857+00:00"
+      "extracted_at": "2026-11-22T03:54:21.681399+00:00"
     },
     {
       "id": 192,
@@ -48712,7 +48767,7 @@
       "most_recent_date": "2026-10-23",
       "window_end_date": "2026-09-10",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.233102+00:00"
+      "extracted_at": "2026-11-22T03:54:21.683223+00:00"
     },
     {
       "id": 193,
@@ -48726,7 +48781,7 @@
       "most_recent_date": "2026-09-08",
       "window_end_date": "2026-09-08",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.249026+00:00"
+      "extracted_at": "2026-11-22T03:54:21.684928+00:00"
     },
     {
       "id": 194,
@@ -48740,7 +48795,7 @@
       "most_recent_date": "2026-10-08",
       "window_end_date": "2026-10-08",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.266176+00:00"
+      "extracted_at": "2026-11-22T03:54:21.686499+00:00"
     },
     {
       "id": 195,
@@ -48754,7 +48809,7 @@
       "most_recent_date": "2026-09-30",
       "window_end_date": "2026-09-24",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.266176+00:00"
+      "extracted_at": "2026-11-22T03:54:21.687934+00:00"
     },
     {
       "id": 196,
@@ -48768,7 +48823,7 @@
       "most_recent_date": "2026-09-29",
       "window_end_date": "2026-09-11",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.282611+00:00"
+      "extracted_at": "2026-11-22T03:54:21.689802+00:00"
     },
     {
       "id": 197,
@@ -48782,7 +48837,7 @@
       "most_recent_date": "2026-09-26",
       "window_end_date": "2026-09-26",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.317362+00:00"
+      "extracted_at": "2026-11-22T03:54:21.691154+00:00"
     },
     {
       "id": 198,
@@ -48796,7 +48851,7 @@
       "most_recent_date": "2026-08-27",
       "window_end_date": "2026-08-27",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.330865+00:00"
+      "extracted_at": "2026-11-22T03:54:21.692986+00:00"
     },
     {
       "id": 199,
@@ -48810,7 +48865,7 @@
       "most_recent_date": "2026-10-22",
       "window_end_date": "2026-09-11",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.345832+00:00"
+      "extracted_at": "2026-11-22T03:54:21.694516+00:00"
     },
     {
       "id": 200,
@@ -48824,7 +48879,7 @@
       "most_recent_date": "2026-10-07",
       "window_end_date": "2026-09-25",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.362210+00:00"
+      "extracted_at": "2026-11-22T03:54:21.695894+00:00"
     },
     {
       "id": 201,
@@ -48838,7 +48893,7 @@
       "most_recent_date": "2026-09-28",
       "window_end_date": "2026-09-28",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.374049+00:00"
+      "extracted_at": "2026-11-22T03:54:21.697208+00:00"
     },
     {
       "id": 202,
@@ -48852,7 +48907,7 @@
       "most_recent_date": "2026-09-23",
       "window_end_date": "2026-09-23",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.382606+00:00"
+      "extracted_at": "2026-11-22T03:54:21.698633+00:00"
     },
     {
       "id": 203,
@@ -48866,7 +48921,7 @@
       "most_recent_date": "2026-09-01",
       "window_end_date": "2026-09-01",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.399304+00:00"
+      "extracted_at": "2026-11-22T03:54:21.700568+00:00"
     },
     {
       "id": 204,
@@ -48880,7 +48935,7 @@
       "most_recent_date": "2026-09-02",
       "window_end_date": "2026-09-02",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.415934+00:00"
+      "extracted_at": "2026-11-22T03:54:21.702317+00:00"
     },
     {
       "id": 205,
@@ -48894,7 +48949,7 @@
       "most_recent_date": "2026-10-09",
       "window_end_date": "2026-10-09",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.433055+00:00"
+      "extracted_at": "2026-11-22T03:54:21.703800+00:00"
     },
     {
       "id": 206,
@@ -48908,7 +48963,7 @@
       "most_recent_date": "2026-09-18",
       "window_end_date": "2026-09-18",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.449800+00:00"
+      "extracted_at": "2026-11-22T03:54:21.705217+00:00"
     },
     {
       "id": 207,
@@ -48922,7 +48977,7 @@
       "most_recent_date": "2026-09-24",
       "window_end_date": "2026-09-24",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.466082+00:00"
+      "extracted_at": "2026-11-22T03:54:21.706779+00:00"
     },
     {
       "id": 208,
@@ -48936,7 +48991,7 @@
       "most_recent_date": "2026-10-15",
       "window_end_date": "2026-09-22",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.466082+00:00"
+      "extracted_at": "2026-11-22T03:54:21.708102+00:00"
     },
     {
       "id": 209,
@@ -48950,7 +49005,7 @@
       "most_recent_date": "2026-10-06",
       "window_end_date": "2026-10-01",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.482668+00:00"
+      "extracted_at": "2026-11-22T03:54:21.709484+00:00"
     },
     {
       "id": 210,
@@ -48964,7 +49019,7 @@
       "most_recent_date": "2026-10-27",
       "window_end_date": "2026-10-27",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.499276+00:00"
+      "extracted_at": "2026-11-22T03:54:21.710820+00:00"
     },
     {
       "id": 211,
@@ -48978,7 +49033,7 @@
       "most_recent_date": "2026-10-30",
       "window_end_date": "2026-10-05",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.516021+00:00"
+      "extracted_at": "2026-11-22T03:54:21.712718+00:00"
     },
     {
       "id": 212,
@@ -48992,7 +49047,7 @@
       "most_recent_date": "2026-09-22",
       "window_end_date": "2026-09-22",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.532751+00:00"
+      "extracted_at": "2026-11-22T03:54:21.714480+00:00"
     },
     {
       "id": 213,
@@ -49006,7 +49061,7 @@
       "most_recent_date": "2026-09-23",
       "window_end_date": "2026-09-23",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.549288+00:00"
+      "extracted_at": "2026-11-22T03:54:21.715972+00:00"
     },
     {
       "id": 214,
@@ -49020,7 +49075,7 @@
       "most_recent_date": "2026-10-28",
       "window_end_date": "2026-10-12",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.566017+00:00"
+      "extracted_at": "2026-11-22T03:54:21.717400+00:00"
     },
     {
       "id": 215,
@@ -49034,7 +49089,7 @@
       "most_recent_date": "2026-09-22",
       "window_end_date": "2026-09-22",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.581813+00:00"
+      "extracted_at": "2026-11-22T03:54:21.718940+00:00"
     },
     {
       "id": 216,
@@ -49048,7 +49103,7 @@
       "most_recent_date": "2026-10-14",
       "window_end_date": "2026-10-14",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.595260+00:00"
+      "extracted_at": "2026-11-22T03:54:21.720148+00:00"
     },
     {
       "id": 217,
@@ -49062,7 +49117,7 @@
       "most_recent_date": "2026-10-13",
       "window_end_date": "2026-10-13",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.599002+00:00"
+      "extracted_at": "2026-11-22T03:54:21.721586+00:00"
     },
     {
       "id": 218,
@@ -49076,7 +49131,7 @@
       "most_recent_date": "2026-10-16",
       "window_end_date": "2026-10-16",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.616445+00:00"
+      "extracted_at": "2026-11-22T03:54:21.723033+00:00"
     },
     {
       "id": 219,
@@ -49090,7 +49145,7 @@
       "most_recent_date": "2026-10-28",
       "window_end_date": "2026-10-13",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.632642+00:00"
+      "extracted_at": "2026-11-22T03:54:21.725081+00:00"
     },
     {
       "id": 220,
@@ -49104,7 +49159,7 @@
       "most_recent_date": "2026-10-14",
       "window_end_date": "2026-10-14",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.649804+00:00"
+      "extracted_at": "2026-11-22T03:54:21.726630+00:00"
     },
     {
       "id": 221,
@@ -49118,7 +49173,7 @@
       "most_recent_date": "2026-10-29",
       "window_end_date": "2026-10-14",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.665973+00:00"
+      "extracted_at": "2026-11-22T03:54:21.728233+00:00"
     },
     {
       "id": 222,
@@ -49132,7 +49187,7 @@
       "most_recent_date": "2026-09-08",
       "window_end_date": "2026-09-08",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.679477+00:00"
+      "extracted_at": "2026-11-22T03:54:21.729623+00:00"
     },
     {
       "id": 223,
@@ -49146,7 +49201,7 @@
       "most_recent_date": "2026-10-13",
       "window_end_date": "2026-10-13",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.694758+00:00"
+      "extracted_at": "2026-11-22T03:54:21.731247+00:00"
     },
     {
       "id": 224,
@@ -49160,7 +49215,7 @@
       "most_recent_date": "2026-10-22",
       "window_end_date": "2026-10-22",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.699163+00:00"
+      "extracted_at": "2026-11-22T03:54:21.732390+00:00"
     },
     {
       "id": 225,
@@ -49174,7 +49229,7 @@
       "most_recent_date": "2026-10-07",
       "window_end_date": "2026-10-07",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.715901+00:00"
+      "extracted_at": "2026-11-22T03:54:21.733797+00:00"
     },
     {
       "id": 226,
@@ -49188,7 +49243,7 @@
       "most_recent_date": "2026-10-06",
       "window_end_date": "2026-10-06",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.732714+00:00"
+      "extracted_at": "2026-11-22T03:54:21.735178+00:00"
     },
     {
       "id": 227,
@@ -49202,7 +49257,7 @@
       "most_recent_date": "2026-10-06",
       "window_end_date": "2026-10-06",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.752252+00:00"
+      "extracted_at": "2026-11-22T03:54:21.737085+00:00"
     },
     {
       "id": 228,
@@ -49216,7 +49271,7 @@
       "most_recent_date": "2026-10-22",
       "window_end_date": "2026-10-22",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.765902+00:00"
+      "extracted_at": "2026-11-22T03:54:21.739031+00:00"
     },
     {
       "id": 229,
@@ -49230,7 +49285,7 @@
       "most_recent_date": "2026-10-23",
       "window_end_date": "2026-10-23",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.767174+00:00"
+      "extracted_at": "2026-11-22T03:54:21.740299+00:00"
     },
     {
       "id": 230,
@@ -49244,7 +49299,7 @@
       "most_recent_date": "2026-10-21",
       "window_end_date": "2026-10-21",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.782564+00:00"
+      "extracted_at": "2026-11-22T03:54:21.742191+00:00"
     },
     {
       "id": 231,
@@ -49258,7 +49313,7 @@
       "most_recent_date": "2026-10-14",
       "window_end_date": "2026-10-14",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.800343+00:00"
+      "extracted_at": "2026-11-22T03:54:21.743480+00:00"
     },
     {
       "id": 232,
@@ -49272,7 +49327,7 @@
       "most_recent_date": "2026-10-14",
       "window_end_date": "2026-10-14",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.816054+00:00"
+      "extracted_at": "2026-11-22T03:54:21.745003+00:00"
     },
     {
       "id": 233,
@@ -49286,7 +49341,7 @@
       "most_recent_date": "2026-10-19",
       "window_end_date": "2026-10-19",
       "source_url": "https://api.fda.gov/device/event.json",
-      "extracted_at": "2026-11-15T01:18:36.836417+00:00"
+      "extracted_at": "2026-11-22T03:54:21.746476+00:00"
     },
     {
       "id": 234,
@@ -49310,11 +49365,11 @@
       "category": "",
       "count_in_window": 22,
       "window_days": 45,
-      "lifetime_count": 515,
-      "most_recent_date": "2026-11-12",
+      "lifetime_count": 517,
+      "most_recent_date": "2026-11-19",
       "window_end_date": "2026-07-21",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.397764+00:00"
+      "extracted_at": "2026-11-23T03:17:43.728302+00:00"
     },
     {
       "id": 236,
@@ -49324,11 +49379,11 @@
       "category": "",
       "count_in_window": 21,
       "window_days": 45,
-      "lifetime_count": 741,
-      "most_recent_date": "2026-11-10",
+      "lifetime_count": 742,
+      "most_recent_date": "2026-11-19",
       "window_end_date": "2026-07-31",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.409574+00:00"
+      "extracted_at": "2026-11-23T03:17:43.729263+00:00"
     },
     {
       "id": 237,
@@ -49338,11 +49393,11 @@
       "category": "",
       "count_in_window": 18,
       "window_days": 45,
-      "lifetime_count": 2000,
-      "most_recent_date": "2026-11-08",
+      "lifetime_count": 2003,
+      "most_recent_date": "2026-11-18",
       "window_end_date": "2026-07-20",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.421120+00:00"
+      "extracted_at": "2026-11-23T03:17:43.730049+00:00"
     },
     {
       "id": 238,
@@ -49366,11 +49421,11 @@
       "category": "",
       "count_in_window": 16,
       "window_days": 45,
-      "lifetime_count": 958,
-      "most_recent_date": "2026-10-31",
+      "lifetime_count": 960,
+      "most_recent_date": "2026-11-19",
       "window_end_date": "2026-07-17",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.448059+00:00"
+      "extracted_at": "2026-11-23T03:17:43.733091+00:00"
     },
     {
       "id": 240,
@@ -49380,11 +49435,11 @@
       "category": "",
       "count_in_window": 14,
       "window_days": 45,
-      "lifetime_count": 2480,
-      "most_recent_date": "2026-11-12",
+      "lifetime_count": 2483,
+      "most_recent_date": "2026-11-19",
       "window_end_date": "2026-08-26",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.457371+00:00"
+      "extracted_at": "2026-11-23T03:17:43.735472+00:00"
     },
     {
       "id": 241,
@@ -49394,11 +49449,11 @@
       "category": "",
       "count_in_window": 14,
       "window_days": 45,
-      "lifetime_count": 2327,
-      "most_recent_date": "2026-11-09",
+      "lifetime_count": 2328,
+      "most_recent_date": "2026-11-15",
       "window_end_date": "2026-11-09",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.479778+00:00"
+      "extracted_at": "2026-11-23T03:17:43.736346+00:00"
     },
     {
       "id": 242,
@@ -49408,11 +49463,11 @@
       "category": "",
       "count_in_window": 14,
       "window_days": 45,
-      "lifetime_count": 444,
-      "most_recent_date": "2026-11-04",
+      "lifetime_count": 445,
+      "most_recent_date": "2026-11-19",
       "window_end_date": "2026-10-08",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.495452+00:00"
+      "extracted_at": "2026-11-23T03:17:43.737388+00:00"
     },
     {
       "id": 243,
@@ -49422,11 +49477,11 @@
       "category": "",
       "count_in_window": 12,
       "window_days": 45,
-      "lifetime_count": 1938,
-      "most_recent_date": "2026-11-11",
+      "lifetime_count": 1939,
+      "most_recent_date": "2026-11-13",
       "window_end_date": "2026-07-25",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.513017+00:00"
+      "extracted_at": "2026-11-23T03:17:43.739884+00:00"
     },
     {
       "id": 244,
@@ -49440,7 +49495,7 @@
       "most_recent_date": "2026-10-24",
       "window_end_date": "2026-08-27",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.527155+00:00"
+      "extracted_at": "2026-11-23T03:17:43.741405+00:00"
     },
     {
       "id": 245,
@@ -49454,7 +49509,7 @@
       "most_recent_date": "2026-11-05",
       "window_end_date": "2026-07-06",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.543332+00:00"
+      "extracted_at": "2026-11-23T03:17:43.742706+00:00"
     },
     {
       "id": 246,
@@ -49464,11 +49519,11 @@
       "category": "",
       "count_in_window": 11,
       "window_days": 45,
-      "lifetime_count": 848,
-      "most_recent_date": "2026-11-05",
+      "lifetime_count": 849,
+      "most_recent_date": "2026-11-18",
       "window_end_date": "2026-07-13",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.565193+00:00"
+      "extracted_at": "2026-11-23T03:17:43.744979+00:00"
     },
     {
       "id": 247,
@@ -49482,7 +49537,7 @@
       "most_recent_date": "2026-11-01",
       "window_end_date": "2026-10-10",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.575067+00:00"
+      "extracted_at": "2026-11-23T03:17:43.745797+00:00"
     },
     {
       "id": 248,
@@ -49492,11 +49547,11 @@
       "category": "",
       "count_in_window": 11,
       "window_days": 45,
-      "lifetime_count": 597,
-      "most_recent_date": "2026-11-09",
+      "lifetime_count": 599,
+      "most_recent_date": "2026-11-19",
       "window_end_date": "2026-10-20",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.590968+00:00"
+      "extracted_at": "2026-11-23T03:17:43.746526+00:00"
     },
     {
       "id": 249,
@@ -49510,7 +49565,7 @@
       "most_recent_date": "2026-11-09",
       "window_end_date": "2026-11-09",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.613053+00:00"
+      "extracted_at": "2026-11-23T03:17:43.747225+00:00"
     },
     {
       "id": 250,
@@ -49520,11 +49575,11 @@
       "category": "",
       "count_in_window": 10,
       "window_days": 45,
-      "lifetime_count": 878,
-      "most_recent_date": "2026-11-09",
+      "lifetime_count": 880,
+      "most_recent_date": "2026-11-18",
       "window_end_date": "2026-11-09",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.622438+00:00"
+      "extracted_at": "2026-11-23T03:17:43.749927+00:00"
     },
     {
       "id": 251,
@@ -49534,11 +49589,11 @@
       "category": "",
       "count_in_window": 10,
       "window_days": 45,
-      "lifetime_count": 702,
-      "most_recent_date": "2026-11-10",
+      "lifetime_count": 703,
+      "most_recent_date": "2026-11-13",
       "window_end_date": "2026-07-21",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.652046+00:00"
+      "extracted_at": "2026-11-23T03:17:43.750640+00:00"
     },
     {
       "id": 252,
@@ -49548,11 +49603,11 @@
       "category": "",
       "count_in_window": 10,
       "window_days": 45,
-      "lifetime_count": 409,
-      "most_recent_date": "2026-11-03",
+      "lifetime_count": 410,
+      "most_recent_date": "2026-11-13",
       "window_end_date": "2026-10-23",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.669585+00:00"
+      "extracted_at": "2026-11-23T03:17:43.751611+00:00"
     },
     {
       "id": 253,
@@ -49566,7 +49621,203 @@
       "most_recent_date": "2026-11-12",
       "window_end_date": "2026-07-30",
       "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
-      "extracted_at": "2026-11-15T01:20:58.685436+00:00"
+      "extracted_at": "2026-11-23T03:17:43.752409+00:00"
+    },
+    {
+      "id": 254,
+      "source": "maude",
+      "manufacturer": "THORATEC CORPORATION",
+      "model_or_identifier": "106524US",
+      "category": "",
+      "count_in_window": 123,
+      "window_days": 45,
+      "lifetime_count": 147,
+      "most_recent_date": "2026-07-22",
+      "window_end_date": "2026-07-17",
+      "source_url": "https://api.fda.gov/device/event.json",
+      "extracted_at": "2026-11-22T03:54:21.373903+00:00"
+    },
+    {
+      "id": 256,
+      "source": "maude",
+      "manufacturer": "VANTIVE US HEALTHCARE LLC",
+      "model_or_identifier": "NA",
+      "category": "",
+      "count_in_window": 3,
+      "window_days": 45,
+      "lifetime_count": 5,
+      "most_recent_date": "2026-07-21",
+      "window_end_date": "2026-07-07",
+      "source_url": "https://api.fda.gov/device/event.json",
+      "extracted_at": "2026-11-22T03:54:21.381124+00:00"
+    },
+    {
+      "id": 261,
+      "source": "maude",
+      "manufacturer": "THORATEC CORPORATION",
+      "model_or_identifier": "106015",
+      "category": "",
+      "count_in_window": 8,
+      "window_days": 45,
+      "lifetime_count": 9,
+      "most_recent_date": "2026-07-13",
+      "window_end_date": "2026-07-13",
+      "source_url": "https://api.fda.gov/device/event.json",
+      "extracted_at": "2026-11-22T03:54:21.394147+00:00"
+    },
+    {
+      "id": 264,
+      "source": "maude",
+      "manufacturer": "BOSTON SCIENTIFIC NEUROMODULATION CORPORATION",
+      "model_or_identifier": "SC-1132",
+      "category": "",
+      "count_in_window": 6,
+      "window_days": 45,
+      "lifetime_count": 12,
+      "most_recent_date": "2026-10-22",
+      "window_end_date": "2026-07-21",
+      "source_url": "https://api.fda.gov/device/event.json",
+      "extracted_at": "2026-11-22T03:54:21.398582+00:00"
+    },
+    {
+      "id": 305,
+      "source": "maude",
+      "manufacturer": "UNOMEDICAL DEVICES S.A DE C.V",
+      "model_or_identifier": "INFUSION DEVICES - UNKNOWN ICD",
+      "category": "",
+      "count_in_window": 169,
+      "window_days": 45,
+      "lifetime_count": 169,
+      "most_recent_date": "2026-07-10",
+      "window_end_date": "2026-07-10",
+      "source_url": "https://api.fda.gov/device/event.json",
+      "extracted_at": "2026-11-22T03:54:21.469551+00:00"
+    },
+    {
+      "id": 311,
+      "source": "maude",
+      "manufacturer": "BOSTON SCIENTIFIC CORPORATION",
+      "model_or_identifier": "M635WU60270",
+      "category": "",
+      "count_in_window": 5,
+      "window_days": 45,
+      "lifetime_count": 9,
+      "most_recent_date": "2026-10-26",
+      "window_end_date": "2026-08-11",
+      "source_url": "https://api.fda.gov/device/event.json",
+      "extracted_at": "2026-11-22T03:54:21.480019+00:00"
+    },
+    {
+      "id": 317,
+      "source": "maude",
+      "manufacturer": "ABBOTT MEDICAL",
+      "model_or_identifier": "UNKNOWN TCDS",
+      "category": "",
+      "count_in_window": 5,
+      "window_days": 45,
+      "lifetime_count": 5,
+      "most_recent_date": "2026-07-20",
+      "window_end_date": "2026-07-20",
+      "source_url": "https://api.fda.gov/device/event.json",
+      "extracted_at": "2026-11-22T03:54:21.489785+00:00"
+    },
+    {
+      "id": 319,
+      "source": "maude",
+      "manufacturer": "ABBOTT MEDICAL (CRM-SYLMAR)",
+      "model_or_identifier": "LSP202V",
+      "category": "",
+      "count_in_window": 5,
+      "window_days": 45,
+      "lifetime_count": 5,
+      "most_recent_date": "2026-07-08",
+      "window_end_date": "2026-07-08",
+      "source_url": "https://api.fda.gov/device/event.json",
+      "extracted_at": "2026-11-22T03:54:21.494013+00:00"
+    },
+    {
+      "id": 352,
+      "source": "maude",
+      "manufacturer": "Cardiovascular Systems Incorporated",
+      "model_or_identifier": "DBEC-125",
+      "category": "",
+      "count_in_window": 5,
+      "window_days": 45,
+      "lifetime_count": 9,
+      "most_recent_date": "2026-10-09",
+      "window_end_date": "2026-07-09",
+      "source_url": "https://api.fda.gov/device/event.json",
+      "extracted_at": "2026-11-22T03:54:21.547149+00:00"
+    },
+    {
+      "id": 356,
+      "source": "maude",
+      "manufacturer": "MEDTRONIC PUERTO RICO VILLALBA",
+      "model_or_identifier": "383069",
+      "category": "",
+      "count_in_window": 7,
+      "window_days": 45,
+      "lifetime_count": 7,
+      "most_recent_date": "2026-07-09",
+      "window_end_date": "2026-07-09",
+      "source_url": "https://api.fda.gov/device/event.json",
+      "extracted_at": "2026-11-22T03:54:21.552748+00:00"
+    },
+    {
+      "id": 362,
+      "source": "maude",
+      "manufacturer": "ABBOTT MEDICAL",
+      "model_or_identifier": "NVRO-25",
+      "category": "",
+      "count_in_window": 3,
+      "window_days": 45,
+      "lifetime_count": 3,
+      "most_recent_date": "2026-07-20",
+      "window_end_date": "2026-07-20",
+      "source_url": "https://api.fda.gov/device/event.json",
+      "extracted_at": "2026-11-22T03:54:21.562742+00:00"
+    },
+    {
+      "id": 478,
+      "source": "nhtsa_odi",
+      "manufacturer": "TESLA, INC.",
+      "model_or_identifier": "MODEL Y",
+      "category": "",
+      "count_in_window": 55,
+      "window_days": 45,
+      "lifetime_count": 662,
+      "most_recent_date": "2026-11-19",
+      "window_end_date": "2026-11-19",
+      "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
+      "extracted_at": "2026-11-23T03:17:43.703302+00:00"
+    },
+    {
+      "id": 486,
+      "source": "nhtsa_odi",
+      "manufacturer": "HYUNDAI MOTOR AMERICA",
+      "model_or_identifier": "TUCSON",
+      "category": "",
+      "count_in_window": 14,
+      "window_days": 45,
+      "lifetime_count": 295,
+      "most_recent_date": "2026-11-18",
+      "window_end_date": "2026-07-10",
+      "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
+      "extracted_at": "2026-11-23T03:17:43.738483+00:00"
+    },
+    {
+      "id": 494,
+      "source": "nhtsa_odi",
+      "manufacturer": "TOYOTA MOTOR CORPORATION",
+      "model_or_identifier": "CAMRY",
+      "category": "",
+      "count_in_window": 10,
+      "window_days": 45,
+      "lifetime_count": 3041,
+      "most_recent_date": "2026-11-14",
+      "window_end_date": "2026-11-14",
+      "source_url": "https://static.nhtsa.gov/odi/ffdd/cmpl/FLAT_CMPL.zip",
+      "extracted_at": "2026-11-23T03:17:43.748170+00:00"
     }
   ],
   "firefighter_presumption_pricing": [
@@ -386494,429 +386745,6 @@
       "summary": "Narrowed AI liability law limiting developer liability to intended, marketed, or contracted-for uses; invalidates contract clauses attempting to indemnify away liability under the law. The original SB 205 is separately being challenged in federal court by xAI and the DOJ."
     }
   ],
-  "leakage_model": {
-    "generated_at": "2026-11-15T23:37:38.219138+00:00",
-    "scope_note": "This tests whether presumption-law states and PFAS regulatory/exposure signal correlate -- it does NOT test Bob's sharpest question (litigation substitution: does an easy WC claim path reduce PFAS lawsuits against manufacturers), because this project's own AFFF litigation data has no plaintiff-occupation or plaintiff-home-state field. That real test needs AFFF MDL plaintiff fact sheets, which sit behind PACER's per-page fee -- a real, named, one-time cost, not pulled here.",
-    "thin_data_caveat": "Only 16 real pfas_regulation legislative rows exist project-wide -- read the regulation-bill averages as a weak, small-N signal, not a confident finding. The exposure-site comparison (480 real sites) is a larger, more defensible sample.",
-    "rows": [
-      {
-        "state": "AL",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 5
-      },
-      {
-        "state": "AK",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 5
-      },
-      {
-        "state": "AZ",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 8
-      },
-      {
-        "state": "AR",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 0
-      },
-      {
-        "state": "CA",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 1,
-        "real_pfas_exposure_sites": 31
-      },
-      {
-        "state": "CO",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 3
-      },
-      {
-        "state": "CT",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 12
-      },
-      {
-        "state": "DE",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 9
-      },
-      {
-        "state": "FL",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 8
-      },
-      {
-        "state": "GA",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 0
-      },
-      {
-        "state": "HI",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 2
-      },
-      {
-        "state": "ID",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 2
-      },
-      {
-        "state": "IL",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 2,
-        "real_pfas_exposure_sites": 18
-      },
-      {
-        "state": "IN",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 5
-      },
-      {
-        "state": "IA",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 2
-      },
-      {
-        "state": "KS",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 2
-      },
-      {
-        "state": "KY",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 1
-      },
-      {
-        "state": "LA",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": true,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 1
-      },
-      {
-        "state": "ME",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": true,
-        "real_pfas_regulation_bills": 2,
-        "real_pfas_exposure_sites": 12
-      },
-      {
-        "state": "MD",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 2,
-        "real_pfas_exposure_sites": 14
-      },
-      {
-        "state": "MA",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 26
-      },
-      {
-        "state": "MI",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 41
-      },
-      {
-        "state": "MN",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 14
-      },
-      {
-        "state": "MS",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 0
-      },
-      {
-        "state": "MO",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 4
-      },
-      {
-        "state": "MT",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 0
-      },
-      {
-        "state": "NE",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 0
-      },
-      {
-        "state": "NV",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 0
-      },
-      {
-        "state": "NH",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": true,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 19
-      },
-      {
-        "state": "NJ",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 52
-      },
-      {
-        "state": "NM",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": true,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 0
-      },
-      {
-        "state": "NY",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 1,
-        "real_pfas_exposure_sites": 71
-      },
-      {
-        "state": "NC",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 4
-      },
-      {
-        "state": "ND",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 0
-      },
-      {
-        "state": "OH",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 12
-      },
-      {
-        "state": "OK",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 1
-      },
-      {
-        "state": "OR",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": true,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 1
-      },
-      {
-        "state": "PA",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 36
-      },
-      {
-        "state": "RI",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 2,
-        "real_pfas_exposure_sites": 9
-      },
-      {
-        "state": "SC",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 2
-      },
-      {
-        "state": "SD",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 1
-      },
-      {
-        "state": "TN",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 2
-      },
-      {
-        "state": "TX",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 5
-      },
-      {
-        "state": "UT",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 3
-      },
-      {
-        "state": "VT",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": true,
-        "real_pfas_regulation_bills": 1,
-        "real_pfas_exposure_sites": 8
-      },
-      {
-        "state": "VA",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 3,
-        "real_pfas_exposure_sites": 15
-      },
-      {
-        "state": "WA",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 17
-      },
-      {
-        "state": "WV",
-        "cancer_presumption_2023": true,
-        "cardiovascular_presumption_2023": true,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 6
-      },
-      {
-        "state": "WI",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 1,
-        "real_pfas_exposure_sites": 12
-      },
-      {
-        "state": "WY",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 1
-      },
-      {
-        "state": "DC",
-        "cancer_presumption_2023": false,
-        "cardiovascular_presumption_2023": false,
-        "ptsd_presumption_2023": false,
-        "real_pfas_regulation_bills": 0,
-        "real_pfas_exposure_sites": 1
-      }
-    ],
-    "summary": {
-      "n_presumption_states": 23,
-      "n_no_presumption_states": 28,
-      "avg_pfas_exposure_sites_in_presumption_states": 6.3,
-      "avg_pfas_exposure_sites_in_no_presumption_states": 12.79,
-      "avg_pfas_regulation_bills_in_presumption_states": 0.43,
-      "avg_pfas_regulation_bills_in_no_presumption_states": 0.18
-    }
-  },
   "coverage_registry": [
     {
       "source": "CPSC SaferProducts.gov (bulk incident export)",
@@ -387791,474 +387619,6 @@
     ],
     "methodology_note": "Descriptive injury-rate benchmark only. The UK has no statutory firefighter cancer presumption law (IIAC has declined to prescribe it), so this is not a presumption-pricing engine -- it flags FRAs whose reported personnel-injury rate per 1,000 operational incidents is >=25% above either the England-wide benchmark or that FRA's own trailing 5-year average."
   },
-  "npdb_malpractice_severity_calibration": {
-    "source": "NPDB Public Use Data File, Medical Malpractice Payment Report subset (HRSA)",
-    "rectype_row_counts": {
-      "M": 250672,
-      "P": 284906
-    },
-    "methodology_note": "Aggregate reference distributions only, built from RECTYPE='P' records (the current reporting format, which is the only one where HRSA's own OUTCOME/severity field is populated). Payment amounts are HRSA's own range-midpoint coding, not exact dollar figures. Not linkable to any individual patient or clinical record -- use as a liability-scale reference for a given allegation type and severity tier, never as a per-case prediction.",
-    "allegations": [
-      {
-        "allegation_code": "101",
-        "allegation_label": "Failure to Diagnose",
-        "total_n_with_severity_and_payment": 47701,
-        "severity_payment_curve": [
-          {
-            "outcome_code": "1",
-            "outcome_label": "Emotional Injury Only",
-            "n": 222,
-            "median_payment": 77500.0,
-            "p25_payment": 27500.0,
-            "p75_payment": 245000.0
-          },
-          {
-            "outcome_code": "2",
-            "outcome_label": "Insignificant Injury",
-            "n": 325,
-            "median_payment": 17500.0,
-            "p25_payment": 8750.0,
-            "p75_payment": 47500.0
-          },
-          {
-            "outcome_code": "3",
-            "outcome_label": "Minor Temporary Injury",
-            "n": 2943,
-            "median_payment": 47500.0,
-            "p25_payment": 17500.0,
-            "p75_payment": 125000.0
-          },
-          {
-            "outcome_code": "4",
-            "outcome_label": "Major Temporary Injury",
-            "n": 3629,
-            "median_payment": 125000.0,
-            "p25_payment": 47500.0,
-            "p75_payment": 275000.0
-          },
-          {
-            "outcome_code": "5",
-            "outcome_label": "Minor Permanent Injury",
-            "n": 4077,
-            "median_payment": 125000.0,
-            "p25_payment": 47500.0,
-            "p75_payment": 295000.0
-          },
-          {
-            "outcome_code": "6",
-            "outcome_label": "Significant Permanent Injury",
-            "n": 7521,
-            "median_payment": 275000.0,
-            "p25_payment": 125000.0,
-            "p75_payment": 525000.0
-          },
-          {
-            "outcome_code": "7",
-            "outcome_label": "Major Permanent Injury",
-            "n": 6560,
-            "median_payment": 395000.0,
-            "p25_payment": 175000.0,
-            "p75_payment": 745000.0
-          },
-          {
-            "outcome_code": "8",
-            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
-            "n": 2405,
-            "median_payment": 495000.0,
-            "p25_payment": 245000.0,
-            "p75_payment": 995000.0
-          },
-          {
-            "outcome_code": "9",
-            "outcome_label": "Death",
-            "n": 19632,
-            "median_payment": 245000.0,
-            "p25_payment": 115000.0,
-            "p75_payment": 495000.0
-          },
-          {
-            "outcome_code": "10",
-            "outcome_label": "Cannot Be Determined from Available Records",
-            "n": 387,
-            "median_payment": 145000.0,
-            "p25_payment": 47500.0,
-            "p75_payment": 295000.0
-          }
-        ]
-      },
-      {
-        "allegation_code": "200",
-        "allegation_label": "Delay in Diagnosis",
-        "total_n_with_severity_and_payment": 20858,
-        "severity_payment_curve": [
-          {
-            "outcome_code": "1",
-            "outcome_label": "Emotional Injury Only",
-            "n": 73,
-            "median_payment": 62500.0,
-            "p25_payment": 27500.0,
-            "p75_payment": 145000.0
-          },
-          {
-            "outcome_code": "2",
-            "outcome_label": "Insignificant Injury",
-            "n": 113,
-            "median_payment": 27500.0,
-            "p25_payment": 12500.0,
-            "p75_payment": 87500.0
-          },
-          {
-            "outcome_code": "3",
-            "outcome_label": "Minor Temporary Injury",
-            "n": 1157,
-            "median_payment": 57500.0,
-            "p25_payment": 22500.0,
-            "p75_payment": 145000.0
-          },
-          {
-            "outcome_code": "4",
-            "outcome_label": "Major Temporary Injury",
-            "n": 1774,
-            "median_payment": 145000.0,
-            "p25_payment": 57500.0,
-            "p75_payment": 305000.0
-          },
-          {
-            "outcome_code": "5",
-            "outcome_label": "Minor Permanent Injury",
-            "n": 2267,
-            "median_payment": 195000.0,
-            "p25_payment": 72500.0,
-            "p75_payment": 425000.0
-          },
-          {
-            "outcome_code": "6",
-            "outcome_label": "Significant Permanent Injury",
-            "n": 4096,
-            "median_payment": 295000.0,
-            "p25_payment": 145000.0,
-            "p75_payment": 595000.0
-          },
-          {
-            "outcome_code": "7",
-            "outcome_label": "Major Permanent Injury",
-            "n": 3127,
-            "median_payment": 395000.0,
-            "p25_payment": 185000.0,
-            "p75_payment": 745000.0
-          },
-          {
-            "outcome_code": "8",
-            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
-            "n": 1104,
-            "median_payment": 495000.0,
-            "p25_payment": 245000.0,
-            "p75_payment": 995000.0
-          },
-          {
-            "outcome_code": "9",
-            "outcome_label": "Death",
-            "n": 6988,
-            "median_payment": 245000.0,
-            "p25_payment": 115000.0,
-            "p75_payment": 495000.0
-          },
-          {
-            "outcome_code": "10",
-            "outcome_label": "Cannot Be Determined from Available Records",
-            "n": 159,
-            "median_payment": 135000.0,
-            "p25_payment": 47500.0,
-            "p75_payment": 295000.0
-          }
-        ]
-      },
-      {
-        "allegation_code": "106",
-        "allegation_label": "Failure to Monitor",
-        "total_n_with_severity_and_payment": 9826,
-        "severity_payment_curve": [
-          {
-            "outcome_code": "1",
-            "outcome_label": "Emotional Injury Only",
-            "n": 101,
-            "median_payment": 47500.0,
-            "p25_payment": 17500.0,
-            "p75_payment": 135000.0
-          },
-          {
-            "outcome_code": "2",
-            "outcome_label": "Insignificant Injury",
-            "n": 105,
-            "median_payment": 12500.0,
-            "p25_payment": 4500.0,
-            "p75_payment": 37500.0
-          },
-          {
-            "outcome_code": "3",
-            "outcome_label": "Minor Temporary Injury",
-            "n": 864,
-            "median_payment": 27500.0,
-            "p25_payment": 12500.0,
-            "p75_payment": 72500.0
-          },
-          {
-            "outcome_code": "4",
-            "outcome_label": "Major Temporary Injury",
-            "n": 787,
-            "median_payment": 97500.0,
-            "p25_payment": 37500.0,
-            "p75_payment": 195000.0
-          },
-          {
-            "outcome_code": "5",
-            "outcome_label": "Minor Permanent Injury",
-            "n": 683,
-            "median_payment": 87500.0,
-            "p25_payment": 32500.0,
-            "p75_payment": 225000.0
-          },
-          {
-            "outcome_code": "6",
-            "outcome_label": "Significant Permanent Injury",
-            "n": 1072,
-            "median_payment": 225000.0,
-            "p25_payment": 87500.0,
-            "p75_payment": 495000.0
-          },
-          {
-            "outcome_code": "7",
-            "outcome_label": "Major Permanent Injury",
-            "n": 922,
-            "median_payment": 325000.0,
-            "p25_payment": 145000.0,
-            "p75_payment": 745000.0
-          },
-          {
-            "outcome_code": "8",
-            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
-            "n": 598,
-            "median_payment": 595000.0,
-            "p25_payment": 245000.0,
-            "p75_payment": 995000.0
-          },
-          {
-            "outcome_code": "9",
-            "outcome_label": "Death",
-            "n": 4627,
-            "median_payment": 175000.0,
-            "p25_payment": 67500.0,
-            "p75_payment": 395000.0
-          },
-          {
-            "outcome_code": "10",
-            "outcome_label": "Cannot Be Determined from Available Records",
-            "n": 67,
-            "median_payment": 87500.0,
-            "p25_payment": 47500.0,
-            "p75_payment": 195000.0
-          }
-        ]
-      },
-      {
-        "allegation_code": "112",
-        "allegation_label": "Failure to Recognize a Complication",
-        "total_n_with_severity_and_payment": 9932,
-        "severity_payment_curve": [
-          {
-            "outcome_code": "1",
-            "outcome_label": "Emotional Injury Only",
-            "n": 38,
-            "median_payment": 77500.0,
-            "p25_payment": 47500.0,
-            "p75_payment": 175000.0
-          },
-          {
-            "outcome_code": "2",
-            "outcome_label": "Insignificant Injury",
-            "n": 101,
-            "median_payment": 27500.0,
-            "p25_payment": 12500.0,
-            "p75_payment": 52500.0
-          },
-          {
-            "outcome_code": "3",
-            "outcome_label": "Minor Temporary Injury",
-            "n": 848,
-            "median_payment": 57500.0,
-            "p25_payment": 22500.0,
-            "p75_payment": 145000.0
-          },
-          {
-            "outcome_code": "4",
-            "outcome_label": "Major Temporary Injury",
-            "n": 1464,
-            "median_payment": 175000.0,
-            "p25_payment": 72500.0,
-            "p75_payment": 295000.0
-          },
-          {
-            "outcome_code": "5",
-            "outcome_label": "Minor Permanent Injury",
-            "n": 1048,
-            "median_payment": 145000.0,
-            "p25_payment": 72500.0,
-            "p75_payment": 275000.0
-          },
-          {
-            "outcome_code": "6",
-            "outcome_label": "Significant Permanent Injury",
-            "n": 1495,
-            "median_payment": 275000.0,
-            "p25_payment": 145000.0,
-            "p75_payment": 525000.0
-          },
-          {
-            "outcome_code": "7",
-            "outcome_label": "Major Permanent Injury",
-            "n": 1009,
-            "median_payment": 495000.0,
-            "p25_payment": 195000.0,
-            "p75_payment": 925000.0
-          },
-          {
-            "outcome_code": "8",
-            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
-            "n": 400,
-            "median_payment": 745000.0,
-            "p25_payment": 335000.0,
-            "p75_payment": 995000.0
-          },
-          {
-            "outcome_code": "9",
-            "outcome_label": "Death",
-            "n": 3441,
-            "median_payment": 245000.0,
-            "p25_payment": 125000.0,
-            "p75_payment": 495000.0
-          },
-          {
-            "outcome_code": "10",
-            "outcome_label": "Cannot Be Determined from Available Records",
-            "n": 88,
-            "median_payment": 125000.0,
-            "p25_payment": 72500.0,
-            "p75_payment": 195000.0
-          }
-        ]
-      },
-      {
-        "allegation_code": "108",
-        "allegation_label": "Failure to Order Appropriate Test",
-        "total_n_with_severity_and_payment": 4804,
-        "severity_payment_curve": [
-          {
-            "outcome_code": "1",
-            "outcome_label": "Emotional Injury Only",
-            "n": 65,
-            "median_payment": 47500.0,
-            "p25_payment": 27500.0,
-            "p75_payment": 185000.0
-          },
-          {
-            "outcome_code": "2",
-            "outcome_label": "Insignificant Injury",
-            "n": 28,
-            "median_payment": 32500.0,
-            "p25_payment": 17500.0,
-            "p75_payment": 77500.0
-          },
-          {
-            "outcome_code": "3",
-            "outcome_label": "Minor Temporary Injury",
-            "n": 207,
-            "median_payment": 42500.0,
-            "p25_payment": 17500.0,
-            "p75_payment": 97500.0
-          },
-          {
-            "outcome_code": "4",
-            "outcome_label": "Major Temporary Injury",
-            "n": 294,
-            "median_payment": 145000.0,
-            "p25_payment": 47500.0,
-            "p75_payment": 295000.0
-          },
-          {
-            "outcome_code": "5",
-            "outcome_label": "Minor Permanent Injury",
-            "n": 339,
-            "median_payment": 115000.0,
-            "p25_payment": 52500.0,
-            "p75_payment": 245000.0
-          },
-          {
-            "outcome_code": "6",
-            "outcome_label": "Significant Permanent Injury",
-            "n": 711,
-            "median_payment": 295000.0,
-            "p25_payment": 135000.0,
-            "p75_payment": 595000.0
-          },
-          {
-            "outcome_code": "7",
-            "outcome_label": "Major Permanent Injury",
-            "n": 641,
-            "median_payment": 415000.0,
-            "p25_payment": 195000.0,
-            "p75_payment": 845000.0
-          },
-          {
-            "outcome_code": "8",
-            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
-            "n": 276,
-            "median_payment": 545000.0,
-            "p25_payment": 245000.0,
-            "p75_payment": 995000.0
-          },
-          {
-            "outcome_code": "9",
-            "outcome_label": "Death",
-            "n": 2202,
-            "median_payment": 245000.0,
-            "p25_payment": 105000.0,
-            "p75_payment": 495000.0
-          },
-          {
-            "outcome_code": "10",
-            "outcome_label": "Cannot Be Determined from Available Records",
-            "n": 41,
-            "median_payment": 145000.0,
-            "p25_payment": 47500.0,
-            "p75_payment": 395000.0
-          }
-        ]
-      },
-      {
-        "allegation_code": "111",
-        "allegation_label": "Failure to Perform Resuscitation",
-        "total_n_with_severity_and_payment": 190,
-        "severity_payment_curve": [
-          {
-            "outcome_code": "8",
-            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
-            "n": 39,
-            "median_payment": 585000.0,
-            "p25_payment": 195000.0,
-            "p75_payment": 1950000.0
-          },
-          {
-            "outcome_code": "9",
-            "outcome_label": "Death",
-            "n": 151,
-            "median_payment": 275000.0,
-            "p25_payment": 125000.0,
-            "p75_payment": 625000.0
-          }
-        ]
-      }
-    ]
-  },
   "outcomes_ledger_summary": {
     "total_tracked": 253,
     "open_pending": 253,
@@ -388266,8 +387626,8 @@
     "resolved_cases": [],
     "oldest_open_signal": "2026-11-15T01:13:18.019909+00:00",
     "by_source": {
-      "nhtsa_odi": 20,
       "cpsc": 3,
+      "nhtsa_odi": 20,
       "maude": 230
     }
   },
@@ -388301,5 +387661,5 @@
       }
     }
   },
-  "generated_at": "2026-11-15T23:38:04.794038+00:00"
+  "generated_at": "2026-11-23T03:17:51.200469+00:00"
 }
