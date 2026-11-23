@@ -101,18 +101,18 @@
   <p class="dek">Lloyd's has published this exact gap twice: Cohort 16 named "intelligent summarisation of loss adjuster reports identifying changes between versions," and Cohort 17 asked for "predictive analytics models that flag seemingly innocuous third-party casualty claims before they develop into major losses" (both quotes verified live on Lloyd's own accelerator pages). ChangeSignal compares successive medical assessments on the same claim, flags what materially changed, and <strong>drafts the finished reserve-review memo itself</strong> -- the real document a claims handler would otherwise spend 30-60 minutes writing by hand, every line cited to the evidence that changed. Not a to-do list someone still has to act on.</p>
 </div>
 
-<div class="synthetic-banner">⚠ Every claim below is synthetic and invented for this demo. No real claimant, insurer, or medical record is involved -- this is a mechanism demo, not a validated prediction.</div>
+<div class="synthetic-banner">⚠ Every claim below is synthetic and illustrative, built only to show the mechanism. No real claimant, insurer, or medical record is involved, and this is not a validated prediction.</div>
 
 <div class="wrap">
   <div class="card">
     <h2>What this actually is, and its real limits</h2>
     <ul class="caveat-list">
       <li><strong>Not a clinical-NLP engine.</strong> This does not read raw, unstructured medical report text. It compares STRUCTURED fields (diagnosis, treatment plan, prognosis, recovery estimate, permanent impairment, work capacity) with a deterministic rule set -- stated plainly, not dressed up as an AI extraction capability that isn't built.</li>
-      <li><strong>A real bug was found and fixed building this demo</strong>: an early version flagged any change in the diagnosis text as material, which fired on purely benign restatements ("ankle sprain, grade 2" &rarr; "...resolved"). Fixed by making diagnosis-text-change informational only -- it's reported, but only counts toward "material" alongside a real objective severity signal (escalated treatment, worsened prognosis, or downgraded work capacity). See <code>change_signal_engine.py</code> for the full before/after.</li>
+      <li><strong>A real bug was found and fixed building this</strong>: an early version flagged any change in the diagnosis text as material, which fired on purely benign restatements ("ankle sprain, grade 2" &rarr; "...resolved"). Fixed by making diagnosis-text-change informational only -- it's reported, but only counts toward "material" alongside a real objective severity signal (escalated treatment, worsened prognosis, or downgraded work capacity). See <code>change_signal_engine.py</code> for the full before/after.</li>
       <li><strong>Competitive check, done live before building</strong>: Wisedocs documents real within-record inconsistency detection; EvolutionIQ's MedHub (a real $730M CCC Intelligent Solutions acquisition) documents real point-in-time medical synthesis and "next best action" guidance. Neither vendor's own public material documents comparing <em>successive</em> assessments over time and tying a specific detected change to a specific generated action -- the best available public evidence, not proof they don't do this privately.</li>
-      <li><strong>Real next step</strong>: 7 real cases is a proof of concept, not a validation sample. Scaling further by hand hit a real, measured ceiling -- see below. Reaching 25-50 needs a real LLM-extraction layer over the full WCAB corpus, not more manual reading. Real managing-agent claim files, specifically, are only available once accepted into Lloyd's Accelerator (checked live -- no pre-application path exists).</li>
+      <li><strong>Real next step</strong>: 7 real cases is an early, directional read, not a statistically powered validation sample. Scaling further by hand hit a real, measured ceiling -- see below. Reaching 25-50 needs a real LLM-extraction layer over the full WCAB corpus, not more manual reading. Real managing-agent claim files, specifically, are only available once accepted into Lloyd's Accelerator (checked live -- no pre-application path exists).</li>
       <li>Every generated action requires human approval. This never independently changes a reserve or makes a medical/legal determination.</li>
-      <li><strong>The memo is a draft, not a dollar recommendation.</strong> It names the direction of reserve pressure (escalated/worsened) with its cited evidence; it never invents a reserve figure, which would be a real actuarial/legal claim this project has no basis for. A human still reviews and signs it before it goes in the file.</li>
+      <li><strong>The memo is a draft, not a dollar recommendation.</strong> It names the direction of reserve pressure (escalated/worsened) with its cited evidence; it never invents a reserve figure, which would be a real actuarial/legal claim Nubuye has no basis for. A human still reviews and signs it before it goes in the file.</li>
     </ul>
   </div>
 
@@ -123,7 +123,7 @@
   </div>
 
   <div class="card">
-    <h2>Demo run: 10 synthetic claims</h2>
+    <h2>Mechanism run: 10 synthetic claims</h2>
     <p class="card-sub" id="run-sub"></p>
     <div class="stat-row" id="summary-stats"></div>
     <div id="claims-list"></div>

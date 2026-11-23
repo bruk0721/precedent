@@ -129,7 +129,7 @@
 <div class="hero">
   <span class="eyebrow-pill"><span class="dot"></span>Not another dashboard</span>
   <h1>Stop checking one claim at a time.</h1>
-  <p class="dek">Every other tool on this site checks a single claim because that's the demo-friendly shape. A real claims desk doesn't have one open claim, it has a book. <strong>Subscribe the book once</strong> and a daily job rechecks every row for you, surfacing only what's new &mdash; or upload a one-off book below and get the same digest right now.</p>
+  <p class="dek">Every other tool on this site checks a single claim because that's the easy shape to build. A real claims desk doesn't have one open claim, it has a book. <strong>Subscribe the book once</strong> and a daily job rechecks every row for you, surfacing only what's new &mdash; or upload a one-off book below and get the same digest right now.</p>
 </div>
 
 <div class="wrap">
@@ -169,8 +169,8 @@
       <li>This is the <strong>same</strong> <code>checkClaimWatchlist</code> logic as the single-claim page, just looped over every row in the book, client-side. No new data source, no new matching logic -- only the delivery shape changes.</li>
       <li>CSV parsing here is intentionally simple (comma-split, no quoted-field support) -- a real bordereau ingest would need a proper CSV/Excel parser. Stated, not hidden.</li>
       <li>The "Subscribed book" panel above reads two files a GitHub Actions workflow publishes daily from the private pipelines repo: the subscription list itself, and an append-only alert log stamped with when Nubuye first noticed each match (<code>claim_watchlist_subscriptions.py</code>). A row tagged <b>NEW</b> was newly detected within the last 2 days; everything else was already known as of a prior run -- that's the actual diff, not just "re-run the same check and show it again."</li>
-      <li>The subscription list itself is still the illustrative 3-claim demo list from that script, not a real bordereau intake form -- subscribing a real book means adding rows to that file (or, eventually, an upload form that writes to it), not something this page can do yet.</li>
-      <li>No notification channel is wired to the alert log (no email/Slack credential exists in this environment) -- same disclosed gap as every other subscription engine in this project. You have to come look at this page; it doesn't yet come find you. That's the honest remaining gap between this and a real FloodFlash-style push.</li>
+      <li>The subscription list itself is still the illustrative 3-claim placeholder list from that script, not a real bordereau intake form -- subscribing a real book means adding rows to that file (or, eventually, an upload form that writes to it), not something this page can do yet.</li>
+      <li>No notification channel is wired to the alert log (no email/Slack credential exists in this environment) -- same disclosed gap as every other subscription engine Nubuye runs. You have to come look at this page; it doesn't yet come find you. That's the honest remaining gap between this and a real FloodFlash-style push.</li>
       <li>The paste-a-CSV flow below this is still here for a one-off book that isn't on a standing subscription -- same underlying engine, just not rechecked daily.</li>
       <li>A match means the manufacturer+model is sitting on a real, currently-tracked federal complaint-velocity cluster -- not a legal conclusion that this specific claim is part of it.</li>
     </ul>

@@ -116,7 +116,7 @@
 <div class="wrap">
   <div class="card">
     <h2>Check a company</h2>
-    <p class="card-sub">Real matching, not a demo stub — this is the exact same lookup the API below runs. A normalized, substring-based match against a company's real appearances in SEC filings, curated litigation data, and court-sourced dockets.</p>
+    <p class="card-sub">Real matching, not a stub — this is the exact same lookup the API below runs. A normalized, substring-based match against a company's real appearances in SEC filings, curated litigation data, and court-sourced dockets.</p>
     <div class="check-row">
       <input type="text" id="check-input" placeholder="e.g. Workday, Inc.">
       <button class="primary" id="check-btn">Check</button>
@@ -133,7 +133,7 @@
 
   <div class="card">
     <h2>Also available as an API</h2>
-    <p class="card-sub">The exact same logic, callable directly from your own submission-intake or underwriting system. Batch mode checks up to 500 accounts in one call — a whole day's new business, auto-flagged before anyone looks at it manually. <strong>Honest status: this is a working, tested local demo API, not yet deployed to a public URL</strong> — deployment is the next real step, not a claim this page is making ahead of it.</p>
+    <p class="card-sub">The exact same logic, callable directly from your own submission-intake or underwriting system. Batch mode checks up to 500 accounts in one call — a whole day's new business, auto-flagged before anyone looks at it manually. <strong>Honest status: this is a working, tested local API, not yet deployed to a public URL</strong> — deployment is the next real step, not a claim this page is making ahead of it.</p>
     <pre><code>curl -X POST https://&lt;your-deployment&gt;/v1/submission-check \
   -H "Content-Type: application/json" \
   -d '{"company_name": "Workday, Inc."}'</code></pre>

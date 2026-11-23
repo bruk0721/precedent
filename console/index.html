@@ -197,7 +197,7 @@
   <details class="card accordion" id="since-visit-card" open>
     <summary><h2>Since your last visit</h2><span class="hint" id="since-visit-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
-      <p class="card-sub">A real, honest proof-of-concept for continuous monitoring on a static site with no backend: this compares the current snapshot against the last time this browser opened the Console (stored locally, never sent anywhere) and flags anything genuinely new -- a fresh 8-K, a new state enactment, a refreshed JPML report. It only works in this browser, on this device; a real mid-term alert system (email/webhook per subscribed NAICS+state) is the natural next step once this is validated.</p>
+      <p class="card-sub">A real, working first version of continuous monitoring on a static site with no backend: this compares the current snapshot against the last time this browser opened the Console (stored locally, never sent anywhere) and flags anything genuinely new -- a fresh 8-K, a new state enactment, a refreshed JPML report. It only works in this browser, on this device; a real mid-term alert system (email/webhook per subscribed NAICS+state) is the natural next step once this is validated.</p>
       <div id="since-visit-body"></div>
     </div>
   </details>
@@ -240,7 +240,7 @@
   <details class="card accordion" id="firm-tracker-card">
     <summary><h2>Plaintiff firm tracker</h2><span class="hint" id="firm-tracker-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
-      <p class="card-sub">Every real plaintiff-firm filing this project has pulled so far, ranked by how many distinct dockets each firm appears in &mdash; not scoped to any one NAICS.</p>
+      <p class="card-sub">Every real plaintiff-firm filing Nubuye has pulled so far, ranked by how many distinct dockets each firm appears in &mdash; not scoped to any one NAICS.</p>
       <div id="firm-tracker-body"></div>
     </div>
   </details>
@@ -248,7 +248,7 @@
   <details class="card accordion" id="renewal-card">
     <summary><h2>Renewal window monitor</h2><span class="hint" id="renewal-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
-      <p class="card-sub">Filter enacted legislation to a renewal quarter. <strong>Caveat:</strong> the date shown is each bill's signing/history-action date, not an independently verified statutory effective date &mdash; some statutes take effect later than signing, and this project hasn't yet confirmed how often that gap applies to the bills below. This list spans every tracked category in one flat table; for the fuller state-by-state map of one category at a time, see the <a href="../presumption2/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Presumption Expansion Tracker</a> or the <a href="../pfas2/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">PFAS Litigation Tracker</a>.</p>
+      <p class="card-sub">Filter enacted legislation to a renewal quarter. <strong>Caveat:</strong> the date shown is each bill's signing/history-action date, not an independently verified statutory effective date &mdash; some statutes take effect later than signing, and Nubuye hasn't yet confirmed how often that gap applies to the bills below. This list spans every tracked category in one flat table; for the fuller state-by-state map of one category at a time, see the <a href="../presumption2/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Presumption Expansion Tracker</a> or the <a href="../pfas2/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">PFAS Litigation Tracker</a>.</p>
       <div class="input-row" style="margin-bottom:14px">
         <div class="field">
           <label for="renewal-quarter">Quarter</label>
@@ -262,7 +262,7 @@
   <details class="card accordion" id="market-filings-card">
     <summary><h2>Market exclusion filings</h2><span class="hint" id="market-filings-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
-      <p class="card-sub">Real state insurance rate/form filings (via Texas TDI's public filing list) showing where the insurance market has already approved PFAS/forever-chemical exclusion endorsements &mdash; a different signal than litigation risk: not "is there liability," but "has pricing already reacted." <strong>Texas only</strong> (the one state this project has actually pulled) &mdash; not implied to be nationwide.</p>
+      <p class="card-sub">Real state insurance rate/form filings (via Texas TDI's public filing list) showing where the insurance market has already approved PFAS/forever-chemical exclusion endorsements &mdash; a different signal than litigation risk: not "is there liability," but "has pricing already reacted." <strong>Texas only</strong> (the one state Nubuye has actually pulled) &mdash; not implied to be nationwide.</p>
       <div id="market-filings-body"></div>
     </div>
   </details>
@@ -296,7 +296,7 @@
   <details class="card accordion" id="contamination-sites-card">
     <summary><h2>State contamination sites</h2><span class="hint" id="contamination-sites-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
-      <p class="card-sub">Real PFAS contamination sites (landfills, airports, fire-training grounds, industrial sites) from Michigan EGLE's public contamination-site registry &mdash; the outcome counterpart to the EPA TRI/ECHO data above: not what a facility released or was cited for, but where contamination was actually confirmed. <strong>Michigan only</strong> (the one state this project has actually pulled). Does this line up with anything else real? See <a href="../validation/#contamination-cancer" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Methodology Validation</a>'s contamination-vs-cancer-incidence check, built from this same site list.</p>
+      <p class="card-sub">Real PFAS contamination sites (landfills, airports, fire-training grounds, industrial sites) from Michigan EGLE's public contamination-site registry &mdash; the outcome counterpart to the EPA TRI/ECHO data above: not what a facility released or was cited for, but where contamination was actually confirmed. <strong>Michigan only</strong> (the one state Nubuye has actually pulled). Does this line up with anything else real? See <a href="../validation/#contamination-cancer" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Methodology Validation</a>'s contamination-vs-cancer-incidence check, built from this same site list.</p>
       <div id="contamination-map-wrap" style="margin-bottom:14px;"><svg id="contamination-map" viewBox="0 0 960 600" style="width:100%;height:auto;max-height:280px;"></svg></div>
       <div id="contamination-sites-body"></div>
     </div>
@@ -321,7 +321,7 @@
   <details class="card accordion" id="other-categories-card">
     <summary><h2>Other tracked categories (opioid, insulin/PBM, climate litigation)</h2><span class="hint" id="other-categories-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
-      <p class="card-sub">Three real categories added after a direct question about other emerging/unknown casualty risk, each with no curated defendant/NAICS yet. Opioid (MDL-2804) and insulin/PBM (MDL-3080) have real JPML pending-case counts and a curated settlement-stage assessment, same as the categories above. Climate-attribution litigation is structurally different from every other category this project tracks &mdash; real, growing (e.g. City &amp; County of Honolulu v. Sunoco LP), but with NO federal MDL at all, since this litigation runs in STATE courts, which the JPML and CourtListener/RECAP both don't cover. Tracked instead only via real 10-K risk-factor language (Chevron, ConocoPhillips, Sunoco, Murphy Oil, and others) and a real, accelerating climate-attribution-science PubMed signal &mdash; see the Validation page's discovery scan. No current-scale number exists for it, stated here rather than hidden.</p>
+      <p class="card-sub">Three real categories added after a direct question about other emerging/unknown casualty risk, each with no curated defendant/NAICS yet. Opioid (MDL-2804) and insulin/PBM (MDL-3080) have real JPML pending-case counts and a curated settlement-stage assessment, same as the categories above. Climate-attribution litigation is structurally different from every other category Nubuye tracks &mdash; real, growing (e.g. City &amp; County of Honolulu v. Sunoco LP), but with NO federal MDL at all, since this litigation runs in STATE courts, which the JPML and CourtListener/RECAP both don't cover. Tracked instead only via real 10-K risk-factor language (Chevron, ConocoPhillips, Sunoco, Murphy Oil, and others) and a real, accelerating climate-attribution-science PubMed signal &mdash; see the Validation page's discovery scan. No current-scale number exists for it, stated here rather than hidden.</p>
       <div id="other-categories-body"></div>
     </div>
   </details>
@@ -630,7 +630,7 @@ function renderFacilityReports(defendants, reports) {
 // show risk directly on the object/location, not beside it. us-states-
 // 10m.json is the same real topojson file already used by the Presumption
 // tracker's own US map (copied here, not re-fetched from a CDN, same
-// zero-extra-dependency pattern as everything else in this project).
+// zero-extra-dependency pattern as everything else in Nubuye).
 let _usMapGeo = null;
 async function renderFacilityMap(byFacility) {
   const wrap = document.getElementById("facility-map-wrap");
@@ -929,7 +929,7 @@ function renderAggregationMap() {
       </div>
       ${downstreamHtml}
     </div>`;
-  }).join("") + `<div class="empty-note" style="margin-top:4px">One real settlement against ${esc(rows[0].parent)} doesn't just touch one named defendant -- it potentially touches ${rows[0].subsidiaryCount} subsidiary entities that may not share its name on a policy, ${rows[0].facilityCount} real physical sites across ${rows[0].facilityStates.length} state(s), and ${rows[0].downstreamCount} entire downstream industries. That's the real shape of aggregation risk this project can show -- not a fabricated correlation coefficient.</div>`;
+  }).join("") + `<div class="empty-note" style="margin-top:4px">One real settlement against ${esc(rows[0].parent)} doesn't just touch one named defendant -- it potentially touches ${rows[0].subsidiaryCount} subsidiary entities that may not share its name on a policy, ${rows[0].facilityCount} real physical sites across ${rows[0].facilityStates.length} state(s), and ${rows[0].downstreamCount} entire downstream industries. That's the real shape of aggregation risk Nubuye can show -- not a fabricated correlation coefficient.</div>`;
 }
 
 function renderEmergenceSignal() {
