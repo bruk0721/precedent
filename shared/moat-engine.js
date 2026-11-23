@@ -1,5 +1,5 @@
 /* Nubuye -- shared query engine for the Underwriter Console and the
-   PFAS Portfolio X-Ray. Single source of truth for the actual threat-
+   PFAS Exposure X-Ray. Single source of truth for the actual threat-
    assessment logic, mirroring underwriter-dashboard/app.py, so the two
    tools can never silently drift into different answers for the same
    NAICS/state. Loads moat_export.json (a static snapshot of the real
@@ -69,7 +69,7 @@ const MoatEngine = (() => {
     return unit === "billion" ? amount * 1000 : amount;
   }
 
-  // naicsIsRelevant -- found live via the Portfolio X-Ray's own test data: an
+  // naicsIsRelevant -- found live via the X-Ray's own test data: an
   // unrelated account (a bakery) was coming back AMBER purely because its
   // STATE had some unrelated bill on record, with zero check that the
   // account's own NAICS has anything to do with PFAS/presumption litigation

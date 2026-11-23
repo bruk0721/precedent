@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nubuye — PFAS Portfolio X-Ray</title>
+<title>Nubuye — PFAS Exposure X-Ray</title>
 <meta name="description" content="Paste your book of business and get a ranked, flagged PFAS exposure list with evidence links to real filings. Free, no signup, nothing leaves your browser.">
-<meta property="og:title" content="PFAS Portfolio X-Ray — Nubuye">
+<meta property="og:title" content="PFAS Exposure X-Ray — Nubuye">
 <meta property="og:description" content="Paste your book of business and get a ranked, flagged PFAS exposure list with evidence links to real filings. Free, no signup, nothing leaves your browser.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -144,15 +144,15 @@
 </nav>
 
 <div class="hero">
-  <span class="eyebrow-pill"><span class="dot"></span>Free portfolio scan</span>
-  <h1>PFAS Portfolio X-Ray</h1>
+  <span class="eyebrow-pill"><span class="dot"></span>Free PFAS scan</span>
+  <h1>PFAS Exposure X-Ray</h1>
   <p class="dek">Paste your book &mdash; account, state, NAICS code &mdash; and get back the real, flagged, most-exposed accounts, ranked, with evidence links to the actual filings and bills behind each flag. <strong>Nothing you paste here leaves your browser.</strong> No signup, no sales call, no account &mdash; run it and see for yourself before talking to anyone.</p>
 </div>
 
 <div class="wrap">
   <div class="card">
     <h2>Your book of business</h2>
-    <p class="card-sub">One account per line: <code>account name, state code, NAICS code, policy limit (optional), MGA/program name (optional)</code> (e.g. <code>Acme Specialty Chemical, OH, 325998, 5000000, Riverside Binding Authority</code>). The policy limit unlocks the portfolio accumulation view; the MGA/program name unlocks the delegated-authority aggregation view &mdash; both optional, you still get the ranked, flagged-account list without either.</p>
+    <p class="card-sub">One account per line: <code>account name, state code, NAICS code, policy limit (optional), MGA/program name (optional)</code> (e.g. <code>Acme Specialty Chemical, OH, 325998, 5000000, Riverside Binding Authority</code>). The policy limit unlocks the policy-limit accumulation view; the MGA/program name unlocks the delegated-authority aggregation view &mdash; both optional, you still get the ranked, flagged-account list without either.</p>
     <textarea id="book-input" placeholder="Acme Specialty Chemical, OH, 325998, 5000000, Riverside Binding Authority&#10;Riverside Carpet Mills, GA, 314110, 2000000, Coastal MGA Program&#10;Midwest Refining Co, IL, 324110"></textarea>
     <div class="btn-row">
       <button class="run-btn" id="scan-btn">Scan portfolio</button>
@@ -184,9 +184,9 @@
     </div>
 
     <details class="card accordion" id="accumulation-card" style="display:none;">
-      <summary><h2>Portfolio accumulation</h2><span class="hint" id="accumulation-hint"></span><span class="chevron">&#9656;</span></summary>
+      <summary><h2>Policy-limit accumulation</h2><span class="hint" id="accumulation-hint"></span><span class="chevron">&#9656;</span></summary>
       <div class="disclosure-body">
-        <p class="card-sub">The real pattern behind large unexpected reserve charges isn't usually one bad account &mdash; it's PFAS exposure scattered invisibly across many accounts in the same book, concentrated by state or NAICS without anyone seeing the total until it's already a loss. This rolls up policy limits across every RED/AMBER account, so that total is visible now.</p>
+        <p class="card-sub">The real pattern behind large unexpected reserve charges isn't usually one bad account &mdash; it's PFAS exposure scattered invisibly across many accounts in the same book, concentrated by state or NAICS without anyone seeing the total until it's already a loss. This rolls up policy limits across every RED/AMBER account, so that total is visible now. (For the cross-category version of this question &mdash; which of your insureds share exposure to any tracked risk, not just PFAS, and by name rather than policy limit &mdash; see <a href="../portfolio-accumulation/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Portfolio Accumulation</a>.)</p>
         <div id="accumulation-body"></div>
       </div>
     </details>
