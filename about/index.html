@@ -30,6 +30,9 @@
   h2 { font-size: 18px; font-weight: 600; margin: 28px 0 10px; }
   p, li { font-size: 15px; line-height: 1.7; color: var(--ink-muted); }
   .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 28px 30px; box-shadow: var(--shadow-card); margin-bottom: 16px; }
+  .video-card { border-radius: var(--radius-card); box-shadow: var(--shadow-card); overflow: hidden; margin-bottom: 16px; }
+  .video-card video { display: block; width: 100%; height: auto; background: #0b0d10; }
+  .video-note { font-size: 12.5px; color: var(--ink-faint); margin: 10px 0 20px; }
 </style>
 </head>
 <script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
@@ -39,6 +42,12 @@
     <h1>Why we built Nubuye</h1>
     <p>Most of the data that would catch a casualty claim early already exists &mdash; it's just scattered across dozens of separate government databases, each with its own quirks, that nobody has time to check by hand for every submission, claim, or renewal.</p>
     <p>Nubuye reads that data directly, live, and gives a straight answer: flagged or not, with the real source attached. No dashboard to learn, no report to interpret &mdash; just the check you actually needed.</p>
+  </div>
+  <div class="video-card">
+    <video src="../assets/nubuye-explainer.mp4" controls muted autoplay loop playsinline></video>
+  </div>
+  <p class="video-note">A 20-second illustrative walkthrough of the mechanism &mdash; not a real claim or a specific prediction.</p>
+  <div class="card">
     <h2>How we work</h2>
     <p>Every number on this site traces back to a real, named government source &mdash; CPSC, openFDA, NHTSA, EPA, OSHA, USAspending, CMS, and NFIRS among them. We don't estimate or infer; if a data source has a real gap or limitation, we say so on the page rather than paper over it.</p>
     <h2>What this does and doesn't cover</h2>
