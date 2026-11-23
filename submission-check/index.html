@@ -100,6 +100,7 @@
   <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
   <div class="nav-links">
     <a href="../">&larr; Back to overview</a>
+    <a href="../portfolio-accumulation/">Portfolio Accumulation</a>
     <a href="../console/">Underwriter Console</a>
     <a href="../xray/">PFAS X-Ray</a>
     <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
@@ -137,7 +138,7 @@
   -H "Content-Type: application/json" \
   -d '{"company_name": "Workday, Inc."}'</code></pre>
     <pre id="api-example-response"><code>Loading a real, live-tested example response...</code></pre>
-    <p class="card-sub" style="margin-top:14px;">Batch: <code>POST /v1/submission-check-batch</code> with <code>{"companies": [{"company_name": "..."}]}</code>, up to 500 per call &mdash; returns a <code>flagged_count</code> and per-account detail in one response. See <a href="../api/" class="src-link">For Developers &rarr;</a> for how this integrates into a reserving, underwriting, or treaty-accumulation system directly.</p>
+    <p class="card-sub" style="margin-top:14px;">Batch: <code>POST /v1/submission-check-batch</code> with <code>{"companies": [{"company_name": "..."}]}</code>, up to 500 per call &mdash; returns a <code>flagged_count</code> and per-account detail in one response. See <a href="../api/" class="src-link">For Developers &rarr;</a> for how this integrates into a reserving, underwriting, or treaty-accumulation system directly. Don't want to wait on a deployment to try the batch idea? <a href="../portfolio-accumulation/" class="src-link">Portfolio Accumulation &rarr;</a> runs the same batch check client-side, right now, and goes one step further: grouping flagged accounts by shared risk category across the whole book, not just listing them one by one.</p>
   </div>
 
   <p class="footer-note" id="snapshot-date"></p>

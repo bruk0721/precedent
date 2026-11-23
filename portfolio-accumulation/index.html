@@ -121,6 +121,7 @@
   <div class="nav-links">
     <a href="../">&larr; Back to overview</a>
     <a href="../book-monitor/">Book Monitor</a>
+    <a href="../submission-check/">Submission Auto-Check</a>
     <a href="../track-record/">Track Record</a>
     <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
   </div>
@@ -135,7 +136,7 @@
 <div class="wrap">
   <div class="card">
     <h2>Upload a book of insureds</h2>
-    <p class="card-sub">One insured per line, comma-separated: <code>insured_name,policy_ref</code>. The first line can be a header row (auto-detected) or omitted. Each name is checked against the same real sources Submission Auto-Check uses &mdash; see the caveats below for exactly how matching works and where it can miss.</p>
+    <p class="card-sub">One insured per line, comma-separated: <code>insured_name,policy_ref</code>. The first line can be a header row (auto-detected) or omitted. Each name is checked against the same real sources <a href="../submission-check/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Submission Auto-Check</a> uses &mdash; see the caveats below for exactly how matching works and where it can miss.</p>
     <textarea id="csv-input" placeholder="insured_name,policy_ref&#10;3M Co,POL-1001&#10;Acme Bakery Co,POL-1002&#10;..."></textarea>
     <div class="upload-row">
       <input type="file" id="csv-file" accept=".csv,.txt">
@@ -159,7 +160,7 @@
     <h2>What this actually changes, and what it doesn't</h2>
     <p class="card-sub">Stated honestly, same discipline as every other tool on this site:</p>
     <ul class="caveat-list">
-      <li>This is <code>checkSubmission</code> &mdash; the same engine Submission Auto-Check already runs one account at a time &mdash; looped over a whole book, client-side, then grouped by risk category across accounts. No new data source, no new matching logic; the new thing is looking ACROSS accounts for where the same category hits more than one of them, which no single-account tool, including this project's own, ever surfaces.</li>
+      <li>This is <code>checkSubmission</code> &mdash; the same engine <a href="../submission-check/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Submission Auto-Check</a> already runs one account at a time &mdash; looped over a whole book, client-side, then grouped by risk category across accounts. No new data source, no new matching logic; the new thing is looking ACROSS accounts for where the same category hits more than one of them, which no single-account tool, including this project's own, ever surfaces.</li>
       <li>A cluster only shows here when <b>2 or more</b> insureds in this specific uploaded book independently match the same category. One account alone matching a category is real but isn't accumulation &mdash; it's listed separately, not folded into a cluster.</li>
       <li>Matching is substring-based on a normalized legal name (same as every other check in this engine) &mdash; an unlisted subsidiary, a DBA, or a materially different legal name won't match. Zero matches means nothing was found under this exact name, not "cleared."</li>
       <li>CSV parsing here is intentionally simple (comma-split, no quoted-field support) &mdash; a real bordereau ingest would need a proper CSV/Excel parser. Stated, not hidden.</li>
