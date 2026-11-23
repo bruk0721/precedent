@@ -248,7 +248,7 @@
   <details class="card accordion" id="renewal-card">
     <summary><h2>Renewal window monitor</h2><span class="hint" id="renewal-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
-      <p class="card-sub">Filter enacted legislation to a renewal quarter. <strong>Caveat:</strong> the date shown is each bill's signing/history-action date, not an independently verified statutory effective date &mdash; some statutes take effect later than signing, and this project hasn't yet confirmed how often that gap applies to the bills below.</p>
+      <p class="card-sub">Filter enacted legislation to a renewal quarter. <strong>Caveat:</strong> the date shown is each bill's signing/history-action date, not an independently verified statutory effective date &mdash; some statutes take effect later than signing, and this project hasn't yet confirmed how often that gap applies to the bills below. This list spans every tracked category in one flat table; for the fuller state-by-state map of one category at a time, see the <a href="../presumption2/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Presumption Expansion Tracker</a> or the <a href="../pfas2/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">PFAS Litigation Tracker</a>.</p>
       <div class="input-row" style="margin-bottom:14px">
         <div class="field">
           <label for="renewal-quarter">Quarter</label>
@@ -296,7 +296,7 @@
   <details class="card accordion" id="contamination-sites-card">
     <summary><h2>State contamination sites</h2><span class="hint" id="contamination-sites-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
-      <p class="card-sub">Real PFAS contamination sites (landfills, airports, fire-training grounds, industrial sites) from Michigan EGLE's public contamination-site registry &mdash; the outcome counterpart to the EPA TRI/ECHO data above: not what a facility released or was cited for, but where contamination was actually confirmed. <strong>Michigan only</strong> (the one state this project has actually pulled).</p>
+      <p class="card-sub">Real PFAS contamination sites (landfills, airports, fire-training grounds, industrial sites) from Michigan EGLE's public contamination-site registry &mdash; the outcome counterpart to the EPA TRI/ECHO data above: not what a facility released or was cited for, but where contamination was actually confirmed. <strong>Michigan only</strong> (the one state this project has actually pulled). Does this line up with anything else real? See <a href="../validation/#contamination-cancer" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Methodology Validation</a>'s contamination-vs-cancer-incidence check, built from this same site list.</p>
       <div id="contamination-map-wrap" style="margin-bottom:14px;"><svg id="contamination-map" viewBox="0 0 960 600" style="width:100%;height:auto;max-height:280px;"></svg></div>
       <div id="contamination-sites-body"></div>
     </div>
@@ -329,7 +329,7 @@
   <details class="card accordion" id="cyber-incidents-card">
     <summary><h2>Material cyber-incident filings (SEC 8-K Item 1.05)</h2><span class="hint" id="cyber-incidents-hint"></span><span class="chevron">&#9656;</span></summary>
     <div class="disclosure-body">
-      <p class="card-sub">Real, dated SEC Form 8-K Item 1.05 filings (the "material cybersecurity incident" disclosure item, required since Dec 2023) across ALL real SEC filers &mdash; not tied to a litigation category or a curated defendant list. The same portfolio-accumulation logic the Aggregation Map already applies to PFAS applies here too: no single account's own file shows an underwriter whether several of their insureds disclosed a material cyber incident in the same quarter, but this real roster, cross-referenced against an actual book of business, can. This card lists the real roster; it does not compute accumulation on its own.</p>
+      <p class="card-sub">Real, dated SEC Form 8-K Item 1.05 filings (the "material cybersecurity incident" disclosure item, required since Dec 2023) across ALL real SEC filers &mdash; not tied to a litigation category or a curated defendant list. The same portfolio-accumulation logic the Aggregation Map already applies to PFAS applies here too: no single account's own file shows an underwriter whether several of their insureds disclosed a material cyber incident in the same quarter, but this real roster, cross-referenced against an actual book of business, can. This card lists the real roster; it does not compute accumulation on its own &mdash; <a href="../portfolio-accumulation/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Portfolio Accumulation</a> does exactly that, across a whole uploaded book of insureds.</p>
       <div id="cyber-incidents-body"></div>
     </div>
   </details>
@@ -713,8 +713,8 @@ function renderMaterialEvents(defendants, events) {
 
 function renderCrosswalkCoverage() {
   const parents = MoatEngine.getCrosswalkCoverage();
-  document.getElementById("crosswalk-coverage").textContent = parents.length
-    ? `Currently covers subsidiaries of: ${parents.join(", ")} (pulled from their real SEC Exhibit 21 filings). Other curated companies (DuPont, Chemours, Corteva) haven't had their subsidiary lists pulled yet -- this is a real coverage gap, not a general company-wide search.`
+  document.getElementById("crosswalk-coverage").innerHTML = parents.length
+    ? `Currently covers subsidiaries of: ${esc(parents.join(", "))} (pulled from their real SEC Exhibit 21 filings). Other curated companies (DuPont, Chemours, Corteva) haven't had their subsidiary lists pulled yet -- this is a real coverage gap, not a general company-wide search. For any other company, the <a href="../disclosure-audit/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Disclosure Auditor</a>'s live GLEIF subsidiary lookup covers the same question in real time, not from a pre-pulled list.`
     : "No subsidiary data on file yet.";
 }
 
