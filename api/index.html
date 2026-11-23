@@ -122,6 +122,15 @@
   </div>
 
   <div class="card">
+    <span class="tag">Category sweep</span>
+    <h2>Is a whole product category's CPSC recall rate accelerating?</h2>
+    <p>Different shape from everything above: not a named manufacturer or company, but a free-text category or keyword, checked against CPSC's real, live, keyless Recall API across two adjacent time windows. Confirmed live: "lithium battery" over the trailing year returned real recalls (Bose battery packs, Ororo heated-jacket battery packs, among others) with a computed window-over-window ratio. Honest scope: this is recall-level velocity, not the pre-recall complaint-level signal SaferProducts.gov's OData incident API would give -- that API returned a confirmed HTTP 401 without a free CPSC-issued key while building this, so it isn't wired in yet. NHTSA is left out entirely: its real complaints API needs an exact vehicle make/model/modelYear, not a category sweep. A battery/micromobility keyword automatically surfaces CPSC's own acknowledged lithium-ion taxonomy gap.</p>
+    <pre>curl -X POST https://&lt;your-deployment&gt;/v1/cpsc-recall-velocity \
+  -H "Content-Type: application/json" \
+  -d '{"keyword": "lithium battery", "window_days": 365}'</pre>
+  </div>
+
+  <div class="card">
     <span class="tag">Honest status</span>
     <h2>What's real today, and what isn't yet</h2>
     <p>All of the above is working, tested code today &mdash; not a roadmap slide. What it is NOT yet: deployed to a public production URL, or wired into email/Slack notifications (no mail or webhook credential exists in this environment yet). There is also no audit-trail export into a specific underwriting workbench (Charles Taylor InsureTech, Whitespace, DXC, etc.) &mdash; every response here is already structured JSON with a real source URL per finding, which is the real precondition for that integration, but the integration itself needs a real platform and credentials we don't have in this environment. The batch, subscription, and point-in-time logic itself is real and already running against live government data; standing it up as a hosted, authenticated production API with a workbench connector is the real next step, not a claim this page is making ahead of it.</p>
