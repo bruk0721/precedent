@@ -246,6 +246,11 @@
         <button class="run-btn secondary" id="crosswalk-live-btn">Pull live Exhibit 21 for "<span id="crosswalk-live-name"></span>"</button>
         <div id="crosswalk-live-body" style="margin-top:10px"></div>
       </div>
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--chip-bg)">
+        <p class="empty-note" style="margin-bottom:8px">A clean subsidiary list isn't the same question as a clean <em>book</em>. Screen this company's real corporate family for the same real hazard (EPA ECHO, OSHA) turning up on more than one sibling entity &mdash; the concentration no single policy shows on its own.</p>
+        <button class="run-btn secondary" id="accumulation-screen-btn">Run accumulation screen on "<span id="accumulation-screen-name"></span>"</button>
+        <div id="accumulation-screen-body" style="margin-top:10px"></div>
+      </div>
     </div>
   </details>
 
@@ -775,6 +780,39 @@ async function runLiveCrosswalkLookup() {
   }
 }
 
+async function runAccumulationScreen() {
+  const q = document.getElementById("crosswalk-input").value.trim();
+  const body = document.getElementById("accumulation-screen-body");
+  if (!q) { body.innerHTML = `<p class="empty-note">Type a company name or ticker above first.</p>`; return; }
+  const apiBase = document.getElementById("crosswalk-api-url").value.trim().replace(/\/$/, "");
+  body.innerHTML = `<p class="empty-note">Pulling ${esc(q)}'s real Exhibit 21, then checking each entity live against EPA ECHO and OSHA, one at a time -- this can take up to a minute or two, and EPA ECHO's own API throttles at 300 calls/hour, so a busy hour can show per-entity errors below rather than a clean result.</p>`;
+  try {
+    const resp = await fetch(`${apiBase}/v1/subsidiary-accumulation-screen`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ company: q }),
+    });
+    const data = await resp.json();
+    if (!data.found) {
+      body.innerHTML = `<p class="empty-note">${esc(data.reason || data.error || data.detail || "Not found.")}${data.source_url ? ` ${srcLink(data.source_url, "View the real filing")}` : ""}</p>`;
+      return;
+    }
+    const { concentration, entities, limits } = data;
+    const headline = concentration.flagged_entity_count > 0
+      ? `<span class="tag red">${concentration.flagged_entity_count} of ${data.entities_screened} screened entities flagged</span>`
+      : `<span class="tag gray">0 of ${data.entities_screened} screened entities flagged</span>`;
+    const flaggedRows = concentration.flagged_entities.map(e =>
+      `<div class="finding-line"><b>${esc(e.name)}</b> <span style="color:var(--ink-faint)">(${esc(e.role)})</span> &mdash; ${esc(e.epa_echo_hit_count)} EPA ECHO hit(s), ${esc(e.osha_hit_count)} OSHA hit(s)</div>`
+    ).join("");
+    const errorCount = entities.filter(e => e.epa_echo_error || e.osha_error).length;
+    body.innerHTML =
+      `<p class="card-sub" style="margin:0 0 8px">${headline} for <b>${esc(data.company)}</b>'s real corporate family, pulled live from its own current SEC Exhibit 21 (filed ${esc(data.filing_date)}). ${srcLink(data.source_url, "View the real filing")}</p>` +
+      (flaggedRows || `<p class="empty-note">No screened entity had a live EPA ECHO or OSHA hit under its own name.</p>`) +
+      `<div class="empty-note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg)">${limits.map(esc).join("<br>")}</div>` +
+      (errorCount ? `<p class="empty-note" style="margin-top:6px">${errorCount} of ${data.entities_screened} entities hit a live-source error this run -- not counted as flagged or clean, just not fully checked.</p>` : "");
+  } catch (e) {
+    body.innerHTML = `<p class="empty-note">${esc(e.message)} -- is the local API running at ${esc(apiBase)}? See the API Readme for how to start it locally.</p>`;
+  }
+}
+
 function renderFirmTracker() {
   const { rows, distinctDocketCount, venueConcentrationNote, concentration } = MoatEngine.getPlaintiffFirmTracker();
   const hint = document.getElementById("firm-tracker-hint");
@@ -1245,8 +1283,13 @@ async function init() {
   renderCrosswalkCoverage();
   document.getElementById("crosswalk-btn").addEventListener("click", runCrosswalkSearch);
   document.getElementById("crosswalk-input").addEventListener("keydown", (e) => { if (e.key === "Enter") runCrosswalkSearch(); });
-  document.getElementById("crosswalk-input").addEventListener("input", (e) => { document.getElementById("crosswalk-live-name").textContent = e.target.value.trim() || "..."; });
+  document.getElementById("crosswalk-input").addEventListener("input", (e) => {
+    const v = e.target.value.trim() || "...";
+    document.getElementById("crosswalk-live-name").textContent = v;
+    document.getElementById("accumulation-screen-name").textContent = v;
+  });
   document.getElementById("crosswalk-live-btn").addEventListener("click", runLiveCrosswalkLookup);
+  document.getElementById("accumulation-screen-btn").addEventListener("click", runAccumulationScreen);
 
   renderFirmTracker();
 
