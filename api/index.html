@@ -104,6 +104,15 @@
   </div>
 
   <div class="card">
+    <span class="tag">Accumulation</span>
+    <h2>Screen a corporate family for hidden risk concentration</h2>
+    <p>A clean Exhibit 21 pull answers "who are this company's real subsidiaries," not "does this family concentrate exposure to the same real hazard across sibling entities an underwriter would never think to cross-reference by hand." This endpoint pulls the real subsidiary tree, then runs the same live EPA ECHO + OSHA checks the Disclosure Auditor uses against every screened entity (parent + up to 11 subsidiaries, to keep a single request's live-call count bounded), and rolls the results into a concentration view. Honest limits: SEC filers only, capped entity count per request, and EPA ECHO's own published throttle (300 calls/hour per caller) can trip mid-screen on a busy hour &mdash; reported per-entity when it happens, not hidden.</p>
+    <pre>curl -X POST https://&lt;your-deployment&gt;/v1/subsidiary-accumulation-screen \
+  -H "Content-Type: application/json" \
+  -d '{"company": "Chemours"}'</pre>
+  </div>
+
+  <div class="card">
     <span class="tag">Honest status</span>
     <h2>What's real today, and what isn't yet</h2>
     <p>All of the above is working, tested code today &mdash; not a roadmap slide. What it is NOT yet: deployed to a public production URL, or wired into email/Slack notifications (no mail or webhook credential exists in this environment yet). There is also no audit-trail export into a specific underwriting workbench (Charles Taylor InsureTech, Whitespace, DXC, etc.) &mdash; every response here is already structured JSON with a real source URL per finding, which is the real precondition for that integration, but the integration itself needs a real platform and credentials we don't have in this environment. The batch, subscription, and point-in-time logic itself is real and already running against live government data; standing it up as a hosted, authenticated production API with a workbench connector is the real next step, not a claim this page is making ahead of it.</p>
