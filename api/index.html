@@ -95,6 +95,15 @@
   </div>
 
   <div class="card">
+    <span class="tag">Any real company</span>
+    <h2>Pull any public company's real subsidiary list, live, on demand</h2>
+    <p>The <a href="../console/" style="color:var(--accent-blue);font-weight:600;">Underwriter Console</a>'s entity-resolution crosswalk only pre-covers the curated PFAS/AFFF defendant list. This instead pulls a real, current SEC Exhibit 21 at request time for literally any public filer &mdash; confirmed live against companies this project never curated at all (Workday, Procter &amp; Gamble). Two real filer-format gaps are handled honestly, not silently dropped: a subsidiary list split across multiple HTML tables in the same document (DuPont), and a filer whose Exhibit 21 isn't a table at all (Essential Utilities, via Certent Disclosure Management) &mdash; that one returns a clear reason and a link to the real filing instead of a fabricated empty list.</p>
+    <pre>curl -X POST https://&lt;your-deployment&gt;/v1/subsidiary-lookup \
+  -H "Content-Type: application/json" \
+  -d '{"company": "Procter &amp; Gamble"}'</pre>
+  </div>
+
+  <div class="card">
     <span class="tag">Honest status</span>
     <h2>What's real today, and what isn't yet</h2>
     <p>All of the above is working, tested code today &mdash; not a roadmap slide. What it is NOT yet: deployed to a public production URL, or wired into email/Slack notifications (no mail or webhook credential exists in this environment yet). There is also no audit-trail export into a specific underwriting workbench (Charles Taylor InsureTech, Whitespace, DXC, etc.) &mdash; every response here is already structured JSON with a real source URL per finding, which is the real precondition for that integration, but the integration itself needs a real platform and credentials we don't have in this environment. The batch, subscription, and point-in-time logic itself is real and already running against live government data; standing it up as a hosted, authenticated production API with a workbench connector is the real next step, not a claim this page is making ahead of it.</p>

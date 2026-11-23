@@ -102,12 +102,15 @@
   .card-sub { font-size: 13px; color: var(--ink-faint); margin: 0 0 16px; }
 
   .input-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-end; }
+  .api-url-row { display: flex; gap: 8px; align-items: center; margin: 10px 0; }
+  .api-url-row input[type=text] { font-family: var(--font-mono); font-size: 12.5px; }
   .field { display: flex; flex-direction: column; gap: 6px; }
   .field label { font-size: 12px; font-weight: 600; color: var(--ink-muted); }
   .field input, .field select { font-family: var(--font-mono); font-size: 14px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(16, 17, 20, 0.12); background: var(--page-bg); color: var(--ink); outline: none; min-width: 160px; }
   .field input:focus, .field select:focus { border-color: var(--accent-blue); }
   .run-btn { font-family: var(--font); font-size: 13.5px; font-weight: 600; padding: 11px 22px; border-radius: 10px; border: none; background: var(--ink); color: var(--page-bg); cursor: pointer; }
   .run-btn:hover { opacity: 0.85; }
+  .run-btn.secondary { background: var(--chip-bg); color: var(--ink); }
   .examples { margin-top: 12px; font-size: 12.5px; color: var(--ink-faint); }
   .examples button { font-family: var(--font-mono); font-size: 12px; border: 1px solid var(--chip-bg); background: var(--chip-bg); color: var(--ink-muted); padding: 3px 9px; border-radius: var(--radius-pill); cursor: pointer; margin-left: 6px; }
   .examples button:hover { background: var(--accent-blue-bg); color: var(--accent-blue); }
@@ -234,6 +237,15 @@
       </div>
       <div id="crosswalk-body"></div>
       <div class="empty-note" id="crosswalk-coverage" style="margin-top:12px;padding-top:12px;border-top:1px solid var(--chip-bg)"></div>
+      <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--chip-bg)">
+        <p class="empty-note" style="margin-bottom:8px">Not on that curated list? Pull any real public company's Exhibit 21 live, right now, instead of waiting for it to be pre-curated.</p>
+        <div class="api-url-row">
+          <label for="crosswalk-api-url" style="font-size:12.5px;color:var(--ink-faint);white-space:nowrap;">API base:</label>
+          <input type="text" id="crosswalk-api-url" value="http://localhost:8000">
+        </div>
+        <button class="run-btn secondary" id="crosswalk-live-btn">Pull live Exhibit 21 for "<span id="crosswalk-live-name"></span>"</button>
+        <div id="crosswalk-live-body" style="margin-top:10px"></div>
+      </div>
     </div>
   </details>
 
@@ -714,7 +726,7 @@ function renderMaterialEvents(defendants, events) {
 function renderCrosswalkCoverage() {
   const parents = MoatEngine.getCrosswalkCoverage();
   document.getElementById("crosswalk-coverage").innerHTML = parents.length
-    ? `Currently covers subsidiaries of: ${esc(parents.join(", "))} (pulled from their real SEC Exhibit 21 filings). Other curated companies (DuPont, Chemours, Corteva) haven't had their subsidiary lists pulled yet -- this is a real coverage gap, not a general company-wide search. For any other company, the <a href="../disclosure-audit/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Disclosure Auditor</a>'s live GLEIF subsidiary lookup covers the same question in real time, not from a pre-pulled list.`
+    ? `Currently covers subsidiaries of: ${esc(parents.join(", "))} (pulled from their real SEC Exhibit 21 filings) -- the full curated PFAS/AFFF defendant list. For any other real company, use the live lookup below instead of waiting for it to be pre-curated, or try the <a href="../disclosure-audit/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">Disclosure Auditor</a>'s live GLEIF subsidiary lookup.`
     : "No subsidiary data on file yet.";
 }
 
@@ -722,11 +734,13 @@ function runCrosswalkSearch() {
   const q = document.getElementById("crosswalk-input").value.trim();
   const el = document.getElementById("crosswalk-body");
   const hint = document.getElementById("crosswalk-hint");
+  document.getElementById("crosswalk-live-name").textContent = q || "...";
+  document.getElementById("crosswalk-live-body").innerHTML = "";
   if (!q) { el.innerHTML = ""; hint.textContent = "Search any name"; return; }
   const results = MoatEngine.searchEntity(q);
   if (!results.length) {
     hint.textContent = "0 matches";
-    el.innerHTML = `<p class="empty-note">No match found among the subsidiaries currently on file for "${esc(q)}". See the coverage note below -- this only searches companies whose Exhibit 21 has actually been pulled.</p>`;
+    el.innerHTML = `<p class="empty-note">No match found among the subsidiaries currently on file for "${esc(q)}". This only searches the curated PFAS/AFFF defendant list -- use the live lookup below for any other real company.</p>`;
     return;
   }
   hint.textContent = `${results.length} match(es)`;
@@ -736,6 +750,29 @@ function runCrosswalkSearch() {
       : `<span class="tag gray">No severity anchor on file for the parent</span>`;
     return `<div class="finding-line"><b>${esc(r.subsidiary)}</b> is a real subsidiary of <b>${esc(r.parent)}</b><br>${sevTag}</div>`;
   }).join("");
+}
+
+async function runLiveCrosswalkLookup() {
+  const q = document.getElementById("crosswalk-input").value.trim();
+  const body = document.getElementById("crosswalk-live-body");
+  if (!q) { body.innerHTML = `<p class="empty-note">Type a company name or ticker above first.</p>`; return; }
+  const apiBase = document.getElementById("crosswalk-api-url").value.trim().replace(/\/$/, "");
+  body.innerHTML = `<p class="empty-note">Querying SEC EDGAR live for "${esc(q)}" -- this can take a few seconds...</p>`;
+  try {
+    const resp = await fetch(`${apiBase}/v1/subsidiary-lookup`, {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ company: q }),
+    });
+    const data = await resp.json();
+    if (!data.found) {
+      body.innerHTML = `<p class="empty-note">${esc(data.reason || data.error || "Not found.")}${data.source_url ? ` ${srcLink(data.source_url, "View the real filing")}` : ""}</p>`;
+      return;
+    }
+    body.innerHTML = `<p class="card-sub" style="margin:0 0 10px">${esc(data.subsidiary_count)} real subsidiar${data.subsidiary_count === 1 ? "y" : "ies"} found for <b>${esc(data.company)}</b>, pulled live just now from its own current SEC Exhibit 21 (filed ${esc(data.filing_date)}). ${srcLink(data.source_url, "View the real filing")}</p>` +
+      data.subsidiaries.slice(0, 25).map(s => `<div class="finding-line">${esc(s.name)}${s.jurisdiction ? ` <span style="color:var(--ink-faint)">(${esc(s.jurisdiction)})</span>` : ""}</div>`).join("") +
+      (data.subsidiaries.length > 25 ? `<p class="empty-note" style="margin-top:8px">...and ${data.subsidiaries.length - 25} more.</p>` : "");
+  } catch (e) {
+    body.innerHTML = `<p class="empty-note">${esc(e.message)} -- is the local API running at ${esc(apiBase)}? See the API Readme for how to start it locally.</p>`;
+  }
 }
 
 function renderFirmTracker() {
@@ -1208,6 +1245,8 @@ async function init() {
   renderCrosswalkCoverage();
   document.getElementById("crosswalk-btn").addEventListener("click", runCrosswalkSearch);
   document.getElementById("crosswalk-input").addEventListener("keydown", (e) => { if (e.key === "Enter") runCrosswalkSearch(); });
+  document.getElementById("crosswalk-input").addEventListener("input", (e) => { document.getElementById("crosswalk-live-name").textContent = e.target.value.trim() || "..."; });
+  document.getElementById("crosswalk-live-btn").addEventListener("click", runLiveCrosswalkLookup);
 
   renderFirmTracker();
 

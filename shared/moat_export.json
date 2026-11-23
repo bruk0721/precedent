@@ -2542,6 +2542,3542 @@
       "jurisdiction": "Wisconsin, United States",
       "cik": "0000833444",
       "extracted_at": "2026-11-12T04:07:29.590977+00:00"
+    },
+    {
+      "id": 118,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "3313045 Nova Scotia Company",
+      "jurisdiction": "Canada",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.342776+00:00"
+    },
+    {
+      "id": 119,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Apollo Medical Extrusion Technologies, Inc.",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.358572+00:00"
+    },
+    {
+      "id": 120,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DDP Speciality Products India Private Limited",
+      "jurisdiction": "India",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.358572+00:00"
+    },
+    {
+      "id": 121,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DDP Specialty Electronic Materials US 9, LLC",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360095+00:00"
+    },
+    {
+      "id": 122,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DDP Specialty Electronic Materials US, LLC",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360095+00:00"
+    },
+    {
+      "id": 123,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DDP Specialty Products Japan K.K.",
+      "jurisdiction": "Japan",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 124,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Desalitech Inc.",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 125,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Donatelle Plastics, LLC",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 126,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DSP S.A.S.",
+      "jurisdiction": "France",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 127,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Du Pont China Limited",
+      "jurisdiction": "Hong Kong",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 128,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Du Pont de Nemours (Belgium) BV",
+      "jurisdiction": "Belgium",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 129,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont de Nemours (Deutschland) GmbH",
+      "jurisdiction": "Germany",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 130,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont (China) Research & Development and Management Co., Ltd.",
+      "jurisdiction": "China",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 131,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont (Shenzhen) Investment Co., Ltd",
+      "jurisdiction": "China",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 132,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Dupont (Zhangjiagang) Company Ltd",
+      "jurisdiction": "China",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 133,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Acquisition (Luxembourg) S.\u00e0 r.l.",
+      "jurisdiction": "Luxembourg",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 134,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont De Nemours (Luxembourg) S.\u00e0 r.l.",
+      "jurisdiction": "Luxembourg",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 135,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont de Nemours International S\u00e0rl",
+      "jurisdiction": "Switzerland",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 136,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Deutschland Holding GmbH & Co. KG",
+      "jurisdiction": "Germany",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 137,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Diversified Industrials Canada Company",
+      "jurisdiction": "Canada",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 138,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Diversified Industrials Hong Kong Limited",
+      "jurisdiction": "Hong Kong",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 139,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Industrials, Inc.",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 140,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Industrials Korea Ltd.",
+      "jurisdiction": "Korea",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 141,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont International (Luxembourg) S.\u00e0 r.l",
+      "jurisdiction": "Luxembourg",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 142,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Japan Kabushiki Kaisha",
+      "jurisdiction": "Japan",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 143,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Materials Technology (Shanghai) Co., Ltd.",
+      "jurisdiction": "China",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 144,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Safety & Construction, Inc.",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 145,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Services Company S\u00e0rl",
+      "jurisdiction": "Switzerland",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 146,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont SP Services S\u00e0rl",
+      "jurisdiction": "Switzerland",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 147,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Specialty Materials (Shanghai) Co., Ltd.",
+      "jurisdiction": "China",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 148,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Specialty Products GmbH & Co. KG",
+      "jurisdiction": "Germany",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 149,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DUPONT SPECIALTY PRODUCTS INDIA PRIVATE LIMITED",
+      "jurisdiction": "India",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 150,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Specialty Products Korea Ltd.",
+      "jurisdiction": "Korea",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 151,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Specialty Products Limited",
+      "jurisdiction": "Saudi Arabia",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 152,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Specialty Products Operations S\u00e0rl",
+      "jurisdiction": "Switzerland",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 153,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Specialty Products USA, LLC",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 154,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Styro Corporation",
+      "jurisdiction": "Japan",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 155,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "DuPont Toray Specialty Materials Kabushiki Kaisha",
+      "jurisdiction": "Japan",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 156,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Fermatex Vascular Technologies, LLC",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 157,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Film Tec Water Japan Kabushiki Kaisha",
+      "jurisdiction": "Japan",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 158,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "FilmTec Corporation",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 159,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "FilmTec Water Hong Kong Limited",
+      "jurisdiction": "Hong Kong",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 160,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "FilmTec Water Korea Ltd.",
+      "jurisdiction": "Korea",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 161,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "FilmTec Water Netherlands Holding B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 162,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "FILMTEC WATER SINGAPORE PTE. LTD.",
+      "jurisdiction": "Singapore",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 163,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "FilmTec Water Switzerland GmbH",
+      "jurisdiction": "Switzerland",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 164,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "FilmTec Water USA, LLC",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 165,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Inge GmbH",
+      "jurisdiction": "Germany",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 166,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Kelcourt Plastics, Inc.",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 167,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Multibase S.A.",
+      "jurisdiction": "France",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 168,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Multibase, Inc.",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 169,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Novus Industrials SpinCo 1, Inc.",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 170,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Peak Spain S.L.U.",
+      "jurisdiction": "Spain",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 171,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Performance Specialty Products Do Brasil",
+      "jurisdiction": "Brazil",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 172,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "PERFORMANCE SPECIALTY PRODUCTS (SINGAPORE) PTE. LTD.",
+      "jurisdiction": "Singapore",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 173,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Performance Specialty Products Ib\u00e9rica, S.L.U.",
+      "jurisdiction": "Spain",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 174,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "PPC Industries Inc.",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 175,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Precision Extrusion, Inc.",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 176,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "PRODUCTOS ESPECIALIZADOS DE MEXICO DDM",
+      "jurisdiction": "Mexico",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 177,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "SP EMEA Holding 1 B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 178,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Specialty Electronic Materials Com\u00e9rcio De Produtos Qu\u00edmicos Do Brasil Ltda",
+      "jurisdiction": "Brazil",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 179,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Specialty Electronic Materials Italy S.R.L.",
+      "jurisdiction": "Italy",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 180,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Specialty Electronic Materials Netherlands B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 181,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Specialty Electronic Materials Switzerland GmbH",
+      "jurisdiction": "Switzerland",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 182,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Spectrum Plastic Group Operaciones, S. de R.L. de C.V.",
+      "jurisdiction": "Mexico",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 183,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Spectrum Plastics Group, Inc.",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 184,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Zhejiang OMEX Environmental Engineering Co., Ltd",
+      "jurisdiction": "China",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 185,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Arrow Aramids Canada Company",
+      "jurisdiction": "Canada",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 186,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Arrow Specialties USA, LLC",
+      "jurisdiction": "United States",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 187,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Arrow Trading (Shanghai) Co., Ltd.",
+      "jurisdiction": "China",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 188,
+      "parent_company": "DuPont de Nemours, Inc.",
+      "subsidiary_name": "Performance Specialty Products Asturias, S.L.U.",
+      "jurisdiction": "Spain",
+      "cik": "0001666700",
+      "extracted_at": "2026-11-23T07:17:58.360952+00:00"
+    },
+    {
+      "id": 189,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "2463297 Ontario Limited",
+      "jurisdiction": "Canada",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.125988+00:00"
+    },
+    {
+      "id": 190,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours Belgium BVBA",
+      "jurisdiction": "Belgium",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 191,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours Deutschland GmbH",
+      "jurisdiction": "Germany",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 192,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours France SAS",
+      "jurisdiction": "France",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 193,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours Hong Kong Holding Limited",
+      "jurisdiction": "Hong Kong",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 194,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours International Operations S\u00e0rl",
+      "jurisdiction": "Switzerland",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 195,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours Italy S.r.l.",
+      "jurisdiction": "Italy",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 196,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours Kabushiki Kaisha",
+      "jurisdiction": "Japan",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 197,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours Korea Inc.",
+      "jurisdiction": "Korea",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 198,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours Netherlands B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 199,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours NL Holding 1 B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 200,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours NL Holding 2 B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 201,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours NL Holding 4 B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 202,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours International B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 203,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours Services S\u00e0rl",
+      "jurisdiction": "Switzerland",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 204,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours Spain S.L.",
+      "jurisdiction": "Spain",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 205,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours Titanium Technologies (Taiwan) Ltd.",
+      "jurisdiction": "Taiwan",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 206,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours TR Kimyasal \u00dcr\u00fcnler Limited \u015eirketi",
+      "jurisdiction": "Turkey",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 207,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours UK Limited",
+      "jurisdiction": "United Kingdom",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 208,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Chemours Vietnam Company Limited",
+      "jurisdiction": "Vietnam",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 209,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "First Chemical Holdings, LLC",
+      "jurisdiction": "Mississippi",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 210,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "First Chemical Texas, L.P",
+      "jurisdiction": "Delaware",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 211,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "FT Chemical, Inc.",
+      "jurisdiction": "Texas",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 212,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "ICOR International Inc.",
+      "jurisdiction": "Indiana",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 213,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Initiatives Inc de M\u00e9xico S.A. de C.V.",
+      "jurisdiction": "Mexico",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 214,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Noluma International, LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 215,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "PT The Chemours Indonesia",
+      "jurisdiction": "Indonesia",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 216,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "Southern Ionics Minerals, LLC",
+      "jurisdiction": "Mississippi",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 217,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours (Changshu) Fluoro Technology Company Limited",
+      "jurisdiction": "China",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 218,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours (Taiwan) Company Limited",
+      "jurisdiction": "Taiwan",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 219,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours (Thailand) Company Limited",
+      "jurisdiction": "Thailand",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 220,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours 3F Fluorochemicals (Changshu) Company, Limited",
+      "jurisdiction": "China",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 221,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Canada Company",
+      "jurisdiction": "Canada",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 222,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Chemical (Shanghai) Company Limited",
+      "jurisdiction": "China",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 223,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours China Holding Co., Ltd.",
+      "jurisdiction": "China",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 224,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company (Argentina) S.R.L.",
+      "jurisdiction": "Argentina",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 225,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company AR, LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 226,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company (Australia) Pty Ltd",
+      "jurisdiction": "Australia",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 227,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company Asia Pacific Operations, Inc.",
+      "jurisdiction": "Delaware",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 228,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company Delaware Operations, Inc.",
+      "jurisdiction": "Delaware",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 229,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company FC, LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 230,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company Holding US, LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 231,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company Industria E Comercio de Produtos Quimicos Ltda.",
+      "jurisdiction": "Brazil",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 232,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company Mexicana S. de R.L. de C.V.",
+      "jurisdiction": "Mexico",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 233,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company Mexico, S. de R.L. de C.V.",
+      "jurisdiction": "Mexico",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 234,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company North America, Inc.",
+      "jurisdiction": "Delaware",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 235,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company Servicios, S. de R.L. de C.V.",
+      "jurisdiction": "Mexico",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.133500+00:00"
+    },
+    {
+      "id": 236,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company Singapore Pte. Ltd.",
+      "jurisdiction": "Singapore",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.135265+00:00"
+    },
+    {
+      "id": 237,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Company Worldwide Operations, Inc.",
+      "jurisdiction": "Delaware",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.135265+00:00"
+    },
+    {
+      "id": 238,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Holding Company, S. de R.L. de C.V.",
+      "jurisdiction": "Mexico",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.135265+00:00"
+    },
+    {
+      "id": 239,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours India Private Limited",
+      "jurisdiction": "India",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.135265+00:00"
+    },
+    {
+      "id": 240,
+      "parent_company": "Chemours Co",
+      "subsidiary_name": "The Chemours Malaysia Sdn. Bhd.",
+      "jurisdiction": "Malaysia",
+      "cik": "0001627223",
+      "extracted_at": "2026-11-23T07:18:06.135265+00:00"
+    },
+    {
+      "id": 241,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "AlliedSignal Aerospace Service LLC",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.053366+00:00"
+    },
+    {
+      "id": 242,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "BW Technologies Partnership",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 243,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "CAES Systems Holdings LLC",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 244,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Cedar Court Indemnity Company",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 245,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "COM DEV Europe Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 246,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Eclipse, Inc.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 247,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Elster GmbH",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 248,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Elster Group GmbH",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 249,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "ELSTER METERING LTD.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 250,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Elster Metering Pty Ltd",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 251,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Elster S.A.S.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 252,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Elster s.r.o.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 253,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Elster Solutions Corporation",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 254,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "EMS Defense Technologies, Inc.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 255,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "EMS Technologies Canada Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 256,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Friedland Doggart Group Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 257,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Garrett Thermal Systems Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 258,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Grimes Aerospace Company",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 259,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Hand Held Products, Inc.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 260,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell (China) Co. Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 261,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell (Tianjin) Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 262,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Advanced Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 263,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Aerospace Avionics Malaysia Sdn Bhd",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 264,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Aerospace de Mexico, S.de R.L. de C.V.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 265,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Aerospace De Puerto Rico, Inc.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 266,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Aerospace GmbH",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 267,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Aerospace Olomouc s.r.o.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 268,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Aerospace Singapore Pte. Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 269,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Aerospace UK",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 270,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Analytics Inc.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 271,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Automation and Control Products Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 272,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Automation Control Solutions (China) Co. Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 273,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Automation India Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.056190+00:00"
+    },
+    {
+      "id": 274,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Automation Technology (China) Co. Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 275,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Automotive de Mexico S. de R.L. de C.V.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 276,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Avionics (Shanghai) Co., Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 277,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell B.V.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 278,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Building Solutions GmbH",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 279,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Chile S.A.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 280,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Co., Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 281,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Control Systems Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 282,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Deutschland Holding GmbH",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 283,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Europe BV",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 284,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "HONEYWELL FINANCE ONTARIO LP",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 285,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell GmbH",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 286,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Holdings International Inc.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 287,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell International India Private Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 288,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell International Sarl",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 289,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell International Sdn. Bhd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.059786+00:00"
+    },
+    {
+      "id": 290,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell International UK Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 291,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Life Safety Romania SRL",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 292,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 293,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Limited (Hong Kong)",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 294,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Limited/Honeywell Limitee",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 295,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Middle East B.V.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 296,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Middle East FZE",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 297,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell N.V. (Belgium)",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 298,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Performance Material and Tech. (China) Co. Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 299,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Productivity Solutions B.V.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 300,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Productivity Solutions GmbH",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 301,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Products & Solutions Sarl",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 302,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Pte. Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 303,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell S.A. de C.V.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 304,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell S.A.S. [France]",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 305,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell S.L.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 306,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell S.r.l",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 307,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Sensing and Control China Co Ltd",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 308,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell spol. s.r.o.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 309,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Taiwan Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 310,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Technology Solutions Lab Private Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 311,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Technology Solutions Qatar",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 312,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Teknoloji Anonim Sirketi",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 313,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Trading (Shanghai) Co., Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 314,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell Turki Arabia Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 315,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Honeywell UK Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 316,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Intelligrated Headquarters, LLC",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 317,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Intelligrated Systems, Inc.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 318,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Intelligrated Systems, LLC",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 319,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Intermec Technologies (S) Pte. Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 320,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "International Turbine Engine Company LLC",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 321,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "King's Shoe Manufacturing Pte. Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 322,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Life Safety Distribution GmbH",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 323,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Maxon Corporation",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 324,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Metro (Suzhou) Technologies Co., Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 325,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Notifier Italia S.r.l.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 326,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Novar ED And S Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 327,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Novar GmbH",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 328,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Novar Systems Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 329,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "O & S Holdings (Vic) Pty. Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 330,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Quantinuum",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 331,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Rocky Research",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 332,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Shanghai UOP Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 333,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Sinopec Honeywell Tianjin Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 334,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Sparta Systems, Inc.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 335,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Star US Bidco",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 336,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "TRANSNORM SYSTEM GmbH",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 337,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Transnorm System Inc.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 338,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Tridium, Inc.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 339,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "UOP CH Sarl",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 340,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "UOP India Private Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 341,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "UOP Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 342,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "UOP Process Technology Co., Ltd.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 343,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "UOP Services Limited",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 344,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Vocollect, Inc.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 345,
+      "parent_company": "HONEYWELL INTERNATIONAL INC",
+      "subsidiary_name": "Xtralis, Inc.",
+      "jurisdiction": "%",
+      "cik": "0000773840",
+      "extracted_at": "2026-11-23T07:18:14.062265+00:00"
+    },
+    {
+      "id": 346,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "AG (Shanghai) Agriculture Technology Co., Ltd.",
+      "jurisdiction": "Shanghai",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.668629+00:00"
+    },
+    {
+      "id": 347,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Agrigenetics, Inc.",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.676050+00:00"
+    },
+    {
+      "id": 348,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Agro Corteva Chile S.A.",
+      "jurisdiction": "Chile",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 349,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Agro Corteva Colombia, S.A.",
+      "jurisdiction": "Colombia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 350,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Agro Cultivos Corteva Chile S.A.",
+      "jurisdiction": "Chile",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 351,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "AgroStollerec S.A.",
+      "jurisdiction": "Ecuador",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 352,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "AgSurf Corporation",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 353,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "AgVenture, Inc.",
+      "jurisdiction": "Indiana",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 354,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Christiana Insurance LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 355,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva (China) Investment Co., Ltd.",
+      "jurisdiction": "Shanghai",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 356,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva (China), LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 357,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience (Cambodia) Co., Ltd.",
+      "jurisdiction": "Cambodia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 358,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience (Malaysia) Sdn. Bhd.",
+      "jurisdiction": "Malaysia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 359,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience (Myanmar) Company Limited",
+      "jurisdiction": "Myanmar",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 360,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience (Nantong) Co., Ltd.",
+      "jurisdiction": "Jiangsu",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 361,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience (Singapore) Pte. Ltd.",
+      "jurisdiction": "Singapore",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 362,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience (Thailand) Co., Ltd.",
+      "jurisdiction": "Thailand",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 363,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience AB",
+      "jurisdiction": "Sweden",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 364,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Argentina S.R.L.",
+      "jurisdiction": "Argentina",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 365,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Australia PTY Ltd",
+      "jurisdiction": "Australia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 366,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Austria GmbH",
+      "jurisdiction": "Austria",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 367,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Bangladesh Limited",
+      "jurisdiction": "Bangladesh",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 368,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Belgium B.V.",
+      "jurisdiction": "Belgium",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 369,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Bolivia S.A.",
+      "jurisdiction": "Bolivia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 370,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Bulgaria EOOD",
+      "jurisdiction": "Bulgaria",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 371,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Canada Company",
+      "jurisdiction": "Nova Scotia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 372,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Chile Limitada",
+      "jurisdiction": "Chile",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 373,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Costa Rica S.A.",
+      "jurisdiction": "Costa Rica",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 374,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Cote d'Ivoire SASU",
+      "jurisdiction": "Ivory Coast",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 375,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Croatia LLC",
+      "jurisdiction": "Croatia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 376,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Czech s.r.o.",
+      "jurisdiction": "Czech Republic",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 377,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience de Colombia S.A.S.",
+      "jurisdiction": "Colombia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 378,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience de Ecuador S.A.",
+      "jurisdiction": "Ecuador",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 379,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Denmark A/S",
+      "jurisdiction": "Denmark",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 380,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience do Brasil Ltda.",
+      "jurisdiction": "Brazil",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 381,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Egypt LLC",
+      "jurisdiction": "Egypt",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 382,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Ethiopia PLC",
+      "jurisdiction": "Ethiopia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 383,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Finland OY",
+      "jurisdiction": "Finland",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 384,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Foundation",
+      "jurisdiction": "Iowa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 385,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience France S.A.S.",
+      "jurisdiction": "France",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 386,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Germany GmbH",
+      "jurisdiction": "Germany",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 387,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Guatemala S.A.",
+      "jurisdiction": "Guatemala",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 388,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Hellas S.A.",
+      "jurisdiction": "Greece",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 389,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Holding LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 390,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Holding S\u00e0rl",
+      "jurisdiction": "Switzerland",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 391,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Holding Spain, S.L.",
+      "jurisdiction": "Spain",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 392,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Hungary Zrt.",
+      "jurisdiction": "Hungary",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 393,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience India Private Limited",
+      "jurisdiction": "India",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 394,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience International S\u00e0rl",
+      "jurisdiction": "Switzerland",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 395,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Italia S.r.l.",
+      "jurisdiction": "Italy",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 396,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Japan Limited",
+      "jurisdiction": "Japan",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 397,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Kazakhstan Limited Liability Partnership",
+      "jurisdiction": "Kazakhstan",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 398,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Kenya Limited",
+      "jurisdiction": "Kenya",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 399,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Korea Ltd.",
+      "jurisdiction": "Korea",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 400,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Lithuania UAB",
+      "jurisdiction": "Lithuania",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 401,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 402,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Maroc SARL",
+      "jurisdiction": "Morocco",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 403,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience MCS LLC",
+      "jurisdiction": "Iowa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 404,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Mexico S. de R. L. de C. V.",
+      "jurisdiction": "M\u00e9xico",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 405,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience MW Limited",
+      "jurisdiction": "Malawi",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 406,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Netherlands B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.677067+00:00"
+    },
+    {
+      "id": 407,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience New Zealand Ltd",
+      "jurisdiction": "New Zealand",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 408,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Nigeria Limited",
+      "jurisdiction": "Nigeria",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 409,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Pacific Limited",
+      "jurisdiction": "Hong Kong",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 410,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Pakistan Limited",
+      "jurisdiction": "Pakistan",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 411,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Paraguay S.A.",
+      "jurisdiction": "Paraguay",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 412,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Per\u00fa SAC",
+      "jurisdiction": "Peru",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 413,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Philippines, Inc.",
+      "jurisdiction": "Philippines",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 414,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Poland Sp. z o.o.",
+      "jurisdiction": "Poland",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 415,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Portugal, S.A.",
+      "jurisdiction": "Portugal",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 416,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Puerto Rico, Inc.",
+      "jurisdiction": "Iowa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 417,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Romania S.R.L.",
+      "jurisdiction": "Romania",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 418,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience RSA Proprietary Limited",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 420,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience S. de R.L. de C.V.",
+      "jurisdiction": "M\u00e9xico",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 421,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Seeds Private Limited",
+      "jurisdiction": "India",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 422,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Services India Private Limited",
+      "jurisdiction": "India",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 423,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience SLO d.o.o.",
+      "jurisdiction": "Slovenia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.680133+00:00"
+    },
+    {
+      "id": 424,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Slovakia s.r.o.",
+      "jurisdiction": "Slovakia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682207+00:00"
+    },
+    {
+      "id": 425,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Spain, S.L.U.",
+      "jurisdiction": "Spain",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682207+00:00"
+    },
+    {
+      "id": 426,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience SRB d.o.o.",
+      "jurisdiction": "Serbia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682207+00:00"
+    },
+    {
+      "id": 427,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Tanzania Limited",
+      "jurisdiction": "Tanzania",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682207+00:00"
+    },
+    {
+      "id": 428,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience UK Limited",
+      "jurisdiction": "United Kingdom",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682207+00:00"
+    },
+    {
+      "id": 429,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Ukraine LLC",
+      "jurisdiction": "Ukraine",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682207+00:00"
+    },
+    {
+      "id": 430,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Uruguay S.A.",
+      "jurisdiction": "Uruguay",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682207+00:00"
+    },
+    {
+      "id": 431,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Vietnam Co., Ltd.",
+      "jurisdiction": "Vietnam",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682207+00:00"
+    },
+    {
+      "id": 432,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Worldwide, LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682207+00:00"
+    },
+    {
+      "id": 433,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Zambia Limited",
+      "jurisdiction": "Zambia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 434,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Agriscience Zimbabwe (Private) Limited",
+      "jurisdiction": "Zimbabwe",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 435,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Asia Pacific Inc.",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 436,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Biologicals International, LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 437,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Biologics US, LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 438,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Bolivia S.R.L.",
+      "jurisdiction": "Bolivia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 439,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva CP Products SA (Pty) Ltd",
+      "jurisdiction": "South Africa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 440,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Crop India Private Limited",
+      "jurisdiction": "India",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 441,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Crop Pakistan (Private) Limited",
+      "jurisdiction": "Pakistan",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 442,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Crop Slovakia s.r.o",
+      "jurisdiction": "Slovakia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 443,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Crop Solutions HUN Kft.",
+      "jurisdiction": "Hungary",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 444,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Crop Solutions Rom S.R.L.",
+      "jurisdiction": "Romania",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 445,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Crop Solutions SA (Pty) Ltd",
+      "jurisdiction": "South Africa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 446,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Crop Taiwan Ltd.",
+      "jurisdiction": "Taiwan",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 447,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Crop Ukraine LLC",
+      "jurisdiction": "Ukraine",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 448,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Finance Company B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 449,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Global Holding II Inc.",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 450,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Global Holding Inc.",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 451,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Holding France S.A.S.",
+      "jurisdiction": "France",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 452,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Holding Mauritius Limited",
+      "jurisdiction": "Mauritius",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 453,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Holding Netherlands 1 B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 454,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Holding Netherlands 2 B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 455,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Holding Netherlands 3 B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 456,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Holding Netherlands 4 B.V.",
+      "jurisdiction": "Netherlands",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 457,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Holding SA (Pty) Ltd",
+      "jurisdiction": "South Africa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 458,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Holding Switzerland S\u00e0rl",
+      "jurisdiction": "Switzerland",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 459,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Holding Zimbabwe (Private) Limited",
+      "jurisdiction": "Zimbabwe",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 460,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Holdings NZ Limited",
+      "jurisdiction": "New Zealand",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 461,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva India Limited, LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 462,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva International Holding Corporation",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 463,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Investment Switzerland S\u00e0rl",
+      "jurisdiction": "Switzerland",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 464,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Japan Ltd.",
+      "jurisdiction": "Japan",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.682882+00:00"
+    },
+    {
+      "id": 465,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva MX S.A. de C.V.",
+      "jurisdiction": "M\u00e9xico",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 466,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Seeds Argentina S.R.L.",
+      "jurisdiction": "Argentina",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 467,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Seeds Paraguay S.R.L.",
+      "jurisdiction": "Paraguay",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 468,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Seeds RSA Proprietary Limited",
+      "jurisdiction": "South Africa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 469,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Services S\u00e0rl",
+      "jurisdiction": "Switzerland",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 470,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Turkey Tarim A.S.",
+      "jurisdiction": "Turkey",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 471,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva Turkey Tohumculuk A.S.",
+      "jurisdiction": "Turkey",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 472,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Corteva US Feedstocks Company, LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 473,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "CTVA Prote\u00e7\u00e3o de Cultivos Ltda.",
+      "jurisdiction": "Brazil",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 474,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "DDP AgroSciences Kenya Limited",
+      "jurisdiction": "Kenya",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 475,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "DDP AgroSciences US DCOMCO, LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 476,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Dikanka Nasinnia LLC",
+      "jurisdiction": "Ukraine",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 477,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Dow AgroSciences Vertriebsgesellschaft m.b.H.",
+      "jurisdiction": "Austria",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 478,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "DuPont Capital Management Corporation",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 479,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "DuPont Pioneer Investment Co., Ltd.",
+      "jurisdiction": "Beijing",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 480,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Eyal S.A.",
+      "jurisdiction": "Uruguay",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 481,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Granular Canada Company",
+      "jurisdiction": "Nova Scotia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 482,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Griffin L.L.C. Valdosta, Georgia",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 483,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Hoegemeyer Hybrids, Inc.",
+      "jurisdiction": "Nebraska",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 484,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Organic Symbiosis, S. de",
+      "jurisdiction": "Mexico",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 485,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Orion Mexico, LLC",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 486,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pannar Properties Zambia Limited",
+      "jurisdiction": "Zambia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 487,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pannar Seed (Pty) Ltd.",
+      "jurisdiction": "South Africa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.684290+00:00"
+    },
+    {
+      "id": 488,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pannar Seed (Zimbabwe) Private Limited",
+      "jurisdiction": "Zimbabwe",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 489,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pannar Seed Kenya Ltd.",
+      "jurisdiction": "Kenya",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 490,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pannar Seed Lda",
+      "jurisdiction": "Mozambique",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 491,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "PHI Financial Services Canada Limited",
+      "jurisdiction": "Canada",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 492,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "PHI Financial Services, Inc.",
+      "jurisdiction": "Iowa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 493,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "PHI Mexico, S.A. de C.V.",
+      "jurisdiction": "M\u00e9xico",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 494,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "PhPhilippines Holdings Inc.",
+      "jurisdiction": "Philippines",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 495,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer DuPont Zambia Limited",
+      "jurisdiction": "Zambia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 496,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer G\u00e9n\u00e9tique S\u00e0rl",
+      "jurisdiction": "France",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 497,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred (Switzerland) S.A.",
+      "jurisdiction": "Switzerland",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 498,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred (Thailand) Co. Limited",
+      "jurisdiction": "Thailand",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 499,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred Australia, Pty Ltd.",
+      "jurisdiction": "Australia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 500,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred Canada Company",
+      "jurisdiction": "Nova Scotia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 501,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred International, Inc.",
+      "jurisdiction": "Iowa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 502,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred Italia S.r.l.",
+      "jurisdiction": "Italy",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 503,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred Italia Sementi S.r.l.",
+      "jurisdiction": "Italy",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 504,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred Italia Servizi Agronomici S.r.l.",
+      "jurisdiction": "Italy",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 505,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred Magyarorszag Kft",
+      "jurisdiction": "Hungary",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 506,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred Northern Europe Sales Division GmbH",
+      "jurisdiction": "Germany",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 507,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred Northern Europe Service Division GmbH",
+      "jurisdiction": "Germany",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 508,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred Poland Sp z.o.o.",
+      "jurisdiction": "Poland",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 509,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer HI-Bred Private Limited",
+      "jurisdiction": "India",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 510,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred Production Company",
+      "jurisdiction": "Nova Scotia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 511,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred Romania S.R.L.",
+      "jurisdiction": "Romania",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 512,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Hi-Bred Spain, S.L.",
+      "jurisdiction": "Spain",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 513,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Mexico Holdings LLC",
+      "jurisdiction": "Iowa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 514,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Overseas Corporation",
+      "jurisdiction": "Iowa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 515,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Overseas Corporation (Singapore) Pte Ltd",
+      "jurisdiction": "Singapore",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 516,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Seeds, LLC",
+      "jurisdiction": "Iowa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 517,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Semences S.A.S",
+      "jurisdiction": "France",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 518,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pioneer Tohumculuk Distribution and Marketing",
+      "jurisdiction": "Turkey",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.685326+00:00"
+    },
+    {
+      "id": 519,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Pitt-Consol Chemical Company",
+      "jurisdiction": "New Jersey",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 520,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Prochrom Internacional S.A.",
+      "jurisdiction": "Uruguay",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 521,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Production Agriscience (Australia) Pty Ltd",
+      "jurisdiction": "Australia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 522,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "PT Corteva Agriscience Indonesia",
+      "jurisdiction": "Indonesia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 523,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "PT Corteva Agriscience Manufacturing Indonesia",
+      "jurisdiction": "Indonesia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 524,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "PT Corteva Agriscience Seeds Indonesia",
+      "jurisdiction": "Indonesia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 525,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Quimicas Stoller de Centro America Sociedad Anonima",
+      "jurisdiction": "Guatemala",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 526,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Quorum Vital Investments, S.L.U.",
+      "jurisdiction": "Spain",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 527,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Seed Consultants Inc.",
+      "jurisdiction": "Ohio",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 528,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Sporting Goods Properties, Inc.",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 529,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stasi Nasinnia LLC",
+      "jurisdiction": "Ukraine",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 530,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller (Qingdao) Agricultural Technology Co., Ltd.",
+      "jurisdiction": "Qingdao",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 531,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Argentina S.A.U.",
+      "jurisdiction": "Argentina",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 532,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Australia Pty. Limited",
+      "jurisdiction": "Australia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 533,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Bio Science India Private Limited",
+      "jurisdiction": "India",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 534,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Biociencias SRL",
+      "jurisdiction": "Argentina",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 535,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Bolivia SRL",
+      "jurisdiction": "Bolivia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 536,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Colombia S.A.",
+      "jurisdiction": "Columbia",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 537,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Costa Rica S.A.",
+      "jurisdiction": "Costa Rica",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 538,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller de Chile SpA",
+      "jurisdiction": "Chile",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 539,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller do Brasil Ltda.",
+      "jurisdiction": "Brazil",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 540,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Enterprises, Inc.",
+      "jurisdiction": "Texas",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 541,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Enterprises, Ltd.",
+      "jurisdiction": "Canada",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 542,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Europe, S.L.U.",
+      "jurisdiction": "Spain",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 543,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Group, Inc.",
+      "jurisdiction": "Delaware",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 544,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller International, Inc.",
+      "jurisdiction": "Texas",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 545,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller M\u00e9xico S.A. de C.V",
+      "jurisdiction": "Mexico",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 546,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Paraguay S.R.L.",
+      "jurisdiction": "Paraguay",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 547,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Peru S.A.",
+      "jurisdiction": "Peru",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 548,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Philippines, Inc.",
+      "jurisdiction": "Philippines",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 549,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller South Africa (Pty) Ltd",
+      "jurisdiction": "South Africa",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 550,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Turkey Organik Tarim Sanayi Ticaret A.S.",
+      "jurisdiction": "Turkey",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 551,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Stoller Uruguay SA",
+      "jurisdiction": "Uruguay",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 552,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Symborg (Shanghai) Trading Co, Ltd.",
+      "jurisdiction": "Shanghai",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 553,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Symborg Business Development, S.L.U.",
+      "jurisdiction": "Spain",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 554,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Symborg Chile, SPA",
+      "jurisdiction": "Chile",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 555,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Symborg Corporate, S.L.U.",
+      "jurisdiction": "Spain",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 556,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Symborg Participacoes Ltda.",
+      "jurisdiction": "Brazil",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 557,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Symborg Peru S.A.C.",
+      "jurisdiction": "Peru",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 558,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Symborg Turkey Tarim A.S.",
+      "jurisdiction": "Turkey",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 559,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Symborg, Inc.",
+      "jurisdiction": "California",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
+    },
+    {
+      "id": 560,
+      "parent_company": "Corteva, Inc.",
+      "subsidiary_name": "Tieling Pioneer Seed Research Co., Ltd.",
+      "jurisdiction": "Liaoning",
+      "cik": "0001755672",
+      "extracted_at": "2026-11-23T07:18:21.686339+00:00"
     }
   ],
   "facility_pfas_reports": [
@@ -386745,6 +390281,429 @@
       "summary": "Narrowed AI liability law limiting developer liability to intended, marketed, or contracted-for uses; invalidates contract clauses attempting to indemnify away liability under the law. The original SB 205 is separately being challenged in federal court by xAI and the DOJ."
     }
   ],
+  "leakage_model": {
+    "generated_at": "2026-11-23T07:18:57.279622+00:00",
+    "scope_note": "This tests whether presumption-law states and PFAS regulatory/exposure signal correlate -- it does NOT test Bob's sharpest question (litigation substitution: does an easy WC claim path reduce PFAS lawsuits against manufacturers), because this project's own AFFF litigation data has no plaintiff-occupation or plaintiff-home-state field. That real test needs AFFF MDL plaintiff fact sheets, which sit behind PACER's per-page fee -- a real, named, one-time cost, not pulled here.",
+    "thin_data_caveat": "Only 16 real pfas_regulation legislative rows exist project-wide -- read the regulation-bill averages as a weak, small-N signal, not a confident finding. The exposure-site comparison (480 real sites) is a larger, more defensible sample.",
+    "rows": [
+      {
+        "state": "AL",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 5
+      },
+      {
+        "state": "AK",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 5
+      },
+      {
+        "state": "AZ",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 8
+      },
+      {
+        "state": "AR",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 0
+      },
+      {
+        "state": "CA",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 1,
+        "real_pfas_exposure_sites": 31
+      },
+      {
+        "state": "CO",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 3
+      },
+      {
+        "state": "CT",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 12
+      },
+      {
+        "state": "DE",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 9
+      },
+      {
+        "state": "FL",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 8
+      },
+      {
+        "state": "GA",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 0
+      },
+      {
+        "state": "HI",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 2
+      },
+      {
+        "state": "ID",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 2
+      },
+      {
+        "state": "IL",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 2,
+        "real_pfas_exposure_sites": 18
+      },
+      {
+        "state": "IN",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 5
+      },
+      {
+        "state": "IA",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 2
+      },
+      {
+        "state": "KS",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 2
+      },
+      {
+        "state": "KY",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 1
+      },
+      {
+        "state": "LA",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": true,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 1
+      },
+      {
+        "state": "ME",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": true,
+        "real_pfas_regulation_bills": 2,
+        "real_pfas_exposure_sites": 12
+      },
+      {
+        "state": "MD",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 2,
+        "real_pfas_exposure_sites": 14
+      },
+      {
+        "state": "MA",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 26
+      },
+      {
+        "state": "MI",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 41
+      },
+      {
+        "state": "MN",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 14
+      },
+      {
+        "state": "MS",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 0
+      },
+      {
+        "state": "MO",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 4
+      },
+      {
+        "state": "MT",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 0
+      },
+      {
+        "state": "NE",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 0
+      },
+      {
+        "state": "NV",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 0
+      },
+      {
+        "state": "NH",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": true,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 19
+      },
+      {
+        "state": "NJ",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 52
+      },
+      {
+        "state": "NM",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": true,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 0
+      },
+      {
+        "state": "NY",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 1,
+        "real_pfas_exposure_sites": 71
+      },
+      {
+        "state": "NC",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 4
+      },
+      {
+        "state": "ND",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 0
+      },
+      {
+        "state": "OH",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 12
+      },
+      {
+        "state": "OK",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 1
+      },
+      {
+        "state": "OR",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": true,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 1
+      },
+      {
+        "state": "PA",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 36
+      },
+      {
+        "state": "RI",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 2,
+        "real_pfas_exposure_sites": 9
+      },
+      {
+        "state": "SC",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 2
+      },
+      {
+        "state": "SD",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 1
+      },
+      {
+        "state": "TN",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 2
+      },
+      {
+        "state": "TX",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 5
+      },
+      {
+        "state": "UT",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 3
+      },
+      {
+        "state": "VT",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": true,
+        "real_pfas_regulation_bills": 1,
+        "real_pfas_exposure_sites": 8
+      },
+      {
+        "state": "VA",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 3,
+        "real_pfas_exposure_sites": 15
+      },
+      {
+        "state": "WA",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 17
+      },
+      {
+        "state": "WV",
+        "cancer_presumption_2023": true,
+        "cardiovascular_presumption_2023": true,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 6
+      },
+      {
+        "state": "WI",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 1,
+        "real_pfas_exposure_sites": 12
+      },
+      {
+        "state": "WY",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 1
+      },
+      {
+        "state": "DC",
+        "cancer_presumption_2023": false,
+        "cardiovascular_presumption_2023": false,
+        "ptsd_presumption_2023": false,
+        "real_pfas_regulation_bills": 0,
+        "real_pfas_exposure_sites": 1
+      }
+    ],
+    "summary": {
+      "n_presumption_states": 23,
+      "n_no_presumption_states": 28,
+      "avg_pfas_exposure_sites_in_presumption_states": 6.3,
+      "avg_pfas_exposure_sites_in_no_presumption_states": 12.79,
+      "avg_pfas_regulation_bills_in_presumption_states": 0.43,
+      "avg_pfas_regulation_bills_in_no_presumption_states": 0.18
+    }
+  },
   "coverage_registry": [
     {
       "source": "CPSC SaferProducts.gov (bulk incident export)",
@@ -387619,6 +391578,474 @@
     ],
     "methodology_note": "Descriptive injury-rate benchmark only. The UK has no statutory firefighter cancer presumption law (IIAC has declined to prescribe it), so this is not a presumption-pricing engine -- it flags FRAs whose reported personnel-injury rate per 1,000 operational incidents is >=25% above either the England-wide benchmark or that FRA's own trailing 5-year average."
   },
+  "npdb_malpractice_severity_calibration": {
+    "source": "NPDB Public Use Data File, Medical Malpractice Payment Report subset (HRSA)",
+    "rectype_row_counts": {
+      "M": 250672,
+      "P": 284906
+    },
+    "methodology_note": "Aggregate reference distributions only, built from RECTYPE='P' records (the current reporting format, which is the only one where HRSA's own OUTCOME/severity field is populated). Payment amounts are HRSA's own range-midpoint coding, not exact dollar figures. Not linkable to any individual patient or clinical record -- use as a liability-scale reference for a given allegation type and severity tier, never as a per-case prediction.",
+    "allegations": [
+      {
+        "allegation_code": "101",
+        "allegation_label": "Failure to Diagnose",
+        "total_n_with_severity_and_payment": 47701,
+        "severity_payment_curve": [
+          {
+            "outcome_code": "1",
+            "outcome_label": "Emotional Injury Only",
+            "n": 222,
+            "median_payment": 77500.0,
+            "p25_payment": 27500.0,
+            "p75_payment": 245000.0
+          },
+          {
+            "outcome_code": "2",
+            "outcome_label": "Insignificant Injury",
+            "n": 325,
+            "median_payment": 17500.0,
+            "p25_payment": 8750.0,
+            "p75_payment": 47500.0
+          },
+          {
+            "outcome_code": "3",
+            "outcome_label": "Minor Temporary Injury",
+            "n": 2943,
+            "median_payment": 47500.0,
+            "p25_payment": 17500.0,
+            "p75_payment": 125000.0
+          },
+          {
+            "outcome_code": "4",
+            "outcome_label": "Major Temporary Injury",
+            "n": 3629,
+            "median_payment": 125000.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 275000.0
+          },
+          {
+            "outcome_code": "5",
+            "outcome_label": "Minor Permanent Injury",
+            "n": 4077,
+            "median_payment": 125000.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 295000.0
+          },
+          {
+            "outcome_code": "6",
+            "outcome_label": "Significant Permanent Injury",
+            "n": 7521,
+            "median_payment": 275000.0,
+            "p25_payment": 125000.0,
+            "p75_payment": 525000.0
+          },
+          {
+            "outcome_code": "7",
+            "outcome_label": "Major Permanent Injury",
+            "n": 6560,
+            "median_payment": 395000.0,
+            "p25_payment": 175000.0,
+            "p75_payment": 745000.0
+          },
+          {
+            "outcome_code": "8",
+            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
+            "n": 2405,
+            "median_payment": 495000.0,
+            "p25_payment": 245000.0,
+            "p75_payment": 995000.0
+          },
+          {
+            "outcome_code": "9",
+            "outcome_label": "Death",
+            "n": 19632,
+            "median_payment": 245000.0,
+            "p25_payment": 115000.0,
+            "p75_payment": 495000.0
+          },
+          {
+            "outcome_code": "10",
+            "outcome_label": "Cannot Be Determined from Available Records",
+            "n": 387,
+            "median_payment": 145000.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 295000.0
+          }
+        ]
+      },
+      {
+        "allegation_code": "200",
+        "allegation_label": "Delay in Diagnosis",
+        "total_n_with_severity_and_payment": 20858,
+        "severity_payment_curve": [
+          {
+            "outcome_code": "1",
+            "outcome_label": "Emotional Injury Only",
+            "n": 73,
+            "median_payment": 62500.0,
+            "p25_payment": 27500.0,
+            "p75_payment": 145000.0
+          },
+          {
+            "outcome_code": "2",
+            "outcome_label": "Insignificant Injury",
+            "n": 113,
+            "median_payment": 27500.0,
+            "p25_payment": 12500.0,
+            "p75_payment": 87500.0
+          },
+          {
+            "outcome_code": "3",
+            "outcome_label": "Minor Temporary Injury",
+            "n": 1157,
+            "median_payment": 57500.0,
+            "p25_payment": 22500.0,
+            "p75_payment": 145000.0
+          },
+          {
+            "outcome_code": "4",
+            "outcome_label": "Major Temporary Injury",
+            "n": 1774,
+            "median_payment": 145000.0,
+            "p25_payment": 57500.0,
+            "p75_payment": 305000.0
+          },
+          {
+            "outcome_code": "5",
+            "outcome_label": "Minor Permanent Injury",
+            "n": 2267,
+            "median_payment": 195000.0,
+            "p25_payment": 72500.0,
+            "p75_payment": 425000.0
+          },
+          {
+            "outcome_code": "6",
+            "outcome_label": "Significant Permanent Injury",
+            "n": 4096,
+            "median_payment": 295000.0,
+            "p25_payment": 145000.0,
+            "p75_payment": 595000.0
+          },
+          {
+            "outcome_code": "7",
+            "outcome_label": "Major Permanent Injury",
+            "n": 3127,
+            "median_payment": 395000.0,
+            "p25_payment": 185000.0,
+            "p75_payment": 745000.0
+          },
+          {
+            "outcome_code": "8",
+            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
+            "n": 1104,
+            "median_payment": 495000.0,
+            "p25_payment": 245000.0,
+            "p75_payment": 995000.0
+          },
+          {
+            "outcome_code": "9",
+            "outcome_label": "Death",
+            "n": 6988,
+            "median_payment": 245000.0,
+            "p25_payment": 115000.0,
+            "p75_payment": 495000.0
+          },
+          {
+            "outcome_code": "10",
+            "outcome_label": "Cannot Be Determined from Available Records",
+            "n": 159,
+            "median_payment": 135000.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 295000.0
+          }
+        ]
+      },
+      {
+        "allegation_code": "106",
+        "allegation_label": "Failure to Monitor",
+        "total_n_with_severity_and_payment": 9826,
+        "severity_payment_curve": [
+          {
+            "outcome_code": "1",
+            "outcome_label": "Emotional Injury Only",
+            "n": 101,
+            "median_payment": 47500.0,
+            "p25_payment": 17500.0,
+            "p75_payment": 135000.0
+          },
+          {
+            "outcome_code": "2",
+            "outcome_label": "Insignificant Injury",
+            "n": 105,
+            "median_payment": 12500.0,
+            "p25_payment": 4500.0,
+            "p75_payment": 37500.0
+          },
+          {
+            "outcome_code": "3",
+            "outcome_label": "Minor Temporary Injury",
+            "n": 864,
+            "median_payment": 27500.0,
+            "p25_payment": 12500.0,
+            "p75_payment": 72500.0
+          },
+          {
+            "outcome_code": "4",
+            "outcome_label": "Major Temporary Injury",
+            "n": 787,
+            "median_payment": 97500.0,
+            "p25_payment": 37500.0,
+            "p75_payment": 195000.0
+          },
+          {
+            "outcome_code": "5",
+            "outcome_label": "Minor Permanent Injury",
+            "n": 683,
+            "median_payment": 87500.0,
+            "p25_payment": 32500.0,
+            "p75_payment": 225000.0
+          },
+          {
+            "outcome_code": "6",
+            "outcome_label": "Significant Permanent Injury",
+            "n": 1072,
+            "median_payment": 225000.0,
+            "p25_payment": 87500.0,
+            "p75_payment": 495000.0
+          },
+          {
+            "outcome_code": "7",
+            "outcome_label": "Major Permanent Injury",
+            "n": 922,
+            "median_payment": 325000.0,
+            "p25_payment": 145000.0,
+            "p75_payment": 745000.0
+          },
+          {
+            "outcome_code": "8",
+            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
+            "n": 598,
+            "median_payment": 595000.0,
+            "p25_payment": 245000.0,
+            "p75_payment": 995000.0
+          },
+          {
+            "outcome_code": "9",
+            "outcome_label": "Death",
+            "n": 4627,
+            "median_payment": 175000.0,
+            "p25_payment": 67500.0,
+            "p75_payment": 395000.0
+          },
+          {
+            "outcome_code": "10",
+            "outcome_label": "Cannot Be Determined from Available Records",
+            "n": 67,
+            "median_payment": 87500.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 195000.0
+          }
+        ]
+      },
+      {
+        "allegation_code": "112",
+        "allegation_label": "Failure to Recognize a Complication",
+        "total_n_with_severity_and_payment": 9932,
+        "severity_payment_curve": [
+          {
+            "outcome_code": "1",
+            "outcome_label": "Emotional Injury Only",
+            "n": 38,
+            "median_payment": 77500.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 175000.0
+          },
+          {
+            "outcome_code": "2",
+            "outcome_label": "Insignificant Injury",
+            "n": 101,
+            "median_payment": 27500.0,
+            "p25_payment": 12500.0,
+            "p75_payment": 52500.0
+          },
+          {
+            "outcome_code": "3",
+            "outcome_label": "Minor Temporary Injury",
+            "n": 848,
+            "median_payment": 57500.0,
+            "p25_payment": 22500.0,
+            "p75_payment": 145000.0
+          },
+          {
+            "outcome_code": "4",
+            "outcome_label": "Major Temporary Injury",
+            "n": 1464,
+            "median_payment": 175000.0,
+            "p25_payment": 72500.0,
+            "p75_payment": 295000.0
+          },
+          {
+            "outcome_code": "5",
+            "outcome_label": "Minor Permanent Injury",
+            "n": 1048,
+            "median_payment": 145000.0,
+            "p25_payment": 72500.0,
+            "p75_payment": 275000.0
+          },
+          {
+            "outcome_code": "6",
+            "outcome_label": "Significant Permanent Injury",
+            "n": 1495,
+            "median_payment": 275000.0,
+            "p25_payment": 145000.0,
+            "p75_payment": 525000.0
+          },
+          {
+            "outcome_code": "7",
+            "outcome_label": "Major Permanent Injury",
+            "n": 1009,
+            "median_payment": 495000.0,
+            "p25_payment": 195000.0,
+            "p75_payment": 925000.0
+          },
+          {
+            "outcome_code": "8",
+            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
+            "n": 400,
+            "median_payment": 745000.0,
+            "p25_payment": 335000.0,
+            "p75_payment": 995000.0
+          },
+          {
+            "outcome_code": "9",
+            "outcome_label": "Death",
+            "n": 3441,
+            "median_payment": 245000.0,
+            "p25_payment": 125000.0,
+            "p75_payment": 495000.0
+          },
+          {
+            "outcome_code": "10",
+            "outcome_label": "Cannot Be Determined from Available Records",
+            "n": 88,
+            "median_payment": 125000.0,
+            "p25_payment": 72500.0,
+            "p75_payment": 195000.0
+          }
+        ]
+      },
+      {
+        "allegation_code": "108",
+        "allegation_label": "Failure to Order Appropriate Test",
+        "total_n_with_severity_and_payment": 4804,
+        "severity_payment_curve": [
+          {
+            "outcome_code": "1",
+            "outcome_label": "Emotional Injury Only",
+            "n": 65,
+            "median_payment": 47500.0,
+            "p25_payment": 27500.0,
+            "p75_payment": 185000.0
+          },
+          {
+            "outcome_code": "2",
+            "outcome_label": "Insignificant Injury",
+            "n": 28,
+            "median_payment": 32500.0,
+            "p25_payment": 17500.0,
+            "p75_payment": 77500.0
+          },
+          {
+            "outcome_code": "3",
+            "outcome_label": "Minor Temporary Injury",
+            "n": 207,
+            "median_payment": 42500.0,
+            "p25_payment": 17500.0,
+            "p75_payment": 97500.0
+          },
+          {
+            "outcome_code": "4",
+            "outcome_label": "Major Temporary Injury",
+            "n": 294,
+            "median_payment": 145000.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 295000.0
+          },
+          {
+            "outcome_code": "5",
+            "outcome_label": "Minor Permanent Injury",
+            "n": 339,
+            "median_payment": 115000.0,
+            "p25_payment": 52500.0,
+            "p75_payment": 245000.0
+          },
+          {
+            "outcome_code": "6",
+            "outcome_label": "Significant Permanent Injury",
+            "n": 711,
+            "median_payment": 295000.0,
+            "p25_payment": 135000.0,
+            "p75_payment": 595000.0
+          },
+          {
+            "outcome_code": "7",
+            "outcome_label": "Major Permanent Injury",
+            "n": 641,
+            "median_payment": 415000.0,
+            "p25_payment": 195000.0,
+            "p75_payment": 845000.0
+          },
+          {
+            "outcome_code": "8",
+            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
+            "n": 276,
+            "median_payment": 545000.0,
+            "p25_payment": 245000.0,
+            "p75_payment": 995000.0
+          },
+          {
+            "outcome_code": "9",
+            "outcome_label": "Death",
+            "n": 2202,
+            "median_payment": 245000.0,
+            "p25_payment": 105000.0,
+            "p75_payment": 495000.0
+          },
+          {
+            "outcome_code": "10",
+            "outcome_label": "Cannot Be Determined from Available Records",
+            "n": 41,
+            "median_payment": 145000.0,
+            "p25_payment": 47500.0,
+            "p75_payment": 395000.0
+          }
+        ]
+      },
+      {
+        "allegation_code": "111",
+        "allegation_label": "Failure to Perform Resuscitation",
+        "total_n_with_severity_and_payment": 190,
+        "severity_payment_curve": [
+          {
+            "outcome_code": "8",
+            "outcome_label": "Quadriplegic, Brain Damage, Lifelong Care",
+            "n": 39,
+            "median_payment": 585000.0,
+            "p25_payment": 195000.0,
+            "p75_payment": 1950000.0
+          },
+          {
+            "outcome_code": "9",
+            "outcome_label": "Death",
+            "n": 151,
+            "median_payment": 275000.0,
+            "p25_payment": 125000.0,
+            "p75_payment": 625000.0
+          }
+        ]
+      }
+    ]
+  },
   "outcomes_ledger_summary": {
     "total_tracked": 253,
     "open_pending": 253,
@@ -387626,8 +392053,8 @@
     "resolved_cases": [],
     "oldest_open_signal": "2026-11-15T01:13:18.019909+00:00",
     "by_source": {
-      "cpsc": 3,
       "nhtsa_odi": 20,
+      "cpsc": 3,
       "maude": 230
     }
   },
@@ -387661,5 +392088,5 @@
       }
     }
   },
-  "generated_at": "2026-11-23T03:17:51.200469+00:00"
+  "generated_at": "2026-11-23T07:19:20.532476+00:00"
 }
