@@ -131,6 +131,15 @@
   </div>
 
   <div class="card">
+    <span class="tag">Built, unverified</span>
+    <h2>Is a mass tort's real federal filing rate accelerating?</h2>
+    <p>Same recent-vs-prior-window shape as the CPSC feed above, aimed at CourtListener/RECAP's real federal MDL dockets under the JPML court instead. This is the one endpoint on this site that could not be confirmed against a real response before shipping: CourtListener requires a free, user-registered API token for every endpoint, including anonymous read-only search, which returned a confirmed HTTP 401 while building this. Set <code>COURTLISTENER_API_TOKEN</code> (free at <a href="https://www.courtlistener.com/profile/api-token/" style="color:var(--accent-blue);">courtlistener.com/profile/api-token</a>) to actually run it; without it, the endpoint returns an honest <code>skipped</code> response rather than fabricating a result. Built against CourtListener's documented v4 schema (double-underscore range lookups, a real <code>date_filed</code> field, a <code>court=</code> filter), but the exact <code>date_filed__gte/__lte</code> syntax and the "jpml" court-id slug were not individually confirmed live.</p>
+    <pre>curl -X POST https://&lt;your-deployment&gt;/v1/mdl-docket-tracker \
+  -H "Content-Type: application/json" \
+  -d '{"keyword": "AFFF", "window_days": 180}'</pre>
+  </div>
+
+  <div class="card">
     <span class="tag">Honest status</span>
     <h2>What's real today, and what isn't yet</h2>
     <p>All of the above is working, tested code today &mdash; not a roadmap slide. What it is NOT yet: deployed to a public production URL, or wired into email/Slack notifications (no mail or webhook credential exists in this environment yet). There is also no audit-trail export into a specific underwriting workbench (Charles Taylor InsureTech, Whitespace, DXC, etc.) &mdash; every response here is already structured JSON with a real source URL per finding, which is the real precondition for that integration, but the integration itself needs a real platform and credentials we don't have in this environment. The batch, subscription, and point-in-time logic itself is real and already running against live government data; standing it up as a hosted, authenticated production API with a workbench connector is the real next step, not a claim this page is making ahead of it.</p>

@@ -162,6 +162,7 @@ uvicorn main:app --reload --port 8000</code></pre>
       <li><strong>CPSC's own acknowledged taxonomy gap:</strong> CPSC's September 2025 preliminary regulatory analysis states its fire-incident data has no product category for lithium-ion batteries at all -- any velocity read on a battery-related keyword understates true incidence. This tool surfaces that caveat automatically when a battery/micromobility keyword is used, rather than letting a rising number look more precise than it is.</li>
       <li>Keyword matching is substring-based against CPSC's own recall text -- it can over-match (an unrelated recall sharing a word) and under-match (a real recall using different wording).</li>
       <li>A window-over-window change can reflect CPSC's own publication cadence or seasonality, not a real underlying shift.</li>
+      <li>This covers a product-safety recall category, not a mass-tort legal filing. For the same recent-vs-prior-window check against real federal litigation dockets, see the <a href="../mdl-docket-tracker/" style="color:var(--accent-blue);text-decoration:underline;font-weight:600;">MDL Docket Tracker</a> (built, but honestly unverified pending a free CourtListener API token).</li>
     </ul>
   </div>
 </div>

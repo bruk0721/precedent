@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nubuye — MDL Docket Tracker</title>
+<meta name="description" content="Real federal MDL docket filing velocity for a mass-tort keyword, from CourtListener/RECAP -- built, but honestly unverified pending a free CourtListener API token.">
+<meta property="og:title" content="MDL Docket Tracker — Nubuye">
+<meta property="og:description" content="Federal MDL docket filing velocity by keyword. The one tool on this site that's built but not yet verified against real data.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Ethiopic:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --page-bg: #f7f8fa; --card-bg: #ffffff; --ink: #0e1116; --ink-muted: #5c6370; --ink-faint: #9aa1ab;
+    --chip-bg: #eef0f3; --accent-blue: #14213d; --accent-blue-bg: #e7eaf1;
+    --accent-amber: #b8601f; --accent-amber-bg: #f5e8da; --accent-red: #b33c30; --accent-red-bg: #f7e2df;
+    --accent-green: #2f6f4f; --accent-green-bg: #e4f0e9;
+    --accent-gray: #5c6370; --accent-gray-bg: #eef0f3; --nav-bg: rgba(247, 248, 250, 0.78);
+    --font: "Instrument Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --radius-card: 20px; --radius-pill: 999px;
+    --shadow-card: 0 1px 2px rgba(14, 17, 22, 0.04), 0 4px 16px rgba(14, 17, 22, 0.06);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --page-bg: #0b0d10; --card-bg: #15181d; --ink: #eef0f3; --ink-muted: #9aa1ab; --ink-faint: #6a7079;
+    --chip-bg: #1e2228; --accent-blue: #7f94c2; --accent-blue-bg: #1c2433;
+    --accent-amber: #e2974f; --accent-amber-bg: #2b2114; --accent-red: #e2766a; --accent-red-bg: #2e1816;
+    --accent-green: #6fae8c; --accent-green-bg: #16271e;
+    --accent-gray: #9aa1ab; --accent-gray-bg: #1e2228; --nav-bg: rgba(11, 13, 16, 0.78);
+    --shadow-card: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 4px 16px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 20px 100px; }
+
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 900px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
+  .brand-mark {
+    height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0;
+    background: var(--accent-blue); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
+  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
+  .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
+  .theme-toggle:hover { background: var(--chip-bg); }
+
+  @media (max-width: 640px) {
+    nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; }
+    .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; }
+  }
+
+  .hero { padding: 44px 24px 30px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+  .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-amber); }
+  h1 { font-weight: 500; font-size: clamp(28px, 6vw, 40px); line-height: 1.15; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 26ch; }
+  .hero p.dek { font-size: 16px; line-height: 1.6; color: var(--ink-muted); max-width: 64ch; margin: 0 auto; }
+  .hero p.dek strong { color: var(--ink); font-weight: 600; }
+
+  .banner { background: var(--accent-amber-bg); color: var(--accent-amber); border-radius: var(--radius-card); padding: 16px 20px; margin-bottom: 16px; font-size: 13.5px; line-height: 1.6; }
+  .banner strong { font-weight: 700; }
+
+  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
+  h2 { font-weight: 600; font-size: 17px; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .card-sub { font-size: 13.5px; color: var(--ink-faint); margin: 0 0 16px; line-height: 1.6; }
+
+  .check-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  input[type=text], input[type=number] { flex: 1; min-width: 100px; padding: 11px 14px; border-radius: 10px; border: 1px solid var(--chip-bg); background: var(--page-bg); color: var(--ink); font-family: var(--font); font-size: 14.5px; }
+  input[type=text]:focus, input[type=number]:focus { outline: 2px solid var(--accent-blue); outline-offset: 1px; }
+  button.primary { background: var(--accent-blue); color: #fff; border: none; border-radius: 10px; padding: 11px 20px; font-family: var(--font); font-weight: 600; font-size: 14px; cursor: pointer; }
+  button.primary:hover { opacity: 0.9; }
+  button.primary:disabled { opacity: 0.6; cursor: wait; }
+  .try-examples { margin-top: 10px; font-size: 12.5px; color: var(--ink-faint); }
+  .try-examples button { background: none; border: none; color: var(--accent-blue); font-weight: 600; cursor: pointer; font-size: 12.5px; padding: 0; margin: 0 14px 6px 0; font-family: var(--font); }
+
+  .api-url-row { display: flex; gap: 8px; align-items: center; margin-bottom: 14px; }
+  .api-url-row input[type=text] { font-family: var(--font-mono); font-size: 12.5px; }
+
+  .tag { display: inline-block; font-size: 11.5px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; }
+  .tag.red { background: var(--accent-red-bg); color: var(--accent-red); }
+  .tag.green { background: var(--accent-green-bg); color: var(--accent-green); }
+  .tag.gray { background: var(--accent-gray-bg); color: var(--accent-gray); }
+  .tag.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
+
+  .finding-line { padding: 12px 0; border-top: 1px solid var(--chip-bg); font-size: 13.5px; line-height: 1.6; }
+  .finding-line:first-child { border-top: none; }
+  .empty-note { color: var(--ink-faint); font-size: 13.5px; }
+  .src-link { color: var(--accent-blue); font-weight: 600; font-size: 12.5px; }
+
+  .velocity-box { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 16px; }
+  .velocity-stat { flex: 1; min-width: 130px; background: var(--chip-bg); border-radius: 12px; padding: 14px 16px; }
+  .velocity-stat .num { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
+  .velocity-stat .label { font-size: 11.5px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 2px; }
+
+  pre { background: var(--chip-bg); border-radius: 12px; padding: 16px; overflow-x: auto; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.6; white-space: pre-wrap; word-break: break-word; }
+  code { font-family: var(--font-mono); }
+
+  .caveat-list { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
+  .footer-note { text-align: center; font-size: 12px; color: var(--ink-faint); margin-top: 30px; }
+</style>
+</head>
+<script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
+
+<nav class="top">
+  <div class="brand"><span class="brand-mark">ነበየ</span> Nubuye</div>
+  <div class="nav-links">
+    <a href="../">&larr; Back to overview</a>
+    <a href="../timeline/">Litigation Timeline</a>
+    <a href="../console/">Underwriter Console</a>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle dark mode" aria-label="Toggle dark mode">&#127769;</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <span class="eyebrow-pill"><span class="dot"></span>Built, not yet verified</span>
+  <h1>Is a mass tort's real federal filing rate accelerating?</h1>
+  <p class="dek">Checks real federal MDL docket filings on CourtListener/RECAP, centralized under the JPML court, for a keyword like AFFF, talc, hair relaxer, or paraquat &mdash; same recent-vs-prior-window shape as <a href="../cpsc-recall-velocity/" style="color:var(--accent-blue);font-weight:600;">CPSC Recall Velocity</a>.</p>
+</div>
+
+<div class="wrap">
+  <div class="banner">
+    <strong>Honest status, stated plainly:</strong> every other live check on this site was confirmed against a real response before shipping. This one couldn't be. CourtListener requires a free, user-registered API token for every endpoint &mdash; confirmed live while building this, even anonymous read-only search returns a real HTTP 401. This tool is built against CourtListener's own documented v4 schema, but is genuinely <strong>untested against real data</strong> until someone sets <code>COURTLISTENER_API_TOKEN</code> with their own free token (register at <a href="https://www.courtlistener.com/profile/api-token/" target="_blank" rel="noopener" style="color:var(--accent-amber);text-decoration:underline;">courtlistener.com/profile/api-token</a>).
+  </div>
+
+  <div class="card">
+    <h2>Run this locally first</h2>
+    <p class="card-sub">Same live-lookup architecture as every other tool here -- this is not pre-computed into the static site export. Set your own free token before checking a keyword:</p>
+    <pre><code>cd precedent-prototypes/api-backend
+pip install -r requirements.txt
+export COURTLISTENER_API_TOKEN=your-free-token-here
+uvicorn main:app --reload --port 8000</code></pre>
+  </div>
+
+  <div class="card">
+    <h2>Check an MDL keyword</h2>
+    <p class="card-sub">Matched against real federal MDL case names under the JPML court. Each check uses 3 live CourtListener calls -- the free tier caps at 125/day.</p>
+    <div class="api-url-row">
+      <label for="api-url" style="font-size:12.5px;color:var(--ink-faint);white-space:nowrap;">API base:</label>
+      <input type="text" id="api-url" value="http://localhost:8000">
+    </div>
+    <div class="check-row">
+      <input type="text" id="keyword-input" placeholder="e.g. AFFF">
+      <input type="number" id="window-input" value="180" min="30" max="1825" style="max-width:90px" title="Window in days">
+      <button class="primary" id="check-btn">Check</button>
+    </div>
+    <div class="try-examples">
+      Try: <button data-kw="AFFF">AFFF</button><button data-kw="talc">Talc</button><button data-kw="hair relaxer">Hair relaxer</button><button data-kw="paraquat">Paraquat</button>
+    </div>
+  </div>
+
+  <div class="card" id="result-card" style="display:none;">
+    <h2 id="result-heading"></h2>
+    <div id="result-body"></div>
+  </div>
+
+  <div class="card">
+    <h2>What this actually is, and its real limits</h2>
+    <p class="card-sub">Stated honestly, same discipline as every other tool on this site -- more so here, since this one is unverified:</p>
+    <ul class="caveat-list">
+      <li><strong>Federal MDL dockets only, uploaded to RECAP via PACER.</strong> Real state-court mass-tort litigation -- including talc's real jury verdicts -- is structurally invisible to this check.</li>
+      <li><strong>Schema not individually confirmed live.</strong> date_filed range filtering and the "jpml" court-id slug follow CourtListener's documented double-underscore lookup convention, but neither was confirmed against a real authenticated response before shipping. A real schema mismatch will surface as an upstream error, not a silently wrong count.</li>
+      <li><strong>Rate limit is real and tight.</strong> CourtListener's free tier caps at 5 requests/minute, 50/hour, 125/day. This check alone uses 3 calls.</li>
+      <li>Keyword matching against case name is substring-based -- same over/under-match caveat as every other keyword check on this site.</li>
+      <li>NAAG's state-attorney-general settlement tracker, the other half of a complete litigation-ontology picture, has no API at all and isn't attempted here.</li>
+    </ul>
+  </div>
+</div>
+
+<p class="footer-note">Part of <a href="../" style="color:var(--accent-blue);">Nubuye</a>. See also <a href="../cpsc-recall-velocity/" style="color:var(--accent-blue);">CPSC Recall Velocity</a> and the <a href="../timeline/" style="color:var(--accent-blue);">Litigation Timeline</a>.</p>
+
+<script>
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+function srcLink(url, label) {
+  return url ? ` <a href="${esc(url)}" target="_blank" rel="noopener" class="src-link">${esc(label || "View docket")} &rarr;</a>` : "";
+}
+
+function renderDocket(d) {
+  return `<div class="finding-line"><b>${esc(d.date_filed || "")}</b> &mdash; ${esc(d.case_name)} ${d.docket_number ? `(${esc(d.docket_number)})` : ""}${d.date_terminated ? `<br><span style="color:var(--ink-faint)">Terminated ${esc(d.date_terminated)}</span>` : ""}${srcLink(d.url, "View docket")}</div>`;
+}
+
+const TREND_TAG = {
+  rising: `<span class="tag red">Rising</span>`,
+  falling: `<span class="tag green">Falling</span>`,
+  flat: `<span class="tag gray">Flat</span>`,
+  new_or_accelerating: `<span class="tag red">New or accelerating</span>`,
+  no_activity: `<span class="tag gray">No activity</span>`,
+};
+
+async function runCheck(keyword, windowDays) {
+  const card = document.getElementById("result-card");
+  const heading = document.getElementById("result-heading");
+  const body = document.getElementById("result-body");
+  const btn = document.getElementById("check-btn");
+  card.style.display = "block";
+  heading.innerHTML = `<span class="tag gray">Running live...</span> ${esc(keyword)}`;
+  body.innerHTML = `<p class="empty-note">Querying CourtListener/RECAP for two ${esc(windowDays)}-day windows -- this can take a few seconds.</p>`;
+  btn.disabled = true;
+
+  const apiBase = document.getElementById("api-url").value.trim().replace(/\/$/, "");
+  try {
+    const resp = await fetch(`${apiBase}/v1/mdl-docket-tracker`, {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ keyword, window_days: Number(windowDays) || 180 }),
+    });
+    const data = await resp.json();
+    if (!resp.ok) throw new Error(data.detail || `API returned ${resp.status}`);
+
+    if (data.skipped) {
+      heading.innerHTML = `<span class="tag amber">Skipped -- no API token</span> ${esc(keyword)}`;
+      body.innerHTML = `<p class="empty-note">${esc(data.reason)}</p>`;
+      return;
+    }
+
+    const v = data.velocity;
+    heading.innerHTML = `${TREND_TAG[v.trend] || ""} <b>${esc(data.keyword)}</b>`;
+
+    let html = `<div class="velocity-box">
+      <div class="velocity-stat"><div class="num">${esc(data.recent_window.docket_count)}</div><div class="label">Last ${esc(data.window_days)}d</div></div>
+      <div class="velocity-stat"><div class="num">${esc(data.prior_window.docket_count)}</div><div class="label">Prior ${esc(data.window_days)}d</div></div>
+      <div class="velocity-stat"><div class="num">${v.ratio != null ? esc(v.ratio) + "x" : "&mdash;"}</div><div class="label">Ratio</div></div>
+    </div>`;
+    if (data.recent_window.dockets.length) {
+      html += `<p class="card-sub" style="margin-top:0">${data.recent_window.dockets.length} real federal MDL docket(s) in the most recent window:</p>` +
+        data.recent_window.dockets.map(renderDocket).join("");
+    } else {
+      html += `<p class="empty-note">No real MDL dockets matched this keyword in the most recent window.</p>`;
+    }
+    html += `<p class="empty-note" style="margin-top:14px">${esc(data.note)}</p>`;
+    html += `<div class="empty-note" style="margin-top:10px;padding-top:10px;border-top:1px solid var(--chip-bg)">${data.limits.map(esc).join("<br>")}</div>`;
+    body.innerHTML = html;
+  } catch (e) {
+    heading.innerHTML = `<span class="tag amber">Could not reach the API</span> ${esc(keyword)}`;
+    body.innerHTML = `<p class="empty-note">${esc(e.message)} &mdash; is the local API running at ${esc(apiBase)}? See "Run this locally first" above.</p>`;
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function setupThemeToggle() {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  const apply = (dark) => {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    btn.innerHTML = dark ? "&#9728;&#65039;" : "&#127769;";
+  };
+  let isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  apply(isDark);
+  btn.addEventListener("click", () => {
+    isDark = !isDark;
+    try { localStorage.setItem("nubuye:theme", isDark ? "dark" : "light"); } catch (e) {}
+    apply(isDark);
+  });
+}
+
+setupThemeToggle();
+document.getElementById("check-btn").addEventListener("click", () => {
+  const kw = document.getElementById("keyword-input").value.trim();
+  const win = document.getElementById("window-input").value.trim();
+  if (kw) runCheck(kw, win);
+});
+document.querySelectorAll(".try-examples button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.getElementById("keyword-input").value = btn.dataset.kw;
+    runCheck(btn.dataset.kw, document.getElementById("window-input").value.trim());
+  });
+});
+</script>
+</html>
