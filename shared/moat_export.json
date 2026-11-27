@@ -448,7 +448,7 @@
       "company_name": "Chemours Co",
       "ticker": "CC",
       "filing_date": "2026-02-24",
-      "dollar_amount": "$ 4,000 ",
+      "dollar_amount": "$ 4,000",
       "liability_term": "settlement",
       "keyword": "PFAS",
       "context_snippet": "The parties have agreed that, during the term of the cost-sharing arrangement, Chemours will bear half of the cost of such future potential legacy PFAS liabilities, and DuPont and Corteva will collectively bear the other half of the cost of such future potential legacy PFAS liabilities up to an aggregate $ 4,000 , of which approximately $ 1,300 is available after giving consideration for the funding of the payment to the State of Ohio and the supplemental payment to the State of Delaware as well as the net present value of the scheduled settlement payments per the terms of the settlement agreement with the State of New Jersey, described further below.",
@@ -465,7 +465,7 @@
       "company_name": "Chemours Co",
       "ticker": "CC",
       "filing_date": "2026-02-24",
-      "dollar_amount": "$ 1,300 ",
+      "dollar_amount": "$ 1,300",
       "liability_term": "settlement",
       "keyword": "PFAS",
       "context_snippet": "The parties have agreed that, during the term of the cost-sharing arrangement, Chemours will bear half of the cost of such future potential legacy PFAS liabilities, and DuPont and Corteva will collectively bear the other half of the cost of such future potential legacy PFAS liabilities up to an aggregate $ 4,000 , of which approximately $ 1,300 is available after giving consideration for the funding of the payment to the State of Ohio and the supplemental payment to the State of Delaware as well as the net present value of the scheduled settlement payments per the terms of the settlement agreement with the State of New Jersey, described further below.",
@@ -482,7 +482,7 @@
       "company_name": "Chemours Co",
       "ticker": "CC",
       "filing_date": "2026-02-24",
-      "dollar_amount": "$ 45 ",
+      "dollar_amount": "$ 45",
       "liability_term": "settlement",
       "keyword": "PFAS",
       "context_snippet": "The parties have also sought insurance coverage for certain claims relating to PFAS matters, including claims in the AFFF MDL (as defined below).&#8239;In July 2024, a $ 45 settlement agreement was reached amongst the parties with one of the insurance carriers.",
@@ -499,7 +499,7 @@
       "company_name": "Chemours Co",
       "ticker": "CC",
       "filing_date": "2026-02-24",
-      "dollar_amount": "$ 150 ",
+      "dollar_amount": "$ 150",
       "liability_term": "settlement",
       "keyword": "PFAS",
       "context_snippet": "Under the PFAS Insurance MOU, Chemours agreed to assign to the other parties its rights to receive certain insurance proceeds in return for $ 150 of consideration to be paid by the other parties into an escrow account that will be used to fund a portion of Chemours&#8217; share of the New Jersey settlement.",
@@ -516,7 +516,7 @@
       "company_name": "Chemours Co",
       "ticker": "CC",
       "filing_date": "2026-02-24",
-      "dollar_amount": "$ 50 ",
+      "dollar_amount": "$ 50",
       "liability_term": "settlement",
       "keyword": "PFAS",
       "context_snippet": "Pursuant to the terms of the PFAS Insurance MOU, the parties agreed to suspend the obligation of each of the parties to fund the $ 50 MOU payments due by September 30, 2025, and that future MOU funding requirements of Chemours will be reduced by amounts released from the insurance proceeds escrow to fund the New Jersey settlement.",
@@ -533,7 +533,7 @@
       "company_name": "Chemours Co",
       "ticker": "CC",
       "filing_date": "2026-02-24",
-      "dollar_amount": "$ 20 ",
+      "dollar_amount": "$ 20",
       "liability_term": "liabilities",
       "keyword": "PFAS",
       "context_snippet": "In addition, as of December 31, 2025 and 2024 , the Company had $ 20 and $ 21 , respectively for both periods, of accrued liabilities for the assessment and for sampling related to potential PFAS contamination of groundwater and supply of alternative drinking water in New Hanover and three other downstream counties.",
@@ -550,7 +550,7 @@
       "company_name": "Chemours Co",
       "ticker": "CC",
       "filing_date": "2026-02-24",
-      "dollar_amount": "$ 21 ",
+      "dollar_amount": "$ 21",
       "liability_term": "liabilities",
       "keyword": "PFAS",
       "context_snippet": "In addition, as of December 31, 2025 and 2024 , the Company had $ 20 and $ 21 , respectively for both periods, of accrued liabilities for the assessment and for sampling related to potential PFAS contamination of groundwater and supply of alternative drinking water in New Hanover and three other downstream counties.",
@@ -7653,7 +7653,7 @@
       "site_type": "Military",
       "address": "Camp Grayling - Lake Margrethe Area",
       "city": "Grayling",
-      "county": "Crawford County ",
+      "county": "Crawford County",
       "zip_code": "49738",
       "latitude": 44.62668099999857,
       "longitude": -84.78778999999709,
@@ -7683,7 +7683,7 @@
       "site_type": "Military",
       "address": "No Address - former Air Force Base",
       "city": "Oscoda",
-      "county": "Iosco County ",
+      "county": "Iosco County",
       "zip_code": "48750",
       "latitude": 44.459533999999316,
       "longitude": -83.35342099999856,
@@ -7758,7 +7758,7 @@
       "site_type": "Landfill",
       "address": "1245 Coldwater Road",
       "city": "Flint",
-      "county": "Genesee County ",
+      "county": "Genesee County",
       "zip_code": "48458",
       "latitude": 43.098026,
       "longitude": -83.683883,
@@ -8013,7 +8013,7 @@
       "site_type": "Industrial",
       "address": "902 East Leith St",
       "city": "Flint",
-      "county": "Genesee County ",
+      "county": "Genesee County",
       "zip_code": "48505",
       "latitude": 43.04157036,
       "longitude": -83.68471157,
@@ -8309,7 +8309,7 @@
     {
       "id": 47,
       "state": "MI",
-      "site_name": "636 40th Street East ",
+      "site_name": "636 40th Street East",
       "site_type": "Industrial",
       "address": "636 East 40th Street",
       "city": "Holland",
@@ -8372,7 +8372,7 @@
       "site_name": "Oscoda Township Dump",
       "site_type": "Landfill",
       "address": "Kings Corner Road",
-      "city": "Oscoda ",
+      "city": "Oscoda",
       "county": "Iosco County",
       "zip_code": "48750",
       "latitude": 44.50543233,
@@ -8505,7 +8505,7 @@
       "id": 60,
       "state": "MI",
       "site_name": "Former ESCO",
-      "site_type": "Industrial ",
+      "site_type": "Industrial",
       "address": "1221 E. Barney",
       "city": "Muskegon",
       "county": "Muskegon County",
@@ -8658,7 +8658,7 @@
       "site_type": "Industrial",
       "address": "2880 Zeeb Road",
       "city": "Dexter",
-      "county": "Washtenaw County ",
+      "county": "Washtenaw County",
       "zip_code": "48130",
       "latitude": 42.325297,
       "longitude": -83.830729,
@@ -8759,9 +8759,9 @@
     {
       "id": 77,
       "state": "MI",
-      "site_name": "White Lake Landfill ",
+      "site_name": "White Lake Landfill",
       "site_type": "Landfill",
-      "address": "3278 Colby Road ",
+      "address": "3278 Colby Road",
       "city": "Whitehall",
       "county": "Muskegon County",
       "zip_code": "49461",
@@ -8939,7 +8939,7 @@
     {
       "id": 89,
       "state": "MI",
-      "site_name": "Delphi Saginaw Division Plant 2 ",
+      "site_name": "Delphi Saginaw Division Plant 2",
       "site_type": "Industrial",
       "address": "1400 Holmes Street",
       "city": "Saginaw",
@@ -8999,7 +8999,7 @@
     {
       "id": 93,
       "state": "MI",
-      "site_name": "Orchard Hill Landfill ",
+      "site_name": "Orchard Hill Landfill",
       "site_type": "Landfill",
       "address": "3290 Hennesey Road",
       "city": "Watervliet",
@@ -9059,7 +9059,7 @@
     {
       "id": 97,
       "state": "MI",
-      "site_name": "Ludington Wastewater Treatment Plant ",
+      "site_name": "Ludington Wastewater Treatment Plant",
       "site_type": "Wastewater",
       "address": "5160 West Sixth Street",
       "city": "Ludington",
@@ -9136,7 +9136,7 @@
       "state": "MI",
       "site_name": "Collier Road Landfill",
       "site_type": "Landfill",
-      "address": "575 Collier Road ",
+      "address": "575 Collier Road",
       "city": "Pontiac",
       "county": "Oakland County",
       "zip_code": "48340",
@@ -9181,7 +9181,7 @@
       "state": "MI",
       "site_name": "Eaton County Landfill",
       "site_type": "Landfill",
-      "address": "East Gresham Highway ",
+      "address": "East Gresham Highway",
       "city": "Potterville",
       "county": "Eaton County",
       "zip_code": "48876",
@@ -9226,7 +9226,7 @@
       "state": "MI",
       "site_name": "GM Powertrain Bay City",
       "site_type": "Industrial",
-      "address": "100 Fitzgerald Street ",
+      "address": "100 Fitzgerald Street",
       "city": "Bay City",
       "county": "Bay County",
       "zip_code": "48708",
@@ -9239,7 +9239,7 @@
     {
       "id": 109,
       "state": "MI",
-      "site_name": "Grayling Wastewater Treatment Facility Discharge Fields ",
+      "site_name": "Grayling Wastewater Treatment Facility Discharge Fields",
       "site_type": "Wastewater",
       "address": "Fort Rd",
       "city": "Grayling",
@@ -9269,9 +9269,9 @@
     {
       "id": 111,
       "state": "MI",
-      "site_name": "Hi-Mill Manufacturing Superfund Site ",
+      "site_name": "Hi-Mill Manufacturing Superfund Site",
       "site_type": "Industrial",
-      "address": "1704 Highland Road (M-59) ",
+      "address": "1704 Highland Road (M-59)",
       "city": "Highland Charter Twp",
       "county": "Oakland County",
       "zip_code": "48356",
@@ -9286,7 +9286,7 @@
       "state": "MI",
       "site_name": "Kent Cleaners",
       "site_type": "Laundromat Dry Cleaner",
-      "address": "2911 South Washington Avenue ",
+      "address": "2911 South Washington Avenue",
       "city": "Lansing",
       "county": "Ingham County",
       "zip_code": "48910",
@@ -9389,7 +9389,7 @@
     {
       "id": 119,
       "state": "MI",
-      "site_name": "Muskegon County Wastewater Management System Metro Wastewater Treatment Plant ",
+      "site_name": "Muskegon County Wastewater Management System Metro Wastewater Treatment Plant",
       "site_type": "Wastewater",
       "address": "698 North Maple Island Road",
       "city": "Muskegon",
@@ -9406,7 +9406,7 @@
       "state": "MI",
       "site_name": "Muskegon Chemical Company",
       "site_type": "Industrial",
-      "address": "1725 Warner Street ",
+      "address": "1725 Warner Street",
       "city": "Whitehall",
       "county": "Muskegon County",
       "zip_code": "49461",
@@ -9421,7 +9421,7 @@
       "state": "MI",
       "site_name": "Oakland Heights Development Landfill",
       "site_type": "Landfill",
-      "address": "2350 Brown Road ",
+      "address": "2350 Brown Road",
       "city": "Auburn Hills",
       "county": "Oakland County",
       "zip_code": "48326",
@@ -9466,7 +9466,7 @@
       "state": "MI",
       "site_name": "Saginaw Malleable Iron",
       "site_type": "Industrial",
-      "address": "77 West Center Street ",
+      "address": "77 West Center Street",
       "city": "Saginaw",
       "county": "Saginaw County",
       "zip_code": "48602",
@@ -9479,9 +9479,9 @@
     {
       "id": 125,
       "state": "MI",
-      "site_name": "South Macomb Disposal Authority Landfill #11 ",
+      "site_name": "South Macomb Disposal Authority Landfill #11",
       "site_type": "Landfill",
-      "address": "65921 Mound Road ",
+      "address": "65921 Mound Road",
       "city": "Washington",
       "county": "Macomb County",
       "zip_code": "48095",
@@ -9494,7 +9494,7 @@
     {
       "id": 126,
       "state": "MI",
-      "site_name": "South Macomb Disposal Authority Landfills 9/9A ",
+      "site_name": "South Macomb Disposal Authority Landfills 9/9A",
       "site_type": "Landfill",
       "address": "24 Mile Road",
       "city": "Macomb Township",
@@ -9511,7 +9511,7 @@
       "state": "MI",
       "site_name": "Steele Avenue Area",
       "site_type": "Industrial",
-      "address": "1500 Block of Steele Avenue SW ",
+      "address": "1500 Block of Steele Avenue SW",
       "city": "Grand Rapids",
       "county": "Kent County",
       "zip_code": "49507",
@@ -9584,7 +9584,7 @@
     {
       "id": 132,
       "state": "MI",
-      "site_name": "Werkner Road Landfill ",
+      "site_name": "Werkner Road Landfill",
       "site_type": "Landfill",
       "address": "8027 Werkner Road",
       "city": "Chelsea",
@@ -9599,7 +9599,7 @@
     {
       "id": 133,
       "state": "MI",
-      "site_name": "Westside Recycling and Disposal Facility ",
+      "site_name": "Westside Recycling and Disposal Facility",
       "site_type": "Landfill",
       "address": "14094 M-60 West",
       "city": "Three Rivers",
@@ -9659,7 +9659,7 @@
     {
       "id": 137,
       "state": "MI",
-      "site_name": "Allied Paper, Inc./Portage Creek/Kalamazoo River Superfund Site, King Highway Landfill (OU3) ",
+      "site_name": "Allied Paper, Inc./Portage Creek/Kalamazoo River Superfund Site, King Highway Landfill (OU3)",
       "site_type": "Landfill",
       "address": "Intersection of King Highway and Michigan Ave.\r\r\n",
       "city": "Kalamazoo",
@@ -9722,7 +9722,7 @@
       "site_name": "Great Lakes Pulp Company Landfill",
       "site_type": "Landfill",
       "address": "7 1/2 Mile Road",
-      "city": "Menominee ",
+      "city": "Menominee",
       "county": "Menominee County",
       "zip_code": "49858",
       "latitude": 45.22014300099929,
@@ -9766,7 +9766,7 @@
       "state": "MI",
       "site_name": "RACER Flint West",
       "site_type": "Industrial",
-      "address": "Northwest corner of Glenwood Avenue and Stevenson Street ",
+      "address": "Northwest corner of Glenwood Avenue and Stevenson Street",
       "city": "Flint",
       "county": "Genesee County",
       "zip_code": "48503",
@@ -9779,9 +9779,9 @@
     {
       "id": 145,
       "state": "MI",
-      "site_name": "1279 Rickett Road ",
+      "site_name": "1279 Rickett Road",
       "site_type": "Industrial",
-      "address": "1279 Rickett Road ",
+      "address": "1279 Rickett Road",
       "city": "Brighton",
       "county": "Livingston County",
       "zip_code": "48116",
@@ -9794,9 +9794,9 @@
     {
       "id": 146,
       "state": "MI",
-      "site_name": "Rouge Manufacturing Complex ",
+      "site_name": "Rouge Manufacturing Complex",
       "site_type": "Industrial",
-      "address": "3001 Miller Road ",
+      "address": "3001 Miller Road",
       "city": "Dearborn",
       "county": "Wayne County",
       "zip_code": "48126",
@@ -9854,7 +9854,7 @@
     {
       "id": 150,
       "state": "MI",
-      "site_name": "Grayling Army Airfield ",
+      "site_name": "Grayling Army Airfield",
       "site_type": "Military",
       "address": "Grayling Area",
       "city": "Grayling",
@@ -9931,7 +9931,7 @@
       "state": "MI",
       "site_name": "Kalamazoo/Battle Creek International Airport",
       "site_type": "Airport",
-      "address": "5235 Portage Road ",
+      "address": "5235 Portage Road",
       "city": "Portage",
       "county": "Kalamazoo County",
       "zip_code": "49002",
@@ -9961,7 +9961,7 @@
       "state": "MI",
       "site_name": "Paw Paw Plating",
       "site_type": "Plating",
-      "address": "139 Commercial Street ",
+      "address": "139 Commercial Street",
       "city": "Paw Paw",
       "county": "Van Buren County",
       "zip_code": "49079",
@@ -10051,7 +10051,7 @@
       "state": "MI",
       "site_name": "United States Coast Guard Air Station, Traverse City",
       "site_type": "Military",
-      "address": "1169 Airport Access Road ",
+      "address": "1169 Airport Access Road",
       "city": "Traverse City",
       "county": "Grand Traverse County",
       "zip_code": "49686",
@@ -10142,7 +10142,7 @@
       "site_name": "Shiawassee Sanitary Landfill",
       "site_type": "Landfill",
       "address": "2000 Helena Street",
-      "city": "Owosso Township ",
+      "city": "Owosso Township",
       "county": "Shiawassee County",
       "zip_code": "48867",
       "latitude": 42.987761,
@@ -10187,7 +10187,7 @@
       "site_name": "Former EI DuPont Flint",
       "site_type": "Industrial",
       "address": "1555 James P. Cole Boulevard",
-      "city": "Flint Township  ",
+      "city": "Flint Township",
       "county": "Genesee County",
       "zip_code": "48503",
       "latitude": 43.03305,
@@ -10199,7 +10199,7 @@
     {
       "id": 173,
       "state": "MI",
-      "site_name": "Key II Industrial Building ",
+      "site_name": "Key II Industrial Building",
       "site_type": "Industrial",
       "address": "603 Bridge St.",
       "city": "Elk Rapids",
@@ -10259,7 +10259,7 @@
     {
       "id": 177,
       "state": "MI",
-      "site_name": "Bray Road Site ",
+      "site_name": "Bray Road Site",
       "site_type": "Landfill",
       "address": "5200 Bray Road",
       "city": "Genesee Township",
@@ -10349,7 +10349,7 @@
     {
       "id": 183,
       "state": "MI",
-      "site_name": "Oakland County International Airport ",
+      "site_name": "Oakland County International Airport",
       "site_type": "Airport",
       "address": "6500 Patterson Parkway",
       "city": "Waterford",
@@ -10364,10 +10364,10 @@
     {
       "id": 184,
       "state": "MI",
-      "site_name": "Lacks Industries - Airlane ",
+      "site_name": "Lacks Industries - Airlane",
       "site_type": "Plating",
       "address": "4260 Airlane Drive SE",
-      "city": "Kentwood ",
+      "city": "Kentwood",
       "county": "Kent County",
       "zip_code": "49512",
       "latitude": 42.8861779889993,
@@ -10396,7 +10396,7 @@
       "state": "MI",
       "site_name": "Kunnen\u2019s Landfill",
       "site_type": "Landfill",
-      "address": "3897 Ramshorn Drive ",
+      "address": "3897 Ramshorn Drive",
       "city": "Fremont\t",
       "county": "Newaygo County",
       "zip_code": "49412",
@@ -10409,7 +10409,7 @@
     {
       "id": 187,
       "state": "MI",
-      "site_name": "Capital Region International Airport ",
+      "site_name": "Capital Region International Airport",
       "site_type": "Airport",
       "address": "4100 Capital City Blvd",
       "city": "Lansing",
@@ -10619,7 +10619,7 @@
     {
       "id": 201,
       "state": "MI",
-      "site_name": "City of Mackinac Island Landfill ",
+      "site_name": "City of Mackinac Island Landfill",
       "site_type": "Landfill",
       "address": "3883 Dousman Street",
       "city": "Mackinac Island",
@@ -10634,7 +10634,7 @@
     {
       "id": 202,
       "state": "MI",
-      "site_name": "Eagle Ottawa Newaygo Farms ",
+      "site_name": "Eagle Ottawa Newaygo Farms",
       "site_type": "Tannery",
       "address": "204th Avenue",
       "city": "Walkerville",
@@ -10724,7 +10724,7 @@
     {
       "id": 208,
       "state": "MI",
-      "site_name": "Battle Creek Executive Airport  ",
+      "site_name": "Battle Creek Executive Airport",
       "site_type": "Airport",
       "address": "15551 S. Airport Road",
       "city": "Battle Creek",
@@ -10739,7 +10739,7 @@
     {
       "id": 209,
       "state": "MI",
-      "site_name": "Kellogg Air National Guard Base Battle Creek ",
+      "site_name": "Kellogg Air National Guard Base Battle Creek",
       "site_type": "Military",
       "address": "3545 Mustang Ave.",
       "city": "Battle Creek",
@@ -10754,10 +10754,10 @@
     {
       "id": 210,
       "state": "MI",
-      "site_name": "MIARNG Lansing Hangar         ",
+      "site_name": "MIARNG Lansing Hangar",
       "site_type": "Military",
-      "address": "3700 Capital City Blvd ",
-      "city": "Lansing ",
+      "address": "3700 Capital City Blvd",
+      "city": "Lansing",
       "county": "Clinton County",
       "zip_code": "48906",
       "latitude": 42.77129148999935,
@@ -10769,10 +10769,10 @@
     {
       "id": 211,
       "state": "MI",
-      "site_name": "Charlevoix Municipal Well Field ",
+      "site_name": "Charlevoix Municipal Well Field",
       "site_type": "Laundromat Dry Cleaner",
       "address": "Lake Shore Drive",
-      "city": "Charlevoix ",
+      "city": "Charlevoix",
       "county": "Charlevoix  County",
       "zip_code": "49720",
       "latitude": 45.3170472,
@@ -10793,7 +10793,7 @@
       "latitude": 42.674999998999354,
       "longitude": -84.65999999799855,
       "residential_wells_sampled": "Yes",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/eaton-county/state-secondary-complex ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/eaton-county/state-secondary-complex",
       "extracted_at": "2026-11-12T09:54:57.374069+00:00"
     },
     {
@@ -10904,7 +10904,7 @@
     {
       "id": 220,
       "state": "MI",
-      "site_name": "Lyon Township Wastewater Treatment Plant ",
+      "site_name": "Lyon Township Wastewater Treatment Plant",
       "site_type": "Wastewater",
       "address": "53656 Ten Mile Road",
       "city": "South Lyon",
@@ -11042,7 +11042,7 @@
       "site_name": "Lucy Road Landfill",
       "site_type": "Landfill",
       "address": "Lucy Road",
-      "city": "Howell ",
+      "city": "Howell",
       "county": "Livingston County",
       "zip_code": "48843",
       "latitude": 42.594,
@@ -11102,7 +11102,7 @@
       "site_name": "GM LLC Pontiac North Campus",
       "site_type": "Industrial",
       "address": "1 Pontiac Plaza",
-      "city": " Pontiac               ",
+      "city": "Pontiac",
       "county": "Oakland County",
       "zip_code": "48340",
       "latitude": 42.66093,
@@ -11174,9 +11174,9 @@
     {
       "id": 238,
       "state": "MI",
-      "site_name": "1421 Kalamazoo Street ",
+      "site_name": "1421 Kalamazoo Street",
       "site_type": "Industrial",
-      "address": "1421 Kalamazoo Street ",
+      "address": "1421 Kalamazoo Street",
       "city": "South Haven",
       "county": "Van Buren County",
       "zip_code": "49090",
@@ -11219,7 +11219,7 @@
     {
       "id": 241,
       "state": "MI",
-      "site_name": "Sparta Foundry Waste Facility ",
+      "site_name": "Sparta Foundry Waste Facility",
       "site_type": "Landfill",
       "address": "9737 Laubach Ave",
       "city": "Sparta",
@@ -11234,7 +11234,7 @@
     {
       "id": 242,
       "state": "MI",
-      "site_name": "Former Genoa Township Oak Pointe WWTP   ",
+      "site_name": "Former Genoa Township Oak Pointe WWTP",
       "site_type": "Wastewater",
       "address": "5341 Brighton Road",
       "city": "Brighton",
@@ -11447,7 +11447,7 @@
       "site_name": "2nd Street Lincoln",
       "site_type": "Unknown",
       "address": "S 2nd St, Lincoln, MI, 48742, USA",
-      "city": " Lincoln",
+      "city": "Lincoln",
       "county": "Alcona County",
       "zip_code": "48742",
       "latitude": 44.68293899999927,
@@ -11753,7 +11753,7 @@
       "latitude": 42.504,
       "longitude": -84.656798,
       "residential_wells_sampled": "TBD",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/eaton-county/916-south-main-street ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/eaton-county/916-south-main-street",
       "extracted_at": "2026-11-12T09:54:58.733917+00:00"
     },
     {
@@ -11834,7 +11834,7 @@
     {
       "id": 282,
       "state": "MI",
-      "site_name": "New Era Properties ",
+      "site_name": "New Era Properties",
       "site_type": "Landfill",
       "address": "2637 Wilson Ave SW, Walker, MI, 49534, USA",
       "city": "Walker",
@@ -11858,7 +11858,7 @@
       "latitude": 43.67447712,
       "longitude": -83.93640673,
       "residential_wells_sampled": "No",
-      "source_url": " https://www.michigan.gov/pfasresponse/investigations/sites-aoi/bay-county/hartley-and-hartley-landfill",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/bay-county/hartley-and-hartley-landfill",
       "extracted_at": "2026-11-12T09:54:58.890414+00:00"
     },
     {
@@ -11909,7 +11909,7 @@
     {
       "id": 287,
       "state": "MI",
-      "site_name": "Superior Sanitation Brighton ",
+      "site_name": "Superior Sanitation Brighton",
       "site_type": "Industrial",
       "address": "7350 Rushton Rd, Brighton, MI, 48116, USA",
       "city": "Brighton",
@@ -11933,7 +11933,7 @@
       "latitude": 43.63418801,
       "longitude": -83.91530797,
       "residential_wells_sampled": "No",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/bay-county/dobson-industrial ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/bay-county/dobson-industrial",
       "extracted_at": "2026-11-12T09:54:58.999825+00:00"
     },
     {
@@ -11948,7 +11948,7 @@
       "latitude": 44.97633698599927,
       "longitude": -84.68142900799852,
       "residential_wells_sampled": "TBD",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/otsego-county/alta-equipment ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/otsego-county/alta-equipment",
       "extracted_at": "2026-11-12T09:54:59.021083+00:00"
     },
     {
@@ -11973,7 +11973,7 @@
       "site_type": "Landfill",
       "address": "50250 Eight Mile Rd, Northville, MI, 48167, USA",
       "city": "Northville",
-      "county": "Oakland County ",
+      "county": "Oakland County",
       "zip_code": "48167",
       "latitude": 42.43620571,
       "longitude": -83.54043045,
@@ -11993,7 +11993,7 @@
       "latitude": 42.161574,
       "longitude": -83.17205201,
       "residential_wells_sampled": "No",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/wayne-county/mclouth-steel-trenton ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/wayne-county/mclouth-steel-trenton",
       "extracted_at": "2026-11-12T09:54:59.166793+00:00"
     },
     {
@@ -12008,7 +12008,7 @@
       "latitude": 42.278134,
       "longitude": -83.45507502,
       "residential_wells_sampled": "No",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/wayne-county/michigan-avenue-dump ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/wayne-county/michigan-avenue-dump",
       "extracted_at": "2026-11-12T09:54:59.186994+00:00"
     },
     {
@@ -12023,7 +12023,7 @@
       "latitude": 42.98092484,
       "longitude": -83.71313516,
       "residential_wells_sampled": "No",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/genesee-county/gm-van-slyke ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/genesee-county/gm-van-slyke",
       "extracted_at": "2026-11-12T09:54:59.203162+00:00"
     },
     {
@@ -12059,7 +12059,7 @@
     {
       "id": 297,
       "state": "MI",
-      "site_name": "Butterworth #2 Landfill Superfund Site ",
+      "site_name": "Butterworth #2 Landfill Superfund Site",
       "site_type": "Paper Manufacturing",
       "address": "1450 Butterworth St SW, Grand Rapids, MI, 49504, USA",
       "city": "Grand Rapids",
@@ -12078,12 +12078,12 @@
       "site_type": "Landfill",
       "address": "2800 E Cork St, Kalamazoo, MI, 49001, USA",
       "city": "Kalamazoo",
-      "county": "Kalamazoo County ",
+      "county": "Kalamazoo County",
       "zip_code": "49001",
       "latitude": 42.254339997997896,
       "longitude": -85.54312503199566,
       "residential_wells_sampled": "No",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/kalamazoo-county/michigan-disposal-superfund-site ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/kalamazoo-county/michigan-disposal-superfund-site",
       "extracted_at": "2026-11-12T09:54:59.283604+00:00"
     },
     {
@@ -12098,7 +12098,7 @@
       "latitude": 45.06329826799852,
       "longitude": -83.42358948799713,
       "residential_wells_sampled": "No",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/alpena-county/decorative-panels-international ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/alpena-county/decorative-panels-international",
       "extracted_at": "2026-11-12T09:54:59.303886+00:00"
     },
     {
@@ -12188,7 +12188,7 @@
       "latitude": 42.62042499,
       "longitude": -83.28552911,
       "residential_wells_sampled": "No",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/oakland-county/racer-trust-pcc-validation ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/oakland-county/racer-trust-pcc-validation",
       "extracted_at": "2026-11-12T09:54:59.431841+00:00"
     },
     {
@@ -12203,7 +12203,7 @@
       "latitude": 42.44019956,
       "longitude": -83.54496759,
       "residential_wells_sampled": "No",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/oakland-county/holloway-sand-and-gravel ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/oakland-county/holloway-sand-and-gravel",
       "extracted_at": "2026-11-12T09:54:59.463018+00:00"
     },
     {
@@ -12239,7 +12239,7 @@
     {
       "id": 309,
       "state": "MI",
-      "site_name": "RACER Van Buren Landfill ",
+      "site_name": "RACER Van Buren Landfill",
       "site_type": "Landfill",
       "address": "Ecorse Rd, Van Buren Twp, MI, 48111, USA",
       "city": "Belleville",
@@ -12248,7 +12248,7 @@
       "latitude": 42.25021322,
       "longitude": -83.53963369,
       "residential_wells_sampled": "Yes",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/wayne-county/racer-van-buren-landfill ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/wayne-county/racer-van-buren-landfill",
       "extracted_at": "2026-11-12T09:54:59.529069+00:00"
     },
     {
@@ -12314,7 +12314,7 @@
     {
       "id": 314,
       "state": "MI",
-      "site_name": "Former Marquette County Airport ",
+      "site_name": "Former Marquette County Airport",
       "site_type": "Unknown",
       "address": null,
       "city": "Negaunee Township",
@@ -12404,7 +12404,7 @@
     {
       "id": 320,
       "state": "MI",
-      "site_name": "US 131 & Mackinaw Trail Area of Interest ",
+      "site_name": "US 131 & Mackinaw Trail Area of Interest",
       "site_type": "Unknown",
       "address": null,
       "city": "Cadillac",
@@ -12796,7 +12796,7 @@
       "state": "MI",
       "site_name": "Sturgis Municipal Wells Superfund Site",
       "site_type": "Industrial",
-      "address": "309 North Prospect St. ",
+      "address": "309 North Prospect St.",
       "city": "Sturgis",
       "county": "St. Joseph",
       "zip_code": "49091",
@@ -12818,7 +12818,7 @@
       "latitude": 41.94348663222215,
       "longitude": -84.60791091548735,
       "residential_wells_sampled": "Yes",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/hillsdale-county/lucas-landfill ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/hillsdale-county/lucas-landfill",
       "extracted_at": "2026-11-12T09:55:00.347688+00:00"
     },
     {
@@ -12833,7 +12833,7 @@
       "latitude": 43.04865201611327,
       "longitude": -85.65416395927218,
       "residential_wells_sampled": "Yes",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/kent-county/4724-west-river-drive ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/kent-county/4724-west-river-drive",
       "extracted_at": "2026-11-12T09:55:00.368753+00:00"
     },
     {
@@ -12841,7 +12841,7 @@
       "state": "MI",
       "site_name": "34136 Myrtle Street and 3850 Howe Road",
       "site_type": "Industrial",
-      "address": "34136 Myrtle Street ",
+      "address": "34136 Myrtle Street",
       "city": "Wayne",
       "county": "Wayne County",
       "zip_code": "48184",
@@ -12863,7 +12863,7 @@
       "latitude": 42.24690349622738,
       "longitude": -83.39764489237392,
       "residential_wells_sampled": "No",
-      "source_url": " https://www.michigan.gov/pfasresponse/investigations/sites-aoi/wayne-county/romulus-distribution-center",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/wayne-county/romulus-distribution-center",
       "extracted_at": "2026-11-12T09:55:00.417230+00:00"
     },
     {
@@ -12893,7 +12893,7 @@
       "latitude": 42.31525199999929,
       "longitude": -86.10680096999853,
       "residential_wells_sampled": "No",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/van-buren-county/du-wel-bangor ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/van-buren-county/du-wel-bangor",
       "extracted_at": "2026-11-12T09:55:00.461379+00:00"
     },
     {
@@ -12974,7 +12974,7 @@
     {
       "id": 358,
       "state": "MI",
-      "site_name": "G&H Landfill Superfund Site ",
+      "site_name": "G&H Landfill Superfund Site",
       "site_type": "Landfill",
       "address": "3160 23 Mile Road",
       "city": "Utica",
@@ -13058,7 +13058,7 @@
       "latitude": 42.92541615713807,
       "longitude": -85.73819056531826,
       "residential_wells_sampled": "No",
-      "source_url": " https://www.michigan.gov/pfasresponse/investigations/sites-aoi/kent-county/chicago-drive-and-lee-st-aoi",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/kent-county/chicago-drive-and-lee-st-aoi",
       "extracted_at": "2026-11-12T09:55:00.733932+00:00"
     },
     {
@@ -13079,7 +13079,7 @@
     {
       "id": 365,
       "state": "MI",
-      "site_name": "Former Adept Plastics and Tribar Manufacturing ",
+      "site_name": "Former Adept Plastics and Tribar Manufacturing",
       "site_type": "Industrial",
       "address": "30540 Beck Road",
       "city": "Wixom",
@@ -13118,7 +13118,7 @@
       "latitude": 42.319312487720644,
       "longitude": -83.42656737790973,
       "residential_wells_sampled": "TBD",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/wayne-county/national-airport ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/wayne-county/national-airport",
       "extracted_at": "2026-11-12T09:55:00.827800+00:00"
     },
     {
@@ -13424,7 +13424,7 @@
     {
       "id": 388,
       "state": "MI",
-      "site_name": "Bendix Corporation / Allied Automotive ",
+      "site_name": "Bendix Corporation / Allied Automotive",
       "site_type": "Industrial",
       "address": "3737 Red Arrow Highway",
       "city": "Saint Joseph",
@@ -13448,7 +13448,7 @@
       "latitude": 42.22806299999929,
       "longitude": -84.38973599999858,
       "residential_wells_sampled": "No",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/jackson-county/jaco-plating ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/jackson-county/jaco-plating",
       "extracted_at": "2026-11-12T09:55:01.350988+00:00"
     },
     {
@@ -13493,7 +13493,7 @@
       "latitude": 42.598793889998554,
       "longitude": -83.92583170199715,
       "residential_wells_sampled": "No",
-      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/livingston-county/915-fowler-street ",
+      "source_url": "https://www.michigan.gov/pfasresponse/investigations/sites-aoi/livingston-county/915-fowler-street",
       "extracted_at": "2026-11-12T09:55:01.412248+00:00"
     },
     {
@@ -13576,7 +13576,7 @@
       "state": "MI",
       "site_name": "J&L Landfill",
       "site_type": "Landfill",
-      "address": "Intersection of Hamlin Road and Dequindre Road  ",
+      "address": "Intersection of Hamlin Road and Dequindre Road",
       "city": "Rochester Hills",
       "county": "Oakland County",
       "zip_code": "",
@@ -390476,7 +390476,7 @@
     }
   ],
   "leakage_model": {
-    "generated_at": "2026-11-27T02:14:20.320511+00:00",
+    "generated_at": "2026-11-27T03:05:31.028381+00:00",
     "scope_note": "This tests whether presumption-law states and PFAS regulatory/exposure signal correlate -- it does NOT test Bob's sharpest question (litigation substitution: does an easy WC claim path reduce PFAS lawsuits against manufacturers), because this project's own AFFF litigation data has no plaintiff-occupation or plaintiff-home-state field. That real test needs AFFF MDL plaintiff fact sheets, which sit behind PACER's per-page fee -- a real, named, one-time cost, not pulled here.",
     "thin_data_caveat": "Only 16 real pfas_regulation legislative rows exist project-wide -- read the regulation-bill averages as a weak, small-N signal, not a confident finding. The exposure-site comparison (480 real sites) is a larger, more defensible sample.",
     "rows": [
@@ -392247,8 +392247,8 @@
     "resolved_cases": [],
     "oldest_open_signal": "2026-11-15T01:13:18.019909+00:00",
     "by_source": {
-      "nhtsa_odi": 21,
       "maude": 230,
+      "nhtsa_odi": 21,
       "cpsc": 3
     }
   },
@@ -392282,5 +392282,5 @@
       }
     }
   },
-  "generated_at": "2026-11-27T02:14:56.640834+00:00"
+  "generated_at": "2026-11-27T03:06:05.965412+00:00"
 }
