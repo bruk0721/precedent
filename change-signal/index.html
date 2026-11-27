@@ -33,8 +33,8 @@
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--page-bg); color: var(--ink); font-family: var(--font); -webkit-font-smoothing: antialiased; }
   a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px 100px; }
-  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 920px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px 100px; }
+  nav.top { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; max-width: 980px; margin: 0 auto; position: sticky; top: 0; background: var(--nav-bg); backdrop-filter: blur(10px); z-index: 10; border-bottom: 1px solid var(--chip-bg); }
   .brand { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: 16px; }
   .brand-mark { height: 26px; padding: 0 9px; border-radius: 8px; flex-shrink: 0; background: var(--accent-blue); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: "Noto Sans Ethiopic", sans-serif; font-weight: 700; font-size: 14.5px; letter-spacing: 0.02em; box-shadow: 0 1px 2px rgba(0,0,0,0.15); }
   :root[data-theme="dark"] .brand-mark { background: var(--accent-blue); color: #0b0d10; }
@@ -42,46 +42,80 @@
   .nav-links a { font-size: 13.5px; font-weight: 600; color: var(--ink-muted); }
   .theme-toggle { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(14, 17, 22, 0.14); background: var(--card-bg); color: var(--ink); font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; box-shadow: 0 1px 3px rgba(14, 17, 22, 0.08); }
   @media (max-width: 640px) { nav.top { flex-wrap: wrap; row-gap: 10px; padding: 14px 16px; } .nav-links { flex-wrap: wrap; gap: 8px 14px; width: 100%; order: 3; } }
-  .hero { padding: 44px 24px 24px; text-align: center; }
-  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 20px; }
+
+  .hero { padding: 48px 24px 20px; text-align: center; }
+  .eyebrow-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--chip-bg); color: var(--ink-muted); font-size: 12.5px; font-weight: 500; padding: 6px 14px 6px 10px; border-radius: var(--radius-pill); margin-bottom: 18px; }
   .eyebrow-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-blue); }
-  h1 { font-weight: 500; font-size: clamp(26px, 5.5vw, 36px); line-height: 1.15; margin: 0 auto 16px; letter-spacing: -0.02em; max-width: 26ch; }
-  .hero p.dek { font-size: 15.5px; line-height: 1.6; color: var(--ink-muted); max-width: 68ch; margin: 0 auto; }
-  .synthetic-banner { background: var(--accent-amber-bg); color: var(--accent-amber); font-weight: 700; font-size: 13px; text-align: center; padding: 12px 20px; border-radius: 12px; max-width: 880px; margin: 0 auto 20px; }
-  .card { background: var(--card-bg); border-radius: var(--radius-card); padding: 26px 28px; margin-bottom: 16px; box-shadow: var(--shadow-card); }
-  h2 { font-weight: 600; font-size: 17px; margin: 0 0 4px; letter-spacing: -0.01em; }
-  .card-sub { font-size: 13.5px; color: var(--ink-faint); margin: 0 0 16px; line-height: 1.6; }
-  .stat-row { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 8px; }
-  .stat { flex: 1; min-width: 120px; }
-  .stat .num { font-size: 26px; font-weight: 600; font-family: var(--font-mono); }
-  .stat .label { font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
-  .tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; }
+  h1 { font-weight: 500; font-size: clamp(26px, 5.5vw, 38px); line-height: 1.15; margin: 0 auto 14px; letter-spacing: -0.02em; max-width: 24ch; }
+  .hero p.dek { font-size: 16px; line-height: 1.6; color: var(--ink-muted); max-width: 56ch; margin: 0 auto 18px; }
+  .lloyds-note { font-size: 12.5px; color: var(--ink-faint); max-width: 640px; margin: 0 auto; }
+  .lloyds-note summary { cursor: pointer; font-weight: 600; color: var(--accent-blue); list-style: none; display: inline-flex; align-items: center; gap: 5px; }
+  .lloyds-note summary::-webkit-details-marker { display: none; }
+  .lloyds-note summary::after { content: "▾"; font-size: 10px; transition: transform 0.15s; }
+  .lloyds-note[open] summary::after { transform: rotate(180deg); }
+  .lloyds-note .body { padding-top: 10px; text-align: left; line-height: 1.6; }
+
+  .section-label { text-align: center; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin: 46px 0 6px; }
+  .section-title { text-align: center; font-size: 22px; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .section-sub { text-align: center; font-size: 14px; color: var(--ink-muted); max-width: 60ch; margin: 0 auto 22px; line-height: 1.6; }
+  .tag-inline { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.02em; padding: 2px 8px; border-radius: 999px; text-transform: uppercase; background: var(--accent-amber-bg); color: var(--accent-amber); vertical-align: 2px; }
+
+  .stat-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 28px; }
+  .stat { background: var(--card-bg); border-radius: 14px; box-shadow: var(--shadow-card); padding: 14px 22px; text-align: center; min-width: 120px; }
+  .stat .num { font-size: 24px; font-weight: 600; font-family: var(--font-mono); }
+  .stat .label { font-size: 11.5px; color: var(--ink-faint); margin-top: 2px; }
+
+  .demo-shell { display: grid; grid-template-columns: 240px 1fr; gap: 16px; background: var(--card-bg); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 16px; }
+  @media (max-width: 760px) { .demo-shell { grid-template-columns: 1fr; } }
+  .claim-picker { display: flex; flex-direction: column; gap: 4px; max-height: 480px; overflow-y: auto; }
+  .claim-picker button { display: flex; align-items: center; justify-content: space-between; gap: 8px; text-align: left; background: none; border: none; border-radius: 10px; padding: 10px 12px; font-family: var(--font); font-size: 13px; font-weight: 600; color: var(--ink-muted); cursor: pointer; }
+  .claim-picker button .pname { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .claim-picker button:hover { background: var(--chip-bg); }
+  .claim-picker button.active { background: var(--accent-blue-bg); color: var(--accent-blue); }
+  .claim-picker .mini-tag { flex-shrink: 0; width: 8px; height: 8px; border-radius: 50%; }
+  .mini-tag.flagged { background: var(--accent-red); }
+  .mini-tag.clear { background: var(--accent-green); }
+
+  .detail-pane { background: var(--page-bg); border-radius: 14px; padding: 20px 22px; min-height: 360px; }
+  .detail-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 4px; flex-wrap: wrap; }
+  .detail-head b { font-size: 15.5px; }
+  .detail-outcome { font-size: 12.5px; color: var(--ink-faint); margin-bottom: 14px; line-height: 1.5; }
+  .detail-outcome a { color: var(--accent-blue); font-weight: 600; }
+  .tag { display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.02em; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; flex-shrink: 0; }
   .tag.green { background: var(--accent-green-bg); color: var(--accent-green); }
   .tag.gray { background: var(--accent-gray-bg); color: var(--accent-gray); }
-  .tag.amber { background: var(--accent-amber-bg); color: var(--accent-amber); }
   .tag.red { background: var(--accent-red-bg); color: var(--accent-red); }
-  .claim-card { border-top: 1px solid var(--chip-bg); padding: 16px 0; }
-  .claim-card:first-child { border-top: none; }
-  .claim-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; cursor: pointer; }
-  .claim-head b { font-size: 14px; }
-  .transition { margin-top: 10px; padding: 12px 14px; background: var(--chip-bg); border-radius: 10px; font-size: 13px; display: none; }
-  .transition.open { display: block; }
-  .transition-label { font-size: 11.5px; color: var(--ink-faint); margin-bottom: 8px; font-weight: 600; text-transform: uppercase; }
-  .change-row { display: flex; gap: 8px; align-items: baseline; padding: 4px 0; }
-  .change-row .field { font-weight: 600; min-width: 110px; font-size: 12.5px; }
-  .change-row .vals { color: var(--ink-muted); font-size: 12.5px; }
-  .action-list { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--ink-faint); }
-  .action-item { font-size: 12.5px; color: var(--accent-blue); font-weight: 600; padding: 2px 0; }
-  .memo-toggle { margin-top: 10px; background: var(--accent-blue-bg); color: var(--accent-blue); border: none; border-radius: 8px; padding: 7px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: var(--font); }
-  .memo-box { margin-top: 10px; padding: 16px 18px; background: var(--chip-bg); border-radius: 12px; font-size: 13px; line-height: 1.6; }
+
+  .transition { background: var(--card-bg); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; box-shadow: var(--shadow-card); }
+  .transition-label { font-size: 11px; color: var(--ink-faint); margin-bottom: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+  .no-change-line { color: var(--ink-faint); font-size: 12.5px; font-style: italic; }
+  .change-row { display: grid; grid-template-columns: 110px 1fr; gap: 10px; align-items: start; padding: 5px 0; border-top: 1px solid var(--chip-bg); }
+  .change-row:first-of-type { border-top: none; }
+  .change-row .field { font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.02em; color: var(--ink-faint); padding-top: 2px; }
+  .change-row .vals { font-size: 13px; line-height: 1.5; }
+  .change-row .vals .before { color: var(--ink-faint); text-decoration: line-through; }
+  .change-row .vals .after { color: var(--ink); font-weight: 600; }
+  .action-list { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--chip-bg); }
+  .action-item { font-size: 12.5px; color: var(--accent-blue); font-weight: 600; padding: 3px 0; }
+
+  .memo-box { margin-top: 14px; padding: 18px 20px; background: var(--card-bg); border-radius: 14px; font-size: 13px; line-height: 1.65; box-shadow: var(--shadow-card); }
+  .memo-box-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-faint); margin-bottom: 10px; }
   .memo-box h2 { font-size: 15px; margin: 0 0 8px; }
   .memo-box h3 { font-size: 13.5px; margin: 14px 0 6px; }
   .memo-box h4 { font-size: 12.5px; margin: 10px 0 4px; color: var(--ink-muted); }
   .memo-box p { margin: 4px 0; font-size: 12.5px; }
   .memo-box ul { margin: 4px 0 10px; padding-left: 18px; }
   .memo-box li { margin: 2px 0; font-size: 12.5px; }
+
+  details.methodology { background: var(--card-bg); border-radius: var(--radius-card); box-shadow: var(--shadow-card); padding: 20px 24px; margin-top: 50px; }
+  details.methodology summary { cursor: pointer; font-weight: 600; font-size: 15px; list-style: none; display: flex; align-items: center; justify-content: space-between; }
+  details.methodology summary::-webkit-details-marker { display: none; }
+  details.methodology summary::after { content: "Show details ▾"; font-size: 12px; font-weight: 600; color: var(--accent-blue); }
+  details.methodology[open] summary::after { content: "Hide details ▴"; }
+  details.methodology .body { padding-top: 16px; }
   .caveat-list { margin: 0; padding-left: 18px; font-size: 13px; color: var(--ink-muted); line-height: 1.7; }
-  .footer-note { text-align: center; font-size: 12px; color: var(--ink-faint); margin-top: 30px; }
+  .caveat-list li { margin-bottom: 10px; }
+  .footer-note { text-align: center; font-size: 12px; color: var(--ink-faint); margin-top: 20px; }
 </style>
 </head>
 <script>(function(){try{var t=localStorage.getItem("nubuye:theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
@@ -98,37 +132,49 @@
 <div class="hero">
   <span class="eyebrow-pill"><span class="dot"></span>Casualty claims &middot; clinical change detection</span>
   <h1>Catch the moment a minor claim stops being minor.</h1>
-  <p class="dek">Lloyd's has published this exact gap twice: Cohort 16 named "intelligent summarisation of loss adjuster reports identifying changes between versions," and Cohort 17 asked for "predictive analytics models that flag seemingly innocuous third-party casualty claims before they develop into major losses" (both quotes verified live on Lloyd's own accelerator pages). ChangeSignal compares successive medical assessments on the same claim, flags what materially changed, and <strong>drafts the finished reserve-review memo itself</strong> -- the real document a claims handler would otherwise spend 30-60 minutes writing by hand, every line cited to the evidence that changed. Not a to-do list someone still has to act on.</p>
+  <p class="dek">ChangeSignal compares successive medical assessments on the same claim, flags what materially changed, and <strong>drafts the finished reserve-review memo itself</strong> &mdash; not a to-do list someone still has to act on.</p>
+  <details class="lloyds-note">
+    <summary>Why Lloyd's, specifically</summary>
+    <div class="body">Lloyd's has published this exact gap twice: Cohort 16 named "intelligent summarisation of loss adjuster reports identifying changes between versions," and Cohort 17 asked for "predictive analytics models that flag seemingly innocuous third-party casualty claims before they develop into major losses" (both quotes verified live on Lloyd's own accelerator pages).</div>
+  </details>
 </div>
 
-<div class="synthetic-banner">⚠ Every claim below is synthetic and illustrative, built only to show the mechanism. No real claimant, insurer, or medical record is involved, and this is not a validated prediction.</div>
-
 <div class="wrap">
-  <div class="card">
-    <h2>What this actually is, and its real limits</h2>
-    <ul class="caveat-list">
-      <li><strong>Not a clinical-NLP engine.</strong> This does not read raw, unstructured medical report text. It compares STRUCTURED fields (diagnosis, treatment plan, prognosis, recovery estimate, permanent impairment, work capacity) with a deterministic rule set -- stated plainly, not dressed up as an AI extraction capability that isn't built.</li>
-      <li><strong>A real bug was found and fixed building this</strong>: an early version flagged any change in the diagnosis text as material, which fired on purely benign restatements ("ankle sprain, grade 2" &rarr; "...resolved"). Fixed by making diagnosis-text-change informational only -- it's reported, but only counts toward "material" alongside a real objective severity signal (escalated treatment, worsened prognosis, or downgraded work capacity). See <code>change_signal_engine.py</code> for the full before/after.</li>
-      <li><strong>Competitive check, done live before building</strong>: Wisedocs documents real within-record inconsistency detection; EvolutionIQ's MedHub (a real $730M CCC Intelligent Solutions acquisition) documents real point-in-time medical synthesis and "next best action" guidance. Neither vendor's own public material documents comparing <em>successive</em> assessments over time and tying a specific detected change to a specific generated action -- the best available public evidence, not proof they don't do this privately.</li>
-      <li><strong>Real next step</strong>: 7 real cases is an early, directional read, not a statistically powered validation sample. Scaling further by hand hit a real, measured ceiling -- see below. Reaching 25-50 needs a real LLM-extraction layer over the full WCAB corpus, not more manual reading. Real managing-agent claim files, specifically, are only available once accepted into Lloyd's Accelerator (checked live -- no pre-application path exists).</li>
-      <li>Every generated action requires human approval. This never independently changes a reserve or makes a medical/legal determination.</li>
-      <li><strong>The memo is a draft, not a dollar recommendation.</strong> It names the direction of reserve pressure (escalated/worsened) with its cited evidence; it never invents a reserve figure, which would be a real actuarial/legal claim Nubuye has no basis for. A human still reviews and signs it before it goes in the file.</li>
-    </ul>
-  </div>
 
-  <div class="card">
-    <h2>Validated against 7 real cases -- and a real feasibility check on scaling further</h2>
-    <p class="card-sub">Real managing-agent claims data is only available DURING Lloyd's 10-week Accelerator, after a mutual NDA -- checked live, no pre-application path exists. A genuine free alternative does: California's WCAB publishes every panel decision as a real PDF, no login or fee -- 5,884 for 2026 alone. Asked to scale this to 25-50, we read 196 real decisions and landed at 6, not 25-50 (~5-15% hit rate -- most are legal/procedural disputes, not clinical trajectories). Then asked whether LLM extraction could unlock the rest: no API key is set in this environment for a standalone script, but that was never the real bottleneck -- Claude reads and extracts these directly, no separate API call needed, which is how every case here was actually produced. Tested this concretely on a fresh, non-overlapping batch of 59 more decisions using a faster digest-based triage: same ~5-15% hit rate. That confirms corpus composition, not extraction technology, is the real ceiling -- one more real case (O'Brien, a genuine apportionment-shift boundary case) came out of it.</p>
-    <div id="real-case-list"></div>
+  <div class="section-label">Try it</div>
+  <h2 class="section-title">Pick a claim, watch it work</h2>
+  <p class="section-sub">10 synthetic claims below <span class="tag-inline">Illustrative only</span> &mdash; built to show the mechanism, not real claimant or insurer data. Click any claim on the left.</p>
+  <div class="stat-row" id="summary-stats"></div>
+  <div class="demo-shell">
+    <div class="claim-picker" id="claim-picker"></div>
+    <div class="detail-pane" id="claim-detail"></div>
   </div>
+  <p class="footer-note">Every generated action requires human sign-off before it ever reaches a claim file.</p>
 
-  <div class="card">
-    <h2>Mechanism run: 10 synthetic claims</h2>
-    <p class="card-sub" id="run-sub"></p>
-    <div class="stat-row" id="summary-stats"></div>
-    <div id="claims-list"></div>
+  <div class="section-label">Real-world validation</div>
+  <h2 class="section-title">7 real California WCAB cases</h2>
+  <p class="section-sub">Not synthetic &mdash; each one below is a real, public panel decision. Pick a case to see the real field-level change ChangeSignal found, cited to the exact page.</p>
+  <div class="demo-shell">
+    <div class="claim-picker" id="real-picker"></div>
+    <div class="detail-pane" id="real-detail"></div>
   </div>
-  <p class="footer-note">Click a claim to see exactly what changed, cited field by field, and the action(s) it generated.</p>
+  <p class="footer-note" id="real-honesty-note"></p>
+
+  <details class="methodology">
+    <summary>What this actually is, and its real limits</summary>
+    <div class="body">
+      <ul class="caveat-list">
+        <li><strong>Not a clinical-NLP engine.</strong> This does not read raw, unstructured medical report text. It compares STRUCTURED fields (diagnosis, treatment plan, prognosis, recovery estimate, permanent impairment, work capacity) with a deterministic rule set -- stated plainly, not dressed up as an AI extraction capability that isn't built.</li>
+        <li><strong>A real bug was found and fixed building this</strong>: an early version flagged any change in the diagnosis text as material, which fired on purely benign restatements ("ankle sprain, grade 2" &rarr; "...resolved"). Fixed by making diagnosis-text-change informational only -- it's reported, but only counts toward "material" alongside a real objective severity signal (escalated treatment, worsened prognosis, or downgraded work capacity). See <code>change_signal_engine.py</code> for the full before/after.</li>
+        <li><strong>Competitive check, done live before building</strong>: Wisedocs documents real within-record inconsistency detection; EvolutionIQ's MedHub (a real $730M CCC Intelligent Solutions acquisition) documents real point-in-time medical synthesis and "next best action" guidance. Neither vendor's own public material documents comparing <em>successive</em> assessments over time and tying a specific detected change to a specific generated action -- the best available public evidence, not proof they don't do this privately.</li>
+        <li><strong>Real next step</strong>: 7 real cases is an early, directional read, not a statistically powered validation sample. Scaling further by hand hit a real, measured ceiling -- read the validation summary below. Reaching 25-50 needs a real LLM-extraction layer over the full WCAB corpus, not more manual reading. Real managing-agent claim files, specifically, are only available once accepted into Lloyd's Accelerator (checked live -- no pre-application path exists).</li>
+        <li>Every generated action requires human approval. This never independently changes a reserve or makes a medical/legal determination.</li>
+        <li><strong>The memo is a draft, not a dollar recommendation.</strong> It names the direction of reserve pressure (escalated/worsened) with its cited evidence; it never invents a reserve figure, which would be a real actuarial/legal claim Nubuye has no basis for. A human still reviews and signs it before it goes in the file.</li>
+      </ul>
+      <p style="font-size:13px;color:var(--ink-muted);line-height:1.6;margin-top:16px;"><strong>How the 7 real cases were found:</strong> Real managing-agent claims data is only available DURING Lloyd's 10-week Accelerator, after a mutual NDA -- checked live, no pre-application path exists. A genuine free alternative does: California's WCAB publishes every panel decision as a real PDF, no login or fee -- 5,884 for 2026 alone. Asked to scale this to 25-50, we read 196 real decisions and landed at 6, not 25-50 (~5-15% hit rate -- most are legal/procedural disputes, not clinical trajectories). Then asked whether LLM extraction could unlock the rest: no API key is set in this environment for a standalone script, but that was never the real bottleneck -- Claude reads and extracts these directly, no separate API call needed, which is how every case here was actually produced. Tested this concretely on a fresh, non-overlapping batch of 59 more decisions using a faster digest-based triage: same ~5-15% hit rate. That confirms corpus composition, not extraction technology, is the real ceiling -- one more real case (O'Brien, a genuine apportionment-shift boundary case) came out of it.</p>
+    </div>
+  </details>
+
 </div>
 
 <script>
@@ -144,14 +190,14 @@ function setupThemeToggle() {
 }
 
 function renderTransition(t) {
-  let html = `<div class="transition-label">${esc(t.from_report)} &rarr; ${esc(t.to_report)}</div>`;
+  let html = `<div class="transition"><div class="transition-label">${esc(t.from_report)} &rarr; ${esc(t.to_report)}</div>`;
   if (!t.material) {
-    html += `<div style="color:var(--ink-faint);font-size:12.5px;">No material change -- stable or improving.</div>`;
+    html += `<div class="no-change-line">No material change -- stable or improving.</div>`;
   } else {
-    html += t.changes.map(c => `<div class="change-row"><span class="field">${esc(c.field)}</span><span class="vals">${esc(c.from)} &rarr; <b>${esc(c.to)}</b></span></div>`).join("");
+    html += t.changes.map(c => `<div class="change-row"><span class="field">${esc(c.field)}</span><span class="vals"><span class="before">${esc(c.from)}</span><br>&rarr; <span class="after">${esc(c.to)}</span></span></div>`).join("");
     html += `<div class="action-list">` + t.actions.map(a => `<div class="action-item">&rarr; ${esc(a.action)}</div>`).join("") + `</div>`;
   }
-  return html;
+  return html + `</div>`;
 }
 
 // Minimal, safe markdown->HTML for the memo text: escape first, then only
@@ -176,61 +222,77 @@ function formatMemo(md) {
   return html.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
 }
 
-function renderMemoToggle(memo, idPrefix) {
-  return `<button class="memo-toggle" data-memo-id="${idPrefix}">&#128196; View generated reserve-review memo</button>
-    <div class="memo-box" id="${idPrefix}" style="display:none;">${formatMemo(memo)}</div>`;
+function renderMemo(memo) {
+  return `<div class="memo-box"><div class="memo-box-label">&#128196; Generated reserve-review memo</div>${formatMemo(memo)}</div>`;
+}
+
+function renderDemoDetail(r) {
+  const el = document.getElementById("claim-detail");
+  el.innerHTML = `
+    <div class="detail-head">
+      <b>${esc(r.claim_id)}: ${esc(r.claim_label)}</b>
+      ${r.any_material_change_detected ? `<span class="tag red">${esc(r.total_actions_generated)} action(s)</span>` : '<span class="tag gray">No material change</span>'}
+    </div>
+    <div style="margin-top:14px;">
+      ${r.transitions.map(renderTransition).join("")}
+      ${renderMemo(r.reserve_review_memo)}
+    </div>`;
+}
+
+function renderRealDetail(r) {
+  const el = document.getElementById("real-detail");
+  el.innerHTML = `
+    <div class="detail-head"><b>${esc(r.claim_label)}</b></div>
+    <div class="detail-outcome">Real outcome: ${esc(r.real_outcome)} &mdash; <a href="${esc(r.source_pdf_url)}" target="_blank" rel="noopener">View real decision PDF &rarr;</a></div>
+    <div>
+      ${r.transitions.map(renderTransition).join("")}
+      ${renderMemo(r.reserve_review_memo)}
+    </div>`;
+}
+
+function setupPicker(pickerEl, items, labelFn, flaggedFn, onSelect) {
+  pickerEl.innerHTML = items.map((item, i) => `
+    <button data-idx="${i}" class="${i === 0 ? "active" : ""}">
+      <span class="mini-tag ${flaggedFn(item) ? "flagged" : "clear"}"></span>
+      <span class="pname">${esc(labelFn(item))}</span>
+    </button>`).join("");
+  pickerEl.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      pickerEl.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      onSelect(items[parseInt(btn.dataset.idx, 10)]);
+    });
+  });
 }
 
 async function init() {
   setupThemeToggle();
 
-  const realResp = await fetch("real_case_export.json");
-  const realData = await realResp.json();
-  document.getElementById("real-case-list").innerHTML = realData.results.map((r, i) => `
-    <div class="claim-card">
-      <div style="margin-bottom:6px;"><b>${esc(r.claim_label)}</b> <a href="${esc(r.source_pdf_url)}" target="_blank" rel="noopener" style="color:var(--accent-blue);font-size:12px;font-weight:600;">View real decision PDF &rarr;</a></div>
-      <div style="font-size:12.5px;color:var(--ink-faint);margin-bottom:8px;">Real outcome: ${esc(r.real_outcome)}</div>
-      ${r.transitions.map(renderTransition).join("")}
-      ${renderMemoToggle(r.reserve_review_memo, `real-memo-${i}`)}
-    </div>`).join("") + `<p style="font-size:12px;color:var(--ink-faint);margin-top:10px;">${esc(realData.extraction_honesty_note)}</p>`;
-
   const resp = await fetch("demo_export.json");
   const data = await resp.json();
-
-  document.getElementById("run-sub").textContent = data.methodology_note;
   document.getElementById("summary-stats").innerHTML = `
-    <div class="stat"><div class="num">${esc(data.claims_processed)}</div><div class="label">synthetic claims processed</div></div>
-    <div class="stat"><div class="num">${esc(data.claims_with_material_change)}</div><div class="label">flagged with a material change</div></div>
+    <div class="stat"><div class="num">${esc(data.claims_processed)}</div><div class="label">claims processed</div></div>
+    <div class="stat"><div class="num">${esc(data.claims_with_material_change)}</div><div class="label">flagged with material change</div></div>
     <div class="stat"><div class="num">${esc(data.total_actions_generated)}</div><div class="label">action(s) generated</div></div>`;
+  const firstFlagged = Math.max(0, data.results.findIndex(r => r.any_material_change_detected));
+  setupPicker(
+    document.getElementById("claim-picker"), data.results,
+    r => `${r.claim_id}: ${r.claim_label}`, r => r.any_material_change_detected,
+    renderDemoDetail
+  );
+  renderDemoDetail(data.results[firstFlagged] || data.results[0]);
+  // re-mark the active picker button to match the default selection
+  document.querySelectorAll("#claim-picker button").forEach((b, i) => b.classList.toggle("active", i === firstFlagged));
 
-  const list = document.getElementById("claims-list");
-  list.innerHTML = data.results.map((r, i) => `
-    <div class="claim-card">
-      <div class="claim-head" data-idx="${i}">
-        <b>${esc(r.claim_id)}: ${esc(r.claim_label)}</b>
-        ${r.any_material_change_detected ? `<span class="tag red">${esc(r.total_actions_generated)} action(s)</span>` : '<span class="tag gray">No material change</span>'}
-      </div>
-      <div class="transitions" id="trans-${i}" style="display:none;">
-        ${r.transitions.map(renderTransition).join("")}
-        ${renderMemoToggle(r.reserve_review_memo, `demo-memo-${i}`)}
-      </div>
-    </div>`).join("");
-
-  list.querySelectorAll(".claim-head").forEach(h => {
-    h.addEventListener("click", () => {
-      const el = document.getElementById(`trans-${h.dataset.idx}`);
-      el.style.display = el.style.display === "none" ? "block" : "none";
-    });
-  });
-  document.querySelectorAll(".memo-toggle").forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const box = document.getElementById(btn.dataset.memoId);
-      const open = box.style.display !== "none";
-      box.style.display = open ? "none" : "block";
-      btn.innerHTML = open ? "&#128196; View generated reserve-review memo" : "&#128196; Hide reserve-review memo";
-    });
-  });
+  const realResp = await fetch("real_case_export.json");
+  const realData = await realResp.json();
+  document.getElementById("real-honesty-note").textContent = realData.extraction_honesty_note;
+  setupPicker(
+    document.getElementById("real-picker"), realData.results,
+    r => r.claim_label, r => r.transitions.some(t => t.material),
+    renderRealDetail
+  );
+  renderRealDetail(realData.results[0]);
 }
 init();
 </script>
