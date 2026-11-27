@@ -715,10 +715,10 @@
           "entries": [
             {
               "label": "Acknowledged airport contamination at an international forum -- not domestic litigation or an enacted ban",
-              "detail": "Saudi Arabia presented a 2025 ICAO working paper to the Aerodrome Safety & Planning Implementation Group (Middle East region) describing PFAS-containing-foam contamination of soil and groundwater at airports and the practical challenges of phasing out legacy foam, citing ICAO Annex 14, the FAA's own transition plan, and EU REACH as references. This is a real, government-authored acknowledgment of the problem at an international regulatory forum -- not a domestic lawsuit or an enacted Saudi ban.",
-              "tier": "REPORTED (the working paper was found via search; the PDF itself was not independently opened in full)",
+              "detail": "Saudi Arabia presented a 2025 ICAO working paper to the Aerodrome Safety & Planning Implementation Group (Middle East region) describing PFAS-containing-foam contamination of soil and groundwater at airports and the practical challenges of phasing out legacy foam, citing ICAO Annex 14, the FAA's own transition plan, and EU REACH as references. This is a real, government-authored acknowledgment of the problem at an international regulatory forum -- not a domestic lawsuit or an enacted Saudi ban. (The original direct PDF link, hosted on a dated ICAO mirror subdomain that has since been fully decommissioned -- not just moved -- went dead; this now points to ICAO's live MID meetings listing, where the Seventh Meeting of the Aerodrome Safety, Planning and Implementation Group (ASPIG/7), Riyadh, 6-10 Apr 2025, is listed. The specific document page itself blocks automated access, so its exact current URL could not be independently re-verified -- stated honestly rather than guessed.)",
+              "tier": "REPORTED (working paper found via search, not independently opened in full; direct document link has since gone dead -- see detail)",
               "source_name": "ICAO Aerodrome Safety & Planning Implementation Group working paper, Saudi Arabia",
-              "source_url": "https://www2023.icao.int/MID/Documents/2025/ASPIG-7/AI2%20-%20WP14%20-%20PPT%20-%20Phasing%20Out%20PFOAPFOS-Containing%20in%20Aircraft%20Firefighting%20Foams.pdf"
+              "source_url": "https://www.icao.int/MID/meetings"
             }
           ]
         },
